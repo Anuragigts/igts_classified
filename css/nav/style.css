@@ -39,8 +39,8 @@
 /* ul tag layout */
 .flat-mega-menu > ul {
 	float: left;
-	width: 100%;
-	min-height: 60px;
+	/* width: 100%;
+	min-height: 60px; */
 	text-align: right;
 	background: 0 0;
 }
