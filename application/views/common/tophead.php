@@ -13,6 +13,8 @@
 								<img src="img/365deal.png"  alt="Logo"> 
 							</a> 
                         </li>
+					</ul>
+					<ul class="collapse pull-right login_bor">
                         <li class="social-bar"> <a href="#">FOLLOW US</a> 
                             <ul class="drop-down hover-zoom">
                                 <li> <a href="#" target="_blank"><i class="fa fa-flickr" ></i> </a> </li>
@@ -23,18 +25,9 @@
                                 <li> <a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a> </li>
                             </ul>
                         </li>
-                        <?php $id =  $this->session->userdata("login_id");
-                        if ($id == '') {    ?>
-                            <li><a href="login">LOGIN</a></li>
-                        <li><a href="signup">REGISTER</a></li>
-                        <?php }
-                        else{ ?>
-                        <li><a href="login/logout">Logout</a></li>
-                        <li><a href="showmyads">Showmyads</a></li>
-                        <?php    }
-                         ?>
-						
-						<li class="title pull-right"><a href="postad"><img src="img/postanad.png"  alt="postanad"> </a></li>
+						<li><a href="login.php">LOGIN</a></li>
+						<li><a href="register.php">REGISTER</a></li>
+						<li class="title pull-right"><a href="postad.php"><img src="img/postanad.png"  alt="postanad"> </a></li>
                     </ul>
                 </nav>
                 <!-- Main Nav -->

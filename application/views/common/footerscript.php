@@ -42,10 +42,7 @@
 			}
 			$(function () {
 				var i = $('#mymark1').html();
-				showText("#mymark", i, 0, 100); 
-        setTimeout(function(){
-          $('#mymark').empty();
-        }, 13000);
+				showText("#mymark", i, 0, 100);   
 			});
 		</script>
         <!--Slider Function-->
@@ -148,7 +145,3 @@
            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
          })();
       </script>
-	  
-	  <script>
-			jssor_1_slider_init();
-		</script>
