@@ -327,7 +327,7 @@ iframe.video{
 	padding: 10px 5% 0 5%;
 }
 .lead{
-	color: #777;
+	color: #65686B !important;
 	font-weight: lighter;
 	font-size: 1.1rem;
 	line-height: 1.6rem;
@@ -3819,7 +3819,7 @@ body{
 	border: 5px solid #417FB0;
 	padding: 15px;
 }
-
-.text-red{
-	color: red !important;
+.login_bor{
+	border-left: 2px solid #9FC955;
+	border-right: 2px solid #9FC955;
 }
