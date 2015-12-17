@@ -1,0 +1,99 @@
+body{
+	margin:0;
+	padding:0;
+}
+
+.TickerNews.default_theme{
+	background-color: #3C2F29;
+  color:#fff
+}
+
+.TickerNews.default_theme .ti_news a{
+	display: block;
+	margin-right: 10px;
+	color:#fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: geneva;
+	font-size: 12px;
+}
+
+.TickerNews.default_theme .ti_news span{
+	color:red;
+	font-size: 110%;
+}
+
+.TickerNews.theme2{
+  background-color: #F5624D;
+  color:#fff
+}
+
+.TickerNews.theme2 .ti_news a{
+  display: block;
+  margin-right: 10px;
+  color:#fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: geneva;
+}
+
+.TickerNews.theme2 .ti_news span{
+  color:red;
+  font-size: 110%;
+}.TickerNews.theme3{
+  background-color: #0F8A5F;
+  color:#fff
+}
+
+.TickerNews.theme3 .ti_news a{
+  display: block;
+  margin-right: 10px;
+  color:#fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: geneva;
+}
+
+.TickerNews.theme3 .ti_news span{
+  color:red;
+  font-size: 110%;
+}
+
+.TickerNews.theme4{
+  background-color: #34A65F;
+  color:#fff
+}
+
+.TickerNews.theme4 .ti_news a{
+  display: block;
+  margin-right: 10px;
+  color:#fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: geneva;
+}
+
+.TickerNews.theme4 .ti_news span{
+  color:red;
+  font-size: 110%;
+}
+
+
+.TickerNews.theme5{
+  background-color: #235E6F;
+  color:#fff
+}
+
+.TickerNews.theme5 .ti_news a{
+  display: block;
+  margin-right: 10px;
+  color:#fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: geneva;
+}
+
+.TickerNews.theme5 .ti_news span{
+  color:red;
+  font-size: 110%;
+}
