@@ -145,3 +145,7 @@
            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
          })();
       </script>
+	  
+	  <script>
+		jssor_1_slider_init();
+		</script>

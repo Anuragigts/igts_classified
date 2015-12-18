@@ -313,7 +313,7 @@
 						<div class="container">
                             <div class="row">
                                 <div class="col-sm-3">
-									<img src="img/mostvalue/sample8.JPG" alt="" style="height:388px;" class="img-responsive">
+									<img src="img/recentad.jpg" alt="" style="height:388px;" class="img-responsive">
 								</div>
 								 <?php foreach (@$free_ads as $f_ads) {
                             	?>
@@ -396,6 +396,7 @@
 
 									<div class="info-gallery">
 										<h3><a href="#">Sample Text Here</a></h3>
+										<hr class="separator">
 									</div>
 								</div>
                             </div>
@@ -403,8 +404,11 @@
 						
 						<div class="container">
                             <div class="row">
-                                <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 100px; overflow: hidden; visibility: hidden;">
-									<!-- Loading Screen -->
+								<div id="m1" class="marquee">	
+						
+								</div>
+                               <!--- <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 100px; overflow: hidden; visibility: hidden;">
+									<!-- Loading Screen --
 									<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 										<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 										<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
@@ -474,7 +478,7 @@
 											<img data-u="image" src="img/youtube.jpg" />
 										</div>
 									</div>
-								</div>
+								</div>--->
                             </div>
                         </div>
                     </div>
