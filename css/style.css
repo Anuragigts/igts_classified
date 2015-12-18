@@ -3087,7 +3087,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	margin: 10px auto;
 }
 .form-theme input{
-	height: 38px;
+	/* height: 38px; */
 	border-radius: 0;
 	width: 100%;
 	border:solid 1px #dedede;
@@ -3099,7 +3099,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .form-theme textarea{
 	border-radius: 0;
 	width: 100%;
-	height: 150px;
+	height: 60px;
 	border:solid 1px #dedede;
 	padding:10px;
 }
@@ -3822,9 +3822,4 @@ body{
 .login_bor{
 	border-left: 2px solid #9FC955;
 	border-right: 2px solid #9FC955;
-}
-
-/*error message color*/
-.text-red{
-	color: red !important;
 }
