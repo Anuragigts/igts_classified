@@ -25,8 +25,17 @@
                                 <li> <a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a> </li>
                             </ul>
                         </li>
-						<li><a href="login">LOGIN</a></li>
-						<li><a href="signup">REGISTER</a></li>
+                        <?php $lid  =$this->session->userdata("login_id");
+                        if($lid == ''){ ?>
+                        <li><a href="login">LOGIN</a></li>
+                        <li><a href="signup">REGISTER</a></li>
+                        <?php }
+                        else{ ?>
+                        <li><a href="login/logout">Logout</a></li>
+                        <li><a href="showmyads">Showmyads</a></li>
+                      <?php  }
+                         ?>
+						
 						<li class="title pull-right"><a href="postad"><img src="img/postanad.png"  alt="postanad"> </a></li>
                     </ul>
                 </nav>

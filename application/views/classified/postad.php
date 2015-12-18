@@ -1,328 +1,512 @@
-<div class="inner-head ">
-                <div class="container">
-                   <!--  <h1 class="entry-title">Post Ad</h1>
-                    <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                    </p>
-                    <div class="breadcrumb">
-                        <ul class="clearfix">
-                            <li class="ib"><a href="">Home</a></li>
-                            <li class="ib current-page"><a href="">Post Ad</a></li>
-                        </ul>
-                    </div> -->
-                </div><!-- End container -->
-            </div><!-- End Inner Page Head -->
-<div class="main-container">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9 page-content">
-				<div class="inner-box category-content">
-					<h2 class="title-2 uppercase"><strong> <i class="icon-docs"></i> Post a Free Classified Ad</strong> </h2>
-					<div class="row">
-						<div class="col-sm-12">
-                                                    <?php $this->load->view("classified_layout/success_error");?>
-                                                    <form class="form-horizontal" method="post" novalidate="" enctype="multipart/form-data">
-								<fieldset>
-									<div class="form-group">
-                                                                            <label class="col-md-3 control-label">Category <span class="text-red">*</span></label>
-										<div class="col-md-8">
-                                                                                    <select name="cat" class="form-control cat_chage">
-                                                                                        <option value=""> -- Select Category -- </option>
-                                                                                        <?php foreach($cat as $ct){ ?>
-                                                                                        <option value="<?php echo $ct->category_id;?>"><?php echo ucfirst($ct->category_name);?></option>
-                                                                                        <?php } ?>
-                                                                                    </select>
-                                                                                    <?php echo form_error("cat");?>
+ <!-- Section Title-->    
+            <div class="section-title-01">
+                <!-- Parallax Background -->
+                <div class="bg_parallax image_02_parallax"></div>
+                <!-- Parallax Background -->
+
+                <!-- Content Parallax-->
+                <div class="opacy_bg_02">
+                    <div class="container">
+                        <h1>Post An AD</h1>
+                        <div class="crumbs">
+                            <ul>
+                                <li><a href="index.php">Home</a></li>
+                                <li>/</li>
+                                <li>Post An AD</li>                                       
+                            </ul>    
+                        </div>
+                    </div>  
+                </div>  
+                <!-- End Content Parallax--> 
+            </div>   
+            <!-- End Section Title-->
+
+            <!--Content Central -->
+            <section class="content-central">
+                <!-- Shadow Semiboxed -->
+                <div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>
+                <!-- End Shadow Semiboxed -->
+
+                <!-- End content info - page Fill with -->
+                <div class="content_info">
+                    <div class="paddings-mini">
+                        <div class="container">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1 col-sm-12  col-xs-12  login_padd">
+									<div class="titles">
+										<h2>Post <span>YOUR </span>ad</h2>
+										<hr class="tall">
+										<p class="lead">Search You Category</p>
+									</div> 
+									<div class="input-group col-md-6 col-md-offset-3">
+										<div id="custom-search-input">
+											<input type="text" class="input-lg" placeholder="Buscar" />
+											<button class="input-group-btn btn btn-info btn-lg" type="button">
+												<i class="glyphicon glyphicon-search"></i>
+											</button>
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label">Sub Category <span class="text-red">*</span></label>
-										<div class="col-md-8">
-                                                                                    <select name="scat" class="form-control scat_chage">
-                                                                                        <option value=""> -- Select Sub Category -- </option>
-                                                                                        <?php foreach($scat as $cst){ ?>
-                                                                                        <option value="<?php echo $cst->sub_category_id;?>"><?php echo ucfirst($cst->sub_category_name);?></option>
-                                                                                        <?php } ?>
-                                                                                    </select>
-                                                                                    <?php echo form_error("scat");?>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label">Sub Sub Category <span class="text-red">*</span></label>
-										<div class="col-md-8">
-                                                                                    <select name="sscat" class="form-control sscat_chage">
-                                                                                        <option value=""> -- Select Sub Sub Category -- </option>
-                                                                                        <?php foreach($sscat as $csst){ ?>
-                                                                                        <option value="<?php echo $csst->sub_subcategory_id;?>"><?php echo ucfirst($csst->sub_subcategory_name);?></option>
-                                                                                        <?php } ?>
-                                                                                    </select>
-                                                                                    <?php echo form_error("sscat");?>
-										</div>
-									</div>
-                                                                        <!--
-									<div class="form-group">
-										<label class="col-md-3 control-label">Add Type</label>
-										<div class="col-md-8">
-											<label class="radio-inline" for="radios-0">
-											<input name="radios" id="radios-0" value="Private" checked="checked" type="radio">
-											Private </label>
-											<label class="radio-inline" for="radios-1">
-											<input name="radios" id="radios-1" value="Business" type="radio">
-											Business </label>
-										</div>
-									</div>
-                                                                        -->
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="Adtitle">Ad title <span class="text-red">*</span></label>
-										<div class="col-md-8">
-											<input id="Adtitle" name="ad_title" placeholder="Ad title" value="<?php echo set_value("ad_title");?>" class="form-control input-md" required="" type="text">
-											<?php echo form_error("ad_title");?>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="textarea">Describe ad <span class="text-red">*</span> </label>
-										<div class="col-md-8">
-                                                                                    <textarea class="form-control" id="textarea" name="desc" placeholder="Describe what makes your ad unique"><?php echo set_value("desc");?></textarea>
-                                                                                        <?php echo form_error("desc");?>
-										</div>
-									</div>
-                                                                        <div class="form-group">
-										<label class="col-md-3 control-label" for="Ad Url">Ad URL </label>
-										<div class="col-md-8">
-											<input id="Adurl" name="ad_url" placeholder="Ad URL" value="<?php echo set_value("ad_url");?>" class="form-control input-md" required="" type="text">
-											<?php echo form_error("ad_url");?>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="Price">Price <span class="text-red">*</span></label>
-										<div class="col-md-4">
-											<div class="input-group"> <span class="input-group-addon">&#8377;</span>
-                                                                                            <input id="Price" name="price" class="form-control" placeholder="Price" required="" type="text" value="<?php echo set_value("price");?>">
-											</div>
-                                                                                        <?php echo form_error("price");?>
-										</div>
-										<div class="col-md-4">
-											<div class="checkbox">
-												<!--<label><input type="checkbox">Negotiable </label>-->
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="textarea"> Picture </label>
-										<div class="col-md-8">
-											<div class="mb10">
-												<input id="input-upload-img1" name="files1" type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img2" name="files2" type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img3" name="files3" type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img4" name="files4" type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img5" name="files5"type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img6" name="files6"type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img7" name="files7"type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img8" name="files8"type="file" class="file" data-preview-file-type="text">
-											</div>
-											<div class="mb10">
-												<input id="input-upload-img9" name="files9"type="file" class="file" data-preview-file-type="text">
-											</div>
-											<p class="help-block">Add up to 9 photos. Use a real image of your product, not catalogs.</p>
-										</div>
-									</div>
-									<div class="content-subheading"> <i class="icon-user fa"></i> <strong>Seller information</strong> </div>
-                                                                        <div class="form-group">
-										<label class="col-md-3 control-label" for="textinput-name">Address</label>
-										<div class="col-md-8">
-                                                                                        <?php 
-                                                                                        if(count($address) > 0){
-                                                                                            echo "These are the Addresses that we found from our records based on your Email Id.If you want to use any of them please check them for your Ad";
-                                                                                        }
-                                                                                        foreach ($address as $ad){ ?>
-                                                                                            <div class="col-md-6" style="padding-bottom: 20px;">                                                                                                 
-                                                                                                <?php  if($ad->is_default == 1){ ?>
-                                                                                                        <div class="checkbox-inline">
-                                                                                                            <input type="checkbox" name="checkaddr" class="checkbox checkaddr" value="<?php echo $ad->address_id;?>"/>
-                                                                                                            <h4 class='text-16A085'>Default Address</h4>
-                                                                                                        </div>
-                                                                                                <?php }else{ ?>
-                                                                                                        <div class="checkbox-inline">
-                                                                                                            <input type="checkbox" name="checkaddr" class="checkbox checkaddr" value="<?php echo $ad->address_id;?>"/>
-                                                                                                            <h4>Other Address</h4>
-                                                                                                        </div>
-                                                                                                <?php } ?>  
-                                                                                                <br/>
-                                                                                                    <?php echo "<b>City :</b> ".$ad->City_name;?><br/>
-                                                                                                    <?php echo "<b>State :</b> ".$ad->State_name;?><br/>
-                                                                                                    <?php echo "<b>Country :</b> ".$ad->Country_name;?><br/>
-                                                                                                    <?php echo "<b>Zip code :</b> ".$ad->zip_code;?><br/>
-                                                                                            </div>
-                                                                                        <?php 
-                                                                                        }
-                                                                                        ?>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="seller-email"> Seller Email</label>
-										<div class="col-md-8">
-                                                                                    <input id="seller-email" name="seller-email" class="form-control" placeholder="Email" value="<?php echo $this->session->userdata("login_email");?>" required="" type="text">
-											<?php echo form_error("seller-email");?>
-                                                                                        <div class="checkbox">
-												<label>
-												<input type="checkbox" value="">
-												<small> Hide the phone number on this ads.</small> </label>
+									<div class="or_padd"><p class="lead">( OR )</p></div>
+									<ul class="services-lines full-services">
+										<!-- Jobs content Start-->
+										<a href="#" data-toggle="modal" data-target="#Jobs">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/jobs.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Jobs</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Jobs" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Jobs <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Accountancy</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Admin, Secretariat & PA</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Baby Sittings & Nannies</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Banking & Investment</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Bar Staff & Management</a></h4></div>
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Charity & Voluntary Work</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Christmas</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Computing & IT</a></h4></div>
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Construction & Property Development</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Data Entry & Junior Admin</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Driving & Automotive</a></h4></div>
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Education</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Energy</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Engineering</a></h4></div>
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Estate Agency</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Farm, Vet, Garden & Landscaping</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Financial Services & Insurance</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">FMCG</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">General Jobs</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Health, Beauty & Fitness</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Healthcare, Medicine & Pharmaceutical</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Home care & Special Care</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Hospitality & Catering</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Housekeeping & Cleaning</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Human Resources</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Internships</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Legal</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Logistics</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Manufacturing</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Marketing, Advertising & PR</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Media Design & Creative</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Part-Time, Evening & Weekend </a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Purchasing</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Recruitment</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Sales, Retail, & Customer Service</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Scientific</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Security</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Social Work</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Sports</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Strategy & Consultancy</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Student & Graduate</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Training Courses</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Transport</a></h4></div>	
+															<div class="col-md-4 clearfix"><h4><a href="#">Travel & Overseas</a></h4></div>	
+														</div> 
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Work Wanted</a></h4></div>	
+														</div> 
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="seller-Number">Phone Number </label>
-										<div class="col-md-8">
-											<input id="seller-Number" name="seller-number" value="<?php echo set_value("seller-number");?>" placeholder="Phone Number" class="form-control input-md"  required="" type="text" ruleset="[^0-9]" onkeyup="validateR(this, '')"  maxlength="10">
-                                                                                        <?php echo form_error("seller-number");?>
-                                                                                </div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="zipcode">Zip Code <span class="text-red">*</span></label>
-										<div class="col-md-8">
-                                                                                    <input type="text" class="form-control zip" value="<?php echo set_value("zipcode");?>" name="zipcode" placeholder="Zip Code"  ruleset="[^0-9]" onkeyup="validateR(this, '')"  maxlength="6">
-                                                                                        <?php echo form_error("zipcode");?>
+										<!-- Jobs content End-->
+										
+										<!-- Services content Start-->
+										<a href="#" data-toggle="modal" data-target="#Services">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/services.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Services</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Services" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Services <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Health & Beauty</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Tution & Classes</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Property & Maintenance</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Weddings</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Business & Office</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Transport</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Motoring</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Entertainment</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Goods Suppliers & Retailers</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Food & Drink</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Finance & Legal</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Travel & Tourism</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Child Care</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Tradesmen & Construction services</a></h4></div> 
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="seller-area">Country <span class="text-red">*</span></label>
-										<div class="col-md-8">
-											<select class="form-control country" name="cty">
-                                                                                            <option value="">-- Select Country --</option>
-                                                                                            <?php foreach ($cty as $ct){ ?>
-                                                                                                    <option value="<?php echo $ct->Country_id;?>"><?php echo ucfirst(strtolower($ct->Country_name));?></option>
-                                                                                            <?php } ?>
-                                                                                        </select>
-                                                                                        <?php echo form_error("cty");?>
+										<!-- Services content End-->
+										
+										<!-- Motor Point content Start-->
+										<a href="#" data-toggle="modal" data-target="#Motor">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/motorpoint.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Motor Point</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Motor" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Motor Point <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Accountancy</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="seller-area">State <span class="text-red">*</span></label>
-										<div class="col-md-8">
-											<select class="form-control state" name="state">
-                                                                                            <option value="">-- Select State --</option>
-                                                                                            <?php foreach ($scty as $sct){ ?>
-                                                                                                    <option value="<?php echo $sct->State_id;?>"><?php echo $sct->State_name;?></option>
-                                                                                            <?php } ?>
-                                                                                        </select>
-                                                                                        <?php echo form_error("state");?>
+										<!-- Motor Point content End-->
+										
+										<!-- Find a Property content Start-->
+										<a href="#" data-toggle="modal" data-target="#Property">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/property.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Find a Property</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Property" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Find a Property <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">To Rent</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">To Share</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">For Sale</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Land, Farms & Estate</a></h4></div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="seller-area">City <span class="text-red">*</span></label>
-										<div class="col-md-8">
-                                                                                    <select class="form-control city" name="city">
-                                                                                        <option value="">-- Select City --</option>
-                                                                                        <?php foreach ($city as $cti){ ?>
-                                                                                                <option value="<?php echo $cti->City_id;?>"><?php echo $cti->City_name;?></option>
-                                                                                        <?php } ?>
-                                                                                    </select>
-                                                                                    <?php echo form_error("city");?>
+										<!-- Find a Property content End-->
+										
+										<!-- Pets content Start-->
+										<a href="#" data-toggle="modal" data-target="#Pets">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/pets.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Pets</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Pets" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Pets <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Pets</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Horses & Equestrain</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Livestock</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Livestock Supplies</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Pet Accessories</a></h4></div> 
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="well">
-										<h3><i class=" icon-certificate icon-color-1"></i> Make your Ad Premium </h3>
-										<p>Premium ads help sellers promote their product or service by getting their ads more visibility with more
-											buyers and sell what they want faster. <a href="help.html">Learn more</a>
-										</p>
-										<div class="form-group">
-                                                                                    <?php echo form_error("pay_check[]");?>
-											<table class="table table-hover checkboxtable">
-												<?php 
-                                                                                                foreach ($avid as $ad){ ?>
-                                                                                                <tr>
-                                                                                                    <td>
-                                                                                                        <!--<div class="radio">-->
-                                                                                                            <label>
-                                                                                                                <input type="checkbox" name="pay_check[]" value="<?php echo $ad->ad_valid_name;?>" <?php  if(strtolower($ad->ad_valid_name) == "free"){ echo "checked='checked' readonly = 'readonly'";} else{ echo set_checkbox('pay_check[]', $ad->ad_valid_id); }?> price="<?php echo $ad->price;?>" class="checkbox-inline pay_check">
-                                                                                                            <strong><?php echo $ad->ad_valid_name;?> </strong> </label>
-                                                                                                        <!--</div>-->
-                                                                                                    </td>
-                                                                                                    <td>
-                                                                                                        No. of Days : <?php echo $ad->days; ?>
-                                                                                                    </td>
-                                                                                                    <td>
-                                                                                                        <p>&#8377; <?php echo $ad->price;?></p>
-                                                                                                    </td>
-												</tr>
-                                                                                                <?php } ?>
-												<tr>
-													<td>
-														<div class="form-group">
-															<div class="col-md-8">
-																<select class="form-control" name="Method" id="PaymentMethod">
-																	<option value="2">Select Payment Method</option>
-																	<option value="3">Credit / Debit Card </option>
-																	<option value="5">Paypal</option>
-																</select>
+										<!-- Pets content End-->
+										
+										<!-- Clothing & LifeStyles content Start-->
+										<a href="#" data-toggle="modal" data-target="#LifeStyles">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/lifestyle.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Clothing & LifeStyles</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="LifeStyles" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Clothing & LifeStyles <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Men's Clothing</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Women's Clothing</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Women Shoes</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Women's Accessories</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Jewellery</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Men's Shoes & Boots</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Wedding Clothes & Accessories</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Watches</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Men's Accessories</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Sunglasses</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Baby & Kids</a></h4></div> 
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Clothing & LifeStyles content End-->
+										
+										<!-- Home & Kitchen content Start-->
+										<a href="#" data-toggle="modal" data-target="#Kitchen">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/kitchen.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Home & Kitchen</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Kitchen" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Home & Kitchen <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen Essentials</h3>
+																<h4><a href="#">Kitchen Tools</a></h4>
+																<h4><a href="#">Kitchen Storage</a></h4>
+																<h4><a href="#">Cookware</a></h4>
+																<h4><a href="#">Bakeware</a></h4>
+																<h4><a href="#">Cooktops & Burners</a></h4>
+																<h4><a href="#">Barbeque Furniture</a></h4>
+																<h4><a href="#">Table Linen</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Home Essentials</h3>
+																<h4><a href="#">Bathroom Accessories</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen Essentials</h3>
+																<h4><a href="#">Kitchen Tools</a></h4>
+																<h4><a href="#">Kitchen Storage</a></h4>
+																<h4><a href="#">Cookware</a></h4>
+																<h4><a href="#">Bakeware</a></h4>
+																<h4><a href="#">Cooktops & Burners</a></h4>
+																<h4><a href="#">Barbeque Furniture</a></h4>
+																<h4><a href="#">Table Linen</a></h4>
+																<h4><a href="#">Others</a></h4>
 															</div>
 														</div>
-													</td>
-                                                                                                        <td>
-                                                                                                            
-                                                                                                        </td>
-													<td>
-                                                                                                            <p> <strong>Payable Amount : &#8377; <span class='pay'>0.00</span></strong></p>
-													</td>
-												</tr>
-											</table>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label">Terms</label>
-										<div class="col-md-8">
-											<label class="checkbox-inline" for="checkboxes-0">
-											<input name="checkboxes" id="checkboxes-0" value="Remember above contact information." type="checkbox">
-											Remember above contact information. </label>
+										<!-- Home & Kitchen content End-->
+										
+										<!-- E-Zone content Start-->
+										<a href="#" data-toggle="modal" data-target="#Zone">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/ezone.png" class="fa fa-plane img-responsive" alt="">
+													<h5>E-Zone</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Zone" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>E-Zone <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Computers & Software</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Cameras, Camcorders & Studio Equipment</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Audio & Stereo</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Appliances</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Phone, Mobiles, & Telecoms</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">TVs, DVDs, Blu-Ray & Videos</a></h4></div>
+														</div>
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Video Games, & Consoles</a></h4></div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label"></label>
-                                                                                <div class="col-md-8"> <input  type="submit" name="postad" id="button1id" class="btn btn-success btn-lg" value="Submit">
-									</div>
-								</fieldset>
-							</form>
+										<!-- E-Zone content End-->
+										
+										<!-- Deals content Start-->
+										<a href="#" data-toggle="modal" data-target="#Deals">
+											<li>
+												<div class="item-service-line">
+													<img src="img/featured/deals.png" class="fa fa-plane img-responsive" alt="">
+													<h5>Deals</h5>
+												</div>
+											</li>
+										</a>
+										<!-- Modal -->
+										<div class="modal fade" id="Deals" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Deals <span>Category </span></h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-4 clearfix"><h4><a href="#">Accountancy</a></h4></div>
+															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div> 
+															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Deals content End-->
+									</ul>
+								</div><!-- end col-md-8/offset -->
+							</div><!-- end row -->
 						</div>
-					</div>
-				</div>
-			</div>
-			<!-- <div class="col-md-3 reg-sidebar">
-				<div class="reg-sidebar-inner text-center">
-					<div class="promo-text-box">
-						<i class=" icon-picture fa fa-4x icon-color-1"></i>
-						<h3><strong>Post a Free Classified</strong></h3>
-						<p> Post your free online classified ads with us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-					</div>
-					<div class="panel sidebar-panel">
-						<div class="panel-heading uppercase"><small><strong>How to sell quickly?</strong></small></div>
-						<div class="panel-content">
-							<div class="panel-body text-left">
-								<ul class="list-check">
-									<li> Use a brief title and description of the item </li>
-									<li> Make sure you post in the correct category</li>
-									<li> Add nice photos to your ad</li>
-									<li> Put a reasonable price</li>
-									<li> Check the item before publish</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-		</div>
-	</div>
-</div>
+                    </div>
+                </div>   
+                <!-- End content info - page Fill with  --> 
+
+            </section>
+            <!-- End Content Central -->
