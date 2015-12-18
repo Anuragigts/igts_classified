@@ -103,6 +103,7 @@ cru.*,ads.*, (SELECT `img_name` FROM `ad_img` WHERE ad_id = cru.ad_id GROUP BY a
 		$this->db->from("`featured` AS fs");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
 		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
+		$this->db->limit('8');
 		$this->db->group_by("fs.`ad_id`");
 		$this->db->order_by('ads.created_on', 'DESC');
 		$m_res = $this->db->get();
@@ -144,7 +145,8 @@ cru.*,ads.*, (SELECT `img_name` FROM `ad_img` WHERE ad_id = cru.ad_id GROUP BY a
 		$this->db->where('is_urgent', 0);
 		$this->db->where('is_spotlight', 0);
 		$this->db->where('is_featured', 0);
-		$this->db->order_by('ads.created_on', 'DESC');
+		$this->db->limit(3);
+		$this->db->order_by('ads.created_on', 'ASC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
