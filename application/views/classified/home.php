@@ -58,16 +58,22 @@
 								<img src="img/marquee.png" class="fa fa-plane img-responsive" alt="">
 							</div> 
 							<div class="col-md-9 marque_text">
+							<section class="wrapper">
+								   <ul  class="typing">
+								        	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+								            <li>CONTEMPORY 2 BED FLAT TO RENT IN GANTS HILL</li>
+								            <li>Cockerel free to good home</li>
+								            <li>Piaggio typhoon 125 reg as 50</li>>
+								        </ul>
+								      </section>
+								  </div>
+							<!-- <div class="col-md-9 marque_text">
 								<span id="mymark1" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit consectetur adipiscing elit.</span>
 								<span id="mymark2" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit consectetur adipiscing elit.</span>
 								<span id="mymark3" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit consectetur adipiscing elit.</span>
 								<span id="mymark"></span>
-							<!--
-								<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus
-								</marquee>
-								-->
-							</div>                    
+							
+							</div>  -->                   
 						</div>
 					</div>
                 </section>

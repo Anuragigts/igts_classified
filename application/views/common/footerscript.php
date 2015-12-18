@@ -31,9 +31,25 @@
         <script type="text/javascript" src="js/bootstrap/bootstrap-slider.js"></script> 
         <!--MAIN FUNCTIONS-->
         <script type="text/javascript" src="js/main.js"></script>
+        <script type='text/javascript' src="js/inewsticker.js"></script>
+
         <!-- <script type="text/javascript" src="marquee.js"></script> -->
         <!-- ======================= End JQuery libs =========================== -->
-		<script>
+        <script>
+$(document).ready(function() {
+   
+  $('.typing').inewsticker({
+    speed           : 200,
+    effect          : 'typing',
+    dir             : 'ltr',
+    font_size       : 18,
+    color           : '#000',
+    font_family     : 'arial',
+    delay_after     : 1000,
+});
+}); 
+</script>
+		<!--<script>
 			var showText = function (target, message, index, interval) {   
 			  if (index < message.length) {
 				$(target).append(message[index++]);
@@ -44,7 +60,7 @@
 				var i = $('#mymark1').html();
 				showText("#mymark", i, 0, 100);   
 			});
-		</script>
+		</script>-->
         <!--Slider Function-->
         <script type="text/javascript">
             jQuery(document).ready(function() {
@@ -149,3 +165,7 @@
 	  <script>
 		jssor_1_slider_init();
 		</script>
+
+   <!-- news updates -->
+
+    
