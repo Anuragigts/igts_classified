@@ -10,7 +10,7 @@
                         <h1>Post An AD</h1>
                         <div class="crumbs">
                             <ul>
-                                <li><a href="index.php">Home</a></li>
+                                <li><a href="index.php" class='home'>Home</a></li>
                                 <li>/</li>
                                 <li>Post An AD</li>                                       
                             </ul>    
