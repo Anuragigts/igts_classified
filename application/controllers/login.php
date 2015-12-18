@@ -26,6 +26,9 @@ class Login extends CI_Controller{
                               $this->session->set_flashdata("err","Please Check your Email Id");
                                             redirect("login");  
                             }
+                            else{
+                                redirect("postad");
+                            }
                         }
                         if($this->input->post("w_check") == ""){
                               $this->form_validation->set_rules("password","Password","required");
