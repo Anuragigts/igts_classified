@@ -6,7 +6,7 @@
                         <div class="col-md-5">
                             <div class="title-footer">
                                 <h2>Save on your plans!
-                                <br> <span>Select 365 Deals Add</span>
+                                <br> <span>Select 365 Deals Ad</span>
                                 <br> our discounts by e-mail.</h2>
                             </div>
 

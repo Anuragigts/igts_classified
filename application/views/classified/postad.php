@@ -70,83 +70,15 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Accountancy</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Admin, Secretariat & PA</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
 														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Baby Sittings & Nannies</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Banking & Investment</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Bar Staff & Management</a></h4></div>
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Charity & Voluntary Work</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Christmas</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Computing & IT</a></h4></div>
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Construction & Property Development</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Data Entry & Junior Admin</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Driving & Automotive</a></h4></div>
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Education</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Energy</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Engineering</a></h4></div>
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Estate Agency</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Farm, Vet, Garden & Landscaping</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Financial Services & Insurance</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">FMCG</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">General Jobs</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Health, Beauty & Fitness</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Healthcare, Medicine & Pharmaceutical</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Home care & Special Care</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Hospitality & Catering</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Housekeeping & Cleaning</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Human Resources</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Internships</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Legal</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Logistics</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Manufacturing</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Marketing, Advertising & PR</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Media Design & Creative</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Part-Time, Evening & Weekend </a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Purchasing</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Recruitment</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Sales, Retail, & Customer Service</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Scientific</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Security</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Social Work</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Sports</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Strategy & Consultancy</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Student & Graduate</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Training Courses</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Transport</a></h4></div>	
-															<div class="col-md-4 clearfix"><h4><a href="#">Travel & Overseas</a></h4></div>	
-														</div> 
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Work Wanted</a></h4></div>	
-														</div> 
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -176,29 +108,40 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Health & Beauty</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Tution & Classes</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Property & Maintenance</a></h4></div>
+															<div class="col-md-6 clearfix">
+																<h3>Professional</h3>
+																<h4><a href="#">Coaching & Training</a></h4>
+																<h4><a href="#">Business Services</a></h4>
+																<h4><a href="#">Party & Wedding Services</a></h4>
+																<h4><a href="#">IT & Digital Marketing Services</a></h4>
+																<h4><a href="#">Solicitor Services</a></h4>
+																<h4><a href="#">Accounting & Taxation Services</a></h4>
+																<h4><a href="#">Home, Construction & Renovation Services</a></h4>
+																<h4><a href="#">Doctor's & Hospital Services</a></h4>
+																<h4><a href="#">Nurse & Carer Services</a></h4>
+																<h4><a href="#">Astrology & Numerology Services</a></h4>
+																<h4><a href="#">Loan & Insurance</a></h4>
+																<h4><a href="#">Funeral Services</a></h4>
+																<h4><a href="#">Health & Fitness</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Popular</h3>
+																<h4><a href="#">Dry Cleaning & Laundry Services</a></h4>
+																<h4><a href="#">Household Services</a></h4>
+																<h4><a href="#">Travel & Vacation Services</a></h4>
+																<h4><a href="#">Massage & Beauty Services</a></h4>
+																<h4><a href="#">Community Services</a></h4>
+																<h4><a href="#">Entertainment Services</a></h4>
+																<h4><a href="#">Motor Services</a></h4>
+																<h4><a href="#">Logistics & Transport Services</a></h4>
+																<h4><a href="#">Restaurant & Food Services</a></h4>
+																<h4><a href="#">Friendship & Dating Services</a></h4>
+																<h4><a href="#">Nannies Services</a></h4>
+																<h4><a href="#">Embroidery Services</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
 														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Weddings</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Business & Office</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Transport</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Motoring</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Entertainment</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Goods Suppliers & Retailers</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Food & Drink</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Finance & Legal</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Travel & Tourism</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Child Care</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Tradesmen & Construction services</a></h4></div> 
-														</div>
+														
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -228,9 +171,14 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Accountancy</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
@@ -261,12 +209,24 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">To Rent</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">To Share</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">For Sale</a></h4></div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
 														</div>
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Land, Farms & Estate</a></h4></div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
@@ -297,13 +257,46 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Pets</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Horses & Equestrain</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Livestock</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Livestock Supplies</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Pet Accessories</a></h4></div> 
+															<div class="col-md-2 clearfix">
+																<h3><a href="#">Dogs</a></h3>
+																<h3><a href="#">Cats</a></h3>
+																<h3><a href="#">Fishes</a></h3>
+																<h3><a href="#">Birds</a></h3>
+																<h3><a href="#">Others</a></h3>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Big Animals</h3>
+																<h4><a href="#">Cobs</a></h4>
+																<h4><a href="#">Donkeys</a></h4>
+																<h4><a href="#">Horses</a></h4>
+																<h4><a href="#">Ponies</a></h4>
+																<h4><a href="#">Beef Cattle</a></h4>
+																<h4><a href="#">Dairy Cattle</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Small Animals</h3>
+																<h4><a href="#">Pigs</a></h4>
+																<h4><a href="#">Sheeps</a></h4>
+																<h4><a href="#">Goats</a></h4>
+																<h4><a href="#">Poultry</a></h4>
+																<h4><a href="#">Reptiles</a></h4>
+																<h4><a href="#">Furry Pets</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Pet Accessories</h3>
+																<h4><a href="#">Pet Foods</a></h4>
+																<h4><a href="#">Toys & Training</a></h4>
+																<h4><a href="#">Clothing & Accessories</a></h4>
+																<h4><a href="#">Feeding Accessories</a></h4>
+																<h4><a href="#">Beds, Cages, & Crates</a></h4>
+																<h4><a href="#">Cleaning & Odour Control</a></h4>
+																<h4><a href="#">Fish Tanks & Cabinets</a></h4>
+																<h4><a href="#">Marine Aquarium & Ponds</a></h4>
+																<h4><a href="#">Aquarium Landscaping</a></h4>
+																<h4><a href="#">Other Maintenance Staff</a></h4>
+															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
@@ -334,23 +327,58 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Men's Clothing</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Women's Clothing</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Women Shoes</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Women's Accessories</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Jewellery</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Men's Shoes & Boots</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Wedding Clothes & Accessories</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Watches</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Men's Accessories</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Sunglasses</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Baby & Kids</a></h4></div> 
+															<div class="col-md-4 clearfix">
+																<h3>Clothing</h3>
+																<h4><a href="#">Dresses</a></h4>
+																<h4><a href="#">Coats & Jackets</a></h4>
+																<h4><a href="#">Trousers & Leggings</a></h4>
+																<h4><a href="#">Jumpsuits & Play-suits</a></h4>
+																<h4><a href="#">Tops & T-Shirts</a></h4>
+																<h4><a href="#">Shirts & Blouses</a></h4>
+																<h4><a href="#">Jeans</a></h4>
+																<h4><a href="#">Sportswear & Jeggings</a></h4>
+																<h4><a href="#">Swimwear & Beachwear</a></h4>
+																<h4><a href="#">Nightwear & Lingerie</a></h4>
+																<h4><a href="#">Shorts & Skirts</a></h4>
+																<h4><a href="#">Hoodies & Sweats</a></h4>
+																<h4><a href="#">Tailoring & Suits</a></h4>
+																<h4><a href="#">Maternity</a></h4>
+																<h4><a href="#">Tight & Socks</a></h4>
+																<h4><a href="#">Plus Size Fit</a></h4>
+																<h4><a href="#">Petits</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Shoes</h3>
+																<h4><a href="#">Boots</a></h4>
+																<h4><a href="#">Flats</a></h4>
+																<h4><a href="#">Heels</a></h4>
+																<h4><a href="#">Sandals & Flip-flops</a></h4>
+																<h4><a href="#">Trainers</a></h4>
+																<h4><a href="#">Skate Shoes</a></h4>
+																<h4><a href="#">Sneakers</a></h4>
+																<h4><a href="#">Sports Shoes</a></h4>
+																<h4><a href="#">Wellies</a></h4>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Accessories</h3>
+																<h4><a href="#">Bags & Purses</a></h4>
+																<h4><a href="#">Scarves, Hat & Gloves</a></h4>
+																<h4><a href="#">Jewellery & Watches</a></h4>
+																<h4><a href="#">Fragrance & Beauty</a></h4>
+																<h4><a href="#">Sunglasses</a></h4>
+																<h4><a href="#">Belts</a></h4>
+																<h4><a href="#">Hair Accessories</a></h4>
+																<h4><a href="#">Others</a></h4>
+																<h3>Wedding</h3>
+																<h4><a href="#">Bridesmaid Dresses</a></h4>
+																<h4><a href="#">Wedding Dresses</a></h4>
+																<h4><a href="#">Prom Dresses</a></h4>
+																<h4><a href="#">Special Occasion Dresses</a></h4>
+																<h4><a href="#">Evening Dresses</a></h4>
+																<h4><a href="#">Bridal Accessories & Shoes</a></h4>
+															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
@@ -395,26 +423,36 @@
 															<div class="col-md-4 clearfix">
 																<h3>Home Essentials</h3>
 																<h4><a href="#">Bathroom Accessories</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
-																<h4><a href="#">Others</a></h4>
+																<h4><a href="#">Bedroom Accessories</a></h4>
+																<h4><a href="#">Carpets & Flooring</a></h4>
+																<h4><a href="#">Cleaning Services</a></h4>
+																<h4><a href="#">Plumbing & Electrician Services</a></h4>
+																<h4><a href="#">Windows & Conservatories</a></h4>
+																<h4><a href="#">Door, Machinery & Tools</a></h4>
+																<h4><a href="#">Garden Equipment & Accessories</a></h4>
+																<h4><a href="#">Furniture for Garden</a></h4>
+																<h4><a href="#">Sheds @ Garden</a></h4>
+																<h4><a href="#">Plants @ Garden</a></h4>
+																<h4><a href="#">Dining Room Furniture</a></h4>
+																<h4><a href="#">Living Room Furniture</a></h4>
+																<h4><a href="#">Furniture for Kids</a></h4>
+																<h4><a href="#">Outdoor Furniture</a></h4>
+																<h4><a href="#">Study & Office Room Furniture</a></h4>
+																<h4><a href="#">Other</a></h4>
 															</div>
 															<div class="col-md-4 clearfix">
-																<h3>Kitchen Essentials</h3>
-																<h4><a href="#">Kitchen Tools</a></h4>
-																<h4><a href="#">Kitchen Storage</a></h4>
-																<h4><a href="#">Cookware</a></h4>
-																<h4><a href="#">Bakeware</a></h4>
-																<h4><a href="#">Cooktops & Burners</a></h4>
-																<h4><a href="#">Barbeque Furniture</a></h4>
-																<h4><a href="#">Table Linen</a></h4>
+																<h3>Decor</h3>
+																<h4><a href="#">Curtains & Accessories</a></h4>
+																<h4><a href="#">Candles & Fragrances</a></h4>
+																<h4><a href="#">Vases & Flowers</a></h4>
+																<h4><a href="#">Wall Décor</a></h4>
+																<h4><a href="#">Home Accent</a></h4>
+																<h4><a href="#">Religion & Spirituality</a></h4>
+																<h4><a href="#">Photo frames & Albums</a></h4>
+																<h4><a href="#">Rugs & Carpets</a></h4>
+																<h4><a href="#">Cushions & Throws</a></h4>
+																<h4><a href="#">Table Lamps, Floor Lamps & Ceiling Lights</a></h4>
+																<h4><a href="#">Wall & Outdoor Lights</a></h4>
 																<h4><a href="#">Others</a></h4>
 															</div>
 														</div>
@@ -447,17 +485,106 @@
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Computers & Software</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Cameras, Camcorders & Studio Equipment</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Audio & Stereo</a></h4></div>
+															<div class="col-md-3 clearfix">
+																<h3>Phones & Tablets</h3>
+																<h4><a href="#">Mobile Phones</a></h4>
+																<h4><a href="#">Tablets & iPads</a></h4>
+																<h4><a href="#">Bluetooth Devices</a></h4>
+																<h4><a href="#">Landline Phones</a></h4>
+																<h4><a href="#">Adaptors & Connectors</a></h4>
+																<h4><a href="#">Docks & Keypads</a></h4>
+																<h4><a href="#">Cases & Sleeves</a></h4>
+																<h4><a href="#">Screen Guards</a></h4>
+																<h4><a href="#">Powerbanks</a></h4>
+																<h4><a href="#">Wearable Devices</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Laptop & Computers</h3>
+																<h4><a href="#">Laptops</a></h4>
+																<h4><a href="#">All in One</a></h4>
+																<h4><a href="#">Printers</a></h4>
+																<h4><a href="#">Wi-Fi Devices</a></h4>
+																<h4><a href="#">External Hard Drives</a></h4>
+																<h4><a href="#">Pen Drives</a></h4>
+																<h4><a href="#">Keyboards</a></h4>
+																<h4><a href="#">Mouse</a></h4>
+																<h4><a href="#">Headsets</a></h4>
+																<h4><a href="#">Cables & Connectors</a></h4>
+																<h4><a href="#">Ink & Toner</a></h4>
+																<h4><a href="#">Softwares</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Home Entertainment</h3>
+																<h4><a href="#">LCD LED Televisions</a></h4>
+																<h4><a href="#">Home Theatre Systems</a></h4>
+																<h4><a href="#">DVD & Blue-Ray Players</a></h4>
+																<h4><a href="#">Audio Systems</a></h4>
+																<h4><a href="#">Gaming</a></h4>
+																<h4><a href="#">Musical Instruments</a></h4>
+																<h4><a href="#">Projectors</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Home Appliances</h3>
+																<h4><a href="#">Air Conditioners</a></h4>
+																<h4><a href="#">Air Coolers</a></h4>
+																<h4><a href="#">Fans</a></h4>
+																<h4><a href="#">Refrigerators</a></h4>
+																<h4><a href="#">Washing Machines</a></h4>
+																<h4><a href="#">Electric Iron</a></h4>
+																<h4><a href="#">Vacuum Cleaners</a></h4>
+																<h4><a href="#">Water Heaters</a></h4>
+																<h4><a href="#">Room Heaters</a></h4>
+																<h4><a href="#">Sewing Machine</a></h4>
+																<h4><a href="#">Dryers</a></h4>
+																<h4><a href="#">Emergency Light</a></h4>
+															</div>
 														</div>
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Appliances</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Phone, Mobiles, & Telecoms</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">TVs, DVDs, Blu-Ray & Videos</a></h4></div>
-														</div>
-														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Video Games, & Consoles</a></h4></div>
+															<div class="col-md-3 clearfix">
+																<h3>Photography</h3>
+																<h4><a href="#">Digital SLR Cameras</a></h4>
+																<h4><a href="#">Point & Shoot Cameras</a></h4>
+																<h4><a href="#">Camcorders</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Small Appliances</h3>
+																<h4><a href="#">Microwave Ovens & OTG</a></h4>
+																<h4><a href="#">Food Processors</a></h4>
+																<h4><a href="#">Mixer Grinder Juicers</a></h4>
+																<h4><a href="#">Cookers & Steamers</a></h4>
+																<h4><a href="#">Toasters & Sandwich Makers</a></h4>
+																<h4><a href="#">Blenders & Choppers</a></h4>
+																<h4><a href="#">Grills & Tandooris</a></h4>
+																<h4><a href="#">Coffee Tea Makers & Kettles</a></h4>
+																<h4><a href="#">Fryers & Snack makers</a></h4>
+																<h4><a href="#">Water Purifiers</a></h4>
+																<h4><a href="#">Dishwashers</a></h4>
+																<h4><a href="#">Flour Mill</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Personal Care</h3>
+																<h4><a href="#">Shavers</a></h4>
+																<h4><a href="#">Trimmers</a></h4>
+																<h4><a href="#">Body Groomers</a></h4>
+																<h4><a href="#">Hair Dryers</a></h4>
+																<h4><a href="#">Hair Stylers</a></h4>
+																<h4><a href="#">Epilators</a></h4>
+																<h4><a href="#">Pedometers</a></h4>
+																<h4><a href="#">Monitors</a></h4>
+																<h4><a href="#">Massagers</a></h4>
+															</div>
+															<div class="col-md-3 clearfix">
+																<h3>Accessories</h3>
+																<h4><a href="#">Tablet & iPad Accessories</a></h4>
+																<h4><a href="#">iPhone Accessories</a></h4>
+																<h4><a href="#">Mobile Accessories</a></h4>
+																<h4><a href="#">Computer Accessories</a></h4>
+																<h4><a href="#">Headphones & Earphones</a></h4>
+																<h4><a href="#">Audio Video Accessories</a></h4>
+																<h4><a href="#">Camera Accessories</a></h4>
+																<h4><a href="#">Inverters, Stablizers & Power</a></h4>
+																<h4><a href="#">Battery</a></h4>
+															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
@@ -469,28 +596,33 @@
 										<!-- E-Zone content End-->
 										
 										<!-- Deals content Start-->
-										<a href="#" data-toggle="modal" data-target="#Deals">
+										<a href="#" data-toggle="modal" data-target="#ForSale">
 											<li>
 												<div class="item-service-line">
 													<img src="img/featured/deals.png" class="fa fa-plane img-responsive" alt="">
-													<h5>Deals</h5>
+													<h5>For Sale</h5>
 												</div>
 											</li>
 										</a>
 										<!-- Modal -->
-										<div class="modal fade" id="Deals" role="dialog">
+										<div class="modal fade" id="ForSale" role="dialog">
 											<div class="modal-dialog">
 												<!-- Modal content-->
 												<div class="modal-content">
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal">&times;</button>
-														<h2>Deals <span>Category </span></h2>
+														<h2>For Sale <span>Category </span></h2>
 													</div>
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-4 clearfix"><h4><a href="#">Accountancy</a></h4></div>
-															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div> 
-															<div class="col-md-4 clearfix"><h4><a href="#">Apprenticeships</a></h4></div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
+															<div class="col-md-4 clearfix">
+																<h3>Kitchen</h3>
+																<h4><a href="#">Others</a></h4>
+															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
