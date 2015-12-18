@@ -672,6 +672,7 @@
 															<input type="radio" class="con_image" name="optradio" id="Consumer"> Consumer
 														</label>
 														<div class="input form-theme bus_img" style="display:none;">
+															<label for="business_logo">Business Logo :</label>
 															<input type="file" id="bus_img" class="" name="bus_img" >
 														</div>
 													</div>
@@ -682,6 +683,11 @@
 														</div>
 													</div>
 												</div>
+											</div>
+											<!-- end Tab One - Hotel -->
+
+											<!-- Tab Two - Preferences -->
+											<div class="tab-pane" id="two">
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="input form-theme">
@@ -751,15 +757,61 @@
 														</div>
 													</div>
 												</div>
-												
-											</div>
-											<!-- end Tab One - Hotel -->
+												<div class="row">
+													<div class="col-sm-4 col-xs-12">
+														<!-- promotion-box-->
+														<div class="promotion-box">
+															<div class="promotion-box-center color-1">
+															   <div class="prince">
+																	Gold
+																</div>
+															</div>
 
-											<!-- Tab Two - Preferences -->
-											<div class="tab-pane" id="two">
-												<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, a few steps from the beach.The 350 rooms are equipped with air conditioning and heating, telephone, private bathroom with hairdryer and minibar. They also have flat-screen TVs and balconies.</p>
+															<div class="promotion-box-info">
+																<p>Select a bonus 30% and access to all our discounts.</p>
+																<a href="#" class="btn btn-primary">View Details</a>
+															</div>
+														</div>
+														<!-- End promotion-box-->
+													</div>
 
-											   
+													<div class="col-sm-4 col-xs-12">
+														<!-- promotion-box-->
+														<div class="promotion-box">
+															<div class="promotion-box-center color-2">
+																<div class="prince">
+																	Silver
+																</div>
+															</div>
+															<!-- End promotion-box-center-->
+
+															<!-- promotion-box-info-->
+															<div class="promotion-box-info">
+																<p>Select a bonus 70% and access to all our discounts.</p>
+																<a href="#" class="btn btn-primary">View Details</a>
+															</div>
+															<!-- End promotion-box-info-->
+														</div>
+														<!-- End promotion-box-->
+													</div>
+
+													<div class="col-sm-4 col-xs-12">
+														<!-- promotion-box-->
+														<div class="promotion-box">
+															<div class="promotion-box-center color-3">
+																<div class="prince">
+																	Platinum
+																</div>
+															</div>
+
+															<div class="promotion-box-info">
+																<p>Select a bonus 50% and access to all our discounts.</p>
+																<a href="#" class="btn btn-primary">View Details</a>
+															</div>
+														</div>
+														<!-- End promotion-box-->
+													</div>
+												</div>
 											</div>
 											<!-- end Tab Two - Preferences -->
 
