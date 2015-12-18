@@ -3824,6 +3824,10 @@ body{
 	border-right: 2px solid #9FC955;
 }
 
+.text-red{
+	color: red !important;
+}
+
 .home{
 	color: #FFF;
 }
