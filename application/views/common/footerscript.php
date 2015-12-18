@@ -38,15 +38,15 @@
         <script>
 $(document).ready(function() {
    
-  $('.typing').inewsticker({
-    speed           : 200,
-    effect          : 'typing',
-    dir             : 'ltr',
-    font_size       : 18,
-    color           : '#000',
-    font_family     : 'arial',
-    delay_after     : 1000,
-});
+        $('.typing').inewsticker({
+          speed           : 200,
+          effect          : 'typing',
+          dir             : 'ltr',
+          font_size       : 18,
+          color           : '#000',
+          font_family     : 'arial',
+          delay_after     : 1000,
+      });
 }); 
 </script>
 		<!--<script>

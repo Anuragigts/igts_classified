@@ -58,12 +58,15 @@
 								<img src="img/marquee.png" class="fa fa-plane img-responsive" alt="">
 							</div> 
 							<div class="col-md-9 marque_text">
-							<section class="wrapper">
+								<section class="wrapper">
 								   <ul  class="typing">
-								        	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+								   	<?php foreach (@$news as $n_val) { ?>
+								   	<li><?php echo rtrim(implode(",", $n_val), ",") ?></li>
+								   	<?php } ?>
+								        	<!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
 								            <li>CONTEMPORY 2 BED FLAT TO RENT IN GANTS HILL</li>
 								            <li>Cockerel free to good home</li>
-								            <li>Piaggio typhoon 125 reg as 50</li>>
+								            <li>Piaggio typhoon 125 reg as 50</li>> -->
 								        </ul>
 								      </section>
 								  </div>
