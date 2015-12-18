@@ -16,11 +16,15 @@ class Postad extends CI_Controller{
         }
         public function index(){
                 $plogin_id      =   $this->session->userdata("login_id");
-                if($plogin_id != ""){
-                        $data = array(
+                $data = array(
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad"
                         );
+                if($plogin_id != ""){
+                        /*$data = array(
+                                "title"     =>  "Classifieds",
+                                "content"   =>  "postad"
+                        );*/
                         if($this->input->post("postad")){
                                 // echo "<pre>"; print_r($_POST);exit;
                                 $files1 = "";$files2 = "";$files3="";$files4="";$files5="";
@@ -117,7 +121,8 @@ class Postad extends CI_Controller{
                         $this->load->view("classified_layout/inner_template",$data);
                 }
                 else{
-                        redirect("login");
+                         $this->load->view("classified_layout/inner_template",$data);
+                        // redirect("postad");
                 }
         }
         public function do_upla($file,$fp){
