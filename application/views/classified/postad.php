@@ -639,6 +639,143 @@
                     </div>
                 </div>   
                 <!-- End content info - page Fill with  --> 
+				
+				<div class="content_info">
+                    <div class="content_resalt paddings-mini tabs-detailed">
+                        <div class="container wow fadeInUp">
+                            <form method="post" class="" action="#" id="postanad">
+								<div class="row">
+									<div class="col-md-10 col-md-offset-1 col-sm-12  col-xs-12  login_padd">
+										<!-- Nav Tabs-->
+										<ul class="nav nav-tabs" id="myTab">
+										   <li class="active">
+												<a href="#one" data-toggle="tab"><i class="fa fa-home"></i> 1st Screen</a>
+											</li>
+											<li>
+												<a href="#two" data-toggle="tab"><i class="fa fa-camera"></i> 2nd Screen</a>
+											</li>
+										   <li>
+												<a href="#three" data-toggle="tab"><i class="fa fa-check"></i>3rd Screen</a>
+											</li>
+										</ul>
+										<!-- End Nav Tabs-->
+
+										<div class="tab-content">
+											<!-- Tab One - Hotel -->
+											<div class="tab-pane active" id="one">                                        
+												<div class="row">
+													<div class="col-sm-6"> 
+														<label class="radio-inline ">
+															<input type="radio" class="bus_image" name="optradio" id="Business"> Business
+														</label>
+														<label class="radio-inline">
+															<input type="radio" class="con_image" name="optradio" id="Consumer"> Consumer
+														</label>
+														<div class="input form-theme bus_img" style="display:none;">
+															<input type="file" id="bus_img" class="" name="bus_img" >
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="postal_code">PostalCode :</label>
+															<input type="text" id="postal_code" name="postal_code" placeholder="Enter PostalCode" >
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="deal_tag">Deal Tag :</label>
+															<input type="text" id="deal_tag" name="deal_tag" placeholder="Enter Deal Tag" >
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="deal_description">Deal Description :</label>
+															<textarea type="text" id="deal_description" name="deal_description" placeholder="Enter Deal Description" row="0"></textarea>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 top_10"> 
+														<label for="family_race">Price :</label></br>
+														<label class="radio-inline">
+															<input type="radio" name="optradio" id="Pound"> £ ( Pound )
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="optradio" id="Euro"> € ( Euro )
+														</label>
+													</div>
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="family_race">Family Race :</label>
+															<input type="text" id="family_race" name="family_race" placeholder="Enter Family Race" >
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="type">Type :</label>
+															<input type="text" id="type" name="type" placeholder="Enter Type" >
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="age">Age :</label>
+															<select class="form-control" id="sel1">
+																<option>Select Age</option>
+																<option>0 to 3 Months</option>
+																<option>3 to 6 Months</option>
+																<option>6 to 9 Months</option>
+																<option>9 to 12 Months</option>
+																<option>> 1 Year < 2 Years</option>
+																<option>> 2 Year < 3 Years</option>
+																<option>> 3 Year < 4 Years</option>
+																<option>> 4 Year < 5 Years</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="height">Height :</label>
+															<input type="text" id="height" name="height" placeholder="Enter Height" >
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="input form-theme">
+															<label for="gender">Gender :</label>
+															<input type="text" id="gender" name="gender" placeholder="Enter Gender" >
+														</div>
+													</div>
+												</div>
+												
+											</div>
+											<!-- end Tab One - Hotel -->
+
+											<!-- Tab Two - Preferences -->
+											<div class="tab-pane" id="two">
+												<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, a few steps from the beach.The 350 rooms are equipped with air conditioning and heating, telephone, private bathroom with hairdryer and minibar. They also have flat-screen TVs and balconies.</p>
+
+											   
+											</div>
+											<!-- end Tab Two - Preferences -->
+
+											<!-- Tab Theree - faq -->
+											<div class="tab-pane" id="three">
+												
+											</div>
+											<!-- Tend ab Theree - faq -->
+										</div>  
+									</div>                 
+								</div>
+							</form>
+                        </div>
+                    </div>
+				</div>
 
             </section>
             <!-- End Content Central -->
+			

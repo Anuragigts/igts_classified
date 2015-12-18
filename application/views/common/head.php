@@ -54,3 +54,20 @@
 				//responsive code end
 			};
 		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".bus_image").click(function(){
+					$(".bus_img").show(1000);
+
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$(".con_image").click(function(){
+					$(".bus_img").hide(1000);
+
+				});
+			});
+		</script>
