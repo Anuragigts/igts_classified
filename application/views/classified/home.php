@@ -313,7 +313,7 @@
 						<div class="container">
                             <div class="row">
                                 <div class="col-sm-3">
-									<img src="img/recentad.jpg" alt="" style="height:388px;" class="img-responsive">
+									<img src="img/recentad.jpg" alt="" style="height:368px;" class="img-responsive">
 								</div>
 								 <?php foreach (@$free_ads as $f_ads) {
                             	?>
