@@ -1721,8 +1721,8 @@ hr.separator:before {
 	font-weight: bold;
 }
 .promotion-box-center .prince{
-	font-size: 4rem;
-	line-height: 4.625rem;
+	font-size: 2.5rem;
+	line-height: 3.625rem;
 	display: inline-block;
 }
 .promotion-box-center .percentage{
@@ -3822,6 +3822,8 @@ body{
 .login_bor{
 	border-left: 2px solid #9FC955;
 	border-right: 2px solid #9FC955;
+<<<<<<< .mine
+=======
 }
 
 .text-red{
@@ -3830,4 +3832,5 @@ body{
 
 .home{
 	color: #FFF;
+>>>>>>> .r29
 }
