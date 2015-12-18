@@ -10,7 +10,7 @@
                         <h1>Register</h1>
                         <div class="crumbs">
                             <ul>
-                                <li><a href="index.php">Home</a></li>
+                                <li><a href="index.php" class='home'>Home</a></li>
                                 <li>/</li>
                                 <li>Register Page</li>                                       
                             </ul>    

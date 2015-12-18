@@ -10,7 +10,7 @@
                         <h1>Login</h1>
                         <div class="crumbs">
                             <ul>
-                                <li><a href="index.php">Home</a></li>
+                                <li><a href="index.php" class='home'>Home</a></li>
                                 <li>/</li>
                                 <li>Login Page</li>                                       
                             </ul>    
@@ -86,7 +86,7 @@
                                                 </div><!-- end remember -->
                                                 <div class="col-md-12  clearfix">
                                                     <div class="forgot fr">
-                                                        <a href="register.php" class="new-user">Create New Account</a> / <a href="#" class="reset">Forget Password ?</a>
+                                                        <a href="signup" class="new-user">Create New Account</a> / <a href="#" class="reset">Forget Password ?</a>
                                                     </div>
                                                 </div><!-- end forgot password -->
                                             </div><!-- end row -->
