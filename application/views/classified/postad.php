@@ -654,17 +654,23 @@
 											<li>
 												<a href="#two" data-toggle="tab"><i class="fa fa-camera"></i> 2nd Screen</a>
 											</li>
-										   <li>
-												<a href="#three" data-toggle="tab"><i class="fa fa-check"></i>3rd Screen</a>
+											<li >
+												<a href="#three" data-toggle="tab"><i class="fa fa-check"></i>Packages</a>
+											</li>
+											<li>
+												<a href="#four" data-toggle="tab"><i class="fa fa-check"></i>Contact</a>
+											</li>
+											<li >
+												<a href="#five" data-toggle="tab"><i class="fa fa-check"></i>Terms & Conditions</a>
 											</li>
 										</ul>
 										<!-- End Nav Tabs-->
 
-										<div class="tab-content">
+										<div class="tab-content ">
 											<!-- Tab One - Hotel -->
 											<div class="tab-pane active" id="one">                                        
 												<div class="row">
-													<div class="col-sm-6"> 
+													<div class="col-sm-6 top_10"> 
 														<label class="radio-inline ">
 															<input type="radio" class="bus_image" name="optradio" id="Business"> Business
 														</label>
@@ -682,7 +688,13 @@
 															<input type="text" id="postal_code" name="postal_code" placeholder="Enter PostalCode" >
 														</div>
 													</div>
+													<div class="col-md-sm text_center top_10">
+														<div class="input clearfix">
+															<input type="submit" id="login" name='login' class="btn btn-primary" value="Next Process">
+														</div>
+													</div>
 												</div>
+												
 											</div>
 											<!-- end Tab One - Hotel -->
 
@@ -757,39 +769,47 @@
 														</div>
 													</div>
 												</div>
-												<div class="row">
-													<div class="col-sm-4 col-xs-12">
-														<!-- promotion-box-->
-														<div class="promotion-box">
-															<div class="promotion-box-center color-1">
-															   <div class="prince">
-																	Gold
-																</div>
-															</div>
-
-															<div class="promotion-box-info">
-																<p>Select a bonus 30% and access to all our discounts.</p>
-																<a href="#" class="btn btn-primary">View Details</a>
-															</div>
-														</div>
-														<!-- End promotion-box-->
+												<div class="col-md-sm text_center top_10">
+													<div class="input clearfix">
+														<input type="submit" id="login" name='login' class="btn btn-primary" value="Next Process">
 													</div>
+												</div>
+											</div>
+											<!-- end Tab Two - Preferences -->
 
+											<!-- Tab Theree - faq -->
+											<div class="tab-pane" id="three">
+												<div class="row">
 													<div class="col-sm-4 col-xs-12">
 														<!-- promotion-box-->
 														<div class="promotion-box">
 															<div class="promotion-box-center color-2">
 																<div class="prince">
-																	Silver
+																	Free
 																</div>
 															</div>
 															<!-- End promotion-box-center-->
 
 															<!-- promotion-box-info-->
 															<div class="promotion-box-info">
-																<p>Select a bonus 70% and access to all our discounts.</p>
-																<a href="#" class="btn btn-primary">View Details</a>
+																<ul class="list-styles">
+																	<li><i class="fa fa-arrow-right"></i> 3-5 Images Upload</li>
+																	<li><i class="fa fa-arrow-right"></i> No Video</li>
+																	<li><i class="fa fa-arrow-right"></i> No Visibility</li>
+																	<li><i class="fa fa-arrow-right"></i> No Website link</li>
+																</ul>
+																<div class="custom-checkbox text_center pad_bottm">
+																	<input type="checkbox" id="w_check" name='w_check' value='1' class="free_check checkbox-input" onclick='check()'>
+																	<label for="withoutlogin_remember">is Urgent</label>
+																</div>
+																<ul class="list-styles free_hide" style="display:none;">
+																	<li><i class="fa fa-arrow-right"></i> 9 Images</li>
+																	<li><i class="fa fa-arrow-right"></i> Video Link</li>
+																	<li><i class="fa fa-arrow-right"></i> Website link</li>
+																</ul>
+																<a href="#" class="btn btn-primary">Select Package</a>
 															</div>
+															
 															<!-- End promotion-box-info-->
 														</div>
 														<!-- End promotion-box-->
@@ -798,28 +818,110 @@
 													<div class="col-sm-4 col-xs-12">
 														<!-- promotion-box-->
 														<div class="promotion-box">
+															<div class="promotion-box-center color-1">
+																<div class="prince">
+																	Gold
+																</div>
+															</div>
+															<!-- End promotion-box-center-->
+
+															<!-- promotion-box-info-->
+															<div class="promotion-box-info">
+																<ul class="list-styles">
+																	<li><i class="fa fa-arrow-right"></i> Upload 9 Images</li>
+																	<li><i class="fa fa-arrow-right"></i> Video link</li>
+																	<li><i class="fa fa-arrow-right"></i> More Visibility</li>
+																	<li><i class="fa fa-arrow-right"></i> Website link</li>
+																</ul>
+																<div class="custom-checkbox fl text_center pad_bottm">
+																	<input type="checkbox" id="gold_check" class="gold_check checkbox-input" >
+																	<label for="gold_check">is Urgent</label>
+																</div>
+																<ul class="list-styles gold_hide" style="display:none;">
+																	<li><i class="fa fa-arrow-right"></i> 12 Images</li>
+																</ul>
+																<a href="#" class="btn btn-primary">Select Package</a>
+															</div>
+															
+															<!-- End promotion-box-info-->
+														</div>
+														<!-- End promotion-box-->
+													</div>
+													
+													<div class="col-sm-4 col-xs-12">
+														<!-- promotion-box-->
+														<div class="promotion-box">
 															<div class="promotion-box-center color-3">
 																<div class="prince">
 																	Platinum
 																</div>
 															</div>
+															<!-- End promotion-box-center-->
 
+															<!-- promotion-box-info-->
 															<div class="promotion-box-info">
-																<p>Select a bonus 50% and access to all our discounts.</p>
-																<a href="#" class="btn btn-primary">View Details</a>
+																<ul class="list-styles">
+																	<li><i class="fa fa-arrow-right"></i> Upload 15 Images</li>
+																	<li><i class="fa fa-arrow-right"></i> Video Upload</li>
+																	<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
+																	<li><i class="fa fa-arrow-right"></i> Website link</li>
+																	<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
+																</ul>
+																<a href="#" class="btn btn-primary">Select Package</a>
 															</div>
+															
+															<!-- End promotion-box-info-->
 														</div>
 														<!-- End promotion-box-->
 													</div>
 												</div>
 											</div>
-											<!-- end Tab Two - Preferences -->
-
-											<!-- Tab Theree - faq -->
-											<div class="tab-pane" id="three">
-												
-											</div>
 											<!-- Tend ab Theree - faq -->
+											
+											<div class="tab-pane " id="four">                                        
+												<div class="row">
+													<div class="col-sm-6"> 
+														<div class="input form-theme ">
+															<label for="bus_name">Business Name :</label>
+															<input type="text" id="bus_name" class="" name="bus_name" placeholder="Enter Business Name">
+														</div>
+														<div class="input form-theme ">
+															<label for="cnt_per_bus">Contact Person Name :</label>
+															<input type="text" id="cnt_per_bus" class="" name="cnt_per_bus" placeholder="Enter Contact Person Name">
+														</div>
+														<div class="input form-theme ">
+															<label for="mbl_no_bus">Mobile Number :</label>
+															<input type="text" id="mbl_no_bus" class="" name="mbl_no_bus" placeholder="Enter Mobile Number">
+														</div>
+														<div class="input form-theme">
+															<label for="email_id_bus">Email Id :</label>
+															<input type="email" id="email_id_bus" name="email_id_bus" placeholder="Enter Email" >
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="input form-theme ">
+															<label for="cnt_per_consu">Contact Name :</label>
+															<input type="text" id="cnt_per_consu" class="" name="cnt_per_consu" placeholder="Enter Contact Person Name">
+														</div>
+														<div class="input form-theme ">
+															<label for="mbl_no_cons">Mobile Number :</label>
+															<input type="text" id="mbl_no_cons" class="" name="mbl_no_cons" placeholder="Enter Mobile Number">
+														</div>
+														<div class="input form-theme">
+															<label for="email_id_consu">Email Id :</label>
+															<input type="email" id="email_id_consu" name="email_id_consu" placeholder="Enter Email" >
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div class="tab-pane " id="five">                                        
+												<div class="row">
+													<div class="col-sm-6 top_10"> 
+													
+													</div>
+												</div>
+											</div>
 										</div>  
 									</div>                 
 								</div>

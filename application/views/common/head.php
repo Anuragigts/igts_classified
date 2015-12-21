@@ -29,6 +29,7 @@
 				});
 			});
 		</script>
+		
 		<script>
 			$(document).ready(function(){
 				$(".con_image").click(function(){
@@ -38,7 +39,24 @@
 			});
 		</script>
 		
-		 <!-- use jssor.slider.debug.js instead for debug -->
+		<script>
+			$(document).ready(function(){
+				$(".free_check").click(function(){
+					$(".free_hide").show(1000);
+
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$(".gold_check").click(function(){
+					$(".gold_hide").show(1000);
+
+				});
+			});
+		</script>
+		
+		<!-- use jssor.slider.debug.js instead for debug -->
 		<script>
 			jQuery(document).ready(function ($) {
 				
