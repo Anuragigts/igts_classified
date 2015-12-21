@@ -43,7 +43,11 @@ class Classified extends CI_Controller{
                     $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
 
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
-                    $data['free_ads'] = $this->classifed_model->free_ads();            	
+                    $data['free_ads'] = $this->classifed_model->free_ads();  
+
+                    /*business ads in home*/  
+                    $data['business_ads'] = $this->classifed_model->business_ads();  
+
                 }
                 else{
                     /*over all ads for most value ads(displayed for jobs only)*/
@@ -60,6 +64,10 @@ class Classified extends CI_Controller{
 
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
                     $data['free_ads'] = $this->classifed_model->free_ads();
+
+                    /*business ads in home*/ 
+                    $data['business_ads'] = $this->classifed_model->business_ads();             
+
                 }
 
                 $this->load->view("classified_layout/inner_template",$data);
