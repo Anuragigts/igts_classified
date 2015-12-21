@@ -78,7 +78,7 @@ $(document).ready(function($) {
    });
     $("#boxes-carousel1").owlCarousel({
        autoPlay: 3200,      
-       items : 4,
+       items : 3,
        navigation: true,
        itemsDesktopSmall : [1024,3],
        itemsTablet : [768,2],
