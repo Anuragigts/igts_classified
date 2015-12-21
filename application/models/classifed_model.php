@@ -234,6 +234,27 @@ cru.*,ads.*, (SELECT `img_name` FROM `ad_img` WHERE ad_id = cru.ad_id GROUP BY a
 		}	
 	}
 
+
+	/*business ads in home page*/
+	public function business_ads(){
+		$this->db->select("spl.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`link`, ads.`number`, 
+(SELECT login_email FROM `login` WHERE login_id = ads.`login_id`) AS mail_id, ads.`created_on`");
+		$this->db->from("`spotlight` AS spl");
+		$this->db->join("`advertisement` AS ads", "ads.ad_id = spl.`ad_id`", "join");
+		$this->db->join("ad_img AS img", "img.ad_id = spl.`ad_id`", "left");
+		$this->db->limit(8);
+		$this->db->group_by("spl.`ad_id`");
+		$this->db->order_by('ads.created_on', 'ASC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
 }
 
 
