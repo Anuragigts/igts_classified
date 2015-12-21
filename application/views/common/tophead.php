@@ -14,8 +14,8 @@
 							</a> 
                         </li>
 					</ul>
-					<ul class="collapse pull-right login_bor">
-                        <li class="social-bar"> <a href="#">FOLLOW US</a> 
+					<ul class="collapse pull-right login_bor" style="margin-top: 3px;height: 53px;">
+                        <!--<li class="social-bar"> <a href="#">FOLLOW US</a> 
                             <ul class="drop-down hover-zoom">
                                 <li> <a href="#" target="_blank"><i class="fa fa-flickr" ></i> </a> </li>
                                 <li> <a href="#" target="_blank"><i class="fa fa-instagram"></i> </a> </li>
@@ -24,7 +24,7 @@
                                 <li> <a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a> </li>
                                 <li> <a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a> </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <?php $lid  =$this->session->userdata("login_id");
                         if($lid == ''){ ?>
                         <li><a href="login">LOGIN</a></li>
