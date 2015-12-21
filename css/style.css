@@ -1687,11 +1687,11 @@ hr.separator:before {
   	height: auto;
 }
 .color-1{
-	background-color: #C50D0D;
+	background-color: #0DC5B2;
 	color: #fff;
 }
 .promotion-box-center.color-1:after {
-  border-top: 20px solid #C50D0D;
+  border-top: 20px solid #0DC5B2;
  }
 .color-2{
 	background-color: #0088cc;
@@ -1717,7 +1717,7 @@ hr.separator:before {
 .promotion-box-center{
 	position: relative;
 	text-align: center;
-	padding: 20px 0;
+	padding: 10px 0;
 	font-weight: bold;
 }
 .promotion-box-center .prince{
@@ -3832,3 +3832,10 @@ body{
 	color: #FFF;
 
 }
+.text_center{
+	text-align:center;
+}
+.pad_bottm{
+	padding-bottom:10px;
+}
+
