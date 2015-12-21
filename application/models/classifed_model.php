@@ -97,7 +97,7 @@ cru.*,ads.*, (SELECT `img_name` FROM `ad_img` WHERE ad_id = cru.ad_id GROUP BY a
 	}
 
 
-
+	/*over all ads for most value ads(displayed for jobs only)*/
 	public function most_ads(){
 		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
 		$this->db->from("`featured` AS fs");
@@ -115,6 +115,83 @@ cru.*,ads.*, (SELECT `img_name` FROM `ad_img` WHERE ad_id = cru.ad_id GROUP BY a
 			return array();
 		}
 	}
+
+/*dammy for most value ads for services */
+	public function most_ads_services(){
+		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
+		$this->db->from("`featured` AS fs");
+		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
+		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
+		$this->db->limit('3');
+		$this->db->group_by("fs.`ad_id`");
+		$this->db->order_by('ads.created_on', 'ASC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	/*dammy for most value ads for pets */
+	public function most_ads_pets(){
+		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
+		$this->db->from("`featured` AS fs");
+		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
+		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
+		$this->db->limit(4, 6);
+		$this->db->group_by("fs.`ad_id`");
+		$this->db->order_by('ads.created_on', 'ASC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+/*dammy for most value ads for deals */
+	public function most_ads_deals(){
+		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
+		$this->db->from("`featured` AS fs");
+		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
+		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
+		$this->db->limit(1,3);
+		$this->db->group_by("fs.`ad_id`");
+		$this->db->order_by('ads.created_on', 'DESC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+/*dammy for most value ads for ezone */
+	public function most_ads_ezone(){
+		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
+		$this->db->from("`featured` AS fs");
+		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
+		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
+		$this->db->limit(4,6);
+		$this->db->group_by("fs.`ad_id`");
+		$this->db->order_by('ads.created_on', 'DESC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
 
 	public function sig_ads(){
 		$this->db->select("spl.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`link`, ads.`number`, 
@@ -145,7 +222,7 @@ cru.*,ads.*, (SELECT `img_name` FROM `ad_img` WHERE ad_id = cru.ad_id GROUP BY a
 		$this->db->where('is_urgent', 0);
 		$this->db->where('is_spotlight', 0);
 		$this->db->where('is_featured', 0);
-		$this->db->limit(3);
+		$this->db->limit(8);
 		$this->db->order_by('ads.created_on', 'ASC');
 		$m_res = $this->db->get();
 
