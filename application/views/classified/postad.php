@@ -110,7 +110,7 @@
 														<div class="row">
 															<div class="col-md-6 clearfix">
 																<h3>Professional</h3>
-																<h4><a href="#">Coaching & Training</a></h4>
+																<h4><a href="<?php echo base_url(); ?>postad_create">Coaching & Training</a></h4>
 																<h4><a href="#">Business Services</a></h4>
 																<h4><a href="#">Party & Wedding Services</a></h4>
 																<h4><a href="#">IT & Digital Marketing Services</a></h4>
@@ -799,7 +799,7 @@
 																	<li><i class="fa fa-arrow-right"></i> No Website link</li>
 																</ul>
 																<div class="custom-checkbox text_center pad_bottm">
-																	<input type="checkbox" id="w_check" name='w_check' value='1' class="free_check checkbox-input" onclick='check()'>
+																	<input type="checkbox" id="free_check" name='free_check' value='1' class="free_check checkbox-input" onclick='check()'>
 																	<label for="withoutlogin_remember">is Urgent</label>
 																</div>
 																<ul class="list-styles free_hide" style="display:none;">
@@ -834,7 +834,7 @@
 																	<li><i class="fa fa-arrow-right"></i> Website link</li>
 																</ul>
 																<div class="custom-checkbox fl text_center pad_bottm">
-																	<input type="checkbox" id="gold_check" class="gold_check checkbox-input" >
+																	<input type="checkbox" id="gold_check" name='gold_check' class="gold_check checkbox-input" >
 																	<label for="gold_check">is Urgent</label>
 																</div>
 																<ul class="list-styles gold_hide" style="display:none;">

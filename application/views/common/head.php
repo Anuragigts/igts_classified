@@ -18,12 +18,14 @@
 		<script type="text/javascript" src="js/marquee.js"></script>
 		
 		<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<!-- use jssor.slider.debug.js instead for debug -->
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){
 				$(".bus_image").click(function(){
+					
 					$(".bus_img").show(1000);
 
 				});
@@ -42,18 +44,41 @@
 		<script>
 			$(document).ready(function(){
 				$(".free_check").click(function(){
-					$(".free_hide").show(1000);
+					 var ch = document.getElementById('free_check').checked;
+					 if (ch) {
+					 	$(".free_hide").show(1000);
+					 }
+					 else{
+					 	$(".free_hide").hide(1000);
+					 }
+					
 
 				});
 			});
 		</script>
+
+		<!-- postad creat validation -->
+		<script type="text/javascript">
+
+		</script>
+
 		<script>
 			$(document).ready(function(){
 				$(".gold_check").click(function(){
+					 var ch = document.getElementById('gold_check').checked;
+					 if (ch) {
 					$(".gold_hide").show(1000);
+					 }
+					 else{
+					$(".gold_hide").hide(1000);					 	
+					 }
+
 
 				});
 			});
+
+
+
 		</script>
 		
 		<!-- use jssor.slider.debug.js instead for debug -->
@@ -92,3 +117,5 @@
 				//responsive code end
 			});
 		</script>
+
+		
