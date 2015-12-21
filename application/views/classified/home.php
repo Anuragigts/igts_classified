@@ -324,31 +324,129 @@
                                 <div class="col-sm-3">
 									<img src="img/recentad.png" alt="" style="height:368px;" class="img-responsive">
 								</div>
-								 <?php foreach (@$free_ads as $f_ads) {
-                            	?>
-								<div class="col-sm-3">
-									<?php if($f_ads->img_name == ''){
-													?>
-									<div class="img-hover">
-										<img src="ad_images/no_image.png" alt="" class="img-responsive">
-										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-									 <?php 	}
-												else{ ?>
-												<div class="img-hover">
-										<img src="ad_images/<?php echo $f_ads->img_name; ?>" alt="" class="img-responsive">
-										<div class="overlay"><a href="ad_images/<?php echo $f_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-												<?php	} ?>
-									<div class="info-gallery">
-										<h3><?php echo substr($f_ads->title, 0, 20); ?></h3>
-										<hr class="separator">
-										<p><?php echo substr($f_ads->ad_desc, 0, 20); ?> </p>
-										<div class="content-btn top_10"><a href="#" class="btn btn-primary">View Details</a></div>
-										<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+								<div class="col-sm-9">
+									<div id="boxes-carousel1">
+										<!-- Item carousel Boxed-->
+										<div>
+											<div class="img-hover">
+												<img src="img/mostvalue/sample6.JPG" alt="" class="img-responsive">
+												<div class="overlay"><a href="img/mostvalue/sample6.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>
+
+											<div class="info-gallery">
+												<h3>Sample Text Here</h3>
+												<hr class="separator">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+											</div>
+										</div>
+										<!-- End Item carousel Boxed-->
+
+										<!-- Item carousel Boxed-->
+										<div>
+											<div class="img-hover">
+												<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
+												<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>
+
+											<div class="info-gallery">
+												<h3>Sample Text Here</h3>
+												<hr class="separator">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+											   <div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
+											</div>
+										</div>
+										<!-- End Item carousel Boxed-->
+
+										<!-- Item carousel Boxed-->
+										<div>
+											<div class="img-hover">
+												<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
+												<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>
+
+											<div class="info-gallery">
+												<h3>Sample Text Here</h3>
+												<hr class="separator">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+											</div>
+										</div>
+										<!-- End Item carousel Boxed-->
+
+										<!-- Item carousel Boxed-->
+										<div>
+											<div class="img-hover">
+												<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
+												<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>
+
+											<div class="info-gallery">
+												<h3>Sample Text Here</h3>
+												<hr class="separator">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+											</div>
+										</div>
+										<!-- End Item carousel Boxed-->
+
+										<!-- Item carousel Boxed-->
+										<div>
+											<div class="img-hover">
+												<img src="img/mostvalue/sample1.JPG" alt="" class="img-responsive">
+												<div class="overlay"><a href="img/mostvalue/sample1.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>
+
+											<div class="info-gallery">
+												<h3>Sample Text Here</h3>
+												<hr class="separator">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+											</div>
+										</div>
+										<!-- End Item carousel Boxed-->
 									</div>
 								</div>
-								 <?php	} ?>
 								
 								
                             </div>
@@ -363,11 +461,12 @@
                         <!-- End Title-->
 						
 						<div class="container">
-                            <div class="row">
-                                <div class="col-sm-3">
+							<div id="boxes-carousel">
+								<!-- Item carousel Boxed-->
+								<div>
 									<div class="img-hover">
-										<img src="img/mostvalue/sample5.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample5.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="img/mostvalue/sample6.JPG" alt="" class="img-responsive">
+										<div class="overlay"><a href="img/mostvalue/sample6.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 
 									<div class="info-gallery">
@@ -375,18 +474,10 @@
 										<hr class="separator">
 									</div>
 								</div>
-								<div class="col-sm-3">
-									<div class="img-hover">
-										<img src="img/mostvalue/sample5.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample5.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
+								<!-- End Item carousel Boxed-->
 
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-									</div>
-								</div>
-								<div class="col-sm-3">
+								<!-- Item carousel Boxed-->
+								<div>
 									<div class="img-hover">
 										<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
 										<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
@@ -397,97 +488,111 @@
 										<hr class="separator">
 									</div>
 								</div>
-								<div class="col-sm-3">
+								<!-- End Item carousel Boxed-->
+
+								<!-- Item carousel Boxed-->
+								<div>
 									<div class="img-hover">
 										<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
 										<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 
 									<div class="info-gallery">
-										<h3><a href="#">Sample Text Here</a></h3>
+										<h3>Sample Text Here</h3>
 										<hr class="separator">
 									</div>
 								</div>
-                            </div>
+								<!-- End Item carousel Boxed-->
+
+								<!-- Item carousel Boxed-->
+								<div>
+									<div class="img-hover">
+										<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
+										<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+
+									<div class="info-gallery">
+										<h3>Sample Text Here</h3>
+										<hr class="separator">
+								   </div>
+								</div>
+								<!-- End Item carousel Boxed-->
+
+								<!-- Item carousel Boxed-->
+								<div>
+									<div class="img-hover">
+										<img src="img/mostvalue/sample1.JPG" alt="" class="img-responsive">
+										<div class="overlay"><a href="img/mostvalue/sample1.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+
+									<div class="info-gallery">
+										<h3>Sample Text Here</h3>
+										<hr class="separator">
+									</div>
+								</div>
+								<!-- End Item carousel Boxed-->
+							</div>
                         </div>
 						
 						<div class="container">
                             <div class="row">
-								<div id="m1" class="marquee">	
+								<!--<div id="m1" class="marquee">	
 						
-								</div>
-                               <!--- <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 100px; overflow: hidden; visibility: hidden;">
-									<!-- Loading Screen --
+								</div>-->
+								<div  id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 60px; overflow: hidden; visibility: hidden;">
+									<!-- Loading Screen -->
 									<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 										<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 										<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 									</div>
-									<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 100px; overflow: hidden;">
+									<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 60px; overflow: hidden;">
 										<div style="display: none;">
-											<img data-u="image" src="img/amazon.jpg" />
+											<img data-u="image" src="img/brand/acer.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/android.jpg" />
+											<img data-u="image" src="img/brand/canon.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/bitly.jpg" />
+											<img data-u="image" src="img/brand/casio.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/blogger.jpg" />
+											<img data-u="image" src="img/brand/dell.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/dnn.jpg" />
+											<img data-u="image" src="img/brand/htc.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/drupal.jpg" />
+											<img data-u="image" src="img/brand/intel.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/ebay.jpg" />
+											<img data-u="image" src="img/brand/iPhone.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/facebook.jpg" />
+											<img data-u="image" src="img/brand/lenevo.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/google.jpg" />
+											<img data-u="image" src="img/brand/lg.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/ibm.jpg" />
+											<img data-u="image" src="img/brand/motorola.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/ios.jpg" />
+											<img data-u="image" src="img/brand/nexus.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/joomla.jpg" />
+											<img data-u="image" src="img/brand/nokia.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/linkedin.jpg" />
+											<img data-u="image" src="img/brand/ricoh.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/mac.jpg" />
+											<img data-u="image" src="img/brand/samsung.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/magento.jpg" />
-										</div>
-										<div style="display: none;">
-											<img data-u="image" src="img/pinterest.jpg" />
-										</div>
-										<div style="display: none;">
-											<img data-u="image" src="img/samsung.jpg" />
-										</div>
-										<div style="display: none;">
-											<img data-u="image" src="img/twitter.jpg" />
-										</div>
-										<div style="display: none;">
-											<img data-u="image" src="img/windows.jpg" />
-										</div>
-										<div style="display: none;">
-											<img data-u="image" src="img/wordpress.jpg" />
-										</div>
-										<div style="display: none;">
-											<img data-u="image" src="img/youtube.jpg" />
+											<img data-u="image" src="img/brand/Windows.png" />
 										</div>
 									</div>
-								</div>--->
+								</div>
                             </div>
                         </div>
                     </div>
