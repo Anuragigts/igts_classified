@@ -520,74 +520,28 @@
 						<div class="container">
 							<div id="boxes-carousel">
 								<!-- Item carousel Boxed-->
+								<?php foreach ($business_ads as $b_ads) { ?>
 								<div>
+									<?php if($b_ads->img_name == ''){ ?>
 									<div class="img-hover">
-										<img src="img/mostvalue/sample6.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample6.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+								<?php	}
+									else{ ?>
+									<div class="img-hover">
+										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+								<?php	} ?>
+									
 
 									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
+										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
 										<hr class="separator">
 									</div>
-								</div>
-								<!-- End Item carousel Boxed-->
-
-								<!-- Item carousel Boxed-->
-								<div>
-									<div class="img-hover">
-										<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-									</div>
-								</div>
-								<!-- End Item carousel Boxed-->
-
-								<!-- Item carousel Boxed-->
-								<div>
-									<div class="img-hover">
-										<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-									</div>
-								</div>
-								<!-- End Item carousel Boxed-->
-
-								<!-- Item carousel Boxed-->
-								<div>
-									<div class="img-hover">
-										<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-								   </div>
-								</div>
-								<!-- End Item carousel Boxed-->
-
-								<!-- Item carousel Boxed-->
-								<div>
-									<div class="img-hover">
-										<img src="img/mostvalue/sample1.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample1.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-									</div>
-								</div>
-								<!-- End Item carousel Boxed-->
+								</div>	
+							<?php	} ?>
 							</div>
                         </div>
 						
