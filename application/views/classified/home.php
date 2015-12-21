@@ -267,6 +267,7 @@
                             <div class="portfolioContainer">
                                 
                                 <!-- Item Gallery-->
+                                <!-- most valued ads for jobs -->
                                  <?php foreach ($most_ads as $m_ads){
                             		?>
                                 <div class="col-xs-12 col-sm-6 col-md-3 jobs">
@@ -300,8 +301,148 @@
 									</div>
                                 </div>
                                 <?php } ?>
-                                
-                                <!-- End Item Gallery-->
+
+
+                                <!-- most valued ads for services -->
+                                 <?php foreach ($most_ads_services as $m_ads_services){
+                            		?>
+                                <div class="col-xs-12 col-sm-6 col-md-3 services">
+                                	<?php if($m_ads_services->img_name == ''){
+																	?>
+                                    <div class="img-hover">
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_services->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
+
+									<div class="info-gallery">
+										<h3><?php echo substr($m_ads_services->title, 0, 20); ?></h3>
+										<hr class="separator">
+										<p><?php echo substr($m_ads_services->ad_desc, 0, 20); ?> </p>
+										<ul class="starts">
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+										</ul>
+										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+									</div>
+                                </div>
+                                <?php } ?>
+
+                                 <!-- most valued ads for pets -->
+                                 <?php foreach ($most_ads_pets as $m_ads_pets){
+                            		?>
+                                <div class="col-xs-12 col-sm-6 col-md-3 pets">
+                                	<?php if($m_ads_pets->img_name == ''){
+																	?>
+                                    <div class="img-hover">
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_pets->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
+
+									<div class="info-gallery">
+										<h3><?php echo substr($m_ads_pets->title, 0, 20); ?></h3>
+										<hr class="separator">
+										<p><?php echo substr($m_ads_pets->ad_desc, 0, 20); ?> </p>
+										<ul class="starts">
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+										</ul>
+										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+									</div>
+                                </div>
+                                <?php } ?>
+
+                                <!-- most valued ads for deals -->
+                                 <?php foreach ($most_ads_deals as $m_ads_deals){
+                            		?>
+                                <div class="col-xs-12 col-sm-6 col-md-3 deals">
+                                	<?php if($m_ads_deals->img_name == ''){
+																	?>
+                                    <div class="img-hover">
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_deals->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_deals->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
+
+									<div class="info-gallery">
+										<h3><?php echo substr($m_ads_deals->title, 0, 20); ?></h3>
+										<hr class="separator">
+										<p><?php echo substr($m_ads_deals->ad_desc, 0, 20); ?> </p>
+										<ul class="starts">
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+										</ul>
+										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+									</div>
+                                </div>
+                                <?php } ?>
+
+                                <!-- most valued ads for ezone -->
+                                 <?php foreach ($most_ads_ezone as $m_ads_ezone){
+                            		?>
+                                <div class="col-xs-12 col-sm-6 col-md-3 ezone">
+                                	<?php if($m_ads_ezone->img_name == ''){
+																	?>
+                                    <div class="img-hover">
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_ezone->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
+
+									<div class="info-gallery">
+										<h3><?php echo substr($m_ads_ezone->title, 0, 20); ?></h3>
+										<hr class="separator">
+										<p><?php echo substr($m_ads_ezone->ad_desc, 0, 20); ?> </p>
+										<ul class="starts">
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+										</ul>
+										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+									</div>
+                                </div>
+                                <?php } ?>
+
                             </div>   
                             <!-- End Items Gallery filters-->       
                         </div>
@@ -327,16 +468,26 @@
 								<div class="col-sm-9">
 									<div id="boxes-carousel1">
 										<!-- Item carousel Boxed-->
+										<?php 
+										// echo "<pre>"; print_r(@$free_ads);
+										foreach ($free_ads as $free_val) { ?>
 										<div>
+											<?php if ($free_val->img_name == '') { ?>
 											<div class="img-hover">
-												<img src="img/mostvalue/sample6.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample6.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+												<img src="ad_images/no_image.png" alt="" class="img-responsive">
+												<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>	
+									<?php		}
+											else{ ?>
+											<div class="img-hover">
+												<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="" class="img-responsive">
+												<div class="overlay"><a href="ad_images/<?php echo $free_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 											</div>
-
+										<?php	} ?>
 											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
+												<h3><?php echo substr($free_val->title, 0, 20); ?></h3>
 												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<p><?php echo substr($free_val->ad_desc, 0, 20); ?> </p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -347,103 +498,9 @@
 												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
 												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
 											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-											   <div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
-											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample1.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample1.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
-											</div>
-										</div>
+										</div>	
+									<?php	}
+										 ?>
 										<!-- End Item carousel Boxed-->
 									</div>
 								</div>
