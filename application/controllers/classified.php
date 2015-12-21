@@ -31,15 +31,33 @@ class Classified extends CI_Controller{
                                 $data['news'] = $news1;
                                                      
                 if($lid != ''){
-                 
+                 /*over all ads for most value ads(displayed for jobs only)*/
                  $data['most_ads'] = $this->classifed_model->most_ads();
-                    // echo "<pre>"; print_r($this->queries()); exit;
+                    /*dammy for most value ads for services */
+                    $data['most_ads_services'] = $this->classifed_model->most_ads_services();
+                    /*dammy for most value ads for pets */
+                    $data['most_ads_pets'] = $this->classifed_model->most_ads_pets();
+                    /*dammy for most value ads for deals */
+                    $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
+                    /*dammy for most value ads for ezone */
+                    $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
+
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
                     $data['free_ads'] = $this->classifed_model->free_ads();            	
                 }
                 else{
+                    /*over all ads for most value ads(displayed for jobs only)*/
                 	$data['most_ads'] = $this->classifed_model->most_ads();
-                    // echo "<pre>"; print_r($this->queries()); exit;
+                    
+                     /*dammy for most value ads for services */
+                    $data['most_ads_services'] = $this->classifed_model->most_ads_services();
+                    /*dammy for most value ads for pets */
+                    $data['most_ads_pets'] = $this->classifed_model->most_ads_pets();
+                    /*dammy for most value ads for deals */
+                    $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
+                    /*dammy for most value ads for ezone */
+                    $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
+
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
                     $data['free_ads'] = $this->classifed_model->free_ads();
                 }
