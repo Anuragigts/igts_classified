@@ -26,7 +26,7 @@
 	<div class="content_info">
                     <div class="content_resalt paddings-mini tabs-detailed">
                         <div class="container wow fadeInUp">
-                            <form method="post" class="" action="#" id="postanad">
+                            <form method="post" class="" action="" id="postanad">
 								<div class="row">
 									<div class="col-md-10 col-md-offset-1 col-sm-12  col-xs-12  login_padd">
 										<!-- Nav Tabs-->
@@ -55,26 +55,35 @@
 												<div class="row">
 													<div class="col-sm-6 top_10"> 
 														<label class="radio-inline ">
-															<input type="radio" class="bus_image" name="optradio" id="Business"> Business
+															<input type="radio" class="bus_image" name="optradio" id="Business" value='b'> Business<sup class='text-red'>*</sup>
 														</label>
 														<label class="radio-inline">
-															<input type="radio" class="con_image" name="optradio" id="Consumer"> Consumer
+															<input type="radio" class="con_image" name="optradio" id="Consumer" value='c'> Consumer<sup class='text-red'>*</sup>
+															<span class="postad_error1">Select The type</span>
 														</label>
+
 														<div class="input form-theme bus_img" style="display:none;">
 															<label for="business_logo">Business Logo :</label>
-															<input type="file" id="bus_img" class="" name="bus_img" >
+															<input type="file" id="bus_img" class="" name="bus_img" onchange="fileupload(this);" >
+															<span id="lblError" style="color: red;"></span>
 														</div>
+														<div class='img_hide' style='display: none;'>
+															 <img id="blah" src="#" />
+														</div>
+
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="postal_code">PostalCode :</label>
+															<label for="postal_code">PostalCode<sup class='text-red'>*</sup> :</label>
 															<input type="text" id="postal_code" name="postal_code" placeholder="Enter PostalCode" >
+															<span class="postad_error">PostalCode is required</span>
 														</div>
 													</div>
 													<div class="col-md-sm text_center top_10">
 														<div class="input clearfix">
 															<a href="#two" data-toggle="tab" id='check_file'>
-																<input type="button" id="login" name='login' class="btn btn-primary" value="Next Process">
+																<input type="button" id="frst_screen" name='frst_screen' class="btn btn-primary" value="Next Process">
+
 															</a>
 														</div>
 													</div>
@@ -88,76 +97,83 @@
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="deal_tag">Deal Tag :</label>
+															<label for="deal_tag">Deal Tag <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="deal_tag" name="deal_tag" placeholder="Enter Deal Tag" >
+															<span class="deal_error">Deal Tag is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="deal_description">Deal Description :</label>
+															<label for="deal_description">Deal Description <sup class='text-red'>*</sup> :</label>
 															<textarea type="text" id="deal_description" name="deal_description" placeholder="Enter Deal Description" row="0"></textarea>
+															<span class="deal_error">Deal Description is required</span>
 														</div>
 													</div>
 												</div>
 												<div class="row">
 													<div class="col-sm-6 top_10"> 
-														<label for="family_race">Price :</label></br>
+														<label for="family_race">Price <sup class='text-red'>*</sup> :</label></br>
 														<label class="radio-inline">
-															<input type="radio" name="optradio" id="Pound"> £ ( Pound )
+															<input type="radio" name="currency" id="Pound" value='pound' checked /> £ ( Pound )
 														</label>
 														<label class="radio-inline">
-															<input type="radio" name="optradio" id="Euro"> € ( Euro )
+															<input type="radio" name="currency" id="Euro" value='euro' /> € ( Euro )
 														</label>
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="family_race">Family Race :</label>
+															<label for="family_race">Family Race <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="family_race" name="family_race" placeholder="Enter Family Race" >
+															<span class="deal_error">Family Race is required</span>
 														</div>
 													</div>
 												</div>
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="type">Type :</label>
+															<label for="type">Type <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="type" name="type" placeholder="Enter Type" >
+															<span class="deal_error">Type is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="age">Age :</label>
+															<label for="age">Age <sup class='text-red'>*</sup> :</label>
 															<select class="form-control" id="sel1">
-																<option>Select Age</option>
-																<option>0 to 3 Months</option>
-																<option>3 to 6 Months</option>
-																<option>6 to 9 Months</option>
-																<option>9 to 12 Months</option>
-																<option>> 1 Year < 2 Years</option>
-																<option>> 2 Year < 3 Years</option>
-																<option>> 3 Year < 4 Years</option>
-																<option>> 4 Year < 5 Years</option>
+																<option value=''>Select Age</option>
+																<option value='0-3'>0 to 3 Months</option>
+																<option value='3-6'>3 to 6 Months</option>
+																<option value='6-9'>6 to 9 Months</option>
+																<option value='9-12'>9 to 12 Months</option>
+																<option value='1-2'> 1 Year < 2 Years</option>
+																<option value='2-3'> 2 Year < 3 Years</option>
+																<option value='3-4'> 3 Year < 4 Years</option>
+																<option value='4-5'> 4 Year < 5 Years</option>
 															</select>
+															<span class="deal_error">Age is required</span>
 														</div>
 													</div>
 												</div>
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="height">Height :</label>
+															<label for="height">Height <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="height" name="height" placeholder="Enter Height" >
+															<span class="deal_error">Height is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
-															<label for="gender">Gender :</label>
+															<label for="gender">Gender <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="gender" name="gender" placeholder="Enter Gender" >
+															<span class="deal_error">Gender is required</span>
 														</div>
 													</div>
 												</div>
 												<div class="row">
 												<div class="col-md-12 text_center top_10">
 													<div class="input clearfix">
-														<a href="#three" data-toggle="tab">
+														<a href="#three" data-toggle="tab" id='deal_form'>
 														<input type="button" id="login" name='login' class="btn btn-primary" value="Next Process">
 													</a>
 													</div>
@@ -269,39 +285,54 @@
 											
 											<div class="tab-pane " id="four">                                        
 												<div class="row">
-													<div class="col-sm-6"> 
+													<div class="col-sm-6" id='business_form'> 
 														<div class="input form-theme ">
-															<label for="bus_name">Business Name :</label>
+															<label for="bus_name">Business Name <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="bus_name" class="" name="bus_name" placeholder="Enter Business Name">
+															<span class="busi_error">Business Name is required</span>
 														</div>
 														<div class="input form-theme ">
-															<label for="cnt_per_bus">Contact Person Name :</label>
+															<label for="cnt_per_bus">Contact Person Name <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="cnt_per_bus" class="" name="cnt_per_bus" placeholder="Enter Contact Person Name">
+															<span class="busi_error">Contact Person Name is required</span>
 														</div>
 														<div class="input form-theme ">
-															<label for="mbl_no_bus">Mobile Number :</label>
-															<input type="text" id="mbl_no_bus" class="" name="mbl_no_bus" placeholder="Enter Mobile Number">
+															<label for="mbl_no_bus">Mobile Number <sup class='text-red'>*</sup> :</label>
+															<input type="text" id="mbl_no_bus" class="" name="mbl_no_bus" placeholder="Enter Mobile Number" maxlength='10'>
+															<span class="busi_error">Mobile Number is required</span>
 														</div>
 														<div class="input form-theme">
-															<label for="email_id_bus">Email Id :</label>
+															<label for="email_id_bus">Email Id <sup class='text-red'>*</sup> :</label>
 															<input type="email" id="email_id_bus" name="email_id_bus" placeholder="Enter Email" >
+															<span class="busi_error">Email Id is required</span>
 														</div>
 													</div>
-													<div class="col-sm-6">
+													<div class="col-sm-6" id='consumer_form'>
 														<div class="input form-theme ">
-															<label for="cnt_per_consu">Contact Name :</label>
+															<label for="cnt_per_consu">Contact Name <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="cnt_per_consu" class="" name="cnt_per_consu" placeholder="Enter Contact Person Name">
+															<span class="consum_error">Contact Name is required</span>
 														</div>
 														<div class="input form-theme ">
-															<label for="mbl_no_cons">Mobile Number :</label>
-															<input type="text" id="mbl_no_cons" class="" name="mbl_no_cons" placeholder="Enter Mobile Number">
+															<label for="mbl_no_cons">Mobile Number <sup class='text-red'>*</sup> :</label>
+															<input type="text" id="mbl_no_cons" class="" name="mbl_no_cons" placeholder="Enter Mobile Number" maxlength='10'>
+															<span class="consum_error">Mobile Number is required</span>
 														</div>
 														<div class="input form-theme">
-															<label for="email_id_consu">Email Id :</label>
+															<label for="email_id_consu">Email Id <sup class='text-red'>*</sup> :</label>
 															<input type="email" id="email_id_consu" name="email_id_consu" placeholder="Enter Email" >
+															<span class="consum_error">Email Id is required</span>
 														</div>
 													</div>
 												</div>
+												<div class="row">
+												<div class="col-md-12 text_center top_10">
+													<div class="input clearfix">
+														<input type='hidden' name='type_ads' id='type_ads' value='' />
+														<input type="submit" id="contact_screen" name='contact_screen' class="btn btn-primary" value="Next Process">
+													</div>
+												</div>
+											</div>
 											</div>
 											
 											<div class="tab-pane " id="five">                                        

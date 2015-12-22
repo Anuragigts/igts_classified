@@ -10,6 +10,12 @@ class Postad_create extends CI_Controller{
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad_create"
                         );
+
+
+             if ($this->input->post('contact_screen')) {
+                echo "<pre>"; print_r($this->input->post()); 
+             }
+
 	            $this->load->view("classified_layout/inner_template",$data);
         }
     }
