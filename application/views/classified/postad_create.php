@@ -367,4 +367,8 @@
                         </div>
                     </div>
 				</div>
+
+				</section>
+
+				<script src="js/jquery.js"></script> 
 			</section>

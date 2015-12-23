@@ -30,9 +30,9 @@
                         <li class="title">
                             <a href="index.php"><img src="img/365deal.png"  alt="Logo">  </a> 
                         </li>
-						<li style="margin-top: 8px;"><a href="login.php" class="bor_log">LOGIN</a></li>
-						<li style="margin-top: 8px;"><a href="register.php" class="bor_reg">REGISTER</a></li>
-						<li class=" pull-right"><a href="postad.php"><img src="img/postanad.png"  alt="postanad"> </a></li>
+						<li style="margin-top: 8px;"><a href="login" class="bor_log">LOGIN</a></li>
+						<li style="margin-top: 8px;"><a href="signup" class="bor_reg">REGISTER</a></li>
+						<li class=" pull-right"><a href="postad"><img src="img/postanad.png"  alt="postanad"> </a></li>
                     </ul>
                 </nav>
                 <!-- Main Nav -->

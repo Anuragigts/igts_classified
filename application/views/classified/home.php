@@ -50,7 +50,7 @@
                 </div>
                 <!-- End Shadow Semiboxed Layout -->
 
-				<section class="content_info">
+               <section class="content_info">
                     <!-- Info Resalt-->
                     <div class="">
 						<div class="row marque_sty">
@@ -192,13 +192,26 @@
 									<div id="page">
 										<div id="viewport">
 											<div id="box">
+												<?php
+											$i=1;
+											 foreach ($sig_ads as $sig_val) { ?>
 												<figure class="slide jbs-current">
+													<?php if($sig_val->img_name == ''){
+													?>
 													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+														<img src="ad_images/no_image.png" alt="" class="img-responsive">
+														<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 													</div>
+													<?php
+													}else{
+														?>
+														<div class="img-hover significant_ad">
+														<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="" class="img-responsive">
+														<div class="overlay"><a href="ad_images/<?php echo $sig_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+													</div>
+													<?php	} ?>
 													<div class="info-gallery slider_bg">
-														<h3>Sample Text Here</h3>
+														<h3><?php echo substr($sig_val->title, 0, 20); ?></h3>
 														<hr class="separator">
 														<ul class="nav nav-tabs" id="myTab">
 															<li class="active">
@@ -212,118 +225,23 @@
 
 														<div class="tab-content">
 															<!-- Tab One - DESCRIPTION -->
-															<div class="tab-pane active paddi_ng" id="description1">                                        
-																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
+															<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">                                        
+																<p><?php echo substr($sig_val->ad_desc, 0, 60); ?> </p>
 															</div>
 															<!-- end Tab One - DESCRIPTION -->
 															<!-- Tab Two - contact -->
-															<div class="tab-pane paddi_ng" id="contact1">
-																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
+															<div class="tab-pane paddi_ng" id="contact<?php echo $i; ?>">
+																<p> <?php echo $sig_val->number; ?></p>
 															</div>
 															<!-- end Tab Two - contact -->
 														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
 														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 													</div>
 												</figure>
-												<figure class="slide">
-													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample4.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-													</div>
-													<div class="info-gallery slider_bg">
-														<h3>Sample Text Here</h3>
-														<hr class="separator">
-														<ul class="nav nav-tabs" id="myTab">
-															<li class="active">
-																<a href="#description2" data-toggle="tab"> DESCRIPTION</a>
-															</li>
-															<li>
-																<a href="#contact2" data-toggle="tab"> Contact</a>
-															</li>
-														</ul>
-														<!-- End Nav Tabs-->
-
-														<div class="tab-content">
-															<!-- Tab One - DESCRIPTION -->
-															<div class="tab-pane active paddi_ng" id="description2">                                        
-																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
-															</div>
-															<!-- end Tab One - DESCRIPTION -->
-															<!-- Tab Two - contact -->
-															<div class="tab-pane paddi_ng" id="contact2">
-																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
-															</div>
-															<!-- end Tab Two - contact -->
-														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
-														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-													</div>
-												</figure>
-												<figure class="slide">
-													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample2.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-													</div>
-													<div class="info-gallery slider_bg">
-														<h3>Sample Text Here</h3>
-														<hr class="separator">
-														<ul class="nav nav-tabs" id="myTab">
-															<li class="active">
-																<a href="#description3" data-toggle="tab"> DESCRIPTION</a>
-															</li>
-															<li>
-																<a href="#contact3" data-toggle="tab"> Contact</a>
-															</li>
-														</ul>
-														<!-- End Nav Tabs-->
-
-														<div class="tab-content">
-															<!-- Tab One - DESCRIPTION -->
-															<div class="tab-pane active paddi_ng" id="description3">                                        
-																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
-															</div>
-															<!-- end Tab One - DESCRIPTION -->
-															<!-- Tab Two - contact -->
-															<div class="tab-pane paddi_ng" id="contact3">
-																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
-															</div>
-															<!-- end Tab Two - contact -->
-														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
-														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-													</div>
-												</figure>
-												<figure class="slide">
-													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-													</div>
-													<div class="info-gallery slider_bg">
-														<h3>Sample Text Here</h3>
-														<hr class="separator">
-														<ul class="nav nav-tabs" id="myTab">
-															<li class="active">
-																<a href="#description4" data-toggle="tab"> DESCRIPTION</a>
-															</li>
-															<li>
-																<a href="#contact4" data-toggle="tab"> Contact</a>
-															</li>
-														</ul>
-														<!-- End Nav Tabs-->
-
-														<div class="tab-content">
-															<!-- Tab One - DESCRIPTION -->
-															<div class="tab-pane active paddi_ng" id="description4">                                        
-																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
-															</div>
-															<!-- end Tab One - DESCRIPTION -->
-															<!-- Tab Two - contact -->
-															<div class="tab-pane paddi_ng" id="contact4">
-																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
-															</div>
-															<!-- end Tab Two - contact -->
-														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
-														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-													</div>
-												</figure>
+										<?php 
+											$i++;
+										} ?>
+											
 											</div>
 										</div>
 										<!-- <footer>
@@ -371,16 +289,29 @@
                             <div class="portfolioContainer">
                                 
                                 <!-- Item Gallery-->
+                                <!-- Item Gallery-->
+                                <!-- most valued ads for jobs -->
+                                 <?php foreach ($most_ads as $m_ads){
+                            		?>
                                 <div class="col-xs-12 col-sm-6 col-md-3 jobs">
+                                	<?php if($m_ads->img_name == ''){
+																	?>
                                     <div class="img-hover">
-										<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
 
 									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
+										<h3><?php echo substr($m_ads->title, 0, 20); ?></h3>
 										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+										<p><?php echo substr($m_ads->ad_desc, 0, 20); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -392,19 +323,31 @@
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
-                                <!-- End Item Gallery-->
+                                <?php } ?>
 
-                                <!-- Item Gallery-->
+
+                                <!-- most valued ads for services -->
+                                 <?php foreach ($most_ads_services as $m_ads_services){
+                            		?>
                                 <div class="col-xs-12 col-sm-6 col-md-3 services">
+                                	<?php if($m_ads_services->img_name == ''){
+																	?>
                                     <div class="img-hover">
-										<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_services->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
 
 									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
+										<h3><?php echo substr($m_ads_services->title, 0, 20); ?></h3>
 										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+										<p><?php echo substr($m_ads_services->ad_desc, 0, 20); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -416,19 +359,30 @@
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
-                                <!-- End Item Gallery-->
+                                <?php } ?>
 
-                                <!-- Item Gallery-->
+                                 <!-- most valued ads for pets -->
+                                 <?php foreach ($most_ads_pets as $m_ads_pets){
+                            		?>
                                 <div class="col-xs-12 col-sm-6 col-md-3 pets">
+                                	<?php if($m_ads_pets->img_name == ''){
+																	?>
                                     <div class="img-hover">
-										<img src="img/mostvalue/sample3.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample3.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_pets->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
 
 									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
+										<h3><?php echo substr($m_ads_pets->title, 0, 20); ?></h3>
 										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+										<p><?php echo substr($m_ads_pets->ad_desc, 0, 20); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -440,19 +394,30 @@
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
-                                <!-- End Item Gallery-->
+                                <?php } ?>
 
-                                <!-- Item Gallery-->
+                                <!-- most valued ads for deals -->
+                                 <?php foreach ($most_ads_deals as $m_ads_deals){
+                            		?>
                                 <div class="col-xs-12 col-sm-6 col-md-3 deals">
+                                	<?php if($m_ads_deals->img_name == ''){
+																	?>
                                     <div class="img-hover">
-										<img src="img/mostvalue/sample4.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample4.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_deals->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_deals->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
 
 									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
+										<h3><?php echo substr($m_ads_deals->title, 0, 20); ?></h3>
 										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+										<p><?php echo substr($m_ads_deals->ad_desc, 0, 20); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -461,70 +426,33 @@
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
 										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-										<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
-                                <!-- End Item Gallery-->
+                                <?php } ?>
 
-                                <!-- Item Gallery-->
+                                <!-- most valued ads for ezone -->
+                                 <?php foreach ($most_ads_ezone as $m_ads_ezone){
+                            		?>
                                 <div class="col-xs-12 col-sm-6 col-md-3 ezone">
+                                	<?php if($m_ads_ezone->img_name == ''){
+																	?>
                                     <div class="img-hover">
-										<img src="img/mostvalue/sample5.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample5.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+									<?php }
+																else{ ?>
+						<div class="img-hover">
+										<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $m_ads_ezone->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<?php	} ?>
 
 									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
+										<h3><?php echo substr($m_ads_ezone->title, 0, 20); ?></h3>
 										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-										<div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
-									</div>
-                                </div>
-                                <!-- End Item Gallery-->
-
-                                <!-- Item Gallery-->
-                                <div class="col-xs-12 col-sm-6 col-md-3 jobs">
-                                    <div class="img-hover">
-										<img src="img/mostvalue/sample2.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample2.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-										<div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
-									</div>
-                                </div>
-                                <!-- End Item Gallery-->
-
-                                <!-- Item Gallery-->
-                                <div class="col-xs-12 col-sm-6 col-md-3 services">
-                                    <div class="img-hover">
-										<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+										<p><?php echo substr($m_ads_ezone->ad_desc, 0, 20); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -536,31 +464,7 @@
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
-                                <!-- End Item Gallery-->
-
-                                <!-- Item Gallery-->
-                                <div class="col-xs-12 col-sm-6 col-md-3 pets">
-                                   <div class="img-hover">
-										<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-										<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-
-									<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-										<hr class="separator">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-									</div>
-                                </div>
-                                <!-- End Item Gallery-->
+                                <?php } ?>
                             </div>   
                             <!-- End Items Gallery filters-->       
                         </div>
@@ -586,16 +490,26 @@
 								<div class="col-sm-9">
 									<div id="boxes-carousel1">
 										<!-- Item carousel Boxed-->
+											<?php 
+										// echo "<pre>"; print_r(@$free_ads);
+										foreach ($free_ads as $free_val) { ?>
 										<div>
+											<?php if ($free_val->img_name == '') { ?>
 											<div class="img-hover">
-												<img src="img/mostvalue/sample6.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample6.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+												<img src="ad_images/no_image.png" alt="" class="img-responsive">
+												<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											</div>	
+									<?php		}
+											else{ ?>
+											<div class="img-hover">
+												<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="" class="img-responsive">
+												<div class="overlay"><a href="ad_images/<?php echo $free_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 											</div>
-
+										<?php	} ?>
 											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
+												<h3><?php echo substr($free_val->title, 0, 20); ?></h3>
 												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+												<p><?php echo substr($free_val->ad_desc, 0, 50); ?> </p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -606,103 +520,10 @@
 												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
 												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
 											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-											   <div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
-											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-											</div>
-										</div>
-										<!-- End Item carousel Boxed-->
-
-										<!-- Item carousel Boxed-->
-										<div>
-											<div class="img-hover">
-												<img src="img/mostvalue/sample1.JPG" alt="" class="img-responsive">
-												<div class="overlay"><a href="img/mostvalue/sample1.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-											</div>
-
-											<div class="info-gallery">
-												<h3>Sample Text Here</h3>
-												<hr class="separator">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-												<ul class="starts">
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
-												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
-											</div>
-										</div>
+										</div>	
+									<?php	}
+										 ?>
+										
 										<!-- End Item carousel Boxed-->
 									</div>
 								</div>
@@ -721,99 +542,45 @@
                             <div class="">
                                 <div id="boxes-carousel">
 									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover">
-											<img src="img/mostvalue/sample6.JPG" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/mostvalue/sample6.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/intel.png" /></b></div>
-										</div>
+									<?php foreach ($business_ads as $b_ads) { ?>
+								<div>
+									<?php if($b_ads->img_name == ''){ ?>
+									<div class="img-hover">
+										<img src="ad_images/no_image.png" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover">
-											<img src="img/mostvalue/sample7.JPG" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/dell.png" /></b></div>
-										</div>
+								<?php	}
+									else{ ?>
+									<div class="img-hover">
+										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
-									<!-- End Item carousel Boxed-->
+								<?php	} ?>
+									
 
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover">
-											<img src="img/mostvalue/sample8.JPG" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/mostvalue/sample8.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/lenevo.png" /></b></div>
-										</div>
+									<div class="info-gallery">
+										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
+										<hr class="separator">
 									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover">
-											<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/mostvalue/sample9.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/lg.png" /></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover">
-											<img src="img/mostvalue/sample1.JPG" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/mostvalue/sample1.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/nexus.png" /></b></div>
-										</div>
-									</div>
+								</div>	
+							<?php	} ?>
 									<!-- End Item carousel Boxed-->
 								</div>
 							</div>
                         </div>
-						<style>
-							#jssor_1{
-								width:1124px !important;
-							}
-							#jssor_1 .marque img{
-								height:45px !important;
-							}
-						</style>
+						
 						<div class="container">
                             <div class="row">
-								<div  id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 55px; overflow: hidden; visibility: hidden;">
+								<!--<div id="m1" class="marquee">	
+						
+								</div>-->
+								<div  id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 35px; overflow: hidden; visibility: hidden;">
 									<!-- Loading Screen -->
 									<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 										<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 										<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 									</div>
-									<div class="marque" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 55px; overflow: hidden;">
+									<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 35px; overflow: hidden;">
 										<div style="display: none;">
 											<img data-u="image" src="img/brand/acer.png" />
 										</div>
@@ -865,44 +632,6 @@
                         </div>
                     </div>
                 </section>
-			
+			<script src="js/jquery.js"></script> 
 			</section>
             <!-- End Content Central -->
-			
-			 <script type="text/javascript" src="js/jssor.slider.min.js"></script>
-			<!-- use jssor.slider.debug.js instead for debug -->
-			<script>
-				jQuery(document).ready(function ($) {
-					
-					var jssor_1_options = {
-					  $AutoPlay: true,
-					  $Idle: 0,
-					  $AutoPlaySteps: 4,
-					  $SlideDuration: 1600,
-					  $SlideEasing: $Jease$.$Linear,
-					  $PauseOnHover: 4,
-					  $SlideWidth: 115,
-					  $Cols: 8
-					};
-					
-					var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-					
-					//responsive code begin
-					//you can remove responsive code if you don't want the slider scales while window resizing
-					function ScaleSlider() {
-						var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-						if (refSize) {
-							refSize = Math.min(refSize, 1124);
-							jssor_1_slider.$ScaleWidth(refSize);
-						}
-						else {
-							window.setTimeout(ScaleSlider, 50);
-						}
-					}
-					ScaleSlider();
-					$(window).bind("load", ScaleSlider);
-					$(window).bind("resize", ScaleSlider);
-					$(window).bind("orientationchange", ScaleSlider);
-					//responsive code end
-				});
-			</script>
