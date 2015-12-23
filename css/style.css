@@ -4018,45 +4018,14 @@ transition-delay:.2s;
 /*postad create error messages*/
  .postad_error{
 			display: none;
-			margin-left: 10px;
 		}
 
-		.postad_error1{
-			display: none;
-			margin-left: 10px;
-		}		
-		
 		.postad_error_show{
 			color: red;
-			margin-left: 10px;
-		}
+			text-align: center;
+			}
 
-		.deal_error{
-			display: none;
-			margin-left: 10px;
-		}
-		.deal_error_show{
-			color: red;
-			margin-left: 10px;
-		}
-
-		.busi_error{
-			display: none;
-			margin-left: 10px;
-		}
-		.busi_error_show{
-			color: red;
-			margin-left: 10px;
-		}
-		.consum_error{
-			display: none;
-			margin-left: 10px;
-		}
-		.consum_error_show{
-			color: red;
-			margin-left: 10px;
-		}
-
+		
 		input.invalid, textarea.invalid{
 			border: 1px solid red;
 		}
