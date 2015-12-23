@@ -25,9 +25,7 @@
 		
 		
 		
-		<!---<link rel="stylesheet" type="text/css" media="all" href="logreg.css">-->
-		<link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
-		<script type="text/javascript" src="switchery.min.js"></script>
+		
 		
 		
 		<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
