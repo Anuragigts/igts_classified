@@ -38,7 +38,7 @@
 									<div class="titles">
 										<h2>Post <span>YOUR </span>Deal</h2>
 										<hr class="tall">
-										<p class="lead">Search You Category</p>
+										<p class="lead">Search Your Category</p>
 									</div> 
 									<div class="input-group col-md-6 col-md-offset-3">
 										<div id="custom-search-input">
@@ -236,11 +236,17 @@
 															<div class="row">
 																<div class="col-md-6 clearfix">
 																	<h3>Residential</h3>
-																	<h4><a href="#">Others</a></h4>
+																	<h4><a href="#">Property to Rent</a></h4>
+																	<h4><a href="#">Property to Share</a></h4>
+																	<h4><a href="#">Land for Sale/Lease</a></h4>
+																	<h4><a href="#">Property for Sale</a></h4>
 																</div>
 																<div class="col-md-6 clearfix">
 																	<h3>Commercial</h3>
-																	<h4><a href="#">Others</a></h4>
+																	<h4><a href="#">Property to Rent</a></h4>
+																	<h4><a href="#">Property to Share</a></h4>
+																	<h4><a href="#">Property for Sale</a></h4>
+																	<h4><a href="#">Land for Sale/Lease</a></h4>
 																</div>
 															</div>
 														</div>
