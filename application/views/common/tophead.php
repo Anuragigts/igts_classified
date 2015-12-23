@@ -4,13 +4,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="top-head">
-							<div class="col-sm-6">
-								<ul class="info-details">
-									<!--<li ><a href="#"><i class="fa fa-phone"></i> 9999999999</a></li>
-									<li class="hidden-xs"><a href="mailto:someone@example.com"><i class="fa fa-envelope"></i> samplemail@yahoo.com</a></li>-->
-								</ul> 
-							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-12">
 								<ul class="social-team  pull-right">
 									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 									<li><a href="#"><i class="fa fa-skype"></i></a></li>
@@ -19,7 +13,7 @@
 									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								</ul>                 
 							</div> 
-						</div>						
+						</div>				
 					</div>
 				</div>
 			</div>

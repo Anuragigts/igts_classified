@@ -20,9 +20,7 @@
                 <!-- End Content Parallax--> 
             </div>   
             <!-- End Section Title-->
-              <section class="content-central">
-
-
+            <section class="content-central">
 				<div class="content_info">
                     <div class="content_resalt paddings-mini tabs-detailed">
                         <div class="container wow fadeInUp">
@@ -369,4 +367,4 @@
                         </div>
                     </div>
 				</div>
-				</section>
+			</section>
