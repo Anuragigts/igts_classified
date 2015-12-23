@@ -23,7 +23,7 @@
               <section class="content-central">
 
 
-	<div class="content_info">
+				<div class="content_info">
                     <div class="content_resalt paddings-mini tabs-detailed">
                         <div class="container wow fadeInUp">
                             <form method="post" class="" action="" id="postanad">
@@ -53,42 +53,61 @@
 											<!-- Tab One - Hotel -->
 											<div class="tab-pane active" id="one">                                        
 												<div class="row">
-													<div class="col-sm-6 top_10"> 
-														<label class="radio-inline ">
-															<input type="radio" class="bus_image" name="optradio" id="Business" value='b'> Business<sup class='text-red'>*</sup>
-														</label>
-														<label class="radio-inline">
-															<input type="radio" class="con_image" name="optradio" id="Consumer" value='c'> Consumer<sup class='text-red'>*</sup>
-															<span class="postad_error1">Select The type</span>
-														</label>
-
-														<div class="input form-theme bus_img" style="display:none;">
-															<label for="business_logo">Business Logo :</label>
-															<input type="file" id="bus_img" class="" name="bus_img" onchange="fileupload(this);" >
-															<span id="lblError" style="color: red;"></span>
+													<div class="col-sm-2"></div> 
+													<div class="col-sm-10">
+														<div class="row">
+															<div class="col-sm-12 top_10"> 
+																<label class="radio-inline ">
+																	<input type="radio" class="bus_image" name="optradio" id="Business" value='b'> Business<sup class='text-red'>*</sup>
+																</label>
+																<label class="radio-inline">
+																	<input type="radio" class="con_image" name="optradio" id="Consumer" value='c'> Consumer<sup class='text-red'>*</sup>
+																	<span class="postad_error1">Select The type</span>
+																</label>
+															</div>
 														</div>
-														<div class='img_hide' style='display: none;'>
-															 <img id="blah" src="#" />
+														<div class="row">
+															<div class="col-sm-6">
+																<div class="input form-theme bus_img" style="display:none;">
+																	<label for="business_logo">Business Logo :</label>
+																	<input type="file" id="bus_img" class="" name="bus_img" onchange="fileupload(this);" >
+																	<span id="lblError" style="color: red;"></span>
+																</div>
+															</div> 
+															<div class="col-sm-6">
+																<div class="col-sm-2">
+																	<div class='img_hide' style='display: none;'>
+																		 <img id="blah" src="#" />
+																	</div>
+																</div> 
+															</div> 
 														</div>
-
-													</div>
-													<div class="col-sm-6">
-														<div class="input form-theme">
-															<label for="postal_code">PostalCode<sup class='text-red'>*</sup> :</label>
-															<input type="text" id="postal_code" name="postal_code" placeholder="Enter PostalCode" >
-															<span class="postad_error">PostalCode is required</span>
+														<div class="row">
+															<div class="col-sm-6">
+																<div class="input form-theme">
+																	<label for="postal_code">PostalCode<sup class='text-red'>*</sup> :</label>
+																	<input type="text" id="postal_code" name="postal_code" placeholder="Enter PostalCode" >
+																	<span class="postad_error">PostalCode is required</span>
+																</div>
+															</div>
+															<div class="col-sm-6">
+																<div class="input form-theme">
+																	<label for="postal_area">Area<sup class='text-red'>*</sup> :</label>
+																	<input type="text" id="postal_area" name="postal_area" placeholder="Enter Area" >
+																</div>
+															</div>
 														</div>
-													</div>
-													<div class="col-md-sm text_center top_10">
-														<div class="input clearfix">
-															<a href="#two" data-toggle="tab" id='check_file'>
-																<input type="button" id="frst_screen" name='frst_screen' class="btn btn-primary" value="Next Process">
-
-															</a>
+														<div class="row">
+															<div class="col-md-12 text_center top_10">
+																<div class="input clearfix">
+																	<a href="#two" data-toggle="tab" id='check_file'>
+																		<input type="button" id="frst_screen" name='frst_screen' class="btn btn-primary" value="Next Process">
+																	</a>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
-												
 											</div>
 											<!-- end Tab One - Hotel -->
 
@@ -326,13 +345,13 @@
 													</div>
 												</div>
 												<div class="row">
-												<div class="col-md-12 text_center top_10">
-													<div class="input clearfix">
-														<input type='hidden' name='type_ads' id='type_ads' value='' />
-														<input type="submit" id="contact_screen" name='contact_screen' class="btn btn-primary" value="Next Process">
+													<div class="col-md-6 text_center top_10">
+														<div class="input clearfix">
+															<input type='hidden' name='type_ads' id='type_ads' value='' />
+															<input type="submit" id="contact_screen" name='contact_screen' class="btn btn-primary" value="Next Process">
+														</div>
 													</div>
 												</div>
-											</div>
 											</div>
 											
 											<div class="tab-pane " id="five">                                        
