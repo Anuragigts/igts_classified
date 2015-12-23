@@ -915,7 +915,7 @@ hr.tall{
 }
 .selector span.custom-select {
 	display: inline-block;
-	line-height: 52px;
+	line-height: 48px;
 	padding: 0 10px;
 	font-weight: normal;
 	width: 100%;
@@ -1785,25 +1785,25 @@ hr.separator:before {
 
 /* Parallax Secion --------------------------*/
 .image_01_parallax{
-	background: url("../img/slide/1.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .image_02_parallax{
-	background: url("../img/slide/21.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .image_03_parallax{
-	background: url("../img/slide/3.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .image_04_parallax{
-	background: url("../img/slide/4.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .image_05_parallax{
-	background: url("../img/slide/5.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .image_06_parallax{
-	background: url("../img/slide/6.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .image_07_parallax{
-	background: url("../img/slide/7.jpg");
+	background: url("../img/slide/ban5.jpg");
 }
 .bg_parallax{
   margin: 0 auto;
@@ -4008,4 +4008,10 @@ transition-delay:.2s;
 }
 .top_13{
 	padding-top:13px;
+}
+.modal-body h4 a{
+	color:#252C2E;
+}
+.modal-body h3 a{
+	color:#121617;
 }

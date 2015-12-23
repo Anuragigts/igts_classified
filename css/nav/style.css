@@ -905,8 +905,9 @@
 }
 
 .top_head{
-	border-bottom: 2px dotted rgb(244, 244, 244);
-	margin-top:0px;
+	border-top: 2px solid rgb(118, 185, 46);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	height:31px;
 }
 .social-team{
 	/* padding-top:6px; */
