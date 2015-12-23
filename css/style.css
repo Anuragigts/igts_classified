@@ -2422,6 +2422,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	text-align: center;
 	margin-left: -50px;
   	width: 110%;
+	background: #88C425 !important;
+    background-color: #88C425 !important;
 }
 .layout-wide .info-testimonial{
 	margin-left: 0;
@@ -2806,7 +2808,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   border-radius: 50%;
 }
 .post-info-wrap {
-  overflow: auto;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 .post-item .post-title {
@@ -3153,7 +3155,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 /* Form Theme ---------------------------------------------------------*/
 .form-theme{
-	margin: 10px auto;
+	margin: 15px auto;
 }
 .form-theme input{
 	/* height: 38px; */
