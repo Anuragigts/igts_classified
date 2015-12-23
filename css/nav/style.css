@@ -906,7 +906,7 @@
 
 .top_head{
 	border-top: 2px solid rgb(118, 185, 46);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	border-bottom: 1px solid #f4f4f4;
 	height:31px;
 }
 .social-team{
