@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
+        <link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
+        <script type="text/javascript" src="switchery.min.js"></script>
  <!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
@@ -34,77 +37,57 @@
                     <div class="paddings-mini">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-8 col-md-offset-2 login_padd">
-                                     <?php echo $this->view("classified_layout/success_error"); ?>
+                                <div class="col-md-8 col-md-offset-2">
                                     <div class="login-form">
                                         <div class="login-title">
-                                            <h2 class="text1">Register</h2>
+                                            <h2 class="text1 text_center">Register</h2>
                                         </div><!-- End Title -->
-                                        <form method="post" action="" id="sign-form">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="input form-theme">
-                                                        <label for="firstname">First Name<sup class="star_valid">*</sup>:</label>
-                                                        <input type="text" id="fname" name='fname' class="firstname" placeholder="First Name" >
-                                                        <?php echo form_error("fname");?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="input form-theme">
-                                                        <label for="lastname">Last Name<sup class="star_valid">*</sup>:</label>
-                                                        <input type="text" id="lname" name='lname' class="lastname" placeholder="Last Name" >
-                                                        <?php echo form_error("lname");?>
-                                                    </div>
-                                                </div>
+                                        <form  method="post" class="log_form" action="" id="register-form">
+                                            <div class="col-2">
+                                                <label>First Name
+                                                    <input placeholder="Enter First Name" id="fname" name="fname" tabindex="1">
+                                                     <?php echo form_error("fname");?>
+                                                </label>
                                             </div>
-                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="input form-theme">
-                                                        <label for="emailid">Email<sup class="star_valid">*</sup>:</label>
-                                                        <input type="email" id="email" name='email' class="emailid" placeholder="Email" >
-                                                        <?php echo form_error("email");?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="input form-theme">
-                                                        <label for="conformemail">Conform Email<sup class="star_valid">*</sup>:</label>
-                                                        <input type="email" id="conf-email" name='conf-email' class="conformemail" placeholder="Conform Email" >
-                                                        <?php echo form_error("conf-email");?>
-                                                    </div>
-                                                </div>
+                                            <div class="col-2">
+                                                <label>Last Name
+                                                    <input placeholder="Enter Last Name" id="lname" name="lname" tabindex="2">
+                                                    <?php echo form_error("lname");?>
+                                                </label>
                                             </div>
-                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="input form-theme">
-                                                        <label for="password">Password<sup class="star_valid">*</sup>:</label>
-                                                        <input type="password" id="password" name='password' class="password" placeholder="Password" >
-                                                        <?php echo form_error("password");?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="input form-theme">
-                                                        <label for="conformpassword">Conform Password<sup class="star_valid">*</sup>:</label>
-                                                        <input type="password" id="conf-password" name='conf-password' class="conformpassword" placeholder="Conform Password" >
-                                                        <?php echo form_error("conf-password");?>
-                                                    </div>
-                                                </div>
+                                            <div class="col-2">
+                                                <label>Email
+                                                    <input placeholder="Enter Email" id="email" name="email" tabindex="3">
+                                                    <?php echo form_error("email");?>
+                                                </label>
                                             </div>
-                                             <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="input form-theme">
-                                                        <label for="mobileno">Mobile Number<sup class="star_valid">*</sup>:</label>
-                                                        <input type="text" id="mobile" name='mobile' class="mobileno" placeholder="Mobile Number" maxlength='10' >
-                                                        <?php echo form_error("mobile");?>
-                                                    </div>
-                                                </div>
+                                            <div class="col-2">
+                                                <label>Confirm Email
+                                                    <input placeholder="Enter Confirm email" id="conf-email" name="conf-email" tabindex="4">
+                                                    <?php echo form_error("conf-email");?>
+                                                </label>
                                             </div>
-                                             <div class="row">
-                                                <div class="col-md-12 form-theme">
-                                                    <div class="input clearfix">
-                                                        <input type="submit" id="signup" name='signup' class="btn btn-primary" value="Register">
-                                                    </div>
-                                                </div>
-                                            </div><!-- end row -->
+                                            <div class="col-3">
+                                                <label>Password
+                                                    <input type="password" placeholder="Enter password" id="password" name="password" tabindex="5">
+                                                    <?php echo form_error("password");?>
+                                                </label>
+                                            </div>
+                                            <div class="col-3">
+                                                <label>Confirm Password
+                                                    <input type="password" placeholder="Enter Confirm password" id="conf-password" name="conf-password" tabindex="6">
+                                                    <?php echo form_error("conf-password");?>
+                                                </label>
+                                            </div>
+                                            <div class="col-3">
+                                                <label>Phone Number
+                                                    <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7">
+                                                    <?php echo form_error("mobile");?>
+                                                </label>
+                                            </div>
+                                            <div class="col-submit">
+                                                <input type="submit" id="signup" name='signup' class="btn btn-primary" value="Register">
+                                            </div>
                                         </form><!-- End form -->
                                     </div><!-- end login form -->
                                 </div><!-- end col-md-8/offset -->

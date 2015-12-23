@@ -32,7 +32,7 @@
                             </div>
 							<input type="text" required="required" placeholder="Location" class="input-large">
                             <i class="fa fa-map-marker fa-2x" style="padding: 8px;"></i>
-							<input class="date-input" id="slider-range" type="text"  value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="5"//> 
+							<input class="date-input" id="slider-range" type="text"  value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="20"//> 
 							<input type="submit" class="pull-right" value="Search">
                         </form>
                     </div>
@@ -632,6 +632,6 @@
                         </div>
                     </div>
                 </section>
-			<script src="js/jquery.js"></script> 
+			
 			</section>
             <!-- End Content Central -->

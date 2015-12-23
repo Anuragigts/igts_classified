@@ -22,6 +22,7 @@
 		<!-- use jssor.slider.debug.js instead for debug -->
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
 
 
 		<!-- postad validation number only-->
@@ -67,6 +68,26 @@
 		            event.preventDefault();
 		        }
     		});
+		 /*character only in contact person name*/
+		 $('#cnt_per_bus').keyup(function() {
+            if (this.value.match(/[^a-zA-Z]/g)) {
+                this.value = this.value.replace(/[^a-zA-Z]/g, '');
+            }
+        });
+
+		  $('#cnt_per_consu').keyup(function() {
+            if (this.value.match(/[^a-zA-Z]/g)) {
+                this.value = this.value.replace(/[^a-zA-Z]/g, '');
+            }
+        });
+
+		  $('#postal_area').keyup(function() {
+            if (this.value.match(/[^a-zA-Z]/g)) {
+                this.value = this.value.replace(/[^a-zA-Z]/g, '');
+            }
+        });
+
+
 		 });
 		</script>
 		<script type="text/javascript">
@@ -94,11 +115,11 @@
 				var error_element1 = $("span", element1.parent());
 				var type = $("input[name='optradio']:checked").val();
 				if(radio == false){
-					error_element1.removeClass("postad_error1").addClass("postad_error_show"); 
+					error_element1.removeClass("postad_error").addClass("postad_error_show"); 
 					return false;
 				}
 				else{
-					error_element1.addClass("postad_error1").removeClass("postad_error_show");
+					error_element1.addClass("postad_error").removeClass("postad_error_show");
 				}
 				
 
@@ -116,13 +137,18 @@
 			            $('#consumer_form').hide();
 			            $('#business_form').show();
 			            $('#type_ads').val(type);
+			            $('.screen2').addClass('active');
+				$('.screen1').removeClass('active');
 			            return true;
 				}
 				else{
 					$('#type_ads').val(type);
 					$('#business_form').hide();
 					$('#consumer_form').show();
+					$('.screen2').addClass('active');
+				$('.screen1').removeClass('active');
 				}
+
 				 
 			});
 
@@ -192,16 +218,17 @@
 					var valid1=element2.val();
 					var error_element2=$("span", element2.parent());
 						if (valid1 == ''){
-							error_element2.removeClass("deal_error").addClass("deal_error_show"); 
+							error_element2.removeClass("postad_error").addClass("postad_error_show"); 
 							// error_free=false;
 							return false;
 						}
 						else{
-							error_element2.removeClass("deal_error_show").addClass("deal_error");
+							error_element2.removeClass("postad_error_show").addClass("postad_error");
 						}
 					}
 					
-
+					$('.screen3').addClass('active');
+				$('.screen2').removeClass('active');
 
 
 					/*for (var input in form_data){
@@ -215,6 +242,14 @@
 					}*/
 					
 				});
+
+
+
+		/*select package*/
+		$('.select_package').click(function(){
+			$('.screen4').addClass('active');
+			$('.screen3').removeClass('active');
+		});
 
 
 		/*contact screen*/
@@ -257,11 +292,11 @@
 					var valid1=element2.val();
 						var error_element2=$("span", element2.parent());
 							if (valid1 == ''){
-								error_element2.removeClass("consum_error").addClass("consum_error_show"); 
+								error_element2.removeClass("postad_error").addClass("postad_error_show"); 
 								return false;
 							}
 							else{
-								error_element2.removeClass("consum_error_show").addClass("consum_error");
+								error_element2.removeClass("postad_error_show").addClass("postad_error");
 							}
 						}
 					
@@ -314,11 +349,11 @@
 					var valid1=element2.val();
 						var error_element2=$("span", element2.parent());
 							if (valid1 == ''){
-								error_element2.removeClass("busi_error").addClass("busi_error_show");
+								error_element2.removeClass("postad_error").addClass("postad_error_show");
 								return false;
 							}
 							else{
-								error_element2.removeClass("busi_error_show").addClass("busi_error");
+								error_element2.removeClass("postad_error_show").addClass("postad_error");
 							}
 						}
 						/*var form_data=$("#postanad").serializeArray();
@@ -386,17 +421,9 @@
 
 		
 
-		
-		<!---<link rel="stylesheet" type="text/css" media="all" href="logreg.css">-->
-		<link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
-		<script type="text/javascript" src="switchery.min.js"></script>
-
-		
-		
-		
 		<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
 		<link href="modern-ticker/themes/theme3/theme.css" type="text/css" rel="stylesheet">
 		<link id="style-sheet" href="modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
 		<script src="modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
 		<script type="text/javascript">$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>
-		<script src="modern-ticker/js/preview.js" type="text/javascript"></script></head>
+		<script src="modern-ticker/js/preview.js" type="text/javascript"></script>

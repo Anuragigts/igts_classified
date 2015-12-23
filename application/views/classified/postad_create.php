@@ -29,19 +29,19 @@
 									<div class="col-md-10 col-md-offset-1 col-sm-12  col-xs-12  login_padd">
 										<!-- Nav Tabs-->
 										<ul class="nav nav-tabs" id="myTab">
-										   <li class="active">
+										   <li class="active screen1">
 												<a href="#one" data-toggle="tab"><i class="fa fa-home"></i> 1st Screen</a>
 											</li>
-											<li>
+											<li class='screen2'>
 												<a href="#two" data-toggle="tab"><i class="fa fa-camera"></i> 2nd Screen</a>
 											</li>
-											<li >
+											<li class='screen3'>
 												<a href="#three" data-toggle="tab"><i class="fa fa-check"></i>Packages</a>
 											</li>
-											<li>
+											<li class='screen4'>
 												<a href="#four" data-toggle="tab"><i class="fa fa-check"></i>Contact</a>
 											</li>
-											<li >
+											<li class='screen5'>
 												<a href="#five" data-toggle="tab"><i class="fa fa-check"></i>Terms & Conditions</a>
 											</li>
 										</ul>
@@ -51,7 +51,7 @@
 											<!-- Tab One - Hotel -->
 											<div class="tab-pane active" id="one">                                        
 												<div class="row">
-													<div class="col-sm-2"></div> 
+													<div class="col-sm-1"></div> 
 													<div class="col-sm-10">
 														<div class="row">
 															<div class="col-sm-12 top_10"> 
@@ -60,18 +60,20 @@
 																</label>
 																<label class="radio-inline">
 																	<input type="radio" class="con_image" name="optradio" id="Consumer" value='c'> Consumer<sup class='text-red'>*</sup>
-																	<span class="postad_error1">Select The type</span>
+																	<span class="postad_error">Select The type</span>
 																</label>
 															</div>
 														</div>
 														<div class="row">
 															<div class="col-sm-6">
-																<div class="input form-theme bus_img" style="display:none;">
-																	<label for="business_logo">Business Logo :</label>
-																	<input type="file" id="bus_img" class="" name="bus_img" onchange="fileupload(this);" >
-																	<span id="lblError" style="color: red;"></span>
+																<div class="row">
+																	<div class="input form-theme bus_img" style="display:none;">
+																		<div class="col-xs-4 top_10"><label for="business_logo" class="">BusinesLogo:</label></div>
+																		<div class="col-xs-8"><input type="file" id="bus_img" name="bus_img" onchange="fileupload(this);" ></div>
+																		<span id="lblError" style="color: red;"></span>
+																	</div>
 																</div>
-															</div> 
+															</div>
 															<div class="col-sm-6">
 																<div class="col-sm-2">
 																	<div class='img_hide' style='display: none;'>
@@ -84,7 +86,7 @@
 															<div class="col-sm-6">
 																<div class="input form-theme">
 																	<label for="postal_code">PostalCode<sup class='text-red'>*</sup> :</label>
-																	<input type="text" id="postal_code" name="code" placeholder="Enter PostalCode" >
+																	<input type="text" id="postal_code" name="code" placeholder="Enter PostalCode" maxlength='6' >
 																	<span class="postad_error">PostalCode is required</span>
 																</div>
 															</div>
@@ -106,6 +108,7 @@
 															</div>
 														</div>
 													</div>
+													<div class="col-sm-1"></div> 
 												</div>
 											</div>
 											<!-- end Tab One - Hotel -->
@@ -117,14 +120,14 @@
 														<div class="input form-theme">
 															<label for="deal_tag">Deal Tag <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="deal_tag" name="deal_tag" placeholder="Enter Deal Tag" >
-															<span class="deal_error">Deal Tag is required</span>
+															<span class="postad_error">Deal Tag is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
 															<label for="deal_description">Deal Description <sup class='text-red'>*</sup> :</label>
 															<textarea type="text" id="deal_description" name="deal_description" placeholder="Enter Deal Description" row="0"></textarea>
-															<span class="deal_error">Deal Description is required</span>
+															<span class="postad_error">Deal Description is required</span>
 														</div>
 													</div>
 												</div>
@@ -142,7 +145,7 @@
 														<div class="input form-theme">
 															<label for="family_race">Family Race <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="family_race" name="family_race" placeholder="Enter Family Race" >
-															<span class="deal_error">Family Race is required</span>
+															<span class="postad_error">Family Race is required</span>
 														</div>
 													</div>
 												</div>
@@ -151,7 +154,7 @@
 														<div class="input form-theme">
 															<label for="type">Type <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="type" name="type" placeholder="Enter Type" >
-															<span class="deal_error">Type is required</span>
+															<span class="postad_error">Type is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6">
@@ -168,7 +171,7 @@
 																<option value='3-4'> 3 Year < 4 Years</option>
 																<option value='4-5'> 4 Year < 5 Years</option>
 															</select>
-															<span class="deal_error">Age is required</span>
+															<span class="postad_error">Age is required</span>
 														</div>
 													</div>
 												</div>
@@ -177,19 +180,26 @@
 														<div class="input form-theme">
 															<label for="height">Height <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="height" name="height" placeholder="Enter Height" >
-															<span class="deal_error">Height is required</span>
+															<span class="postad_error">Height is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="input form-theme">
 															<label for="gender">Gender <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="gender" name="gender" placeholder="Enter Gender" >
-															<span class="deal_error">Gender is required</span>
+															<span class="postad_error">Gender is required</span>
 														</div>
 													</div>
 												</div>
 												<div class="row">
-												<div class="col-md-12 text_center top_10">
+												<div class="col-md-6 text_center top_10">
+													<div class="input clearfix">
+														<a href="#one" data-toggle="tab">
+														<input type="button" id="login" name='login' class="btn btn-primary" value="Back">
+													</a>
+													</div>
+												</div>
+												<div class="col-md-6 text_center top_10">
 													<div class="input clearfix">
 														<a href="#three" data-toggle="tab" id='deal_form'>
 														<input type="button" id="login" name='login' class="btn btn-primary" value="Next Process">
@@ -230,7 +240,7 @@
 																	<li><i class="fa fa-arrow-right"></i> Video Link</li>
 																	<li><i class="fa fa-arrow-right"></i> Website link</li>
 																</ul>
-																<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
+																<a href="#four" data-toggle="tab" class="btn btn-primary select_package">Select Package</a>
 															</div>
 															
 															<!-- End promotion-box-info-->
@@ -263,7 +273,7 @@
 																<ul class="list-styles gold_hide" style="display:none;">
 																	<li><i class="fa fa-arrow-right"></i> 12 Images</li>
 																</ul>
-																<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
+																<a href="#four" data-toggle="tab" class="btn btn-primary select_package">Select Package</a>
 															</div>
 															
 															<!-- End promotion-box-info-->
@@ -290,7 +300,7 @@
 																	<li><i class="fa fa-arrow-right"></i> Website link</li>
 																	<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
 																</ul>
-																<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
+																<a href="#four" data-toggle="tab" class="btn btn-primary select_package">Select Package</a>
 															</div>
 															
 															<!-- End promotion-box-info-->
@@ -307,39 +317,39 @@
 														<div class="input form-theme ">
 															<label for="bus_name">Business Name <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="bus_name" class="" name="bus_name" placeholder="Enter Business Name">
-															<span class="busi_error">Business Name is required</span>
+															<span class="postad_error">Business Name is required</span>
 														</div>
 														<div class="input form-theme ">
 															<label for="cnt_per_bus">Contact Person Name <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="cnt_per_bus" class="" name="cnt_per_bus" placeholder="Enter Contact Person Name">
-															<span class="busi_error">Contact Person Name is required</span>
+															<span class="postad_error">Contact Person Name is required</span>
 														</div>
 														<div class="input form-theme ">
 															<label for="mbl_no_bus">Mobile Number <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="mbl_no_bus" class="" name="mbl_no_bus" placeholder="Enter Mobile Number" maxlength='10'>
-															<span class="busi_error">Mobile Number is required</span>
+															<span class="postad_error">Mobile Number is required</span>
 														</div>
 														<div class="input form-theme">
 															<label for="email_id_bus">Email Id <sup class='text-red'>*</sup> :</label>
 															<input type="email" id="email_id_bus" name="email_id_bus" placeholder="Enter Email" >
-															<span class="busi_error">Email Id is required</span>
+															<span class="postad_error">Email Id is required</span>
 														</div>
 													</div>
 													<div class="col-sm-6" id='consumer_form'>
 														<div class="input form-theme ">
 															<label for="cnt_per_consu">Contact Name <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="cnt_per_consu" class="" name="cnt_per_consu" placeholder="Enter Contact Person Name">
-															<span class="consum_error">Contact Name is required</span>
+															<span class="postad_error">Contact Name is required</span>
 														</div>
 														<div class="input form-theme ">
 															<label for="mbl_no_cons">Mobile Number <sup class='text-red'>*</sup> :</label>
 															<input type="text" id="mbl_no_cons" class="" name="mbl_no_cons" placeholder="Enter Mobile Number" maxlength='10'>
-															<span class="consum_error">Mobile Number is required</span>
+															<span class="postad_error">Mobile Number is required</span>
 														</div>
 														<div class="input form-theme">
 															<label for="email_id_consu">Email Id <sup class='text-red'>*</sup> :</label>
 															<input type="email" id="email_id_consu" name="email_id_consu" placeholder="Enter Email" >
-															<span class="consum_error">Email Id is required</span>
+															<span class="postad_error">Email Id is required</span>
 														</div>
 													</div>
 												</div>

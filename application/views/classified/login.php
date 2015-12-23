@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
+        <link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
+        <script type="text/javascript" src="switchery.min.js"></script>
  <!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
@@ -35,29 +38,21 @@
                         <div class="container">
                             <div class="row">
                                <?php echo $this->view("classified_layout/success_error"); ?>
-                                <div class="col-md-4 col-md-offset-4 login_padd">
+                                <div class="col-md-8 col-md-offset-2">
                                     <div class="login-form">
-                                        <div class="login-title">
-                                            <h2 class="text1">Login</h2>
-                                        </div><!-- End Title -->
-                                        <form method="post" class="" action="" id="login-form">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="input form-theme">
-                                                        <label for="username-input">User Name<sup class="star_valid">*</sup>:</label>
-                                                        <input type="text" id="email" name='email' class="username-input" placeholder="User Name" >
-                                                        <?php echo form_error("email");?>
-                                                    </div>
+                                        <div class="login-title pad_bottm">
+                                            <h2 class="text1 text_center ">Login</h2>
+                                        </div>
+                                        <div class="row login_totpad" style="border: 2px solid #5EC3A3;">
+                                            <div class="col-md-4 login_left">
+                                                <div class="log_leftpad text_center">
+                                                    <a href="index.php"><img src="img/365deal.png" class="log_logo" alt="Logo"></a> 
+                                                    <h4 class="log_side top_20"><a href="#">Create New Account</a></h4>
+                                                    <h4 class="log_side"><a href="#">Forgot Password</a></h4>
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <div class="input form-theme">
-                                                        <label for="password-input">Password<sup class="star_valid">*</sup>:</label>
-                                                        <input type="password" id="password" name='password' class="password-input" placeholder="Password" >
-                                                        <?php echo form_error("password");?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 ">
-                                                    <script type="text/javascript">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <script type="text/javascript">
                                                     function check(){
                                                         var ch = document.getElementById('w_check').checked;
                                                         if(ch){
@@ -68,30 +63,37 @@
                                                         }
                                                     }
                                                     </script>
-                                                    <div class="custom-checkbox">
-                                                        <input type="checkbox" id="w_check" name='w_check' value='1' class="checkbox-input" onclick='check()'>
-                                                        <label for="withoutlogin_remember">Want to Post an Ad without Login</label>
-                                                    </div>
+                                                <div class="login_form">
+                                                    <form  method="post" class="log_form" action="#" id="register-form">
+                                                        <div class="col-1">
+                                                            <label>Email
+                                                                <input placeholder="Enter Email" id="email" name="email" tabindex="1">
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <label>Password
+                                                                <input type="password" placeholder="Enter password" id="password" name="password" tabindex="2">
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <label> Want to Post an Ad without Login</label>
+                                                            <center style="position:relative; margin-bottom:8px;">
+                                                                <input type="checkbox" id='w_check' name='w_check' onclick='check()' class="js-switch">
+                                                            </center>
+                                                        </div>
+                                                        <div class="col-submit">
+                                                            <button class="submitbtn">Login</button>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <label> Remember Password</label>
+                                                            <center style="position:relative; margin-bottom:8px;margin-top:-43px;"><input type="checkbox" class="js-switch"></center>
+                                                        </div>
+                                                        
+                                                    </form><!-- End form -->
                                                 </div>
-                                                <div class="col-md-12 form-theme">
-                                                    <div class="input clearfix">
-                                                        <input type="submit" id="login" name='login' class="btn btn-primary" value="Login">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 clearfix">
-                                                    <div class="custom-checkbox fl">
-                                                        <input type="checkbox" id="login_remember" class="checkbox-input" checked>
-                                                        <label for="login_remember">Remember Password</label>
-                                                    </div>
-                                                </div><!-- end remember -->
-                                                <div class="col-md-12  clearfix">
-                                                    <div class="forgot fr">
-                                                        <a href="signup" class="new-user">Create New Account</a> / <a href="#" class="reset">Forget Password ?</a>
-                                                    </div>
-                                                </div><!-- end forgot password -->
-                                            </div><!-- end row -->
-                                        </form><!-- End form -->
-                                    </div><!-- end login form -->
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div><!-- end col-md-8/offset -->
                             </div><!-- end row -->
                         </div>
