@@ -103,7 +103,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("`featured` AS fs");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
 		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit('8');
+		$this->db->limit(2 ,6);
 		$this->db->group_by("fs.`ad_id`");
 		$this->db->order_by('ads.created_on', 'DESC');
 		$m_res = $this->db->get();
@@ -141,7 +141,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("`featured` AS fs");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
 		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(4, 6);
+		$this->db->limit(3, 5);
 		$this->db->group_by("fs.`ad_id`");
 		$this->db->order_by('ads.created_on', 'ASC');
 		$m_res = $this->db->get();
@@ -179,7 +179,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("`featured` AS fs");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
 		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(4,6);
+		$this->db->limit(2, 3);
 		$this->db->group_by("fs.`ad_id`");
 		$this->db->order_by('ads.created_on', 'DESC');
 		$m_res = $this->db->get();
@@ -199,6 +199,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("`spotlight` AS spl");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = spl.`ad_id`", "join");
 		$this->db->join("ad_img AS img", "img.ad_id = spl.`ad_id`", "left");
+		$this->db->limit(2, 4);
 		$this->db->group_by("spl.`ad_id`");
 		$this->db->order_by('ads.created_on', 'DESC');
 		$m_res = $this->db->get();
@@ -219,7 +220,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', 'img.ad_id = ads.ad_id', 'left');
 		// $where = array('is_urgent' => 0, 'is_spotlight' => 0, 'is_featured' => 0);
 		// $this->db->where($where);
-		$this->db->where('is_urgent', 0);
+		$this->db->where('is_urgent', 1);
 		$this->db->where('is_spotlight', 0);
 		$this->db->where('is_featured', 0);
 		$this->db->limit(8);
