@@ -7,12 +7,12 @@
                 <!-- Content Parallax-->
                 <div class="opacy_bg_02">
                     <div class="container">
-                        <h1>Post An AD</h1>
+                        <h1>Post a Deal</h1>
                         <div class="crumbs">
                             <ul>
                                 <li><a href="index.php" class='home'>Home</a></li>
                                 <li>/</li>
-                                <li>Post An AD</li>                                       
+                                <li>Post a Deal</li>                                       
                             </ul>    
                         </div>
                     </div>  

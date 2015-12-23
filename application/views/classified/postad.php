@@ -7,12 +7,12 @@
                 <!-- Content Parallax-->
                 <div class="opacy_bg_02">
                     <div class="container">
-                        <h1>Post An AD</h1>
+                        <h1>Post a Deal</h1>
                         <div class="crumbs">
                             <ul>
                                 <li><a href="index.php" class='home'>Home</a></li>
                                 <li>/</li>
-                                <li>Post An AD</li>                                       
+                                <li>Post a Deal</li>                                       
                             </ul>    
                         </div>
                     </div>  
@@ -36,7 +36,7 @@
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1 col-sm-12  col-xs-12  login_padd">
 									<div class="titles">
-										<h2>Post <span>YOUR </span>ad</h2>
+										<h2>Post <span>YOUR </span>Deal</h2>
 										<hr class="tall">
 										<p class="lead">Search You Category</p>
 									</div> 
