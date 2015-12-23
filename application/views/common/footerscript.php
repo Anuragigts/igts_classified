@@ -1,6 +1,6 @@
 <!-- ======================= JQuery libs =========================== -->
         <!-- jQuery local--> 
-        <script src="js/jquery.js"></script>  
+         
         <script src="js/jquery-ui.1.10.4.min.js"></script>                
         <!--Nav-->
         <script src="js/nav/jquery.sticky.js" type="text/javascript"></script>    
@@ -35,33 +35,6 @@
 
         <!-- <script type="text/javascript" src="marquee.js"></script> -->
         <!-- ======================= End JQuery libs =========================== -->
-        <script>
-$(document).ready(function() {
-   
-        $('.typing').inewsticker({
-          speed           : 200,
-          effect          : 'typing',
-          dir             : 'ltr',
-          font_size       : 18,
-          color           : '#000',
-          font_family     : 'arial',
-          delay_after     : 1000,
-      });
-}); 
-</script>
-		<!--<script>
-			var showText = function (target, message, index, interval) {   
-			  if (index < message.length) {
-				$(target).append(message[index++]);
-				setTimeout(function () { showText(target, message, index, interval); }, interval);
-			  }
-			}
-			$(function () {
-				var i = $('#mymark1').html();
-				showText("#mymark", i, 0, 100);   
-			});
-		</script>-->
-        <!--Slider Function-->
         <script type="text/javascript">
             jQuery(document).ready(function() {
                 jQuery('.tp-banner').show().revolution({
@@ -76,7 +49,40 @@ $(document).ready(function() {
                 });             
             }); //ready
         </script>
+		<script>
+			$(document).ready(function(){
+				$(".bus_image").click(function(){
+					$(".bus_img").show(1000);
+
+				});
+			});
+		</script>
 		
+		<script>
+			$(document).ready(function(){
+				$(".con_image").click(function(){
+					$(".bus_img").hide(1000);
+
+				});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function(){
+				$(".free_check").click(function(){
+					$(".free_hide").show(1000);
+
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$(".gold_check").click(function(){
+					$(".gold_hide").show(1000);
+
+				});
+			});
+		</script>
         <!--End Slider Function-->
 		
 		<script>window.jQuery || document.write('<script src="js1/lib/jquery-1.7.2.min.js"><\/script>')</script>
@@ -167,5 +173,13 @@ $(document).ready(function() {
 		</script>
 
    <!-- news updates -->
+   
+		<script type="text/javascript">
+			var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+			elems.forEach(function(html) {
+			  var switchery = new Switchery(html);
+			});
+		</script>
 
     

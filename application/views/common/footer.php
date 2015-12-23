@@ -67,7 +67,7 @@
                                             <div class="col-md-5">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="fa fa-user"></i>
+                                                        <i class="fa fa-envelope"></i>
                                                     </span>
                                                     <input class="form-control" placeholder="Your Name" name="name" type="text" required="required">
                                                 </div>
@@ -100,7 +100,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                               <p>Copyright @ 2015.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank" style="color: #fff;">iGravitas TechnoSoft</a> India (P) Ltd.</p>
+                               <p>Copyright @ 2015.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank">iGravitas TechnoSoft</a> India (P) Ltd.</p>
                             </div>
                             <!-- <div class="col-md-7">
                                 <!-- Nav Footer--

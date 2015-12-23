@@ -86,14 +86,15 @@
 															<div class="col-sm-6">
 																<div class="input form-theme">
 																	<label for="postal_code">PostalCode<sup class='text-red'>*</sup> :</label>
-																	<input type="text" id="postal_code" name="postal_code" placeholder="Enter PostalCode" >
+																	<input type="text" id="postal_code" name="code" placeholder="Enter PostalCode" >
 																	<span class="postad_error">PostalCode is required</span>
 																</div>
 															</div>
 															<div class="col-sm-6">
 																<div class="input form-theme">
 																	<label for="postal_area">Area<sup class='text-red'>*</sup> :</label>
-																	<input type="text" id="postal_area" name="postal_area" placeholder="Enter Area" >
+																	<input type="text" id="postal_area" name="area" placeholder="Enter Area" >
+																	<span class="postad_error">Area is required</span>
 																</div>
 															</div>
 														</div>

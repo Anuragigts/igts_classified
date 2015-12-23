@@ -643,5 +643,6 @@
 				
 
             </section>
-            <!-- End Content Central -->
 			
+            <!-- End Content Central -->
+			<script src="js/jquery.js"></script> 

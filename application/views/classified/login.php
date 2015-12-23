@@ -100,7 +100,7 @@
                 <!-- End content info - page Fill with  --> 
 
             </section>
-
+	<script src="js/jquery.js"></script> 
 
             <script>
        setTimeout(function(){
