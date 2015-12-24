@@ -16,12 +16,14 @@ class Login extends CI_Controller{
                         "content"   =>  "login"
                 );
                 if($this->input->post("login")){
+
                         $this->form_validation->set_rules("email","Email Id","required|valid_email");
-                        //echo $this->input->post("chbox");exit;
-                        if($this->input->post("w_check") == "1"){
+                        
+                        if($this->input->post("w_login") == "1"){
                                 $this->form_validation->set_rules("password","Password","");
+                                if($this->form_validation->run() == TRUE){
                                $mail_exist = $this->login_model->mailexist();
-                            // echo "<pre>"; print_r($this);
+                            
                             if($mail_exist == 1){
                               $this->session->set_flashdata("err","Please Check your Email Id");
                                             redirect("login");  
@@ -30,7 +32,8 @@ class Login extends CI_Controller{
                                 redirect("postad");
                             }
                         }
-                        if($this->input->post("w_check") == ""){
+                        }
+                        if($this->input->post("w_login") == "0"){
                               $this->form_validation->set_rules("password","Password","required");
                         }
                         if($this->form_validation->run() == TRUE){
