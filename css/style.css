@@ -37,7 +37,7 @@
 .login_left{
 	background-color: #5EC3A3;
 	color: rgb(255, 255, 255);
-	min-height: 475px;
+	min-height: 500px;
 }
 /* .log_leftpad{
 	padding:20px;
@@ -4016,18 +4016,26 @@ transition-delay:.2s;
 
 
 /*postad create error messages*/
- .postad_error{
+ 
+		.error{
 			display: none;
-		}
-
-		.postad_error_show{
+			margin-left: 10px;
+		}		
+		
+		.error_show{
 			color: red;
-			text-align: center;
-			}
-
+			margin-left: 10px;
+		}
 		
 		input.invalid, textarea.invalid{
 			border: 1px solid red;
+		}
+
+		select.invalid{
+			border: 1px solid red;
+		}
+		select.valid{
+			border: 0px solid green;
 		}
 		
 		input.valid, textarea.valid{
