@@ -94,11 +94,11 @@
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="bus_conumer" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_toggle" id="next-step-radio" value="Yes">
 															<i></i>Business
 														</label>
 														<label class="radio">
-															<input type="radio" name="bus_conumer"  value="No">
+															<input type="radio" name="checkbox_toggle"  value="No">
 															<i></i>Consumer
 														</label>
 													</div>
@@ -178,11 +178,11 @@
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="select_price" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
 															<i></i>£ ( Pound ) 
 														</label>
 														<label class="radio">
-															<input type="radio" name="select_price"  value="No">
+															<input type="radio" name="checkbox_toggle1"  value="No">
 															<i></i> € ( Euro )
 														</label>
 													</div>
