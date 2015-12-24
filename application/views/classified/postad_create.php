@@ -236,7 +236,7 @@
 												</div>
 											</div><!-- end Height -->
 											<div class="span6 unit"><!-- start Gender -->
-												<label class="label">Gender <sup style='color:red;'>*</sup> <sup style='color:red;'>*</sup></label>
+												<label class="label">Gender <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<i class="fa fa-male"></i>
