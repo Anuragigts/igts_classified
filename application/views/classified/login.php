@@ -49,6 +49,12 @@
                                                     <a href="index.php"><img src="img/365deal.png" class="log_logo" alt="Logo"></a> 
                                                     <h4 class="log_side top_20"><a href="signup">Create New Account</a></h4>
                                                     <h4 class="log_side"><a href="#">Forgot Password</a></h4>
+													<div class="login-options">
+														<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
+													</div><!-- end FB login -->
+													<div class=" login-options">
+														<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+													</div><!-- end GP login -->
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -121,10 +127,18 @@
                                                             </label>
                                                             <center style="position:relative; margin-bottom:8px;margin-top:-43px;"><input type="checkbox" class="js-switch"></center>
                                                         </div>
-                                                        
-                                                        
-                                                    </form><!-- End form -->
-                                                </div>
+													</form><!-- End form -->
+												</div>
+												<!--<div class="col-sm-6">
+													<div class="login-options">
+														<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class=" login-options">
+														<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+													</div>
+												</div>-->
                                             </div>
                                         </div>
                                     </div>
