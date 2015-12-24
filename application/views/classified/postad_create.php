@@ -39,10 +39,10 @@
 
 							<form action="http://lazy-coding.com/j-forms-advanced/forms/order_multistep_with_steps/j-folder/php/demo.php" method="post" class="j-forms j-multistep" id="j-forms" enctype="multipart/form-data" novalidate>
 
-								<!--<div class="header">
-									<p>Order service</p>
+								<div class="header">
+									<p>Post a Deal</p>
 								</div>
-								 end /.header-->
+								 <!--end /.header-->
 
 								<div class="content">
 									<!-- start steps -->
@@ -169,6 +169,24 @@
 										</div>
 										
 										<div class="j-row">
+<<<<<<< .mine
+											<div class="span6"><!-- start service -->
+												<div class="j-row">
+													<div class="span7 unit">
+														<label class="label">Price</label>
+														<div class="unit check logic-block-radio">
+															<div class="inline-group">
+																<label class="radio">
+																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
+																	<i></i>£ (Pound) 
+																</label>
+																<label class="radio">
+																	<input type="radio" name="checkbox_toggle1"  value="No">
+																	<i></i> € (Euro)
+																</label>
+															</div>
+														</div>
+=======
 											<div class="span6 unit"><!-- start service -->
 												<label class="label">Price <sup style='color:red;'>*</sup></label>
 												<div class="unit check logic-block-radio">
@@ -181,6 +199,15 @@
 															<input type="radio" name="checkbox_toggle1"  value="No">
 															<i></i> € ( Euro )
 														</label>
+>>>>>>> .r105
+													</div>
+													<div class="span5 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="dealtag">
+																<img src="j-folder/img/price.png">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+														</div>
 													</div>
 												</div>
 											</div><!-- end service -->
