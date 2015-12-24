@@ -487,7 +487,7 @@
 .j-forms select:focus { border:2px solid #5EC3A3; }
 
 .j-forms .input textarea {
-	height:112px;
+	height:60px;
 	overflow:auto;
 	min-height:52px;
 	resize:vertical;
