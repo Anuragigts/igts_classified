@@ -168,112 +168,97 @@
 											</div><!-- end Deal Description -->
 										</div>
 										
-										<div class="j-row">
-<<<<<<< .mine
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
+											<div class="j-row">
+												<div class="span6"><!-- start service -->
+													<div class="j-row">
+														<div class="span7 unit">
+															<label class="label">Price <sup style='color:red;'>*</sup></label>
+															<div class="unit check logic-block-radio">
+																<div class="inline-group">
+																	<label class="radio">
+																		<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
+																		<i></i>£ (Pound) 
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="checkbox_toggle1"  value="No">
+																		<i></i> € (Euro)
+																	</label>
+																</div>
 															</div>
 														</div>
-=======
-											<div class="span6 unit"><!-- start service -->
-												<label class="label">Price <sup style='color:red;'>*</sup></label>
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-															<i></i>£ ( Pound ) 
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_toggle1"  value="No">
-															<i></i> € ( Euro )
-														</label>
->>>>>>> .r105
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+														<div class="span5 unit top_20">
+															<div class="input">
+																<label class="icon-right" for="dealtag">
+																	<img src="j-folder/img/price.png">
+																</label>
+																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+															</div>
 														</div>
+													</div><!-- end service -->
+												</div><!-- end service -->
+												<div class="span6 unit"><!-- start Family Race -->
+													<label class="label">Family Race <sup style='color:red;'>*</sup></label>
+													<div class="input">
+														<label class="icon-right" for="phone">
+															<i class="fa fa-home"></i>
+														</label>
+														<input type="text" id="familyrace" name="familyrace" placeholder="Enter Family Race">
 													</div>
-												</div>
-											</div><!-- end service -->
-											<div class="span6 unit"><!-- start Family Race -->
-												<label class="label">Family Race <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<i class="fa fa-home"></i>
-													</label>
-													<input type="text" id="familyrace" name="familyrace" placeholder="Enter Family Race">
-												</div>
-											</div><!-- end Family Race -->
-										</div>
+												</div><!-- end Family Race -->
+											</div>
 										
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Type -->
-												<label class="label">Type <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/type.png">
-													</label>
-													<input type="text" id="type" name="type" placeholder="Enter Type">
+												<div class="j-row">
+													<div class="span6 unit"><!-- start Type -->
+														<label class="label">Type <sup style='color:red;'>*</sup></label>
+														<div class="input">
+															<label class="icon-right" for="phone">
+																<img src="j-folder/img/type.png">
+															</label>
+															<input type="text" id="type" name="type" placeholder="Enter Type">
+														</div>
+													</div><!-- end Type -->
+													
+													<div class="span6 unit"><!-- start Age -->
+														<label class="label">Age <sup style='color:red;'>*</sup></label>
+														<label class="input select">
+															<select name="Age">
+																<option value="none" selected disabled="">select Age</option>
+																<option value="3months">0 to 3 Months</option>
+																<option value="6months">3 to 6 Months</option>
+																<option value="9months">6 to 9 Months</option>
+																<option value="12months">9 to 12 Months</option>
+																<option value="2years"> > 1 Year - < 2 Years</option>
+																<option value="3years"> > 2 Years - < 3 Years</option>
+																<option value="4years"> > 3 Years - < 4 Years</option>
+																<option value="5years"> > 4 Years - < 5 Years</option>
+															</select>
+															<i></i>
+														</label>
+													</div><!-- end Age -->
 												</div>
-											</div><!-- end Type -->
-											
-											<div class="span6 unit"><!-- start Age -->
-												<label class="label">Age <sup style='color:red;'>*</sup></label>
-												<label class="input select">
-													<select name="Age">
-														<option value="none" selected disabled="">select Age</option>
-														<option value="3months">0 to 3 Months</option>
-														<option value="6months">3 to 6 Months</option>
-														<option value="9months">6 to 9 Months</option>
-														<option value="12months">9 to 12 Months</option>
-														<option value="2years"> > 1 Year - < 2 Years</option>
-														<option value="3years"> > 2 Years - < 3 Years</option>
-														<option value="4years"> > 3 Years - < 4 Years</option>
-														<option value="5years"> > 4 Years - < 5 Years</option>
-													</select>
-													<i></i>
-												</label>
-											</div><!-- end Age -->
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Height -->
-												<label class="label">Height <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="height" name="height" placeholder="Enter Height">
+												
+												<div class="j-row">
+													<div class="span6 unit"><!-- start Height -->
+														<label class="label">Height <sup style='color:red;'>*</sup></label>
+														<div class="input">
+															<label class="icon-right" for="phone">
+																<img src="j-folder/img/height.png">
+															</label>
+															<input type="text" id="height" name="height" placeholder="Enter Height">
+														</div>
+													</div><!-- end Height -->
+													<div class="span6 unit"><!-- start Gender -->
+														<label class="label">Gender <sup style='color:red;'>*</sup></label>
+														<div class="input">
+															<label class="icon-right" for="phone">
+																<i class="fa fa-male"></i>
+															</label>
+															<input type="text" id="gender" name="gender" placeholder="Enter Gender">
+														</div>
+													</div><!-- end Gender -->
 												</div>
-											</div><!-- end Height -->
-											<div class="span6 unit"><!-- start Gender -->
-												<label class="label">Gender <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<i class="fa fa-male"></i>
-													</label>
-													<input type="text" id="gender" name="gender" placeholder="Enter Gender">
-												</div>
-											</div><!-- end Gender -->
-										</div>
 
-									</fieldset>
+											</fieldset>
 
 									<fieldset>
 
