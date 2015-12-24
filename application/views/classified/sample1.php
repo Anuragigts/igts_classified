@@ -91,15 +91,14 @@
 										<!-- start name -->
 										<div class="j-row">
 											<div class="span12 unit">
-												<label class="label">Your name</label>
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="next_step_radio" id="next-step-radio" value="Yes">
+															<input type="radio" name="bus_conumer" id="next-step-radio" value="Yes">
 															<i></i>Business
 														</label>
 														<label class="radio">
-															<input type="radio" name="next_step_radio"  value="No">
+															<input type="radio" name="bus_conumer"  value="No">
 															<i></i>Consumer
 														</label>
 													</div>
@@ -179,11 +178,11 @@
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="next_step_radio" id="next-step-radio" value="Yes">
+															<input type="radio" name="select_price" id="next-step-radio" value="Yes">
 															<i></i>£ ( Pound ) 
 														</label>
 														<label class="radio">
-															<input type="radio" name="next_step_radio"  value="No">
+															<input type="radio" name="select_price"  value="No">
 															<i></i> € ( Euro )
 														</label>
 													</div>
