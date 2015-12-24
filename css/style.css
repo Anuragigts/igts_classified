@@ -51,7 +51,7 @@
 }
 
 .log_logo{
-	padding-top: 150px;
+	padding-top: 108px;
 	width: 246px;
 }
 .top_20{
@@ -4055,4 +4055,39 @@ transition-delay:.2s;
 }
 .reset{
 	color: #252C2E;
+}
+
+.login-options .login-op-btn.fb {
+    background-image: url("../img/icons/login-facebook-icon.png");
+    background-color: #5D82D1;
+}
+.login-options .login-op-btn {
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFF;
+    padding: 9px 20px;
+    border-radius: 2px;
+    box-shadow: none;
+}
+.login-options .login-op-btn.gp {
+    background-image: url("../img/icons/login-google-icon.png");
+    background-color: #EB5E4C;
+}
+.login-options .login-op-btn {
+    background-repeat: no-repeat;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFF;
+    padding: 9px 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    box-shadow: none;
+    background-position: right bottom;
+}
+a .login-op-btn:hover{
+	color:#fff !important;
 }
