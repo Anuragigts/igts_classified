@@ -79,8 +79,8 @@
 /* Header
 =============================== */
 .j-forms .header {
-	background-color:#3f51b5;
-	border-top:1px solid #7986cb;
+	background-color: #A1CB57;
+	border-top: 1px solid #A1CB57;
 	-webkit-border-radius:3px 3px 0 0;
 	-moz-border-radius:3px 3px 0 0;
 	-o-border-radius:3px 3px 0 0;
@@ -91,6 +91,7 @@
 	box-shadow:0 6px 3px -3px rgba(63,81,181,.5);
 	display:block;
 	position:relative;
+	text-align: center;
 }
 .j-forms .header > i {
 	color:#fff;
