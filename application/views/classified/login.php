@@ -37,21 +37,22 @@
                     <div class="paddings-mini">
                         <div class="container">
                             <div class="row">
-                               <?php echo $this->view("classified_layout/success_error"); ?>
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="login-form">
                                         <div class="login-title pad_bottm">
                                             <h2 class="text1 text_center ">Login</h2>
                                         </div>
+                                        <?php echo $this->view("classified_layout/success_error"); ?>
                                         <div class="row login_totpad" style="border: 2px solid #5EC3A3;">
                                             <div class="col-md-4 login_left">
                                                 <div class="log_leftpad text_center">
                                                     <a href="index.php"><img src="img/365deal.png" class="log_logo" alt="Logo"></a> 
-                                                    <h4 class="log_side top_20"><a href="#">Create New Account</a></h4>
+                                                    <h4 class="log_side top_20"><a href="signup">Create New Account</a></h4>
                                                     <h4 class="log_side"><a href="#">Forgot Password</a></h4>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
+
                                                 <script type="text/javascript">
                                                     function check(){
                                                         var ch = document.getElementById('w_check').checked;
@@ -62,32 +63,65 @@
                                                          document.getElementById('password').disabled = false;
                                                         }
                                                     }
+
+                                                    $(function(){
+                                                        $('#wo_login .switchery').click(function(){
+                                                            var  col = $('.switchery').css('box-shadow');
+                                                            if(col == 'rgb(223, 223, 223) 0px 0px 0px 0px inset'){
+                                                                document.getElementById('password').disabled = true;
+                                                                document.getElementById('w_login').value = 1;
+                                                            }
+                                                            else{
+                                                                document.getElementById('password').disabled = false;
+                                                                document.getElementById('w_login').value = 0;
+                                                            }
+
+                                                        });
+                                                         $('#remember .switchery').click(function(){
+                                                            var  col = $('.switchery').css('box-shadow');
+                                                            if(col == 'rgb(223, 223, 223) 0px 0px 0px 0px inset'){
+                                                                document.getElementById('remember').value = 1;
+                                                            }
+                                                            else{
+                                                                document.getElementById('remember').value = 0;
+                                                            }
+
+                                                        });
+                                                    });
                                                     </script>
                                                 <div class="login_form">
-                                                    <form  method="post" class="log_form" action="#" id="register-form">
+                                                    <form  method="post" class="log_form" action="" id="register-form">
                                                         <div class="col-1">
                                                             <label>Email
-                                                                <input placeholder="Enter Email" id="email" name="email" tabindex="1">
+                                                                <input placeholder="Enter Email" id="email" name="email" tabindex="1" required>
+                                                                  <?php echo form_error("email");?>
                                                             </label>
                                                         </div>
                                                         <div class="col-1">
                                                             <label>Password
-                                                                <input type="password" placeholder="Enter password" id="password" name="password" tabindex="2">
+                                                                <input type="password" placeholder="Enter password" id="password" name="password" tabindex="2" required>
+                                                                  <?php echo form_error("password");?>
                                                             </label>
                                                         </div>
-                                                        <div class="col-1">
-                                                            <label> Want to Post an Ad without Login</label>
+                                                        <div class="col-1" id='wo_login'>
+                                                            <label> Want to Post an Ad without Login
+                                                                <input type='hidden' name='w_login' id='w_login' value='0'>
+                                                            </label>
                                                             <center style="position:relative; margin-bottom:8px;">
                                                                 <input type="checkbox" id='w_check' name='w_check' onclick='check()' class="js-switch">
                                                             </center>
                                                         </div>
+                                                        
                                                         <div class="col-submit">
-                                                            <button class="submitbtn">Login</button>
+                                                            <input type='submit' id="login" name='login' class="btn btn-primary" value='Login' />
                                                         </div>
-                                                        <div class="col-1">
-                                                            <label> Remember Password</label>
+                                                        <div class="col-1" id='remember'>
+                                                            <label> Remember Password
+                                                                <input type='hidden' name='remember' id='remember' value='0' />
+                                                            </label>
                                                             <center style="position:relative; margin-bottom:8px;margin-top:-43px;"><input type="checkbox" class="js-switch"></center>
                                                         </div>
+                                                        
                                                         
                                                     </form><!-- End form -->
                                                 </div>

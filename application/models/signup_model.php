@@ -46,9 +46,7 @@ class Signup_model extends CI_Model{
         }
 
         public function already(){
-                // $this->db->select("*");
-                // $this->db->from("signup");
-                // $this->db->where("email", $this->input->post('email'));
+                
             $query = $this->db->query("SELECT COUNT(*) FROM signup WHERE email = '".$this->input->post('email')."'");
             $result = $query->row_array();
 

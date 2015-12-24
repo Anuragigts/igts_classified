@@ -20,21 +20,21 @@ class Login_model extends CI_Model{
 
                 if($this->db->affected_rows() > 0) {                 
                         $pq     =       $uq->row_array();
-                        if($this->input->post("chbox") == "1"){
-                                $this->session->set_userdata("chebox",$this->input->post("chbox"));
+                        if($this->input->post("w_login") == "1"){
+                                $this->session->set_userdata("chebox",$this->input->post("w_login"));
                         }
                         $this->session->set_userdata($pq);
                         return $pq['login_id'];    
                 }
                 else{
                         $pasd    =   "";
-                        if($this->input->post("chbox") == "1"){
+                        if($this->input->post("w_login") == "1"){
                                         $vaop    =   md5(rand(10000,99999));
-                                        $this->session->set_userdata("chebox",$this->input->post("chbox"));
+                                        $this->session->set_userdata("chebox",$this->input->post("w_login"));
                         }else{
                                         $vaop   =   "";
                         }   
-                        if($this->input->post("chbox") == "1"){
+                        if($this->input->post("w_login") == "1"){
                                 $login      =   array(
                                         "user_type"         =>      3,
                                         "login_email"       =>      $this->input->post("email"),

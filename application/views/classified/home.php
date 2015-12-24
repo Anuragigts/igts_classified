@@ -22,11 +22,15 @@
                             <input type="text" required="required" placeholder="I'm looking for" class="input-large">
                             <div class="selector">
                                 <select class="guests-input">
-                                    <option value="1">Motors</option>
-                                    <option value="2">For Sale</option>
-                                    <option value="3">Property</option>
-                                    <option value="4">Jobs</option>
-                                    <option value="5">Services</option>
+                                    <option value="1">Jobs</option>
+                                    <option value="2">Services</option>
+                                    <option value="3">Motor Point</option>
+                                    <option value="4">Find A property</option>
+                                    <option value="5">Pets</option>
+                                    <option value="6">Clothing & LifeStyles</option>
+                                    <option value="7">Home & Kitchen</option>
+                                    <option value="8">E-Zone</option>
+                                    <option value="9">Deals</option>
                                 </select>
                                 <span class="custom-select">All Categories</span>
                             </div>

@@ -41,7 +41,9 @@
                                     <div class="login-form">
                                         <div class="login-title">
                                             <h2 class="text1 text_center">Register</h2>
+                                            <?php echo $this->view("classified_layout/success_error"); ?>
                                         </div><!-- End Title -->
+
                                         <form  method="post" class="log_form" action="" id="register-form">
                                             <div class="col-2">
                                                 <label>First Name
@@ -81,7 +83,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <label>Phone Number
-                                                    <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7">
+                                                    <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7" maxlength='10'>
                                                     <?php echo form_error("mobile");?>
                                                 </label>
                                             </div>

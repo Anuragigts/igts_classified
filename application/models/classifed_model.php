@@ -179,7 +179,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("`featured` AS fs");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
 		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(2, 3);
+		$this->db->limit(2, 4);
 		$this->db->group_by("fs.`ad_id`");
 		$this->db->order_by('ads.created_on', 'DESC');
 		$m_res = $this->db->get();
