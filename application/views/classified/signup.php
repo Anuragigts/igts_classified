@@ -37,7 +37,7 @@
                     <div class="paddings-mini">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
+                                <div class="col-md-10 col-md-offset-1">
                                     <div class="login-form">
                                         <div class="login-title">
                                             <h2 class="text1 text_center">Register</h2>

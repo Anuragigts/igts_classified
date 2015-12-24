@@ -131,7 +131,7 @@
 												<label class="label">Postal Code</label>
 												<div class="input">
 													<label class="icon-right" for="email">
-														<i class="fa fa-envelope-o"></i>
+														<i class="fa fa-bookmark-o"></i>
 													</label>
 													<input type="text" id="postalcode" name="postalcode" placeholder="Enter Postal Code">
 												</div>
@@ -140,7 +140,7 @@
 												<label class="label">Area</label>
 												<div class="input">
 													<label class="icon-right" for="phone">
-														<i class="fa fa-phone"></i>
+														<i class="fa fa-building-o"></i>
 													</label>
 													<input type="text" id="area" name="area" placeholder="Enter Area">
 												</div>
@@ -158,8 +158,8 @@
 											<div class="span6 unit"><!-- start Deal Tag -->
 												<label class="label">Deal Tag</label>
 												<div class="input">
-													<label class="icon-right" for="phone">
-														<i class="fa fa-phone"></i>
+													<label class="icon-right" for="dealtag">
+														<img src="j-folder/img/dealtag.png">
 													</label>
 													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 												</div>
@@ -204,7 +204,7 @@
 												<label class="label">Type</label>
 												<div class="input">
 													<label class="icon-right" for="phone">
-														<i class="fa fa-phone"></i>
+														<img src="j-folder/img/type.png">
 													</label>
 													<input type="text" id="type" name="type" placeholder="Enter Type">
 												</div>
@@ -234,7 +234,7 @@
 												<label class="label">Height</label>
 												<div class="input">
 													<label class="icon-right" for="phone">
-														<i class="fa fa-phone"></i>
+														<img src="j-folder/img/height.png">
 													</label>
 													<input type="text" id="height" name="height" placeholder="Enter Height">
 												</div>
@@ -243,7 +243,7 @@
 												<label class="label">Gender</label>
 												<div class="input">
 													<label class="icon-right" for="phone">
-														<i class="fa fa-phone"></i>
+														<i class="fa fa-male"></i>
 													</label>
 													<input type="text" id="gender" name="gender" placeholder="Enter Gender">
 												</div>
