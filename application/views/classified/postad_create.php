@@ -108,15 +108,15 @@
 													<label class="input append-big-btn">
 														<div class="file-button">
 															Browse
-															<input type="file" name="file" onchange="document.getElementById('file_input').value = this.value;">
+															<input type="file" name="file" onchange="document.getElementById('file_input').value = this.value; fileupload(this);">
 														</div>
 														<input type="text" id="file_input" readonly="" placeholder="no file selected">
 														<span class="hint">Only: jpg / png / pdf / doc Size: less 1 Mb</span>
 													</label>
 												</div>
 											</div>
-											<div class="span6 unit">
-											
+											<div class="span6 unit" class='img_hide'>
+												<img id="blah" src="#" alt=''/>
 											</div>
 										</div>
 										<!-- end Business Logo -->
@@ -273,7 +273,7 @@
 															<li><i class="fa fa-arrow-right"></i> No Website link</li>
 														</ul>
 														<label class="checkbox">
-															<input type="checkbox" name="candles" value="candles-5$" data-price="5">
+															<input type="checkbox" name="candles" id='free_package' value="candles-5$" data-price="5">
 															<i></i>
 															is Urgent
 														</label>
@@ -309,7 +309,7 @@
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
 														</ul>
 														<label class="checkbox">
-															<input type="checkbox" name="candles" value="candles-5$" data-price="5">
+															<input type="checkbox" id='gold_package' name="candles" value="candles-5$" data-price="5">
 															<i></i>
 															is Urgent
 														</label>
@@ -360,7 +360,7 @@
 
 										<!-- start name -->
 										<div class="j-row">
-											<div class="span6">
+											<div class="span6" id='business_form'>
 												<div class="j-row">
 													<div class="span12 unit">
 														<label class="label">Business Name</label>
@@ -401,7 +401,7 @@
 												</div>
 											</div>
 											
-											<div class="span6">
+											<div class="span6" id='consumer_form'>
 												<div class="j-row">
 													<div class="span12 unit">
 														<label class="label">Contact Name </label>

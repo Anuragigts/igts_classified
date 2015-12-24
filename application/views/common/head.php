@@ -28,6 +28,35 @@
 		<!-- postad validation number only-->
 
 		<script type="text/javascript">
+		$(document).ready(function(){
+				$("#free_package").click(function(){
+					 var ch = document.getElementById('free_package').checked;
+					 if (ch) {
+					 	$(".free_hide").show(1000);
+					 }
+					 else{
+					 	$(".free_hide").hide(1000);
+					 }
+					
+
+				});
+
+				$("#gold_package").click(function(){
+					 var ch = document.getElementById('gold_package').checked;
+					 if (ch) {
+					 	$(".gold_hide").show(1000);
+					 }
+					 else{
+					 	$(".gold_hide").hide(1000);
+					 }
+					
+
+				});
+			});
+		</script>
+
+
+		<script type="text/javascript">
 		function fileupload(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -51,8 +80,13 @@
 					var ch = $("input[name='checkbox_toggle']:checked").val();
 					if(ch == 'Yes'){
 						$('#bus_logo').show(1000);
+						$('#business_form').show();
+						$('#consumer_form').hide();
+
 					}else{
 						$('#bus_logo').hide(1000);
+						$('#business_form').hide();
+						$('#consumer_form').show();
 					}
 			});
 		});
