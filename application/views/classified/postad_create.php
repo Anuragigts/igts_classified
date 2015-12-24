@@ -91,11 +91,11 @@
 													<div class="inline-group">
 														<label class="radio">
 															<input type="radio" name="checkbox_toggle" id="next-step-radio" class='bus_consumer' value="Yes">
-															<i></i>Business
+															<i></i>Business <sup style='color:red;'>*</sup>
 														</label>
 														<label class="radio">
 															<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
-															<i></i>Consumer
+															<i></i>Consumer <sup style='color:red;'>*</sup>
 														</label>
 													</div>
 												</div>
@@ -103,7 +103,7 @@
 										</div>
 										<div class="j-row" id='bus_logo' style='display:none;'> 
 											<div class="span6 unit">
-												<label class="label">Business Logo</label>
+												<label class="label">Business Logo <sup style='color:red;'>*</sup></label>
 												<div class="unit">
 													<label class="input append-big-btn">
 														<div class="file-button">
@@ -124,7 +124,7 @@
 										<!-- start Postal Code -->
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Postal Code</label>
+												<label class="label">Postal Code <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="email">
 														<i class="fa fa-bookmark-o"></i>
@@ -133,7 +133,7 @@
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Area</label>
+												<label class="label">Area <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<i class="fa fa-building-o"></i>
@@ -152,7 +152,7 @@
 										
 										<div class="j-row">
 											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag</label>
+												<label class="label">Deal Tag <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="dealtag">
 														<img src="j-folder/img/dealtag.png">
@@ -161,7 +161,7 @@
 												</div>
 											</div><!-- end Deal Tag -->
 											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description </label>
+												<label class="label">Deal Description <sup style='color:red;'>*</sup> </label>
 												<div class="input">
 													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
 												</div>
@@ -170,7 +170,7 @@
 										
 										<div class="j-row">
 											<div class="span6 unit"><!-- start service -->
-												<label class="label">Price</label>
+												<label class="label">Price <sup style='color:red;'>*</sup></label>
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
@@ -185,7 +185,7 @@
 												</div>
 											</div><!-- end service -->
 											<div class="span6 unit"><!-- start Family Race -->
-												<label class="label">Family Race</label>
+												<label class="label">Family Race <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<i class="fa fa-home"></i>
@@ -197,7 +197,7 @@
 										
 										<div class="j-row">
 											<div class="span6 unit"><!-- start Type -->
-												<label class="label">Type</label>
+												<label class="label">Type <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<img src="j-folder/img/type.png">
@@ -207,7 +207,7 @@
 											</div><!-- end Type -->
 											
 											<div class="span6 unit"><!-- start Age -->
-												<label class="label">Age</label>
+												<label class="label">Age <sup style='color:red;'>*</sup></label>
 												<label class="input select">
 													<select name="Age">
 														<option value="none" selected disabled="">select Age</option>
@@ -227,7 +227,7 @@
 										
 										<div class="j-row">
 											<div class="span6 unit"><!-- start Height -->
-												<label class="label">Height</label>
+												<label class="label">Height <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<img src="j-folder/img/height.png">
@@ -236,7 +236,7 @@
 												</div>
 											</div><!-- end Height -->
 											<div class="span6 unit"><!-- start Gender -->
-												<label class="label">Gender</label>
+												<label class="label">Gender <sup style='color:red;'>*</sup> <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<i class="fa fa-male"></i>
@@ -363,7 +363,7 @@
 											<div class="span6" id='business_form'>
 												<div class="j-row">
 													<div class="span12 unit">
-														<label class="label">Business Name</label>
+														<label class="label">Business Name <sup style='color:red;'>*</sup></label>
 														<div class="input">
 															<label class="icon-right" for="company">
 																<i class="fa fa-briefcase"></i>
@@ -372,7 +372,7 @@
 														</div>
 													</div>
 													<div class="span12 unit">
-														<label class="label">Contact Person Name </label>
+														<label class="label">Contact Person Name <sup style='color:red;'>*</sup> </label>
 														<div class="input">
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
@@ -381,7 +381,7 @@
 														</div>
 													</div>
 													<div class="span12 unit">
-														<label class="label">Mobile Number</label>
+														<label class="label">Mobile Number <sup style='color:red;'>*</sup></label>
 														<div class="input">
 															<label class="icon-right" for="phone">
 																<i class="fa fa-phone"></i>
@@ -390,7 +390,7 @@
 														</div>
 													</div>
 													<div class="span12 unit">
-														<label class="label">Email</label>
+														<label class="label">Email <sup style='color:red;'>*</sup></label>
 														<div class="input">
 															<label class="icon-right" for="email">
 																<i class="fa fa-envelope-o"></i>
@@ -404,7 +404,7 @@
 											<div class="span6" id='consumer_form'>
 												<div class="j-row">
 													<div class="span12 unit">
-														<label class="label">Contact Name </label>
+														<label class="label">Contact Name <sup style='color:red;'>*</sup> </label>
 														<div class="input">
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
@@ -413,7 +413,7 @@
 														</div>
 													</div>
 													<div class="span12 unit">
-														<label class="label">Mobile Number</label>
+														<label class="label">Mobile Number <sup style='color:red;'>*</sup></label>
 														<div class="input">
 															<label class="icon-right" for="phone">
 																<i class="fa fa-phone"></i>
@@ -422,7 +422,7 @@
 														</div>
 													</div>
 													<div class="span12 unit">
-														<label class="label">Email</label>
+														<label class="label">Email <sup style='color:red;'>*</sup></label>
 														<div class="input">
 															<label class="icon-right" for="email">
 																<i class="fa fa-envelope-o"></i>
