@@ -46,43 +46,43 @@
 
                                         <form  method="post" class="log_form" action="" id="register-form">
                                             <div class="col-2">
-                                                <label>First Name
+                                                <label>First Name <sup style='color:red;'>*</sup>    
                                                     <input placeholder="Enter First Name" id="fname" name="fname" tabindex="1">
                                                      <?php echo form_error("fname");?>
                                                 </label>
                                             </div>
                                             <div class="col-2">
-                                                <label>Last Name
+                                                <label>Last Name <sup style='color:red;'>*</sup>
                                                     <input placeholder="Enter Last Name" id="lname" name="lname" tabindex="2">
                                                     <?php echo form_error("lname");?>
                                                 </label>
                                             </div>
                                             <div class="col-2">
-                                                <label>Email
+                                                <label>Email <sup style='color:red;'>*</sup>
                                                     <input placeholder="Enter Email" id="email" name="email" tabindex="3">
                                                     <?php echo form_error("email");?>
                                                 </label>
                                             </div>
                                             <div class="col-2">
-                                                <label>Confirm Email
+                                                <label>Confirm Email <sup style='color:red;'>*</sup>
                                                     <input placeholder="Enter Confirm email" id="conf-email" name="conf-email" tabindex="4">
                                                     <?php echo form_error("conf-email");?>
                                                 </label>
                                             </div>
                                             <div class="col-3">
-                                                <label>Password
+                                                <label>Password <sup style='color:red;'>*</sup>
                                                     <input type="password" placeholder="Enter password" id="password" name="password" tabindex="5">
                                                     <?php echo form_error("password");?>
                                                 </label>
                                             </div>
                                             <div class="col-3">
-                                                <label>Confirm Password
+                                                <label>Confirm Password <sup style='color:red;'>*</sup>
                                                     <input type="password" placeholder="Enter Confirm password" id="conf-password" name="conf-password" tabindex="6">
                                                     <?php echo form_error("conf-password");?>
                                                 </label>
                                             </div>
                                             <div class="col-3">
-                                                <label>Phone Number
+                                                <label>Phone Number <sup style='color:red;'>*</sup>
                                                     <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7" maxlength='10'>
                                                     <?php echo form_error("mobile");?>
                                                 </label>

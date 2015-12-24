@@ -92,13 +92,13 @@
                                                 <div class="login_form">
                                                     <form  method="post" class="log_form" action="" id="register-form">
                                                         <div class="col-1">
-                                                            <label>Email
+                                                            <label>Email <sup style='color:red;'>*</sup>
                                                                 <input placeholder="Enter Email" id="email" name="email" tabindex="1" required>
                                                                   <?php echo form_error("email");?>
                                                             </label>
                                                         </div>
                                                         <div class="col-1">
-                                                            <label>Password
+                                                            <label>Password <sup style='color:red;'>*</sup>
                                                                 <input type="password" placeholder="Enter password" id="password" name="password" tabindex="2" required>
                                                                   <?php echo form_error("password");?>
                                                             </label>
