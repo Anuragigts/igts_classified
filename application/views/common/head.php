@@ -96,12 +96,6 @@
 		</script>
 
 
-		
-				
-		 
-
-		
-
 		<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
 		<link id="style-sheet" href="modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
 		<script src="modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 

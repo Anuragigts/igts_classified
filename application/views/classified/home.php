@@ -2,7 +2,7 @@
             <section class="tp-banner-container">
                 <!-- SLIDE  -->
                 <div class="tp-banner">
-                   <img src="img/slide/ban5.jpg"  alt="fullslide1"> 
+                   <div class="bg_parallax image_02_parallax"></div>
 				   <div class="tp-bannertimer"></div>  
                 </div>
                 <!-- SLIDE CONTENT-->
@@ -576,7 +576,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3">
-									<img src="img/recentad.jpg" alt="" style="height:306px;" class="img-responsive">
+									<img src="img/business_deals.jpg" alt="" style="height:306px;" class="img-responsive">
 								</div>
 							</div>
 						</div>
@@ -683,7 +683,7 @@
 						jssor_1_slider.$ScaleWidth(refSize);
 					}
 					else {
-						window.setTimeout(ScaleSlider, 50);
+						window.setTimeout(ScaleSlider, 40);
 					}
 				}
 				ScaleSlider();
