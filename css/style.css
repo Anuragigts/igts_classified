@@ -4054,7 +4054,7 @@ transition-delay:.2s;
 }
 .modal-body h3 a{
 	color:#121617;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .new-user{
@@ -4097,4 +4097,8 @@ transition-delay:.2s;
 }
 a .login-op-btn:hover{
 	color:#fff !important;
+}
+.post_deal_bor{
+	border: 2px solid rgb(155, 147, 147);
+	padding: 14px 27px 0px;
 }
