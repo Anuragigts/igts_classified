@@ -3,6 +3,23 @@
 
 Class Classifed_model extends CI_model{
 
+
+	/*show all categories in home page*/
+	public function show_all(){
+
+		$this->db->select("*");
+		$this->db->from("`catergory`");
+		$rs = $this->db->get();
+		
+		if($this->db->affected_rows() > 0){
+			return $rs->result();
+		}
+		else{
+			return array();
+		}
+
+	}
+
 /*most value ads of logged on user*/
 	public function most_ads_user($id){
 

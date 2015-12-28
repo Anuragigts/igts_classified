@@ -144,7 +144,7 @@
 															<div class="row">
 																<div class="col-md-6 clearfix">
 																	<h3>Professional</h3>
-																	<h4><a href="<?php echo base_url(); ?>postad_create">Coaching & Training</a></h4>
+																	<h4><a href="<?php echo base_url(); ?>postad_create_services">Coaching & Training</a></h4>
 																	<h4><a href="#">Business Services</a></h4>
 																	<h4><a href="#">Party & Wedding Services</a></h4>
 																	<h4><a href="#">IT & Digital Marketing Services</a></h4>
@@ -295,10 +295,10 @@
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Big Animals</h3>
-																	<h4><a href="#">Cobs</a></h4>
-																	<h4><a href="#">Donkeys</a></h4>
-																	<h4><a href="#">Horses</a></h4>
-																	<h4><a href="#">Ponies</a></h4>
+																	<h4><a href="<?php echo base_url(); ?>postad_create">Cobs</a></h4>
+																	<h4><a href="<?php echo base_url(); ?>postad_create">Donkeys</a></h4>
+																	<h4><a href="<?php echo base_url(); ?>postad_create">Horses</a></h4>
+																	<h4><a href="<?php echo base_url(); ?>postad_create">Ponies</a></h4>
 																	<h4><a href="#">Beef Cattle</a></h4>
 																	<h4><a href="#">Dairy Cattle</a></h4>
 																	<h4><a href="#">Others</a></h4>
@@ -358,7 +358,7 @@
 															<div class="row">
 																<div class="col-md-4 clearfix">
 																	<h3>Women</h3>
-																	<h4><a href="#">Clothing</a></h4>
+																	<h4><a href="<?php echo base_url(); ?>postad_create_cloths">Clothing</a></h4>
 																	<h4><a href="#">Shoes</a></h4>
 																	<h4><a href="#">Accessories</a></h4>
 																	<h4><a href="#">Wedding</a></h4>

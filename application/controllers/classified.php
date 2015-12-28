@@ -25,10 +25,11 @@ class Classified extends CI_Controller{
                                                     'Small kittens',
                                                     'Female African grey');
                                 $news1 = array_chunk($news, 2);
-                                     // echo "<pre>"; print_r($news1); 
+                                     // echo "<pre>"; print_r($show_all); 
                                      // echo count($news1).$news1[0][1];
                                      // exit;
                                 $data['news'] = $news1;
+                                $data['show_all'] = $this->classifed_model->show_all();
                                                      
                 if($lid != ''){
                  /*over all ads for most value ads(displayed for jobs only)*/

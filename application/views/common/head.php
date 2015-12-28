@@ -1,4 +1,4 @@
-		
+
 		
 		<meta name="keywords" content="HTML5 Template" />
         <meta name="description" content="World Cup - Responsive HTML5 Template soccer and sports">
@@ -65,8 +65,10 @@
                 	$('.img_hide').show();
                     $('#blah')
                         .attr('src', e.target.result)
-                        .width(150)
-                        .height(150);
+                        .width(250)
+                        .height(150)
+                        .css('border', '2px solid rgba(48,63,159,.9)')
+                        .css('border-radius', '10px');
                 };
 
                 reader.readAsDataURL(input.files[0]);
@@ -89,6 +91,7 @@
 						$('#consumer_form').show();
 					}
 			});
+			if (('#bus_logo').css('display', 'block')) {alert('hihi'); }
 		});
 		</script>
 

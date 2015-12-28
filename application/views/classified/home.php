@@ -22,7 +22,10 @@
                             <input type="text" required="required" placeholder="I'm looking for" class="input-large">
                             <div class="selector">
                                 <select class="guests-input">
-                                    <option value="1">Jobs</option>
+                                	<?php foreach ($show_all as $show_val) { ?>
+                                		 <option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
+                                <?php	} ?>
+<!--                                     <option value="1">Jobs</option>
                                     <option value="2">Services</option>
                                     <option value="3">Motor Point</option>
                                     <option value="4">Find A property</option>
@@ -30,7 +33,7 @@
                                     <option value="6">Clothing & LifeStyles</option>
                                     <option value="7">Home & Kitchen</option>
                                     <option value="8">E-Zone</option>
-                                    <option value="9">Deals</option>
+                                    <option value="9">Deals</option> -->
                                 </select>
                                 <span class="custom-select">All Categories</span>
                             </div>
