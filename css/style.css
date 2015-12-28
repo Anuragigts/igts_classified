@@ -3886,6 +3886,10 @@ body{
 
 .modal-body .row div  h4{
 	font-size: 16px;
+	line-height: 0.6;
+}
+.ezone_h3 div h3{
+	font-size:20px;
 }
 .recen_ad{
 	border: 5px solid #417FB0;
