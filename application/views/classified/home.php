@@ -581,12 +581,18 @@
 							</div>
 						</div>
 						
+						<style>
+								#jssor_1{
+									width:1124px !important;
+								}
+						</style>
+						
 						<div class="container">
                             <div class="row">
 								<!--<div id="m1" class="marquee">	
 						
 								</div>-->
-								<div  id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 35px; overflow: hidden; visibility: hidden;">
+								<div  id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden; visibility: hidden;">
 									<!-- Loading Screen -->
 									<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 										<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>

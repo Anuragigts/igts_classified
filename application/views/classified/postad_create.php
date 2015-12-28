@@ -31,7 +31,7 @@
 				<!-- content-->
 				<div class="container">
 					<div class="row">
-						<div class="wrapper wrapper-640">
+						<div class="wrapper wrapper-640" style="padding-top: 0px;">
 
 							<form action="http://lazy-coding.com/j-forms-advanced/forms/order_multistep_with_steps/j-folder/php/demo.php" method="post" class="j-forms j-multistep" id="j-forms" enctype="multipart/form-data" novalidate>
 
