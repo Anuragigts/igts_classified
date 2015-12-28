@@ -1788,7 +1788,7 @@ hr.separator:before {
 	background: url("../img/slide/ban5.jpg");
 }
 .image_02_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 	opacity:2.5;
 }
 .image_03_parallax{
