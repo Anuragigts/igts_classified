@@ -584,6 +584,7 @@
 						<style>
 								#jssor_1{
 									width:1124px !important;
+									 height: 40px !important;
 								}
 						</style>
 						
@@ -598,7 +599,7 @@
 										<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 										<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 									</div>
-									<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 35px; overflow: hidden;">
+									<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;">
 										<div style="display: none;">
 											<img data-u="image" src="img/brand/acer.png" />
 										</div>
@@ -653,3 +654,42 @@
 			
 			</section>
             <!-- End Content Central -->
+			
+			   
+       <script type="text/javascript" src="js/jssor.slider.min.js"></script>
+		<!-- use jssor.slider.debug.js instead for debug -->
+		<script>
+			jQuery(document).ready(function ($) {
+				
+				var jssor_1_options = {
+				  $AutoPlay: true,
+				  $Idle: 0,
+				  $AutoPlaySteps: 4,
+				  $SlideDuration: 1600,
+				  $SlideEasing: $Jease$.$Linear,
+				  $PauseOnHover: 4,
+				  $SlideWidth: 115,
+				  $Cols: 8
+				};
+				
+				var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+				
+				//responsive code begin
+				//you can remove responsive code if you don't want the slider scales while window resizing
+				function ScaleSlider() {
+					var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+					if (refSize) {
+						refSize = Math.min(refSize, 1124);
+						jssor_1_slider.$ScaleWidth(refSize);
+					}
+					else {
+						window.setTimeout(ScaleSlider, 50);
+					}
+				}
+				ScaleSlider();
+				$(window).bind("load", ScaleSlider);
+				$(window).bind("resize", ScaleSlider);
+				$(window).bind("orientationchange", ScaleSlider);
+				//responsive code end
+			});
+		</script>
