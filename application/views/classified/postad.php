@@ -662,4 +662,4 @@
             </section>
 			
             <!-- End Content Central -->
-			<script src="js/jquery.js"></script> 
+			

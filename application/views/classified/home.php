@@ -694,3 +694,4 @@
 				//responsive code end
 			});
 		</script>
+		

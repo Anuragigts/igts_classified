@@ -1,4 +1,14 @@
 		<title>365 Deals :: SignUp</title>
+			<style>
+				.section-title-01{
+					height: 315px;
+					background-color: #262626;
+					text-align: center;
+					position: relative;
+					width: 100%;
+					overflow: hidden;
+				}
+			</style>
 		<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
         <link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
         <script type="text/javascript" src="switchery.min.js"></script>
@@ -8,7 +18,7 @@
                 <div class="bg_parallax image_02_parallax"></div>
                 <!-- Parallax Background -->
 
-                <!-- Content Parallax-->
+                <!-- Content Parallax--
                 <div class="opacy_bg_02">
                     <div class="container">
                         <h1>Register</h1>

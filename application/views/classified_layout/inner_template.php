@@ -14,7 +14,7 @@
     <!-- xxx Head Content xxx -->
     <?php echo $this->load->view('common/head');?> 
     <!-- xxx End xxx -->
-   
+  
 
 </head>
 <body id="home">

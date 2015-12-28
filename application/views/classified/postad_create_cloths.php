@@ -535,7 +535,7 @@
 										
 										
 										
-										<!-- start textarea -->
+										<!-- start textarea --
 										<div class="unit">
 											<label class="label">Message or comment</label>
 											<div class="input">
