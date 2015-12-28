@@ -23,7 +23,7 @@
         <script src="js/twitter/jquery.tweet.js"></script> 
         <!-- flickr Feed-->
         <script src="js/flickr/jflickrfeed.min.js"></script>    
-        <!--Theme Options-->
+        <!--Theme Options
         <script type="text/javascript" src="js/theme-options/theme-options.js"></script>
         <script type="text/javascript" src="js/theme-options/jquery.cookies.js"></script> 
         <!-- Bootstrap.js-->
@@ -85,7 +85,7 @@
 		</script>
         <!--End Slider Function-->
 		
-		<script>window.jQuery || document.write('<script src="js1/lib/jquery-1.7.2.min.js"><\/script>')</script>
+		
       <script src="js1/box-slider-all.jquery.min.js"></script>
       <script>
          $(function () {

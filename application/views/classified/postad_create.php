@@ -6,22 +6,7 @@
                 <!-- Parallax Background -->
                 <div class="bg_parallax image_02_parallax"></div>
                 <!-- Parallax Background -->
-
-                <!-- Content Parallax-->
-                <div class="opacy_bg_02">
-                    <div class="container">
-                        <h1>Post a Deal</h1>
-                        <div class="crumbs">
-                            <ul>
-                                <li><a href="index.php" class='home'>Home</a></li>
-                                <li>/</li>
-                                <li>Post a Deal</li>                                       
-                            </ul>    
-                        </div>
-                    </div>  
-                </div>  
-                <!-- End Content Parallax--> 
-            </div>   
+			</div>   
             <!-- End Section Title-->
     <section class="content-central">
 		<!-- Shadow Semiboxed -->
@@ -30,7 +15,7 @@
 		</div>
 		
 		<!-- content info - Blog-->
-		<div class="content_info" style="background-color: rgb(244, 244, 244);">
+		<div class="content_info">
 			<div class="paddings-mini">
 				<!-- content-->
 				<div class="container">
@@ -55,22 +40,11 @@
 										</div>
 										<div class="span2 step">
 											<div class="steps">
-												<span>Step 2:</span>
-												<p>2nd Screen</p>
-											</div>
-										</div>
-										<div class="span2 step">
-											<div class="steps">
 												<span>Step 3:</span>
 												<p>Packages</p>
 											</div>
 										</div>
-										<div class="span3 step">
-											<div class="steps">
-												<span>Step 4:</span>
-												<p>Contact Details</p>
-											</div>
-										</div>
+										
 										<div class="span3 step">
 											<div class="steps">
 												<span>Step 5:</span>
@@ -133,7 +107,7 @@
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Area <sup style='color:red;'>*</sup></label>
+												<label class="label">Location <sup style='color:red;'>*</sup></label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<i class="fa fa-building-o"></i>
@@ -143,12 +117,6 @@
 											</div>
 										</div>
 										<!-- end  Area -->
-
-									</fieldset>
-
-									<fieldset>
-
-										<div class="divider gap-bottom-25"></div>
 										
 										<div class="j-row">
 											<div class="span6 unit"><!-- start Deal Tag -->
@@ -168,97 +136,97 @@
 											</div><!-- end Deal Description -->
 										</div>
 										
-											<div class="j-row">
-												<div class="span6"><!-- start service -->
-													<div class="j-row">
-														<div class="span7 unit">
-															<label class="label">Price <sup style='color:red;'>*</sup></label>
-															<div class="unit check logic-block-radio">
-																<div class="inline-group">
-																	<label class="radio">
-																		<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																		<i></i>£ (Pound) 
-																	</label>
-																	<label class="radio">
-																		<input type="radio" name="checkbox_toggle1"  value="No">
-																		<i></i> € (Euro)
-																	</label>
-																</div>
-															</div>
-														</div>
-														<div class="span5 unit top_20">
-															<div class="input">
-																<label class="icon-right" for="dealtag">
-																	<img src="j-folder/img/price.png">
+										<div class="j-row">
+											<div class="span6"><!-- start service -->
+												<div class="j-row">
+													<div class="span7 unit">
+														<label class="label">Price <sup style='color:red;'>*</sup></label>
+														<div class="unit check logic-block-radio">
+															<div class="inline-group">
+																<label class="radio">
+																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
+																	<i></i>£ (Pound) 
 																</label>
-																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+																<label class="radio">
+																	<input type="radio" name="checkbox_toggle1"  value="No">
+																	<i></i> € (Euro)
+																</label>
 															</div>
 														</div>
-													</div><!-- end service -->
-												</div><!-- end service -->
-												<div class="span6 unit"><!-- start Family Race -->
-													<label class="label">Family Race <sup style='color:red;'>*</sup></label>
-													<div class="input">
-														<label class="icon-right" for="phone">
-															<i class="fa fa-home"></i>
-														</label>
-														<input type="text" id="familyrace" name="familyrace" placeholder="Enter Family Race">
 													</div>
-												</div><!-- end Family Race -->
-											</div>
+													<div class="span5 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="dealtag">
+																<img src="j-folder/img/price.png">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+														</div>
+													</div>
+												</div><!-- end service -->
+											</div><!-- end service -->
+											<div class="span6 unit"><!-- start Family Race -->
+												<label class="label">Family Race <sup style='color:red;'>*</sup></label>
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<i class="fa fa-home"></i>
+													</label>
+													<input type="text" id="familyrace" name="familyrace" placeholder="Enter Family Race">
+												</div>
+											</div><!-- end Family Race -->
+										</div>
 										
-												<div class="j-row">
-													<div class="span6 unit"><!-- start Type -->
-														<label class="label">Type <sup style='color:red;'>*</sup></label>
-														<div class="input">
-															<label class="icon-right" for="phone">
-																<img src="j-folder/img/type.png">
-															</label>
-															<input type="text" id="type" name="type" placeholder="Enter Type">
-														</div>
-													</div><!-- end Type -->
-													
-													<div class="span6 unit"><!-- start Age -->
-														<label class="label">Age <sup style='color:red;'>*</sup></label>
-														<label class="input select">
-															<select name="Age">
-																<option value="none" selected disabled="">select Age</option>
-																<option value="3months">0 to 3 Months</option>
-																<option value="6months">3 to 6 Months</option>
-																<option value="9months">6 to 9 Months</option>
-																<option value="12months">9 to 12 Months</option>
-																<option value="2years"> > 1 Year - < 2 Years</option>
-																<option value="3years"> > 2 Years - < 3 Years</option>
-																<option value="4years"> > 3 Years - < 4 Years</option>
-																<option value="5years"> > 4 Years - < 5 Years</option>
-															</select>
-															<i></i>
-														</label>
-													</div><!-- end Age -->
+										<div class="j-row">
+											<div class="span6 unit"><!-- start Type -->
+												<label class="label">Type <sup style='color:red;'>*</sup></label>
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<img src="j-folder/img/type.png">
+													</label>
+													<input type="text" id="type" name="type" placeholder="Enter Type">
 												</div>
+											</div><!-- end Type -->
+											
+											<div class="span6 unit"><!-- start Age -->
+												<label class="label">Age <sup style='color:red;'>*</sup></label>
+												<label class="input select">
+													<select name="Age">
+														<option value="none" selected disabled="">select Age</option>
+														<option value="3months">0 to 3 Months</option>
+														<option value="6months">3 to 6 Months</option>
+														<option value="9months">6 to 9 Months</option>
+														<option value="12months">9 to 12 Months</option>
+														<option value="2years"> > 1 Year - < 2 Years</option>
+														<option value="3years"> > 2 Years - < 3 Years</option>
+														<option value="4years"> > 3 Years - < 4 Years</option>
+														<option value="5years"> > 4 Years - < 5 Years</option>
+													</select>
+													<i></i>
+												</label>
+											</div><!-- end Age -->
+										</div>
 												
-												<div class="j-row">
-													<div class="span6 unit"><!-- start Height -->
-														<label class="label">Height <sup style='color:red;'>*</sup></label>
-														<div class="input">
-															<label class="icon-right" for="phone">
-																<img src="j-folder/img/height.png">
-															</label>
-															<input type="text" id="height" name="height" placeholder="Enter Height">
-														</div>
-													</div><!-- end Height -->
-													<div class="span6 unit"><!-- start Gender -->
-														<label class="label">Gender <sup style='color:red;'>*</sup></label>
-														<div class="input">
-															<label class="icon-right" for="phone">
-																<i class="fa fa-male"></i>
-															</label>
-															<input type="text" id="gender" name="gender" placeholder="Enter Gender">
-														</div>
-													</div><!-- end Gender -->
+										<div class="j-row">
+											<div class="span6 unit"><!-- start Height -->
+												<label class="label">Height <sup style='color:red;'>*</sup></label>
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<img src="j-folder/img/height.png">
+													</label>
+													<input type="text" id="height" name="height" placeholder="Enter Height">
 												</div>
+											</div><!-- end Height -->
+											<div class="span6 unit"><!-- start Gender -->
+												<label class="label">Gender <sup style='color:red;'>*</sup></label>
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<i class="fa fa-male"></i>
+													</label>
+													<input type="text" id="gender" name="gender" placeholder="Enter Gender">
+												</div>
+											</div><!-- end Gender -->
+										</div>
 
-											</fieldset>
+									</fieldset>
 
 									<fieldset>
 
@@ -446,14 +414,9 @@
 											</div>
 										</div>
 										<!-- end name -->
-
-									</fieldset>
-									
-									
-									<fieldset>
-
-										<div class="divider gap-bottom-25"></div>
-
+										
+										
+										
 										<!-- start textarea -->
 										<div class="unit">
 											<label class="label">Message or comment</label>
