@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="j-folder/css/demo.css">
 	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
- <!-- Section Title-->    
+	<!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
                 <div class="bg_parallax image_02_parallax"></div>
@@ -51,15 +51,15 @@
 										</div>
 										<div class="span2 step">
 											<div class="steps">
-												<span>Step 3:</span>
+												<span>Step 2:</span>
 												<p>Packages</p>
 											</div>
 										</div>
 										
-										<div class="span3 step">
+										<div class="span4 step">
 											<div class="steps">
-												<span>Step 5:</span>
-												<p>Terms & Conditions</p>
+												<span>Step 3:</span>
+												<p>Contact, Terms & Conditions</p>
 											</div>
 										</div>
 									</div>

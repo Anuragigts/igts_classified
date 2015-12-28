@@ -499,7 +499,7 @@
 															<h2>E-Zone <span>Category </span></h2>
 														</div>
 														<div class="modal-body">
-															<div class="row">
+															<div class="row ezone_h3">
 																<div class="col-md-3 clearfix">
 																	<h3>Phones & Tablets</h3>
 																	<h4><a href="#">Mobile Phones</a></h4>
@@ -512,31 +512,6 @@
 																	<h4><a href="#">Screen Guards</a></h4>
 																	<h4><a href="#">Powerbanks</a></h4>
 																	<h4><a href="#">Wearable Devices</a></h4>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Laptop & Computers</h3>
-																	<h4><a href="#">Laptops</a></h4>
-																	<h4><a href="#">All in One</a></h4>
-																	<h4><a href="#">Printers</a></h4>
-																	<h4><a href="#">Wi-Fi Devices</a></h4>
-																	<h4><a href="#">External Hard Drives</a></h4>
-																	<h4><a href="#">Pen Drives</a></h4>
-																	<h4><a href="#">Keyboards</a></h4>
-																	<h4><a href="#">Mouse</a></h4>
-																	<h4><a href="#">Headsets</a></h4>
-																	<h4><a href="#">Cables & Connectors</a></h4>
-																	<h4><a href="#">Ink & Toner</a></h4>
-																	<h4><a href="#">Softwares</a></h4>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Home Entertainment</h3>
-																	<h4><a href="#">LCD LED Televisions</a></h4>
-																	<h4><a href="#">Home Theatre Systems</a></h4>
-																	<h4><a href="#">DVD & Blue-Ray Players</a></h4>
-																	<h4><a href="#">Audio Systems</a></h4>
-																	<h4><a href="#">Gaming</a></h4>
-																	<h4><a href="#">Musical Instruments</a></h4>
-																	<h4><a href="#">Projectors</a></h4>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Home Appliances</h3>
@@ -552,14 +527,6 @@
 																	<h4><a href="#">Sewing Machine</a></h4>
 																	<h4><a href="#">Dryers</a></h4>
 																	<h4><a href="#">Emergency Light</a></h4>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-md-3 clearfix">
-																	<h3>Photography</h3>
-																	<h4><a href="#">Digital SLR Cameras</a></h4>
-																	<h4><a href="#">Point & Shoot Cameras</a></h4>
-																	<h4><a href="#">Camcorders</a></h4>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Small Appliances</h3>
@@ -577,17 +544,22 @@
 																	<h4><a href="#">Flour Mill</a></h4>
 																</div>
 																<div class="col-md-3 clearfix">
-																	<h3>Personal Care</h3>
-																	<h4><a href="#">Shavers</a></h4>
-																	<h4><a href="#">Trimmers</a></h4>
-																	<h4><a href="#">Body Groomers</a></h4>
-																	<h4><a href="#">Hair Dryers</a></h4>
-																	<h4><a href="#">Hair Stylers</a></h4>
-																	<h4><a href="#">Epilators</a></h4>
-																	<h4><a href="#">Pedometers</a></h4>
-																	<h4><a href="#">Monitors</a></h4>
-																	<h4><a href="#">Massagers</a></h4>
+																	<h3>Laptop & Computers</h3>
+																	<h4><a href="#">Laptops</a></h4>
+																	<h4><a href="#">All in One</a></h4>
+																	<h4><a href="#">Printers</a></h4>
+																	<h4><a href="#">Wi-Fi Devices</a></h4>
+																	<h4><a href="#">External Hard Drives</a></h4>
+																	<h4><a href="#">Pen Drives</a></h4>
+																	<h4><a href="#">Keyboards</a></h4>
+																	<h4><a href="#">Mouse</a></h4>
+																	<h4><a href="#">Headsets</a></h4>
+																	<h4><a href="#">Cables & Connectors</a></h4>
+																	<h4><a href="#">Ink & Toner</a></h4>
+																	<h4><a href="#">Softwares</a></h4>
 																</div>
+															</div>
+															<div class="row ezone_h3">
 																<div class="col-md-3 clearfix">
 																	<h3>Accessories</h3>
 																	<h4><a href="#">Tablet & iPad Accessories</a></h4>
@@ -600,7 +572,38 @@
 																	<h4><a href="#">Inverters, Stablizers & Power</a></h4>
 																	<h4><a href="#">Battery</a></h4>
 																</div>
+																<div class="col-md-3 clearfix">
+																	<h3>Personal Care</h3>
+																	<h4><a href="#">Shavers</a></h4>
+																	<h4><a href="#">Trimmers</a></h4>
+																	<h4><a href="#">Body Groomers</a></h4>
+																	<h4><a href="#">Hair Dryers</a></h4>
+																	<h4><a href="#">Hair Stylers</a></h4>
+																	<h4><a href="#">Epilators</a></h4>
+																	<h4><a href="#">Pedometers</a></h4>
+																	<h4><a href="#">Monitors</a></h4>
+																	<h4><a href="#">Massagers</a></h4>
+																</div>
+																
+																<div class="col-md-3 clearfix">
+																	<h3>Home Entertainment</h3>
+																	<h4><a href="#">LCD LED Televisions</a></h4>
+																	<h4><a href="#">Home Theatre Systems</a></h4>
+																	<h4><a href="#">DVD & Blue-Ray Players</a></h4>
+																	<h4><a href="#">Audio Systems</a></h4>
+																	<h4><a href="#">Gaming</a></h4>
+																	<h4><a href="#">Musical Instruments</a></h4>
+																	<h4><a href="#">Projectors</a></h4>
+																</div>
+																<div class="col-md-3 clearfix">
+																	<h3>Photography</h3>
+																	<h4><a href="#">Digital SLR Cameras</a></h4>
+																	<h4><a href="#">Point & Shoot Cameras</a></h4>
+																	<h4><a href="#">Camcorders</a></h4>
+																</div>
+																
 															</div>
+															
 														</div>
 														<div class="modal-footer">
 															<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
