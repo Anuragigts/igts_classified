@@ -168,9 +168,7 @@
          })();
       </script>
 	  
-	  <script>
-		jssor_1_slider_init();
-		</script>
+		
 
    <!-- news updates -->
    

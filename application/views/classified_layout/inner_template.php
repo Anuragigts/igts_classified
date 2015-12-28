@@ -9,7 +9,7 @@
 <head>
     <!-- Meta Tags -->
     <meta charset="utf-8">
-    <title>365 Deals</title>
+   
     
     <!-- xxx Head Content xxx -->
     <?php echo $this->load->view('common/head');?> 

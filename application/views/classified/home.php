@@ -1,4 +1,5 @@
-<!-- Slide And Filter Section-->    
+	 <title>365 Deals</title>
+	 <!-- Slide And Filter Section-->    
             <section class="tp-banner-container">
                 <!-- SLIDE  -->
                 <div class="tp-banner">

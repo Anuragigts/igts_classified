@@ -11,7 +11,7 @@
         <!-- Responsive CSS -->
         <link href="css/theme-responsive.css" rel="stylesheet" media="screen">
         <!-- Skins Theme -->
-        <link href="#" rel="stylesheet" media="screen" class="skin">
+        
 
        
         <script src="js/modernizr.js"></script>
@@ -57,42 +57,42 @@
 
 
 		<script type="text/javascript">
-		function fileupload(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+			function fileupload(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
 
-                reader.onload = function (e) {
-                	$('.img_hide').show();
-                    $('#blah')
-                        .attr('src', e.target.result)
-                        .width(250)
-                        .height(150)
-                        .css('border', '2px solid rgba(48,63,159,.9)')
-                        .css('border-radius', '10px');
-                };
+					reader.onload = function (e) {
+						$('.img_hide').show();
+						$('#blah')
+							.attr('src', e.target.result)
+							.width(250)
+							.height(150)
+							.css('border', '2px solid rgba(48,63,159,.9)')
+							.css('border-radius', '10px');
+					};
 
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
 		</script>
 
 		<script type="text/javascript">
-		$(function(){
-			$('.bus_consumer').click(function(){
-					var ch = $("input[name='checkbox_toggle']:checked").val();
-					if(ch == 'Yes'){
-						$('#bus_logo').show(1000);
-						$('#business_form').show();
-						$('#consumer_form').hide();
+			$(function(){
+				$('.bus_consumer').click(function(){
+						var ch = $("input[name='checkbox_toggle']:checked").val();
+						if(ch == 'Yes'){
+							$('#bus_logo').show(1000);
+							$('#business_form').show();
+							$('#consumer_form').hide();
 
-					}else{
-						$('#bus_logo').hide(1000);
-						$('#business_form').hide();
-						$('#consumer_form').show();
-					}
+						}else{
+							$('#bus_logo').hide(1000);
+							$('#business_form').hide();
+							$('#consumer_form').show();
+						}
+				});
+			
 			});
-			if (('#bus_logo').css('display', 'block')) {alert('hihi'); }
-		});
 		</script>
 
 
