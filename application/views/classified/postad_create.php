@@ -43,13 +43,13 @@
 								<div class="content">
 									<!-- start steps -->
 									<div class="j-row">
-										<div class="span2 step">
+										<div class="span4 step">
 											<div class="steps">
 												<span>Step 1:</span>
 												<p>1st Screen</p>
 											</div>
 										</div>
-										<div class="span2 step">
+										<div class="span4 step">
 											<div class="steps">
 												<span>Step 2:</span>
 												<p>Packages</p>
