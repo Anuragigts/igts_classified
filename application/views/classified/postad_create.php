@@ -1,4 +1,15 @@
-<link rel="stylesheet" href="j-folder/css/demo.css">
+	<style>
+		.section-title-01{
+			height: 315px;
+			background-color: #262626;
+			text-align: center;
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
+	</style>
+	
+	<link rel="stylesheet" href="j-folder/css/demo.css">
 	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
  <!-- Section Title-->    

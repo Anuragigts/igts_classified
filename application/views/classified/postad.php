@@ -1,10 +1,20 @@
- <!-- Section Title-->    
+			<style>
+				.section-title-01{
+					height: 315px;
+					background-color: #262626;
+					text-align: center;
+					position: relative;
+					width: 100%;
+					overflow: hidden;
+				}
+			</style>
+			<!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
                 <div class="bg_parallax image_02_parallax"></div>
                 <!-- Parallax Background -->
 
-                <!-- Content Parallax-->
+                <!-- Content Parallax
                 <div class="opacy_bg_02">
                     <div class="container">
                         <h1>Post a Deal</h1>
@@ -196,12 +206,10 @@
 														<div class="modal-body">
 															<div class="row">
 																<div class="col-md-4 clearfix">
-																	<h3>Kitchen</h3>
-																	<h4><a href="#">Others</a></h4>
+																
 																</div>
 																<div class="col-md-4 clearfix">
-																	<h3>Kitchen</h3>
-																	<h4><a href="#">Others</a></h4>
+																
 																</div>
 															</div>
 														</div>
@@ -622,12 +630,10 @@
 														<div class="modal-body">
 															<div class="row">
 																<div class="col-md-4 clearfix">
-																	<h3>Kitchen</h3>
-																	<h4><a href="#">Others</a></h4>
+																
 																</div>
 																<div class="col-md-4 clearfix">
-																	<h3>Kitchen</h3>
-																	<h4><a href="#">Others</a></h4>
+																
 																</div>
 															</div>
 														</div>

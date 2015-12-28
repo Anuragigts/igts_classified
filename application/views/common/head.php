@@ -16,7 +16,7 @@
        
         <script src="js/modernizr.js"></script>
 		
-			<!--<script type="text/javascript" src="js/marquee.js"></script>
+		<!--<script type="text/javascript" src="js/marquee.js"></script>
 		
 		
 	 use jssor.slider.debug.js instead for debug -->

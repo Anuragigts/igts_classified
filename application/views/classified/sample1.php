@@ -94,11 +94,11 @@
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_services" id="next-step-radio" value="Yes">
 															<i></i>Service Provider
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle"  value="No">
+															<input type="radio" name="checkbox_services"  value="No">
 															<i></i>Service needed
 														</label>
 													</div>
@@ -169,15 +169,15 @@
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
 															<i></i>Seller
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle"  value="No">
+															<input type="radio" name="checkbox_wmcloth"  value="No">
 															<i></i>Needed
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle"  value="No">
+															<input type="radio" name="checkbox_wmcloth"  value="No">
 															<i></i>Charity
 														</label>
 													</div>
@@ -377,15 +377,15 @@
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
 															<i></i>Seller
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle"  value="No">
+															<input type="radio" name="checkbox_womsshooes"  value="No">
 															<i></i>Needed
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_toggle"  value="No">
+															<input type="radio" name="checkbox_womsshooes"  value="No">
 															<i></i>Charity
 														</label>
 													</div>
