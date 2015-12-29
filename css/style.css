@@ -4109,3 +4109,10 @@ a .login-op-btn:hover{
 .marquetitle_hide{
 	padding-bottom: 10px !important;
 }
+.post_ad_back{
+	margin-top: 26px;
+	margin-left: 10px;
+}
+.post_ad_back:hover{
+	color:#f4f4f4 !important;
+}
