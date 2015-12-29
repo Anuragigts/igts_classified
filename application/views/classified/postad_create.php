@@ -113,14 +113,14 @@
 											</div>
 											<!-- end  Area -->
 											<div class="j-row">
-												<div class="span4 unit">
+												<div class="span2 unit">
 													
 												</div>
-												<div class="span4 unit">
+												<div class="span8 unit">
 													<!--  Map here -->
 													 <div class="map_canvas"></div>
 												</div>
-												<div class="span4 unit">
+												<div class="span2 unit">
 													
 												</div>
 											</div>
