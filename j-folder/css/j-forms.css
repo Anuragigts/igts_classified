@@ -732,7 +732,7 @@
 =============================== */
 .j-forms .tooltip,
 .j-forms .tooltip-image {
-	background-color:#1a237e;
+	background-color:#3C3D50;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	-o-border-radius:3px;
@@ -761,7 +761,7 @@
 .j-forms .tooltip-left-top { bottom:100%; margin-bottom:8px; }
 
 .j-forms .tooltip-left-top:before {
-	border-color:#1a237e transparent;
+	border-color:#3C3D50 transparent;
 	border-style:solid;
 	border-width:8px 7px 0;
 	bottom:-6px;
@@ -776,7 +776,7 @@
 .j-forms .tooltip-right-top { bottom:100%; margin-bottom:8px; }
 
 .j-forms .tooltip-right-top:before {
-	border-color:#1a237e transparent;
+	border-color:#3C3D50 transparent;
 	border-style:solid;
 	border-width:8px 7px 0;
 	bottom:-6px;
@@ -791,7 +791,7 @@
 .j-forms .tooltip-left-bottom { margin-top:8px; top:100%; }
 
 .j-forms .tooltip-left-bottom:before {
-	border-color:#1a237e transparent;
+	border-color:#3C3D50 transparent;
 	border-style:solid;
 	border-width:0 7px 8px;
 	top:-6px;
@@ -806,7 +806,7 @@
 .j-forms .tooltip-right-bottom { margin-top:8px; top:100%; }
 
 .j-forms .tooltip-right-bottom:before {
-	border-color:#1a237e transparent;
+	border-color:#3C3D50 transparent;
 	border-style:solid;
 	border-width:0 7px 8px;
 	top:-6px;
