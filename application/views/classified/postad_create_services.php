@@ -36,7 +36,7 @@
 							<form action="http://lazy-coding.com/j-forms-advanced/forms/order_multistep_with_steps/j-folder/php/demo.php" method="post" class="j-forms j-multistep" id="j-forms" enctype="multipart/form-data" novalidate>
 
 								<div class="header">
-									<p>Post a Deal</p>
+									<a href="postad" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a><p>Post a Deal</p>
 								</div>
 								 <!--end /.header-->
 
