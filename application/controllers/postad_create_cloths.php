@@ -12,12 +12,26 @@ class Postad_create_cloths extends CI_Controller{
                         );
 
 
-             if ($this->input->post('contact_screen')) {
-                echo "<pre>"; print_r($this->input->post()); 
-             }
+             // if ($this->input->post('contact_screen')) {
+             //    echo "<pre>"; print_r($this->input->post()); 
+             // }
 
 	            $this->load->view("classified_layout/inner_template",$data);
         }
+
+        public function women_shoes(){
+             $data = array(
+                                "title"     =>  "Classifieds",
+                                "content"   =>  "postad_create_cloths"
+                                //"women_type" => "shoes"
+                        );
+
+
+                $this->load->view("classified_layout/inner_template",$data);
+        }
+
+
+
     }
 
  ?>

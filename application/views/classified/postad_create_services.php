@@ -95,7 +95,7 @@
 														<label class="icon-right" for="email">
 															<i class="fa fa-bookmark-o"></i>
 														</label>
-														<input type="text" id="postalcode" name="postalcode" placeholder="Enter Postal Code">
+														<input type="text" id="postalcode" name="postalcode" placeholder="Enter Postal Code" >
 													</div>
 												</div>
 												<div class="span6 unit">
@@ -104,17 +104,22 @@
 														<label class="icon-right" for="phone">
 															<i class="fa fa-building-o"></i>
 														</label>
-														<input type="text" id="area" name="area" placeholder="Enter Area">
+														<!-- <input type="text" id="area" name="area" placeholder="Enter Area"> -->
+														<input id="location" name='location' type="text" placeholder="Type in an address" size="90" />
 													</div>
 												</div>
 											</div>
 											<!-- end  Area -->
 											<div class="j-row">
-												<div class="span6 unit">
-												
+												<div class="span2 unit">
+													
 												</div>
-												<div class="span6 unit">
+												<div class="span8 unit">
 													<!--  Map here -->
+													 <div class="map_canvas"></div>
+												</div>
+												<div class="span2 unit">
+													
 												</div>
 											</div>
 										

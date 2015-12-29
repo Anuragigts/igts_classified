@@ -12,7 +12,60 @@
         <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
         <script type='text/javascript' src='js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
         <!-- Maps -->
-        <script src="js/maps/gmap3.js"></script>            
+        <!--<script src="js/maps/gmap3.js"></script> -->
+        
+     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    
+
+    <script src="js/maps/jquery.geocomplete.js"></script>
+
+    <style type="text/css">
+    .map_canvas { 
+      width: 500px; 
+      height: 300px; 
+      margin: 10px 20px 10px 0;
+    }
+    </style>
+     
+    <script>
+      $(function(){
+        
+        var options = {
+          map: ".map_canvas"
+        };
+        
+        $("#location").geocomplete(options)
+          .bind("geocode:result", function(event, result){
+            $.log("Result: " + result.formatted_address);
+          })
+          .bind("geocode:error", function(event, status){
+            $.log("ERROR: " + status);
+          })
+          .bind("geocode:multiple", function(event, results){
+            $.log("Multiple: " + results.length + " results found");
+          });
+        
+        $("#find").click(function(){
+          $("#location").trigger("geocode");
+        });
+        
+        $("#examples a").click(function(){
+          $(".google_map").css('display', 'block');
+          $("#location").val($(this).text()).trigger("geocode");
+          return false;
+        });
+        
+      /*        var options = {
+                map: ".map_canvas",
+                location: "UK"
+              };
+              
+              $("#geocomplete").geocomplete(options);*/
+        
+      });
+    </script>
+
+
         <!--Ligbox--> 
         <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script> 
         <!-- carousel.js-->

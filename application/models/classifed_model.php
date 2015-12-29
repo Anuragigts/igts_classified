@@ -255,7 +255,7 @@ Class Classifed_model extends CI_model{
 
 	/*business ads in home page*/
 	public function business_ads(){
-		$this->db->select("spl.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`link`, ads.`number`, 
+		$this->db->select("spl.*, `img`.`img_name`, img.bus_logo, ads.`title`, ads.`ad_desc`, ads.`link`, ads.`number`, 
 		(SELECT login_email FROM `login` WHERE login_id = ads.`login_id`) AS mail_id, ads.`created_on`");
 		$this->db->from("`spotlight` AS spl");
 		$this->db->join("`advertisement` AS ads", "ads.ad_id = spl.`ad_id`", "join");

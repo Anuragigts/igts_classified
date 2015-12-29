@@ -558,19 +558,26 @@
 												<img src="ad_images/no_image.png" alt="" class="img-responsive">
 												<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 											</div>
+											<div class="info-gallery">
+												<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
+												<hr class="separator">
+												<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/lg.png" /></b></div>
+											</div>
 										<?php	}
 											else{ ?>
 											<div class="img-hover">
 												<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="" class="img-responsive">
 												<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 											</div>
-										<?php	} ?>
-											
-
 											<div class="info-gallery">
 												<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
 												<hr class="separator">
+												<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/<?php echo $b_ads->bus_logo; ?>" /></b></div>
 											</div>
+										<?php	} ?>
+											
+
+
 										</div>	
 										<?php	} ?>
 										<!-- End Item carousel Boxed-->

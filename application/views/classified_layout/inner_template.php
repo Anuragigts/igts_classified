@@ -4,8 +4,8 @@
 // $outer_array = array_chunk(@$most_ads, 3);
 ?>   
 
-        <!DOCTYPE html>
-        <html>
+<!DOCTYPE html>
+<html>
 <head>
     <!-- Meta Tags -->
     <meta charset="utf-8">

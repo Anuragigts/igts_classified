@@ -20,10 +20,53 @@
 		
 		
 	 use jssor.slider.debug.js instead for debug -->
-	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		
+		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+		
+		<script type="text/javascript">
+		/*function postcode_validate(postcode)
+			{
 
+				var regPostcode = /^([a-zA-Z]){1}([0-9][0-9]|[0-9]|[a-zA-Z][0-9][a-zA-Z]|[a-zA-Z][0-9][0-9]|[a-zA-Z][0-9]){1}([ ])([0-9][a-zA-z][a-zA-z]){1}$/;
+
+				if(regPostcode.test(postcode) == false)
+				{
+					$('#postalcode').attr('aria-invalid', 'true');
+				document.getElementById("status").innerHTML = "Postcode is not yet valid.";
+				return false;
+				}
+				else
+				{
+
+				document.getElementById("status").innerHTML = ""; 
+				return true;
+				}
+		}*/
+
+			$(function(){
+				$('.footer button').click(function(){
+					// alert('hihi'); return false;
+					var regPostcode = /^([a-zA-Z]){1}([0-9][0-9]|[0-9]|[a-zA-Z][0-9][a-zA-Z]|[a-zA-Z][0-9][0-9]|[a-zA-Z][0-9]){1}([ ])([0-9][a-zA-z][a-zA-z]){1}$/;
+					var postcode = $("#postalcode").val();
+			if(regPostcode.test(postcode) == false)
+			{
+			//document.getElementById("status").innerHTML = "Postcode is not yet valid.";
+			return false;
+			}
+			else
+			{
+
+			// document.getElementById("status").innerHTML = ""; 
+			return true;
+			}
+				
+				});
+			});
+		</script>
+
+		<!-- google map -->
+		 
 
 		<!-- postad validation number only-->
 
