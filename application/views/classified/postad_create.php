@@ -116,7 +116,7 @@
 												<div class="span2 unit">
 													
 												</div>
-												<div class="span8 unit">
+												<div class="span4 unit">
 													<!--  Map here -->
 													 <div class="map_canvas"></div>
 												</div>
