@@ -177,11 +177,11 @@
 																<div class="inline-group">
 																	<label class="radio">
 																		<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																		<i></i>£ (Pound) 
+																		<i></i>£(Pound) 
 																	</label>
 																	<label class="radio">
 																		<input type="radio" name="checkbox_toggle1"  value="No">
-																		<i></i> € (Euro)
+																		<i></i> €(Euro)
 																	</label>
 																</div>
 															</div>
@@ -354,8 +354,15 @@
 															<li><i class="fa fa-arrow-right"></i> Video Upload</li>
 															<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
-															<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
 														</ul>
+														<label class="checkbox">
+															<input type="checkbox" id='gold_package' name="candles" value="candles-5$" data-price="5">
+															<i></i>
+															 Marquee Title
+														</label>
+														<div class="input">
+															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title"></textarea>
+														</div>
 														<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
 													</div>
 													
