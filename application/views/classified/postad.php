@@ -362,15 +362,6 @@
 															<div class="row">
 																<div class="col-md-10 col-md-offset-1 post_deal_bor">
 																	<div class="row">
-																		<div class="col-md-2 clearfix">
-																			<?php foreach ($pets_sub_cat as $p_cat) { ?>
-																			<h3><a href="<?php echo base_url(); ?>postad_create"><?php echo ucfirst($p_cat['sub_category_name']); ?></a></h3>
-																		<?php	} ?>
-																			<!-- <h3><a href="#">Dogs</a></h3>
-																			<h3><a href="#">Cats</a></h3>
-																			<h3><a href="#">Fishes</a></h3>
-																			<h3><a href="#">Birds</a></h3>
-																			<h3><a href="#">Others</a></h3> -->
 																		<div class="col-md-6 clearfix">
 																			<h3>Professional</h3>
 																			<h4><a href="<?php echo base_url(); ?>postad_create_services">Coaching & Training</a></h4>
@@ -387,15 +378,6 @@
 																			<h4><a href="#">Funeral Services</a></h4>
 																			<h4><a href="#">Health & Fitness</a></h4>
 																		</div>
-																		<div class="col-md-3 clearfix">
-																			<h3>Big Animals</h3>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Cobs</a></h4>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Donkeys</a></h4>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Horses</a></h4>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Ponies</a></h4>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Beef Cattle</a></h4>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Dairy Cattle</a></h4>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Others</a></h4>
 																		<div class="col-md-4 clearfix">
 																			<h3>Popular</h3>
 																			<h4><a href="#">Dry Cleaning & Laundry Services</a></h4>
@@ -411,29 +393,6 @@
 																			<h4><a href="#">Nannies Services</a></h4>
 																			<h4><a href="#">Embroidery Services</a></h4>
 																			<h4><a href="#">Others</a></h4>
-																		</div>
-																		<div class="col-md-3 clearfix">
-																			<h3>Small Animals</h3>
-																			<h4><a href="<?php echo base_url(); ?>postad_create">Pigs</a></h4>
-																			<h4><a href="#">Sheeps</a></h4>
-																			<h4><a href="#">Goats</a></h4>
-																			<h4><a href="#">Poultry</a></h4>
-																			<h4><a href="#">Reptiles</a></h4>
-																			<h4><a href="#">Furry Pets</a></h4>
-																			<h4><a href="#">Others</a></h4>
-																		</div>
-																		<div class="col-md-4 clearfix">
-																			<h3>Pet Accessories</h3>
-																			<h4><a href="#">Pet Foods</a></h4>
-																			<h4><a href="#">Toys & Training</a></h4>
-																			<h4><a href="#">Clothing & Accessories</a></h4>
-																			<h4><a href="#">Feeding Accessories</a></h4>
-																			<h4><a href="#">Beds, Cages, & Crates</a></h4>
-																			<h4><a href="#">Cleaning & Odour Control</a></h4>
-																			<h4><a href="#">Fish Tanks & Cabinets</a></h4>
-																			<h4><a href="#">Marine Aquarium & Ponds</a></h4>
-																			<h4><a href="#">Aquarium Landscaping</a></h4>
-																			<h4><a href="#">Other Maintenance Staff</a></h4>
 																		</div>
 																	</div>
 																</div>
@@ -712,8 +671,6 @@
 													</div>
 												</div>
 											</div>
-											
-											
 										</div>
 									</div>
 								</div><!-- end col-md-8/offset -->
