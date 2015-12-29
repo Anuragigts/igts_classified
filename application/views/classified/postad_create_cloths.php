@@ -450,8 +450,15 @@
 															<li><i class="fa fa-arrow-right"></i> Video Upload</li>
 															<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
-															<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
 														</ul>
+														<label class="checkbox">
+															<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
+															<i></i>
+															 Marquee Title
+														</label>
+														<div class="input marquetitle_hide"  style='display:none;'>
+															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title"></textarea>
+														</div>
 														<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
 													</div>
 													

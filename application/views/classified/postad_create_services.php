@@ -320,7 +320,6 @@
 															<li><i class="fa fa-arrow-right"></i> Video Upload</li>
 															<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
-															<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
 														</ul>
 														<label class="checkbox">
 															<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
