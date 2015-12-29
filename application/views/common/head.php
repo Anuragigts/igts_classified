@@ -22,29 +22,48 @@
 		
 		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		
+		<!-- character only -->
 		<script type="text/javascript">
+			$(function () {
+				$('#conscontname').keydown(function (e) {
+					if (e.shiftKey || e.ctrlKey || e.altKey) {
+					e.preventDefault();
+					} else {
+					var key = e.keyCode;
+						if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+						e.preventDefault();
+						}
+					}
+				});
 
-		</script>
+				$('#busname').keydown(function (e) {
+					if (e.shiftKey || e.ctrlKey || e.altKey) {
+					e.preventDefault();
+					} else {
+					var key = e.keyCode;
+						if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+						e.preventDefault();
+						}
+					}
+				});
+
+				$('#buscontname').keydown(function (e) {
+					if (e.shiftKey || e.ctrlKey || e.altKey) {
+					e.preventDefault();
+					} else {
+					var key = e.keyCode;
+						if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+						e.preventDefault();
+						}
+					}
+				});
+
+
+			});
+</script>
 		
 		<script type="text/javascript">
-		/*function postcode_validate(postcode)
-			{
-
-				var regPostcode = /^([a-zA-Z]){1}([0-9][0-9]|[0-9]|[a-zA-Z][0-9][a-zA-Z]|[a-zA-Z][0-9][0-9]|[a-zA-Z][0-9]){1}([ ])([0-9][a-zA-z][a-zA-z]){1}$/;
-
-				if(regPostcode.test(postcode) == false)
-				{
-					$('#postalcode').attr('aria-invalid', 'true');
-				document.getElementById("status").innerHTML = "Postcode is not yet valid.";
-				return false;
-				}
-				else
-				{
-
-				document.getElementById("status").innerHTML = ""; 
-				return true;
-				}
-		}*/
+		
 
 			$(function(){
 				$('.footer button').click(function(){
