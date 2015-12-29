@@ -3782,7 +3782,7 @@ figure img{
 	height:348px;
 }
 .top_10{
-	padding-top:10px;
+	padding-top:10px !important;
 }
 .slider_bg{
 	background-color: #f4f4f4 !important;
