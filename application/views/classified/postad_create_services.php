@@ -77,11 +77,11 @@
 														<div class="inline-group">
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" id="next-step-radio" class='bus_consumer' value="Yes">
-																<i></i>Business <sup style='color:red;'>*</sup>
+																<i></i>Business <sup style='color:red;'>?</sup>
 															</label>
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
-																<i></i>Consumer <sup style='color:red;'>*</sup>
+																<i></i>Consumer <sup style='color:red;'>?</sup>
 															</label>
 														</div>
 													</div>
@@ -100,7 +100,7 @@
 													</div>
 												</div>
 												<div class="span6 unit">
-													<label class="label">Location <sup style='color:red;' id="right-top">*</sup></label>
+													<label class="label">Location <sup style='color:red;' id="right-top">?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="phone">
 															<i class="fa fa-building-o"></i>
@@ -130,7 +130,7 @@
 										<div class="post_deal_bor top_10" id='bus_logo' style='display:none;margin-top: 20px;'>	
 											<div class="j-row"  > 
 												<div class="span6 unit">
-													<label class="label">Business Logo <sup style='color:red;'>*</sup></label>
+													<label class="label">Business Logo <sup style='color:red;'>?</sup></label>
 													<div class="unit">
 														<label class="input append-big-btn">
 															<div class="file-button">
@@ -168,7 +168,7 @@
 											</div>
 											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Deal Tag / Caption <sup style='color:red;' id="right-top">*</sup></label>
+													<label class="label">Deal Tag / Caption <sup style='color:red;' id="right-top">?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="dealtag">
 															<img src="j-folder/img/dealtag.png">
@@ -178,7 +178,7 @@
 													</div>
 												</div><!-- end Deal Tag -->
 												<div class="span6 unit"><!-- start Deal Description -->
-													<label class="label">Deal Description <sup style='color:red;' id="right-top">*</sup> </label>
+													<label class="label">Deal Description <sup style='color:red;' id="right-top">?</sup> </label>
 													<div class="input">
 														<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
 														<span class="tooltip tooltip-right-top">enter your Deal Description</span>
@@ -189,7 +189,7 @@
 												<div class="span6"><!-- start service -->
 													<div class="j-row">
 														<div class="span7 unit">
-															<label class="label">Price <sup style='color:red;'>*</sup></label>
+															<label class="label">Price <sup style='color:red;'>?</sup></label>
 															<div class="unit check logic-block-radio">
 																<div class="inline-group">
 																	<label class="radio">
@@ -215,7 +215,7 @@
 													</div><!-- end service -->
 												</div>
 												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Type of Service <sup style='color:red;' id="right-top">*</sup></label>
+													<label class="label">Type of Service <sup style='color:red;' id="right-top">?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="dealtag">
 															<img src="j-folder/img/dealtag.png">
@@ -262,7 +262,7 @@
 															<li><i class="fa fa-arrow-right"></i> Video Link</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
 														</ul>
-														<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
+														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													
 													<!-- End promotion-box-info-->
@@ -296,7 +296,7 @@
 														<ul class="list-styles gold_hide" style="display:none;">
 															<li><i class="fa fa-arrow-right"></i> 12 Images</li>
 														</ul>
-														<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
+														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													
 													<!-- End promotion-box-info-->
@@ -331,7 +331,7 @@
 														<div class="input marquetitle_hide"  style='display:none;'>
 															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title"></textarea>
 														</div>
-														<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>
+														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													
 													<!-- End promotion-box-info-->
@@ -351,7 +351,7 @@
 											<div class="span12" id='business_form'>
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Business Name <sup style='color:red;' id="right-top">*</sup></label>
+														<label class="label">Business Name <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="company">
 																<i class="fa fa-briefcase"></i>
@@ -361,7 +361,7 @@
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Contact Person Name <sup style='color:red;' id="right-top">*</sup> </label>
+														<label class="label">Contact Person Name <sup style='color:red;' id="right-top">?</sup> </label>
 														<div class="input">
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
@@ -370,8 +370,10 @@
 															<span class="tooltip tooltip-right-top">Enter Contact Person Name</span>
 														</div>
 													</div>
+												</div>
+												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Mobile Number <sup style='color:red;' id="right-top">*</sup></label>
+														<label class="label">Mobile Number <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="phone">
 																<i class="fa fa-phone"></i>
@@ -381,7 +383,7 @@
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Email <sup style='color:red;' id="right-top">*</sup></label>
+														<label class="label">Email <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="email">
 																<i class="fa fa-envelope-o"></i>
@@ -396,7 +398,7 @@
 											<div class="span12" id='consumer_form'>
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Contact Name <sup style='color:red;' id="right-top">*</sup> </label>
+														<label class="label">Contact Name <sup style='color:red;' id="right-top">?</sup> </label>
 														<div class="input">
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
@@ -406,7 +408,7 @@
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Mobile Number <sup style='color:red;' id="right-top">*</sup></label>
+														<label class="label">Mobile Number <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="phone">
 																<i class="fa fa-phone"></i>
@@ -415,8 +417,10 @@
 															<span class="tooltip tooltip-right-top">Enter Your Mobile Number</span>
 														</div>
 													</div>
+												</div>
+												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Email <sup style='color:red;' id="right-top">*</sup></label>
+														<label class="label">Email <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="email">
 																<i class="fa fa-envelope-o"></i>
