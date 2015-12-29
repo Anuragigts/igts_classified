@@ -116,7 +116,7 @@
 												<div class="span2 unit">
 													
 												</div>
-												<div class="span4 unit">
+												<div class="span8 unit">
 													<!--  Map here -->
 													 <div class="map_canvas"></div>
 												</div>
@@ -356,11 +356,11 @@
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
 														</ul>
 														<label class="checkbox">
-															<input type="checkbox" id='gold_package' name="candles" value="candles-5$" data-price="5">
+															<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
 															<i></i>
 															 Marquee Title
 														</label>
-														<div class="input">
+														<div class="input marquetitle_hide"  style='display:none;'>
 															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title"></textarea>
 														</div>
 														<a href="#four" data-toggle="tab" class="btn btn-primary">Select Package</a>

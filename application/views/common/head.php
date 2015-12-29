@@ -22,6 +22,9 @@
 		
 		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		
+		<script type="text/javascript">
+
+		</script>
 		
 		<script type="text/javascript">
 		/*function postcode_validate(postcode)
@@ -90,6 +93,18 @@
 					 }
 					 else{
 					 	$(".gold_hide").hide(1000);
+					 }
+					
+
+				});
+
+				$("#platinum_package").click(function(){
+					 var ch = document.getElementById('platinum_package').checked;
+					 if (ch) {
+					 	$(".marquetitle_hide").show(1000);
+					 }
+					 else{
+					 	$(".marquetitle_hide").hide(1000);
 					 }
 					
 
