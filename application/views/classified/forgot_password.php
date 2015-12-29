@@ -51,7 +51,7 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="login-form">
                                         <div class="login-title pad_bottm">
-                                            <h2 class="text1 text_center ">Login</h2>
+                                            <h2 class="text1 text_center ">Forgot Password</h2>
                                         </div>
                                         <?php echo $this->view("classified_layout/success_error"); ?>
                                         <div class="row login_totpad" style="border: 2px solid #5EC3A3;">
@@ -59,7 +59,7 @@
                                                 <div class="log_leftpad text_center">
                                                     <a href="index.php"><img src="img/365deal.png" class="log_logo" alt="Logo"></a> 
                                                     <h4 class="log_side top_20"><a href="signup">Create New Account</a></h4>
-                                                    <h4 class="log_side"><a href="forgot_password">Forgot Password</a></h4>
+                                                    <h4 class="log_side"><a href="#">Forgot Password</a></h4>
 													<div class="login-options">
 														<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
 													</div><!-- end FB login -->
@@ -107,7 +107,7 @@
                                                     });
                                                     </script>
                                                 <div class="login_form">
-                                                    <form  method="post" class="log_form" action="" id="register-form">
+                                                    <form  method="post" class="log_form" action="#" id="register-form">
                                                         <div class="col-1">
                                                             <label>Email <sup style='color:red;'>*</sup>
                                                                 <input placeholder="Enter Email" id="email" name="email" tabindex="1" required>
