@@ -4102,3 +4102,6 @@ a .login-op-btn:hover{
 	border: 2px solid rgb(155, 147, 147);
 	padding: 14px 27px 0px;
 }
+.map_canvas{
+	height:200px !important;
+}
