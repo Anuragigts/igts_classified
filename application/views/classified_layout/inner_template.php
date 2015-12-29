@@ -8,8 +8,7 @@
 <html>
 <head>
     <!-- Meta Tags -->
-    <meta charset="utf-8">
-   
+    <meta charset="utf-8">   
     
     <!-- xxx Head Content xxx -->
     <?php echo $this->load->view('common/head');?> 

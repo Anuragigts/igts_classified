@@ -111,18 +111,18 @@
 									<div class="row">
 										<div class="col-md-4 col-sm-4 col-xs-12">
 											<div class="hovereffect">
-												<img class="img-responsive" src="img/featured/jobs.jpg"  alt="">
+												<img class="img-responsive" src="img/featured/deals.jpg" alt="">
 												<div class="overlay">
-												   <h2>Jobs</h2>
-												   <div><a class="info" href="#">View Details</a></div>
+												   <h2>Hot Deals</h2>
+												   <a class="info" href="#">View Details</a>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4 col-sm-4 col-xs-12">
 											<div class="hovereffect">
-												<img class="img-responsive" src="img/featured/services.jpg" alt="">
+												<img class="img-responsive" src="img/featured/ezone.jpg" alt="">
 												<div class="overlay">
-												   <h2>Services</h2>
+												   <h2>E-Zone</h2>
 												   <a class="info" href="#">View Details</a>
 												</div>
 											</div>
@@ -140,27 +140,27 @@
 									<div class="row top_13">
 										<div class="col-md-4 col-sm-4 col-xs-12">
 											<div class="hovereffect">
-												<img class="img-responsive" src="img/featured/property.jpg" alt="">
-												<div class="overlay">
-												   <h2>Find a Property</h2>
-												   <a class="info" href="#">View Details</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-4 col-xs-12">
-											<div class="hovereffect">
-												<img class="img-responsive" src="img/featured/pets.jpg" alt="">
-												<div class="overlay">
-												   <h2>Pets</h2>
-												   <a class="info" href="#">View Details</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-4 col-xs-12">
-											<div class="hovereffect">
 												<img class="img-responsive" src="img/featured/clothing.jpg" alt="">
 												<div class="overlay">
 												   <h2>Clothing & LifeStyles</h2>
+												   <a class="info" href="#">View Details</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12">
+											<div class="hovereffect">
+												<img class="img-responsive" src="img/featured/services.jpg" alt="">
+												<div class="overlay">
+												   <h2>Services</h2>
+												   <a class="info" href="#">View Details</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12">
+											<div class="hovereffect">
+												<img class="img-responsive" src="img/featured/property.jpg" alt="">
+												<div class="overlay">
+												   <h2>Find a Property</h2>
 												   <a class="info" href="#">View Details</a>
 												</div>
 											</div>
@@ -178,19 +178,19 @@
 										</div>
 										<div class="col-md-4 col-sm-4 col-xs-12">
 											<div class="hovereffect">
-												<img class="img-responsive" src="img/featured/ezone.jpg" alt="">
+												<img class="img-responsive" src="img/featured/pets.jpg" alt="">
 												<div class="overlay">
-												   <h2>E-Zone</h2>
+												   <h2>Pets</h2>
 												   <a class="info" href="#">View Details</a>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4 col-sm-4 col-xs-12">
 											<div class="hovereffect">
-												<img class="img-responsive" src="img/featured/deals.jpg" alt="">
+												<img class="img-responsive" src="img/featured/jobs.jpg"  alt="">
 												<div class="overlay">
-												   <h2>Deals</h2>
-												   <a class="info" href="#">View Details</a>
+												   <h2>Jobs</h2>
+												   <div><a class="info" href="#">View Details</a></div>
 												</div>
 											</div>
 										</div>

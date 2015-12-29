@@ -12,8 +12,7 @@
         <link href="css/theme-responsive.css" rel="stylesheet" media="screen">
         <!-- Skins Theme -->
         
-
-       
+		       
         <script src="js/modernizr.js"></script>
 		
 		<!--<script type="text/javascript" src="js/marquee.js"></script>

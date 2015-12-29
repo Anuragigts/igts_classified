@@ -107,7 +107,7 @@
 															<i class="fa fa-building-o"></i>
 														</label>
 														<!-- <input type="text" id="area" name="area" placeholder="Enter Area"> -->
-													 <input id="location" name='location' type="text" placeholder="Type in an address" size="90" />
+														<input id="location" name='location' type="text" placeholder="Type in an address" size="90" />
 													</div>
 												</div>
 											</div>
