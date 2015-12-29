@@ -22,7 +22,7 @@
 .wrapper-640 { max-width:970px; }
 
 .j-forms {
-	background-color:#f9fafd;
+	background-color:#f4f4f4;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	-o-border-radius:3px;
@@ -1979,6 +1979,7 @@
 	-moz-border-radius:0;
 	-o-border-radius:0;
 	border-radius:0;
+	font-weight: bold;
 }
 .j-forms .radio,
 .j-forms .checkbox,
