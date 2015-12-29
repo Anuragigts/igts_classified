@@ -10,6 +10,7 @@ class Postad extends CI_Controller{
                 parent::__construct();
                 $this->load->model("common_model");
                 $this->load->model("postad_model");
+                $this->load->model("category_model");
                 $config['upload_path'] = './ad_mages/';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $this->load->library('upload',$config);
@@ -20,6 +21,10 @@ class Postad extends CI_Controller{
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad"
                         );
+                /*pets categories*/
+                $data['pets_sub_cat'] = $this->category_model->pets_sub_cat();
+                $data['pets_big_animal'] = $this->category_model->pets_big_animal();
+
                 if($plogin_id != ""){
                         /*$data = array(
                                 "title"     =>  "Classifieds",

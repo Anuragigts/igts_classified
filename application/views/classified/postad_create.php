@@ -96,7 +96,7 @@
 														<label class="icon-right" for="email">
 															<i class="fa fa-bookmark-o"></i>
 														</label>
-														<input type="text" id="postalcode" name="postalcode" placeholder="Enter Postal Code" >
+														<input type="text" id="postalcode" name="postalcode" placeholder="(e.g. W1A 0AX)" >
 													</div>
 												</div>
 
@@ -113,14 +113,14 @@
 											</div>
 											<!-- end  Area -->
 											<div class="j-row">
-												<div class="span2 unit">
+												<div class="span4 unit">
 													
 												</div>
-												<div class="span8 unit">
+												<div class="span4 unit">
 													<!--  Map here -->
 													 <div class="map_canvas"></div>
 												</div>
-												<div class="span2 unit">
+												<div class="span4 unit">
 													
 												</div>
 											</div>

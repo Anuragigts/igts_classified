@@ -52,5 +52,20 @@ class Category_model extends CI_Model{
                 $this->db->delete('sub_category', array('category_id' => $uri)); 
                 $this->db->delete('catergory', array('category_id' => $uri)); 
         }
+
+
+        /*pet category*/
+        public function pets_sub_cat(){
+            $rs = $this->db->query("SELECT * FROM `sub_category` WHERE `sub_category`.`sub_category_id` NOT IN(SELECT sub_category.`sub_category_id` FROM `sub_category`, `sub_subcategory` WHERE
+sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` AND sub_category.`category_id` = 5
+GROUP BY sub_subcategory.`sub_category_id`) ");
+            return $rs->result_array();
+        }
+
+        /*big animals*/
+         public function pets_big_animal(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 5");
+            return $rs->result_array();
+        }
 }
 ?>

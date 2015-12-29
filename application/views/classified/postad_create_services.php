@@ -95,7 +95,7 @@
 														<label class="icon-right" for="email">
 															<i class="fa fa-bookmark-o"></i>
 														</label>
-														<input type="text" id="postalcode" name="postalcode" placeholder="Enter Postal Code" >
+														<input type="text" id="postalcode" name="postalcode" placeholder="(e.g. W1A 0AX)" >
 													</div>
 												</div>
 												<div class="span6 unit">
