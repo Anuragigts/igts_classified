@@ -58,6 +58,7 @@
                                             <div class="col-12">
                                                 <label>Current Email <sup style='color:red;'>*</sup>
                                                     <input placeholder="Enter Your Email" id="forgotemail" name="forgotemail" tabindex="1">
+                                                    <?php echo form_error("forgotemail");?>
                                                 </label>
                                             </div>
 											<div class="col-submit">

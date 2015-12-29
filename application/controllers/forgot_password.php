@@ -15,6 +15,13 @@ class Forgot_password extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "forgot_password"
                 );
+
+                if ($this->input->post('forgot')) {
+                         $this->form_validation->set_rules("forgotemail","Email Id","required|valid_email");
+                         if($this->form_validation->run() == TRUE){
+                                redirect('forgot_password');
+                         }
+                }
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }
