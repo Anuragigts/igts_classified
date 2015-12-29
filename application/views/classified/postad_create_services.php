@@ -298,7 +298,6 @@
 														</ul>
 														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
-													
 													<!-- End promotion-box-info-->
 												</div>
 												<!-- End promotion-box-->
@@ -333,7 +332,6 @@
 														</div>
 														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
-													
 													<!-- End promotion-box-info-->
 												</div>
 												<!-- End promotion-box-->

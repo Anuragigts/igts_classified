@@ -1,8 +1,8 @@
 
 		
-		<meta name="keywords" content="HTML5 Template" />
-        <meta name="description" content="World Cup - Responsive HTML5 Template soccer and sports">
-        <meta name="author" content="iwthemes.com">  
+		<meta name="keywords" content="365 Deals" />
+        <meta name="description" content="365 Deals">
+        <meta name="author" content="365 Deals">  
 
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

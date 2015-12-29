@@ -16,35 +16,35 @@
   
 
 </head>
-<body id="home">
-     <!--Preloader-->
-        <div class="preloader">
-            <div class="status">&nbsp;</div>
-        </div>
-       
-       
-        <!-- layout-->
-        <div id="layout">
-        
-			<!-- xxx tophead Content xxx -->
-			<?php echo $this->load->view('common/tophead'); ?> 
-			<!-- xxx End tophead xxx -->
-			<?php echo $this->load->view("classified/".$content);?>
-
-
-
-			<!-- xxx footer Content xxx -->
-			<?php echo $this->load->view('common/footer');?> 
-			<!-- xxx footer End xxx -->
+	<body id="home">
+		 <!--Preloader-->
+			<div class="preloader">
+				<div class="status">&nbsp;</div>
+			</div>
+		   
+		   
+			<!-- layout-->
+			<div id="layout">
 			
-		</div>
-		<!-- End Entire Wrap -->
+				<!-- xxx tophead Content xxx -->
+				<?php echo $this->load->view('common/tophead'); ?> 
+				<!-- xxx End tophead xxx -->
+				<?php echo $this->load->view("classified/".$content);?>
 
-    
-    <!-- xxx footerscript Content xxx -->
-    <?php echo $this->load->view('common/footerscript');?> 
-    <!-- xxx footerscript End xxx -->
-    
-        
-</body>
+
+
+				<!-- xxx footer Content xxx -->
+				<?php echo $this->load->view('common/footer');?> 
+				<!-- xxx footer End xxx -->
+				
+			</div>
+			<!-- End Entire Wrap -->
+
+		
+		<!-- xxx footerscript Content xxx -->
+		<?php echo $this->load->view('common/footerscript');?> 
+		<!-- xxx footerscript End xxx -->
+		
+			
+	</body>
 </html>
