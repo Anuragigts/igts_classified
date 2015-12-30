@@ -34,6 +34,100 @@
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
 		</div>
 		
+		<div class="content_info">
+                    <div class="paddings">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Item Table-->
+                                <div class="col-sm-4">
+                                    <div class="item-table">
+                                        <div class="header-table color-red">
+                                            <i class="fa fa-home"></i>
+                                            <h2>User Name</h2>
+                                            <!--<span>$ 99 / per month</span> -->
+                                        </div>
+                                        <ul>
+                                            <li><i class="fa fa-home"></i> Manage my Deals</li>
+                                            <li><i class="fa fa-home"></i> Messages</li>
+                                            <li><i class="fa fa-star"></i> Favourites</li>
+                                            <li><i class="fa fa-home"></i> Saved Searches</li>
+                                            <li><i class="fa fa-home"></i> My Details</li>
+                                        </ul>
+										<a class="btn color-red" href="#">Logout</a>
+									</div>
+                                </div>
+                                <!-- End Item Table-->
+
+                                <!-- Item Table-->
+                                <div class="col-sm-8">
+									<div class="row">
+										<div class="col-sm-12">
+											<label>Hi User Name, you have 0 saved Deals</label><hr>
+										</div>
+									</div>
+										
+									<div class="row">
+										<div class="col-sm-7 col-xs-12">
+											<h4>Puppies in Pets for Sale</h4>
+											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+											<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+											<p><b>Turrif , Worcestershire</b></p>
+										</div>
+										<div class="col-sm-2 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12">
+													<h5 class="pull-right">Amount</h5>
+												</div>
+												<div class="col-sm-12">
+													<p class="pull-right">1 hour ago</p>
+												</div>
+												<div class="col-sm-12">
+													<br><br><br><i class="fa fa-star pull-right"></i>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12 favourites_img">
+													<img src="img/dashboard/pets.jpg" class="img-responsive">
+												</div>	
+											</div>	
+										</div>	
+									</div><hr>
+									
+									<div class="row">
+										<div class="col-sm-7 col-xs-12">
+											<h4>Puppies in Pets for Sale</h4>
+											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+											<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+											<p><b>Turrif , Worcestershire</b></p>
+										</div>
+										<div class="col-sm-2 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12">
+													<h5 class="pull-right">Amount</h5>
+												</div>
+												<div class="col-sm-12">
+													<p class="pull-right">1 hour ago</p>
+												</div>
+												<div class="col-sm-12">
+													<br><br><br><i class="fa fa-star pull-right"></i>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12 favourites_img">
+													<img src="img/dashboard/pets.jpg" class="img-responsive">
+												</div>	
+											</div>	
+										</div>	
+									</div><hr>									
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 		<!-- content info - Blog-->
 		<div class="content_info">
 			<div class="paddings-mini">
@@ -71,40 +165,60 @@
 																<div class="top_10">
 																	<div class="j-row">
 																		<div class="span8">
-																			<h4>Puppies in Pets for Sale</h4>
-																			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-																			<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
-																			<p><b>Turrif , Worcestershire</b></p>
+																			<div class="j-row">
+																				<div class="span12">
+																					<h4>Puppies in Pets for Sale</h4>
+																					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+																					<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+																					<p><b>Turrif , Worcestershire</b></p>
+																				</div>
+																			</div>
 																		</div>
 																		<div class="span2">
-																			<h5 class="pull-right">Amount</h5>
-																			<p class="pull-right">1 hour ago</p>
+																			<div class="j-row">
+																				<div class="span12">
+																					<h5 class="pull-right">Amount</h5>
+																				</div>
+																				<div class="span12">
+																					<p class="pull-right">1 hour ago</p>
+																				</div>
+																				<div class="span12">
+																					<br><br><br><i class="fa fa-star pull-right"></i>
+																				</div>
+																			</div>
 																		</div>
 																		<div class="span2 favourites_img">
 																			<img src="img/dashboard/pets.jpg" class="img-responsive">
 																		</div>
-																		<div class="span8">
-																			<i class="fa fa-star pull-right"></i><hr>
-																		</div>
-																	</div>
+																	</div><hr>
 																	<div class="j-row">
+																		<div class="span8">
+																			<div class="j-row">
+																				<div class="span12">
+																					<h4>Puppies in Pets for Sale</h4>
+																					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+																					<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+																					<p><b>Turrif , Worcestershire</b></p>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="span2">
+																			<div class="j-row">
+																				<div class="span12">
+																					<h5 class="pull-right">Amount</h5>
+																				</div>
+																				<div class="span12">
+																					<p class="pull-right">1 hour ago</p>
+																				</div>
+																				<div class="span12">
+																					<br><br><br><i class="fa fa-star pull-right"></i>
+																				</div>
+																			</div>
+																		</div>
 																		<div class="span2 favourites_img">
 																			<img src="img/dashboard/pets.jpg" class="img-responsive">
 																		</div>
-																		<div class="span8">
-																			<h4>Puppies in Pets for Sale</h4>
-																			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-																			<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
-																			<p><b>Turrif , Worcestershire</b></p>
-																		</div>
-																		<div class="span2">
-																			<h5 class="pull-right">Amount</h5>
-																			<p class="pull-right">1 hour ago</p>
-																		</div>
-																		<div class="span12">
-																			<i class="fa fa-star pull-right"></i><hr>
-																		</div>
-																	</div>
+																	</div><hr>
 																</div>
 																<!-- end cloned right side buttons element -->
 															</div>
