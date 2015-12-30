@@ -62,10 +62,25 @@ GROUP BY sub_subcategory.`sub_category_id`) ");
             return $rs->result_array();
         }
 
-        /*big animals*/
+        /*pets big animals*/
          public function pets_big_animal(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 5");
             return $rs->result_array();
         }
+
+        /*services professional sub-category*/
+         public function services_sub_prof(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 9");
+            return $rs->result_array();
+        }
+
+         /*services popular sub-category*/
+         public function services_sub_pop(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 10");
+            return $rs->result_array();
+        }
+
+
+
 }
 ?>

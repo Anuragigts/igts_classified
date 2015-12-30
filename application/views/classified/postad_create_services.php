@@ -41,6 +41,17 @@
 								 <!--end /.header-->
 
 								<div class="content">
+
+									<div class="j-row">
+										<div class="span12 step">
+											<div class="steps">
+												<u><?php echo @$cat; ?></p>
+												<p><?php echo @$sub_name; ?></p>
+												<p><?php echo @$sub_sub_name; ?></p>
+											</div>
+										</div>
+									</div>
+
 									<!-- start steps -->
 									<div class="j-row">
 										<div class="span4 step">

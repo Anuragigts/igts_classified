@@ -345,7 +345,7 @@
 													<img class="img-responsive" src="img/featured/services.jpg" alt="">
 													<div class="overlay">
 													   <h2>Services</h2>
-													   <a class="info" href="#" data-toggle="modal" data-target="#Services">View Details</a>
+													   <a class="info" href="#" data-toggle="modal" data-target="#Services" >View Details</a>
 													</div>
 												</div>
 											</div>
@@ -358,41 +358,27 @@
 															<button type="button" class="close" data-dismiss="modal">&times;</button>
 															<h2>Services <span>Category </span></h2>
 														</div>
+														<form method='post' id='services_form' action="<?php echo base_url(); ?>postad_create_services"> 
 														<div class="modal-body">
 															<div class="row">
 																<div class="col-md-10 col-md-offset-1 post_deal_bor">
 																	<div class="row">
 																		<div class="col-md-6 clearfix">
-																			<h3>Professional</h3>
-																			<h4><a href="<?php echo base_url(); ?>postad_create_services">Coaching & Training</a></h4>
-																			<h4><a href="#">Business Services</a></h4>
-																			<h4><a href="#">Party & Wedding Services</a></h4>
-																			<h4><a href="#">IT & Digital Marketing Services</a></h4>
-																			<h4><a href="#">Solicitor Services</a></h4>
-																			<h4><a href="#">Accounting & Taxation Services</a></h4>
-																			<h4><a href="#">Home, Construction & Renovation Services</a></h4>
-																			<h4><a href="#">Doctor's & Hospital Services</a></h4>
-																			<h4><a href="#">Nurse & Carer Services</a></h4>
-																			<h4><a href="#">Astrology & Numerology Services</a></h4>
-																			<h4><a href="#">Loan & Insurance</a></h4>
-																			<h4><a href="#">Funeral Services</a></h4>
-																			<h4><a href="#">Health & Fitness</a></h4>
+																			<h3>Professional
+																				<input type='hidden' name='services_cat' id='services_cat' value='services' />
+																				<input type='hidden' name='services_sub' id='services_sub' value='' />
+																				<input type='hidden' name='services_sub_sub' id='services_sub_sub' value='' />
+																			</h3>
+																			<?php foreach ($services_sub_prof as $serv_prof) { ?>
+																				<h4><a href="javascript:void(0)" id="<?php echo  $serv_prof['sub_category_id'].','.$serv_prof['sub_subcategory_id']; ?>" class='service_prof'><?php echo ucfirst($serv_prof['sub_subcategory_name']); ?></a></h4>
+																		<?php	} ?>
 																		</div>
 																		<div class="col-md-4 clearfix">
 																			<h3>Popular</h3>
-																			<h4><a href="#">Dry Cleaning & Laundry Services</a></h4>
-																			<h4><a href="#">Household Services</a></h4>
-																			<h4><a href="#">Travel & Vacation Services</a></h4>
-																			<h4><a href="#">Massage & Beauty Services</a></h4>
-																			<h4><a href="#">Community Services</a></h4>
-																			<h4><a href="#">Entertainment Services</a></h4>
-																			<h4><a href="#">Motor Services</a></h4>
-																			<h4><a href="#">Logistics & Transport Services</a></h4>
-																			<h4><a href="#">Restaurant & Food Services</a></h4>
-																			<h4><a href="#">Friendship & Dating Services</a></h4>
-																			<h4><a href="#">Nannies Services</a></h4>
-																			<h4><a href="#">Embroidery Services</a></h4>
-																			<h4><a href="#">Others</a></h4>
+																			<?php foreach ($services_sub_pop as $serv_pop) { ?>
+																				<h4><a href="javascript:void(0)" id="<?php echo  $serv_pop['sub_category_id'].','.$serv_pop['sub_subcategory_id']; ?>" class='service_pop'><?php echo ucfirst($serv_pop['sub_subcategory_name']); ?></a></h4>
+																		<?php	} ?>
+																			
 																		</div>
 																	</div>
 																</div>
@@ -401,6 +387,7 @@
 														<div class="modal-footer">
 															<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 														</div>
+														</form>
 													</div>
 												</div>
 											</div>

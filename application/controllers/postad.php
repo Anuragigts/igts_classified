@@ -24,6 +24,8 @@ class Postad extends CI_Controller{
                 /*pets categories*/
                 $data['pets_sub_cat'] = $this->category_model->pets_sub_cat();
                 $data['pets_big_animal'] = $this->category_model->pets_big_animal();
+                $data['services_sub_prof'] = $this->category_model->services_sub_prof();
+                $data['services_sub_pop'] = $this->category_model->services_sub_pop();
 
                 if($plogin_id != ""){
                         /*$data = array(
@@ -146,5 +148,9 @@ class Postad extends CI_Controller{
         }
         public function other_ad(){
                 $this->session->unset_userdata("info");    
+        }
+
+        public function get_category_list(){
+            echo $this->input->post('value');
         }
 }

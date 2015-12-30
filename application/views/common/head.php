@@ -171,6 +171,26 @@
 			});
 		</script>
 
+		<script type="text/javascript">
+		$(function(){
+			$(".service_prof").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('services_sub').value = sub1[0];
+				document.getElementById('services_sub_sub').value = sub1[1];
+				document.getElementById('services_form').submit();
+			});
+
+			$(".service_pop").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('services_sub').value = sub1[0];
+				document.getElementById('services_sub_sub').value = sub1[1];
+				document.getElementById('services_form').submit();
+			});
+		});
+		</script>
+
 
 		<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
 		<link id="style-sheet" href="modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
