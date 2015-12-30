@@ -41,15 +41,14 @@
 								 <!--end /.header-->
 
 								<div class="content">
-
-									<div class="j-row">
-										<div class="span12 step">
-											<div class="steps">
-												<u><?php echo ucfirst(@$cat); ?></p>
-												<p><?php echo ucfirst(@$sub_name); ?></p>
-												<p><?php echo ucfirst(@$sub_sub_name); ?></p>
-											</div>
-										</div>
+									<div class="top-head">
+										<div class="col-sm-12 text_center pad_bottm">
+											<ul class="social-team text_center">
+												<li><?php echo ucfirst(@$cat); ?> /</li>
+												<li><?php echo ucfirst(@$sub_name); ?> /</li>
+												<li><?php echo ucfirst(@$sub_sub_name); ?></li>
+											</ul>                 
+										</div> 
 									</div>
 
 									<!-- start steps -->
