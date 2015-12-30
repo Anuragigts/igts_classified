@@ -337,7 +337,7 @@
 															 Marquee Title
 														</label>
 														<div class="input marquetitle_hide"  style='display:none;'>
-															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title"></textarea>
+															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title" ></textarea>
 														</div>
 														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
