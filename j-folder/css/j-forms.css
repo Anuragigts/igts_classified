@@ -2001,3 +2001,34 @@
 	-moz-box-sizing:content-box;
 	box-sizing:content-box;
 }
+/* Cloned elements
+=============================== */
+.j-forms .content .clone-btn-right,
+.j-forms .content .clone-btn-left {
+	font-size:14px;
+	height:48px;
+	padding:0;
+	position:absolute;
+	margin:0;
+	width:47px;
+}
+.j-forms .j-row>.clone-btn-right { bottom:25px; right:10px; }
+
+.j-forms .j-row>.clone-btn-right.delete { right:60px; }
+
+.j-forms .unit>.clone-btn-right { bottom:0; right:0; }
+
+.j-forms .unit>.clone-btn-right.delete { right:50px; }
+
+.j-forms .j-row>.clone-btn-left { bottom:25px; left:10px; }
+
+.j-forms .j-row>.clone-btn-left.delete { left:60px; }
+
+.j-forms .unit>.clone-btn-left { bottom:0; left:0; }
+
+.j-forms .unit>.clone-btn-left.delete { left:50px; }
+
+.toclone-widget-right { padding-right:100px; position:relative; }
+
+.toclone-widget-left { padding-left:100px; position:relative; }
+
