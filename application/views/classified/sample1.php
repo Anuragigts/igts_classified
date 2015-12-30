@@ -68,7 +68,25 @@
 															<div class="span12">
 																<label>Hi User Name, you have 0 saved Deals</label><hr>
 																<!-- start cloned right side buttons element -->
-																<div class="top_10 ">
+																<div class="top_10">
+																	<div class="j-row">
+																		<div class="span2 favourites_img">
+																			<img src="img/dashboard/pets.jpg" class="img-responsive">
+																		</div>
+																		<div class="span8">
+																			<h4>Puppies in Pets for Sale</h4>
+																			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+																			<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+																			<p><b>Turrif , Worcestershire</b></p>
+																		</div>
+																		<div class="span2">
+																			<h5 class="pull-right">Amount</h5>
+																			<p class="pull-right">1 hour ago</p>
+																		</div>
+																		<div class="span12">
+																			<i class="fa fa-star pull-right"></i><hr>
+																		</div>
+																	</div>
 																	<div class="j-row">
 																		<div class="span2 favourites_img">
 																			<img src="img/dashboard/pets.jpg" class="img-responsive">
