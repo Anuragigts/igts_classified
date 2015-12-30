@@ -49,9 +49,8 @@
 									<div class="titles">
 										<h2>Post <span>YOUR </span>Deal</h2>
 										<hr class="tall">
-										<p class="lead">Search Your Category</p>
 									</div> 
-									<div class="input-group col-md-6 col-md-offset-3">
+									<!--<div class="input-group col-md-6 col-md-offset-3">
 										<div id="custom-search-input">
 											<input type="text" class="input-lg" placeholder="Buscar" />
 											<button class="input-group-btn btn btn-info btn-lg" type="button">
@@ -59,7 +58,7 @@
 											</button>
 										</div>
 									</div>
-									<div class="or_padd"><p class="lead">( OR )</p></div>
+									<div class="or_padd"><p class="lead">( OR )</p></div>-->
 									<div class="col-md-12">
 										<div class="row">
 											<div class="col-md-4 col-sm-4 col-xs-12">
