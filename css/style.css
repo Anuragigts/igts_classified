@@ -3394,7 +3394,7 @@ address strong{
 	border-radius: 50%;
 	text-align: center;
 }
-.item-table ul li i.fa-check{
+.item-table ul li i{
 	background-color: #88C425;
 }
 .item-table ul li i.fa-times{
@@ -4122,7 +4122,9 @@ a .login-op-btn:hover{
 	border: 2px solid #F4F4F4;
 	height: 120px;
 }
+p{
+	line-height: 1.5rem;
+}
 .nicEdit-main{
 	width:420px !important;
-
 }
