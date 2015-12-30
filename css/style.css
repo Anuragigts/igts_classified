@@ -2329,7 +2329,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .acc-trigger a { 
 	background: #f9f9f9 url("../img/img-theme/accordion-ico.png") no-repeat 14px 13px; 
 	display: block; 
-	padding: 11px 20px 11px 44px; 
+	padding: 15px 20px 11px 44px; 
 	text-decoration: none; 
 	border: solid 1px #dedede; 
 	font-size: 0.875rem; 
@@ -2372,6 +2372,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .acc-container .content{
 	font-size: 0.875rem;
+	line-height: 1.5;
 }
 .ui-progress {
   position: relative;
@@ -4115,4 +4116,9 @@ a .login-op-btn:hover{
 }
 .post_ad_back:hover{
 	color:#f4f4f4 !important;
+}
+
+.favourites_img img{
+	border: 2px solid #F4F4F4;
+	height: 120px;
 }
