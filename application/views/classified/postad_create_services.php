@@ -45,9 +45,9 @@
 									<div class="j-row">
 										<div class="span12 step">
 											<div class="steps">
-												<u><?php echo @$cat; ?></p>
-												<p><?php echo @$sub_name; ?></p>
-												<p><?php echo @$sub_sub_name; ?></p>
+												<u><?php echo ucfirst(@$cat); ?></p>
+												<p><?php echo ucfirst(@$sub_name); ?></p>
+												<p><?php echo ucfirst(@$sub_sub_name); ?></p>
 											</div>
 										</div>
 									</div>
