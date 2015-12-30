@@ -70,9 +70,6 @@
 																<!-- start cloned right side buttons element -->
 																<div class="top_10">
 																	<div class="j-row">
-																		<div class="span2 favourites_img">
-																			<img src="img/dashboard/pets.jpg" class="img-responsive">
-																		</div>
 																		<div class="span8">
 																			<h4>Puppies in Pets for Sale</h4>
 																			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
@@ -83,7 +80,10 @@
 																			<h5 class="pull-right">Amount</h5>
 																			<p class="pull-right">1 hour ago</p>
 																		</div>
-																		<div class="span12">
+																		<div class="span2 favourites_img">
+																			<img src="img/dashboard/pets.jpg" class="img-responsive">
+																		</div>
+																		<div class="span8">
 																			<i class="fa fa-star pull-right"></i><hr>
 																		</div>
 																	</div>
@@ -345,7 +345,8 @@
 			</div>
 		</div>
 	</section>
-		<!-- End Shadow Semiboxed -->
+	
+	<!-- End Shadow Semiboxed -->
 	<script src="js/jquery.js"></script> 
 	<script src="src/jquery.easyResponsiveTabs.js"></script>
 	<link href="src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
@@ -390,33 +391,4 @@
 	<script src="j-folder/js/j-forms.min.js"></script>
 	<script src="j-folder/js/jquery-cloneya.min.js"></script>
 
-	<!--[if lt IE 10]>
-			<script src="j-folder/js/jquery.placeholder.min.js"></script>
-		<![endif]-->
-
-	<script>
-	$(document).ready(function(){
-
-		/***************************************/
-		/* Cloned element */
-		/***************************************/
-		$('.clone-widget').cloneya();
-
-		$('.clone-rightside-btn-1').cloneya();
-
-		$('.clone-rightside-btn-2').cloneya();
-
-		$('.clone-leftside-btn-1').cloneya();
-
-		$('.clone-leftside-btn-2').cloneya();
-
-		$('.clone-link').cloneya();
-		/***************************************/
-		/* end Cloned element */
-		/***************************************/
-
-	});
-	</script>
-			
-			
-           
+        
