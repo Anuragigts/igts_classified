@@ -12,6 +12,14 @@
 	<link rel="stylesheet" href="j-folder/css/demo.css">
 	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+
+	        <!-- tinymce editor -->
+
+        <script type="text/javascript" src="js/nicEdit.js"></script>
+		<script type="text/javascript">
+			bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+		</script>
+
  <!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
@@ -190,8 +198,7 @@
 												<div class="span6 unit"><!-- start Deal Description -->
 													<label class="label">Deal Description <sup style='color:red;' id="right-top">?</sup> </label>
 													<div class="input">
-														<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-														<span class="tooltip tooltip-right-top">enter your Deal Description</span>
+														<textarea type="text" id="dealdescription" name="dealdescription" cols="40" placeholder="Enter Deal Description"></textarea>
 													</div>
 												</div><!-- end Deal Description -->
 											</div>
