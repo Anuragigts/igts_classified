@@ -4107,6 +4107,10 @@ a .login-op-btn:hover{
 	height:200px !important;
 }
 
+#map{
+	height:200px !important;
+}
+
 .marquetitle_hide{
 	padding-bottom: 10px !important;
 }
