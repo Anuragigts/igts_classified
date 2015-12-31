@@ -20,7 +20,65 @@
 			bkLib.onDomLoaded(function() { new nicEditor().panelInstance('dealdescription'); });
 		</script>
 
- <!-- Section Title-->    
+		<!-- google map by postal code -->		
+		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>
+		<script type="text/javascript">
+
+          function getPosition(callback) {
+            var geocoder = new google.maps.Geocoder();
+            var postcode = document.getElementById("postalcode").value;
+
+            geocoder.geocode({'address': postcode}, function(results, status) 
+            {   
+              if (status == google.maps.GeocoderStatus.OK) 
+              {
+                callback({
+                  latt: results[0].geometry.location.lat(),
+                  long: results[0].geometry.location.lng()
+                });
+              }
+            });
+          }
+
+          function setup_map(latitude, longitude) { 
+            var _position = { lat: latitude, lng: longitude};
+            
+            var mapOptions = {
+              zoom: 12,
+              center: _position
+            }
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            var marker = new google.maps.Marker({
+              position: mapOptions.center,
+              map: map
+            });
+          }
+		  
+		  function address(latt, long1){
+		  $.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
+         success: function(data){
+			 $('#location').val(data.results[0].formatted_address);
+			 
+             /*or you could iterate the components for only the city and state*/
+         }
+			});
+			}
+
+          window.onload = function() {
+            setup_map(51.5073509, -0.12775829999998223);
+
+            document.getElementById("postalcode").onchange = function() {
+              getPosition(function(position){
+                setup_map(position.latt, position.long);
+				address(position.latt, position.long);
+              });
+            }
+          }
+      </script> 
+
+ 	<!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
                 <div class="bg_parallax image_02_parallax"></div>
@@ -124,8 +182,8 @@
 															<i class="fa fa-building-o"></i>
 														</label>
 														<!-- <input type="text" id="area" name="area" placeholder="Enter Area"> -->
-														<input id="location" name='location' type="text" placeholder="Type in an address" size="90" />
-														<span class="tooltip tooltip-right-top">Enter Your Location</span>
+														<input id="location" name='location' readonly type="text" placeholder="Type in an address" size="90" />
+														<!-- <span class="tooltip tooltip-right-top">Enter Your Location</span> -->
 													</div>
 												</div>
 											</div>
@@ -136,7 +194,8 @@
 												</div>
 												<div class="span8 unit">
 													<!--  Map here -->
-													 <div class="map_canvas"></div>
+													 <!-- <div class="map_canvas"></div> -->
+													 <div id="map"></div>
 												</div>
 												<div class="span2 unit">
 													
@@ -471,7 +530,7 @@
 
 								<div class="footer">
 									<button type="submit" class="primary-btn multi-submit-btn">Order</button>
-									<button type="button" class="primary-btn multi-next-btn">Next</button>
+									<button type="button" class="primary-btn multi-next-btn" onclick='deal_description()'>Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 								</div>
 								<!-- end /.footer -->

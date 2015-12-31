@@ -12,12 +12,12 @@
         <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
         <script type='text/javascript' src='js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
         <!-- Maps -->
-        <!--<script src="js/maps/gmap3.js"></script> -->
+        <!--<script src="js/maps/gmap3.js"></script> 
         
      <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     
 
-    <script src="js/maps/jquery.geocomplete.js"></script>
+    <script src="js/maps/jquery.geocomplete.js"></script>-->
 
     <style type="text/css">
     .map_canvas { 
@@ -28,7 +28,7 @@
     </style>
      
     <script>
-      $(function(){
+     /* $(function(){
         
         var options = {
           map: ".map_canvas"
@@ -53,7 +53,7 @@
           $(".google_map").css('display', 'block');
           $("#location").val($(this).text()).trigger("geocode");
           return false;
-        });
+        });*/
         
       /*        var options = {
                 map: ".map_canvas",
