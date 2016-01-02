@@ -76,7 +76,7 @@
                                             <li><i class="fa fa-home"></i> <a href='seeked_searches'>Seeked Searches</a></li>
                                             <li><i class="fa fa-home"></i> <a href='update_profile'>Update Profile</a></li>
                                         </ul>
-										<a class="btn color-red" href="#">Logout</a>
+										<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 									</div>
                                 </div>
                                 <!-- End Item Table-->

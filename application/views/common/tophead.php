@@ -36,8 +36,8 @@
                         <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>signup" class="bor_reg">REGISTER</a></li>
                         <?php }
                         else{ ?>
+                        <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>deals_administrator" class="bor_log">My Dashboard</a></li>
                         <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>login/logout" class="bor_log">Logout</a></li>
-                        <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>showmyads" class="bor_log">Showmyads</a></li>
                       <?php  }
                          ?>
 						<!-- <li style="margin-top: 8px;"><a href="login" class="bor_log">LOGIN</a></li>
