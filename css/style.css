@@ -2654,14 +2654,54 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	height: 50px;
 }
 
+.info-gallery .buslogo_favo{
+	float: right;
+	position: absolute;
+	top: 118px;
+	left: -225px;
+	text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.5);
+	font-size: 2.1rem;
+	line-height: 2rem;
+	font-weight: normal;
+	color: #FFF;
+}
+.info-gallery .buslogo_favo b{
+	/* font-size: 0.8rem; */
+	line-height: 1rem;
+	font-weight: lighter;
+	font-style: italic;
+	padding: 20px 20px;
+	text-shadow:none;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+.info-gallery .buslogo_favo span{
+	font-weight: lighter;
+	font-size: 1.8rem;
+	right: -20px;
+	top: -15px;
+	position: absolute;
+}
+.info-gallery .starts{
+	margin-bottom: 15px;
+}
+.buslogo_favo b {
+    background: #fff none repeat scroll 0% 0% !important;
+    padding: 10px;
+}
+.buslogo_favo b img{
+   width: 70px;
+	height: 70px;
+}
+
 /* Galley list-view---------------------------------------------------------------*/
 .list-view .img-hover{
-	width: 40%;
+	width: 30%;
 	float: left;
 }
 .list-view .info-gallery{
 	padding: 23px 20px 27px 20px;
-	width: 60%;
+	width: 70%;
 	text-align: left;
 	float: right;
 }
@@ -2695,6 +2735,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-weight: normal;
 	color: #fff;
 }
+
 .list-view .info-gallery .bus_logo{
 	float: right;
 	position: absolute;
@@ -2834,7 +2875,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .post-meta {
   font-size: 13px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   color: #999;
 }
 .post-meta ul {
@@ -3420,8 +3461,8 @@ address strong{
 	color: #fff;
 }
 .color-red{
-	background: #E1483F !important; 
-	background-color: #E1483F !important; 
+	background: #EF530D !important; 
+	background-color: #EF530D !important; 
 }
 .color-blue{
 	background: #0088cc; 
@@ -3773,7 +3814,7 @@ address strong{
 }
 .img-hover img{
 	width:308px;
-	height:198px;
+	height:200px;
 }
 .significant_ad img{
 	width:358px !important;
@@ -4137,4 +4178,10 @@ a .login-op-btn:hover{
 }
 .dashboard_tag li a{
 	color: #727272;
+}
+.dele_te{
+	color: rgb(255, 255, 255);
+	background-color: #EF530D;
+	padding: 10px;
+	border-radius: 10px;
 }
