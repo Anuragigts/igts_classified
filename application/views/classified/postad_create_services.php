@@ -20,6 +20,23 @@
 			bkLib.onDomLoaded(function() { new nicEditor().panelInstance('dealdescription'); });
 		</script>
 
+		<script type="text/javascript">
+		$(".nicEdit-main").keyup(function () {
+			alert('hihih'); return false;
+        // if ($(this).text().length > char) {
+        //     $(this).text($(this).text().substr(1));
+        // }
+        // var rest = char - $(this).text().length;
+        // $("#counter").html("You have <strong>" + rest + "</strong> char.");
+        // if (rest <= 10) {
+        //     $("#counter").css("color", "#ff7777");
+        // }
+        // else {
+        //     $("#counter").css("color", "#111111");
+        // }
+    });
+		</script>
+
 		<!-- google map by postal code -->		
 		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>
 		<script type="text/javascript">
@@ -215,7 +232,7 @@
 																<input type="file" name="file" onchange="document.getElementById('file_input').value = this.value; fileupload(this);">
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected">
-															<span class="hint">Only: jpg / png / pdf / doc Size: less 1 Mb</span>
+															<span class="hint">Only: jpg / png  Size: less 1 Mb</span>
 														</label>
 													</div>
 												</div>
