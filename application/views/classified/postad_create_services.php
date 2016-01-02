@@ -13,29 +13,17 @@
 	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 
-	        <!-- tinymce editor -->
+	        <!-- tinymce editor 
 
         <script type="text/javascript" src="js/nicEdit.js"></script>
 		<script type="text/javascript">
 			bkLib.onDomLoaded(function() { new nicEditor().panelInstance('dealdescription'); });
-		</script>
+		</script>-->
 
-		<script type="text/javascript">
-		$(".nicEdit-main").keyup(function () {
-			alert('hihih'); return false;
-        // if ($(this).text().length > char) {
-        //     $(this).text($(this).text().substr(1));
-        // }
-        // var rest = char - $(this).text().length;
-        // $("#counter").html("You have <strong>" + rest + "</strong> char.");
-        // if (rest <= 10) {
-        //     $("#counter").css("color", "#ff7777");
-        // }
-        // else {
-        //     $("#counter").css("color", "#111111");
-        // }
-    });
-		</script>
+		 <link rel="stylesheet" href="js/jquery.cleditor.css" />
+    
+    
+
 
 		<!-- google map by postal code -->		
 		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>
@@ -547,7 +535,7 @@
 
 								<div class="footer">
 									<button type="submit" class="primary-btn multi-submit-btn">Order</button>
-									<button type="button" class="primary-btn multi-next-btn" onclick='deal_description()'>Next</button>
+									<button type="button" class="primary-btn multi-next-btn" onclick='len()' >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 								</div>
 								<!-- end /.footer -->
@@ -567,3 +555,20 @@
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
 		
+		<script src="js/jquery.cleditor.min.js"></script>
+		<script src="js/jquery.cleditor.js"></script>
+    <script>
+        $(document).ready(function () { 
+		$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 
+		});
+    </script>
+
+    <script type="text/javascript">
+   
+    	// 	function len(){
+    	// 		alert('len');
+    	//  var len = document.body.textContent;
+    	//  alert(len); return false;
+    	// }
+    	
+    </script>
