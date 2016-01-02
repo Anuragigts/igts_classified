@@ -7,13 +7,13 @@
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Theme CSS -->
-        <link href="css/style.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen">
         <!-- Responsive CSS -->
-        <link href="css/theme-responsive.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url(); ?>css/theme-responsive.css" rel="stylesheet" media="screen">
         <!-- Skins Theme -->
         
 		       
-        <script src="js/modernizr.js"></script>
+        <script src="<?php echo base_url(); ?>js/modernizr.js"></script>
 		
 		<!--<script type="text/javascript" src="js/marquee.js"></script>
 		
@@ -192,8 +192,8 @@
 		</script>
 
 
-		<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
-		<link id="style-sheet" href="modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
-		<script src="modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
+		<link href="<?php echo base_url(); ?>modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
+		<link id="style-sheet" href="<?php echo base_url(); ?>modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
+		<script src="<?php echo base_url(); ?>modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
 		<script type="text/javascript">$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>
-		<script src="modern-ticker/js/preview.js" type="text/javascript"></script>
+		<script src="<?php echo base_url(); ?>modern-ticker/js/preview.js" type="text/javascript"></script>

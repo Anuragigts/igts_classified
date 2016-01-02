@@ -102,7 +102,7 @@
 				<!-- content-->
 				<div class="container">
 					<div class="row">
-						<div class="wrapper wrapper-640 tooltip-hover" style="padding-top: 0px;">
+						<div class="wrapper wrapper-640" style="padding-top: 0px;">
 
 							<form action="http://lazy-coding.com/j-forms-advanced/forms/order_multistep_with_steps/j-folder/php/demo.php" method="post" class="j-forms j-multistep" id="j-forms" enctype="multipart/form-data" novalidate>
 
@@ -158,21 +158,11 @@
 														<div class="inline-group">
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" id="next-step-radio" class='bus_consumer' value="Yes">
-																<i></i>Business 
-																<sup>
-																	<span data-toggle="tooltip" title="" data-original-title="Business">
-																		<a href="#"><img src="img/icons/i.png"></a>
-																	</span>
-																</sup>
+																<i></i>Business <sup style='color:red;'>?</sup>
 															</label>
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
-																<i></i>Consumer 
-																<sup>
-																	<span data-toggle="tooltip" title="" data-original-title="Consumer">
-																		<a href="#"><img src="img/icons/i.png"></a>
-																	</span>
-																</sup>
+																<i></i>Consumer <sup style='color:red;'>?</sup>
 															</label>
 														</div>
 													</div>
@@ -181,34 +171,24 @@
 											<!-- start Postal Code -->
 											<div class="j-row">
 												<div class="span6 unit">
-													<label class="label">Postal Code 
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Postal Code">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
+													<label class="label">Postal Code <sup style='color:red;'>?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="email">
 															<i class="fa fa-bookmark-o"></i>
 														</label>
 														<input type="text" id="postalcode" name="postalcode" placeholder="(e.g. EH14 4AB)" >
+														<span class="tooltip tooltip-right-top">Enter Postal Code</span>
 													</div>
 												</div>
 												<div class="span6 unit">
-													<label class="label">Location 
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Location">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
+													<label class="label">Location <sup style='color:red;' id="right-top">?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="phone">
 															<i class="fa fa-building-o"></i>
 														</label>
 														<!-- <input type="text" id="area" name="area" placeholder="Enter Area"> -->
 														<input id="location" name='location' readonly type="text" placeholder="Type in an address" size="90" />
+														<!-- <span class="tooltip tooltip-right-top">Enter Your Location</span> -->
 													</div>
 												</div>
 											</div>
@@ -232,13 +212,7 @@
 										<div class="post_deal_bor top_10" id='bus_logo' style='display:none;margin-top: 20px;'>	
 											<div class="j-row"  > 
 												<div class="span6 unit">
-													<label class="label">Business Logo
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Business Logo">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
+													<label class="label">Business Logo <sup style='color:red;'>?</sup></label>
 													<div class="unit">
 														<label class="input append-big-btn">
 															<div class="file-button">
@@ -264,21 +238,11 @@
 														<div class="inline-group">
 															<label class="radio">
 																<input type="radio" name="checkbox_services" id="next-step-radio" value="Yes">
-																<i></i>Service Provider 
-																	<sup>
-																		<span data-toggle="tooltip" title="" data-original-title="Service Provider">
-																			<a href="#"><img src="img/icons/i.png"></a>
-																		</span>
-																	</sup>
+																<i></i>Service Provider
 															</label>
 															<label class="radio">
 																<input type="radio" name="checkbox_services"  value="No">
 																<i></i>Service needed
-																	<sup>
-																		<span data-toggle="tooltip" title="" data-original-title="Service Needed">
-																			<a href="#"><img src="img/icons/i.png"></a>
-																		</span>
-																	</sup>
 															</label>
 														</div>
 													</div>
@@ -286,87 +250,61 @@
 											</div>
 											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Deal Tag / Caption 
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
+													<label class="label">Deal Tag / Caption <sup style='color:red;' id="right-top">?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="dealtag">
 															<img src="j-folder/img/dealtag.png">
 														</label>
 														<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
+														<span class="tooltip tooltip-right-top">Enter your Deal tag</span>
 													</div>
 												</div><!-- end Deal Tag -->
 												<div class="span6 unit"><!-- start Deal Description -->
-													<label class="label">Deal Description 
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Deal Description">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
+													<label class="label">Deal Description <sup style='color:red;' id="right-top">?</sup> </label>
 													<div class="input">
 														<textarea type="text" id="dealdescription" name="dealdescription" cols="40" placeholder="Enter Deal Description"></textarea>
+														<input type='hidden' name='text_hide' id='text_hide' value='' />
 													</div>
+													<span style='display: none; color: #b71c1c; font-size: 14px;' id='deal_desc_error'>Enter Minimum 200 characters</span>
 												</div><!-- end Deal Description -->
 											</div>
 											<div class="j-row">
 												<div class="span6"><!-- start service -->
-													<label class="label">Price 
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Price">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
-													<div class="unit check logic-block-radio">
-														<div class="inline-group">
-															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																<i></i>£ (Pound) 
-															</label>
-															<label class="radio">
-																<input type="radio" name="checkbox_toggle1"  value="No">
-																<i></i> € (Euro)
-															</label>
+													<div class="j-row">
+														<div class="span7 unit">
+															<label class="label">Price <sup style='color:red;'>?</sup></label>
+															<div class="unit check logic-block-radio">
+																<div class="inline-group">
+																	<label class="radio">
+																		<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
+																		<i></i>£(Pound) 
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="checkbox_toggle1"  value="No">
+																		<i></i> €(Euro)
+																	</label>
+																</div>
+															</div>
 														</div>
-													</div>
-												</div><!-- end service -->
-												<div class="span4 unit top_20">
-													<div class="input">
-														<label class="icon-right" for="dealtag">
-															<img src="j-folder/img/price.png">
-														</label>
-														<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-													</div>
+														<div class="span5 unit top_20">
+															<div class="input">
+																<label class="icon-right" for="dealtag">
+																	<img src="j-folder/img/price.png">
+																</label>
+																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+																<span class="tooltip tooltip-right-top">enter your Amount</span>
+															</div>
+														</div>
+													</div><!-- end service -->
 												</div>
-												<div class="span2 unit top_30">
-													<div class="input">
-														<label class="checkbox">
-															<input type="checkbox" name="candles" id='free_package' value="candles-5$">
-															<i></i>
-															 Negotiable 
-														</label>
-													</div>
-												</div>
-											</div>
-											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Type of Service 
-														<sup>
-															<span data-toggle="tooltip" title="" data-original-title="Type of Service">
-																<a href="#"><img src="img/icons/i.png"></a>
-															</span>
-														</sup>
-													</label>
+													<label class="label">Type of Service <sup style='color:red;' id="right-top">?</sup></label>
 													<div class="input">
 														<label class="icon-right" for="dealtag">
 															<img src="j-folder/img/dealtag.png">
 														</label>
 														<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
+														<span class="tooltip tooltip-right-top">Enter Type of Service</span>
 													</div>
 												</div>
 											</div>
@@ -493,65 +431,45 @@
 											<div class="span12" id='business_form'>
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Business Name 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Business Name ">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Business Name <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="company">
 																<i class="fa fa-briefcase"></i>
 															</label>
 															<input type="text" id="busname" name="busname" placeholder="Enter  Name ">
+															<span class="tooltip tooltip-right-top">Enter Your Name</span>
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Contact Person Name 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Contact Person Name">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Contact Person Name <sup style='color:red;' id="right-top">?</sup> </label>
 														<div class="input">
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
 															</label>
 															<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+															<span class="tooltip tooltip-right-top">Enter Contact Person Name</span>
 														</div>
 													</div>
 												</div>
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Mobile Number 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Mobile Number ">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Mobile Number <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="phone">
 																<i class="fa fa-phone"></i>
 															</label>
 															<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+															<span class="tooltip tooltip-right-top">Enter Your Mobile Number</span>
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Email 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Email">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Email <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="email">
 																<i class="fa fa-envelope-o"></i>
 															</label>
 															<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+															<span class="tooltip tooltip-right-top">Enter Your Email</span>
 														</div>
 													</div>
 												</div>
@@ -560,56 +478,53 @@
 											<div class="span12" id='consumer_form'>
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Contact Name 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Contact Name ">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Contact Name <sup style='color:red;' id="right-top">?</sup> </label>
 														<div class="input">
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
 															</label>
 															<input type="text" id="conscontname" name="conscontname" placeholder="Enter Contact Person Name ">
+															<span class="tooltip tooltip-right-top">Enter Your Name</span>
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Mobile Number 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Mobile Number">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Mobile Number <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="phone">
 																<i class="fa fa-phone"></i>
 															</label>
 															<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number ">
+															<span class="tooltip tooltip-right-top">Enter Your Mobile Number</span>
 														</div>
 													</div>
 												</div>
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Email 
-															<sup>
-																<span data-toggle="tooltip" title="" data-original-title="Email">
-																	<a href="#"><img src="img/icons/i.png"></a>
-																</span>
-															</sup>
-														</label>
+														<label class="label">Email <sup style='color:red;' id="right-top">?</sup></label>
 														<div class="input">
 															<label class="icon-right" for="email">
 																<i class="fa fa-envelope-o"></i>
 															</label>
 															<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
+															<span class="tooltip tooltip-right-top">Enter Your Email</span>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 										<!-- end name -->
+										
+										
+										
+										<!-- start textarea --
+										<div class="unit">
+											<label class="label">Message or comment</label>
+											<div class="input">
+												<textarea spellcheck="false" name="message"></textarea>
+											</div>
+										</div>
+										<!-- end textarea -->
+
 										
 										<!-- start response from server -->
 										<div id="response"></div>
@@ -652,10 +567,24 @@
 
     <script type="text/javascript">
    
-    	// 	function len(){
-    	// 		alert('len');
-    	//  var len = document.body.textContent;
-    	//  alert(len); return false;
-    	// }
+    		function len(){
+    			// alert('len');//$( "body#content" ).html();
+    	 var len = document.getElementById('text_hide').value;
+    	 // alert(len.length);
+	    	 if(len == '' || len == '<br>'){
+	    	 	document.getElementById("deal_desc_error").style.display = "block";
+	    	 	return false;
+	    	 }
+	   	 	else{
+		   	 		if(len.length < 200 ){
+		   	 		document.getElementById("deal_desc_error").style.display = "block";
+		   	 		return false;
+		   	 				}
+		   	 				else{
+		   	 		document.getElementById("deal_desc_error").style.display = "none";			
+		   	 				}
+				}
+    	 // alert(len); return false;
+    	}
     	
     </script>

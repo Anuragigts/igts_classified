@@ -1,16 +1,16 @@
 <!-- ======================= JQuery libs =========================== -->
         <!-- jQuery local--> 
       
-        <script src="js/jquery-ui.1.10.4.min.js"></script>                
+        <script src="<?php echo base_url(); ?>js/jquery-ui.1.10.4.min.js"></script>                
         <!--Nav-->
-        <script src="js/nav/jquery.sticky.js" type="text/javascript"></script>    
+        <script src="<?php echo base_url(); ?>js/nav/jquery.sticky.js" type="text/javascript"></script>    
         <!--Totop-->
-        <script type="text/javascript" src="js/totop/jquery.ui.totop.js" ></script>  
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/totop/jquery.ui.totop.js" ></script>  
          <!--Accorodion-->
-        <script type="text/javascript" src="js/accordion/accordion.js" ></script>  
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/accordion/accordion.js" ></script>  
         <!--Slide Revolution-->
-        <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
-        <script type='text/javascript' src='js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
+        <script type='text/javascript' src='<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
         <!-- Maps -->
         <!--<script src="js/maps/gmap3.js"></script> 
         
@@ -67,24 +67,24 @@
 
 
         <!--Ligbox--> 
-        <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script> 
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/fancybox/jquery.fancybox.js"></script> 
         <!-- carousel.js-->
-        <script src="js/carousel/carousel.js"></script>
+        <script src="<?php echo base_url(); ?>js/carousel/carousel.js"></script>
         <!-- Filter -->
-        <script src="js/filters/jquery.isotope.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>js/filters/jquery.isotope.js" type="text/javascript"></script>
         <!-- Twitter Feed-->
-        <script src="js/twitter/jquery.tweet.js"></script> 
+        <script src="<?php echo base_url(); ?>js/twitter/jquery.tweet.js"></script> 
         <!-- flickr Feed-->
-        <script src="js/flickr/jflickrfeed.min.js"></script>    
+        <script src="<?php echo base_url(); ?>js/flickr/jflickrfeed.min.js"></script>    
         <!--Theme Options
         <script type="text/javascript" src="js/theme-options/theme-options.js"></script>
         <script type="text/javascript" src="js/theme-options/jquery.cookies.js"></script> 
         <!-- Bootstrap.js-->
-        <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script> 
-        <script type="text/javascript" src="js/bootstrap/bootstrap-slider.js"></script> 
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap.js"></script> 
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap-slider.js"></script> 
         <!--MAIN FUNCTIONS-->
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type='text/javascript' src="js/inewsticker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/main.js"></script>
+        <script type='text/javascript' src="<?php echo base_url(); ?>js/inewsticker.js"></script>
 
         <!-- <script type="text/javascript" src="marquee.js"></script> -->
         <!-- ======================= End JQuery libs =========================== -->

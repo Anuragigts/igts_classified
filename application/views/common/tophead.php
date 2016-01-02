@@ -28,21 +28,21 @@
 					<ul class="collapse"><!-- collapse class for collapse the drop down -->
                         <!-- website title - Logo class -->
                         <li class="title">
-                            <a href="index.php"><img src="img/365deal.png"  alt="Logo">  </a> 
+                            <a href="index.php"><img src="<?php echo base_url(); ?>img/365deal.png"  alt="Logo">  </a> 
                         </li>
                         <?php $lid  =$this->session->userdata("login_id");
                         if($lid == ''){ ?>
-                        <li style="margin-top: 8px;"><a href="login" class="bor_log">LOGIN</a></li>
-                        <li style="margin-top: 8px;"><a href="signup" class="bor_reg">REGISTER</a></li>
+                        <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>login" class="bor_log">LOGIN</a></li>
+                        <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>signup" class="bor_reg">REGISTER</a></li>
                         <?php }
                         else{ ?>
-                        <li style="margin-top: 8px;"><a href="login/logout" class="bor_log">Logout</a></li>
-                        <li style="margin-top: 8px;"><a href="showmyads" class="bor_log">Showmyads</a></li>
+                        <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>login/logout" class="bor_log">Logout</a></li>
+                        <li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>showmyads" class="bor_log">Showmyads</a></li>
                       <?php  }
                          ?>
 						<!-- <li style="margin-top: 8px;"><a href="login" class="bor_log">LOGIN</a></li>
 						<li style="margin-top: 8px;"><a href="signup" class="bor_reg">REGISTER</a></li> -->
-						<li class=" pull-right"><a href="postad"><img src="img/postanad.png"  alt="postanad"> </a></li>
+						<li class=" pull-right"><a href="postad"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="postanad"> </a></li>
                     </ul>
                 </nav>
                 <!-- Main Nav -->

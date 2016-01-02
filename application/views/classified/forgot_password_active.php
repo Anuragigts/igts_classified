@@ -9,8 +9,8 @@
 					overflow: hidden;
 				}
 			</style>
-		<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
-        <link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>logreg.css">
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>switchery.min.css">
         <script type="text/javascript" src="switchery.min.js"></script>
  <!-- Section Title-->    
             <div class="section-title-01">
@@ -54,15 +54,22 @@
                                             <h2 class="text1 text_center">Forgot Password</h2>
                                         </div><!-- End Title -->
                                         <?php echo $this->view("classified_layout/success_error"); ?>
-                                        <form  method="post" class="log_form" action="" id="forgot-form">
+                                        <form  method="post" class="log_form" action="<?php echo base_url(); ?>common/forgot/<?php echo @$rcode; ?>" id="forgot-form">
                                             <div class="col-12">
-                                                <label>Current Email <sup style='color:red;'>*</sup>
-                                                    <input placeholder="Enter Your Email" id="forgotemail" name="forgotemail" tabindex="1">
-                                                    <?php echo form_error("forgotemail");?>
+                                                <label>New Password <sup style='color:red;'>*</sup>
+                                                    <input type='password' placeholder="Enter Password" id="password" name="password" tabindex="1" required>
+                                                    <input type="hidden" id="random" name="random" value='<?php echo @$rcode; ?>' tabindex="1">
+                                                    <?php echo form_error("password");?>
+                                                </label>
+                                            </div>
+                                            <div class="col-12">
+                                                <label>Confirm Password <sup style='color:red;'>*</sup>
+                                                    <input type='password' placeholder="Enter password" id="conf_password" name="conf_password" tabindex="1" required>
+                                                    <?php echo form_error("conf_password");?>
                                                 </label>
                                             </div>
 											<div class="col-submit">
-                                                <input type="submit" id="forgot" name='forgot' class="btn btn-primary" value="Submit">
+                                                <input type="submit" id="forgot_pwd" name='forgot_pwd' class="btn btn-primary" value="Submit">
                                             </div>
                                         </form><!-- End form -->
                                     </div><!-- end login form -->
