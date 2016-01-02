@@ -57,6 +57,10 @@
 .top_20{
 	padding-top:20px;
 }
+.top_30{
+	padding-top:30px;
+}
+
 .log_side a:hover{
 	color:#D6DFE1 !important;
 }
@@ -188,9 +192,10 @@ h6,
   font-size: 0.75rem;
 }
 p{
-	margin: 0 0 20px 0;
-	color: #777;
+	margin: 0px 0px 20px;
+	color: rgba(0, 0, 0, 0.87);
 	font-size: 0.875rem;
+	line-height: 1.2rem;
 }
 footer ul,
 .sitemap,
@@ -3339,7 +3344,7 @@ address strong{
 }
 .item-table .header-table h2{
 	padding: 10px 0 25px 0;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-weight: 300;
 }
 .item-table .header-table span{
@@ -4126,9 +4131,10 @@ a .login-op-btn:hover{
 	border: 2px solid #F4F4F4;
 	height: 120px;
 }
-p{
-	line-height: 1.5rem;
-}
+
 .nicEdit-main{
 	width:420px !important;
+}
+.dashboard_tag li a{
+	color: #727272;
 }
