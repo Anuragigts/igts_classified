@@ -22,6 +22,9 @@ class Postad_create_services extends CI_Controller{
 
              $sub_name = @mysql_result(mysql_query("SELECT * FROM `sub_category` WHERE sub_category_id = '$sub_cat'"), 0, 'sub_category_name');
              $sub_sub_name = @mysql_result(mysql_query("SELECT * FROM `sub_subcategory` WHERE `sub_subcategory_id` = '$sub_sub_cat'"), 0, 'sub_subcategory_name');
+            if($sub_name == ''){
+                redirect('postad');
+            }
              $data['cat'] = $cat;   
              $data['sub_name'] = $sub_name;
              $data['sub_sub_name'] = $sub_sub_name;
