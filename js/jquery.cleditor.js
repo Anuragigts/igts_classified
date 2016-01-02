@@ -840,7 +840,7 @@
             editor.$frame.remove();
 
         // Create a new iframe
-        var $frame = editor.$frame = $('<iframe frameborder="0" id="content" src="javascript:true;" />')
+        var $frame = editor.$frame = $('<iframe frameborder="0" src="javascript:true;" />')
             .hide()
             .appendTo($main);
 
@@ -1175,6 +1175,11 @@
         // Convert the iframe html into textarea source code
         var code = updateTextAreaCallback ? updateTextAreaCallback(html) : html;
 
+
+        // alert(code);
+
+        //assign in hidden variable
+        document.getElementById('text_hide').value = code;
         // Update the textarea checksum
         if (options.updateFrame)
             editor.areaChecksum = checksum(code);
