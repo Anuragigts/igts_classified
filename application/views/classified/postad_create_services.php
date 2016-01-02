@@ -581,7 +581,7 @@
 
 								<div class="footer">
 									<button type="submit" class="primary-btn multi-submit-btn">Order</button>
-									<button type="button" class="primary-btn multi-next-btn" onclick='len()' >Next</button>
+									<button type="button" class="primary-btn multi-next-btn" >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 								</div>
 								<!-- end /.footer -->
@@ -611,10 +611,10 @@
 
     <script type="text/javascript">
    
-    		function len(){
-    			// alert('len');//$( "body#content" ).html();
+    		/*function len(){
+    			
     	 var len = document.getElementById('text_hide').value;
-    	 // alert(len.length);
+    	 
 	    	 if(len == '' || len == '<br>'){
 	    	 	document.getElementById("deal_desc_error").style.display = "block";
 	    	 	return false;
@@ -628,7 +628,7 @@
 		   	 		document.getElementById("deal_desc_error").style.display = "none";			
 		   	 				}
 				}
-    	 // alert(len); return false;
-    	}
+    	 
+    	}*/
     	
     </script>
