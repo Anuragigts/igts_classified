@@ -11,6 +11,7 @@ class Common extends CI_Controller {
                 parent::__construct();
                 $this->load->model("admin_model");
                 $this->load->model("common_model");
+                $this->load->model("login_model");
         }
         public function getStates(){
                $cst     =   '<option value="">-- Select State --</option>';
@@ -144,6 +145,29 @@ public function re_activate(){
         public function getsearch(){
                 $dta["view"] = $this->common_model->getsearch();
                 $this->load->view("classified/view_search",$dta);
+        }
+
+        public function forgot($rcode){
+
+
+             if ($this->input->post('forgot_pwd')) {
+                         $this->form_validation->set_rules("password","Password","trim|required|min_length[8]|check_pass|matches[conf_password]");
+                        $this->form_validation->set_rules("conf_password","Confirm Password","required");
+                         if($this->form_validation->run() == TRUE){
+                                // redirect('forgot_password');
+                            $pwd = md5($this->input->post('password'));
+                            $this->login_model->forgot_update($pwd, $rcode);
+                            $this->session->set_flashdata("msg","Password Changed Successfully!!");
+                                            redirect("login");  
+                         }
+                }
+
+             $data   =   array(
+                        "title"     =>  "Classifieds",
+                        "content"   =>  "forgot_password_active",
+                        "rcode"     =>  "$rcode"
+                        );
+             $this->load->view("classified_layout/inner_template",$data);
         }
 }
 ?>

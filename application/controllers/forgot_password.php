@@ -19,7 +19,19 @@ class Forgot_password extends CI_Controller{
                 if ($this->input->post('forgot')) {
                          $this->form_validation->set_rules("forgotemail","Email Id","required|valid_email");
                          if($this->form_validation->run() == TRUE){
-                                redirect('forgot_password');
+                                // redirect('forgot_password');
+                            if($this->input->post('forgot')){
+                                $mail = $this->input->post('forgotemail');
+                                $mail_check = $this->login_model->forgot($mail);
+                                if ($mail_check == 1) {
+                                    $this->session->set_flashdata("err","Please Check your Email Id");
+                                            redirect("forgot_password");
+                                }
+                                else{
+                                    $this->session->set_flashdata("msg","Verification Link has been sent");
+                                            redirect("forgot_password");
+                                }
+                            }
                          }
                 }
                 
