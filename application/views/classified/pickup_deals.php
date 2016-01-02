@@ -36,158 +36,121 @@
 		</div>
 		
 		<div class="content_info">
-                    <div class="paddings">
-                        <div class="container">
-                            <div class="row">
-                                <!-- Item Table-->
-                                <div class="col-sm-4">
-                                    <div class="item-table">
-                                        <div class="header-table color-red">
-                                             <img src="img/icons/people.png">
-                                            <h2>User Name</h2>
-                                            <!--<span>$ 99 / per month</span> -->
-                                        </div>
-                                        <ul class="dashboard_tag">
-                                            <li><i class="fa fa-home"></i> <a href='deals_administrator'>Deals Administrator</a></li>
-                                            <li><i class="fa fa-home"></i> <a href='converse'>Converse</a></li>
-                                            <li><i class="fa fa-star"></i> <a href='pickup_deals'>Pickup deals</a></li>
-                                            <li><i class="fa fa-home"></i> <a href='seeked_searches'>Seeked Searches</a></li>
-                                            <li><i class="fa fa-home"></i> <a href='update_profile'>Update Profile</a></li>
-                                        </ul>
-										<a class="btn color-red" href="#">Logout</a>
-									</div>
-                                </div>
-                                <!-- End Item Table-->
+			<div class="paddings">
+				<div class="container">
+					<div class="row">
+						<!-- Item Table-->
+						<div class="col-sm-4">
+							<div class="item-table">
+								<div class="header-table color-red">
+									 <img src="img/icons/people.png">
+									<h2>User Name</h2>
+									<!--<span>$ 99 / per month</span> -->
+								</div>
+								<ul class="dashboard_tag">
+									<li><i class="fa fa-home"></i> <a href='deals_administrator'>Deals Administrator</a></li>
+									<li><i class="fa fa-home"></i> <a href='converse'>Converse</a></li>
+									<li><i class="fa fa-star"></i> <a href='pickup_deals'>Pickup deals</a></li>
+									<li><i class="fa fa-home"></i> <a href='seeked_searches'>Seeked Searches</a></li>
+									<li><i class="fa fa-home"></i> <a href='update_profile'>Update Profile</a></li>
+								</ul>
+								<a class="btn color-red" href="#">Logout</a>
+							</div>
+						</div>
+						<!-- End Item Table-->
 
-                                <!-- Item Table-->
-                                <div class="col-sm-8">
-									<div class="row">
-										<div class="col-sm-12">
-											<h2>Pickup deals</h2>
-											<label>Hi User Name, you have 0 Pickup deals</label><hr>
+						<form action="#" method="post" class="j-forms">
+							<!-- Item Table-->
+							<div class="col-sm-8 list-view">
+								<div class="row">
+									<div class="col-sm-12">
+										<h2>Pickup deals</h2>
+										<label>Hi User Name, you have 0 Pickup deals</label><hr>
+									</div>
+								</div>
+									
+								<div class="row">
+									 <!-- Item Gallery List View-->
+									<div class="col-md-12" style="height: 215px;">
+										<div class="img-hover">
+											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>The Large Everest Mount</h3><hr class="separator">
+											<p>The Royal National is in London near Covent Garden and 100 meters Garden and 100 meters.</p>
+											<div class="ratings">
+												<input id="5q" type="radio" name="quality-rating" value="5">
+												<label for="5q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="4q" type="radio" name="quality-rating" value="4">
+												<label for="4q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="3q" type="radio" name="quality-rating" value="3">
+												<label for="3q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="2q" type="radio" name="quality-rating" value="2">
+												<label for="2q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="1q" type="radio" name="quality-rating" value="1" checked="">
+												<label for="1q">
+													<i class="fa fa-star"></i>
+												</label>
+											</div>
+											<div class=""><a href="#" class="btn btn-primary">View Details</a></div>
+											<div class="buslogo_favo"><span>$</span><b><img data-u="image" src="img/brand/dell.png"></b>45</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="post-meta">
+											<ul>
+												<li>
+													<i class="fa fa-user"></i>
+													<a href="#">Person Name</a>
+												</li>
+												
+												<li>
+													<i class="fa fa-map-marker"></i>
+													<a href="#">Location</a>
+												</li>
+
+												<li>
+													<i class="fa fa-clock-o"></i>
+													<span>April 23, 2015</span>
+												</li>
+
+												<li>
+													<i class="fa fa-eye"></i>
+													<span>234 Views</span>
+												</li>
+												
+												<li>
+													<span>Deal ID : 112457856</span>
+												</li>
+
+												<li>
+													<i class="fa fa-comments"></i>
+													<a href="#" title="Comment on Post Format: Standard">Leave a comment
+													</a>
+												</li>
+											</ul>                      
 										</div>
 									</div>
 										
-									<div class="row">
-										<div class="col-sm-7 col-xs-12">
-											<h4>Puppies in Pets for Sale</h4>
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-											<p>DOB : 23 Oct 2012 | Re-home Date : 26 Jan 2013</p>
-											<p><b>Turret , Worcestershire</b></p>
-										</div>
-										<div class="col-sm-2 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12">
-													<h5 class="pull-right">Amount</h5>
-												</div>
-												<div class="col-sm-12">
-													<p class="pull-right">1 hour ago</p>
-												</div>
-												<div class="col-sm-12">
-													<br><br><br><i class="fa fa-star pull-right"></i>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12 favourites_img">
-													<img src="img/dashboard/pets.jpg" class="img-responsive">
-												</div>	
-											</div>	
-										</div>	
-									</div><hr>
-									
-									<div class="row">
-										<div class="col-sm-7 col-xs-12">
-											<h4>Puppies in Pets for Sale</h4>
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-											<p>DOB : 23 Oct 2012 | Re-home Date : 26 Jan 2013</p>
-											<p><b>Turret , Worcestershire</b></p>
-										</div>
-										<div class="col-sm-2 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12">
-													<h5 class="pull-right">Amount</h5>
-												</div>
-												<div class="col-sm-12">
-													<p class="pull-right">1 hour ago</p>
-												</div>
-												<div class="col-sm-12">
-													<br><br><br><i class="fa fa-star pull-right"></i>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12 favourites_img">
-													<img src="img/dashboard/cars.jpg" class="img-responsive">
-												</div>	
-											</div>	
-										</div>	
-									</div><hr>
-
-									<div class="row">
-										<div class="col-sm-7 col-xs-12">
-											<h4>Puppies in Pets for Sale</h4>
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-											<p>DOB : 23 Oct 2012 | Re-home Date : 26 Jan 2013</p>
-											<p><b>Turret , Worcestershire</b></p>
-										</div>
-										<div class="col-sm-2 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12">
-													<h5 class="pull-right">Amount</h5>
-												</div>
-												<div class="col-sm-12">
-													<p class="pull-right">1 hour ago</p>
-												</div>
-												<div class="col-sm-12">
-													<br><br><br><i class="fa fa-star pull-right"></i>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12 favourites_img">
-													<img src="img/dashboard/pets.jpg" class="img-responsive">
-												</div>	
-											</div>	
-										</div>	
-									</div><hr>
-									
-									<div class="row">
-										<div class="col-sm-7 col-xs-12">
-											<h4>Puppies in Pets for Sale</h4>
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-											<p>DOB : 23 Oct 2012 | Re-home Date : 26 Jan 2013</p>
-											<p><b>Turret , Worcestershire</b></p>
-										</div>
-										<div class="col-sm-2 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12">
-													<h5 class="pull-right">Amount</h5>
-												</div>
-												<div class="col-sm-12">
-													<p class="pull-right">1 hour ago</p>
-												</div>
-												<div class="col-sm-12">
-													<br><br><br><i class="fa fa-star pull-right"></i>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12 favourites_img">
-													<img src="img/dashboard/cars.jpg" class="img-responsive">
-												</div>	
-											</div>	
-										</div>	
-									</div><hr>
-								</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+									<!-- End Item Gallery List View-->	
+								</div><hr class="separator">
+								
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 	
 	<!-- End Shadow Semiboxed -->
