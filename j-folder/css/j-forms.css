@@ -255,7 +255,7 @@
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	-o-border-radius:3px;
-	border-radius:3px;
+	border-radius:14px;
 }
 .j-forms .radio i,
 .j-forms .radio i:after,
@@ -1068,7 +1068,7 @@
 .j-forms .ratings input + label:hover,
 .j-forms .ratings input + label:hover ~ label,
 .j-forms .ratings input:checked + label,
-.j-forms .ratings input:checked + label ~ label { color:#303f9f; }
+.j-forms .ratings input:checked + label ~ label { color: #EF530D; }
 
 /* Social links
 ==================================== */
