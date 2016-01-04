@@ -3,10 +3,15 @@
 class Postad_create_services extends CI_Controller{
         public function __construct(){
                 parent::__construct();
+                  $this->load->model("category_model");
                 
         }
         public function index(){
+            
+
         	 $data = array(
+                    "services_sub_prof"     =>  $this->category_model->services_sub_prof(),
+                    "services_sub_pop"     =>  $this->category_model->services_sub_pop(),
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad_create_services"
                         );
