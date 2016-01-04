@@ -584,7 +584,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3">
-									<img src="img/business_deals.jpg" alt="" style="height:306px;" class="img-responsive">
+									<img src="img/business_deals.jpg" alt="" style="height:306px;width: 264px;" class="img-responsive">
 								</div>
 							</div>
 						</div>

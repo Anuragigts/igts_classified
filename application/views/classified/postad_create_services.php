@@ -22,9 +22,6 @@
 
 		 <link rel="stylesheet" href="js/jquery.cleditor.css" />
     
-    
-
-
 		<!-- google map by postal code -->		
 		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>
 		<script type="text/javascript">
@@ -113,11 +110,16 @@
 
 								<div class="content">
 									<div class="top-head">
-										<div class="col-sm-12 text_center pad_bottm">
-											<ul class="social-team text_center">
+										<div class="col-sm-8 pad_bottm">
+											<ul class="social-team pull-left">
 												<li><?php echo ucfirst(@$cat); ?> /</li>
 												<li><?php echo ucfirst(@$sub_name); ?> /</li>
 												<li><?php echo ucfirst(@$sub_sub_name); ?></li>
+											</ul>                 
+										</div>
+										<div class="col-sm-4 pad_bottm">
+											<ul class="social-team pull-left">
+												<li><a href="" data-toggle="modal" data-target="#Services" >Use Different Category</a></li>
 											</ul>                 
 										</div> 
 									</div>
@@ -284,7 +286,23 @@
 														<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 													</div>
 												</div><!-- end Deal Tag -->
-												<div class="span6 unit"><!-- start Deal Description -->
+												<div class="span6 unit"><!-- start Deal Tag -->
+													<label class="label">Type of Service 
+														<sup data-toggle="tooltip" title="" data-original-title="Type of Service">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="dealtag">
+															<img src="j-folder/img/type.png">
+														</label>
+														<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
+													</div>
+												</div>
+											</div>
+											
+											<div class="j-row">
+												<div class="span12 unit"><!-- start Deal Description -->
 													<label class="label">Deal Description 
 														<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
 															<img src="img/icons/i.png">
@@ -296,29 +314,30 @@
 													</div>
 												</div><!-- end Deal Description -->
 											</div>
+											
 											<div class="j-row">
-												<div class="span6"><!-- start service -->
-													<div class="j-row">
-														<div class="span7 unit">
-															<label class="label">Price 
-																<sup data-toggle="tooltip" title="" data-original-title="Price">
-																	<img src="img/icons/i.png">
-																</sup>
+												<div class="span6 unit">
+													<label class="label">Price 
+														<sup data-toggle="tooltip" title="" data-original-title="Price">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
+																<i></i>£ (Pound) 
 															</label>
-															<div class="unit check logic-block-radio">
-																<div class="inline-group">
-																	<label class="radio">
-																		<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																		<i></i>£(Pound) 
-																	</label>
-																	<label class="radio">
-																		<input type="radio" name="checkbox_toggle1"  value="No">
-																		<i></i> €(Euro)
-																	</label>
-																</div>
-															</div>
+															<label class="radio">
+																<input type="radio" name="checkbox_toggle1"  value="No">
+																<i></i> € (Euro)
+															</label>
 														</div>
-														<div class="span5 unit top_20">
+													</div>
+												</div>
+												<div class="span6 unit">
+													<div class="j-row">
+														<div class="span7 unit top_20">
 															<div class="input">
 																<label class="icon-right" for="dealtag">
 																	<img src="j-folder/img/price.png">
@@ -326,20 +345,15 @@
 																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
 															</div>
 														</div>
+														<div class="span5 unit top_30">
+															<label class="checkbox">
+																<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
+																<i></i>
+																 Negotiable
+															</label>
+														</div>
 													</div><!-- end service -->
-												</div>
-												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Type of Service 
-														<sup data-toggle="tooltip" title="" data-original-title="Type of Service">
-															<img src="img/icons/i.png">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="dealtag">
-															<img src="j-folder/img/dealtag.png">
-														</label>
-														<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
-													</div>
+												
 												</div>
 											</div>
 										</div>
@@ -631,3 +645,61 @@
     	}*/
     	
     </script>
+	
+	
+	<!-- Modal -->
+	<div class="modal fade" id="Services" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2>Services <span>Category </span></h2>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1 post_deal_bor">
+							<div class="row">
+								<div class="col-md-6 clearfix">
+									<h3>Professional</h3>
+									<h4><a href="#">Coaching & Training</a></h4>
+									<h4><a href="#">Business Services</a></h4>
+									<h4><a href="#">Party & Wedding Services</a></h4>
+									<h4><a href="#">IT & Digital Marketing Services</a></h4>
+									<h4><a href="#">Solicitor Services</a></h4>
+									<h4><a href="#">Accounting & Taxation Services</a></h4>
+									<h4><a href="#">Home, Construction & Renovation Services</a></h4>
+									<h4><a href="#">Doctor's & Hospital Services</a></h4>
+									<h4><a href="#">Nurse & Carer Services</a></h4>
+									<h4><a href="#">Astrology & Numerology Services</a></h4>
+									<h4><a href="#">Loan & Insurance</a></h4>
+									<h4><a href="#">Funeral Services</a></h4>
+									<h4><a href="#">Health & Fitness</a></h4>
+								</div>
+								<div class="col-md-6 clearfix">
+									<h3>Popular</h3>
+									<h4><a href="#">Dry Cleaning & Laundry Services</a></h4>
+									<h4><a href="#">Household Services</a></h4>
+									<h4><a href="#">Travel & Vacation Services</a></h4>
+									<h4><a href="#">Massage & Beauty Services</a></h4>
+									<h4><a href="#">Community Services</a></h4>
+									<h4><a href="#">Entertainment Services</a></h4>
+									<h4><a href="#">Motor Services</a></h4>
+									<h4><a href="#">Logistics & Transport Services</a></h4>
+									<h4><a href="#">Restaurant & Food Services</a></h4>
+									<h4><a href="#">Friendship & Dating Services</a></h4>
+									<h4><a href="#">Nannies Services</a></h4>
+									<h4><a href="#">Embroidery Services</a></h4>
+									<h4><a href="#">Others</a></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Services content End-->

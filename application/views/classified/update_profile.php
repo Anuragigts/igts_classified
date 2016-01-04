@@ -133,7 +133,7 @@
 						<!-- End Item Table-->
 						
 						<!-- Item Table-->
-						<form id="j-forms" action="#" class="j-forms" method="post">
+						<form id="j-forms" action="#" class="j-forms tooltip-hover" method="post">
 							<div class="col-sm-8">
 								<div class="row">
 									<div class="col-sm-12">
@@ -147,7 +147,11 @@
 										<div class="row">
 											<div class="col-sm-12 unit">
 												<h3>Update Profile</h3>
-												<label class="label">First Name <sup style='color:red;'>?</sup></label>
+												<label class="label">First Name 
+													<sup data-toggle="tooltip" title="" data-original-title="First Name">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
 												<div class="input">
 													<label class="icon-right" for="firstnamepost">
 														<i class="fa fa-user"></i>
@@ -156,7 +160,11 @@
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
-												<label class="label">Last Name <sup style='color:red;'>?</sup></label>
+												<label class="label">Last Name 
+													<sup data-toggle="tooltip" title="" data-original-title="Last Name">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
 												<div class="input">
 													<label class="icon-right" for="lastnamepost">
 														<i class="fa fa-user"></i>
@@ -165,7 +173,11 @@
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
-												<label class="label">Contact Number <sup style='color:red;'>?</sup></label>
+												<label class="label">Contact Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Contact Number">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
 												<div class="input">
 													<label class="icon-right" for="phone">
 														<i class="fa fa-phone"></i>
@@ -183,7 +195,11 @@
 										<div class="row">
 											<div class="col-sm-12 unit">
 												<h3>Change password</h3>
-												<label class="label">Current Password <sup style='color:red;'>?</sup></label>
+												<label class="label">Current Password 
+													<sup data-toggle="tooltip" title="" data-original-title="Current Password ">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
 												<div class="input">
 													<label class="icon-right" for="currentpasspost">
 														<i class="fa fa-lock"></i>
@@ -192,7 +208,11 @@
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
-												<label class="label">New password <sup style='color:red;'>?</sup></label>
+												<label class="label">New password 
+													<sup data-toggle="tooltip" title="" data-original-title="New password ">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
 												<div class="input">
 													<label class="icon-right" for="newpasspost">
 														<i class="fa fa-lock"></i>
@@ -201,7 +221,11 @@
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
-												<label class="label">Confirm password <sup style='color:red;'>?</sup></label>
+												<label class="label">Confirm password 
+													<sup data-toggle="tooltip" title="" data-original-title="Confirm password">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
 												<div class="input">
 													<label class="icon-right" for="confirmpasspost">
 														<i class="fa fa-lock"></i>

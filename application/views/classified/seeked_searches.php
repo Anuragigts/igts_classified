@@ -98,7 +98,7 @@
 															<i></i>
 															Email alerts *
 														</label>
-													</div><hr>
+													</div><hr class="separator">
 												</div>
 												
 												<div id="div2">
@@ -110,7 +110,7 @@
 															<i></i>
 															Email alerts *
 														</label>
-													</div><hr>
+													</div><hr class="separator">
 												</div>
 												
 												<div id="div3">
@@ -122,7 +122,7 @@
 															<i></i>
 															Email alerts *
 														</label>
-													</div><hr>
+													</div><hr class="separator">
 												</div>
 												
 												<div id="div4">
@@ -134,7 +134,7 @@
 															<i></i>
 															Email alerts *
 														</label>
-													</div><hr>
+													</div><hr class="separator">
 												</div>
 											</div>
 										</div>
