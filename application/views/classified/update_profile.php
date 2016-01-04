@@ -15,6 +15,48 @@
 				$("#div1").remove();
 			});
 		});
+
+		function isNumber(evt) {
+		    evt = (evt) ? evt : window.event;
+		    var charCode = (evt.which) ? evt.which : evt.keyCode;
+		    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		        return false;
+		    }
+		    return true;
+		}
+
+		$(function(){
+			$('#firstnamepost').keydown(function (e) {
+					if (e.shiftKey || e.ctrlKey || e.altKey) {
+					e.preventDefault();
+					} else {
+					var key = e.keyCode;
+						if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+						e.preventDefault();
+						}
+					}
+				});
+			$('#lastnamepost').keydown(function (e) {
+					if (e.shiftKey || e.ctrlKey || e.altKey) {
+					e.preventDefault();
+					} else {
+					var key = e.keyCode;
+						if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+						e.preventDefault();
+						}
+					}
+				});
+		});
+
+		/*save changes*/
+		$(function(){
+			$("#save_changes").click(function(){
+				var fname = $("#firstnamepost").val();
+				var lname = $("#lastnamepost").val();
+				var mobile = $("#contactnopost").val();
+				alert(fname+'-'+lname+'-'+mobile);
+			});
+		});
 	</script>
 	
 	<link rel="stylesheet" href="j-folder/css/demo.css">
@@ -87,7 +129,7 @@
 													<label class="icon-right" for="firstnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" required>
+													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name"  required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -96,7 +138,7 @@
 													<label class="icon-right" for="lastnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name">
+													<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -105,11 +147,11 @@
 													<label class="icon-right" for="phone">
 														<i class="fa fa-phone"></i>
 													</label>
-													<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number">
+													<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" maxlength='10' onkeypress="return isNumber(event)" required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">													
-												<button class="btn btn-primary ">Save Changes</button>
+												<button class="btn btn-primary " id='save_changes' >Save Changes</button>
 											</div>								
 										</div>								
 									</div>
