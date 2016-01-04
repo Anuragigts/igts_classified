@@ -27,46 +27,7 @@
     }
     </style>
      
-    <script>
-     /* $(function(){
-        
-        var options = {
-          map: ".map_canvas"
-        };
-        
-        $("#location").geocomplete(options)
-          .bind("geocode:result", function(event, result){
-            $.log("Result: " + result.formatted_address);
-          })
-          .bind("geocode:error", function(event, status){
-            $.log("ERROR: " + status);
-          })
-          .bind("geocode:multiple", function(event, results){
-            $.log("Multiple: " + results.length + " results found");
-          });
-        
-        $("#find").click(function(){
-          $("#location").trigger("geocode");
-        });
-        
-        $("#examples a").click(function(){
-          $(".google_map").css('display', 'block');
-          $("#location").val($(this).text()).trigger("geocode");
-          return false;
-        });*/
-        
-      /*        var options = {
-                map: ".map_canvas",
-                location: "UK"
-              };
-              
-              $("#geocomplete").geocomplete(options);*/
-        
-      });
-    </script>
-
-
-        <!--Ligbox--> 
+      <!--Ligbox--> 
         <script type="text/javascript" src="<?php echo base_url(); ?>js/fancybox/jquery.fancybox.js"></script> 
         <!-- carousel.js-->
         <script src="<?php echo base_url(); ?>js/carousel/carousel.js"></script>

@@ -87,7 +87,7 @@
 													<label class="icon-right" for="firstnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name">
+													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">

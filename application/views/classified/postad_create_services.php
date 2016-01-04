@@ -294,7 +294,6 @@
 														<textarea type="text" id="dealdescription" name="dealdescription" cols="40" placeholder="Enter Deal Description"></textarea>
 														<input type='hidden' name='text_hide' id='text_hide' value='' />
 													</div>
-													<span style='display: none; color: #b71c1c; font-size: 14px;' id='deal_desc_error'>Enter Minimum 200 characters</span>
 												</div><!-- end Deal Description -->
 											</div>
 											<div class="j-row">
