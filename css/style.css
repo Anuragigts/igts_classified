@@ -2565,7 +2565,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .info-gallery h3{
 	font-size: 1.1rem;
-	float:left;
 }
 .info-gallery h4{
 	font-size: 1.1rem;
@@ -2577,7 +2576,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .info-gallery p{
 	margin-bottom: 0;
-	width:350px;
 	font-size: 0.85rem;
 	line-height: 1.3rem;
 }
