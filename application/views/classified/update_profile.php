@@ -1,3 +1,9 @@
+<?php foreach ($prof_data as $prof_val) {
+	$fname = $prof_data['first_name'];
+	$lname = $prof_data['lastname'];
+	$mobile = $prof_data['mobile'];
+} ?>
+
 	<title>365 Deals :: Deals Administrator</title>
 	<style>
 		.section-title-01{
@@ -54,7 +60,24 @@
 				var fname = $("#firstnamepost").val();
 				var lname = $("#lastnamepost").val();
 				var mobile = $("#contactnopost").val();
-				alert(fname+'-'+lname+'-'+mobile);
+				// alert(fname+'-'+lname+'-'+mobile);
+				// var coll = new Array(fname : fname, lname : lname, mobile : mobile);
+				  $.ajax({
+			      type : 'post',
+			      url  : '<?php echo base_url()?>update_profile/up_profile',
+			      data : {fname1 : fname, lname1 : lname, mobile1 : mobile},
+			      dataType : 'json',
+			      success : function(res) {
+			        
+			        if (res == 1) {
+			        return false;	
+			    }
+			    else{
+			    	alert(res);
+			    }
+			        
+			      }
+			    });
 			});
 		});
 	</script>
@@ -129,7 +152,7 @@
 													<label class="icon-right" for="firstnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name"  required>
+													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" value="<?php echo $fname; ?>"  required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -138,7 +161,7 @@
 													<label class="icon-right" for="lastnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" required>
+													<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" value="<?php echo $lname; ?>" required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -147,7 +170,7 @@
 													<label class="icon-right" for="phone">
 														<i class="fa fa-phone"></i>
 													</label>
-													<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" maxlength='10' onkeypress="return isNumber(event)" required>
+													<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='10' onkeypress="return isNumber(event)" required>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">													
