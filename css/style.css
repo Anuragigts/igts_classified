@@ -2565,6 +2565,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .info-gallery h3{
 	font-size: 1.1rem;
+	float:left;
+}
+.info-gallery h4{
+	font-size: 1.1rem;
+	float:right;
 }
 .info-gallery h3 span{
 	font-size: 0.8rem;
@@ -2572,6 +2577,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .info-gallery p{
 	margin-bottom: 0;
+	width:350px;
 	font-size: 0.85rem;
 	line-height: 1.3rem;
 }
@@ -2750,8 +2756,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .list-view .info-gallery p {
   margin-bottom: 20px;
 }
-.list-view .info-gallery .btn {
-  float: left;
+.list-view .info-gallery .side_btn {
+  margin-left: 90px;
 }
 .list-view .info-gallery .starts {
   float: right;
@@ -4184,4 +4190,17 @@ a .login-op-btn:hover{
 	background-color: #EF530D;
 	padding: 10px;
 	border-radius: 10px;
+}
+.prod_price{
+	float: left;
+	padding: 6px;
+}
+
+.cht-sm-pro span.OnlineIcon {
+	width: 25px;
+	height: 35px;
+	background: transparent url("../img/chat.png") no-repeat scroll 0% 0%;
+	display: block;
+	margin: 4px -15px 3px 10px;
+	position: relative;
 }
