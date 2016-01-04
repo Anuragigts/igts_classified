@@ -188,6 +188,24 @@
 				document.getElementById('services_sub_sub').value = sub1[1];
 				document.getElementById('services_form').submit();
 			});
+
+			/*edit open model*/
+		$(".edit_service_prof").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('services_sub').value = sub1[0];
+				document.getElementById('services_sub_sub').value = sub1[1];
+				document.getElementById('edit_service_cat').submit();
+			});
+
+		$(".edit_service_pop").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('services_sub').value = sub1[0];
+				document.getElementById('services_sub_sub').value = sub1[1];
+				document.getElementById('edit_service_cat').submit();
+			});
+	
 		});
 		</script>
 

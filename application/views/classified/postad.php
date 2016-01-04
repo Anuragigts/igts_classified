@@ -376,7 +376,7 @@
 																			<h3>Popular</h3>
 																			<?php foreach ($services_sub_pop as $serv_pop) { ?>
 																				<h4><a href="javascript:void(0)" id="<?php echo  $serv_pop['sub_category_id'].','.$serv_pop['sub_subcategory_id']; ?>" class='service_pop'><?php echo ucfirst($serv_pop['sub_subcategory_name']); ?></a></h4>
-																		<?php	} ?>
+																			<?php	} ?>
 																			
 																		</div>
 																	</div>
