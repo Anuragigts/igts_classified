@@ -61,7 +61,7 @@
 
 						<form id="j-forms" action="#" class="j-forms" method="post">
 							<!-- Item Table-->
-							<div class="col-sm-8">
+							<div class="col-sm-8 list-view">
 								<div class="row">
 									<div class="col-sm-12">
 										<h2>Deals Administrator</h2>
@@ -82,36 +82,61 @@
 									</div>
 								</div><hr>
 									
-								<div class="">	
-									<div class="row">
-										<div class="col-sm-9 col-xs-12">
-											<h4>Puppies in Pets for Sale</h4>
-											<p>Place</p>
-											<p>Amount</p>
+								<div class="row">
+									 <!-- Item Gallery List View-->
+									<div class="col-md-12" style="height: 215px;">
+										<div class="img-hover">
+											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 										</div>
-										<div class="col-sm-3 col-xs-6">
-											<div class="row">
-												<div class="col-sm-12 favourites_img">
-													<img src="img/dashboard/pets.jpg" class="img-responsive">
-												</div>	
-											</div>	
+
+										<div class="info-gallery">
+											<h3>The Large Everest Mount</h3>
+											<hr class="separator clearfix">
+											<p style="float: left;">Location </p>
+											<div class="clearfix"></div>
+											<div class=""><b>Rs :10000/-</b></div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-1">	
-											Deleted
+									<div class="col-md-12">
+										<div class="post-meta">
+											<ul>
+												<li>
+													<i class="fa fa-user"></i>
+													<a href="#">Person Name</a>
+												</li>
+												
+												<li>
+													<i class="fa fa-map-marker"></i>
+													<a href="#">Location</a>
+												</li>
+
+												<li>
+													<i class="fa fa-clock-o"></i>
+													<span>April 23, 2015</span>
+												</li>
+
+												<li>
+													<i class="fa fa-eye"></i>
+													<span>234 Views</span>
+												</li>
+												
+												<li>
+													<span>Deal ID : 112457856</span>
+												</li>
+
+												<li>
+													<i class="fa fa-comments"></i>
+													<a href="#" title="Comment on Post Format: Standard">Leave a comment
+													</a>
+												</li>
+											</ul>                      
 										</div>
-										<div class="col-sm-4">	
-											Last posted : 3 days ago
-										</div>
-										<div class="col-sm-4">	
-											Ad ID: 1148051000
-										</div>
-										<div class="col-sm-2">	
-											Views
-										</div>
-									</div>								
-								</div><hr>
+									</div>
+										
+									<!-- End Item Gallery List View-->	
+								</div>
+								<hr class="separator clearfix">
 							</div>
 						</form>
 					</div>

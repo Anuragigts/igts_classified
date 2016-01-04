@@ -78,8 +78,31 @@
 										</div>
 
 										<div class="info-gallery">
-											<h3>The Large Everest Mount</h3><hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters Garden and 100 meters.</p>
+											<h3>The Large Everest Mount</h3>
+											<div class="post-meta" style="float: right;">
+												<ul>
+													<li>
+														<span class="cht-sm-pro" >
+															<span class="OnlineIcon"></span>	
+														</span>
+													</li>
+													
+													<li>
+														<h5><a href="#">Chat Now</a></h5>
+													</li>
+													
+													<!--li>
+														<h4><a href="#">Reply</a></h4>
+													</li-->
+												</ul>                      
+											</div>
+											<hr class="separator clearfix">
+											<p style="float: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. </p>
+											<div class="clearfix" style="float: right;">
+											<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+											</div>
+											<div class="clearfix"></div>
+											<div class="prod_price"><b>Rs :10000/-</b></div>
 											<div class="ratings">
 												<input id="5q" type="radio" name="quality-rating" value="5">
 												<label for="5q">
@@ -102,8 +125,7 @@
 													<i class="fa fa-star"></i>
 												</label>
 											</div>
-											<div class=""><a href="#" class="btn btn-primary">View Details</a></div>
-											<div class="buslogo_favo"><span>$</span><b><img data-u="image" src="img/brand/dell.png"></b>45</div>
+											<div class="buslogo_favo"><b><img data-u="image" src="img/brand/dell.png"></b></div>
 										</div>
 									</div>
 									<div class="col-md-12">
