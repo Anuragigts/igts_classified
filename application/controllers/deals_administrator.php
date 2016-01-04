@@ -11,6 +11,9 @@ class  Deals_administrator extends CI_Controller{
                 //$this->load->model("login_model");
         }
         public function index(){
+                if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deals_administrator"
