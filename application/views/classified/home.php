@@ -636,9 +636,6 @@
 											<img data-u="image" src="img/brand/lg.png" />
 										</div>
 										<div style="display: none;">
-											<img data-u="image" src="img/brand/motorola.png" />
-										</div>
-										<div style="display: none;">
 											<img data-u="image" src="img/brand/nexus.png" />
 										</div>
 										<div style="display: none;">

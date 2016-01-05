@@ -61,83 +61,147 @@
 
 						<form id="j-forms" action="#" class="j-forms" method="post">
 							<!-- Item Table-->
-							<div class="col-sm-8 list-view">
-								<div class="row">
+							<div class="col-md-8">
+                                <div class="row">
 									<div class="col-sm-12">
 										<h2>Deals Administrator</h2>
+										<label>Hi User Name, you have 0 Pickup deals</label><hr>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-sm-6">
-										<label>Hi User Name, you have 0 Deals Administrator</label>
+                                
+                                <!-- sort-by-container-->
+                                <div class="sort-by-container tooltip-hover">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <strong>Sort by:</strong>
+                                            <ul>                            
+                                                <li>
+                                                    <div class="selector">
+                                                        <select>
+                                                            <option value="5">5 Starts</option>
+                                                            <option value="4">4 Starts</option>
+                                                            <option value="3">3 Starts</option>
+                                                            <option value="2">2 Starts</option>
+                                                            <option value="1">1 Starts</option>
+                                                        </select>
+                                                        <span class="custom-select">Users Rating</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="selector">
+                                                        <select>
+                                                            <option value="1">A To Z</option>
+                                                            <option value="2">Z To A</option>
+                                                        </select>
+                                                        <span class="custom-select">Name</span>
+                                                    </div>
+                                                </li>  
+
+                                                <li>
+                                                    <div class="selector">
+                                                        <select>
+                                                            <option value="1">Sort Ascending</option>
+                                                            <option value="2">Sort Descending</option>
+                                                        </select>
+                                                        <span class="custom-select">Price</span>
+                                                    </div>
+                                                </li>                            
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <ul class="style-view">
+                                                <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
+                                                    <a href="hotel-grid-view.html">
+                                                        <i class="fa fa-th-large"></i>
+                                                    </a>
+                                                </li>
+                                                <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
+                                                    <a href="hotel-list-view.html">
+                                                        <i class="fa fa-list"></i>
+                                                    </a>
+                                                </li> 
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- sort-by-container-->
+
+                                <div class="row list_view_searches">
+                                    
+									<!-- Item Gallery List View-->
+                                    <div class="col-md-12">
+										<div class="first_list">
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="featured-badge">
+														<span>special</span>
+													</div>
+													<img src="img/hotel-img/2.jpg" alt="" class="img-responsive">
+												</div>
+												<div class="col-sm-5 middle_text">
+													<div class="row">
+														<div class="col-xs-10">
+															<h4 class="list_title">Sample text Here</h4>
+														</div>
+														<div class="col-xs-2">
+															<!--div class="add-to-compare-list">
+																<span class="compared-category"></span>
+															</div-->
+															<h4 class="list_title"><i class="fa fa-star"></i></h4>
+														</div>
+													</div>
+													<div class="ratings pull-left">
+														<input id="5q" type="radio" name="quality-rating" value="5">
+														<label for="5q">
+															<i class="fa fa-star"></i>
+														</label>
+														<input id="4q" type="radio" name="quality-rating" value="4">
+														<label for="4q">
+															<i class="fa fa-star"></i>
+														</label>
+														<input id="3q" type="radio" name="quality-rating" value="3">
+														<label for="3q">
+															<i class="fa fa-star"></i>
+														</label>
+														<input id="2q" type="radio" name="quality-rating" value="2">
+														<label for="2q">
+															<i class="fa fa-star"></i>
+														</label>
+														<input id="1q" type="radio" name="quality-rating" value="1" checked="">
+														<label for="1q">
+															<i class="fa fa-star"></i>
+														</label>
+													</div>
+													<div class="row">
+														<div class="col-xs-12">
+															<p class=""><i class="fa fa-map-marker"></i> Location</p>
+														</div>
+														<div class="col-xs-12">
+															<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+															<p class=""><a href="#">Full Details</a></p>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="row">
+														<div class="col-xs-12 serch_bus_logo">
+															<img src="img/brand/intel.png" alt="" class="img-responsive">
+														</div>
+														<div class="col-xs-8 col-xs-offset-2 amt_bg ">
+															<h4 class="search_price text_center">£218</h4>
+														</div>
+														<div class="col-xs-10 col-xs-offset-1">
+															<a href="#"><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="col-sm-6">
-										<label class="input select">
-											<select name="Size">
-												<option value="active">Active Deals</option>
-												<option value="deactive">Deactive Deals</option>
-											</select>
-											<i></i>
-										</label>
-									</div>
-								</div><hr>
+                                    <!-- End Item Gallery List View-->
 									
-								<div class="row">
-									 <!-- Item Gallery List View-->
-									<div class="col-md-12" style="height: 215px;">
-										<div class="img-hover">
-											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>The Large Everest Mount</h3>
-											<hr class="separator clearfix">
-											<p style="float: left;">Location </p>
-											<div class="clearfix"></div>
-											<div class=""><b>Rs :10000/-</b></div>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="post-meta">
-											<ul>
-												<li>
-													<i class="fa fa-user"></i>
-													<a href="#">Person Name</a>
-												</li>
-												
-												<li>
-													<i class="fa fa-map-marker"></i>
-													<a href="#">Location</a>
-												</li>
-
-												<li>
-													<i class="fa fa-clock-o"></i>
-													<span>April 23, 2015</span>
-												</li>
-
-												<li>
-													<i class="fa fa-eye"></i>
-													<span>234 Views</span>
-												</li>
-												
-												<li>
-													<span>Deal ID : 112457856</span>
-												</li>
-
-												<li>
-													<i class="fa fa-comments"></i>
-													<a href="#" title="Comment on Post Format: Standard">Leave a comment
-													</a>
-												</li>
-											</ul>                      
-										</div>
-									</div>
-										
-									<!-- End Item Gallery List View-->	
 								</div>
-								<hr class="separator clearfix">
-							</div>
+                            </div>
 						</form>
 					</div>
 				</div>
