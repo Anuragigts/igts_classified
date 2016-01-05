@@ -3433,21 +3433,21 @@ address strong{
 	-ms-transition: 0.3s all ease;
 	transition: 0.3s all ease;
 }
-.item-table ul li i{
+.item-table ul li img{
 	margin-right: 10px;
 	font-size: 10px;
 	padding: 3px;
 	padding-top: 5px;
-	width: 20px;
-	height: 20px;
+	width: 25px;
+	height: 25px;
 	color: #fff;
 	border-radius: 50%;
 	text-align: center;
 }
-.item-table ul li i{
+.item-table ul li img{
 	background-color: #88C425;
 }
-.item-table ul li i.fa-times{
+.item-table ul li img.fa-times{
 	background-color: #E1483F;
 }
 .item-table a{
@@ -3835,6 +3835,9 @@ figure img{
 .top_10{
 	padding-top:10px !important;
 }
+.top_5{
+	padding-top:5px;
+}
 .slider_bg{
 	background-color: #f4f4f4 !important;
     opacity: 0.6 !important;
@@ -4214,8 +4217,11 @@ a .login-op-btn:hover{
 }
 .list_title{
 	margin: 0px 0px 5px;
-	font-weight: bold;
+	/* font-weight: bold; */
 	color: #ef530d;
+}
+.location{
+	
 }
 .first_list a{
 	color:#EF530D;
