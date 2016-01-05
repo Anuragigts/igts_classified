@@ -4272,3 +4272,6 @@ a .login-op-btn:hover{
 	padding-top: 26px;
 	font-weight:bold;
 }
+.promotion-box-info h4 a{
+	color: rgba(0, 0, 0, 0.54);
+}
