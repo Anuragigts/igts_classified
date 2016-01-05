@@ -110,17 +110,19 @@
 
 								<div class="content">
 									<div class="top-head">
-										<div class="col-sm-8 pad_bottm">
-											<ul class="social-team pull-left">
-												<li><?php echo ucfirst(@$cat); ?> /</li>
-												<li><?php echo ucfirst(@$sub_name); ?> /</li>
-												<li><?php echo ucfirst(@$sub_sub_name); ?></li>
-											</ul>                 
-										</div>
-										<div class="col-sm-4 pad_bottm">
-											<ul class="social-team pull-left">
-												<li><a href="" data-toggle="modal" data-target="#Services" >Use Different Category</a></li>
-											</ul>                 
+										<div class="j-row">
+											<div class="col-sm-8 pad_bottm">
+												<ul class="social-team pull-left">
+													<li><?php echo ucfirst(@$cat); ?> /</li>
+													<li><?php echo ucfirst(@$sub_name); ?> /</li>
+													<li><?php echo ucfirst(@$sub_sub_name); ?></li>
+												</ul>                 
+											</div>
+											<div class="col-sm-4 pad_bottm">
+												<ul class="social-team pull-left">
+													<li><a href="" data-toggle="modal" data-target="#Services" >Use Different Category</a></li>
+												</ul>                 
+											</div>
 										</div> 
 									</div>
 
@@ -501,14 +503,14 @@
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='freeurgent_video' id='freeurgent_pck' value='' />
 													</div>
 													<div class="span4 unit">
 														Website Link
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='freeurgent_weblink' id='freeurgent_weblink' value='' />
 													</div>
 												</div>
 
