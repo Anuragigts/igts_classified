@@ -527,14 +527,14 @@
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='gold_videolink' id='gold_videolink' value='' />
 													</div>
 													<div class="span4 unit">
 														Website Link
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='gold_weblink' id='gold_weblink' value='' />
 													</div>
 												</div>
 
@@ -553,14 +553,14 @@
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='goldurgent_videolink' id='goldurgent_videolink' value='' />
 													</div>
 													<div class="span4 unit">
 														Website Link
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='goldurgent_weblink' id='goldurgent_weblink' value='' />
 													</div>
 												</div>
 
@@ -570,7 +570,7 @@
 														<b>Marquee Title</b>
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='marquee_title' id='marquee_title' value='' />
 													</div>
 													<div class="span12 unit">
 														<b>Upload Images (15 images)</b>
@@ -592,7 +592,7 @@
 														
 													</div>
 													<div class="span8 unit">
-														<input type='text' />
+														<input type='text' name='platinum_weblink' id='platinum_weblink' value='' />
 													</div>
 												</div>
 
