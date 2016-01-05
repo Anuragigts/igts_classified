@@ -48,11 +48,11 @@
 									<!--<span>$ 99 / per month</span> -->
 								</div>
 								<ul class="dashboard_tag">
-									<li><i class="fa fa-home"></i> <a href='deals_administrator'>Deals Administrator</a></li>
-									<li><i class="fa fa-home"></i> <a href='converse'>Converse</a></li>
-									<li><i class="fa fa-star"></i> <a href='pickup_deals'>Pickup deals</a></li>
-									<li><i class="fa fa-home"></i> <a href='seeked_searches'>Seeked Searches</a></li>
-									<li><i class="fa fa-home"></i> <a href='update_profile'>Update Profile</a></li>
+									<li><img src="img/icons/admin.png"><a href='deals_administrator'>Deals Administrator</a></li>
+									<li><img src="img/icons/conversation.png"><a href='converse'>Converse</a></li>
+									<li><img src="img/icons/pickup.png"><a href='pickup_deals'>Pickup deals</a></li>
+									<li><img src="img/icons/seaked.png"><a href='seeked_searches'>Seeked Searches</a></li>
+									<li><img src="img/icons/updateprofile.png"> <a href='update_profile'>Update Profile</a></li>
 								</ul>
 								<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 							</div>

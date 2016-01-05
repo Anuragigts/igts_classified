@@ -548,7 +548,10 @@
 						
 						<div class="container">
                             <div class="row">
-                                <div class="col-sm-9">
+                                <div class="col-sm-3">
+									<img src="img/business_deals.jpg" alt="" style="height:306px;width: 264px;" class="img-responsive">
+								</div>
+								<div class="col-sm-9">
 									<div id="boxes-carousel">
 										<!-- Item carousel Boxed-->
 										<?php foreach ($business_ads as $b_ads) { ?>
@@ -582,9 +585,6 @@
 										<?php	} ?>
 										<!-- End Item carousel Boxed-->
 									</div>
-								</div>
-								<div class="col-sm-3">
-									<img src="img/business_deals.jpg" alt="" style="height:306px;width: 264px;" class="img-responsive">
 								</div>
 							</div>
 						</div>
