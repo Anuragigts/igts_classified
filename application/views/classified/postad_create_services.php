@@ -393,7 +393,7 @@
 															<li><i class="fa fa-arrow-right"></i> Video Link</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
 														</ul>
-														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
+														<a href="#four" data-toggle="tab" id='free_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													
 													<!-- End promotion-box-info-->
@@ -427,7 +427,7 @@
 														<ul class="list-styles gold_hide" style="display:none;">
 															<li><i class="fa fa-arrow-right"></i> 12 Images</li>
 														</ul>
-														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
+														<a href="#four" data-toggle="tab" id='gold_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													<!-- End promotion-box-info-->
 												</div>
@@ -452,15 +452,15 @@
 															<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
 														</ul>
-														<label class="checkbox">
+														<!-- <label class="checkbox">
 															<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
 															<i></i>
 															 Marquee Title
 														</label>
 														<div class="input marquetitle_hide"  style='display:none;'>
 															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title" ></textarea>
-														</div>
-														<a href="#four" data-toggle="tab" class="btn btn-primary multi-next-btn">Select Package</a>
+														</div> -->
+														<a href="#four" data-toggle="tab" id='platinum_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													<!-- End promotion-box-info-->
 												</div>
@@ -475,6 +475,133 @@
 										<div class="divider gap-bottom-25"></div>
 
 										<!-- start name -->
+										<!-- free -->
+												<div class="j-row free_pck" style='display: none;'>
+													<div class="span12 unit">
+														<b>Upload Images (3-5 images)</b>
+													</div>
+													<div class="span12 unit">
+														<input type='file' />
+														<input type='file' />
+														<input type='file' />
+													</div>
+												</div>
+										<!-- free + urgent -->
+												<div class="j-row free_urgent_pck" style='display: none;'>
+													<div class="span12 unit">
+														<b>Upload Images (9 images)</b>
+													</div>
+													<div class="span12 unit">
+														<input type='file' />
+														<input type='file' />
+														<input type='file' />
+													</div>
+													<div class="span4 unit">
+														Video Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+													<div class="span4 unit">
+														Website Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+												</div>
+
+										<!-- Gold -->
+												<div class="j-row gold_pck" style='display: none;'>
+													<div class="span12 unit">
+														<b>Upload Images (9 images)</b>
+													</div>
+													<div class="span12 unit">
+														<input type='file' />
+														<input type='file' />
+														<input type='file' />
+													</div>
+													<div class="span4 unit">
+														Video Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+													<div class="span4 unit">
+														Website Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+												</div>
+
+										<!-- Gold + urgent -->
+												<div class="j-row gold_urgent_pck" style='display: none;'>
+													<div class="span12 unit">
+														<b>Upload Images (12 images)</b>
+													</div>
+													<div class="span12 unit">
+														<input type='file' />
+														<input type='file' />
+														<input type='file' />
+													</div>
+													<div class="span4 unit">
+														Video Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+													<div class="span4 unit">
+														Website Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+												</div>
+
+										<!-- Platinum -->
+												<div class="j-row platinum_pck" style='display: none;'>
+													<div class="span4 unit">
+														<b>Marquee Title</b>
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+													<div class="span12 unit">
+														<b>Upload Images (15 images)</b>
+													</div>
+													<div class="span12 unit">
+														<input type='file' />
+														<input type='file' />
+														<input type='file' />
+													</div>
+													<div class="span4 unit">
+														Video Upload
+														
+													</div>
+													<div class="span8 unit">
+														<input type='file' />
+													</div>
+													<div class="span4 unit">
+														Website Link
+														
+													</div>
+													<div class="span8 unit">
+														<input type='text' />
+													</div>
+												</div>
+
+												<!-- Contact Information -->
+												<div class="j-row">
+													<div class="span12 unit">
+														<b>Contact Information</b>
+													</div>
+												</div>
 										<div class="j-row">
 											<div class="span12" id='business_form'>
 												<div class="j-row">

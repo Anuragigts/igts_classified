@@ -117,16 +117,55 @@
 
 				});
 
-				$("#platinum_package").click(function(){
-					 var ch = document.getElementById('platinum_package').checked;
+				/*free+urgent package*/
+				$("#free_urgent").click(function(){
+					 var ch = document.getElementById('free_package').checked;
 					 if (ch) {
-					 	$(".marquetitle_hide").show(1000);
+					 	$(".free_urgent_pck").show();
+					 	$(".free_pck").hide();
+					 	$(".platinum_pck").hide();
+					 	$(".gold_urgent_pck").hide();
+					 	$(".gold_pck").hide();
 					 }
 					 else{
-					 	$(".marquetitle_hide").hide(1000);
+					 	$(".free_urgent_pck").hide();
+					 	$(".free_pck").show();
+					 	$(".platinum_pck").hide();
+					 	$(".gold_urgent_pck").hide();
+					 	$(".gold_pck").hide();
 					 }
 					
 
+				});
+
+				/*gold+urgent package*/
+				$("#gold_urgent").click(function(){
+					 var ch = document.getElementById('gold_package').checked;
+					 if (ch) {
+					 	$(".gold_urgent_pck").show();
+					 	$(".gold_pck").hide();
+					 	$(".platinum_pck").hide();
+					 	$(".free_urgent_pck").hide();
+					 	$(".free_pck").hide();
+					 }
+					 else{
+					 	$(".gold_urgent_pck").hide();
+					 	$(".gold_pck").show();
+					 	$(".platinum_pck").hide();
+					 	$(".free_urgent_pck").hide();
+					 	$(".free_pck").hide();
+					 }
+					
+
+				});
+
+				/*platinum package*/
+				$("#platinum_urgent").click(function(){
+					 	$(".platinum_pck").show();
+					 	$(".free_urgent_pck").hide();
+					 	$(".free_pck").hide();
+					 	$(".gold_urgent_pck").hide();
+					 	$(".gold_pck").hide();
 				});
 			});
 		</script>
