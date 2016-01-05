@@ -3942,6 +3942,7 @@ body{
 }
 .ezone_h3 div h3{
 	font-size:20px;
+	color: #ed7642;
 }
 .recen_ad{
 	border: 5px solid #417FB0;
@@ -4151,7 +4152,10 @@ a .login-op-btn:hover{
 }
 .post_deal_bor{
 	border: 2px solid rgb(155, 147, 147);
-	padding: 14px 27px 0px;
+	padding: 14px 24px 0px;
+}
+.post_deal_bor div h3{
+	color:#ed7642;
 }
 .map_canvas{
 	height:200px !important;
@@ -4201,4 +4205,64 @@ a .login-op-btn:hover{
 	display: block;
 	margin: 4px -15px 3px 10px;
 	position: relative;
+}
+
+.first_list{
+	border: 1px solid #E1E1E1;
+	padding: 5px;
+	background-color: #f4f4f4;
+}
+.list_title{
+	margin: 0px 0px 5px;
+	font-weight: bold;
+	color: #ef530d;
+}
+.first_list a{
+	color:#EF530D;
+}
+.first_list.add-to-compare-list {
+    position: absolute;
+    top: 0px;
+    left: auto;
+}
+.first_list span.compared-category {
+    background: transparent url("../img/icons/short_list.png") repeat scroll 0% 0%;
+    width: 35px;
+    height: 31px;
+    display: block;
+    cursor: pointer;
+}
+
+.first_list .featured-badge {
+    width: 117px;
+    height: 86px;
+    background: transparent url("../img/icons/ribbon.png") no-repeat scroll center center;
+    padding-top: 10px;
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    z-index: 2;
+}
+
+.first_list .featured-badge span {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+	transform: matrix(0.7, -0.7, 0.7, 0.7, 8, -8);
+}
+.serch_bus_logo img{
+	height:60px;
+	width:162px;
+}
+.first_list .amt_bg{
+	 background: transparent url("../img/icons/tag.png") no-repeat;
+	 height: 77px;
+}
+.first_list .search_price{
+	color:#fff;
+	padding-top: 26px;
+	font-weight:bold;
 }
