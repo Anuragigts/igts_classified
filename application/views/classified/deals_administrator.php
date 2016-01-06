@@ -285,7 +285,7 @@
                                         <div class="col-md-3">
                                             <ul class="style-view">
                                                 <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-                                                    <a href="hotel-grid-view.html">
+                                                    <a href="deals_administrator_box">
                                                         <i class="fa fa-th-large"></i>
                                                     </a>
                                                 </li>
@@ -310,13 +310,13 @@
 													<div class="featured-badge">
 														<span>special</span>
 													</div>
-													<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 820px; height: 700px; overflow: hidden; visibility: hidden; background-color: #24262e;">
+													<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 820px; height: 720px; overflow: hidden; visibility: hidden; background-color: #24262e;">
 														<!-- Loading Screen -->
 														<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 															<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 															<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 														</div>
-														<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 240px; width: 820px; height: 700px; overflow: hidden;">
+														<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 240px; width: 820px; height: 720px; overflow: hidden;">
 															<div data-p="150.00" style="display: none;">
 																<img data-u="image" src="img/01.jpg" />
 																<img data-u="thumb" src="img/thumb-01.jpg" />
@@ -393,69 +393,86 @@
 													</div>
 													
 												</div>
-												<div class="col-sm-5 middle_text">
+												<div class="col-sm-8 middle_text">
 													<div class="row">
-														<div class="col-xs-10">
-															<h3 class="list_title">Sample text Here</h3>
-														</div>
-														<div class="col-xs-2">
-															<div class="add-to-compare-list">
-																<span class="compared-category"></span>
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="col-xs-8">
+																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<div class="col-xs-4 ">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-category"></span>
+																	</div>
+																</div>
 															</div>
-															<!--h4 class="list_title"><i class="fa fa-star"></i></h4 -->
+															<div class="row">
+																<div class="col-xs-4">
+																	<ul class="starts">
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																	</ul>
+																</div>
+																<div class="col-xs-8">
+																	<div class="location pull-right ">
+																		<i class="fa fa-map-marker "></i> 
+																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																	</div>
+																</div>
+															</div>
 														</div>
-													</div>
-													<div class="ratings pull-left">
-														<input id="5q" type="radio" name="quality-rating" value="5">
-														<label for="5q">
-															<i class="fa fa-star"></i>
-														</label>
-														<input id="4q" type="radio" name="quality-rating" value="4">
-														<label for="4q">
-															<i class="fa fa-star"></i>
-														</label>
-														<input id="3q" type="radio" name="quality-rating" value="3">
-														<label for="3q">
-															<i class="fa fa-star"></i>
-														</label>
-														<input id="2q" type="radio" name="quality-rating" value="2">
-														<label for="2q">
-															<i class="fa fa-star"></i>
-														</label>
-														<input id="1q" type="radio" name="quality-rating" value="1" checked="">
-														<label for="1q">
-															<i class="fa fa-star"></i>
-														</label>
-													</div>
-													<div class="row">
-														<div class="col-xs-12">
-															<h4 class="location top_5"><i class="fa fa-map-marker"></i> Location</h4>
-														</div>
-														<div class="col-xs-12">
-															<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="row">
-														<div class="col-xs-12 serch_bus_logo">
+														
+														<div class="col-xs-4 serch_bus_logo">
 															<img src="img/brand/intel.png" alt="" class="img-responsive">
 														</div>
-														<div class="col-xs-8 col-xs-offset-2 amt_bg ">
-															<h4 class="search_price text_center">£218</h4>
+													</div>
+													<hr class="separator">
+													<div class="row">
+														<div class="col-xs-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																</div>
+																<div class="col-xs-6">
+																	<a href="#"><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></a>
+																</div>
+															</div>
 														</div>
-														<div class="col-xs-10 col-xs-offset-1">
-															<a href="#"><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></a>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-8 col-xs-offset-1 amt_bg">
+																	<h3 style="color:white;margin-top:5px;">£1106</h3>
+																</div>
+																<div class="col-xs-12">
+																	<a href="#"><img src="img/icons/chatnow.png" alt="" class="img-responsive"></a>
+																</div>
+															</div>
+															
 														</div>
 													</div>
 												</div>
-											</div>
+											</div><!-- End Row-->
 										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="post-meta list_view_bottom" >
+													<ul>
+														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+														<li><span>Deal ID : 112457856</span></li>
+														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+													</ul>                      
+												</div>
+											</div>
+										</div><hr class="separator">	
+										<!-- End Item Gallery List View-->
 									</div>
-                                    <!-- End Item Gallery List View-->
-									
 								</div>
-                            </div>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -469,6 +486,7 @@
 	<script>
 		jssor_1_slider_init();
 	</script>
+	
 	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
 	<script src="j-folder/js/jquery.validate.min.js"></script>
 	<script src="j-folder/js/additional-methods.min.js"></script>
