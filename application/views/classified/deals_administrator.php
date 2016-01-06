@@ -397,14 +397,14 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<div class="col-xs-4 ">
+																<!--div class="col-xs-4 ">
 																	<div class="add-to-compare-list pull-right">
 																		<span class="compared-category"></span>
 																	</div>
-																</div>
+																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -465,6 +465,7 @@
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
 														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 													</ul>                      
 												</div>
 											</div>
