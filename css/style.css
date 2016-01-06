@@ -193,7 +193,7 @@ h6,
 }
 p{
 	margin: 0px 0px 20px;
-	color: rgba(0, 0, 0, 0.87);
+	color: #777;
 	font-size: 0.875rem;
 	line-height: 1.2rem;
 }
@@ -1588,7 +1588,7 @@ hr.separator:before {
   	z-index: 999;
 }
 .starts{
-	margin: 5px 0 20px 0;
+	margin: -2px 0px -5px;
 }
 .item-boxed .starts{
 	float: right;
@@ -4212,16 +4212,17 @@ a .login-op-btn:hover{
 
 .first_list{
 	border: 1px solid #E1E1E1;
-	padding: 5px;
-	background-color: #f4f4f4;
+	padding: 8px;
+	/* background-color: #f4f4f4; */
 }
 .list_title{
 	margin: 0px 0px 5px;
-	/* font-weight: bold; */
+	/* font-weight: 700 !important; */
 	color: #ef530d;
+	font: 20px/1 "Open Sans",Helvetica,Arial,sans-serif;
 }
 .location{
-	
+	font-size: 14px;
 }
 .first_list a{
 	color:#EF530D;
@@ -4263,9 +4264,10 @@ a .login-op-btn:hover{
 	height:60px;
 	width:162px;
 }
-.first_list .amt_bg{
-	 background: transparent url("../img/icons/tag.png") no-repeat;
-	 height: 77px;
+.amt_bg{
+	background: transparent url("../img/icons/tag.png") no-repeat;
+	height: 58px;
+	width: 122px;
 }
 .achor_hov1 h4 a{
 		color:#0088cc;
@@ -4287,4 +4289,34 @@ a .login-op-btn:hover{
 .pak_bg{
 	background-color: #F00;
 	padding: 10px;
+}
+
+.list_view_bottom{
+	padding: 9px 9px 24px;
+	border-left: 1px solid #E1E1E1;
+	border-right: 1px solid #E1E1E1;
+	border-bottom: 1px solid #E1E1E1;
+}
+/*---Grid View--*/
+
+.grid_view .featured-badge {
+    width: 117px;
+    height: 86px;
+    background: transparent url("../img/icons/ribbon.png") no-repeat scroll center center;
+    padding-top: 10px;
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    z-index: 2;
+	overflow:hidden;
+}
+
+.grid_view .featured-badge span {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+	transform: matrix(0.7, -0.7, 0.7, 0.7, 8, -8);
 }
