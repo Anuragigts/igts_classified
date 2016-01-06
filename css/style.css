@@ -4267,6 +4267,15 @@ a .login-op-btn:hover{
 	 background: transparent url("../img/icons/tag.png") no-repeat;
 	 height: 77px;
 }
+.achor_hov1 h4 a{
+		color:#0088cc;
+}
+.achor_hov2 h4 a{
+		color:#0dc5b2;
+}
+.achor_hov3 h4 a{
+		color:#88c425;
+}
 .first_list .search_price{
 	color:#fff;
 	padding-top: 26px;
@@ -4274,4 +4283,8 @@ a .login-op-btn:hover{
 }
 .promotion-box-info h4 a{
 	color: rgba(0, 0, 0, 0.54);
+}
+.pak_bg{
+	background-color: #F00;
+	padding: 10px;
 }
