@@ -384,7 +384,6 @@
 															<li><i class="fa fa-arrow-right"></i> No Video</li>
 															<li><i class="fa fa-arrow-right"></i> No Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> No Website link</li>
-															<li><i class="fa fa-arrow-right"></i> <a href="img/free.png" class="fancybox">For More</a></li>
 														</ul>
 														<label class="checkbox">
 															<input type="checkbox" name="candles" id='free_package' value="candles-5$" data-price="5">
@@ -421,7 +420,6 @@
 															<li><i class="fa fa-arrow-right"></i> Video link</li>
 															<li><i class="fa fa-arrow-right"></i> More Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
-															<li><i class="fa fa-arrow-right"></i> <a href="img/gold.png" class="fancybox">For More</a></li>
 														</ul>
 														<label class="checkbox">
 															<input type="checkbox" id='gold_package' name="candles" value="candles-5$" data-price="5">
@@ -455,8 +453,9 @@
 															<li><i class="fa fa-arrow-right"></i> Video Upload</li>
 															<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
 															<li><i class="fa fa-arrow-right"></i> Website link</li>
-															<li><i class="fa fa-arrow-right"></i> <a href="img/platinum.png" class="fancybox">For More</a></li>
+															<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
 														</ul>
+														
 														<!-- <label class="checkbox">
 															<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
 															<i></i>
@@ -472,7 +471,25 @@
 												<!-- End promotion-box-->
 											</div>
 										</div>
-								
+										<div class="row">
+											<div class="">
+												<div class="unit check logic-block-radio">
+													<div class="">
+														<div class="row">
+															<div class="span4 achor_hov1 unit text_center top_10">
+																<h4 class=""><a href="img/free.png" class="fancybox">For More</a></h4>
+															</div>
+															<div class="span4 achor_hov2 unit text_center top_10">
+																<h4><a href="img/gold.png" class="fancybox">For More</a></h4>
+															</div>
+															<div class="span4 achor_hov3 unit text_center top_10">
+																<h4><a href="img/platinum.png" class="fancybox">For More</a></h4>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</fieldset>
 									
 									<fieldset>
@@ -746,9 +763,10 @@
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
 		
-		<script src="js/jquery.cleditor.min.js"></script>
-		<script src="js/jquery.cleditor.js"></script>
-    <script>
+	<script src="js/jquery.cleditor.min.js"></script>
+	<script src="js/jquery.cleditor.js"></script>
+    
+	<script>
         $(document).ready(function () { 
 		$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 
 		});
