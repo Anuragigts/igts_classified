@@ -4232,13 +4232,14 @@ a .login-op-btn:hover{
     top: 0px;
     left: auto;
 }
-.first_list span.compared-category {
+/* .first_list span.compared-category {
     background: transparent url("../img/icons/short_list.png") repeat scroll 0% 0%;
     width: 35px;
     height: 31px;
     display: block;
     cursor: pointer;
-}
+} */
+
 
 .first_list .featured-badge {
     width: 117px;
