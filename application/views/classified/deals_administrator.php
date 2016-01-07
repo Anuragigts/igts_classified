@@ -1,4 +1,10 @@
 	<title>365 Deals :: Deals Administrator</title>
+	
+	
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="libs/slider.css">
+  
+  
 	<style>
 		.section-title-01{
 			height: 273px;
@@ -436,8 +442,8 @@
 																<div class="col-xs-12">
 																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
 																</div>
-																<div class="col-xs-6">
-																	<a href="#"><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></a>
+																<div class="col-xs-12">
+																	<a href="description_view"><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></a>
 																</div>
 															</div>
 														</div>
@@ -448,6 +454,114 @@
 																</div>
 																<div class="col-xs-12">
 																	<a href="#"><img src="img/icons/chatnow.png" alt="" class="img-responsive"></a>
+																</div>
+															</div>
+															
+														</div>
+													</div>
+												</div>
+											</div><!-- End Row-->
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="post-meta list_view_bottom" >
+													<ul>
+														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+														<li><span>Deal ID : 112457856</span></li>
+														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+													</ul>                      
+												</div>
+											</div>
+										</div><hr class="separator">	
+										<!-- End Item Gallery List View-->
+									</div>
+									
+									<div class="col-md-12">
+										<div class="first_list">
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="featured-badge">
+														<span>special</span>
+													</div>
+													<div class="xuSlider">
+														<ul class="sliders">
+															<li><img src="images/sliders0.jpg" alt=""></li>
+															<li><img src="images/sliders1.jpg" alt=""></li>
+															<li><img src="images/sliders2.jpg" alt=""></li>
+															<li><img src="images/sliders3.jpg" alt=""></li>
+															<li><img src="images/sliders4.jpg" alt=""></li>
+														</ul>
+														<div class="direction-nav">
+															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
+															<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
+														</div>
+														<div class="control-nav">
+															<li data-id="1"><a href="javascript:;">1</a></li>
+															<li data-id="2"><a href="javascript:;">2</a></li>
+															<li data-id="3"><a href="javascript:;">3</a></li>
+															<li data-id="4"><a href="javascript:;">4</a></li>
+															<li data-id="5"><a href="javascript:;">5</a></li>
+														</div>	
+													</div>
+												</div>
+												<div class="col-sm-8 middle_text">
+													<div class="row">
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<!--div class="col-xs-4 ">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-category"></span>
+																	</div>
+																</div-->
+															</div>
+															<div class="row">
+																<div class="col-xs-4">
+																	<ul class="starts">
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																	</ul>
+																</div>
+																<div class="col-xs-8">
+																	<div class="location pull-right ">
+																		<i class="fa fa-map-marker "></i> 
+																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-xs-4 serch_bus_logo">
+															<img src="img/brand/intel.png" alt="" class="img-responsive">
+														</div>
+													</div>
+													<hr class="separator">
+													<div class="row">
+														<div class="col-xs-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																</div>
+																<div class="col-xs-12">
+																	<a href="description_view"><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-8 col-xs-offset-1 amt_bg">
+																	<h3 style="color:white;margin-top:5px;">£1106</h3>
+																</div>
+																<div class="col-xs-12">
+																	<a href="#"><img src="img/icons/offline.png" alt="" class="img-responsive"></a>
 																</div>
 															</div>
 															
@@ -494,5 +608,26 @@
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
 	<script src="j-folder/js/jquery-cloneya.min.js"></script>
+	
+	
+	
+	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script>
+		$('.xuSlider').xuSlider();
+	</script>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-36251023-1']);
+	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
 
         
