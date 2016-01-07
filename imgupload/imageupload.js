@@ -41,9 +41,9 @@
 			outputHandler: function() {}, // Callback function for processing output. Parameter is image source in base64 format
 			onBeforeUpload: function() {},// Callback function called before upload processing
 			onAfterUpload: function() {},	// Callback function called after upload processing
-			maxUpload: 3,				// Max number of image files allowed to be uploaded.
+			maxUpload: 15,				// Max number of image files allowed to be uploaded.
 			errorMsg: 'Error: The file you just uploaded is not an image!',
-			trigger: 'click', 			// possible values: "click", "dblclick" or null
+			trigger: 'dblclick', 			// possible values: "click", "dblclick" or null
 			errorContainer: null,		// Container for error message
 			enableCliboardCapture: true, // Enable clipboard capturing
 			enableDebug: true			// enable debugging output in console
@@ -92,6 +92,9 @@
 		var processUpload = function(files, originalEvent) {
 			var error = false, imageFound = false, count = 0;
 			if (files !== null) {
+				/*image upload count*/
+				var f_count = document.getElementById('image_count').value;
+
 				for (var i = 0; i < files.length; i++) {
 					if (files[i].type.indexOf("image") == -1) {
 						 //not image
@@ -107,6 +110,8 @@
 
 					readFile(blob);
 				}
+				/*image upload count*/
+				document.getElementById('image_count').value = parseInt(f_count) + parseInt(count);
 				if (!imageFound) {
 		 			// Execute onAfterUpload callback function if available
 		 			$.isFunction(settings.onAfterUpload) && settings.onAfterUpload.call(this);
