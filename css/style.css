@@ -2575,7 +2575,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	color: #88C425;
 }
 .info-gallery p{
-	margin-bottom: 0;
+	margin-bottom: 5px;
 	font-size: 0.85rem;
 	line-height: 1.3rem;
 }
@@ -4219,13 +4219,19 @@ a .login-op-btn:hover{
 	margin: 0px 0px 5px;
 	/* font-weight: 700 !important; */
 	color: #ef530d;
-	font: 20px/1 "Open Sans",Helvetica,Arial,sans-serif;
+	/* font: 20px/1 "Open Sans",Helvetica,Arial,sans-serif; */
+	font-family: "Open Sans",sans-serif;
 }
 .location{
 	font-size: 14px;
 }
 .first_list a{
 	color:#EF530D;
+}
+.first_list p{
+	margin-bottom: 21px;
+	font-size: 0.85rem;
+	line-height: 1.3rem;
 }
 .first_list.add-to-compare-list {
     position: absolute;
