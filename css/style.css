@@ -3173,6 +3173,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 /* Sidebar Post -------------------------------------------------------*/
+.view_sidebar{
+	border: 1px solid #DFDFDF;
+	background: #FCFCFC none repeat scroll 0% 0%;
+	padding: 22px 28px 0px;
+	margin-top: 20px;
+}
 .widget{
 	margin-bottom: 40px;
 }
