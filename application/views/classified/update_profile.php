@@ -113,7 +113,7 @@
 									<!--<span>$ 99 / per month</span>
 									<ul class="dashboard_tag">
 										<li><img src="img/icons/i.png"><a href='deals_administrator'>Deals Administrator</a></li>
-										<li><img src="img/icons/i.png"><a href='converse'>Converse</a></li>
+										<li><img src="img/icons/conversation.png"><a href='converse'>Converse</a></li>
 										<li><img src="img/icons/favourite.png"><a href='pickup_deals'>Pickup deals</a></li>
 										<li><img src="img/icons/searches.png"><a href='seeked_searches'>Seeked Searches</a></li>
 										<li><img src="img/icons/profile.png"><a href='update_profile'>Update Profile</a></li>
@@ -122,7 +122,6 @@
 								</div>
 								<ul class="dashboard_tag">
 									<li><img src="img/icons/admin.png"><a href='deals_administrator'>Deals Administrator</a></li>
-									<li><img src="img/icons/conversation.png"><a href='converse'>Converse</a></li>
 									<li><img src="img/icons/pickup.png"><a href='pickup_deals'>Pickup deals</a></li>
 									<li><img src="img/icons/seaked.png"><a href='seeked_searches'>Seeked Searches</a></li>
 									<li><img src="img/icons/updateprofile.png"> <a href='update_profile'>Update Profile</a></li>
