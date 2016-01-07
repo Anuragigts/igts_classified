@@ -1,101 +1,439 @@
 	<title>365 Deals :: PostaDeal</title>
 	
-	<link rel='stylesheet' type='text/css' href='imgupload/imgupload.css' />
-	<script src="imgupload/jquery.fancybox.min.js"></script>
-	<script src="imgupload/imageupload.js"></script>
+	
+<link rel='stylesheet' type='text/css' href='imgupload/free.css' />
+<link rel='stylesheet' type='text/css' href='imgupload/freeurgent.css' />
+<link rel='stylesheet' type='text/css' href='imgupload/gold.css' />
+<link rel='stylesheet' type='text/css' href='imgupload/goldurgent.css' />
+<link rel='stylesheet' type='text/css' href='imgupload/platinum.css' />
+<link rel='stylesheet' type='text/css' href='imgupload/jquery.fancybox.min.css' />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/2241077/jquery.dragbetter.js"></script>
+<script src="imgupload/imageupload.js"></script>
 
-	<script type='text/javascript'>
-		/*
-		jQuery Image upload
-		Images can be uploaded using:
-		* File requester (Double click on box)
-		* Drag&Drop (Drag and drop image on box)
-		* Pasting. (Copy an image or make a screenshot, then activate the page and paste in the image.)
+<script type='text/javascript'>
+/* Free */
 
-		Works in Mozilla, Webkit & IE.
-		*/
+jQuery(document).ready(function($) {
 
-		jQuery(document).ready(function($) {
+	// Shared callback handler for processing output
+	var outputHandlerFunc = function(imgObj) {
 
-			// Shared callback handler for processing output
-			var outputHandlerFunc = function(imgObj) {
+		var sizeInKB = function(bytes) {return (typeof bytes == 'number') ? (bytes/1024).toFixed(2) + 'Kb' : bytes;};
 
-				var sizeInKB = function(bytes) {return (typeof bytes == 'number') ? (bytes/1024).toFixed(2) + 'Kb' : bytes;};
-
-				var getThumbnail = function(original, maxWidth, maxHeight, upscale) {
-					var canvas = document.createElement("canvas"), width, height;
-					if (original.width<maxWidth && original.height<maxHeight && upscale == undefined) {
-						width = original.width;
-						height = original.height;
-					}
-					else {
-						width = maxWidth;
-						height = parseInt(original.height*(maxWidth/original.width));
-						if (height>maxHeight) {
-							height = maxHeight;
-							width = parseInt(original.width*(maxHeight/original.height));
-						}
-					}
-					canvas.width = width;
-					canvas.height = height;
-					canvas.getContext("2d").drawImage(original, 0, 0, width, height);
-					$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
-					return canvas;
-				}
-
-
-
-				$(new Image()).on('load', function(e) {
-			console.log('imgobj',e)
-					var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output ul');
-					$('.imagedelete',$wrapper).one('click',function(e) {
-						$wrapper.toggleClass('new-item').addClass('removed-item');
-						$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
-							$wrapper.remove();
-						});
-					});
-
-					var thumb = getThumbnail(e.target,50,50);
-					var $link = $('<a rel="fancybox">').attr({
-						target:"_blank",
-						href: imgObj.imgSrc
-					}).append(thumb).appendTo($('.preview', $wrapper));
-
-				}).attr('src',imgObj.imgSrc);
-
-			}
-
-			$("a[rel=fancybox]").fancybox();
-
-			var fileReaderAvailable = (typeof FileReader !== "undefined");
-			var clipBoardAvailable = (window.clipboardData !== false);
-			var pasteAvailable = Boolean(clipBoardAvailable & fileReaderAvailable & !eval('/*@cc_on !@*/false'));
-
-			if (fileReaderAvailable) {
-
-				// Enable drop area upload
-				$('#dropzone').imageUpload({
-					errorContainer: $('span','#errormessages'),
-					trigger: 'dblclick',
-					enableCliboardCapture: pasteAvailable,
-					onBeforeUpload: function() {$('body').css('background-color','green');console.log('start',Date.now());},
-					onAfterUpload: function() {$('body').css('background-color','#eee');console.log('end',Date.now());},
-					outputHandler:outputHandlerFunc
-				})
-
-				$('#dropzone').prev('#textbox-wrapper').find('#textbox').append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>');
+		var getThumbnail = function(original, maxWidth, maxHeight, upscale) {
+			var canvas = document.createElement("canvas"), width, height;
+			if (original.width<maxWidth && original.height<maxHeight && upscale == undefined) {
+				width = original.width;
+				height = original.height;
 			}
 			else {
-				$('body').addClass('nofilereader');
+				width = maxWidth;
+				height = parseInt(original.height*(maxWidth/original.width));
+				if (height>maxHeight) {
+					height = maxHeight;
+					width = parseInt(original.width*(maxHeight/original.height));
+				}
 			}
+			canvas.width = width;
+			canvas.height = height;
+			canvas.getContext("2d").drawImage(original, 0, 0, width, height);
+			$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
+			return canvas;
+		}
 
-			if (!pasteAvailable) {
-				$('body').addClass('nopaste');
+
+
+		$(new Image()).on('load', function(e) {
+console.log('imgobj',e)
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free ul');
+			$('.imagedelete',$wrapper).one('click',function(e) {
+				$wrapper.toggleClass('new-item').addClass('removed-item');
+				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+			   		$wrapper.remove();
+			   	});
+			});
+
+			var thumb = getThumbnail(e.target,50,50);
+			var $link = $('<a rel="fancybox">').attr({
+				target:"_blank",
+				href: imgObj.imgSrc
+			}).append(thumb).appendTo($('.preview', $wrapper));
+
+		}).attr('src',imgObj.imgSrc);
+
+	}
+
+	$("a[rel=fancybox]").fancybox();
+
+    var fileReaderAvailable = (typeof FileReader !== "undefined");
+    var clipBoardAvailable = (window.clipboardData !== false);
+    var pasteAvailable = Boolean(clipBoardAvailable & fileReaderAvailable & !eval('/*@cc_on !@*/false'));
+
+	if (fileReaderAvailable) {
+
+		// Enable drop area upload
+		$('#dropzone_free').imageUpload({
+			errorContainer: $('span','#errormessages_free'),
+			trigger: 'dblclick',
+			enableCliboardCapture: pasteAvailable,
+			onBeforeUpload: function() {$('body').css('background-color','green');console.log('start',Date.now());},
+			onAfterUpload: function() {$('body').css('background-color','#eee');console.log('end',Date.now());},
+			outputHandler:outputHandlerFunc
+		})
+
+		$('#dropzone_free').prev('#free_wrapper').find('#textbox_free').append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>');
+	}
+	else {
+		$('body').addClass('nofilereader');
+	}
+
+	if (!pasteAvailable) {
+		$('body').addClass('nopaste');
+	}
+
+});
+
+</script>
+
+<script type='text/javascript'>
+/* Free + urgent */
+
+jQuery(document).ready(function($) {
+
+	// Shared callback handler for processing output
+	var outputHandlerFunc = function(imgObj) {
+
+		var sizeInKB = function(bytes) {return (typeof bytes == 'number') ? (bytes/1024).toFixed(2) + 'Kb' : bytes;};
+
+		var getThumbnail = function(original, maxWidth, maxHeight, upscale) {
+			var canvas = document.createElement("canvas"), width, height;
+			if (original.width<maxWidth && original.height<maxHeight && upscale == undefined) {
+				width = original.width;
+				height = original.height;
 			}
+			else {
+				width = maxWidth;
+				height = parseInt(original.height*(maxWidth/original.width));
+				if (height>maxHeight) {
+					height = maxHeight;
+					width = parseInt(original.width*(maxHeight/original.height));
+				}
+			}
+			canvas.width = width;
+			canvas.height = height;
+			canvas.getContext("2d").drawImage(original, 0, 0, width, height);
+			$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
+			return canvas;
+		}
 
-		});
 
-	</script>
+
+		$(new Image()).on('load', function(e) {
+console.log('imgobj',e)
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free_urgent ul');
+			$('.imagedelete',$wrapper).one('click',function(e) {
+				$wrapper.toggleClass('new-item').addClass('removed-item');
+				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+			   		$wrapper.remove();
+			   	});
+			});
+
+			var thumb = getThumbnail(e.target,50,50);
+			var $link = $('<a rel="fancybox">').attr({
+				target:"_blank",
+				href: imgObj.imgSrc
+			}).append(thumb).appendTo($('.preview', $wrapper));
+
+		}).attr('src',imgObj.imgSrc);
+
+	}
+
+	$("a[rel=fancybox]").fancybox();
+
+    var fileReaderAvailable = (typeof FileReader !== "undefined");
+    var clipBoardAvailable = (window.clipboardData !== false);
+    var pasteAvailable = Boolean(clipBoardAvailable & fileReaderAvailable & !eval('/*@cc_on !@*/false'));
+
+	if (fileReaderAvailable) {
+
+		// Enable drop area upload
+		$('#dropzone_free_urgent').imageUpload({
+			errorContainer: $('span','#errormessages_free_urgent'),
+			trigger: 'dblclick',
+			enableCliboardCapture: pasteAvailable,
+			onBeforeUpload: function() {$('body').css('background-color','green');console.log('start',Date.now());},
+			onAfterUpload: function() {$('body').css('background-color','#eee');console.log('end',Date.now());},
+			outputHandler:outputHandlerFunc
+		})
+
+		$('#dropzone_free_urgent').prev('#free_urgent_wrapper').find('#textbox_free_urgent').append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>');
+	}
+	else {
+		$('body').addClass('nofilereader');
+	}
+
+	if (!pasteAvailable) {
+		$('body').addClass('nopaste');
+	}
+
+});
+
+</script>
+
+<script type='text/javascript'>
+/* Gold */
+
+jQuery(document).ready(function($) {
+
+	// Shared callback handler for processing output
+	var outputHandlerFunc = function(imgObj) {
+
+		var sizeInKB = function(bytes) {return (typeof bytes == 'number') ? (bytes/1024).toFixed(2) + 'Kb' : bytes;};
+
+		var getThumbnail = function(original, maxWidth, maxHeight, upscale) {
+			var canvas = document.createElement("canvas"), width, height;
+			if (original.width<maxWidth && original.height<maxHeight && upscale == undefined) {
+				width = original.width;
+				height = original.height;
+			}
+			else {
+				width = maxWidth;
+				height = parseInt(original.height*(maxWidth/original.width));
+				if (height>maxHeight) {
+					height = maxHeight;
+					width = parseInt(original.width*(maxHeight/original.height));
+				}
+			}
+			canvas.width = width;
+			canvas.height = height;
+			canvas.getContext("2d").drawImage(original, 0, 0, width, height);
+			$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
+			return canvas;
+		}
+
+
+
+		$(new Image()).on('load', function(e) {
+console.log('imgobj',e)
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold ul');
+			$('.imagedelete',$wrapper).one('click',function(e) {
+				$wrapper.toggleClass('new-item').addClass('removed-item');
+				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+			   		$wrapper.remove();
+			   	});
+			});
+
+			var thumb = getThumbnail(e.target,50,50);
+			var $link = $('<a rel="fancybox">').attr({
+				target:"_blank",
+				href: imgObj.imgSrc
+			}).append(thumb).appendTo($('.preview', $wrapper));
+
+		}).attr('src',imgObj.imgSrc);
+
+	}
+
+	$("a[rel=fancybox]").fancybox();
+
+    var fileReaderAvailable = (typeof FileReader !== "undefined");
+    var clipBoardAvailable = (window.clipboardData !== false);
+    var pasteAvailable = Boolean(clipBoardAvailable & fileReaderAvailable & !eval('/*@cc_on !@*/false'));
+
+	if (fileReaderAvailable) {
+
+		// Enable drop area upload
+		$('#dropzone_gold').imageUpload({
+			errorContainer: $('span','#errormessages_gold'),
+			trigger: 'dblclick',
+			enableCliboardCapture: pasteAvailable,
+			onBeforeUpload: function() {$('body').css('background-color','green');console.log('start',Date.now());},
+			onAfterUpload: function() {$('body').css('background-color','#eee');console.log('end',Date.now());},
+			outputHandler:outputHandlerFunc
+		})
+
+		$('#dropzone_gold').prev('#gold_wrapper').find('#textbox_gold').append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>');
+	}
+	else {
+		$('body').addClass('nofilereader');
+	}
+
+	if (!pasteAvailable) {
+		$('body').addClass('nopaste');
+	}
+
+});
+
+</script>
+
+<script type='text/javascript'>
+/* Gold + urgent */
+
+jQuery(document).ready(function($) {
+
+	// Shared callback handler for processing output
+	var outputHandlerFunc = function(imgObj) {
+
+		var sizeInKB = function(bytes) {return (typeof bytes == 'number') ? (bytes/1024).toFixed(2) + 'Kb' : bytes;};
+
+		var getThumbnail = function(original, maxWidth, maxHeight, upscale) {
+			var canvas = document.createElement("canvas"), width, height;
+			if (original.width<maxWidth && original.height<maxHeight && upscale == undefined) {
+				width = original.width;
+				height = original.height;
+			}
+			else {
+				width = maxWidth;
+				height = parseInt(original.height*(maxWidth/original.width));
+				if (height>maxHeight) {
+					height = maxHeight;
+					width = parseInt(original.width*(maxHeight/original.height));
+				}
+			}
+			canvas.width = width;
+			canvas.height = height;
+			canvas.getContext("2d").drawImage(original, 0, 0, width, height);
+			$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
+			return canvas;
+		}
+
+
+
+		$(new Image()).on('load', function(e) {
+console.log('imgobj',e)
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold_urgent ul');
+			$('.imagedelete',$wrapper).one('click',function(e) {
+				$wrapper.toggleClass('new-item').addClass('removed-item');
+				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+			   		$wrapper.remove();
+			   	});
+			});
+
+			var thumb = getThumbnail(e.target,50,50);
+			var $link = $('<a rel="fancybox">').attr({
+				target:"_blank",
+				href: imgObj.imgSrc
+			}).append(thumb).appendTo($('.preview', $wrapper));
+
+		}).attr('src',imgObj.imgSrc);
+
+	}
+
+	$("a[rel=fancybox]").fancybox();
+
+    var fileReaderAvailable = (typeof FileReader !== "undefined");
+    var clipBoardAvailable = (window.clipboardData !== false);
+    var pasteAvailable = Boolean(clipBoardAvailable & fileReaderAvailable & !eval('/*@cc_on !@*/false'));
+
+	if (fileReaderAvailable) {
+
+		// Enable drop area upload
+		$('#dropzone_gold_urgent').imageUpload({
+			errorContainer: $('span','#errormessages_gold_urgent'),
+			trigger: 'dblclick',
+			enableCliboardCapture: pasteAvailable,
+			onBeforeUpload: function() {$('body').css('background-color','green');console.log('start',Date.now());},
+			onAfterUpload: function() {$('body').css('background-color','#eee');console.log('end',Date.now());},
+			outputHandler:outputHandlerFunc
+		})
+
+		$('#dropzone_gold_urgent').prev('#gold_urgent_wrapper').find('#textbox_gold_urgent').append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>');
+	}
+	else {
+		$('body').addClass('nofilereader');
+	}
+
+	if (!pasteAvailable) {
+		$('body').addClass('nopaste');
+	}
+
+});
+
+</script>
+
+<script type='text/javascript'>
+
+jQuery(document).ready(function($) {
+
+	// Shared callback handler for processing output
+	var outputHandlerFunc = function(imgObj) {
+
+		var sizeInKB = function(bytes) {return (typeof bytes == 'number') ? (bytes/1024).toFixed(2) + 'Kb' : bytes;};
+
+		var getThumbnail = function(original, maxWidth, maxHeight, upscale) {
+			var canvas = document.createElement("canvas"), width, height;
+			if (original.width<maxWidth && original.height<maxHeight && upscale == undefined) {
+				width = original.width;
+				height = original.height;
+			}
+			else {
+				width = maxWidth;
+				height = parseInt(original.height*(maxWidth/original.width));
+				if (height>maxHeight) {
+					height = maxHeight;
+					width = parseInt(original.width*(maxHeight/original.height));
+				}
+			}
+			canvas.width = width;
+			canvas.height = height;
+			canvas.getContext("2d").drawImage(original, 0, 0, width, height);
+			$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
+			return canvas;
+		}
+
+
+
+		$(new Image()).on('load', function(e) {
+		console.log('imgobj',e)
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_platinum ul');
+			$('.imagedelete',$wrapper).one('click',function(e) {
+				$wrapper.toggleClass('new-item').addClass('removed-item');
+				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+			   		$wrapper.remove();
+			   	});
+			});
+
+			var thumb = getThumbnail(e.target,50,50);
+			var $link = $('<a rel="fancybox">').attr({
+				target:"_blank",
+				href: imgObj.imgSrc
+			}).append(thumb).appendTo($('.preview', $wrapper));
+
+		}).attr('src',imgObj.imgSrc);
+
+	}
+
+	$("a[rel=fancybox]").fancybox();
+
+    var fileReaderAvailable = (typeof FileReader !== "undefined");
+    var clipBoardAvailable = (window.clipboardData !== false);
+    var pasteAvailable = Boolean(clipBoardAvailable & fileReaderAvailable & !eval('/*@cc_on !@*/false'));
+
+	if (fileReaderAvailable) {
+
+		// Enable drop area upload
+		$('#dropzone_platinum').imageUpload({
+			errorContainer: $('span','#errormessages_platinum'),
+			trigger: 'dblclick',
+			enableCliboardCapture: pasteAvailable,
+			onBeforeUpload: function() {$('body').css('background-color','green');console.log('start',Date.now());},
+			onAfterUpload: function() {$('body').css('background-color','#eee');console.log('end',Date.now());},
+			outputHandler:outputHandlerFunc
+		})
+
+		$('#dropzone_platinum').prev('#platinum_wrapper').find('#textbox_platinum').append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>');
+	}
+	else {
+		$('body').addClass('nofilereader');
+	}
+
+	if (!pasteAvailable) {
+		$('body').addClass('nopaste');
+	}
+
+});
+
+</script>
 
 	<style>
 		.section-title-01{
@@ -594,264 +932,380 @@
 
 										<div class="divider gap-bottom-25"></div>
 
-											<!-- start name -->
-											<div class="j-row">
+											<!-- free__pck Start -->
+											<div class="j-row free_pck" style='display: none;'>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
-															<div id="textbox-wrapper"><div id=textbox></div></div>
-															<div id="dropzone"></div>
+															<div id="free_wrapper"><div id=textbox_free></div></div>
+															<div id="dropzone_free"></div>
 														</div>
-														<div id="errormessages"><span style="display: none;"></span></div>
+														<div id="errormessages_free"><span style="display: none;"></span></div>
 
-														<div id="overlay"></div>
+														<div id="overlay_free"></div>
 													</div>
 												</div>
 												<div class="span8 unit">
 													<div style="float: left;">
 														<br /><br />
-														<h3>Preview:</h3>
-														<div id="output"><ul></ul></div>
+														<h3>Upload Images ( 3-5 images ) :</h3>
+														<div id="output_free"><ul></ul></div>
 													</div>
 													<div style="clear:both;"></div>
 												</div>
-											</div>
-											
-												<!-- start name -->
-												<!-- free -->
-												<div class="j-row free_pck" style='display: none;'>
-													<div class="span12 unit">
-														<b>Upload Images (3-5 images)</b>
-													</div>
-													<div class="span12 unit">
-														<input type='file' />
-														<input type='file' />
-														<input type='file' />
-													</div>
-												</div>
-												<!-- free + urgent -->
-												<div class="j-row free_urgent_pck" style='display: none;'>
-													<div class="span12 unit">
-														<b>Upload Images (9 images)</b>
-													</div>
-													<div class="span12 unit">
-														<input type='file' />
-														<input type='file' />
-														<input type='file' />
-													</div>
-													<div class="span4 unit">
-														Video Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='freeurgent_video' id='freeurgent_pck' value='' />
-													</div>
-													<div class="span4 unit">
-														Website Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='freeurgent_weblink' id='freeurgent_weblink' value='' />
-													</div>
-												</div>
-
-										<!-- Gold -->
-												<div class="j-row gold_pck" style='display: none;'>
-													<div class="span12 unit">
-														<b>Upload Images (9 images)</b>
-													</div>
-													<div class="span12 unit">
-														<input type='file' />
-														<input type='file' />
-														<input type='file' />
-													</div>
-													<div class="span4 unit">
-														Video Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='gold_videolink' id='gold_videolink' value='' />
-													</div>
-													<div class="span4 unit">
-														Website Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='gold_weblink' id='gold_weblink' value='' />
-													</div>
-												</div>
-
-										<!-- Gold + urgent -->
-												<div class="j-row gold_urgent_pck" style='display: none;'>
-													<div class="span12 unit">
-														<b>Upload Images (12 images)</b>
-													</div>
-													<div class="span12 unit">
-														<input type='file' />
-														<input type='file' />
-														<input type='file' />
-													</div>
-													<div class="span4 unit">
-														Video Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='goldurgent_videolink' id='goldurgent_videolink' value='' />
-													</div>
-													<div class="span4 unit">
-														Website Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='goldurgent_weblink' id='goldurgent_weblink' value='' />
-													</div>
-												</div>
-
-										<!-- Platinum -->
-												<div class="j-row platinum_pck" style='display: none;'>
-													<div class="span4 unit">
-														<b>Marquee Title</b>
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='marquee_title' id='marquee_title' value='' />
-													</div>
-													<div class="span12 unit">
-														<b>Upload Images (15 images)</b>
-													</div>
-													<div class="span12 unit">
-														<input type='file' />
-														<input type='file' />
-														<input type='file' />
-													</div>
-													<div class="span4 unit">
-														Video Upload
-														
-													</div>
-													<div class="span8 unit">
-														<input type='file' />
-													</div>
-													<div class="span4 unit">
-														Website Link
-														
-													</div>
-													<div class="span8 unit">
-														<input type='text' name='platinum_weblink' id='platinum_weblink' value='' />
-													</div>
-												</div>
-
-												<!-- Contact Information -->
-												<div class="j-row">
-													<div class="span12 unit">
-														<b>Contact Information</b>
-													</div>
-												</div>
-										<div class="j-row">
-											<div class="span12" id='business_form'>
-												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Business Name 
-															<sup data-toggle="tooltip" title="" data-original-title="Business Name">
-																<img src="img/icons/i.png">
-															</sup>
+												<div class="span12 unit">
+													<label class="label">Video Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
 														</label>
-														<div class="input">
-															<label class="icon-right" for="company">
-																<i class="fa fa-briefcase"></i>
-															</label>
-															<input type="text" id="busname" name="busname" placeholder="Enter  Name ">
-														</div>
-													</div>
-													<div class="span6 unit">
-														<label class="label">Contact Person Name 
-															<sup data-toggle="tooltip" title="" data-original-title="Contact Person Name ">
-																<img src="img/icons/i.png">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="name">
-																<i class="fa fa-user"></i>
-															</label>
-															<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
-														</div>
+														<input type="text" id="freeurgent_video" name="freeurgent_video" placeholder="">
 													</div>
 												</div>
-												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Mobile Number 
-															<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
-																<img src="img/icons/i.png">
-															</sup>
+												<div class="span12 unit">
+													<label class="label">Website Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
 														</label>
-														<div class="input">
-															<label class="icon-right" for="phone">
-																<i class="fa fa-phone"></i>
-															</label>
-															<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
-														</div>
-													</div>
-													<div class="span6 unit">
-														<label class="label">Email 
-															<sup data-toggle="tooltip" title="" data-original-title="Email">
-																<img src="img/icons/i.png">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="email">
-																<i class="fa fa-envelope-o"></i>
-															</label>
-															<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
-														</div>
+														<input type="text" id="freeurgent_weblink" name="freeurgent_weblink" placeholder="">
 													</div>
 												</div>
 											</div>
-											
-											<div class="span12" id='consumer_form'>
-												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Contact Name 
-															<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
-																<img src="img/icons/i.png">
-															</sup>
+											<!-- free_pck End -->
+												
+											<!-- free_urgent_pck Start -->
+											<div class="j-row free_urgent_pck" style='display: none;'>
+												<div class="span4 unit">
+													<div style="width:240px;">
+														<div id="dropzone-wrapper">
+															<div id="free_urgent_wrapper"><div id=textbox_free_urgent></div></div>
+															<div id="dropzone_free_urgent"></div>
+														</div>
+														<div id="errormessages_free_urgent"><span style="display: none;"></span></div>
+
+														<div id="overlay_free_urgent"></div>
+													</div>
+												</div>
+												<div class="span8 unit">
+													<div style="float: left;">
+														<br /><br />
+														<h3>Upload Images ( 9 images ) :</h3>
+														<div id="output_free_urgent"><ul></ul></div>
+													</div>
+													<div style="clear:both;"></div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Video Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
 														</label>
-														<div class="input">
-															<label class="icon-right" for="name">
-																<i class="fa fa-user"></i>
+														<input type="text" id="freeurgent_video" name="freeurgent_video" placeholder="">
+													</div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Website Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="freeurgent_weblink" name="freeurgent_weblink" placeholder="">
+													</div>
+												</div>
+											</div>
+											<!-- free_urgent_pck End -->
+												
+											<!-- Gold package Start -->
+											<div class="j-row gold_pck" style='display: none;'>
+												<div class="span4 unit">
+													<div style="width:240px;">
+														<div id="dropzone-wrapper">
+															<div id="gold_wrapper"><div id=textbox_gold></div></div>
+															<div id="dropzone_gold"></div>
+														</div>
+														<div id="errormessages_gold"><span style="display: none;"></span></div>
+
+														<div id="overlay_gold"></div>
+													</div>
+												</div>
+												<div class="span8 unit">
+													<div style="float: left;">
+														<br /><br />
+														<h3>Upload Images ( 9 images ) :</h3>
+														<div id="output_gold"><ul></ul></div>
+													</div>
+													<div style="clear:both;"></div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Video Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="gold_videolink" name="gold_videolink" placeholder="">
+													</div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Website Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="gold_weblink" name="gold_weblink" placeholder="">
+													</div>
+												</div>
+											</div>
+											<!--Gold package End -->
+												
+											<!-- gold_urgent_pck Start -->
+											<div class="j-row gold_urgent_pck" style='display: none;'>
+												<div class="span4 unit">
+													<div style="width:240px;">
+														<div id="dropzone-wrapper">
+															<div id="gold_urgent_wrapper"><div id=textbox_gold_urgent></div></div>
+															<div id="dropzone_gold_urgent"></div>
+														</div>
+														<div id="errormessages_gold_urgent"><span style="display: none;"></span></div>
+
+														<div id="overlay_gold_urgent"></div>
+													</div>
+												</div>
+												<div class="span8 unit">
+													<div style="float: left;">
+														<br /><br />
+														<h3>Upload Images ( 12 images ) :</h3>
+														<div id="output_gold_urgent"><ul></ul></div>
+													</div>
+													<div style="clear:both;"></div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Video Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="goldurgent_video" name="goldurgent_video" placeholder="">
+													</div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Website Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="goldurgent_weblink" name="goldurgent_weblink" placeholder="">
+													</div>
+												</div>
+											</div>
+											<!-- gold_urgent_pck End -->	
+													
+											<!-- platinum package Start -->
+											<div class="j-row platinum_pck" style='display: none;'>
+												<div class="span4 unit">
+													<div style="width:240px;">
+														<div id="dropzone-wrapper">
+															<div id="platinum_wrapper"><div id=textbox_platinum></div></div>
+															<div id="dropzone_platinum"></div>
+														</div>
+														<div id="errormessages_platinum"><span style="display: none;"></span></div>
+
+														<div id="overlay_platinum"></div>
+													</div>
+												</div>
+												<div class="span8 unit">
+													<div style="float: left;">
+														<br /><br />
+														<h3>Upload Images ( 15 images ) :</h3>
+														<div id="output_platinum"><ul></ul></div>
+													</div>
+													<div style="clear:both;"></div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Video Upload 
+														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<input type="file">
+													</div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Website Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="platinum_weblink" name="platinum_weblink" placeholder="">
+													</div>
+												</div>
+												<div class="span12 unit">
+													<label class="label">Marquee Title 
+														<sup data-toggle="tooltip" title="" data-original-title="Marquee Title">
+															<img src="img/icons/i.png">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Video">
+															<i class="fa fa-briefcase"></i>
+														</label>
+														<input type="text" id="marquee_title" name="marquee_title" placeholder="">
+													</div>
+												</div>
+											</div>
+											<!-- platinum package End -->
+
+										
+											<!-- Contact Information -->
+											<div class="j-row">
+												<div class="span12 unit">
+													<b>Contact Information</b>
+												</div>
+											</div>
+											<div class="j-row">
+												<div class="span12" id='business_form'>
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Business Name 
+																<sup data-toggle="tooltip" title="" data-original-title="Business Name">
+																	<img src="img/icons/i.png">
+																</sup>
 															</label>
-															<input type="text" id="conscontname" name="conscontname" placeholder="Enter Contact Person Name ">
+															<div class="input">
+																<label class="icon-right" for="company">
+																	<i class="fa fa-briefcase"></i>
+																</label>
+																<input type="text" id="busname" name="busname" placeholder="Enter  Name ">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">Contact Person Name 
+																<sup data-toggle="tooltip" title="" data-original-title="Contact Person Name ">
+																	<img src="img/icons/i.png">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="name">
+																	<i class="fa fa-user"></i>
+																</label>
+																<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+															</div>
 														</div>
 													</div>
-													<div class="span6 unit">
-														<label class="label">Mobile Number 
-															<sup data-toggle="tooltip" title="" data-original-title="Mobile Number ">
-																<img src="img/icons/i.png">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="phone">
-																<i class="fa fa-phone"></i>
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Mobile Number 
+																<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
+																	<img src="img/icons/i.png">
+																</sup>
 															</label>
-															<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number ">
+															<div class="input">
+																<label class="icon-right" for="phone">
+																	<i class="fa fa-phone"></i>
+																</label>
+																<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">Email 
+																<sup data-toggle="tooltip" title="" data-original-title="Email">
+																	<img src="img/icons/i.png">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="email">
+																	<i class="fa fa-envelope-o"></i>
+																</label>
+																<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+															</div>
 														</div>
 													</div>
 												</div>
-												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Email 
-															<sup data-toggle="tooltip" title="" data-original-title="Email">
-																<img src="img/icons/i.png">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="email">
-																<i class="fa fa-envelope-o"></i>
+												
+												<div class="span12" id='consumer_form'>
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Contact Name 
+																<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
+																	<img src="img/icons/i.png">
+																</sup>
 															</label>
-															<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
+															<div class="input">
+																<label class="icon-right" for="name">
+																	<i class="fa fa-user"></i>
+																</label>
+																<input type="text" id="conscontname" name="conscontname" placeholder="Enter Contact Person Name ">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">Mobile Number 
+																<sup data-toggle="tooltip" title="" data-original-title="Mobile Number ">
+																	<img src="img/icons/i.png">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="phone">
+																	<i class="fa fa-phone"></i>
+																</label>
+																<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number ">
+															</div>
+														</div>
+													</div>
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Email 
+																<sup data-toggle="tooltip" title="" data-original-title="Email">
+																	<img src="img/icons/i.png">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="email">
+																	<i class="fa fa-envelope-o"></i>
+																</label>
+																<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<!-- end name -->
+											<!-- end name -->
 										
 										<!-- start response from server -->
 										<div id="response"></div>
