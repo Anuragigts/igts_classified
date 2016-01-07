@@ -126,6 +126,7 @@
 					 	$(".platinum_pck").hide();
 					 	$(".gold_urgent_pck").hide();
 					 	$(".gold_pck").hide();
+					 	$('#package_type').val('free_urgent');
 					 }
 					 else{
 					 	$(".free_urgent_pck").hide();
@@ -133,6 +134,7 @@
 					 	$(".platinum_pck").hide();
 					 	$(".gold_urgent_pck").hide();
 					 	$(".gold_pck").hide();
+					 	$('#package_type').val('free');
 					 }
 					
 
@@ -147,6 +149,7 @@
 					 	$(".platinum_pck").hide();
 					 	$(".free_urgent_pck").hide();
 					 	$(".free_pck").hide();
+					 	$('#package_type').val('gold_urgent');
 					 }
 					 else{
 					 	$(".gold_urgent_pck").hide();
@@ -154,6 +157,7 @@
 					 	$(".platinum_pck").hide();
 					 	$(".free_urgent_pck").hide();
 					 	$(".free_pck").hide();
+					 	$('#package_type').val('gold');
 					 }
 					
 
@@ -166,6 +170,12 @@
 					 	$(".free_pck").hide();
 					 	$(".gold_urgent_pck").hide();
 					 	$(".gold_pck").hide();
+					 	$('#package_type').val('platinum');
+				});
+
+				/*file upload limit*/
+				$("#img_len").click(function(){
+				alert("Minimum 3 images should Upload");
 				});
 			});
 		</script>
@@ -179,6 +189,7 @@
 					reader.onload = function (e) {
 						$('.img_hide').show();
 						$('#blah')
+							.show()
 							.attr('src', e.target.result)
 							.width(250)
 							.height(150)
@@ -189,6 +200,39 @@
 					reader.readAsDataURL(input.files[0]);
 				}
 			}
+
+			/*free image upload*/
+			function free_fileupload(input) {
+				var str = input.name;
+				var res = str.charAt(str.length-1);
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						// $('.img_hide').show();
+						$("#free_del"+res).show();
+						$('#free_pre'+res)
+							.show()
+							.attr('src', e.target.result)
+							.width(250)
+							.height(150)
+							.css('border', '2px solid rgba(48,63,159,.9)')
+							.css('border-radius', '10px');
+					};
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$(document).on('click', '.remove_freepic', function () {
+			    // alert(this.id);
+			    var str = this.id;
+			    var res = str.charAt(str.length-1);
+			    document.getElementById("free_upload"+res).value = '';
+			    var reader = new FileReader();
+			    $('#free_pre'+res).css('display', 'none');
+			    $("#free_del"+res).hide();
+			});
 		</script>
 
 		<script type="text/javascript">

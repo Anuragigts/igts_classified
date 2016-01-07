@@ -48,6 +48,10 @@ jQuery(document).ready(function($) {
 console.log('imgobj',e)
 			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
+
+				var f_count = document.getElementById('image_count').value;
+			document.getElementById('image_count').value = parseInt(f_count) - 1;
+
 				$wrapper.toggleClass('new-item').addClass('removed-item');
 				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 			   		$wrapper.remove();
@@ -133,6 +137,10 @@ jQuery(document).ready(function($) {
 console.log('imgobj',e)
 			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free_urgent ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
+
+				var f_count = document.getElementById('image_count').value;
+			document.getElementById('image_count').value = parseInt(f_count) - 1;
+
 				$wrapper.toggleClass('new-item').addClass('removed-item');
 				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 			   		$wrapper.remove();
@@ -218,6 +226,10 @@ jQuery(document).ready(function($) {
 console.log('imgobj',e)
 			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
+
+				var f_count = document.getElementById('image_count').value;
+				document.getElementById('image_count').value = parseInt(f_count) - 1;
+
 				$wrapper.toggleClass('new-item').addClass('removed-item');
 				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 			   		$wrapper.remove();
@@ -303,6 +315,10 @@ jQuery(document).ready(function($) {
 console.log('imgobj',e)
 			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold_urgent ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
+
+				var f_count = document.getElementById('image_count').value;
+			document.getElementById('image_count').value = parseInt(f_count) - 1;
+
 				$wrapper.toggleClass('new-item').addClass('removed-item');
 				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 			   		$wrapper.remove();
@@ -387,6 +403,10 @@ jQuery(document).ready(function($) {
 		console.log('imgobj',e)
 			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_platinum ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
+
+				var f_count = document.getElementById('image_count').value;
+			document.getElementById('image_count').value = parseInt(f_count) - 1;
+			
 				$wrapper.toggleClass('new-item').addClass('removed-item');
 				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 			   		$wrapper.remove();
@@ -953,32 +973,6 @@ jQuery(document).ready(function($) {
 													</div>
 													<div style="clear:both;"></div>
 												</div>
-												<div class="span12 unit">
-													<label class="label">Video Link 
-														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
-															<img src="img/icons/i.png">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Video">
-															<i class="fa fa-briefcase"></i>
-														</label>
-														<input type="text" id="freeurgent_video" name="freeurgent_video" placeholder="">
-													</div>
-												</div>
-												<div class="span12 unit">
-													<label class="label">Website Link 
-														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
-															<img src="img/icons/i.png">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Video">
-															<i class="fa fa-briefcase"></i>
-														</label>
-														<input type="text" id="freeurgent_weblink" name="freeurgent_weblink" placeholder="">
-													</div>
-												</div>
 											</div>
 											<!-- free_pck End -->
 												
@@ -1196,6 +1190,8 @@ jQuery(document).ready(function($) {
 											<!-- Contact Information -->
 											<div class="j-row">
 												<div class="span12 unit">
+													<input type='hidden' id='package_type' name='package_type' value='' />
+													<input type='hidden' id='image_count' name='image_count' value='0' />
 													<b>Contact Information</b>
 												</div>
 											</div>
