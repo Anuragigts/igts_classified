@@ -5833,6 +5833,11 @@ button.close {
     width: 1024px;
     margin: 30px auto;
   }
+	.modal-dialog1 {
+		width: 486px;
+		padding-top:150px;
+		margin: 30px auto;
+	}
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -5844,6 +5849,12 @@ button.close {
 @media (min-width: 992px) {
   .modal-lg {
     width: 900px;
+  }
+}
+@media (max-width: 320px) {
+  .dialog1{
+    width: 330px;
+	padding-top:170px;
   }
 }
 .tooltip {

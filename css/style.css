@@ -4583,7 +4583,7 @@ ul {
 /** =====================
  * Responsive
  ========================*/
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
 	.comments-container {
 		width: 480px;
 	}
@@ -4596,3 +4596,29 @@ ul {
 		width: 320px;
 	}
 }
+@media only screen and (max-width: 320px) {
+	.comments-container {
+		width: 266px;
+	}
+	.comment-box .comment-head span {
+		margin-top: -11px;
+	}
+	.post-info-wrap {
+		width: 244px;
+	}
+	.comments-list .comment-box {
+		width: 187px;
+	}
+	.post-meta li {
+		padding-top:10px;
+	}
+
+	.reply-list .comment-box {
+		width: 220px;
+	}
+}
+
+.imagedelete{
+	color:red;
+}
+
