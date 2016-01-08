@@ -188,6 +188,7 @@
 
 					reader.onload = function (e) {
 						$('.img_hide').show();
+						$('#del_img').css('display', 'block');
 						$('#blah')
 							.show()
 							.attr('src', e.target.result)

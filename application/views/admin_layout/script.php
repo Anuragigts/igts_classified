@@ -114,6 +114,14 @@
                     $(".sscat_chage").html(data);
             });
     });
+
+    /*sub sub sub category*/
+    $(".sscat_chage").change(function(){
+            var cat     =   $(this).val();
+            $.post( "<?php echo base_url();?>common/getssbcat" , { cat: cat } ,function( data ) {
+                    $(".ssscat_chage").html(data);
+            });
+    });
     
     
     // Main Page//

@@ -21,6 +21,20 @@
 		    }
 		    return true;
 		}
+
+		$(function(){
+			$('#del_img').click(function(){
+				$("#file_input").val(""); 
+				$('img#blah').attr('src', '');
+				$('#del_img').css('display', 'none');
+			});
+		});
+
+		$(document).ready(function(){
+      $('#content').bind("cut copy paste",function(e) {
+          e.preventDefault();
+      });
+    });
 </script>
 
 <script type='text/javascript'>
@@ -724,8 +738,11 @@ jQuery(document).ready(function($) {
 														</label>
 													</div>
 												</div>
-												<div class="span6 unit" class='img_hide'>
+												<div class="span4 unit" class='img_hide'>
 													<img id="blah" src="#" alt=''/>
+												</div>
+												<div class="span2 unit" class='del_img'>
+												<a href='javascript:void(0);' id="del_img" style='display:none;'><img src="ad_images/delete.png" alt=''/></a>
 												</div>
 											</div>
 										</div>

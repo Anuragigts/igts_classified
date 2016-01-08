@@ -56,6 +56,11 @@
                             <i class="fa fa-angle-double-right"></i> Sub Sub Category
                         </a>
                     </li>
+					<li>
+                        <a href="<?php echo base_url();?>subsubsubcategory">
+                            <i class="fa fa-angle-double-right"></i> Sub Sub Sub Category
+                        </a>
+                    </li>
                      <li>
                         <a href="<?php echo base_url();?>admin/banner">
                             <i class="fa fa-angle-double-right"></i> Banner
