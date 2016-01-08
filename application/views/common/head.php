@@ -243,6 +243,7 @@
 							$('#bus_logo').show(1000);
 							$('#business_form').show();
 							$('#consumer_form').hide();
+							$("#blah").hide();
 
 						}else{
 							$('#bus_logo').hide(1000);
