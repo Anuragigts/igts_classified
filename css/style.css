@@ -2846,6 +2846,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   padding: 30px 30px 0 30px;
   border-bottom: 1px solid #eee;
 }
+.post-header1 {
+  padding: 30px 30px 0 30px;
+}
 .post-format-icon {
   float: left;
   margin-right: 15px;
