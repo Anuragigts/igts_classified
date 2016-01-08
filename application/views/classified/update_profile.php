@@ -71,7 +71,7 @@
 			      data : {prof_id1: prof_id, fname1 : fname, lname1 : lname, mobile1 : mobile},
 			      dataType : 'json',
 			      success : function(res) {
-			       window.location.href = "<?php echo base_url(); ?>/update_profile";
+			       window.location.href = "<?php echo base_url(); ?>update_profile";
 			      }
 			    });
 			});
@@ -90,7 +90,7 @@
 			      data : {cur_pwd1: cur_pwd, pwd1 : pwd, conf_pwd1 : conf_pwd, prof_id1: prof_id},
 			      dataType : 'json',
 			      success : function(res) {
-			       window.location.href = "<?php echo base_url(); ?>/update_profile";
+			       window.location.href = "<?php echo base_url(); ?>update_profile";
 			      }
 			    });
 			});
@@ -147,7 +147,7 @@
 						<!-- End Item Table-->
 						
 						<!-- Item Table-->
-						<form id="j-forms" action="#" class="j-forms tooltip-hover" method="post">
+						<form id="j-forms" action="#" class="j-forms tooltip-hover change_pwd" method="post">
 							<div class="col-sm-8">
 								<div class="row">
 									<div class="col-sm-12">

@@ -11,6 +11,18 @@
 <script src="https://dl.dropboxusercontent.com/u/2241077/jquery.dragbetter.js"></script>
 <script src="imgupload/imageupload.js"></script>
 
+<script type="text/javascript">
+	/*accept number only*/
+	function isNumber(evt) {
+		    evt = (evt) ? evt : window.event;
+		    var charCode = (evt.which) ? evt.which : evt.keyCode;
+		    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		        return false;
+		    }
+		    return true;
+		}
+</script>
+
 <script type='text/javascript'>
 /* Free */
 
@@ -812,7 +824,7 @@ jQuery(document).ready(function($) {
 																<label class="icon-right" for="dealtag">
 																	<img src="j-folder/img/price.png">
 																</label>
-																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
 															</div>
 														</div>
 														<div class="span6 unit"><!-- start Deal Tag -->
