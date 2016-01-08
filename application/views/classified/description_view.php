@@ -223,7 +223,7 @@
 							<div class="post-item">
 								<div class="row">
 									<!-- Post Header-->
-									<div class="col-md-12">
+									<div class="col-sm-10">
 										<div class="post-header">
 											<div class="post-format-icon post-format-standard">
 												<i class="fa fa-image"></i>
@@ -254,6 +254,11 @@
 													</ul>                      
 												</div>
 											</div>
+										</div>
+									</div>
+									<div class="col-sm-2 post-header1 ">
+										<div class="pull-right post-format-icon post-format-standard">
+											<i class="fa fa-fire"></i>
 										</div>
 									</div>
 									<!-- Post Header-->
