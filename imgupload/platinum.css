@@ -1,3 +1,16 @@
+/* ul#platinum,
+ul#platinum li {
+	/* Setting a common base *
+	margin: 0;
+	padding: 0;
+}
+
+ul#platinum li {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 10px;
+} */
+
 kbd{
  	background-color:#eee;
 	border:1px solid gray;
@@ -192,13 +205,12 @@ kbd{
 .list-content {
 	display: table;
 	table-layout: fixed;
-	width: 100%;
 	background: #fff;
 	border: 1px solid #aaa;
 	margin: 5px 0;
 }
 .list-content span {
-	display: table-cell;
+	/* display: table-cell; */
 	vertical-align: middle;
 	padding: 9px 10px;
 }
