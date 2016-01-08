@@ -452,7 +452,7 @@
 																	<h3 style="color:white;margin-top:5px;">£1106</h3>
 																</div>
 																<div class="col-xs-12">
-																	<a href="#"><img src="img/icons/chatnow.png" alt="" class="img-responsive"></a>
+																	<a href="#" data-toggle="modal" data-target="#sendnow"><img src="img/icons/sendnow.png" alt="" class="img-responsive"></a>
 																</div>
 															</div>
 															
@@ -560,7 +560,7 @@
 																	<h3 style="color:white;margin-top:5px;">£1106</h3>
 																</div>
 																<div class="col-xs-12">
-																	<a href="#"><img src="img/icons/offline.png" alt="" class="img-responsive"></a>
+																	<a href="#" data-toggle="modal" data-target="#sendnow"><img src="img/icons/sendnow.png" alt="" class="img-responsive"></a>
 																</div>
 															</div>
 															

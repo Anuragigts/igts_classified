@@ -180,6 +180,10 @@
 	
 	<link href="src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 	
+	<link rel="stylesheet" href="j-folder/css/demo.css">
+	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
+	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
@@ -192,7 +196,7 @@
 				<h1>Blog read</h1>
 				<div class="crumbs">
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li>/</li>
 						<li>Features</li>  
 						<li>/</li>
@@ -218,14 +222,14 @@
 				<!-- content-->
 				<div class="container">
 					<div class="row">
-						<div class="col-md-9 single-blog">
+						<div class="col-md-9  single-blog">
 							<!-- Post Item Gallery-->
 							<div class="post-item">
 								<div class="row">
 									<!-- Post Header-->
-									<div class="col-sm-10">
+									<div class="col-sm-10 col-xs-8">
 										<div class="post-header">
-											<div class="post-format-icon post-format-standard">
+											<div class="hidden-xs post-format-icon post-format-standard">
 												<i class="fa fa-image"></i>
 											</div>
 											<div class="post-info-wrap">
@@ -256,8 +260,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-2 post-header1 ">
-										<div class="pull-right post-format-icon post-format-standard">
+									<div class="col-sm-2 col-xs-4  post-header1 ">
+										<div class=" post-format-icon post-format-standard">
 											<i class="fa fa-fire"></i>
 										</div>
 									</div>
@@ -344,18 +348,8 @@
 									</div>
 									<!-- Post Media-->
 
-									<!-- Post Content-->
-									<div class="col-md-12">
-										<div class="post-content">
-											<h3>Hyundai i10 Magna 1.2 iTech SE – 2010</h3>
-   
-											<p>Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. </p>
-
-										</div>                                          
-									</div>
-									<!-- Post Content-->
 									
-									<div class="col-md-12">
+									<div class="col-sm-12 col-xs-12 top_20">
 										<div id="parentHorizontalTab">
 											<ul class="resp-tabs-list hor_1">
 												<li>Description</li>
@@ -453,7 +447,7 @@
 									</div>
 
 									<!-- Post Footer-->
-									<div class="col-md-12">
+									<div class="col-sm-12 col-xs-12">
 										<div class="post-footer">
 											<!-- Post Social-->
 											<ul class="post-social tooltip-hover">
@@ -539,7 +533,6 @@
 						
 						<div class="col-md-3">
 							<aside class="widget view_sidebar">
-								<h3>Business Logo</h3>
 								<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center>
 								<h3 class="top_20">Contact Details</h3>
 								<ul class="list-styles">
@@ -555,6 +548,7 @@
 									</div>
 								</center>
 							</aside>
+							<center><a href="#" data-toggle="modal" data-target="#sendnow"><img src="img/icons/sendnow.png" alt="" class="img-responsive"></a></center>
 						</div>
 					</div>
 				</div>
@@ -564,6 +558,12 @@
 		<!-- End Shadow Semiboxed -->
 	<script src="js/jquery.js"></script> 
 	<script src="src/jquery.easyResponsiveTabs.js"></script>
+	
+	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="j-folder/js/jquery.validate.min.js"></script>
+	<script src="j-folder/js/additional-methods.min.js"></script>
+	<script src="j-folder/js/jquery.form.min.js"></script>
+	<script src="j-folder/js/j-forms.min.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -599,7 +599,6 @@
 		});
 	</script>
 	
-	<!--  ======================= Google Map  ============================== -->
-        
+	 
 			
            
