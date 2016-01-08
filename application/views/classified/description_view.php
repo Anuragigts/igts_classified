@@ -342,9 +342,9 @@
 									<!-- Post Content-->
 									<div class="col-md-12">
 										<div class="post-content">
-											<h3>HTML Ipsum Presents</h3>
+											<h3>Hyundai i10 Magna 1.2 iTech SE – 2010</h3>
    
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
+											<p>Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. </p>
 
 										</div>                                          
 									</div>
@@ -355,25 +355,93 @@
 											<ul class="resp-tabs-list hor_1">
 												<li>Description</li>
 												<li>Comments</li>
-												<li>Reviews</li>
 												<li>Map View</li>
-												<li>Market</li>
 											</ul>
 											<div class="resp-tabs-container hor_1">
 												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
+													<p>Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. </p>
 												</div>
 												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
+													<div class="comments-container">
+														<ul id="comments-list" class="comments-list">
+															<li>
+																<div class="comment-main-level">
+																	<!-- Avatar -->
+																	<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																	<!-- Contenedor del Comentario -->
+																	<div class="comment-box">
+																		<div class="comment-head">
+																			<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
+																			<span>hace 20 minutos</span>
+																			<i class="fa fa-reply"></i>
+																			<i class="fa fa-heart"></i>
+																		</div>
+																		<div class="comment-content">
+																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																		</div>
+																	</div>
+																</div>
+																<!-- Respuestas de los comentarios -->
+																<ul class="comments-list reply-list">
+																	<li>
+																		<!-- Avatar -->
+																		<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																		<!-- Contenedor del Comentario -->
+																		<div class="comment-box">
+																			<div class="comment-head">
+																				<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
+																				<span>hace 10 minutos</span>
+																				<i class="fa fa-reply"></i>
+																				<i class="fa fa-heart"></i>
+																			</div>
+																			<div class="comment-content">
+																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																			</div>
+																		</div>
+																	</li>
+
+																	<li>
+																		<!-- Avatar -->
+																		<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																		<!-- Contenedor del Comentario -->
+																		<div class="comment-box">
+																			<div class="comment-head">
+																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
+																				<span>hace 10 minutos</span>
+																				<i class="fa fa-reply"></i>
+																				<i class="fa fa-heart"></i>
+																			</div>
+																			<div class="comment-content">
+																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</li>
+
+															<li>
+																<div class="comment-main-level">
+																	<!-- Avatar -->
+																	<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																	<!-- Contenedor del Comentario -->
+																	<div class="comment-box">
+																		<div class="comment-head">
+																			<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
+																			<span>hace 10 minutos</span>
+																			<i class="fa fa-reply"></i>
+																			<i class="fa fa-heart"></i>
+																		</div>
+																		<div class="comment-content">
+																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																		</div>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
 												</div>
 												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
-												</div>
-												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
-												</div>
-												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
+													<p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3852170.942842486!2d-3.127523422083684!3d54.755797801367365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1452233071813" width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></p>
 												</div>
 											</div>
 										</div>
@@ -433,69 +501,6 @@
 							   </div>
 							</div>
 							<!-- End Post Item Gallery-->
-
-							<h4><i class="fa fa-comments"></i>Comments <a href="#">( 4 )</a></h4>
-
-							<div class="info-testimonial">
-							   <ul id="testimonials">
-									<li>
-										<p><i class="fa fa-quote-left"></i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, est.<i class="fa fa-quote-right"></i></p>
-
-										<div class="image-testimonials">
-											<img src="img/testimonials/1.jpg" alt="">                        
-										</div>   
-										<h4>Jeniffer Martinez</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-									</li>
-
-									<li>
-										<p><i class="fa fa-quote-left"></i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, est.<i class="fa fa-quote-right"></i></p>
-
-										<div class="image-testimonials">
-											<img src="img/testimonials/2.jpg" alt="">                        
-										</div>   
-										<h4>Jeniffer Martinez</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-									</li>
-									
-									<li>
-										<p><i class="fa fa-quote-left"></i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, est.<i class="fa fa-quote-right"></i></p>
-
-										<div class="image-testimonials">
-											<img src="img/testimonials/1.jpg" alt="">                        
-										</div>   
-										<h4>Jeniffer Martinez</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-									</li>
-									
-									<li>
-										<p><i class="fa fa-quote-left"></i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, est.<i class="fa fa-quote-right"></i></p>
-
-										<div class="image-testimonials">
-											<img src="img/testimonials/1.jpg" alt="">                        
-										</div>   
-										<h4>Jeniffer Martinez</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-									</li>
-							   </ul>
-							</div>
-
 							<h4><i class="fa fa-pencil"></i>New Comment</h4>
 
 							<form action="#" class="form-theme">
@@ -530,8 +535,8 @@
 						<div class="col-md-3">
 							<aside class="widget view_sidebar">
 								<h3>Business Logo</h3>
-								<img src="images/sliders0.jpg" class="img-responsive" alt="">
-								<h3 class="top_10">Contact Details</h3>
+								<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center>
+								<h3 class="top_20">Contact Details</h3>
 								<ul class="list-styles">
 									<li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
 									<li><i class="fa fa-map-marker "></i> <a href="#">Location</a></li>
@@ -543,38 +548,8 @@
 									<div class="amt_bg">
 										<h3 style="color:white;padding-top:10px;">£1106</h3>
 									</div>
-									<a href="#"><img src="img/icons/chatnow.png" alt="" class="img-responsive"></a>
 								</center>
 							</aside>
-							<!--<h4><i class="fa fa-pencil"></i> New Comment</h4>
-							<form action="#" class="form-theme">
-								<div class="row">
-									<div class="form-group">
-										<div class="col-sm-12 form-theme">
-											<label>Your name *</label>
-											<input type="text" required="required" value="" placeholder="Please Enter Your Name" class="form-control" name="name">
-										</div>
-										<div class="col-sm-12 form-theme">
-											<label>Your email address *</label>
-											<input type="email" required="required" value="" placeholder="Please Enter Your Email" class="form-control" name="email" >
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group">
-										<div class="col-md-12">
-											<label>Comment *</label>
-											<textarea placeholder="Please Enter Your Comment" class="form-control" name="comment"  required="required"></textarea>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<input type="submit" value="Post Comment" class="btn btn-primary">
-									</div>
-								</div>
-							</form>-->
-							
 						</div>
 					</div>
 				</div>
@@ -618,5 +593,8 @@
 		
 		});
 	</script>
+	
+	<!--  ======================= Google Map  ============================== -->
+        
 			
            

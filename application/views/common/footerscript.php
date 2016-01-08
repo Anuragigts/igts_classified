@@ -12,12 +12,11 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
         <script type='text/javascript' src='<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
         <!-- Maps -->
-        <!--<script src="js/maps/gmap3.js"></script> 
+        <script src="js/maps/gmap3.js"></script> 
         
      <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     
-
-    <script src="js/maps/jquery.geocomplete.js"></script>-->
+    <!--<script src="js/maps/jquery.geocomplete.js"></script>-->
 
     <style type="text/css">
     .map_canvas { 

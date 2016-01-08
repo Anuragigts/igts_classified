@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 
 		$(new Image()).on('load', function(e) {
 console.log('imgobj',e)
-			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free ul');
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
 
 				var f_count = document.getElementById('image_count').value;
@@ -135,7 +135,7 @@ jQuery(document).ready(function($) {
 
 		$(new Image()).on('load', function(e) {
 console.log('imgobj',e)
-			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free_urgent ul');
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free_urgent ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
 
 				var f_count = document.getElementById('image_count').value;
@@ -224,7 +224,7 @@ jQuery(document).ready(function($) {
 
 		$(new Image()).on('load', function(e) {
 console.log('imgobj',e)
-			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold ul');
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
 
 				var f_count = document.getElementById('image_count').value;
@@ -313,7 +313,7 @@ jQuery(document).ready(function($) {
 
 		$(new Image()).on('load', function(e) {
 console.log('imgobj',e)
-			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold_urgent ul');
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_gold_urgent ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
 
 				var f_count = document.getElementById('image_count').value;
@@ -401,7 +401,7 @@ jQuery(document).ready(function($) {
 
 		$(new Image()).on('load', function(e) {
 		console.log('imgobj',e)
-			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="type">' + imgObj.type + '<br>' + (e.target.width + '&times;' + e.target.height) + '<br>' + sizeInKB(imgObj.size) + '</span><span class="name">' + imgObj.name +'</span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_platinum ul');
+			var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_platinum ul');
 			$('.imagedelete',$wrapper).one('click',function(e) {
 
 				var f_count = document.getElementById('image_count').value;
@@ -463,6 +463,18 @@ jQuery(document).ready(function($) {
 			position: relative;
 			width: 100%;
 			overflow: hidden;
+		}
+		ul#free,
+		ul#free li {
+			/* Setting a common base */
+			margin: 0;
+			padding: 0;
+		}
+
+		ul#free li {
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 10px;
 		}
 	</style>
 	<link rel="stylesheet" href="j-folder/css/demo.css">
@@ -974,12 +986,15 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span8 unit">
-													<div style="float: left;">
-														<br /><br />
-														<h3>Upload Images ( 3-5 images ) :</h3>
-														<div id="output_free"><ul></ul></div>
+													<div class="j-row">
+														<div class="span12">
+															<div>
+																<h3>Upload Images ( 3-5 images ) :</h3>
+																<div id="output_free"><ul id="free"></ul></div>
+															</div>
+															<div style="clear:both;"></div>
+														</div>
 													</div>
-													<div style="clear:both;"></div>
 												</div>
 											</div>
 											<!-- free_pck End -->
@@ -998,12 +1013,15 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span8 unit">
-													<div style="float: left;">
-														<br /><br />
-														<h3>Upload Images ( 9 images ) :</h3>
-														<div id="output_free_urgent"><ul></ul></div>
+													<div class="j-row">
+														<div class="span12">
+															<div>
+																<h3>Upload Images ( 9 images ) :</h3>
+																<div id="output_free_urgent"><ul id="free"></ul></div>
+															</div>
+															<div style="clear:both;"></div>
+														</div>
 													</div>
-													<div style="clear:both;"></div>
 												</div>
 												<div class="span12 unit">
 													<label class="label">Video Link 
@@ -1048,12 +1066,15 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span8 unit">
-													<div style="float: left;">
-														<br /><br />
-														<h3>Upload Images ( 9 images ) :</h3>
-														<div id="output_gold"><ul></ul></div>
+													<div class="j-row">
+														<div class="span12">
+															<div>
+																<h3>Upload Images ( 9 images ) :</h3>
+																<div id="output_gold"><ul id="free"></ul></div>
+															</div>
+															<div style="clear:both;"></div>
+														</div>
 													</div>
-													<div style="clear:both;"></div>
 												</div>
 												<div class="span12 unit">
 													<label class="label">Video Link 
@@ -1098,12 +1119,15 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span8 unit">
-													<div style="float: left;">
-														<br /><br />
-														<h3>Upload Images ( 12 images ) :</h3>
-														<div id="output_gold_urgent"><ul></ul></div>
+													<div class="j-row">
+														<div class="span12">
+															<div>
+																<h3>Upload Images ( 12 images ) :</h3>
+																<div id="output_gold_urgent"><ul id="free"></ul></div>
+															</div>
+															<div style="clear:both;"></div>
+														</div>
 													</div>
-													<div style="clear:both;"></div>
 												</div>
 												<div class="span12 unit">
 													<label class="label">Video Link 
@@ -1148,12 +1172,15 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span8 unit">
-													<div style="float: left;">
-														<br /><br />
-														<h3>Upload Images ( 15 images ) :</h3>
-														<div id="output_platinum"><ul></ul></div>
+													<div class="j-row">
+														<div class="span12">
+															<div>
+																<h3>Upload Images ( 15 images ) :</h3>
+																<div id="output_platinum"><ul id="free"></ul></div>
+															</div>
+															<div style="clear:both;"></div>
+														</div>
 													</div>
-													<div style="clear:both;"></div>
 												</div>
 												<div class="span12 unit">
 													<label class="label">Video Upload 
