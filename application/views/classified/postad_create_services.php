@@ -406,7 +406,7 @@ jQuery(document).ready(function($) {
 
 				var f_count = document.getElementById('image_count').value;
 			document.getElementById('image_count').value = parseInt(f_count) - 1;
-			
+
 				$wrapper.toggleClass('new-item').addClass('removed-item');
 				$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 			   		$wrapper.remove();
@@ -576,7 +576,7 @@ jQuery(document).ready(function($) {
 											</div>
 											<div class="col-sm-4 pad_bottm">
 												<ul class="social-team pull-left">
-													<li><a href="" data-toggle="modal" data-target="#Services" >Use Different Category</a></li>
+													<li><a href="" data-toggle="modal" data-target="#Services" >Change Category</a></li>
 												</ul>                 
 											</div>
 										</div> 
@@ -795,7 +795,7 @@ jQuery(document).ready(function($) {
 												</div>
 												<div class="span6 unit">
 													<div class="j-row">
-														<div class="span7 unit top_20">
+														<div class="span6 unit top_20">
 															<div class="input">
 																<label class="icon-right" for="dealtag">
 																	<img src="j-folder/img/price.png">
@@ -803,11 +803,19 @@ jQuery(document).ready(function($) {
 																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
 															</div>
 														</div>
-														<div class="span5 unit top_30">
-															<label class="checkbox">
-																<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
+														<div class="span6 unit"><!-- start Deal Tag -->
+															<label class="label">Price Type 
+																<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																	<img src="img/icons/i.png">
+																</sup>
+															</label>
+															<label class="input select">
+																<select name="price_type">
+																	<option value="none" selected disabled="">Select type</option>
+																	<option value="Negotiable">Negotiable</option>
+																	<option value="Fixed">Fixed</option>
+																</select>
 																<i></i>
-																 Negotiable
 															</label>
 														</div>
 													</div><!-- end service -->

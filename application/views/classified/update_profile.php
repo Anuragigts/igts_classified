@@ -1,6 +1,8 @@
 <?php foreach ($prof_data as $prof_val) {
+	$prof_id = $prof_data['sid'];
 	$fname = $prof_data['first_name'];
 	$lname = $prof_data['lastname'];
+	$mail_id = $prof_data['email'];
 	$mobile = $prof_data['mobile'];
 } ?>
 
@@ -57,6 +59,7 @@
 		/*save changes*/
 		$(function(){
 			$("#save_changes").click(function(){
+				var prof_id = $("#profile_id").val();
 				var fname = $("#firstnamepost").val();
 				var lname = $("#lastnamepost").val();
 				var mobile = $("#contactnopost").val();
@@ -65,17 +68,29 @@
 				  $.ajax({
 			      type : 'post',
 			      url  : '<?php echo base_url()?>update_profile/up_profile',
-			      data : {fname1 : fname, lname1 : lname, mobile1 : mobile},
+			      data : {prof_id1: prof_id, fname1 : fname, lname1 : lname, mobile1 : mobile},
 			      dataType : 'json',
 			      success : function(res) {
-			        
-			        if (res == 1) {
-			        return false;	
-			    }
-			    else{
-			    	alert(res);
-			    }
-			        
+			       window.location.href = "<?php echo base_url(); ?>/update_profile";
+			      }
+			    });
+			});
+		});
+
+		/*Change Password*/
+		$(function(){
+			$("#change_pwd").click(function(){
+				var cur_pwd = $("#currentpasspost").val();
+				var pwd = $("#newpasspost").val();
+				var conf_pwd = $("#confirmpasspost").val();
+				var prof_id = $("#profile_id").val();
+				  $.ajax({
+			      type : 'post',
+			      url  : '<?php echo base_url()?>update_profile/change_pwd',
+			      data : {cur_pwd1: cur_pwd, pwd1 : pwd, conf_pwd1 : conf_pwd, prof_id1: prof_id},
+			      dataType : 'json',
+			      success : function(res) {
+			       window.location.href = "<?php echo base_url(); ?>/update_profile";
 			      }
 			    });
 			});
@@ -139,7 +154,7 @@
 										<h2>Update Profile</h2><hr>
 									</div>
 								</div>
-									
+							<?php echo $this->view("classified_layout/success_error"); ?>		
 								<div class="row">
 									<!-- contact details-->
 									<div class="col-sm-6">
@@ -155,7 +170,8 @@
 													<label class="icon-right" for="firstnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" value="<?php echo $fname; ?>"  required>
+													<input type="hidden" id="profile_id" name="profile_id" value="<?php echo $prof_id; ?>"  >
+													<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" value="<?php echo $fname; ?>"  >
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -168,7 +184,7 @@
 													<label class="icon-right" for="lastnamepost">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" value="<?php echo $lname; ?>" required>
+													<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" value="<?php echo $lname; ?>" >
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -181,7 +197,7 @@
 													<label class="icon-right" for="phone">
 														<i class="fa fa-phone"></i>
 													</label>
-													<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='10' onkeypress="return isNumber(event)" required>
+													<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='10' onkeypress="return isNumber(event)" >
 												</div>
 											</div>
 											<div class="col-sm-12 unit">													
@@ -203,7 +219,8 @@
 													<label class="icon-right" for="currentpasspost">
 														<i class="fa fa-lock"></i>
 													</label>
-													<input type="password" id="currentpasspost" name="currentpasspost" placeholder="Enter Current Password">
+													<input type="password" id="currentpasspost" name="currentpasspost" placeholder="Enter Current Password" >
+													<?php echo form_error("currentpasspost");?>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -216,7 +233,8 @@
 													<label class="icon-right" for="newpasspost">
 														<i class="fa fa-lock"></i>
 													</label>
-													<input type="password" id="newpasspost" name="newpasspost" placeholder="Enter New password">
+													<input type="password" id="newpasspost" name="newpasspost" placeholder="Enter New password" >
+														<?php echo form_error("newpasspost");?>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">
@@ -229,11 +247,12 @@
 													<label class="icon-right" for="confirmpasspost">
 														<i class="fa fa-lock"></i>
 													</label>
-													<input type="password" id="confirmpasspost" name="confirmpasspost" placeholder="Enter Confirm password">
+													<input type="password" id="confirmpasspost" name="confirmpasspost" placeholder="Enter Confirm password" >
+													 <?php echo form_error("confirmpasspost");?>
 												</div>
 											</div>
 											<div class="col-sm-12 unit">													
-												<button class="btn btn-primary ">Change Password</button>
+												<button class="btn btn-primary " id='change_pwd'>Change Password</button>
 											</div>								
 										</div>								
 									</div>
@@ -242,7 +261,7 @@
 								<div class="row">
 									<div class="col-sm-12 unit">
 										<h3>Manage contact email</h3>
-										<label>Login with: samplemail@yahoo.com</label>
+										<label>Login with: <?php echo $mail_id; ?></label>
 									</div>
 								</div><hr class="separator">
 								
@@ -309,4 +328,8 @@
 	<script src="j-folder/js/j-forms.min.js"></script>
 	<script src="j-folder/js/jquery-cloneya.min.js"></script>
 
-        
+<script>
+       setTimeout(function(){
+            $(".alert").hide();
+       },5000);
+</script>
