@@ -371,7 +371,7 @@
 																	<div class="comment-box">
 																		<div class="comment-head">
 																			<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																			<span>hace 20 minutos</span>
+																			<span>hace 20 minutes</span>
 																			<i class="fa fa-reply"></i>
 																			<i class="fa fa-heart"></i>
 																		</div>
@@ -389,7 +389,7 @@
 																		<div class="comment-box">
 																			<div class="comment-head">
 																				<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
-																				<span>hace 10 minutos</span>
+																				<span>hace 10 minutes</span>
 																				<i class="fa fa-reply"></i>
 																				<i class="fa fa-heart"></i>
 																			</div>
@@ -406,7 +406,7 @@
 																		<div class="comment-box">
 																			<div class="comment-head">
 																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																				<span>hace 10 minutos</span>
+																				<span>hace 10 minutes</span>
 																				<i class="fa fa-reply"></i>
 																				<i class="fa fa-heart"></i>
 																			</div>
@@ -426,7 +426,7 @@
 																	<div class="comment-box">
 																		<div class="comment-head">
 																			<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
-																			<span>hace 10 minutos</span>
+																			<span>hace 10 minutes</span>
 																			<i class="fa fa-reply"></i>
 																			<i class="fa fa-heart"></i>
 																		</div>
