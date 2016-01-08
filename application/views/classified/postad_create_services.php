@@ -607,14 +607,14 @@ jQuery(document).ready(function($) {
 										<div class="j-row">
 											<div class="col-sm-8 pad_bottm">
 												<ul class="social-team pull-left">
-													<li><?php echo ucfirst(@$cat); ?> /</li>
-													<li><?php echo ucfirst(@$sub_name); ?> /</li>
-													<li><?php echo ucfirst(@$sub_sub_name); ?></li>
+													<li><b><?php echo ucfirst(@$cat); ?></b> /</li>
+													<li><b><?php echo ucfirst(@$sub_name); ?></b> /</li>
+													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b></li>
 												</ul>                 
 											</div>
 											<div class="col-sm-4 pad_bottm">
 												<ul class="social-team pull-left">
-													<li><a href="" data-toggle="modal" data-target="#Services" >Change Category</a></li>
+													<li><a href="" data-toggle="modal" data-target="#Services" ><b>Change Category</b></a></li>
 												</ul>                 
 											</div>
 										</div> 
