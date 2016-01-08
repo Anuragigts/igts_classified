@@ -29,7 +29,7 @@ class Login extends CI_Controller{
                                             redirect("login");  
                             }
                             else{
-                                redirect("postad");
+                                redirect("signup");
                             }
                         }
                         }
