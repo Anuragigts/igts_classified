@@ -79,5 +79,41 @@ class Update_profile extends CI_Controller{
                 
             }
         }
+
+        /*deactivate account*/
+        public function deactivate_account(){
+            $mail = $this->input->post('mail');
+            $rand_val = md5(rand(10000,99999));
+            $inp            =       $this->profile_model->deactivate($rand_val);
+            if ($inp == 1) {
+                $this->session->set_flashdata("msg","Account Deactivated Successfully!!");
+                 echo json_encode('0');
+            }
+            else{
+                $this->session->set_flashdata("err","internal error occured!!");
+                 echo json_encode('1');
+
+            }
+        }
+
+        /*re activate account*/
+        public function re_activate(){
+            // $data   =   array(
+            //                         "title"         =>      "Classified",
+            //                         "content"       =>      "activate"
+            //                 );
+                $uri            =       $this->uri->segment(3);
+                $login_id       =        $this->uri->segment(4);
+
+                $in = $this->profile_model->activate($uri, $login_id);
+                if($in == 1){
+                    $this->session->set_flashdata("msg","Re-activated Successfully!!");
+                    redirect('login');
+                }
+                else{
+                    $this->session->set_flashdata("msg","Internal error");
+                    redirect('login');
+                }
+        }
 }
 

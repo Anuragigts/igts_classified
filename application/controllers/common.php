@@ -114,8 +114,8 @@ class Common extends CI_Controller {
         }
 
 
-public function re_activate(){
-   $data   =   array(
+        public function re_activate(){
+            $data   =   array(
                                     "title"         =>      "Classified",
                                     "content"       =>      "activate"
                             );
