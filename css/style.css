@@ -250,7 +250,7 @@ ul.single-carousel,
 	color: #fff !important;	
 }
 .paddings{
-	padding: 100px 0;
+	padding: 60px 0;
 }
 .paddings-mini{
 	padding: 50px 0;
@@ -312,12 +312,12 @@ hr.tall {
 	margin-bottom: 20px;
 }
 .list-styles li{
- 	line-height: 40px;
+ 	line-height: 30px;
 }
 .list-styles li a,
 .list-styles li{
 	font-size: 0.82rem;
-	color: #777;
+	color: #171515;
 }
 .list-styles li i{
 	border-radius: 50%;
@@ -2654,8 +2654,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     padding: 10px;
 }
 .bus_logo b img{
-   width: 50px;
-	height: 50px;
+	width: 65px;
+	height: 40px;
 }
 
 .info-gallery .buslogo_favo{
@@ -4344,13 +4344,13 @@ a .login-op-btn:hover{
  * Detalle: #c7cacb
  * Fondo: #dee1e3
  ----------------------------------*/
- * {
+/*  * {
  	margin: 0;
  	padding: 0;
  	-webkit-box-sizing: border-box;
  	-moz-box-sizing: border-box;
  	box-sizing: border-box;
- }
+ } */
 
 
 
@@ -4624,4 +4624,26 @@ ul {
 
 aside label .checkbox{
 	color:#FFF;
+}
+
+.list-styles ul li a{
+	font-weight:bold;
+}
+.free_bg{
+	background: transparent url("../img/icons/free_bg.png") no-repeat;
+	height: 58px;
+	width: 122px;
+}
+.gold_bg{
+	background: transparent url("../img/icons/gold_bg.png") no-repeat;
+	height: 58px;
+	width: 122px;
+}
+.platinum_bg{
+	background: transparent url("../img/icons/platinum_bg.png") no-repeat;
+	height: 58px;
+	width: 122px;
+}
+.line_height{
+	line-height:1.2 !important;
 }
