@@ -84,6 +84,22 @@
 				var pwd = $("#newpasspost").val();
 				var conf_pwd = $("#confirmpasspost").val();
 				var prof_id = $("#profile_id").val();
+				hasError = true;
+				if(cur_pwd == '') {
+			      $("#currentpasspost").prop('required',true);
+			      hasError = false;
+			    }
+
+			    if(pwd == '') {
+			      $("#newpasspost").prop('required',true);
+			      hasError = false;
+			    }
+
+			    if(conf_pwd == '') {
+			      $("#confirmpasspost").prop('required',true);
+			      hasError = false;
+			    }
+			    if(hasError == true){
 				  $.ajax({
 			      type : 'post',
 			      url  : '<?php echo base_url()?>update_profile/change_pwd',
@@ -93,6 +109,7 @@
 			       window.location.href = "<?php echo base_url(); ?>update_profile";
 			      }
 			    });
+			}
 			});
 		});
 	</script>

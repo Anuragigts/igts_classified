@@ -12,6 +12,41 @@
 		<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
         <link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
         <script type="text/javascript" src="switchery.min.js"></script>
+        <script type="text/javascript">
+        /*accept number only*/
+    function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        $(function(){
+            $('#fname').keydown(function (e) {
+                    if (e.shiftKey || e.ctrlKey || e.altKey) {
+                    e.preventDefault();
+                    } else {
+                    var key = e.keyCode;
+                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                        e.preventDefault();
+                        }
+                    }
+                });
+
+            $('#lname').keydown(function (e) {
+                    if (e.shiftKey || e.ctrlKey || e.altKey) {
+                    e.preventDefault();
+                    } else {
+                    var key = e.keyCode;
+                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                        e.preventDefault();
+                        }
+                    }
+                });
+        });
+        </script>
  <!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
@@ -94,7 +129,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <label>Phone Number <sup style='color:red;'>*</sup>
-                                                    <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7" maxlength='10'>
+                                                    <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7" maxlength='10' onkeypress="return isNumber(event)" >
                                                     <?php echo form_error("mobile");?>
                                                 </label>
                                             </div>
