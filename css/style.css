@@ -3183,7 +3183,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	margin-top: 20px;
 }
 .widget{
-	margin-bottom: 40px;
+	margin-bottom: 15px;
 }
 .widget iframe{
 	width: 100%;
@@ -3661,10 +3661,10 @@ address strong{
 
 /* Filter widgets --------------------------------------------*/
 .container-by-widget-filter{
-  	margin-left: -45px;
-  	padding-left: 45px;
-  	padding-right: 45px;
-  	padding-bottom: 50px;
+  	margin-left: -20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 70px;
   	color: #ccc;
 }
 .filter-widget{
@@ -3773,7 +3773,7 @@ address strong{
 }
 .title-widget{
 	border-bottom: 2px solid;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	padding-top: 0;
 	position: relative;
 }
