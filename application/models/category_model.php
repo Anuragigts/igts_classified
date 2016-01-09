@@ -80,6 +80,17 @@ GROUP BY sub_subcategory.`sub_category_id`) ");
             return $rs->result_array();
         }
 
+         /*motor point for cars sub-category*/
+         public function cars_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 12 LIMIT 60");
+            return $rs->result_array();
+        }
+
+         public function cars_sub_cat_sec(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 12 LIMIT 60, 118");
+            return $rs->result_array();
+        }
+
 
 
 }
