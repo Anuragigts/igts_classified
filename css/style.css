@@ -317,14 +317,14 @@ hr.tall {
 .list-styles li a,
 .list-styles li{
 	font-size: 0.82rem;
-	color: #171515;
+	color: #777;
 }
 .list-styles li i{
 	border-radius: 50%;
 	width:22px;
 	height: 22px;
-	background: #232323;
-	color: #fff;
+	/* background: #232323; */
+	/* color: #fff; */
 	text-align: center;
 	font-size: 0.7rem;
 	padding: 6px 5px;
@@ -1701,7 +1701,7 @@ hr.separator:before {
 /* Promotion Box ----------------------------*/
 .promotion-box{
 	position: relative;
-	background-color: #f9f9f9;
+	background-color: #fff;
 	border:solid 1px #dedede;
 	border-radius: 15px;
 }
@@ -1774,7 +1774,7 @@ hr.separator:before {
   border-right: 20px solid transparent;
 }
 .promotion-box-info{
-	padding: 30px 20px 25px 20px;
+	padding: 33px 10px 20px 10px;
 }
 .promotion-box-info p{
 	margin-bottom: 15px;
