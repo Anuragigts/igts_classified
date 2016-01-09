@@ -203,7 +203,7 @@
 .j-forms .radio,
 .j-forms .checkbox,
 .j-forms .inline-group .radio,
-.j-forms .inline-group .checkbox { padding:9px 0 8px 32px; }
+.j-forms .inline-group .checkbox { padding:9px 0 12px 32px; }
 
 .j-forms .radio-toggle,
 .j-forms .checkbox-toggle,
