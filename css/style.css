@@ -3837,7 +3837,7 @@ address strong{
 	font-size:19px;
 } 
 
-figure img{
+.significant_ad img{
 	width:400px;
 	height:348px;
 }
@@ -4649,4 +4649,10 @@ aside label .checkbox{
 }
 .deal_text{
 	font-size: 18px;
+}
+.description a{
+	color:#777;
+}
+.description p{
+	text-align:justify;
 }
