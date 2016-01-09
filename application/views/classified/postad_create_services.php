@@ -890,15 +890,15 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Recent Ads Section 
+																	<li><i class="fa fa-check"></i> Recent Ads Section 
 																	<a href="img/free.png" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Low on Views</li>
-															<li><i class="fa fa-arrow-right"></i> Only 3-5 photos</li>
+															<li><i class="fa fa-check"></i> Low on Views</li>
+															<li><i class="fa fa-check"></i> Only 3-5 photos</li>
 															<li>
 																<center>
 																	<div class="free_bg text_center">
@@ -925,11 +925,11 @@ jQuery(document).ready(function($) {
 																Marked as URGENT – £0.99 for 7 days (for e.g.) 
 															</label>
 															<ul class="list-styles top_10">
-																<li><i class="fa fa-arrow-right"></i> Visibility 
+																<li><i class="fa fa-check"></i> Visibility 
 																	<ul>
-																		<li><i class="fa fa-arrow-right"></i> (Free + Urgent) – Also labelled as  CRUCIAL AD
+																		<li><i class="fa fa-check"></i> (Free + Urgent) – Also labelled as  CRUCIAL AD
 																		<a href="" class="fancybox">Example</a></li>
-																		<li><i class="fa fa-arrow-right"></i> Displayed under Categories to Sub Category  
+																		<li><i class="fa fa-check"></i> Displayed under Categories to Sub Category  
 																		<a href="" class="fancybox">Example</a></li>
 																	</ul>
 																</li>
@@ -969,18 +969,18 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad(MOST VALUED Ad) 
+																	<li><i class="fa fa-check"></i> Top Banner Ad(MOST VALUED Ad) 
 																	<a href="img/gold.png" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Category 
+																	<li><i class="fa fa-check"></i> Displayed under Categories & Sub Category 
 																	<a href="" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> 3x more Views</li>
-															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
-															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li><i class="fa fa-check"></i> 3x more Views</li>
+															<li><i class="fa fa-check"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-check"></i> Unlimited Photos</li>
 															<li>
 																<center>
 																	<div class="gold_bg text_center">
@@ -995,22 +995,22 @@ jQuery(document).ready(function($) {
 															is Urgent
 														</label>
 														<ul class="list-styles gold_hide" style="display:none;">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Marked as URGENT
+																	<li><i class="fa fa-check"></i> Marked as URGENT
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad (MOST VALUED Ad)
+																	<li><i class="fa fa-check"></i> Top Banner Ad (MOST VALUED Ad)
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Categories
+																	<li><i class="fa fa-check"></i> Displayed under Categories & Sub Categories
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Also Displayed under other Sub Categories under Main Category 
+																	<li><i class="fa fa-check"></i> Also Displayed under other Sub Categories under Main Category 
 																	<a href="" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> 7x more Views</li>
-															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
-															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li><i class="fa fa-check"></i> 7x more Views</li>
+															<li><i class="fa fa-check"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-check"></i> Unlimited Photos</li>
 															<li>
 																<center>
 																	<div class="gold_bg text_center">
@@ -1039,22 +1039,22 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Marked as SIGNIFICANT Ad on every page under selected category
+																	<li><i class="fa fa-check"></i> Marked as SIGNIFICANT Ad on every page under selected category
 																	<a href="img/platinum.png" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Vertical Banner Ad with full description of Selling Product with Reply option
+																	<li><i class="fa fa-check"></i> Vertical Banner Ad with full description of Selling Product with Reply option
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed as Marquee (breaking news) on the home page
+																	<li><i class="fa fa-check"></i> Displayed as Marquee (breaking news) on the home page
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed under all categories in right columns 
+																	<li><i class="fa fa-check"></i> Displayed under all categories in right columns 
 																	<a href="" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> 10x Views + High on Returns</li>
-															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
-															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li><i class="fa fa-check"></i> 10x Views + High on Returns</li>
+															<li><i class="fa fa-check"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-check"></i> Unlimited Photos</li>
 															<li>
 																<center>
 																	<div class="platinum_bg text_center">
@@ -1089,7 +1089,7 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info" style="min-height: 378px;">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> N.A.</li>
+															<li><i class="fa fa-check"></i> N.A.</li>
 														</ul>
 														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
@@ -1119,15 +1119,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</center>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+															<li><i class="fa fa-check"></i> Option 1 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	15 ad - £11.99(Validity: 3 months) </li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+															<li><i class="fa fa-check"></i> Option 2 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	30 ad - £20.99 (Validity: 6 months)</li>
 																</ul>
 															</li>
@@ -1145,15 +1145,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</center>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+															<li><i class="fa fa-check"></i> Option 1 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	15 ad - £20.99(Validity: 3 months) </li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+															<li><i class="fa fa-check"></i> Option 2 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	30 ad - £39.99 (Validity: 6 months)</li>
 																</ul>
 															</li>
@@ -1185,15 +1185,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</center>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+															<li><i class="fa fa-check"></i> Option 1 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	15 ad - £59.99(Validity: 3 months) </li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+															<li><i class="fa fa-check"></i> Option 2 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	30 ad - £99.99 (Validity: 6 months)</li>
 																</ul>
 															</li>
@@ -1222,15 +1222,15 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Recent Ads Section 
+																	<li><i class="fa fa-check"></i> Recent Ads Section 
 																	<a href="img/free.png" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Low on Views</li>
-															<li><i class="fa fa-arrow-right"></i> Only 2 photos</li>
+															<li><i class="fa fa-check"></i> Low on Views</li>
+															<li><i class="fa fa-check"></i> Only 2 photos</li>
 															<li>
 																<center>
 																	<div class="free_bg text_center">
@@ -1256,11 +1256,11 @@ jQuery(document).ready(function($) {
 																Marked as URGENT – £0.99 for 7 days (for e.g.) 
 															</label>
 															<ul class="list-styles top_10">
-																<li><i class="fa fa-arrow-right"></i> Visibility 
+																<li><i class="fa fa-check"></i> Visibility 
 																	<ul>
-																		<li><i class="fa fa-arrow-right"></i> (Free + Urgent) – Also labelled as  CRUCIAL AD
+																		<li><i class="fa fa-check"></i> (Free + Urgent) – Also labelled as  CRUCIAL AD
 																		<a href="" class="fancybox">Example</a></li>
-																		<li><i class="fa fa-arrow-right"></i> Displayed under Categories to Sub Category  
+																		<li><i class="fa fa-check"></i> Displayed under Categories to Sub Category  
 																		<a href="" class="fancybox">Example</a></li>
 																	</ul>
 																</li>
@@ -1298,18 +1298,18 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad(MOST VALUED Ad) 
+																	<li><i class="fa fa-check"></i> Top Banner Ad(MOST VALUED Ad) 
 																	<a href="img/gold.png" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Category 
+																	<li><i class="fa fa-check"></i> Displayed under Categories & Sub Category 
 																	<a href="" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> 3x more Views</li>
-															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
-															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li><i class="fa fa-check"></i> 3x more Views</li>
+															<li><i class="fa fa-check"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-check"></i> Unlimited Photos</li>
 															<li>
 																<center>
 																	<div class="gold_bg text_center">
@@ -1324,22 +1324,22 @@ jQuery(document).ready(function($) {
 															is Urgent
 														</label>
 														<ul class="list-styles pec_goldur_hide" style="display:none">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Marked as URGENT
+																	<li><i class="fa fa-check"></i> Marked as URGENT
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad (MOST VALUED Ad)
+																	<li><i class="fa fa-check"></i> Top Banner Ad (MOST VALUED Ad)
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Categories
+																	<li><i class="fa fa-check"></i> Displayed under Categories & Sub Categories
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Also Displayed under other Sub Categories under Main Category 
+																	<li><i class="fa fa-check"></i> Also Displayed under other Sub Categories under Main Category 
 																	<a href="" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> 7x more Views</li>
-															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
-															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li><i class="fa fa-check"></i> 7x more Views</li>
+															<li><i class="fa fa-check"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-check"></i> Unlimited Photos</li>
 															<li>
 																<center>
 																	<div class="gold_bg text_center">
@@ -1368,22 +1368,22 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Marked as SIGNIFICANT Ad on every page under selected category
+																	<li><i class="fa fa-check"></i> Marked as SIGNIFICANT Ad on every page under selected category
 																	<a href="img/platinum.png" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Vertical Banner Ad with full description of Selling Product with Reply option
+																	<li><i class="fa fa-check"></i> Vertical Banner Ad with full description of Selling Product with Reply option
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed as Marquee (breaking news) on the home page
+																	<li><i class="fa fa-check"></i> Displayed as Marquee (breaking news) on the home page
 																	<a href="" class="fancybox">Example</a></li>
-																	<li><i class="fa fa-arrow-right"></i> Displayed under all categories in right columns 
+																	<li><i class="fa fa-check"></i> Displayed under all categories in right columns 
 																	<a href="" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> 10x Views + High on Returns</li>
-															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
-															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li><i class="fa fa-check"></i> 10x Views + High on Returns</li>
+															<li><i class="fa fa-check"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-check"></i> Unlimited Photos</li>
 															<li>
 																<center>
 																	<div class="platinum_bg text_center">
@@ -1417,15 +1417,15 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info" style="min-height: 378px;">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
-															<li><i class="fa fa-arrow-right"></i> Visibility 
+															<li><i class="fa fa-check"></i> Validity : 30 days</li>
+															<li><i class="fa fa-check"></i> Visibility 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> Recent Ads Section 
+																	<li><i class="fa fa-check"></i> Recent Ads Section 
 																	<a href="img/free.png" class="fancybox">Example</a></li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Low on Views</li>
-															<li><i class="fa fa-arrow-right"></i> Only 2 photos</li>
+															<li><i class="fa fa-check"></i> Low on Views</li>
+															<li><i class="fa fa-check"></i> Only 2 photos</li>
 															<li>
 																<center>
 																	<div class="free_bg text_center">
@@ -1462,15 +1462,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</center>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+															<li><i class="fa fa-check"></i> Option 1 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	15 ad - £11.99(Validity: 3 months) </li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+															<li><i class="fa fa-check"></i> Option 2 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	30 ad - £20.99 (Validity: 6 months)</li>
 																</ul>
 															</li>
@@ -1488,15 +1488,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</center>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+															<li><i class="fa fa-check"></i> Option 1 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	15 ad - £20.99(Validity: 3 months) </li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+															<li><i class="fa fa-check"></i> Option 2 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	30 ad - £39.99 (Validity: 6 months)</li>
 																</ul>
 															</li>
@@ -1528,15 +1528,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</center>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+															<li><i class="fa fa-check"></i> Option 1 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	15 ad - £59.99(Validity: 3 months) </li>
 																</ul>
 															</li>
-															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+															<li><i class="fa fa-check"></i> Option 2 : 
 																<ul>
-																	<li><i class="fa fa-arrow-right"></i> 
+																	<li><i class="fa fa-check"></i> 
 																	30 ad - £99.99 (Validity: 6 months)</li>
 																</ul>
 															</li>
