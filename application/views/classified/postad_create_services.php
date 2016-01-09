@@ -26,7 +26,7 @@
 			$('#del_img').click(function(){
 				$("#file_input").val(""); 
 				$("#file").val(""); 
-				$('img#blah').attr('src', '');
+				$('img#blah').css('display', 'none');
 	             $('#blah').css('border', 'none')
 				$('#blah').css('border-radius', 'none');
 				$('#del_img').css('display', 'none');
