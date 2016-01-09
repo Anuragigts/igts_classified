@@ -116,6 +116,54 @@
 					
 
 				});
+				
+				$("#bu_cust_urpackage").click(function(){
+					 var ch = document.getElementById('bu_cust_urpackage').checked;
+					 if (ch) {
+					 	$(".b_customer_hide").show(1000);
+					 }
+					 else{
+					 	$(".b_customer_hide").hide(1000);
+					 }
+					
+
+				});
+				
+				$("#bu_cust_urpackage1").click(function(){
+					 var ch = document.getElementById('bu_cust_urpackage1').checked;
+					 if (ch) {
+					 	$(".b_customer_hide1").show(1000);
+					 }
+					 else{
+					 	$(".b_customer_hide1").hide(1000);
+					 }
+					
+
+				});
+				
+				$("#pec_free_package").click(function(){
+					 var ch = document.getElementById('pec_free_package').checked;
+					 if (ch) {
+					 	$(".pec_free_hide").show(1000);
+					 }
+					 else{
+					 	$(".pec_free_hide").hide(1000);
+					 }
+					
+
+				});
+				
+				$("#pec_goldur_package").click(function(){
+					 var ch = document.getElementById('pec_goldur_package').checked;
+					 if (ch) {
+					 	$(".pec_goldur_hide").show(1000);
+					 }
+					 else{
+					 	$(".pec_goldur_hide").hide(1000);
+					 }
+					
+
+				});
 
 				/*free+urgent package*/
 				$("#free_urgent").click(function(){

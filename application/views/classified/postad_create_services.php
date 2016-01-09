@@ -872,7 +872,7 @@ jQuery(document).ready(function($) {
 
 										<div class="divider gap-bottom-25"></div>
 
-											<!-- start name -->
+										<!-- start name -->
 										<div class="j-row">
 											<div class="span4">
 												<!-- promotion-box-->
@@ -887,22 +887,65 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> 3-5 Images Upload</li>
-															<li><i class="fa fa-arrow-right"></i> No Video</li>
-															<li><i class="fa fa-arrow-right"></i> No Visibility</li>
-															<li><i class="fa fa-arrow-right"></i> No Website link</li>
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Recent Ads Section 
+																	<a href="img/free.png" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Low on Views</li>
+															<li><i class="fa fa-arrow-right"></i> Only 3-5 photos</li>
+															<li>
+																<center>
+																	<div class="free_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0</h3>
+																	</div>
+																</center>
+															</li>
 														</ul>
 														<label class="checkbox">
 															<input type="checkbox" name="candles" id='free_package' value="candles-5$" data-price="5">
 															<i></i>
 															is Urgent
 														</label>
-														<ul class="list-styles free_hide" style="display:none;">
-															<li><i class="fa fa-arrow-right"></i> 9 Images</li>
-															<li><i class="fa fa-arrow-right"></i> Video Link</li>
-															<li><i class="fa fa-arrow-right"></i> Website link</li>
-														</ul>
-														<a href="#four" data-toggle="tab" id='free_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
+														
+														<div class="free_hide" style="display:none;padding-bottom:20px;">
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Auto Boosted Once in 3 days (till 30 days) - £0.99
+															</label>
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Marked as URGENT – £0.99 for 7 days (for e.g.) 
+															</label>
+															<ul class="list-styles top_10">
+																<li><i class="fa fa-arrow-right"></i> Visibility 
+																	<ul>
+																		<li><i class="fa fa-arrow-right"></i> (Free + Urgent) – Also labelled as  CRUCIAL AD
+																		<a href="" class="fancybox">Example</a></li>
+																		<li><i class="fa fa-arrow-right"></i> Displayed under Categories to Sub Category  
+																		<a href="" class="fancybox">Example</a></li>
+																	</ul>
+																</li>
+															</ul>
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Top Banner Ad –  £0.99 for 30 days (for e.g.)
+															</label>
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Vertical Banner Ad – £5.99 for 30 days (for e.g.)
+
+															</label>
+														</div>
+														
+														
+														<a href="#four" data-toggle="tab" id='free_urgent' class=" btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													
 													<!-- End promotion-box-info-->
@@ -923,10 +966,25 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Upload 9 Images</li>
-															<li><i class="fa fa-arrow-right"></i> Video link</li>
-															<li><i class="fa fa-arrow-right"></i> More Visibility</li>
-															<li><i class="fa fa-arrow-right"></i> Website link</li>
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad(MOST VALUED Ad) 
+																	<a href="img/gold.png" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Category 
+																	<a href="" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> 3x more Views</li>
+															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0.99</h3>
+																	</div>
+																</center>
+															</li>
 														</ul>
 														<label class="checkbox">
 															<input type="checkbox" id='gold_package' name="candles" value="candles-5$" data-price="5">
@@ -934,7 +992,29 @@ jQuery(document).ready(function($) {
 															is Urgent
 														</label>
 														<ul class="list-styles gold_hide" style="display:none;">
-															<li><i class="fa fa-arrow-right"></i> 12 Images</li>
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Marked as URGENT
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad (MOST VALUED Ad)
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Categories
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Also Displayed under other Sub Categories under Main Category 
+																	<a href="" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> 7x more Views</li>
+															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£1.99</h3>
+																	</div>
+																</center>
+															</li>
 														</ul>
 														<a href="#four" data-toggle="tab" id='gold_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
@@ -956,21 +1036,32 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Upload 15 Images</li>
-															<li><i class="fa fa-arrow-right"></i> Video Upload</li>
-															<li><i class="fa fa-arrow-right"></i> Top Visibility</li>
-															<li><i class="fa fa-arrow-right"></i> Website link</li>
-															<li><i class="fa fa-arrow-right"></i> Marquee Title</li>
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Marked as SIGNIFICANT Ad on every page under selected category
+																	<a href="img/platinum.png" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Vertical Banner Ad with full description of Selling Product with Reply option
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed as Marquee (breaking news) on the home page
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed under all categories in right columns 
+																	<a href="" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> 10x Views + High on Returns</li>
+															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li>
+																<center>
+																	<div class="platinum_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£5.99</h3>
+																	</div>
+																</center>
+															</li>
 														</ul>
 														
-														<!-- <label class="checkbox">
-															<input type="checkbox" id='platinum_package' name="candles" value="candles-5$" data-price="5">
-															<i></i>
-															 Marquee Title
-														</label>
-														<div class="input marquetitle_hide"  style='display:none;'>
-															<textarea type="text" id="marquetit" name="marquetit" placeholder="Enter Marquee Title" ></textarea>
-														</div> -->
+														
 														<a href="#four" data-toggle="tab" id='platinum_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
 													<!-- End promotion-box-info-->
@@ -978,25 +1069,469 @@ jQuery(document).ready(function($) {
 												<!-- End promotion-box-->
 											</div>
 										</div>
-										<div class="row">
-											<div class="">
-												<div class="unit check logic-block-radio">
-													<div class="">
-														<div class="row">
-															<div class="span4 achor_hov1 unit text_center top_10">
-																<h4 class=""><a href="img/free.png" class="fancybox">For More</a></h4>
-															</div>
-															<div class="span4 achor_hov2 unit text_center top_10">
-																<h4><a href="img/gold.png" class="fancybox">For More</a></h4>
-															</div>
-															<div class="span4 achor_hov3 unit text_center top_10">
-																<h4><a href="img/platinum.png" class="fancybox">For More</a></h4>
-															</div>
+										
+										<!--Business to Customer Start-->
+										<div class="j-row top_20" style="display:none">
+											<h3 >Business to Customer</h3>
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-2">
+														<div class="prince">
+															Free
 														</div>
 													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info" style="min-height: 378px;">
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-right"></i> N.A.</li>
+														</ul>
+														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-1">
+														<div class="prince">
+															Gold
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info">
+														<ul class="list-styles">
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0.99</h3>
+																	</div>
+																</center>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	15 ad - £11.99(Validity: 3 months) </li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	30 ad - £20.99 (Validity: 6 months)</li>
+																</ul>
+															</li>
+														</ul>
+														<label class="checkbox">
+															<input type="checkbox" id="bu_cust_urpackage" name="candles" value="candles-5$" data-price="5">
+															<i></i>
+															is Urgent
+														</label>
+														<ul class="list-styles b_customer_hide" style="display:none">
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£1.98</h3>
+																	</div>
+																</center>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	15 ad - £20.99(Validity: 3 months) </li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	30 ad - £39.99 (Validity: 6 months)</li>
+																</ul>
+															</li>
+														</ul>
+														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+											
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-3">
+														<div class="prince">
+															Platinum
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info" style="min-height: 378px;">
+														<ul class="list-styles">
+															<li>
+																<center>
+																	<div class="platinum_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£5.99</h3>
+																	</div>
+																</center>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	15 ad - £59.99(Validity: 3 months) </li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	30 ad - £99.99 (Validity: 6 months)</li>
+																</ul>
+															</li>
+														</ul>
+														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													<!-- End promotion-box-info-->
 												</div>
 											</div>
 										</div>
+										<!-- Business to Customer End-->
+										
+										<!-- Pets, E-Zone, Clothing & Lifestyle Start-->
+										<div class="j-row top_20" style="display:none">
+											<h3>Pets, E-Zone, Clothing & Lifestyle Start</h3>
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-2">
+														<div class="prince">
+															Free
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info">
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Recent Ads Section 
+																	<a href="img/free.png" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Low on Views</li>
+															<li><i class="fa fa-arrow-right"></i> Only 2 photos</li>
+															<li>
+																<center>
+																	<div class="free_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0</h3>
+																	</div>
+																</center>
+															</li>
+														</ul>
+														<label class="checkbox">
+															<input type="checkbox" name="candles" id='pec_free_package' value="candles-5$" data-price="5">
+															<i></i>
+															is Urgent
+														</label>
+														<div class="pec_free_hide" style="display:none;padding-bottom:20px;">
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Auto Boosted Once in 3 days (till 30 days) - £0.99
+															</label>
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Marked as URGENT – £0.99 for 7 days (for e.g.) 
+															</label>
+															<ul class="list-styles top_10">
+																<li><i class="fa fa-arrow-right"></i> Visibility 
+																	<ul>
+																		<li><i class="fa fa-arrow-right"></i> (Free + Urgent) – Also labelled as  CRUCIAL AD
+																		<a href="" class="fancybox">Example</a></li>
+																		<li><i class="fa fa-arrow-right"></i> Displayed under Categories to Sub Category  
+																		<a href="" class="fancybox">Example</a></li>
+																	</ul>
+																</li>
+															</ul>
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Top Banner Ad –  £0.99 for 30 days (for e.g.)
+															</label>
+															<label class="radio line_height">
+																<input type="radio" name="radio" checked="">
+																<i></i>
+																Vertical Banner Ad – £5.99 for 30 days (for e.g.)
+
+															</label>
+														</div>
+														<a href="#four" data-toggle="tab" id='free_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-1">
+														<div class="prince">
+															Gold
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info">
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad(MOST VALUED Ad) 
+																	<a href="img/gold.png" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Category 
+																	<a href="" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> 3x more Views</li>
+															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0.99</h3>
+																	</div>
+																</center>
+															</li>
+														</ul>
+														<label class="checkbox">
+															<input type="checkbox" id='pec_goldur_package' name="candles" value="candles-5$" data-price="5">
+															<i></i>
+															is Urgent
+														</label>
+														<ul class="list-styles pec_goldur_hide" style="display:none">
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Marked as URGENT
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Top Banner Ad (MOST VALUED Ad)
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed under Categories & Sub Categories
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Also Displayed under other Sub Categories under Main Category 
+																	<a href="" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> 7x more Views</li>
+															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£1.99</h3>
+																	</div>
+																</center>
+															</li>
+														</ul>
+														<a href="#four" data-toggle="tab" id='gold_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+											
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-3">
+														<div class="prince">
+															Platinum
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info">
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Marked as SIGNIFICANT Ad on every page under selected category
+																	<a href="img/platinum.png" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Vertical Banner Ad with full description of Selling Product with Reply option
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed as Marquee (breaking news) on the home page
+																	<a href="" class="fancybox">Example</a></li>
+																	<li><i class="fa fa-arrow-right"></i> Displayed under all categories in right columns 
+																	<a href="" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> 10x Views + High on Returns</li>
+															<li><i class="fa fa-arrow-right"></i> Auto Boosted once in 3 days</li>
+															<li><i class="fa fa-arrow-right"></i> Unlimited Photos</li>
+															<li>
+																<center>
+																	<div class="platinum_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£5.99</h3>
+																	</div>
+																</center>
+															</li>
+														</ul>
+														<a href="#four" data-toggle="tab" id='platinum_urgent' class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+										</div>
+										<!-- Pets, E-Zone, Clothing & Lifestyle End-->
+										
+										<!--Business to Customer Start-->
+										<div class="j-row top_20" style="display:none">
+											<h3 >Business to Customer</h3>
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-2">
+														<div class="prince">
+															Free
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info" style="min-height: 378px;">
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-right"></i> Same Features as Customer to Customer free ads</li>
+														</ul>
+														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-1">
+														<div class="prince">
+															Gold
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info">
+														<ul class="list-styles">
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0.99</h3>
+																	</div>
+																</center>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	15 ad - £11.99(Validity: 3 months) </li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	30 ad - £20.99 (Validity: 6 months)</li>
+																</ul>
+															</li>
+														</ul>
+														<label class="checkbox">
+															<input type="checkbox" id="bu_cust_urpackage1" name="candles" value="candles-5$" data-price="5">
+															<i></i>
+															is Urgent
+														</label>
+														<ul class="list-styles b_customer_hide1" style="display:none">
+															<li>
+																<center>
+																	<div class="gold_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£1.98</h3>
+																	</div>
+																</center>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	15 ad - £20.99(Validity: 3 months) </li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	30 ad - £39.99 (Validity: 6 months)</li>
+																</ul>
+															</li>
+														</ul>
+														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													<!-- End promotion-box-info-->
+												</div>
+												<!-- End promotion-box-->
+											</div>
+											
+											<div class="span4">
+												<!-- promotion-box-->
+												<div class="promotion-box">
+													<div class="promotion-box-center color-3">
+														<div class="prince">
+															Platinum
+														</div>
+													</div>
+													<!-- End promotion-box-center-->
+
+													<!-- promotion-box-info-->
+													<div class="promotion-box-info" style="min-height: 378px;">
+														<ul class="list-styles">
+															<li>
+																<center>
+																	<div class="platinum_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£5.99</h3>
+																	</div>
+																</center>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 1 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	15 ad - £59.99(Validity: 3 months) </li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Option 2 : 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> 
+																	30 ad - £99.99 (Validity: 6 months)</li>
+																</ul>
+															</li>
+														</ul>
+														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
+													</div>
+													<!-- End promotion-box-info-->
+												</div>
+											</div>
+										</div>
+										<!-- Business to Customer End-->
+										
+										
 									</fieldset>
 									
 									<fieldset>

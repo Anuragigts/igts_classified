@@ -592,7 +592,7 @@
 						<style>
 								#jssor_1{
 									width:1124px !important;
-									 height: 40px !important;
+									 height: 48px !important;
 								}
 						</style>
 						
