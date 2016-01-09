@@ -65,6 +65,77 @@ class Profile_model extends CI_Model{
                 }
 	}
 
+    /*deactivate account*/
+    public function  deactivate($rand_val){
+                $dtr    =   array(
+                                    "is_confirm"        =>  $rand_val,
+                                    "login_status"      =>  "2"
+                            );
+
+                 //email configure
+             $config = Array(
+                 'protocol' => 'smtp',
+                 'smtp_host' => 'ssl://smtp.googlemail.com',
+                 'smtp_port' => 465,
+                 'smtp_user' => 'c.punnam@googlemail.com',
+                 'smtp_pass' => '12chandru12',
+                 );
+
+             $s_email = $this->input->post('mail');
+             $login_id = $this->session->userdata('login_id');
+                 $this->load->library('email', $config);
+                 $this->email->set_newline("\r\n");
+                $this->email->from('test@igravitas.in', "Admin Team");
+                $this->email->to($s_email);
+                // $this->email->cc("manasa.s@igravitas.in");
+                $this->email->subject("Classifieds");
+                $message    =   "
+                <p>Your account successfully Deactivated!!!</p>
+                <h1 style='color:16A085;'>Re-Activate Account</h1>";
+                $pid    =       $this->session->userdata("login_id");
+                $uid    =       $this->session->userdata("user_type");
+                
+            $message   .=   "<a href='".base_url()."update_profile/re_activate/".$rand_val."/".$login_id."'>Click Here To Re-Activate your Account</a>";
+                    $this->email->message($message);
+                     $this->email->send();
+
+
+                $this->db->update("login",$dtr,array("login_email" => $s_email));
+                if($this->db->affected_rows() > 0){
+                        return 1;
+                }else{
+                        return 0;
+                }
+        }
+
+
+        /*re activate account*/
+        public function  add_password($uri){
+                $dtr    =   array(
+                                "login_password"    =>  md5($this->input->post("password")),
+                                "is_confirm"        =>  "confirm",
+                                "login_status"      =>  "1"
+                        );
+                $this->db->update("login",$dtr,array("is_confirm" => $uri));
+                if($this->db->affected_rows() > 0){
+                        return 1;
+                }else{
+                        return 0;
+                }
+        }
+
+        /*mail while activating*/
+        public function activate($uri3, $url4){
+                $whr = array('login_id' => $url4, 'is_confirm' => $uri3);
+                $this->db->where($whr);
+               $this->db->update('login', array('is_confirm' => 'confirm'));
+               if($this->db->affected_rows() > 0){
+                return 1;
+               }else{
+                return 0;
+               }
+        }
+
 }
 
 ?>
