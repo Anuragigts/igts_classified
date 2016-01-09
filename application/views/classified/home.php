@@ -70,10 +70,9 @@
 									<div class="mt-body">
 										<div class="mt-news">
 											<ul>
-												<li><a href="#" target="_self">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. </a></li>
-												<li><a href="#" target="_self">Consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscin</a></li>
-												<li><a href="#" target="_self">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus.</a></li>
-												<li><a href="#" target="_self">Consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscin</a></li>
+												<?php foreach ($news as $n_val) { ?>
+												<li><a href="javascript:void(0);" target="_self"><?php echo implode(",", $n_val); ?> </a></li>
+												<?php	} ?>
 											</ul>
 										</div>
 									</div>
@@ -200,24 +199,39 @@
 									<div id="page">
 										<div id="viewport">
 											<div id="box">
+												<?php
+											$i=1;
+											 foreach ($sig_ads as $sig_val) { ?>
 												<figure class="slide jbs-current">
+													<?php if($sig_val->img_name == ''){
+													?>
 													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+														<img src="ad_images/no_image.png" alt="" class="img-responsive">
+														<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 													</div>
+													<?php
+													}else{
+														?>
+														<div class="img-hover significant_ad">
+														<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="" class="img-responsive">
+														<div class="overlay"><a href="ad_images/<?php echo $sig_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+													</div>
+													<?php	} ?>
 													<div class="info-gallery slider_bg">
-														<h3>Sample Text Here</h3>
+														<h3><?php echo substr($sig_val->title, 0, 20); ?></h3>
 														<hr class="separator">
 														<div class="description">
-															<p class="pull-left">All forms have a fully responsive design that adapts perfectly for mobiles, </h4>
-															<p class="pull-left"><i class="fa fa-phone fa-1x "></i> +91 9874548852</p>
-															<p class="pull-right"><i class="fa fa-envelope fa-1x"></i> <a href="mailto:sample@gmail.com"> sample@gmail.com</a></p>
+															<p class="pull-left"><p><?php echo substr($sig_val->ad_desc, 0, 60); ?> </p> </h4>
+															<p class="pull-left"><i class="fa fa-phone fa-1x "></i>  <?php echo $sig_val->number; ?></p>
+															<p class="pull-right"><i class="fa fa-envelope fa-1x"></i> <a href="javascript:void(0);"> <?php  echo $sig_val->mail_id; ?></a></p>
 														</div>
 														<center class=""><a href="#" class=" "><img src="img/icons/sendnow1.png" alt="" class="img-responsive"></a></center>
 														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 													</div>
 												</figure>
-												
+												<?php 
+												$i++;
+												} ?>
 											</div>
 										</div>
 									</div>                 

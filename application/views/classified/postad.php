@@ -10,11 +10,20 @@
 				}
 				.nav-tabs li a {
 					border: 0px none;
-					padding: 12px 6px;
+					padding: 12px 5px;
 					background: #3A4749 none repeat scroll 0% 0%;
 					color: #FFF;
 				}
 			</style>
+
+			<script type="text/javascript">
+			$(function(){
+				$("#car_viewmore").click(function(){
+					$("#car_sec_part").css('display', 'block');
+					$("#car_viewmore").hide();
+				});
+			});
+			</script>
 			<!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
@@ -288,161 +297,35 @@
 																		<!-- End Nav Tabs-->
 																	</div>
 																</div>
-																<!--All Tabs--->
+																<!--All Tabs-->
 																<div class="tab-content">
-																	<!--Tab1 Cars--->
+																	<!--Tab1 Cars-->
 																	<div class="tab-pane active" id="cars">  
 																		<div class="col-md-12 post_deal_bor">
 																			<div class="row">
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Abarth</a></h4>
-																					<h4><a href="#">AC</a></h4>
-																					<h4><a href="#">Aixam</a></h4>
-																					<h4><a href="#">Alfa Romeo</a></h4>
-																					<h4><a href="#">Alpina</a></h4>
-																					<h4><a href="#">Aston Martin</a></h4>
-																					<h4><a href="#">Audi</a></h4>
-																					<h4><a href="#">Austin</a></h4>
-																					<h4><a href="#">Bentley</a></h4>
-																					<h4><a href="#">BMW</a></h4>
+																				<?php $cars_fst1 = array_chunk(@$cars_fst, 6);
+																				 foreach ($cars_fst1 as $car_val) {
+																				 	foreach ($car_val as $c_val) { ?>
+																				 	<div class="col-md-2 clearfix">
+																					<h4><a href="javascript:void(0);"><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
 																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Bowler</a></h4>
-																					<h4><a href="#">Bugatti</a></h4>
-																					<h4><a href="#">Buick</a></h4>
-																					<h4><a href="#">Cadillac</a></h4>
-																					<h4><a href="#">Caterham</a></h4>
-																					<h4><a href="#">Chesil</a></h4>
-																					<h4><a href="#">Chevrolet</a></h4>
-																					<h4><a href="#">Chrysler</a></h4>
-																					<h4><a href="#">Citroen</a></h4>
-																					<h4><a href="#">Corvette</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Dacia</a></h4>
-																					<h4><a href="#">Daewoo</a></h4>
-																					<h4><a href="#">Daihatsu</a></h4>
-																					<h4><a href="#">Daimler</a></h4>
-																					<h4><a href="#">Datsun</a></h4>
-																					<h4><a href="#">DAX</a></h4>
-																					<h4><a href="#">Dodge</a></h4>
-																					<h4><a href="#">DS</a></h4>
-																					<h4><a href="#">Ferrari</a></h4>
-																					<h4><a href="#">Fiat</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Fiskar</a></h4>
-																					<h4><a href="#">Ford</a></h4>
-																					<h4><a href="#">GBS</a></h4>
-																					<h4><a href="#">Ginetta</a></h4>
-																					<h4><a href="#">GMC</a></h4>
-																					<h4><a href="#">Goingreen</a></h4>
-																					<h4><a href="#">Great Wall</a></h4>
-																					<h4><a href="#">Hillman</a></h4>
-																					<h4><a href="#">Holden</a></h4>
-																					<h4><a href="#">Honda</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Hummer</a></h4>
-																					<h4><a href="#">Hyundai</a></h4>
-																					<h4><a href="#">Infiniti</a></h4>
-																					<h4><a href="#">Isuzu</a></h4>
-																					<h4><a href="#">Jaguar</a></h4>
-																					<h4><a href="#">JBA</a></h4>
-																					<h4><a href="#">Jeep</a></h4>
-																					<h4><a href="#">Jensen</a></h4>
-																					<h4><a href="#">Kia</a></h4>
-																					<h4><a href="#">KTM</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Lamborghini</a></h4>
-																					<h4><a href="#">Lancia</a></h4>
-																					<h4><a href="#">Land Rover</a></h4>
-																					<h4><a href="#">Lexus</a></h4>
-																					<h4><a href="#">Lincoln</a></h4>
-																					<h4><a href="#">London Taxi's</a></h4>
-																					<h4><a href="#">Lotus</a></h4>
-																					<h4><a href="#">Mahindra</a></h4>
-																					<h4><a href="#">Marcos</a></h4>
-																					<h4><a href="#">Marlin</a></h4>
-																				</div>
+																			<?php	 	}
+																				 }
+																				 ?>
 																			</div>
 																			<div class="row col-md-12" >
-																			<button type="button" class="pull-right btn btn-primary">Add More</button>
+																			<button type="button" id='car_viewmore' class="pull-right btn btn-primary">View More</button>
 																			</div>
-																			<div class="row" >
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Abarth</a></h4>
-																					<h4><a href="#">AC</a></h4>
-																					<h4><a href="#">Aixam</a></h4>
-																					<h4><a href="#">Alfa Romeo</a></h4>
-																					<h4><a href="#">Alpina</a></h4>
-																					<h4><a href="#">Aston Martin</a></h4>
-																					<h4><a href="#">Audi</a></h4>
-																					<h4><a href="#">Austin</a></h4>
-																					<h4><a href="#">Bentley</a></h4>
-																					<h4><a href="#">BMW</a></h4>
+																			<div class="row" id='car_sec_part' style='display:none;'>
+																				<?php $cars_sec1 = array_chunk(@$cars_sec, 6);
+																				 foreach ($cars_sec1 as $car_sec) {
+																				 	foreach ($car_sec as $c_sec) { ?>
+																				 	<div class="col-md-2 clearfix">
+																					<h4><a href="javascript:void(0);"><?php echo $c_sec['sub_subcategory_name']; ?></a></h4>
 																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Bowler</a></h4>
-																					<h4><a href="#">Bugatti</a></h4>
-																					<h4><a href="#">Buick</a></h4>
-																					<h4><a href="#">Cadillac</a></h4>
-																					<h4><a href="#">Caterham</a></h4>
-																					<h4><a href="#">Chesil</a></h4>
-																					<h4><a href="#">Chevrolet</a></h4>
-																					<h4><a href="#">Chrysler</a></h4>
-																					<h4><a href="#">Citroen</a></h4>
-																					<h4><a href="#">Corvette</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Dacia</a></h4>
-																					<h4><a href="#">Daewoo</a></h4>
-																					<h4><a href="#">Daihatsu</a></h4>
-																					<h4><a href="#">Daimler</a></h4>
-																					<h4><a href="#">Datsun</a></h4>
-																					<h4><a href="#">DAX</a></h4>
-																					<h4><a href="#">Dodge</a></h4>
-																					<h4><a href="#">DS</a></h4>
-																					<h4><a href="#">Ferrari</a></h4>
-																					<h4><a href="#">Fiat</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Fiskar</a></h4>
-																					<h4><a href="#">Ford</a></h4>
-																					<h4><a href="#">GBS</a></h4>
-																					<h4><a href="#">Ginetta</a></h4>
-																					<h4><a href="#">GMC</a></h4>
-																					<h4><a href="#">Goingreen</a></h4>
-																					<h4><a href="#">Great Wall</a></h4>
-																					<h4><a href="#">Hillman</a></h4>
-																					<h4><a href="#">Holden</a></h4>
-																					<h4><a href="#">Honda</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Hummer</a></h4>
-																					<h4><a href="#">Hyundai</a></h4>
-																					<h4><a href="#">Infiniti</a></h4>
-																					<h4><a href="#">Isuzu</a></h4>
-																					<h4><a href="#">Jaguar</a></h4>
-																					<h4><a href="#">JBA</a></h4>
-																					<h4><a href="#">Jeep</a></h4>
-																					<h4><a href="#">Jensen</a></h4>
-																					<h4><a href="#">Kia</a></h4>
-																					<h4><a href="#">KTM</a></h4>
-																				</div>
-																				<div class="col-md-2 clearfix">
-																					<h4><a href="#">Lamborghini</a></h4>
-																					<h4><a href="#">Lancia</a></h4>
-																					<h4><a href="#">Land Rover</a></h4>
-																					<h4><a href="#">Lexus</a></h4>
-																					<h4><a href="#">Lincoln</a></h4>
-																					<h4><a href="#">London Taxi's</a></h4>
-																					<h4><a href="#">Lotus</a></h4>
-																					<h4><a href="#">Mahindra</a></h4>
-																					<h4><a href="#">Marcos</a></h4>
-																					<h4><a href="#">Marlin</a></h4>
-																				</div>
+																			<?php	 	}
+																				 }
+																				 ?>
 																			</div>
 																		</div>
 																	</div>

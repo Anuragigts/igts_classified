@@ -86,9 +86,16 @@
 				var prof_id = $("#profile_id").val();
 				hasError = true;
 				if(cur_pwd == '') {
-			      $("#currentpasspost").prop('required',true);
+				$("#currentpasspost").prop('required',true);
 			      hasError = false;
 			    }
+			    if(cur_pwd.length < 5){
+			    	$('span#currentpasspost-error').text('incorrect format');
+					$("#currentpasspost").prop('required',true);
+			       hasError = false;
+					}
+
+
 
 			    if(pwd == '') {
 			      $("#newpasspost").prop('required',true);
