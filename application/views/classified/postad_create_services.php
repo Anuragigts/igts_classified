@@ -24,8 +24,10 @@
 
 		$(function(){
 			$('#del_img').click(function(){
-				$("#file_input").val(""); 
+				$("#file_input").text(""); 
 				$('img#blah').attr('src', '');
+	             $('#blah').css('border', 'none')
+				$('#blah').css('border-radius', 'none');
 				$('#del_img').css('display', 'none');
 			});
 		});

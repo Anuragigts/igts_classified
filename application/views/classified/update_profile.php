@@ -112,6 +112,30 @@
 			}
 			});
 		});
+
+		/*deactivation account*/
+		$(function(){
+			$("#deactivate_account").click(function(){
+				 $("#deactivate_account").text("Please Wait");
+				$('#deactivate_account').attr("disabled", true);
+				var mail = $('#email').val();
+				$.ajax({
+			      type : 'post',
+			      url  : '<?php echo base_url()?>update_profile/deactivate_account',
+			      data : {mail: mail},
+			      dataType : 'json',
+			      success : function(res) {
+			      	if (res == 0){
+				window.location.href = "<?php echo base_url(); ?>login";
+			      	}
+			      	else{
+			window.location.href = "<?php echo base_url(); ?>update_profile";      		
+			      	}
+			       
+			      }
+			    });
+			});
+		});
 	</script>
 	
 	<link rel="stylesheet" href="j-folder/css/demo.css">
@@ -242,7 +266,7 @@
 											</div>
 											<div class="col-sm-12 unit">
 												<label class="label">New password 
-													<sup data-toggle="tooltip" title="" data-original-title="New password ">
+													<sup data-toggle="tooltip" title="" data-original-title="Atleast 8 characters, one uppercase, one lowercase and one special character">
 														<img src="img/icons/i.png">
 													</sup>
 												</label>
@@ -256,7 +280,7 @@
 											</div>
 											<div class="col-sm-12 unit">
 												<label class="label">Confirm password 
-													<sup data-toggle="tooltip" title="" data-original-title="Confirm password">
+													<sup data-toggle="tooltip" title="" data-original-title="Should match with new password">
 														<img src="img/icons/i.png">
 													</sup>
 												</label>
@@ -278,7 +302,9 @@
 								<div class="row">
 									<div class="col-sm-12 unit">
 										<h3>Manage contact email</h3>
-										<label>Login with: <?php echo $mail_id; ?></label>
+										<label>Login with: <?php echo $mail_id; ?>
+											<input type='hidden' name='email' id='email' value="<?php echo $mail_id; ?>" />
+										</label>
 									</div>
 								</div><hr class="separator">
 								
@@ -322,7 +348,7 @@
 												<i></i>Other
 											</label>
 										</div>
-										<button class="btn btn-primary ">Deactivate Account</button>
+										<button class="btn btn-primary " id='deactivate_account'>Deactivate Account</button>
 									</div>
 								</div><hr class="separator">
 								
