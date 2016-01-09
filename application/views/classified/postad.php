@@ -8,6 +8,12 @@
 					width: 100%;
 					overflow: hidden;
 				}
+				.nav-tabs li a {
+					border: 0px none;
+					padding: 12px 6px;
+					background: #3A4749 none repeat scroll 0% 0%;
+					color: #FFF;
+				}
 			</style>
 			<!-- Section Title-->    
             <div class="section-title-01">
@@ -66,7 +72,7 @@
 													<img class="img-responsive" src="img/featured/deals.jpg" alt="">
 													<div class="overlay">
 													   <h2>Hot Deals</h2>
-													   <a class="info" href="#" data-toggle="modal" data-target="#ForSale">View Details</a>
+													   <a class="info" href="deal_page">View Details</a>
 													</div>
 												</div>
 											</div>
@@ -249,13 +255,218 @@
 															<button type="button" class="close" data-dismiss="modal">&times;</button>
 															<h2>Motor Point <span>Category </span></h2>
 														</div>
-														<div class="modal-body">
-															<div class="row">
-																<div class="col-md-4 clearfix">
-																
+														<div class="modal-body tabs-detailed">
+															<div class="row ezone_h3" style="padding-left: 12px;padding-right: 12px;">
+																<div class="row">
+																	<div class="col-sm-12">
+																		<ul class="nav nav-tabs" id="myTab">
+																		   <li class="active">
+																				<a href="#cars" data-toggle="tab"> Cars</a>
+																			</li>
+																			<li>
+																				<a href="#bike_scooter"  data-toggle="tab"> Bikes & Scooters</a>
+																			</li>
+																			<li>
+																				<a href="#Motorhomes_Caravans"  data-toggle="tab"> Motorhomes & Caravans</a>
+																			</li>
+																			<li>
+																				<a href="#Vans_Trucks"  data-toggle="tab">Vans, Trucks & SUV's</a>
+																			</li>
+																			<li>
+																				<a href="#coaches_bus"  data-toggle="tab">Vans, Coaches & Busses</a>
+																			</li>
+																			<li>
+																				<a href="#plant_mach"  data-toggle="tab">Vans, Plant Machinery</a>
+																			</li>
+																			<li>
+																				<a href="#farming_veh"  data-toggle="tab">Vans, Farming Vehicles</a>
+																			</li>
+																			<li>
+																				<a href="#Boats"  data-toggle="tab">Vans, Boats</a>
+																			</li>
+																		</ul>
+																		<!-- End Nav Tabs-->
+																	</div>
 																</div>
-																<div class="col-md-4 clearfix">
-																
+																<!--All Tabs--->
+																<div class="tab-content">
+																	<!--Tab1 Cars--->
+																	<div class="tab-pane active" id="cars">  
+																		<div class="col-md-12 post_deal_bor">
+																			<div class="row">
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Abarth</a></h4>
+																					<h4><a href="#">AC</a></h4>
+																					<h4><a href="#">Aixam</a></h4>
+																					<h4><a href="#">Alfa Romeo</a></h4>
+																					<h4><a href="#">Alpina</a></h4>
+																					<h4><a href="#">Aston Martin</a></h4>
+																					<h4><a href="#">Audi</a></h4>
+																					<h4><a href="#">Austin</a></h4>
+																					<h4><a href="#">Bentley</a></h4>
+																					<h4><a href="#">BMW</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Bowler</a></h4>
+																					<h4><a href="#">Bugatti</a></h4>
+																					<h4><a href="#">Buick</a></h4>
+																					<h4><a href="#">Cadillac</a></h4>
+																					<h4><a href="#">Caterham</a></h4>
+																					<h4><a href="#">Chesil</a></h4>
+																					<h4><a href="#">Chevrolet</a></h4>
+																					<h4><a href="#">Chrysler</a></h4>
+																					<h4><a href="#">Citroen</a></h4>
+																					<h4><a href="#">Corvette</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Dacia</a></h4>
+																					<h4><a href="#">Daewoo</a></h4>
+																					<h4><a href="#">Daihatsu</a></h4>
+																					<h4><a href="#">Daimler</a></h4>
+																					<h4><a href="#">Datsun</a></h4>
+																					<h4><a href="#">DAX</a></h4>
+																					<h4><a href="#">Dodge</a></h4>
+																					<h4><a href="#">DS</a></h4>
+																					<h4><a href="#">Ferrari</a></h4>
+																					<h4><a href="#">Fiat</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Fiskar</a></h4>
+																					<h4><a href="#">Ford</a></h4>
+																					<h4><a href="#">GBS</a></h4>
+																					<h4><a href="#">Ginetta</a></h4>
+																					<h4><a href="#">GMC</a></h4>
+																					<h4><a href="#">Goingreen</a></h4>
+																					<h4><a href="#">Great Wall</a></h4>
+																					<h4><a href="#">Hillman</a></h4>
+																					<h4><a href="#">Holden</a></h4>
+																					<h4><a href="#">Honda</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Hummer</a></h4>
+																					<h4><a href="#">Hyundai</a></h4>
+																					<h4><a href="#">Infiniti</a></h4>
+																					<h4><a href="#">Isuzu</a></h4>
+																					<h4><a href="#">Jaguar</a></h4>
+																					<h4><a href="#">JBA</a></h4>
+																					<h4><a href="#">Jeep</a></h4>
+																					<h4><a href="#">Jensen</a></h4>
+																					<h4><a href="#">Kia</a></h4>
+																					<h4><a href="#">KTM</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Lamborghini</a></h4>
+																					<h4><a href="#">Lancia</a></h4>
+																					<h4><a href="#">Land Rover</a></h4>
+																					<h4><a href="#">Lexus</a></h4>
+																					<h4><a href="#">Lincoln</a></h4>
+																					<h4><a href="#">London Taxi's</a></h4>
+																					<h4><a href="#">Lotus</a></h4>
+																					<h4><a href="#">Mahindra</a></h4>
+																					<h4><a href="#">Marcos</a></h4>
+																					<h4><a href="#">Marlin</a></h4>
+																				</div>
+																			</div>
+																			<div class="row col-md-12" >
+																			<button type="button" class="pull-right btn btn-primary">Add More</button>
+																			</div>
+																			<div class="row" >
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Abarth</a></h4>
+																					<h4><a href="#">AC</a></h4>
+																					<h4><a href="#">Aixam</a></h4>
+																					<h4><a href="#">Alfa Romeo</a></h4>
+																					<h4><a href="#">Alpina</a></h4>
+																					<h4><a href="#">Aston Martin</a></h4>
+																					<h4><a href="#">Audi</a></h4>
+																					<h4><a href="#">Austin</a></h4>
+																					<h4><a href="#">Bentley</a></h4>
+																					<h4><a href="#">BMW</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Bowler</a></h4>
+																					<h4><a href="#">Bugatti</a></h4>
+																					<h4><a href="#">Buick</a></h4>
+																					<h4><a href="#">Cadillac</a></h4>
+																					<h4><a href="#">Caterham</a></h4>
+																					<h4><a href="#">Chesil</a></h4>
+																					<h4><a href="#">Chevrolet</a></h4>
+																					<h4><a href="#">Chrysler</a></h4>
+																					<h4><a href="#">Citroen</a></h4>
+																					<h4><a href="#">Corvette</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Dacia</a></h4>
+																					<h4><a href="#">Daewoo</a></h4>
+																					<h4><a href="#">Daihatsu</a></h4>
+																					<h4><a href="#">Daimler</a></h4>
+																					<h4><a href="#">Datsun</a></h4>
+																					<h4><a href="#">DAX</a></h4>
+																					<h4><a href="#">Dodge</a></h4>
+																					<h4><a href="#">DS</a></h4>
+																					<h4><a href="#">Ferrari</a></h4>
+																					<h4><a href="#">Fiat</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Fiskar</a></h4>
+																					<h4><a href="#">Ford</a></h4>
+																					<h4><a href="#">GBS</a></h4>
+																					<h4><a href="#">Ginetta</a></h4>
+																					<h4><a href="#">GMC</a></h4>
+																					<h4><a href="#">Goingreen</a></h4>
+																					<h4><a href="#">Great Wall</a></h4>
+																					<h4><a href="#">Hillman</a></h4>
+																					<h4><a href="#">Holden</a></h4>
+																					<h4><a href="#">Honda</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Hummer</a></h4>
+																					<h4><a href="#">Hyundai</a></h4>
+																					<h4><a href="#">Infiniti</a></h4>
+																					<h4><a href="#">Isuzu</a></h4>
+																					<h4><a href="#">Jaguar</a></h4>
+																					<h4><a href="#">JBA</a></h4>
+																					<h4><a href="#">Jeep</a></h4>
+																					<h4><a href="#">Jensen</a></h4>
+																					<h4><a href="#">Kia</a></h4>
+																					<h4><a href="#">KTM</a></h4>
+																				</div>
+																				<div class="col-md-2 clearfix">
+																					<h4><a href="#">Lamborghini</a></h4>
+																					<h4><a href="#">Lancia</a></h4>
+																					<h4><a href="#">Land Rover</a></h4>
+																					<h4><a href="#">Lexus</a></h4>
+																					<h4><a href="#">Lincoln</a></h4>
+																					<h4><a href="#">London Taxi's</a></h4>
+																					<h4><a href="#">Lotus</a></h4>
+																					<h4><a href="#">Mahindra</a></h4>
+																					<h4><a href="#">Marcos</a></h4>
+																					<h4><a href="#">Marlin</a></h4>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="tab-pane" id="bike_scooter">  
+																	
+																	</div>
+																	<div class="tab-pane" id="Motorhomes_Caravans">  
+																	
+																	</div>
+																	<div class="tab-pane" id="Vans_Trucks">  
+																	
+																	</div>
+																	<div class="tab-pane" id="coaches_bus">  
+																	
+																	</div>
+																	<div class="tab-pane" id="plant_mach">  
+																	
+																	</div>
+																	<div class="tab-pane" id="farming_veh">  
+																	
+																	</div>
+																	<div class="tab-pane" id="Boats">  
+																	
+																	</div>
 																</div>
 															</div>
 														</div>

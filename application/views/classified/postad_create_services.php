@@ -1417,7 +1417,22 @@ jQuery(document).ready(function($) {
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info" style="min-height: 378px;">
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-right"></i> Same Features as Customer to Customer free ads</li>
+															<li><i class="fa fa-arrow-right"></i> Validity : 30 days</li>
+															<li><i class="fa fa-arrow-right"></i> Visibility 
+																<ul>
+																	<li><i class="fa fa-arrow-right"></i> Recent Ads Section 
+																	<a href="img/free.png" class="fancybox">Example</a></li>
+																</ul>
+															</li>
+															<li><i class="fa fa-arrow-right"></i> Low on Views</li>
+															<li><i class="fa fa-arrow-right"></i> Only 2 photos</li>
+															<li>
+																<center>
+																	<div class="free_bg text_center">
+																		<h3 style="color:white;padding-top:10px;">£0</h3>
+																	</div>
+																</center>
+															</li>
 														</ul>
 														<a href="#four" data-toggle="tab"  class="btn btn-primary multi-next-btn">Select Package</a>
 													</div>
