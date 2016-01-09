@@ -26,6 +26,8 @@
 			$('#del_img').click(function(){
 				$("#file_input").val(""); 
 				$("#file").val(""); 
+				$('#file_remove').removeClass('error-view');
+				$('span#file-error').hide();
 				$('img#blah').css('display', 'none');
 	             $('#blah').css('border', 'none')
 				$('#blah').css('border-radius', 'none');
@@ -731,7 +733,7 @@ jQuery(document).ready(function($) {
 														</sup>
 													</label>
 													<div class="unit">
-														<label class="input append-big-btn">
+														<label id='file_remove' class="input append-big-btn">
 															<div class="file-button">
 																Browse
 																<input type="file" name="file" id='file' onchange="document.getElementById('file_input').value = this.value; fileupload(this);">
