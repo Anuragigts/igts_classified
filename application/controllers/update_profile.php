@@ -98,11 +98,7 @@ class Update_profile extends CI_Controller{
 
         /*re activate account*/
         public function re_activate(){
-            // $data   =   array(
-            //                         "title"         =>      "Classified",
-            //                         "content"       =>      "activate"
-            //                 );
-                $uri            =       $this->uri->segment(3);
+                 $uri            =       $this->uri->segment(3);
                 $login_id       =        $this->uri->segment(4);
 
                 $in = $this->profile_model->activate($uri, $login_id);
