@@ -104,6 +104,7 @@ class Update_profile extends CI_Controller{
 
                 $in = $this->profile_model->activate($uri, $login_id);
                 if($in == 1){
+                     $this->session->sess_destroy();
                     $this->session->set_flashdata("msg","Re-activated Successfully!!");
                     redirect('login');
                 }
