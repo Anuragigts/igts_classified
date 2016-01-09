@@ -24,7 +24,8 @@
 
 		$(function(){
 			$('#del_img').click(function(){
-				$("#file_input").text(""); 
+				$("#file_input").val(""); 
+				$("#file").val(""); 
 				$('img#blah').attr('src', '');
 	             $('#blah').css('border', 'none')
 				$('#blah').css('border-radius', 'none');
@@ -733,7 +734,7 @@ jQuery(document).ready(function($) {
 														<label class="input append-big-btn">
 															<div class="file-button">
 																Browse
-																<input type="file" name="file" onchange="document.getElementById('file_input').value = this.value; fileupload(this);">
+																<input type="file" name="file" id='file' onchange="document.getElementById('file_input').value = this.value; fileupload(this);">
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected">
 															<span class="hint">Only: jpg / png  Size: less 1 Mb</span>
