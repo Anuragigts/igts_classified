@@ -20,10 +20,10 @@ class Classified extends CI_Controller{
                 $lid = $this->session->userdata('login_id');
                 
                                 $news = array('Golders Green',
-                                                    '1 Bedroom Apartment with Patio in Central London',
-                                                    'STOLEN BMW F650 GS',
-                                                    'Small kittens',
-                                                    'Female African grey');
+                                            '1 Bedroom Apartment with Patio in Central London',
+                                            'STOLEN BMW F650 GS',
+                                            'Small kittens',
+                                            'Female African grey');
                                 $news1 = array_chunk($news, 2);
                                      // echo "<pre>"; print_r($show_all); 
                                      // echo count($news1).$news1[0][1];
@@ -44,6 +44,7 @@ class Classified extends CI_Controller{
                     $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
 
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
+                   
                     $data['free_ads'] = $this->classifed_model->free_ads();  
 
                     /*business ads in home*/  

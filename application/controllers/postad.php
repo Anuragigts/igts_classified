@@ -24,8 +24,13 @@ class Postad extends CI_Controller{
                 /*pets categories*/
                 $data['pets_sub_cat'] = $this->category_model->pets_sub_cat();
                 $data['pets_big_animal'] = $this->category_model->pets_big_animal();
+                /*services*/
                 $data['services_sub_prof'] = $this->category_model->services_sub_prof();
                 $data['services_sub_pop'] = $this->category_model->services_sub_pop();
+
+                /*motor point for cars*/
+                $data['cars_fst'] = $this->category_model->cars_sub_cat_fst();
+                $data['cars_sec'] = $this->category_model->cars_sub_cat_sec();
 
                 if($plogin_id != ""){
                         /*$data = array(
