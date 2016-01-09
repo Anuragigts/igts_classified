@@ -86,6 +86,7 @@ class Update_profile extends CI_Controller{
             $rand_val = md5(rand(10000,99999));
             $inp            =       $this->profile_model->deactivate($rand_val);
             if ($inp == 1) {
+                 $this->session->sess_destroy();
                 $this->session->set_flashdata("msg","Account Deactivated Successfully!!");
                  echo json_encode('0');
             }
