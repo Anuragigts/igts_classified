@@ -1,5 +1,16 @@
 	<title>365 Deals :: Product View</title>
 	
+	<style>
+		.section-title-01{
+			height: 273px;
+			background-color: #262626;
+			text-align: center;
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
+	</style>
+	
 	<script>
         jssor_1_slider_init = function() {
             
@@ -190,22 +201,6 @@
 		<div class="bg_parallax image_01_parallax"></div>
 		<!-- Parallax Background -->
 
-		<!-- Content Parallax-->
-		<div class="opacy_bg_02">
-			 <div class="container">
-				<h1>Blog read</h1>
-				<div class="crumbs">
-					<ul>
-						<li><a href="index.php">Home</a></li>
-						<li>/</li>
-						<li>Features</li>  
-						<li>/</li>
-						<li>Blog read</li>                                       
-					</ul>    
-				</div>
-			</div>  
-		</div>  
-		<!-- End Content Parallax--> 
 	</div>   
 	<!-- End Section Title-->
 	

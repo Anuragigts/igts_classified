@@ -296,7 +296,7 @@
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
@@ -332,7 +332,7 @@
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
@@ -350,7 +350,7 @@
 									</div>
 									<?php }
 																else{ ?>
-						<div class="img-hover">
+									<div class="img-hover">
 										<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="" class="img-responsive">
 										<div class="overlay"><a href="ad_images/<?php echo $m_ads_pets->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
@@ -367,7 +367,7 @@
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
@@ -402,7 +402,7 @@
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
@@ -437,7 +437,7 @@
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
-										<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+										<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 									</div>
                                 </div>
@@ -494,7 +494,7 @@
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 												</ul>
-												<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+												<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
 												<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
 											</div>
 										</div>	
@@ -668,7 +668,6 @@
 			});
 		</script>
 		
-		<link href="<?php echo base_url(); ?>modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
 		<link href="<?php echo base_url(); ?>modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
 		<link id="style-sheet" href="<?php echo base_url(); ?>modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
 		<script src="<?php echo base_url(); ?>modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 

@@ -60,7 +60,7 @@
 												<img class="img-responsive" src="img/featured/ezone.jpg" alt="">
 												<div class="overlay">
 												   <h2>E-Zone</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -69,7 +69,7 @@
 												<img class="img-responsive" src="img/featured/cars.jpg" alt="">
 												<div class="overlay">
 												   <h2>Motor Point</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -78,7 +78,7 @@
 												<img class="img-responsive" src="img/featured/clothing.jpg" alt="">
 												<div class="overlay">
 												   <h2>Clothing & LifeStyles</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -87,7 +87,7 @@
 												<img class="img-responsive" src="img/featured/services.jpg" alt="">
 												<div class="overlay">
 												   <h2>Services</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -98,7 +98,7 @@
 												<img class="img-responsive" src="img/featured/property.jpg" alt="">
 												<div class="overlay">
 												   <h2>Find a Property</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -107,7 +107,7 @@
 												<img class="img-responsive" src="img/featured/kitchen.jpg" alt="">
 												<div class="overlay">
 												   <h2>Home & Kitchen</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -116,7 +116,7 @@
 												<img class="img-responsive" src="img/featured/pets.jpg" alt="">
 												<div class="overlay">
 												   <h2>Pets</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -125,7 +125,7 @@
 												<img class="img-responsive" src="img/featured/jobs.jpg"  alt="">
 												<div class="overlay">
 												   <h2>Jobs</h2>
-												   <div><a class="info" href="#">View More</a></div>
+												   <div><a class="info" href="#">Show Deals</a></div>
 												</div>
 											</div>
 										</div>
@@ -141,7 +141,7 @@
 												<img class="img-responsive" src="img/featured/ezone.jpg" alt="">
 												<div class="overlay">
 												   <h2>E-Zone</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -150,7 +150,7 @@
 												<img class="img-responsive" src="img/featured/cars.jpg" alt="">
 												<div class="overlay">
 												   <h2>Motor Point</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -159,7 +159,7 @@
 												<img class="img-responsive" src="img/featured/clothing.jpg" alt="">
 												<div class="overlay">
 												   <h2>Clothing & LifeStyles</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -168,7 +168,7 @@
 												<img class="img-responsive" src="img/featured/services.jpg" alt="">
 												<div class="overlay">
 												   <h2>Services</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -179,7 +179,7 @@
 												<img class="img-responsive" src="img/featured/property.jpg" alt="">
 												<div class="overlay">
 												   <h2>Find a Property</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -188,7 +188,7 @@
 												<img class="img-responsive" src="img/featured/kitchen.jpg" alt="">
 												<div class="overlay">
 												   <h2>Home & Kitchen</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -197,7 +197,7 @@
 												<img class="img-responsive" src="img/featured/pets.jpg" alt="">
 												<div class="overlay">
 												   <h2>Pets</h2>
-												   <a class="info" href="#">View More</a>
+												   <a class="info" href="#">Show Deals</a>
 												</div>
 											</div>
 										</div>
@@ -206,7 +206,7 @@
 												<img class="img-responsive" src="img/featured/jobs.jpg"  alt="">
 												<div class="overlay">
 												   <h2>Jobs</h2>
-												   <div><a class="info" href="#">View More</a></div>
+												   <div><a class="info" href="#">Show Deals</a></div>
 												</div>
 											</div>
 										</div>
