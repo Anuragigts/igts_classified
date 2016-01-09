@@ -192,12 +192,12 @@
 .j-forms .checkbox,
 .j-forms .radio-toggle,
 .j-forms .checkbox-toggle {
-	color:rgba(0,0,0,.87);
-	cursor:pointer;
-	font-size:15px;
-	height:15px;
-	margin-bottom:4px;
-	position:relative;
+	color: #777;
+	cursor: pointer;
+	font-size: 14px;
+	height: 18px;
+	margin-bottom: 4px;
+	position: relative;
 	line-height:15px;
 }
 .j-forms .radio,
