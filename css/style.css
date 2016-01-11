@@ -4616,6 +4616,16 @@ ul {
 	.reply-list .comment-box {
 		width: 220px;
 	}
+	.list_view_bottom {
+		padding: 9px 9px 63px;
+		border-right: 1px solid #E1E1E1;
+		border-bottom: 1px solid #E1E1E1;
+		border-left: 1px solid #E1E1E1;
+	}
+	.post-meta {
+		font-size: 9px;
+		color: #999;
+	}
 }
 
 .imagedelete{
@@ -4658,4 +4668,10 @@ aside label .checkbox{
 }
 .promotion-box-info center{
 	padding-top:10px;
+}
+.view_img img{
+	height: 219px;
+}
+.sign_bg{
+	padding-top: 31px;
 }
