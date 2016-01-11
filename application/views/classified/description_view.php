@@ -526,25 +526,62 @@
 							</form>
 						</div>
 						
-						<div class="col-md-3">
-							<aside class="widget view_sidebar">
-								<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center>
-								<h3 class="top_20">Contact Details</h3>
-								<ul class="list-styles">
-									<li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-									<li><i class="fa fa-map-marker "></i> <a href="#">Location</a></li>
-									<li><i class="fa fa-envelope"></i> <a href="#">Sample.mail.com</a></li>
-									<li><i class="fa fa-phone"></i> <a href="#">+91-8885458785</a></li>
-								</ul>
+						<form action="#" method="post" class="j-forms " >
+							<div class="col-md-3">
+								<aside class="widget view_sidebar">
+									<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center>
+									<h3 class="top_20">Contact Details</h3>
+									<ul class="list-styles">
+										<li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
+										<li><i class="fa fa-map-marker "></i> <a href="#">Location</a></li>
+										<li><i class="fa fa-envelope"></i> <a href="#">Sample.mail.com</a></li>
+										<li><i class="fa fa-phone"></i> <a href="#">+91-8885458785</a></li>
+									</ul>
+									
+									<center>
+										<div class="amt_bg">
+											<h3 style="color:white;padding-top:10px;">£1106</h3>
+										</div>
+									</center>
+								</aside>
+								<center><img src="img/icons/sendnow.png" alt="" class="send_now_show img-responsive"></center>
 								
-								<center>
-									<div class="amt_bg">
-										<h3 style="color:white;padding-top:10px;">£1106</h3>
+								<aside class="widget view_sidebar send_now_hide" style="display:none;">
+									<div class="j-row">
+										<div class="span12 unit">
+											<label class="label">Contact Name :</label>
+											<div class="input">
+												<label class="icon-right" for="name">
+													<i class="fa fa-user"></i>
+												</label>
+												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+											</div>
+										</div>
+										<div class="span12 unit">
+											<label class="label">Mobile Number :</label>
+											<div class="input">
+												<label class="icon-right" for="phone">
+													<i class="fa fa-phone"></i>
+												</label>
+												<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+											</div>
+										</div>
+										<div class="span12 unit">
+											<label class="label">Email :</label>
+											<div class="input">
+												<label class="icon-right" for="email">
+													<i class="fa fa-envelope-o"></i>
+												</label>
+												<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+											</div>
+										</div>
+										<div class="col-sm-12 unit">													
+											<button class="btn btn-primary " id='change_pwd'>Send Now</button>
+										</div>
 									</div>
-								</center>
-							</aside>
-							<center><a href="#" data-toggle="modal" data-target="#sendnow"><img src="img/icons/sendnow.png" alt="" class="img-responsive"></a></center>
-						</div>
+								</aside>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
