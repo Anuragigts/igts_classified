@@ -228,43 +228,12 @@
 																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
 															</div>
 															<!-- end Tab Two - contact -->
-														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
+														</div>
+														<center><img src="img/icons/sendnow.png" alt="" class="img-responsive"></center>
 														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 													</div>
 												</figure>
-												<figure class="slide jbs-current">
-													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-													</div>
-													<div class="info-gallery slider_bg">
-														<h3>Sample Text Here</h3>
-														<hr class="separator">
-														<ul class="nav nav-tabs" id="myTab">
-															<li class="active">
-																<a href="#description2" data-toggle="tab"> DESCRIPTION</a>
-															</li>
-															<li>
-																<a href="#contact2" data-toggle="tab"> Contact</a>
-															</li>
-														</ul>
-														<!-- End Nav Tabs-->
-
-														<div class="tab-content">
-															<!-- Tab One - DESCRIPTION -->
-															<div class="tab-pane active paddi_ng" id="description2">                                        
-																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
-															</div>
-															<!-- end Tab One - DESCRIPTION -->
-															<!-- Tab Two - contact -->
-															<div class="tab-pane paddi_ng" id="contact2">
-																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
-															</div>
-															<!-- end Tab Two - contact -->
-														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
-														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-													</div>
-												</figure>
+												
 											</div>
 										</div>
 									</div>                 
