@@ -19,7 +19,7 @@
 
                     <!-- FILTER HEADER-->
                     <div class="filter-header">
-                        <form action="#">
+                        <form action="searchview">
                             <input type="text" required="required" placeholder="I'm looking for" class="input-large">
                             <div class="selector">
                                 <select class="guests-input">
@@ -199,33 +199,47 @@
 									<div id="page">
 										<div id="viewport">
 											<div id="box">
+												<?php
+											$i=1;
+											 foreach ($sig_ads as $sig_val) { ?>
 												<figure class="slide jbs-current">
+													<?php if($sig_val->img_name == ''){
+													?>
 													<div class="img-hover significant_ad">
-														<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
-														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+														<img src="ad_images/no_image.png" alt="" class="img-responsive">
+														<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 													</div>
-													<div class="info-gallery slider_bg ">
-														<h3>Sample Text Here</h3>
+													<?php
+													}else{
+														?>
+														<div class="img-hover significant_ad">
+														<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="" class="img-responsive">
+														<div class="overlay"><a href="ad_images/<?php echo $sig_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+														</div>
+													<?php	} ?>
+													<div class="info-gallery slider_bg">
+														<h3><?php echo substr($sig_val->title, 0, 20); ?></h3>
 														<hr class="separator">
 														<ul class="nav nav-tabs" id="myTab">
 															<li class="active">
-																<a href="#description1" data-toggle="tab"> DESCRIPTION</a>
+																<a href="#description<?php echo $i; ?>" data-toggle="tab"> DESCRIPTION</a>
 															</li>
 															<li>
-																<a href="#contact1" data-toggle="tab"> Contact</a>
+																<a href="#contact<?php echo $i; ?>" data-toggle="tab"> Contact</a>
 															</li>
 														</ul>
 														<!-- End Nav Tabs-->
 
 														<div class="tab-content">
 															<!-- Tab One - DESCRIPTION -->
-															<div class="tab-pane active paddi_ng" id="description1">                                        
-																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
+															<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">                                        
+																<p><?php echo substr($sig_val->ad_desc, 0, 60); ?> </p>
 															</div>
 															<!-- end Tab One - DESCRIPTION -->
 															<!-- Tab Two - contact -->
-															<div class="tab-pane paddi_ng" id="contact1">
-																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
+															<div class="tab-pane paddi_ng" id="contact<?php echo $i; ?>">
+																<p> Mobile : <?php echo $sig_val->number; ?></p>
+																<p> Email : <?php echo $sig_val->mail_id; ?></p>
 															</div>
 															<!-- end Tab Two - contact -->
 														</div>
@@ -233,7 +247,11 @@
 														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 													</div>
 												</figure>
-												
+
+												<?php 
+												$i++;
+												} ?>
+
 											</div>
 										</div>
 									</div>                 
