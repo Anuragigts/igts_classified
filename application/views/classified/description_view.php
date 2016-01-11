@@ -71,7 +71,10 @@
 							<div class="post-item">
 								<div class="row">
 									<!-- Post Header-->
-									<div class="col-sm-10 col-xs-8">
+									<div class="col-sm-9 col-xs-8">
+										<div class="featured-badge pull-right">
+											<span>Gold</span>
+										</div>
 										<div class="post-header">
 											<div class="hidden-xs post-format-icon post-format-standard">
 												<i class="fa fa-image"></i>
@@ -122,6 +125,10 @@
 											<img alt="Preview Image 2"
 												 src="img/blog/thumb-003.jpg" class="img-responsive"
 												 data-image="img/blog/003.jpg">
+											
+											<img alt="Youtube Video"
+												 data-type="youtube"
+												 data-videoid="A3PDXmYoF5U">
 
 											<img alt="Preview Image 3"
 												 src="img/blog/thumb-004.jpg" class="img-responsive"
@@ -338,19 +345,19 @@
 						
 						<form action="#" method="post" class="j-forms " >
 							<div class="col-md-3">
-								<aside class="widget view_sidebar">
-									<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center>
-									<h3 class="top_20">Contact Details</h3><hr>
-									<ul class="list-styles">
-										<li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-										<li><i class="fa fa-map-marker "></i> <a href="#">Location</a></li>
-										<li><i class="fa fa-envelope"></i> <a href="#">Sample.mail.com</a></li>
-										<li><i class="fa fa-phone"></i> <a href="#">+91-8885458785</a></li>
+								<aside class="widget view_sidebar text_center">
+									<!--<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center><hr>-->
+									<img src="img/icons/user_pro.png" class="img-responsive pvt-no-img">
+									<h3> User Name</h3><hr>
+									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
+									<center><img src="img/icons/contact.png" alt="" class="contact_now_show img-responsive"></center>
+									<ul class="list-styles contact_now_hide" style="display:none;">
+										<li><i class="fa fa-phone "></i> +91 900001110</li>
+										<li><i class="fa fa-envelope"></i> <a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
 									</ul>
-									
-									<center>
+									<center class="top_10">
 										<div class="amt_bg">
-											<h3 style="color:white;padding-top:10px;">£1106</h3>
+											<h3 style="color:white;padding-top:10px;">£106</h3>
 										</div>
 									</center>
 								</aside>
@@ -390,6 +397,16 @@
 										</div>
 									</div>
 								</aside>
+								<aside class="widget view_sidebar">
+									<h4><i class="fa fa-urgent"></i> Important Safety Tips</h4><hr>
+									<ul class="list-styles">
+										<li><i class="fa fa-check"></i> <a href="#">Really cheap prices</a></li>
+										<li><i class="fa fa-check"></i> <a href="#">Irregular email adresses</a></li>
+										<li><i class="fa fa-check"></i> <a href="#">Contact info in pictures</a></li>
+									</ul>
+									<p class="bot_10">To learn more, visit the <a href="#"> click here</a> to report this listing.</p>
+								</aside>
+								
 							</div>
 						</form>
 					</div>

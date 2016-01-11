@@ -81,6 +81,15 @@
 		
 		<script>
 			$(document).ready(function(){
+				$(".contact_now_show").click(function(){
+					$(".contact_now_hide").show(1000);
+
+				});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function(){
 				$(".con_image").click(function(){
 					$(".bus_img").hide(1000);
 

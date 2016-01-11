@@ -199,39 +199,72 @@
 									<div id="page">
 										<div id="viewport">
 											<div id="box">
-												<?php
-											$i=1;
-											 foreach ($sig_ads as $sig_val) { ?>
 												<figure class="slide jbs-current">
-													<?php if($sig_val->img_name == ''){
-													?>
 													<div class="img-hover significant_ad">
-														<img src="ad_images/no_image.png" alt="" class="img-responsive">
-														<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+														<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
+														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 													</div>
-													<?php
-													}else{
-														?>
-														<div class="img-hover significant_ad">
-														<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="" class="img-responsive">
-														<div class="overlay"><a href="ad_images/<?php echo $sig_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-													</div>
-													<?php	} ?>
-													<div class="info-gallery slider_bg">
-														<h3><?php echo substr($sig_val->title, 0, 20); ?></h3>
+													<div class="info-gallery slider_bg ">
+														<h3>Sample Text Here</h3>
 														<hr class="separator">
-														<div class="description">
-															<p class="pull-left"><p><?php echo substr($sig_val->ad_desc, 0, 60); ?> </p> </h4>
-															<p class="pull-left"><i class="fa fa-phone fa-1x "></i>  <?php echo $sig_val->number; ?></p>
-															<p class="pull-right"><i class="fa fa-envelope fa-1x"></i> <a href="javascript:void(0);"> <?php  echo $sig_val->mail_id; ?></a></p>
-														</div>
-														<center class=""><a href="#" class=" "><img src="img/icons/sendnow1.png" alt="" class="img-responsive"></a></center>
+														<ul class="nav nav-tabs" id="myTab">
+															<li class="active">
+																<a href="#description1" data-toggle="tab"> DESCRIPTION</a>
+															</li>
+															<li>
+																<a href="#contact1" data-toggle="tab"> Contact</a>
+															</li>
+														</ul>
+														<!-- End Nav Tabs-->
+
+														<div class="tab-content">
+															<!-- Tab One - DESCRIPTION -->
+															<div class="tab-pane active paddi_ng" id="description1">                                        
+																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
+															</div>
+															<!-- end Tab One - DESCRIPTION -->
+															<!-- Tab Two - contact -->
+															<div class="tab-pane paddi_ng" id="contact1">
+																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
+															</div>
+															<!-- end Tab Two - contact -->
+														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
 														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 													</div>
 												</figure>
-												<?php 
-												$i++;
-												} ?>
+												<figure class="slide jbs-current">
+													<div class="img-hover significant_ad">
+														<img src="img/mostvalue/sample9.JPG" alt="" class="img-responsive">
+														<div class="overlay"><a href="img/mostvalue/sample7.JPG" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+													</div>
+													<div class="info-gallery slider_bg">
+														<h3>Sample Text Here</h3>
+														<hr class="separator">
+														<ul class="nav nav-tabs" id="myTab">
+															<li class="active">
+																<a href="#description2" data-toggle="tab"> DESCRIPTION</a>
+															</li>
+															<li>
+																<a href="#contact2" data-toggle="tab"> Contact</a>
+															</li>
+														</ul>
+														<!-- End Nav Tabs-->
+
+														<div class="tab-content">
+															<!-- Tab One - DESCRIPTION -->
+															<div class="tab-pane active paddi_ng" id="description2">                                        
+																<p>The Aqua Hotel Onabrava is located in Santa Susanna, in the beautiful Costa Brava, </p>
+															</div>
+															<!-- end Tab One - DESCRIPTION -->
+															<!-- Tab Two - contact -->
+															<div class="tab-pane paddi_ng" id="contact2">
+																<p> Costa Brava, a few steps from the beach.The 350 rooms are equipped with air.</p>
+															</div>
+															<!-- end Tab Two - contact -->
+														</div><div class="content-btn"><a href="#" class="btn btn-primary">Reply</a></div>
+														<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+													</div>
+												</figure>
 											</div>
 										</div>
 									</div>                 
@@ -672,4 +705,4 @@
 		<link id="style-sheet" href="<?php echo base_url(); ?>modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
 		<script src="<?php echo base_url(); ?>modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
 		<script>$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>
-		<script src="<?php echo base_url(); ?>modern-ticker/js/preview.js" type="text/javascript"></script>
+		

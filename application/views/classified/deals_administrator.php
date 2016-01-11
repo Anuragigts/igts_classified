@@ -304,7 +304,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="featured-badge">
-														<span>special</span>
+														<span>Urgent</span>
 													</div>
 													<div class="img-hover">
 														<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
@@ -398,7 +398,7 @@
 											<div class="row">
 												<div class="col-sm-4">
 													<div class="featured-badge">
-														<span>special</span>
+														<span>Gold</span>
 													</div>
 													<div class="xuSlider">
 														<ul class="sliders">
