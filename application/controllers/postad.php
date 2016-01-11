@@ -32,6 +32,36 @@ class Postad extends CI_Controller{
                 $data['cars_fst'] = $this->category_model->cars_sub_cat_fst();
                 $data['cars_sec'] = $this->category_model->cars_sub_cat_sec();
 
+                 /*motor point for bikes & scooters*/
+                $data['bikes_fst'] = $this->category_model->bikes_sub_cat_fst();
+                $data['bikes_sec'] = $this->category_model->bikes_sub_cat_sec();
+
+                /*motor point for motorhomes & caravans*/
+                $data['caravans_fst'] = $this->category_model->caravans_sub_cat_fst();
+
+                 /*motor point for vans, trucks, SUV's */
+                $data['vans_sub_cat_fst'] = $this->category_model->vans_sub_cat_fst();
+
+                /*motor point for Coaches, buses */
+                $data['coach_sub_cat_fst'] = $this->category_model->coach_sub_cat_fst();
+
+                /*motor point for plant machinery sub-category*/
+                     /*Tractor Unit */
+                $data['tractor_sub_cat_fst'] = $this->category_model->tractor_sub_cat_fst();
+                     /*Rigid Trucks*/
+                $data['rigid_sub_cat_fst'] = $this->category_model->rigid_sub_cat_fst();
+                    /*Trailers Trucks*/
+                $data['trailer_sub_cat_fst'] = $this->category_model->trailer_sub_cat_fst();
+                    /*Plant Equipment*/
+                $data['equip_sub_cat_fst'] = $this->category_model->equip_sub_cat_fst();
+
+
+                /*motor point for farming vehicles*/
+                $data['farm_sub_cat_fst'] = $this->category_model->farm_sub_cat_fst();
+
+                /*motor point for boats*/
+                $data['boat_sub_cat_fst'] = $this->category_model->boat_sub_cat_fst();
+
                 if($plogin_id != ""){
                         /*$data = array(
                                 "title"     =>  "Classifieds",
