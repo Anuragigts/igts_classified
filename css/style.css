@@ -4256,7 +4256,7 @@ a .login-op-btn:hover{
     cursor: pointer;
 } */
 
-
+/* 
 .first_list .featured-badge {
     width: 117px;
     height: 86px;
@@ -4266,6 +4266,17 @@ a .login-op-btn:hover{
     left: -4px;
     top: -4px;
     z-index: 2;
+} */
+
+.first_list .featured-badge {
+    width: 116px;
+	height: 86px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 10px;
+	position: absolute;
+	left: 132px;
+	top: -22px;
+	z-index: 7;
 }
 
 .first_list .featured-badge span {
@@ -4275,7 +4286,31 @@ a .login-op-btn:hover{
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-	transform: matrix(0.7, -0.7, 0.7, 0.7, 8, -8);
+	/* transform: matrix(0.7, -0.7, 0.8, 0.7, 1, -8); */
+	padding-top: 21px;
+	padding-left: 35px;
+}
+ .featured-badge {
+    width: 116px;
+	height: 86px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 10px;
+	position: absolute;
+	left: 754px;
+	top: -23px;
+	z-index: 7;
+}
+
+ .featured-badge span {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+	/* transform: matrix(0.7, -0.7, 0.8, 0.7, 1, -8); */
+	padding-top: 21px;
+	padding-left: 35px;
 }
 .serch_bus_logo img{
 	height:60px;
@@ -4675,4 +4710,28 @@ aside label .checkbox{
 }
 .sign_bg{
 	padding-top: 31px;
+}
+.view_contact{
+	background-color: #1EDCE3;
+	padding: 9px;
+	color: #fff;
+	margin-bottom:5px;
+}
+.bot_10{
+	padding-bottom:10px;
+}
+p a{
+	color:#777;
+}
+h4 a:hover{
+	color:white !important;
+}
+.pvt-no-img {
+    width: 107px;
+    height: 107px;
+     border-radius: 50%;
+	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);	
+}
+.loc_view{
+	font-family: "Open Sans",sans-serif;
 }
