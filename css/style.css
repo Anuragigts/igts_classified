@@ -4115,6 +4115,7 @@ transition-delay:.2s;
 
 .modal-body h4 a{
 	color:#252C2E;
+	line-height: 1;
 }
 .modal-body h3 a{
 	color:#121617;
