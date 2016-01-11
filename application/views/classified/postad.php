@@ -18,6 +18,7 @@
 
 			<script type="text/javascript">
 			$(function(){
+				/*cars*/
 				$("#car_viewmore").click(function(){
 					$("#car_sec_part").css('display', 'block');
 					$("#car_viewmore").hide();
@@ -30,6 +31,7 @@
 					$('#car_viewless').hide();
 				});
 
+				/*bikes*/
 				$("#bike_viewmore").click(function(){
 					$("#bike_sec_part").css('display', 'block');
 					$("#bike_viewmore").hide();
@@ -40,6 +42,19 @@
 					$("#bike_sec_part").css('display', 'none');
 					$("#bike_viewmore").show();
 					$("#bike_viewless").hide();
+				});
+
+				/*e-zone*/
+				$("#ezone_viewmore").click(function(){
+					$("#ezone_sec_part").css('display', 'block');
+					$("#ezone_viewless").show();
+					$("#ezone_viewmore").hide();
+				});
+
+				$("#ezone_viewless").click(function(){
+					$("#ezone_sec_part").css('display', 'none');
+					$("#ezone_viewless").hide();
+					$("#ezone_viewmore").show();
 				});
 				
 			});
@@ -212,7 +227,10 @@
 																			<h4><a href="#">Softwares</a></h4>
 																		</div>
 																	</div>
-																	<div class="row ezone_h3">
+																	<div class="row col-md-12" >
+																			<button type="button" id='ezone_viewmore' class="pull-right btn btn-primary">View More</button>
+																			</div>
+																	<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
 																		<div class="col-md-3 clearfix">
 																			<h3>Accessories</h3>
 																			<h4><a href="#">Tablet & iPad Accessories</a></h4>
@@ -255,6 +273,9 @@
 																			<h4><a href="#">Camcorders</a></h4>
 																		</div>
 																	</div>
+																			<div class="row col-md-12" >
+																			<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn btn-primary">View Less</button>
+																			</div>
 																</div>
 															</div>
 															

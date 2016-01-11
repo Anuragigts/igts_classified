@@ -19,10 +19,9 @@ class Signup extends CI_Controller{
                         
                         $this->form_validation->set_rules("fname","First name","required");
                         $this->form_validation->set_rules("lname","Last name","required");
-                        $this->form_validation->set_rules("email","Email Id","required|valid_email|matches[conf-email]");
-                        $this->form_validation->set_rules("conf-email","Confirm Email Id","required|valid_email");
-                        $this->form_validation->set_rules("password","Password","trim|required|min_length[8]|check_pass|matches[conf-password]");
-                        $this->form_validation->set_rules("conf-password","Confirm Password","required");
+                        // $this->form_validation->set_rules("email","Email Id","required|valid_email|matches[conf-email]");
+                        $this->form_validation->set_rules("email","Email Id","required|valid_email");
+                        $this->form_validation->set_rules("password","Password","trim|required|min_length[8]|check_pass");
                         $this->form_validation->set_rules("mobile","Mobile number","required");
                     // echo "<pre>"; print_r($this->input->post());
 

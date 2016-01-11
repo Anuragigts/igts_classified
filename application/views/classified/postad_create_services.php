@@ -1613,11 +1613,15 @@ jQuery(document).ready(function($) {
 															<img src="img/icons/i.png">
 														</sup>
 													</label>
-													<div class="input">
-														<label class="icon-right" for="Video">
-															<i class="fa fa-briefcase"></i>
+													<div class="unit">
+														<label class="input append-big-btn">
+															<div class="file-button">
+																Browse
+																<input type="file" name="file_video_free" id='file_video_free' >
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<span class="hint">Only: mp4  Size: less 10 Mb</span>
 														</label>
-														<input type="text" id="freeurgent_video" name="freeurgent_video" placeholder="">
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1666,11 +1670,15 @@ jQuery(document).ready(function($) {
 															<img src="img/icons/i.png">
 														</sup>
 													</label>
-													<div class="input">
-														<label class="icon-right" for="Video">
-															<i class="fa fa-briefcase"></i>
+													<div class="unit">
+														<label class="input append-big-btn">
+															<div class="file-button">
+																Browse
+																<input type="file" name="file_video_gold" id='file_video_gold' >
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<span class="hint">Only: mp4  Size: less 10 Mb</span>
 														</label>
-														<input type="text" id="gold_videolink" name="gold_videolink" placeholder="">
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1768,12 +1776,19 @@ jQuery(document).ready(function($) {
 												</div>
 												<div class="span12 unit">
 													<label class="label">Video Upload 
-														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+														<sup data-toggle="tooltip" title="" data-original-title="Video upload">
 															<img src="img/icons/i.png">
 														</sup>
 													</label>
-													<div class="input">
-														<input type="file">
+													<div class="unit">
+														<label class="input append-big-btn">
+															<div class="file-button">
+																Browse
+																<input type="file" name="file_video_platinum" id='file_video_platinum' />
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<span class="hint">Only: MP4  Size: less 10 Mb</span>
+														</label>
 													</div>
 												</div>
 												<div class="span12 unit">
