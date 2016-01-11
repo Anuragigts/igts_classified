@@ -91,6 +91,71 @@ GROUP BY sub_subcategory.`sub_category_id`) ");
             return $rs->result_array();
         }
 
+        /*motor point for bikes & scooters sub-category*/
+         public function bikes_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13 LIMIT 60");
+            return $rs->result_array();
+        }
+
+         public function bikes_sub_cat_sec(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13 LIMIT 60, 94");
+            return $rs->result_array();
+        }
+
+        /*motor point for motorhomes & caravans sub-category*/
+         public function caravans_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 14 ");
+            return $rs->result_array();
+        }
+
+        /*motor point for vans, trucks, SUV's sub-category*/
+         public function vans_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 15 ");
+            return $rs->result_array();
+        }
+
+        /*motor point for Coaches, buses sub-category*/
+         public function coach_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 16 ");
+            return $rs->result_array();
+        }
+
+        /*motor point for plant machinery sub-category*/
+                    /*Tractor Unit */
+         public function tractor_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 315");
+            return $rs->result_array();
+        }
+
+                    /*Rigid Trucks*/
+         public function rigid_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 316");
+            return $rs->result_array();
+        }
+
+                  /*Trailers Trucks*/
+         public function trailer_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 317");
+            return $rs->result_array();
+        }
+
+            /*Plant Equipment*/
+         public function equip_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 318");
+            return $rs->result_array();
+        }
+
+         /*farming vehicles*/
+         public function farm_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 18 ");
+            return $rs->result_array();
+        }
+
+         /*motor point for boats sub-category*/
+         public function boat_sub_cat_fst(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 19 ");
+            return $rs->result_array();
+        }
 
 
 }
