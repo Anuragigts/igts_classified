@@ -230,7 +230,7 @@
 								<ul class="dashboard_tag">
 									<li><img src="img/icons/admin.png"><a href='deals_administrator'>Deals Administrator</a></li>
 									<li><img src="img/icons/pickup.png"><a href='pickup_deals'>Pickup deals</a></li>
-									<li><img src="img/icons/seaked.png"><a href='seeked_searches'>Seeked Searches</a></li>
+									<li><img src="img/icons/seaked.png"><a href='seeked_searches'>Reserved Searches</a></li>
 									<li><img src="img/icons/updateprofile.png"> <a href='update_profile'>Update Profile</a></li>
 								</ul>
 								<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
@@ -266,17 +266,8 @@
                                                         <span class="custom-select">Users Rating</span>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <div class="selector">
-                                                        <select>
-                                                            <option value="1">A To Z</option>
-                                                            <option value="2">Z To A</option>
-                                                        </select>
-                                                        <span class="custom-select">Name</span>
-                                                    </div>
-                                                </li>  
-
-                                                <li>
+                                               
+												<li>
                                                     <div class="selector">
                                                         <select>
                                                             <option value="1">Sort Ascending</option>
@@ -311,92 +302,14 @@
                                     <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
-												<div class="col-sm-4">
+												<div class="col-sm-4 view_img">
 													<div class="featured-badge">
 														<span>special</span>
 													</div>
-													<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 820px; height: 720px; overflow: hidden; visibility: hidden; background-color: #24262e;">
-														<!-- Loading Screen -->
-														<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-															<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-															<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-														</div>
-														<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 240px; width: 820px; height: 720px; overflow: hidden;">
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/01.jpg" />
-																<img data-u="thumb" src="img/thumb-01.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/02.jpg" />
-																<img data-u="thumb" src="img/thumb-02.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/03.jpg" />
-																<img data-u="thumb" src="img/thumb-03.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/04.jpg" />
-																<img data-u="thumb" src="img/thumb-04.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/05.jpg" />
-																<img data-u="thumb" src="img/thumb-05.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/06.jpg" />
-																<img data-u="thumb" src="img/thumb-06.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/07.jpg" />
-																<img data-u="thumb" src="img/thumb-07.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/08.jpg" />
-																<img data-u="thumb" src="img/thumb-08.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/09.jpg" />
-																<img data-u="thumb" src="img/thumb-09.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/10.jpg" />
-																<img data-u="thumb" src="img/thumb-10.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/11.jpg" />
-																<img data-u="thumb" src="img/thumb-11.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/12.jpg" />
-																<img data-u="thumb" src="img/thumb-12.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/13.jpg" />
-																<img data-u="thumb" src="img/thumb-13.jpg" />
-															</div>
-															<div data-p="150.00" style="display: none;">
-																<img data-u="image" src="img/14.jpg" />
-																<img data-u="thumb" src="img/thumb-14.jpg" />
-															</div>
-														</div>
-														<!-- Thumbnail Navigator -->
-														<div data-u="thumbnavigator" class="jssort01-99-66" style="position:absolute;left:0px;top:0px;width:240px;height:480px;" data-autocenter="2">
-															<!-- Thumbnail Item Skin Begin -->
-															<div data-u="slides" style="cursor: default;">
-																<div data-u="prototype" class="p">
-																	<div class="w">
-																		<div data-u="thumbnailtemplate" class="t"></div>
-																	</div>
-																	<div class="c"></div>
-																</div>
-															</div>
-															<!-- Thumbnail Item Skin End -->
-														</div>
-														<!-- Arrow Navigator -->
-														<span data-u="arrowleft" class="jssora05l" style="top:158px;left:248px;width:50px;height:50px;" data-autocenter="2"></span>
-														<span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:50px;height:50px;" data-autocenter="2"></span>
+													<div class="img-hover">
+														<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
-													
 												</div>
 												<div class="col-sm-8 middle_text">
 													<div class="row">
@@ -471,6 +384,8 @@
 														<li><span>Deal ID : 112457856</span></li>
 														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+														<li><i class="fa fa-edit"></i></li>
+														<li><img src="img/icons/delete.png" alt="" class="img-responsive"></li>
 													</ul>                      
 												</div>
 											</div>
@@ -579,6 +494,8 @@
 														<li><span>Deal ID : 112457856</span></li>
 														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+														<li><i class="fa fa-edit"></i></li>
+														<li><img src="img/icons/delete.png" alt="" class="img-responsive"></li>
 													</ul>                      
 												</div>
 											</div>

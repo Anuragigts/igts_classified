@@ -191,7 +191,7 @@
 	  
 		
 
-   <!-- news updates -->
+		<!-- news updates -->
    
 		<script type="text/javascript">
 			var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -205,6 +205,54 @@
 		<!--  ======================= Modal Send Now ============================== -->
 	
 	
+    <!-- Modal -->
+	<div class="modal dialog1 fade" id="sendnow" role="dialog">
+		<div class="modal-dialog1">
+			<!-- Modal content-->
+			<form action="#" method="post" class="j-forms " >
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Send <span>NOW </span></h2>
+					</div>
+					<div class="modal-body">
+						<div class="j-row">
+							<div class="span12 unit">
+								<label class="label">Contact Name :</label>
+								<div class="input">
+									<label class="icon-right" for="name">
+										<i class="fa fa-user"></i>
+									</label>
+									<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+								</div>
+							</div>
+							<div class="span12 unit">
+								<label class="label">Mobile Number :</label>
+								<div class="input">
+									<label class="icon-right" for="phone">
+										<i class="fa fa-phone"></i>
+									</label>
+									<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+								</div>
+							</div>
+							<div class="span12 unit">
+								<label class="label">Email :</label>
+								<div class="input">
+									<label class="icon-right" for="email">
+										<i class="fa fa-envelope-o"></i>
+									</label>
+									<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+								</div>
+							</div>
+							<div class="col-sm-12 unit">													
+								<button class="btn btn-primary " id='change_pwd'>Send Now</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div> 
     
 		
     

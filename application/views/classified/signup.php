@@ -83,61 +83,53 @@
                     <div class="paddings-mini">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div class="login-form">
-                                        <div class="login-title">
-                                            <h2 class="text1 text_center">Register</h2>
-                                            <?php echo $this->view("classified_layout/success_error"); ?>
-                                        </div><!-- End Title -->
+								<div class="col-sm-10 col-sm-offset-1">
+                                    <div class="col-sm-4 sign_bg">
+										<img src="img/ebook.png" class="img-responsive" style="height:366px;" alt="">
+									</div>
+									<div class="col-sm-8">
+										<div class="login-form">
+											<div class="login-title">
+												<?php echo $this->view("classified_layout/success_error"); ?>
+											</div><!-- End Title -->
 
-                                        <form  method="post" class="log_form" action="" id="register-form">
-                                            <div class="col-2">
-                                                <label>First Name <sup style='color:red;'>*</sup>    
-                                                    <input placeholder="Enter First Name" id="fname" name="fname" tabindex="1">
-                                                     <?php echo form_error("fname");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-2">
-                                                <label>Last Name <sup style='color:red;'>*</sup>
-                                                    <input placeholder="Enter Last Name" id="lname" name="lname" tabindex="2">
-                                                    <?php echo form_error("lname");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-2">
-                                                <label>Email <sup style='color:red;'>*</sup>
-                                                    <input placeholder="Enter Email" id="email" name="email" tabindex="3">
-                                                    <?php echo form_error("email");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-2">
-                                                <label>Confirm Email <sup style='color:red;'>*</sup>
-                                                    <input placeholder="Enter Confirm email" id="conf-email" name="conf-email" tabindex="4">
-                                                    <?php echo form_error("conf-email");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-3">
-                                                <label>Password <sup style='color:red;'>*</sup>
-                                                    <input type="password" placeholder="Enter password" id="password" name="password" tabindex="5">
-                                                    <?php echo form_error("password");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-3">
-                                                <label>Confirm Password <sup style='color:red;'>*</sup>
-                                                    <input type="password" placeholder="Enter Confirm password" id="conf-password" name="conf-password" tabindex="6">
-                                                    <?php echo form_error("conf-password");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-3">
-                                                <label>Phone Number <sup style='color:red;'>*</sup>
-                                                    <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="7" maxlength='10' onkeypress="return isNumber(event)" >
-                                                    <?php echo form_error("mobile");?>
-                                                </label>
-                                            </div>
-                                            <div class="col-submit">
-                                                <input type="submit" id="signup" name='signup' class="btn btn-primary" value="Register">
-                                            </div>
-                                        </form><!-- End form -->
-                                    </div><!-- end login form -->
+											<form  method="post" class="log_form" action="" id="register-form">
+												<div class="col-2">
+													<label>First Name <sup style='color:red;'>*</sup>    
+														<input placeholder="Enter First Name" id="fname" name="fname" tabindex="1">
+														 <?php echo form_error("fname");?>
+													</label>
+												</div>
+												<div class="col-2">
+													<label>Last Name <sup style='color:red;'>*</sup>
+														<input placeholder="Enter Last Name" id="lname" name="lname" tabindex="2">
+														<?php echo form_error("lname");?>
+													</label>
+												</div>
+												<div class="col-2">
+													<label>Email <sup style='color:red;'>*</sup>
+														<input placeholder="Enter Email" id="email" name="email" tabindex="3">
+														<?php echo form_error("email");?>
+													</label>
+												</div>
+												<div class="col-2">
+													<label>Password <sup style='color:red;'>*</sup>
+														<input type="password" placeholder="Enter password" id="password" name="password" tabindex="4">
+														<?php echo form_error("password");?>
+													</label>
+												</div>
+												<div class="col-1">
+													<label>Phone Number <sup style='color:red;'>*</sup>
+														<input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="5" maxlength='10' onkeypress="return isNumber(event)" >
+														<?php echo form_error("mobile");?>
+													</label>
+												</div>
+												<div class="col-submit">
+													<input type="submit" id="signup" name='signup' class="btn btn-primary" value="Register">
+												</div>
+											</form><!-- End form -->
+										</div><!-- end login form -->
+									</div>
                                 </div><!-- end col-md-8/offset -->
                             </div><!-- end row -->
                         </div>
