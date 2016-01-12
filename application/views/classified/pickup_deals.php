@@ -9,13 +9,6 @@
 			overflow: hidden;
 		}
 	</style>
-	<script>
-		$(document).ready(function(){
-			$(".remove1").click(function(){
-				$("#div1").remove();
-			});
-		});
-	</script>
 	
 	<link rel="stylesheet" href="j-folder/css/demo.css">
 	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
@@ -32,7 +25,7 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
+			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<div class="content_info">
@@ -40,18 +33,18 @@
 				<div class="container">
 					<div class="row">
 						<!-- Item Table-->
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="item-table">
 								<div class="header-table color-red">
-									 <img src="img/icons/people.png">
+									 <img src="img/icons/people.png" alt="people" title="people image">
 									<h2>User Name</h2>
 									<!--<span>$ 99 / per month</span> -->
 								</div>
 								<ul class="dashboard_tag">
-									<li><img src="img/icons/admin.png"><a href='deals_administrator'>Deals Administrator</a></li>
-									<li><img src="img/icons/pickup.png"><a href='pickup_deals'>Pickup deals</a></li>
-									<li><img src="img/icons/seaked.png"><a href='seeked_searches'>Reserved Searches</a></li>
-									<li><img src="img/icons/updateprofile.png"> <a href='update_profile'>Update Profile</a></li>
+									<li><img src="img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
+									<li><img src="img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
+									<li><img src="img/icons/seaked.png" alt="seaked" title="seaked image"><a href='seeked_searches'>Reserved Searches</a></li>
+									<li><img src="img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
 								</ul>
 								<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 							</div>
@@ -60,7 +53,7 @@
 
 						<form action="#" method="post" class="j-forms">
 							<!-- Item Table-->
-							<div class="col-sm-8 list-view">
+							<div class="col-sm-9 list-view">
 								<div class="row">
 									<div class="col-sm-12">
 										<h2>Pickup deals</h2>
@@ -72,7 +65,7 @@
 									 <!-- Item Gallery List View-->
 									<div class="col-md-12" style="height: 215px;">
 										<div class="img-hover">
-											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+											<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 										</div>
 
@@ -98,7 +91,7 @@
 											<hr class="separator clearfix">
 											<p style="float: left;width:350px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. </p>
 											<div class="clearfix" style="float: right;">
-											<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+											<a href="description_view"><img src="img/icons/viewdetail.png" alt="viewdetail" title="viewdetail Button" class="img-responsive"></a>
 											</div>
 											<div class="clearfix"></div>
 											<div class="prod_price"><b>Rs :10000/-</b></div>
@@ -196,7 +189,7 @@
 											<hr class="separator clearfix">
 											<p style="float: left;width:350px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. </p>
 											<div class="clearfix" style="float: right;">
-											<div class="content-btn"><a href="#" class="btn btn-primary">View Details</a></div>
+												<a href="description_view"><img src="img/icons/viewdetail.png" alt="viewdetail" title="viewdetail Button" class="img-responsive"></a>
 											</div>
 											<div class="clearfix"></div>
 											<div class="prod_price"><b>Rs :10000/-</b></div>
@@ -254,7 +247,7 @@
 
 												<li>
 													<i class="fa fa-comments"></i>
-													<a href="#" title="Comment on Post Format: Standard">Leave a comment
+														<a href="#" title="Comment on Post Format: Standard">Leave a comment
 													</a>
 												</li>
 											</ul>                      
@@ -281,6 +274,5 @@
 	<script src="j-folder/js/additional-methods.min.js"></script>
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
-	<script src="j-folder/js/jquery-cloneya.min.js"></script>
-
+	
         

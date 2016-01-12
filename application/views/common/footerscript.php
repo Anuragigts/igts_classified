@@ -105,6 +105,7 @@
 				});
 			});
 		</script>
+		
 		<script>
 			$(document).ready(function(){
 				$(".gold_check").click(function(){

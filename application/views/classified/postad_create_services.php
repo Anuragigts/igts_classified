@@ -2035,44 +2035,44 @@ jQuery(document).ready(function($) {
 	
 	<!-- Modal -->
 	<form method='post' action="<?php echo base_url(); ?>postad_create_services" id='edit_service_cat'>
-	<div class="modal fade" id="Services" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h2>Services <span>Category </span></h2>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1 post_deal_bor">
-							<div class="row">
-								<div class="col-md-6 clearfix">
-									<h3>Professional
-										<input type='hidden' name='services_cat' id='services_cat' value='services' />
-										<input type='hidden' name='services_sub' id='services_sub' value='' />
-										<input type='hidden' name='services_sub_sub' id='services_sub_sub' value='' />
-									</h3>
-							<?php foreach ($services_sub_prof as $serv_prof) { ?>
-									<h4><a href="javascript:void(0)" id="<?php echo  $serv_prof['sub_category_id'].','.$serv_prof['sub_subcategory_id']; ?>" class='edit_service_prof'><?php echo ucfirst($serv_prof['sub_subcategory_name']); ?></a></h4>
-							<?php	} ?>
-								</div>
-								<div class="col-md-6 clearfix">
-									<h3>Popular</h3>
-									<?php foreach ($services_sub_pop as $serv_pop) { ?>
-										<h4><a href="javascript:void(0)" id="<?php echo  $serv_pop['sub_category_id'].','.$serv_pop['sub_subcategory_id']; ?>" class='edit_service_pop'><?php echo ucfirst($serv_pop['sub_subcategory_name']); ?></a></h4>
-									<?php	} ?>
+		<div class="modal fade" id="Services" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Services <span>Category </span></h2>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-1 post_deal_bor">
+								<div class="row">
+									<div class="col-md-6 clearfix">
+										<h3>Professional
+											<input type='hidden' name='services_cat' id='services_cat' value='services' />
+											<input type='hidden' name='services_sub' id='services_sub' value='' />
+											<input type='hidden' name='services_sub_sub' id='services_sub_sub' value='' />
+										</h3>
+								<?php foreach ($services_sub_prof as $serv_prof) { ?>
+										<h4><a href="javascript:void(0)" id="<?php echo  $serv_prof['sub_category_id'].','.$serv_prof['sub_subcategory_id']; ?>" class='edit_service_prof'><?php echo ucfirst($serv_prof['sub_subcategory_name']); ?></a></h4>
+								<?php	} ?>
+									</div>
+									<div class="col-md-6 clearfix">
+										<h3>Popular</h3>
+										<?php foreach ($services_sub_pop as $serv_pop) { ?>
+											<h4><a href="javascript:void(0)" id="<?php echo  $serv_pop['sub_category_id'].','.$serv_pop['sub_subcategory_id']; ?>" class='edit_service_pop'><?php echo ucfirst($serv_pop['sub_subcategory_name']); ?></a></h4>
+										<?php	} ?>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</form>
 	<!-- Services content End-->
 

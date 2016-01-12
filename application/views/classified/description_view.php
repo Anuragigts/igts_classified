@@ -57,13 +57,12 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
+			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<!-- content info - Blog-->
 		<div class="content_info">
 			<div class="paddings-mini">
-				<!-- content-->
 				<div class="container">
 					<div class="row">
 						<div class="col-md-9  single-blog">
@@ -119,44 +118,34 @@
 										<div id="gallery" style="display:none;">
 	
 											<img alt="Preview Image 1"
-												 src="img/blog/thumb-002.jpg" class="img-responsive"
+												 src="img/blog/thumb-002.jpg" class="img-responsive" title="Image_1"
 												 data-image="img/blog/002.jpg">
 											
 											<img alt="Preview Image 2"
-												 src="img/blog/thumb-003.jpg" class="img-responsive"
+												 src="img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
 												 data-image="img/blog/003.jpg">
 											
-											<img alt="Youtube Video"
+											<img alt="Youtube Video" title="Video_1"
 												 data-type="youtube"
 												 data-videoid="A3PDXmYoF5U">
 
 											<img alt="Preview Image 3"
-												 src="img/blog/thumb-004.jpg" class="img-responsive"
+												 src="img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
 												 data-image="img/blog/004.jpg">
 
 											<img alt="Preview Image 4"
-												 src="img/blog/thumb-005.jpg" class="img-responsive"
+												 src="img/blog/thumb-005.jpg" class="img-responsive" title="Image_4"
 												 data-image="img/blog/005.jpg">
 											
 											<img alt="Preview Image 5"
-												 src="img/blog/thumb-006.jpg" class="img-responsive"
+												 src="img/blog/thumb-006.jpg" class="img-responsive" title="Image_5"
 												 data-image="img/blog/006.jpg">
 
 											<img alt="Preview Image 6"
-												 src="img/blog/thumb-007.jpg" class="img-responsive"
+												 src="img/blog/thumb-007.jpg" class="img-responsive" title="Image_6"
 												 data-image="img/blog/007.jpg">
 
 										</div>
-										
-										<script type="text/javascript">
-
-											jQuery(document).ready(function(){
-
-												jQuery("#gallery").unitegallery();
-
-											});
-											
-										</script>
 									</div>	
 									<!-- Post Media-->
 
@@ -178,7 +167,7 @@
 															<li>
 																<div class="comment-main-level">
 																	<!-- Avatar -->
-																	<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																	<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
 																	<!-- Contenedor del Comentario -->
 																	<div class="comment-box">
 																		<div class="comment-head">
@@ -196,7 +185,7 @@
 																<ul class="comments-list reply-list">
 																	<li>
 																		<!-- Avatar -->
-																		<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
@@ -213,7 +202,7 @@
 
 																	<li>
 																		<!-- Avatar -->
-																		<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
@@ -233,7 +222,7 @@
 															<li>
 																<div class="comment-main-level">
 																	<!-- Avatar -->
-																	<div class="comment-avatar"><img src="img/icons/man.png" alt=""></div>
+																	<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
 																	<!-- Contenedor del Comentario -->
 																	<div class="comment-box">
 																		<div class="comment-head">
@@ -347,13 +336,13 @@
 							<div class="col-md-3">
 								<aside class="widget view_sidebar text_center">
 									<!--<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center><hr>-->
-									<img src="img/icons/user_pro.png" class="img-responsive pvt-no-img">
+									<img src="img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img">
 									<h3> User Name</h3><hr>
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
 									<center><img src="img/icons/contact.png" alt="" class="contact_now_show img-responsive"></center>
 									<ul class="list-styles contact_now_hide" style="display:none;">
-										<li><i class="fa fa-phone "></i> +91 900001110</li>
-										<li><i class="fa fa-envelope"></i> <a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
+										<li><i class="fa fa-phone "></i>+91 900001110</li>
+										<li><i class="fa fa-envelope"></i><a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
 									</ul>
 									<center class="top_10">
 										<div class="amt_bg">
@@ -361,7 +350,7 @@
 										</div>
 									</center>
 								</aside>
-								<center><img src="img/icons/sendnow.png" alt="" class="send_now_show img-responsive"></center>
+								<center><img src="img/icons/sendnow.png" alt="sendnow" title="sendnow button" class="send_now_show img-responsive"></center>
 								
 								<aside class="widget view_sidebar send_now_hide" style="display:none;">
 									<div class="j-row">
@@ -401,7 +390,7 @@
 									<h4><i class="fa fa-urgent"></i> Important Safety Tips</h4><hr>
 									<ul class="list-styles">
 										<li><i class="fa fa-check"></i> <a href="#">Really cheap prices</a></li>
-										<li><i class="fa fa-check"></i> <a href="#">Irregular email adresses</a></li>
+										<li><i class="fa fa-check"></i> <a href="#">Irregular email addresses</a></li>
 										<li><i class="fa fa-check"></i> <a href="#">Contact info in pictures</a></li>
 									</ul>
 									<p class="bot_10">To learn more, visit the <a href="#"> click here</a> to report this listing.</p>
@@ -456,6 +445,16 @@
 			});
 		
 		});
+	</script>
+	
+	<script type="text/javascript">
+
+		jQuery(document).ready(function(){
+
+			jQuery("#gallery").unitegallery();
+
+		});
+		
 	</script>
 	
 	 
