@@ -12,6 +12,23 @@
 <script src="imgupload/imageupload.js"></script>
 
 <script type="text/javascript">
+
+	$(function(){
+		$(".multi-submit-btn").click(function(){
+			var img_count = $("#image_count").val();
+			var pck_type = $("#package_type").val();
+			if (img_count == 0) {
+				$(".img_error").css('display', 'block'); return false;
+			}
+			else if(pck_type == 'platinum' && img_count > 15){
+				$(".img_error").css('display', 'block'); return false;
+			}
+			else{
+				$(".img_error").css('display', 'none'); return true;
+			}
+		});
+	});
+
 	/*accept number only*/
 	function isNumber(evt) {
 		    evt = (evt) ? evt : window.event;
@@ -425,6 +442,7 @@ jQuery(document).ready(function($) {
 			canvas.height = height;
 			canvas.getContext("2d").drawImage(original, 0, 0, width, height);
 			$(canvas).attr('title','Original size: ' + original.width + 'x' + original.height);
+			$(canvas).attr('name','file_img[]');
 			return canvas;
 		}
 
@@ -521,8 +539,8 @@ jQuery(document).ready(function($) {
 
 		 <link rel="stylesheet" href="js/jquery.cleditor.css" />
     
-		<!-- google map by postal code -->		
-		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>
+		<!-- google map by postal code 		
+		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>-->
 		<script type="text/javascript">
 
           function getPosition(callback) {
@@ -535,7 +553,7 @@ jQuery(document).ready(function($) {
               {
                 callback({
                   latt: results[0].geometry.location.lat(),
-                  long: results[0].geometry.location.lng()
+                  lng: results[0].geometry.location.lng()
                 });
               }
             });
@@ -561,6 +579,8 @@ jQuery(document).ready(function($) {
 		  $.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
          success: function(data){
 			 $('#location').val(data.results[0].formatted_address);
+			 $('#lattitude').val(latt);
+			 $('#longtitude').val(long1);
 			 
              /*or you could iterate the components for only the city and state*/
          }
@@ -572,8 +592,8 @@ jQuery(document).ready(function($) {
 
             document.getElementById("postalcode").onchange = function() {
               getPosition(function(position){
-                setup_map(position.latt, position.long);
-				address(position.latt, position.long);
+                setup_map(position.latt, position.lng);
+				address(position.latt, position.lng);
               });
             }
           }
@@ -600,7 +620,7 @@ jQuery(document).ready(function($) {
 					<div class="row">
 						<div class="wrapper wrapper-640" style="padding-top: 0px;">
 
-							<form action="http://lazy-coding.com/j-forms-advanced/forms/order_multistep_with_steps/j-folder/php/demo.php" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
+							<form action="<?php echo base_url(); ?>postad_create_services" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
 
 								<div class="header">
 									<a href="postad" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a><p>Post a Deal</p>
@@ -704,6 +724,9 @@ jQuery(document).ready(function($) {
 														</label>
 														<!-- <input type="text" id="area" name="area" placeholder="Enter Area"> -->
 														<input id="location" name='location' readonly type="text" placeholder="Type in an address" size="90" />
+														<!-- lattitude and longtitude -->
+														<input id="lattitude" name='lattitude' readonly type="hidden"  size="90" />
+														<input id="longtitude" name='longtitude' readonly type="hidden"  size="90" />
 													</div>
 												</div>
 											</div>
@@ -1756,6 +1779,10 @@ jQuery(document).ready(function($) {
 													
 											<!-- platinum package Start -->
 											<div class="j-row platinum_pck" style='display: none;'>
+												<div class="alert alert-danger img_error" style='display:none'; >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+												    <strong>Error!</strong> Please upload upto 15 images only
+												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
@@ -1951,7 +1978,7 @@ jQuery(document).ready(function($) {
 								<!-- end /.content -->
 
 								<div class="footer">
-									<button type="submit" class="primary-btn multi-submit-btn">Order</button>
+									<input type="submit" class="multi-submit-btn" name='post_create_ad' value='postad' />
 									<button type="button" class="primary-btn multi-next-btn" >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 								</div>

@@ -7,6 +7,14 @@ class Postad_create_services extends CI_Controller{
                 
         }
         public function index(){
+
+            if ($this->input->post("post_create_ad")) {
+                    echo "<pre>";
+                    echo $_FILES['file_video_platinum']['name'];
+                    echo $_FILES['file']['name'];
+                   print_r($this->input->post());
+                     exit;
+            }
             
 
         	 $data = array(
@@ -15,11 +23,6 @@ class Postad_create_services extends CI_Controller{
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad_create_services"
                         );
-
-
-             if ($this->input->post('contact_screen')) {
-                echo "<pre>"; print_r($this->input->post()); 
-             }
 
              $cat = $this->input->post('services_cat');
              $sub_cat = $this->input->post('services_sub');

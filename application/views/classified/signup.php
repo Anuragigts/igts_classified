@@ -46,6 +46,21 @@
                     }
                 });
         });
+
+
+        $(function(){
+                $('.sign_type').click(function(){
+                        var ch = $("input[name='signup_type']:checked").val();
+                        if(ch == 'business'){
+                            $("#signup_business").css('display', 'block');
+                            $("#signup_consumer").css('display', 'none');
+                        }else{
+                            $("#signup_business").css('display', 'none');
+                            $("#signup_consumer").css('display', 'block');
+                        }
+                });
+            
+            });
         </script>
  <!-- Section Title-->    
             <div class="section-title-01">
@@ -87,7 +102,13 @@
                                     <div class="col-sm-4 sign_bg">
 										<img src="img/ebook.png" class="img-responsive" style="height:366px;" alt="">
 									</div>
-									<div class="col-sm-8">
+                                    <label class="radio-inline">
+                                      <input type="radio" name="signup_type" value='consumer' class='sign_type'  checked />Consumer
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input type="radio" name="signup_type" value='business' class='sign_type' />Business
+                                    </label>
+									<div class="col-sm-8" id='signup_consumer'>
 										<div class="login-form">
 											<div class="login-title">
 												<?php echo $this->view("classified_layout/success_error"); ?>
@@ -130,6 +151,67 @@
 											</form><!-- End form -->
 										</div><!-- end login form -->
 									</div>
+                                    <div class="col-sm-8" style='display:none;' id='signup_business'>
+                                        <div class="login-form">
+                                            <div class="login-title">
+                                                <?php echo $this->view("classified_layout/success_error"); ?>
+                                            </div><!-- End Title -->
+
+                                            <form  method="post" class="log_form" action="" id="register-form">
+                                                <div class="col-2">
+                                                    <label>First Name <sup style='color:red;'>*</sup>    
+                                                        <input placeholder="Enter First Name" id="fname" name="fname" tabindex="1">
+                                                         <?php echo form_error("fname");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>Last Name <sup style='color:red;'>*</sup>
+                                                        <input placeholder="Enter Last Name" id="lname" name="lname" tabindex="2">
+                                                        <?php echo form_error("lname");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>Business Name <sup style='color:red;'>*</sup>    
+                                                        <input placeholder="Enter Business name" id="busname" name="busname" tabindex="1">
+                                                         <?php echo form_error("busname");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>Business Address <sup style='color:red;'>*</sup>
+                                                        <input placeholder="Enter Business Address" id="busaddr" name="busaddr" tabindex="2">
+                                                        <?php echo form_error("busaddr");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>Email <sup style='color:red;'>*</sup>
+                                                        <input placeholder="Enter Email" id="email" name="email" tabindex="3">
+                                                        <?php echo form_error("email");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>Password <sup style='color:red;'>*</sup>
+                                                        <input type="password" placeholder="Enter password" id="password" name="password" tabindex="4">
+                                                        <?php echo form_error("password");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>Phone Number <sup style='color:red;'>*</sup>
+                                                        <input placeholder="Enter Mobile number" id="mobile" name="mobile" tabindex="5" maxlength='10' onkeypress="return isNumber(event)" >
+                                                        <?php echo form_error("mobile");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label>VAT Number
+                                                        <input placeholder="Enter VAT number" id="vat_number" name="vat_number" tabindex="5" >
+                                                        <?php echo form_error("vat_number");?>
+                                                    </label>
+                                                </div>
+                                                <div class="col-submit">
+                                                    <input type="submit" id="signup" name='signup' class="btn btn-primary" value="Register">
+                                                </div>
+                                            </form><!-- End form -->
+                                        </div><!-- end login form -->
+                                    </div>
                                 </div><!-- end col-md-8/offset -->
                             </div><!-- end row -->
                         </div>

@@ -16,7 +16,7 @@ class Signup extends CI_Controller{
                         "content"   =>  "signup"
                 );
                 if($this->input->post("signup")){
-                        
+                       $chk = $this->input->post('signup_type');
                         $this->form_validation->set_rules("fname","First name","required");
                         $this->form_validation->set_rules("lname","Last name","required");
                         // $this->form_validation->set_rules("email","Email Id","required|valid_email|matches[conf-email]");

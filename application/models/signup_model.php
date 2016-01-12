@@ -15,20 +15,50 @@ class Signup_model extends CI_Model{
                  'smtp_pass' => '12chandru12',
                  );
 
-             $data = array('first_name' => $this->input->post('fname'),
-                            'lastname' => $this->input->post('lname'),
-                            'email' => $this->input->post('email'),
-                            'password' => md5($this->input->post('password')),
-                            'mobile'=>$this->input->post('mobile') );
-            $this->db->insert('signup', $data);
-            $is_confirm = md5(rand(10000,99999));
-            $login_data = array(
-                            'user_type'=>3,
-                            'login_email'=>$this->input->post('email'),
-                            'login_password'=> md5($this->input->post('password')),
-                            'is_confirm'=>$is_confirm,
-                            'login_status'=>2);
-            $this->db->insert('login', $login_data);
+            if($this->input->post('signup_type') == 'consumer') {
+                       $data = array('first_name' => $this->input->post('fname'),
+                                    'lastname' => $this->input->post('lname'),
+                                    'email' => $this->input->post('email'),
+                                    'password' => md5($this->input->post('password')),
+                                    'mobile'=>$this->input->post('mobile'),
+                                    'signup_type' => $this->input->post('signup_type'));
+                    $this->db->insert('signup', $data);
+                    $insert_id = $this->db->insert_id();
+                    $is_confirm = md5(rand(10000,99999));
+
+                    $login_data = array(
+                                    'user_type'=>3,
+                                    'login_email'=>$this->input->post('email'),
+                                    'login_password'=> md5($this->input->post('password')),
+                                    'is_confirm'=>$is_confirm,
+                                    'login_status'=>2,
+                                    'signupid'=>$insert_id);
+                    $this->db->insert('login', $login_data);
+            }
+            else{
+                        $data = array('first_name' => $this->input->post('fname'),
+                                    'lastname' => $this->input->post('lname'),
+                                    'email' => $this->input->post('email'),
+                                    'password' => md5($this->input->post('password')),
+                                    'mobile'=>$this->input->post('mobile'),
+                                    'signup_type' => $this->input->post('signup_type'),
+                                    'bus_name'=>$this->input->post('busname'),
+                                    'bus_addr'=>$this->input->post('busaddr'),
+                                    'vat_number'=> $this->input->post('vat_number'));
+                        $this->db->insert('signup', $data);
+                        $insert_id = $this->db->insert_id();
+                        $is_confirm = md5(rand(10000,99999));
+
+                    $login_data = array(
+                                    'user_type'=>3,
+                                    'login_email'=>$this->input->post('email'),
+                                    'login_password'=> md5($this->input->post('password')),
+                                    'is_confirm'=>$is_confirm,
+                                    'login_status'=>2,
+                                    'signupid'=>$insert_id);
+                    $this->db->insert('login', $login_data);
+            }
+             
 
 
 
