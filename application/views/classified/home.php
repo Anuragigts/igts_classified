@@ -449,7 +449,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/recentad.jpg" alt="recentad" title="recentad image" class="recentad_heig img-responsive">
+							<img src="img/recentad.jpg" alt="recentad" title="recentad-image" class="recentad_heig img-responsive">
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel1">
@@ -502,7 +502,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/business_deals.jpg" alt="business_deals" title="business_deals" class="business_img img-responsive">
+							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="business_img img-responsive">
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel">
@@ -511,7 +511,7 @@
 								<div>
 									<?php if($b_ads->img_name == ''){ ?>
 									<div class="img-hover">
-										<img src="ad_images/no_image.png" alt="business_image1" title="business_image1" class="img-responsive">
+										<img src="ad_images/no_image.png" alt="business_image1" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 									<div class="info-gallery">
@@ -522,13 +522,13 @@
 									<?php	}
 										else{ ?>
 									<div class="img-hover">
-										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="business_image1" title="business_image1" class="img-responsive">
+										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="business_image1" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
 										<hr class="separator">
-										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business_logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 									</div>
 									<?php	} ?>
 								</div>
@@ -550,46 +550,46 @@
 							</div>
 							<div data-u="slides" class="slide_j3">
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/acer.png" alt="acer" title="brand"/>
+									<img data-u="image" src="img/brand/acer.png" alt="acer" title="Acer"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/canon.png" alt="canon" title="brand"/>
+									<img data-u="image" src="img/brand/canon.png" alt="canon" title="Canon"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/casio.png" alt="casio" title="brand"/>
+									<img data-u="image" src="img/brand/casio.png" alt="casio" title="Casio"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/dell.png" alt="dell" title="brand"/>
+									<img data-u="image" src="img/brand/dell.png" alt="dell" title="Dell"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/htc.png" alt="htc" title="brand"/>
+									<img data-u="image" src="img/brand/htc.png" alt="htc" title="HTC"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/intel.png" alt="intel" title="brand" />
+									<img data-u="image" src="img/brand/intel.png" alt="intel" title="Intel" />
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/iPhone.png" alt="iPhone" title="brand"/>
+									<img data-u="image" src="img/brand/iPhone.png" alt="iPhone" title="iPhone"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/lenevo.png" alt="lenevo" title="brand"/>
+									<img data-u="image" src="img/brand/lenevo.png" alt="lenevo" title="Lenovo"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/lg.png" alt="lg" title="brand"/>
+									<img data-u="image" src="img/brand/lg.png" alt="lg" title="LG"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/nexus.png" alt="nexus" title="brand"/>
+									<img data-u="image" src="img/brand/nexus.png" alt="nexus" title="Nexus"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/nokia.png" alt="nokia" title="brand"/>
+									<img data-u="image" src="img/brand/nokia.png" alt="nokia" title="Nokia"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/ricoh.png" alt="ricoh" title="brand"/>
+									<img data-u="image" src="img/brand/ricoh.png" alt="ricoh" title="Ricoh"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/samsung.png" alt="samsung" title="brand"/>
+									<img data-u="image" src="img/brand/samsung.png" alt="samsung" title="Samsung"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/Windows.png" alt="Windows" title="brand" />
+									<img data-u="image" src="img/brand/Windows.png" alt="Windows" title="Windows" />
 								</div>
 							</div>
 						</div>
