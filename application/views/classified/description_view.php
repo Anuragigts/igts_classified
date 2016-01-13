@@ -350,7 +350,7 @@
 										</div>
 									</center>
 								</aside>
-								<center><img src="img/icons/sendnow.png" alt="sendnow" title="sendnow button" class="send_now_show img-responsive"></center>
+								<center><a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a></center>
 								
 								<aside class="widget view_sidebar send_now_hide" style="display:none;">
 									<div class="j-row">

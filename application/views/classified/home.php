@@ -1,5 +1,6 @@
 	<title>365 Deals</title>
-	<!-- Slide And Filter Section-->    
+	<!-- Slide And Filter Section--> 
+	
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
 		<div class="tp-banner">
@@ -227,7 +228,7 @@
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
-												<center><img src="img/icons/sendnow.png" alt="Send now" title="Send Now" class="img-responsive"></center>
+												<center><a class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a></center>
 												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 											</div>
 										</figure>
@@ -293,7 +294,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="#"><img src="img/icons/view_home.png" alt="View Details" title="Details" class="text_center img-responsive"></a>
+								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 							</div>
 						</div>
@@ -326,7 +327,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="#"><img src="img/icons/view_home.png" alt="View Details" title="Details" class="text_center img-responsive"></a>
+								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 							</div>
 						</div>
@@ -359,7 +360,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="#"><img src="img/icons/view_home.png" alt="View Details" title="Details" class="text_center img-responsive"></a>
+								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 							</div>
 						</div>
@@ -392,7 +393,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="#"><img src="img/icons/view_home.png" alt="View Details" title="Details" class="text_center img-responsive"></a>
+								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 							</div>
 						</div>
@@ -425,7 +426,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="#"><img src="img/icons/view_home.png" alt="View Details" title="Details" class="text_center img-responsive"></a>
+								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 							</div>
 						</div>
@@ -481,7 +482,7 @@
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
-										<a href="#"><img src="img/icons/view_home.png" alt="" class="text_center img-responsive"></a>
+										<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
 									</div>
 								</div>

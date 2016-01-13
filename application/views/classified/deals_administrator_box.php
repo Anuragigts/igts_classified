@@ -122,9 +122,7 @@
 												<li><a href="#"><i class="fa fa-star"></i></a></li>
 												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 											</ul>
-											<a href="#">
-												<center><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></center>
-											</a>
+											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											<div class="price"><b>From</b>125 £</div>
 										</div>
 									</div>
@@ -149,9 +147,7 @@
 												<li><a href="#"><i class="fa fa-star"></i></a></li>
 												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 											</ul>
-											<a href="#">
-												<center><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></center>
-											</a>
+											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											<div class="price"><b>From</b>125 £</div>
 										</div>
 									</div>
@@ -176,9 +172,7 @@
 												<li><a href="#"><i class="fa fa-star"></i></a></li>
 												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 											</ul>
-											<a href="#">
-												<center><img src="img/icons/viewdetail.png" alt="" class="img-responsive"></center>
-											</a>
+											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											<div class="price"><b>From</b>125 £</div>
 										</div>
 									</div>

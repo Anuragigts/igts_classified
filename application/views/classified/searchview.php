@@ -17,6 +17,7 @@
 			color:#fff !important;
 		}
 	</style>
+	
 	<script>
 			!function ($) {
 			
