@@ -346,7 +346,7 @@
 									</ul>
 									<center class="top_10">
 										<div class="amt_bg">
-											<h3 style="color:white;padding-top:10px;">£106</h3>
+											<h3 style="color:white;padding-top:10px;">£1036</h3>
 										</div>
 									</center>
 								</aside>

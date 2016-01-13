@@ -15,6 +15,7 @@
 		color: #FFF;
 		}
 	</style>
+	
 	<script type="text/javascript">
 		$(function(){
 			/*cars*/
@@ -111,7 +112,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -199,7 +200,7 @@
 																</div>
 															</div>
 															<div class="row col-md-12" >
-																<button type="button" id='ezone_viewmore' class="pull-right btn btn-primary">View More</button>
+																<button type="button" id='ezone_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
 															</div>
 															<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
 																<div class="col-md-3 clearfix">
@@ -244,13 +245,13 @@
 																</div>
 															</div>
 															<div class="row col-md-12" >
-																<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn btn-primary">View Less</button>
+																<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
 															</div>
 														</div>
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -324,7 +325,7 @@
 																			?>
 																	</div>
 																	<div class="row col-md-12" >
-																		<button type="button" id='car_viewmore' class="pull-right btn btn-primary">View More</button>
+																		<button type="button" id='car_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
 																	</div>
 																	<div class="row" id='car_sec_part' style='display:none;'>
 																		<?php $cars_sec1 = array_chunk(@$cars_sec, 6);
@@ -338,7 +339,7 @@
 																			?>
 																	</div>
 																	<div class="row col-md-12" >
-																		<button type="button" id='car_viewless' style='display:none'; class="pull-right btn btn-primary">View Less</button>
+																		<button type="button" id='car_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
 																	</div>
 																</div>
 															</div>
@@ -356,7 +357,7 @@
 																			?>
 																	</div>
 																	<div class="row col-md-12" >
-																		<button type="button" id='bike_viewmore' class="pull-right btn btn-primary">View More</button>
+																		<button type="button" id='bike_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
 																	</div>
 																	<div class="row" id='bike_sec_part' style='display:none;'>
 																		<?php $bikes_sec1 = array_chunk(@$bikes_sec, 6);
@@ -370,7 +371,7 @@
 																			?>
 																	</div>
 																	<div class="row col-md-12" >
-																		<button type="button" id='bike_viewless' style='display:none'; class="pull-right btn btn-primary">View Less</button>
+																		<button type="button" id='bike_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
 																	</div>
 																</div>
 															</div>
@@ -483,7 +484,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -556,7 +557,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -606,7 +607,7 @@
 														</div>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 													</div>
 												</form>
 											</div>
@@ -654,7 +655,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -735,7 +736,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -808,7 +809,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>
@@ -937,7 +938,7 @@
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
 										</div>

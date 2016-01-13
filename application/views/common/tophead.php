@@ -54,7 +54,7 @@
 
 			position: fixed;
 
-			top: 78%;
+			top: 75%;
 
 			right: 0;
 
@@ -68,7 +68,7 @@
 
 			background: url(img/icons/feedback.png) no-repeat;
 
-			width: 43px;
+			width: 40px;
 
 			height: 144px;
 
@@ -78,26 +78,8 @@
 
 			
 		}
-
-		div#test {
-
-			background: #fff;
-
-			width: 233px;
-
-			height: 100%;
-
-			float: right;
-
-			display: none;
-
-			border: solid 1px #2EA9C0;
-
-			padding: 20px;
-
-		}
 	</style>
 
 	<div id="feedback">
-		<div id="aa" data-toggle="modal" data-target="#query-modal"></div>
+		<div id="aa" data-toggle="modal" data-target="#feedback_1"></div>
 	</div>
