@@ -36,6 +36,28 @@ form > div > .col-4 {
   height: 86px;
 }
 
+.form > div > label {
+  display: block;
+  padding: 20px 20px 10px;
+  vertical-align: top;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #939393;
+  cursor: pointer;
+}
+.form > div.switch > label {
+  padding: 16px 20px 13px;
+}
+
+.col-2, .col-3, .col-4 { 
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.form > div > .col-4 {
+  height: 86px;
+}
+
 .col-submit {
   text-align: center;
   padding: 20px;
@@ -62,6 +84,7 @@ label > input {
 /** responsive design **/
 @media(min-width: 850px){
   form > div { display: inline-block; }
+  .form > div { display: inline-block; }
   .col-submit { display: block; }
   
   .col-2, .col-3, .col-4 , .col-1{ box-shadow: 1px 1px #e4e4e4; border: none; }
