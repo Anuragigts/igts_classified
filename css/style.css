@@ -3898,9 +3898,10 @@ address strong{
 
 .modal-header{
 	text-align: center;
+	background-color: rgb(237, 118, 66);
 }
 .modal-header h2{
-	color: #222;
+	color: #fff;
 	padding: 0;
 	z-index: 1;
 }
@@ -4186,6 +4187,8 @@ a .login-op-btn:hover{
 .post_deal_bor div h3{
 	color:#ed7642;
 }
+
+
 .map_canvas{
 	height:200px !important;
 }
@@ -4725,7 +4728,7 @@ aside label .checkbox{
 	margin-bottom:5px;
 }
 .bot_10{
-	padding-bottom:10px;
+	padding-bottom:10px !important;
 }
 p a{
 	color:#777;

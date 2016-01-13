@@ -5697,17 +5697,16 @@ a.list-group-item-danger.active:focus {
 }
 .close {
   float: right;
-  font-size: 21px;
+  font-size: 29px;
   font-weight: bold;
   line-height: 1;
-  color: #000;
+  color: #fff;
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
-  opacity: .2;
 }
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
   filter: alpha(opacity=50);
@@ -5794,9 +5793,7 @@ button.close {
   padding: 10px;
   border-bottom: 1px solid #e5e5e5	;
 }
-.modal-header .close {
-  margin-top: -2px;
-}
+
 .modal-title {
   margin: 0;
   line-height: 1.42857143;
@@ -5804,12 +5801,14 @@ button.close {
 .modal-body {
   /* position: relative; */
   padding: 15px;
+  background-color: #F8F0F0;
   /* min-height: 263px; */
 }
 .modal-footer {
   padding: 10px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  border-top: 3px solid #e5e5e5;
+  background-color: #f4f4f4;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
@@ -5838,6 +5837,11 @@ button.close {
 		padding-top:150px;
 		margin: 30px auto;
 	}
+	.modal-dialog2 {
+		width: 686px;
+		padding-top:150px;
+		margin: 30px auto;
+	}
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -5853,6 +5857,10 @@ button.close {
 }
 @media (max-width: 320px) {
   .dialog1{
+    width: 330px;
+	padding-top:170px;
+  }
+  .dialog2{
     width: 330px;
 	padding-top:170px;
   }
