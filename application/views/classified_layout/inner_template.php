@@ -7,44 +7,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">   
-    
+   
     <!-- xxx Head Content xxx -->
     <?php echo $this->load->view('common/head');?> 
     <!-- xxx End xxx -->
   
-
 </head>
-	<body id="home">
-		 <!--Preloader-->
-			<div class="preloader">
-				<div class="status">&nbsp;</div>
-			</div>
-		   
-		   
-			<!-- layout-->
-			<div id="layout">
-			
-				<!-- xxx tophead Content xxx -->
-				<?php echo $this->load->view('common/tophead'); ?> 
-				<!-- xxx End tophead xxx -->
-				<?php echo $this->load->view("classified/".$content);?>
+<body id="home">
+	<!--Preloader-->
+	<div class="preloader">
+		<div class="status">&nbsp;</div>
+	</div>
+	   
+	   
+	<!-- layout-->
+	<div id="layout">
+	
+		<!-- xxx tophead Content xxx -->
+		<?php echo $this->load->view('common/tophead'); ?> 
+		<!-- xxx End tophead xxx -->
+		<?php echo $this->load->view("classified/".$content);?>
 
 
 
-				<!-- xxx footer Content xxx -->
-				<?php echo $this->load->view('common/footer');?> 
-				<!-- xxx footer End xxx -->
-				
-			</div>
-			<!-- End Entire Wrap -->
-
+		<!-- xxx footer Content xxx -->
+		<?php echo $this->load->view('common/footer');?> 
+		<!-- xxx footer End xxx -->
 		
-		<!-- xxx footerscript Content xxx -->
-		<?php echo $this->load->view('common/footerscript');?> 
-		<!-- xxx footerscript End xxx -->
+	</div>
+	<!-- End Entire Wrap -->
+
+	
+	<!-- xxx footerscript Content xxx -->
+	<?php echo $this->load->view('common/footerscript');?> 
+	<!-- xxx footerscript End xxx -->
+	
 		
-			
-	</body>
+</body>
 </html>

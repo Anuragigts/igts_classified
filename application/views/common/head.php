@@ -22,18 +22,13 @@
 		<meta name="copyright" content="© 2016, All right reserved." />
 		<meta name="robots" content="All" />
         <!-- Theme CSS -->
-        <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen"/>
         <!-- Responsive CSS -->
         <link href="<?php echo base_url(); ?>css/theme-responsive.css" rel="stylesheet" media="screen">
         <!-- Skins Theme -->
         
 		       
         <script src="<?php echo base_url(); ?>js/modernizr.js"></script>
-		
-		<!--<script type="text/javascript" src="js/marquee.js"></script>
-		
-		
-	 use jssor.slider.debug.js instead for debug -->
 		
 		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		
@@ -75,7 +70,7 @@
 
 
 			});
-</script>
+		</script>
 		
 		<script type="text/javascript">
 		

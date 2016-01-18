@@ -526,21 +526,11 @@ jQuery(document).ready(function($) {
 			margin-left: 10px;
 		}
 	</style>
-	<link rel="stylesheet" href="j-folder/css/demo.css">
-	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	
+		<link rel="stylesheet" href="j-folder/css/j-forms.css">
 
-	        <!-- tinymce editor 
-
-        <script type="text/javascript" src="js/nicEdit.js"></script>
-		<script type="text/javascript">
-			bkLib.onDomLoaded(function() { new nicEditor().panelInstance('dealdescription'); });
-		</script>-->
-
-		 <link rel="stylesheet" href="js/jquery.cleditor.css" />
+	    <link rel="stylesheet" href="js/jquery.cleditor.css" />
     
-		<!-- google map by postal code 		
-		 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPl18cl1woQc2OYOkugwisxSdaqEX3qw"></script>-->
 		<script type="text/javascript">
 
           function getPosition(callback) {
@@ -600,12 +590,12 @@ jQuery(document).ready(function($) {
       </script> 
 
  	<!-- Section Title-->    
-            <div class="section-title-01">
-                <!-- Parallax Background -->
-                <div class="bg_parallax image_02_parallax"></div>
-                <!-- Parallax Background -->
-			</div>   
-            <!-- End Section Title-->
+	<div class="section-title-01">
+		<!-- Parallax Background -->
+		<div class="bg_parallax image_02_parallax"></div>
+		<!-- Parallax Background -->
+	</div>   
+	<!-- End Section Title-->
     <section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
@@ -2008,29 +1998,7 @@ jQuery(document).ready(function($) {
 		});
     </script>
 
-    <script type="text/javascript">
-   
-    		/*function len(){
-    			
-    	 var len = document.getElementById('text_hide').value;
-    	 
-	    	 if(len == '' || len == '<br>'){
-	    	 	document.getElementById("deal_desc_error").style.display = "block";
-	    	 	return false;
-	    	 }
-	   	 	else{
-		   	 		if(len.length < 200 ){
-		   	 		document.getElementById("deal_desc_error").style.display = "block";
-		   	 		return false;
-		   	 				}
-		   	 				else{
-		   	 		document.getElementById("deal_desc_error").style.display = "none";			
-		   	 				}
-				}
-    	 
-    	}*/
-    	
-    </script>
+    
 	
 	
 	<!-- Modal -->

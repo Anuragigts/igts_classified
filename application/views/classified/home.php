@@ -1,4 +1,4 @@
-	<title>365 Deals</title>
+	<title>365 Deals :: Home</title>
 	<!-- Slide And Filter Section--> 
 	
 	<section class="tp-banner-container">
@@ -30,7 +30,7 @@
 					</div>
 					<input type="text" required="required" placeholder="Location" class="input-large">
 					<i class="fa fa-map-marker fa-2x loca_pad"></i>
-					<input class="date-input" id="slider-range" type="text"  value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="20"//> 
+					<input class="date-input" id="slider-range" type="text"  value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="20" /> 
 					<input type="submit" class="pull-right" value="Search">
 				</form>
 			</div>
@@ -206,7 +206,7 @@
 											<div class="info-gallery slider_bg">
 												<h3><?php echo substr($sig_val->title, 0, 20); ?></h3>
 												<hr class="separator">
-												<ul class="nav nav-tabs" id="myTab">
+												<ul class="nav nav-tabs">
 													<li class="active">
 														<a href="#description<?php echo $i; ?>" data-toggle="tab"> DESCRIPTION</a>
 													</li>
@@ -228,7 +228,7 @@
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
-												<center><a class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a></center>
+												<a class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 												<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
 											</div>
 										</figure>
@@ -637,7 +637,7 @@
 			//responsive code end
 		});
 	</script>
-	<link href="<?php echo base_url(); ?>modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
-	<link id="style-sheet" href="<?php echo base_url(); ?>modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
-	<script src="<?php echo base_url(); ?>modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
+	<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
+	<link id="style-sheet" href="modern-ticker/themes/theme1/theme.css" type="text/css" rel="stylesheet">
+	<script src="modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
 	<script>$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>

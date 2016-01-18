@@ -102,18 +102,6 @@
 				<div class="col-md-12">
 				   <p>Copyright @ 2015.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank">iGravitas TechnoSoft</a> India (P) Ltd.</p>
 				</div>
-				<!-- <div class="col-md-7">
-					<!-- Nav Footer--
-					<ul class="nav-footer">
-						<li><a href="#">HOME</a> </li>
-						<li><a href="#">HOTELS</a></li>
-						<li><a href="#">FLIGHTS</a></li> 
-						<li><a href="#">CARS</a></li> 
-						<li><a href="#">CRUICES</a></li>                
-						<li><a href="#">CONTACT</a></li>
-					</ul>
-					<!-- End Nav Footer--
-				</div> -->
 			</div>
 		</div>
 	</div>

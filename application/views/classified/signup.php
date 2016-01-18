@@ -144,7 +144,7 @@
             <section class="content-central">
                 <!-- Shadow Semiboxed -->
                 <div class="semiboxshadow text-center">
-                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
                 </div>
                 <!-- End Shadow Semiboxed -->
 
@@ -263,8 +263,8 @@
 
             </section>
 	<script src="js/jquery.js"></script> 
-            <script>
+    <script>
        setTimeout(function(){
             $(".alert").hide();
        },5000);
-</script>
+	</script>

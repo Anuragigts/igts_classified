@@ -1,54 +1,25 @@
 <!-- ======================= JQuery libs =========================== -->
-        <!-- jQuery local--> 
-      
         <script src="<?php echo base_url(); ?>js/jquery-ui.1.10.4.min.js"></script>                
-        <!--Nav-->
         <script src="<?php echo base_url(); ?>js/nav/jquery.sticky.js" type="text/javascript"></script>    
-        <!--Totop-->
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/totop/jquery.ui.totop.js" ></script>  
-         <!--Accorodion-->
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/totop/jquery.ui.totop.js" ></script>  
         <script type="text/javascript" src="<?php echo base_url(); ?>js/accordion/accordion.js" ></script>  
-        <!--Slide Revolution-->
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
         <script type='text/javascript' src='<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
-        <!-- Maps -->
-        <script src="js/maps/gmap3.js"></script> 
+		<script src="js/maps/gmap3.js"></script> 
         
-     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     
-    <!--<script src="js/maps/jquery.geocomplete.js"></script>-->
-
-    <style type="text/css">
-    .map_canvas { 
-      /*width: 300px; 
-      height: 200px; */
-      margin: 10px 20px 10px 0;
-    }
-    </style>
-     
-      <!--Ligbox--> 
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/fancybox/jquery.fancybox.js"></script> 
-        <!-- carousel.js-->
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/fancybox/jquery.fancybox.js"></script> 
         <script src="<?php echo base_url(); ?>js/carousel/carousel.js"></script>
-        <!-- Filter -->
         <script src="<?php echo base_url(); ?>js/filters/jquery.isotope.js" type="text/javascript"></script>
-        <!-- Twitter Feed-->
         <script src="<?php echo base_url(); ?>js/twitter/jquery.tweet.js"></script> 
-        <!-- flickr Feed-->
         <script src="<?php echo base_url(); ?>js/flickr/jflickrfeed.min.js"></script>    
-        <!--Theme Options
-        <script type="text/javascript" src="js/theme-options/theme-options.js"></script>
-        <script type="text/javascript" src="js/theme-options/jquery.cookies.js"></script> 
-        <!-- Bootstrap.js-->
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap.js"></script> 
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap.js"></script> 
         <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap-slider.js"></script> 
-        <!--MAIN FUNCTIONS-->
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/main.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/main.js"></script>
         <script type='text/javascript' src="<?php echo base_url(); ?>js/inewsticker.js"></script>
 
-        <!-- <script type="text/javascript" src="marquee.js"></script> -->
-        <!-- ======================= End JQuery libs =========================== -->
-        <script type="text/javascript">
+		<script type="text/javascript">
             jQuery(document).ready(function() {
                 jQuery('.tp-banner').show().revolution({
                     dottedOverlay:"none",
@@ -60,7 +31,7 @@
                     navigationArrows:"solo",
                     navigationStyle:"preview1"
                 });             
-            }); //ready
+            }); 
         </script>
 		<script>
 			$(document).ready(function(){
@@ -186,8 +157,8 @@
              });
          });
       </script>
-      <!-- ---------------- do not copy below this line !! ------------------- -->
-      <script type="text/javascript">
+     
+		<script type="text/javascript">
          var _gaq = _gaq || [];
          _gaq.push(['_setAccount', 'UA-10142508-2']);
          _gaq.push(['_trackPageview']);
@@ -201,8 +172,6 @@
 	  
 		
 
-		<!-- news updates -->
-   
 		<script type="text/javascript">
 			var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
@@ -230,7 +199,7 @@
 							<div class="span12 unit">
 								<label class="label">Contact Name :</label>
 								<div class="input">
-									<label class="icon-right" for="name">
+									<label class="icon-right" for="buscontname">
 										<i class="fa fa-user"></i>
 									</label>
 									<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
@@ -239,7 +208,7 @@
 							<div class="span12 unit">
 								<label class="label">Mobile Number :</label>
 								<div class="input">
-									<label class="icon-right" for="phone">
+									<label class="icon-right" for="bussmblno">
 										<i class="fa fa-phone"></i>
 									</label>
 									<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
@@ -248,7 +217,7 @@
 							<div class="span12 unit">
 								<label class="label">Email :</label>
 								<div class="input">
-									<label class="icon-right" for="email">
+									<label class="icon-right" for="busemail">
 										<i class="fa fa-envelope-o"></i>
 									</label>
 									<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
@@ -286,7 +255,7 @@
 								<div class="bot_10 clearfix"></div>
 								<label class="label">Let us know what you think and we’ll be sure to review and improve where possible :</label>
 								<div class="input">
-									<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
+									<textarea type="text" id="text_feed" name="text_feed" placeholder="Enter Your Feedback "></textarea>
 								</div><hr class="separator">
 							</div>
 						</div>
@@ -527,11 +496,5 @@
 			</form>
 		</div>
 	</div>
-	<link rel="stylesheet" href="j-folder/css/demo.css">
-	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	
+	
