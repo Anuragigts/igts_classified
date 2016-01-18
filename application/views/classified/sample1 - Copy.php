@@ -1,168 +1,29 @@
-	<script>
-        jssor_1_slider_init = function() {
-            
-            var jssor_1_options = {
-              $AutoPlay: true,
-              $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$
-              },
-              $ThumbnailNavigatorOptions: {
-                $Class: $JssorThumbnailNavigator$,
-                $Cols: 9,
-                $SpacingX: 3,
-                $SpacingY: 3,
-                $Align: 260
-              }
-            };
-            
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-            
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizing
-            function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                if (refSize) {
-                    refSize = Math.min(refSize, 600);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            }
-            ScaleSlider();
-            $Jssor$.$AddEvent(window, "load", ScaleSlider);
-            $Jssor$.$AddEvent(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
-            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-            //responsive code end
-        };
-    </script>
-	<link href="src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 	<style>
-        
-        /* jssor slider arrow navigator skin 02 css */
-        /*
-        .jssora02l                  (normal)
-        .jssora02r                  (normal)
-        .jssora02l:hover            (normal mouseover)
-        .jssora02r:hover            (normal mouseover)
-        .jssora02l.jssora02ldn      (mousedown)
-        .jssora02r.jssora02rdn      (mousedown)
-        */
-        .jssora02l, .jssora02r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 55px;
-            height: 55px;
-            cursor: pointer;
-            background: url('img/blog/a02.png') no-repeat;
-            overflow: hidden;
-        }
-        .jssora02l { background-position: -3px -33px; }
-        .jssora02r { background-position: -63px -33px; }
-        .jssora02l:hover { background-position: -123px -33px; }
-        .jssora02r:hover { background-position: -183px -33px; }
-        .jssora02l.jssora02ldn { background-position: -3px -33px; }
-        .jssora02r.jssora02rdn { background-position: -63px -33px; }
-
-        /* jssor slider thumbnail navigator skin 03 css */
-        /*
-        .jssort03 .p            (normal)
-        .jssort03 .p:hover      (normal mouseover)
-        .jssort03 .pav          (active)
-        .jssort03 .pdn          (mousedown)
-        */
-        
-        .jssort03 .p {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 62px;
-            height: 32px;
-        }
-        
-        .jssort03 .t {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .jssort03 .w, .jssort03 .pav:hover .w {
-            position: absolute;
-            width: 60px;
-            height: 30px;
-            border: white 1px dashed;
-            box-sizing: content-box;
-        }
-        
-        .jssort03 .pdn .w, .jssort03 .pav .w {
-            border-style: solid;
-        }
-        
-        .jssort03 .c {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 62px;
-            height: 32px;
-            background-color: #000;
-        
-            filter: alpha(opacity=45);
-            opacity: .45;
-            transition: opacity .6s;
-            -moz-transition: opacity .6s;
-            -webkit-transition: opacity .6s;
-            -o-transition: opacity .6s;
-        }
-        
-        .jssort03 .p:hover .c, .jssort03 .pav .c {
-            filter: alpha(opacity=0);
-            opacity: 0;
-        }
-        
-        .jssort03 .p:hover .c {
-            transition: none;
-            -moz-transition: none;
-            -webkit-transition: none;
-            -o-transition: none;
-        }
-        
-        * html .jssort03 .w {
-            width /**/: 62px;
-            height /**/: 32px;
-        }
-		#jssor_1{
-			width:748px !important;
+		.section-title-01{
+			height: 273px;
+			background-color: #262626;
+			text-align: center;
+			position: relative;
+			width: 100%;
+			overflow: hidden;
 		}
-		
-    </style>
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(".remove1").click(function(){
+				$("#div1").remove();
+			});
+		});
+	</script>
+	
+	<link rel="stylesheet" href="j-folder/css/demo.css">
+	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
+	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
 		<div class="bg_parallax image_01_parallax"></div>
-		<!-- Parallax Background -->
-
-		<!-- Content Parallax-->
-		<div class="opacy_bg_02">
-			 <div class="container">
-				<h1>Blog read</h1>
-				<div class="crumbs">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li>/</li>
-						<li>Features</li>  
-						<li>/</li>
-						<li>Templates</li>  
-						<li>/</li>
-						<li>Blog read</li>                                       
-					</ul>    
-				</div>
-			</div>  
-		</div>  
-		<!-- End Content Parallax--> 
 	</div>   
 	<!-- End Section Title-->
 	
@@ -173,331 +34,475 @@
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
 		</div>
 		
+		<div class="content_info">
+                    <div class="paddings">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Item Table-->
+                                <div class="col-sm-4">
+                                    <div class="item-table">
+                                        <div class="header-table color-red">
+                                            <i class="fa fa-home"></i>
+                                            <h2>User Name</h2>
+                                            <!--<span>$ 99 / per month</span> -->
+                                        </div>
+                                        <ul>
+                                            <li><i class="fa fa-home"></i> Manage my Deals</li>
+                                            <li><i class="fa fa-home"></i> Messages</li>
+                                            <li><i class="fa fa-star"></i> Favourites</li>
+                                            <li><i class="fa fa-home"></i> Saved Searches</li>
+                                            <li><i class="fa fa-home"></i> My Details</li>
+                                        </ul>
+										<a class="btn color-red" href="#">Logout</a>
+									</div>
+                                </div>
+                                <!-- End Item Table-->
+
+                                <!-- Item Table-->
+                                <div class="col-sm-8">
+									<div class="row">
+										<div class="col-sm-12">
+											<label>Hi User Name, you have 0 saved Deals</label><hr>
+										</div>
+									</div>
+										
+									<div class="row">
+										<div class="col-sm-7 col-xs-12">
+											<h4>Puppies in Pets for Sale</h4>
+											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+											<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+											<p><b>Turrif , Worcestershire</b></p>
+										</div>
+										<div class="col-sm-2 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12">
+													<h5 class="pull-right">Amount</h5>
+												</div>
+												<div class="col-sm-12">
+													<p class="pull-right">1 hour ago</p>
+												</div>
+												<div class="col-sm-12">
+													<br><br><br><i class="fa fa-star pull-right"></i>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12 favourites_img">
+													<img src="img/dashboard/pets.jpg" class="img-responsive">
+												</div>	
+											</div>	
+										</div>	
+									</div><hr>
+									
+									<div class="row">
+										<div class="col-sm-7 col-xs-12">
+											<h4>Puppies in Pets for Sale</h4>
+											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+											<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+											<p><b>Turrif , Worcestershire</b></p>
+										</div>
+										<div class="col-sm-2 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12">
+													<h5 class="pull-right">Amount</h5>
+												</div>
+												<div class="col-sm-12">
+													<p class="pull-right">1 hour ago</p>
+												</div>
+												<div class="col-sm-12">
+													<br><br><br><i class="fa fa-star pull-right"></i>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-6">
+											<div class="row">
+												<div class="col-sm-12 favourites_img">
+													<img src="img/dashboard/pets.jpg" class="img-responsive">
+												</div>	
+											</div>	
+										</div>	
+									</div><hr>									
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 		<!-- content info - Blog-->
 		<div class="content_info">
 			<div class="paddings-mini">
 				<!-- content-->
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 single-blog">
+						<div class="col-md-12 single-blog">
 							<!-- Post Item Gallery-->
-							<div class="post-item">
+							<form id="j-forms" action="#" class="j-forms" method="post">
 								<div class="row">
 									<!-- Post Header-->
 									<div class="col-md-12">
-										<div class="post-header">
-											<div class="post-format-icon post-format-standard">
-												<i class="fa fa-image"></i>
-											</div>
-											<div class="post-info-wrap">
-												<h2 class="post-title"><a href="#" title="Post Format: Standard" rel="bookmark">POST FORMAT: GALLERY</a></h2>
-												<div class="post-meta">
-													<ul>
-														<li>
-															<i class="fa fa-user"></i>
-															<a href="#">Iwthemes</a>
-														</li>
-
-														<li>
-															<i class="fa fa-clock-o"></i>
-															<span>April 23, 2015</span>
-														</li>
-
-														<li>
-															<i class="fa fa-eye"></i>
-															<span>234 Views</span>
-														</li>
-
-														<li>
-															<a href="#" title="Like">
-																<i class="fa fa-heart-o"></i>
-															</a>
-														</li>
-
-														<li>
-															<i class="fa fa-comments"></i>
-															<a href="#" title="Comment on Post Format: Standard">Leave a comment
-															</a>
-														</li>
-													</ul>                      
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- Post Header-->
-
-									<!-- Post Media-->
-									<div class="col-sm-12 col-xs-12">
-										<!-- Single Carousel-->
-										<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
-											<!-- Loading Screen -->
-											<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-												<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-												<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-											</div>
-											<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
-												<div data-p="112.50" style="display: none;">
-													<img data-u="image" src="img/blog/002.jpg" />
-													<img data-u="thumb" src="img/blog/thumb-002.jpg" />
-												</div>
-												<div data-p="112.50" style="display: none;">
-													<img data-u="image" src="img/blog/003.jpg" />
-													<img data-u="thumb" src="img/blog/thumb-003.jpg" />
-												</div>
-												<div data-p="112.50" style="display: none;">
-													<img data-u="image" src="img/blog/004.jpg" />
-													<img data-u="thumb" src="img/blog/thumb-004.jpg" />
-												</div>
-												<div data-p="112.50" style="display: none;">
-													<img data-u="image" src="img/blog/005.jpg" />
-													<img data-u="thumb" src="img/blog/thumb-005.jpg" />
-												</div>
-												<div data-p="112.50" style="display: none;">
-													<img data-u="image" src="img/blog/006.jpg" />
-													<img data-u="thumb" src="img/blog/thumb-006.jpg" />
-												</div>
-											</div>
-											<!-- Thumbnail Navigator -->
-											<div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;bottom:0px;width:600px;height:60px;" data-autocenter="1">
-												<div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
-												<!-- Thumbnail Item Skin Begin -->
-												<div u="slides" style="cursor: default;">
-													<div u="prototype" class="p">
-														<div class="w">
-															<div u="thumbnailtemplate" class="t"></div>
-														</div>
-														<div class="c"></div>
-													</div>
-												</div>
-												<!-- Thumbnail Item Skin End -->
-											</div>
-											<!-- Arrow Navigator -->
-											<span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
-											<span data-u="arrowright" class="jssora02r" style="top:0px;right:30px;width:55px;height:55px;" data-autocenter="2"></span>
-										</div>
-										<!-- End Single Carousel-->
-									</div>
-									<!-- Post Media-->
-
-									<!-- Post Content-->
-									<div class="col-md-12">
-										<div class="post-content">
-											<h3>HTML Ipsum Presents</h3>
-   
-											<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. in turpis pulvinar facilisis. Ut felis.</p>
-
-										</div>                                          
-									</div>
-									<!-- Post Content-->
 									
-									<div class="col-md-12">
-										<div id="parentHorizontalTab">
-											<ul class="resp-tabs-list hor_1">
-												<li>Description</li>
-												<li>Comments</li>
-												<li>Reviews</li>
-												<li>Floorplans</li>
-												<li>Market</li>
+										<div id="ChildVerticalTab_1">
+											<ul class="resp-tabs-list ver_1">
+												<li><i class="fa fa-home"></i> Manage my Deals</li>
+												<li><i class="fa fa-envelope"></i> Messages</li>
+												<li><i class="fa fa-star"></i> Favourites</li>
+												<li><i class="fa fa-home"></i> Saved Searches</li>
+												<li><i class="fa fa-home"></i> My Details</li>
 											</ul>
-											<div class="resp-tabs-container hor_1">
+											<div class="resp-tabs-container ver_1">
 												<div>
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
 												</div>
 												<div>
-													<p>
-														<div id="ChildVerticalTab_1">
-															<ul class="resp-tabs-list ver_1">
-																<li>Free</li>
-																<li>Gold</li>
-																<li>Platinum</li>
-															</ul>
-															<div class="resp-tabs-container ver_1">
-																<div>
-																	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
+													<p>Suspendisse blandit velit Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravid urna gravid eget erat suscipit in malesuada odio venenatis.</p>
+												</div>
+												<div>
+													<div class="top_10">
+														<div class="j-row">
+															<div class="span12">
+																<label>Hi User Name, you have 0 saved Deals</label><hr>
+																<!-- start cloned right side buttons element -->
+																<div class="top_10">
+																	<div class="j-row">
+																		<div class="span8">
+																			<div class="j-row">
+																				<div class="span12">
+																					<h4>Puppies in Pets for Sale</h4>
+																					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+																					<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+																					<p><b>Turrif , Worcestershire</b></p>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="span2">
+																			<div class="j-row">
+																				<div class="span12">
+																					<h5 class="pull-right">Amount</h5>
+																				</div>
+																				<div class="span12">
+																					<p class="pull-right">1 hour ago</p>
+																				</div>
+																				<div class="span12">
+																					<br><br><br><i class="fa fa-star pull-right"></i>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="span2 favourites_img">
+																			<img src="img/dashboard/pets.jpg" class="img-responsive">
+																		</div>
+																	</div><hr>
+																	<div class="j-row">
+																		<div class="span8">
+																			<div class="j-row">
+																				<div class="span12">
+																					<h4>Puppies in Pets for Sale</h4>
+																					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+																					<p>DPM : 23 Oct 2012 | Rehome Date : 26 Jan 2013</p>
+																					<p><b>Turrif , Worcestershire</b></p>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="span2">
+																			<div class="j-row">
+																				<div class="span12">
+																					<h5 class="pull-right">Amount</h5>
+																				</div>
+																				<div class="span12">
+																					<p class="pull-right">1 hour ago</p>
+																				</div>
+																				<div class="span12">
+																					<br><br><br><i class="fa fa-star pull-right"></i>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="span2 favourites_img">
+																			<img src="img/dashboard/pets.jpg" class="img-responsive">
+																		</div>
+																	</div><hr>
 																</div>
-																<div>
-																	<p>This tab has icon in it.</p>
+																<!-- end cloned right side buttons element -->
+															</div>
+														</div>
+													</div>
+												</div>
+												<div>
+													<div class="top_10">
+														<div class="j-row">
+															<div class="span12">
+																<label>Hi User Name, you have 0 saved searches</label><hr>
+																<!-- start cloned right side buttons element -->
+																<div class="top_10 ">
+																	<div id="div1">
+																		<h5>Puppies in Pets for Sale</h5>
+																		<p>Berkshire<i class="fa fa-cut remove1 pull-right"> Delete</i>
+																		<div class="j-row">
+																			<div class="span12 success-view">
+																				<label class="checkbox-toggle">
+																					<input type="checkbox">
+																					<i></i>
+																					Email alerts *
+																				</label></p>
+																			</div>
+																		</div><hr>
+																	</div>
+																	<div id="div1">
+																		<h5>Pets for Sale</h5>
+																		<p>UK<i class="fa fa-cut remove1 pull-right"> Delete</i>
+																		<div class="j-row">
+																			<div class="span12 success-view">
+																				<label class="checkbox-toggle">
+																					<input type="checkbox">
+																					<i></i>
+																					Email alerts *
+																				</label></p>
+																			</div>
+																		</div><hr>
+																	</div>
+																	<div id="div1">
+																		<h5>Puppies in Pets for Sale</h5>
+																		<p>Berkshire<i class="fa fa-cut remove1 pull-right"> Delete</i>
+																		<div class="j-row">
+																			<div class="span12 success-view">
+																				<label class="checkbox-toggle">
+																					<input type="checkbox">
+																					<i></i>
+																					Email alerts *
+																				</label></p>
+																			</div>
+																		</div><hr>
+																	</div>
 																</div>
-																<div>
-																	<p>Suspendisse blandit velit Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravid urna gravid eget erat suscipit in malesuada odio venenatis.</p>
+																<!-- end cloned right side buttons element -->
+															</div>
+														</div>
+													</div>
+												</div>
+												<div>
+													<!-- accrodation -->
+													<div class="accrodation">
+														<!-- section 1 -->
+														<span class="acc-trigger active"><a href="#">Update contact details </a></span>
+														<div class="acc-container">
+															<div class="top_10">
+																<div class="j-row">
+																	<div class="span4 unit"><!-- start Deal Tag -->
+																		<label class="label">First Name <sup style='color:red;'>?</sup></label>
+																		<div class="input">
+																			<label class="icon-right" for="firstnamepost">
+																				<i class="fa fa-user"></i>
+																			</label>
+																			<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name">
+																			<span class="tooltip tooltip-right-bottom">Enter Your First Name</span>
+																		</div>
+																	</div><!-- end First Name Tag -->
+																	<div class="span4 unit"><!-- start Deal Tag -->
+																		<label class="label">Last Name <sup style='color:red;'>?</sup></label>
+																		<div class="input">
+																			<label class="icon-right" for="lastnamepost">
+																				<i class="fa fa-user"></i>
+																			</label>
+																			<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name">
+																			<span class="tooltip tooltip-right-bottom">Enter Your Last Name</span>
+																		</div>
+																	</div><!-- end Last Name Tag -->
+																	<div class="span4 unit"><!-- start Deal Tag -->
+																		<label class="label">Contact Number <sup style='color:red;'>?</sup></label>
+																		<div class="input">
+																			<label class="icon-right" for="phone">
+																				<i class="fa fa-phone"></i>
+																			</label>
+																			<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number">
+																			<span class="tooltip tooltip-right-bottom">Enter Your Contact Number</span>
+																		</div>
+																	</div><!-- end Contact No Tag -->
+																</div>
+																<div class="j-row">
+																	<div class="span12 unit"><button class="btn btn-primary ">Save Changes</button></div>
 																</div>
 															</div>
 														</div>
-													</p>
-													<p>Default Tab Content </p>
-												</div>
-												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
-												</div>
-												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
-												</div>
-												<div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
+													  
+														<!-- section 2 -->
+														<span class="acc-trigger"><a href="#">Change password </a></span>
+														<div class="acc-container">
+															<div class="top_10">
+																<div class="j-row">
+																	<div class="span4 unit"><!-- start Deal Tag -->
+																		<label class="label">Current Password <sup style='color:red;'>?</sup></label>
+																		<div class="input">
+																			<label class="icon-right" for="currentpasspost">
+																				<i class="fa fa-lock"></i>
+																			</label>
+																			<input type="password" id="currentpasspost" name="currentpasspost" placeholder="Enter Current Password">
+																			<span class="tooltip tooltip-right-bottom">Enter Your Current Password</span>
+																		</div>
+																	</div><!-- end First Name Tag -->
+																	<div class="span4 unit"><!-- start Deal Tag -->
+																		<label class="label">New password <sup style='color:red;'>?</sup></label>
+																		<div class="input">
+																			<label class="icon-right" for="newpasspost">
+																				<i class="fa fa-lock"></i>
+																			</label>
+																			<input type="password" id="newpasspost" name="newpasspost" placeholder="Enter New password">
+																			<span class="tooltip tooltip-right-bottom">Please use a password that is at least 6 characters long and includes numbers or special characters. </span>
+																		</div>
+																	</div><!-- end Last Name Tag -->
+																	<div class="span4 unit"><!-- start Deal Tag -->
+																		<label class="label">Confirm password <sup style='color:red;'>?</sup></label>
+																		<div class="input">
+																			<label class="icon-right" for="confirmpasspost">
+																				<i class="fa fa-lock"></i>
+																			</label>
+																			<input type="password" id="confirmpasspost" name="confirmpasspost" placeholder="Enter Confirm password">
+																			<span class="tooltip tooltip-right-bottom">Enter Confirm password</span>
+																		</div>
+																	</div><!-- end Contact No Tag -->
+																</div>
+																<div class="j-row">
+																	<div class="span12 unit"><button class="btn btn-primary ">Change Password</button></div>
+																</div>
+															</div>
+														</div>
+												   
+														<!-- section 3 -->
+														<span class="acc-trigger"><a href="#">Manage contact email </a></span>
+														<div class="acc-container">
+															<div class="top_10">
+																<div class="j-row">
+																	<div class="span12">
+																		<label>Login with: samplemail@yahoo.com</label>
+																		<!-- start cloned right side buttons element -->
+																		<div class="top_10 clone-rightside-btn-2">
+																			<div class="unit toclone-widget-right toclone">
+																				<div class="input">
+																					<input type="email" placeholder="email">
+																				</div>
+																				<button type="button" class="primary-btn clone-btn-right clone">
+																					<i class="fa fa-plus"></i>
+																				</button>
+																				<button type="button" class="secondary-btn clone-btn-right delete">
+																					<i class="fa fa-minus"></i>
+																				</button>
+																			</div>
+																		</div>
+																		<!-- end cloned right side buttons element -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<!-- section 4 -->
+														<span class="acc-trigger"><a href="#">Marketing preferences </a></span>
+														<div class="acc-container">
+															<div class="top_10 pad_bottm">
+																<div class="j-row">
+																	<div class="span8 success-view">
+																		<label class="checkbox-toggle">
+																			<input type="checkbox">
+																			<i></i>
+																			I would like to receive news, offers and promotions from Classified
+																		</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<!-- section 5 -->
+														<span class="acc-trigger"><a href="#">Deactivate account </a></span>
+														<div class="acc-container">
+															<div class="top_10">
+																<!-- start Please don't leave us! -->
+																<div class="unit check">
+																	<p>Please don't leave us!</p>
+																	<p>Every time an account is deactivated, one of the team cries and it takes hours to get them talking again :(</p>
+																	<p>If you 're really sure...</p>
+																	<p>Please help us improve Classified by letting us know why you're leaving:</p>
+																	<label class="radio">
+																		<input type="radio" name="you_make_it" value="Yeah" checked="">
+																		<i></i>I don't have any more stuff to put on Classified
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="you_make_it" value="Maybe">
+																		<i></i>I didn't get enough response to my Deals on Classified
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="you_make_it" value="I can't">
+																		<i></i>I got too many spam emails from my Deals
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="you_make_it" value="I can't">
+																		<i></i>I'd rather not say
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="you_make_it" value="I can't">
+																		<i></i>Other
+																	</label>
+																</div>
+																<!-- end Please don't leave us! -->
+																<div class="j-row">
+																	<div class="span12 unit"><button class="btn btn-primary ">Deactivate Account</button></div>
+																</div>
+															</div>
+														</div>
+													</div> 
+													<!-- End accrodation -->
 												</div>
 											</div>
 										</div>
 									</div>
-
-									<!-- Post Footer-->
-									<div class="col-md-12">
-										<div class="post-footer">
-											<!-- Post Social-->
-											<ul class="post-social tooltip-hover">
-												<li>
-													<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
-														<i class="fa fa-facebook"></i>
-														<i class="fa fa-facebook"></i>
-													</a>
-												</li>
-
-												<li>
-													<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
-														<i class="fa fa-twitter"></i>
-														<i class="fa fa-twitter"></i>
-													</a>
-												</li>
-
-												<li>
-													<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
-														<i class="fa fa-google-plus"></i>
-														<i class="fa fa-google-plus"></i>
-													</a>
-												</li>
-
-												<li>
-													<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
-														<i class="fa fa-pinterest"></i>
-														<i class="fa fa-pinterest"></i>
-													</a>
-												</li>
-
-												<li>
-													<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
-														<i class="fa fa-linkedin"></i>
-														<i class="fa fa-linkedin"></i>
-													</a>
-												</li>
-
-												<li>
-													<a href="#" class="social-email" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-														<i class="fa fa-envelope-o"></i>
-														<i class="fa fa-envelope-o"></i>
-													</a>
-												</li>
-											</ul>
-											<!-- Post Social-->
-										</div>
-									</div>
-									<!-- Post Footer-->
-							   </div>
-							</div>
-							<!-- End Post Item Gallery-->
-
-							<h4><i class="fa fa-comments"></i>Comments <a href="#">( 4 )</a></h4>
-
-							<div class="info-testimonial">
-							   <ul id="testimonials">
-									<li>
-										<p><i class="fa fa-quote-left"></i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, est.<i class="fa fa-quote-right"></i></p>
-
-										<div class="image-testimonials">
-											<img src="img/testimonials/1.jpg" alt="">                        
-										</div>   
-										<h4>Jeniffer Martinez</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-									</li>
-
-									<li>
-										<p><i class="fa fa-quote-left"></i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, est.<i class="fa fa-quote-right"></i></p>
-
-										<div class="image-testimonials">
-											<img src="img/testimonials/2.jpg" alt="">                        
-										</div>   
-										<h4>Jeniffer Martinez</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-									</li>
-							   </ul>
-							</div>
-
-							<h4><i class="fa fa-pencil"></i>New Comment</h4>
-
-							<form action="#" class="form-theme">
-								<div class="row">
-									<div class="form-group">
-										<div class="col-md-6 form-theme">
-											<label>Your name *</label>
-											<input type="text" required="required" value="" placeholder="Please Enter Your Name" class="form-control" name="name">
-										</div>
-										<div class="col-md-6 form-theme">
-											<label>Your email address *</label>
-											<input type="email" required="required" value="" placeholder="Please Enter Your Email" class="form-control" name="email" >
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group">
-										<div class="col-md-12">
-											<label>Comment *</label>
-											<textarea placeholder="Please Enter Your Comment" class="form-control" name="comment"  required="required"></textarea>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<input type="submit" value="Post Comment" class="btn btn-primary">
-									</div>
 								</div>
 							</form>
+							<!-- End Post Item Gallery-->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-		<!-- End Shadow Semiboxed -->
+	
+	<!-- End Shadow Semiboxed -->
 	<script src="js/jquery.js"></script> 
 	<script src="src/jquery.easyResponsiveTabs.js"></script>
-			<script type="text/javascript">
-				$(document).ready(function () {
-				
-				    $('#parentHorizontalTab').easyResponsiveTabs({
-				        type: 'default', //Types: default, vertical, accordion
-				        width: 'auto', //auto or any width like 600px
-				        fit: true, // 100% fit in a container
-				        closed: 'accordion', // Start closed if in accordion view
-				        tabidentify: 'hor_1', // The tab groups identifier
-				        activate: function (event) { // Callback function if tab is switched
-				            var $tab = $(this);
-				            var $info = $('#nested-tabInfo');
-				            var $name = $('span', $info);
-				
-				            $name.text($tab.text());
-				
-				            $info.show();
-				        }
-				    });
-				
-				    $('#ChildVerticalTab_1').easyResponsiveTabs({
-				        type: 'vertical',
-				        width: 'auto',
-				        fit: true,
-				        tabidentify: 'ver_1', // The tab groups identifier
-				        activetab_bg: '#fff', // background color for active tabs in this group
-				        inactive_bg: '#F5F5F5', // background color for inactive tabs in this group
-				        active_border_color: '#c1c1c1', // border color for active tabs heads in this group
-				        active_content_border_color: '#5AB1D0' // border color for active tabs contect in this group so that it matches the tab head border
-				    });
-				
-				});
-			</script>
-			
-           
+	<link href="src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		$(document).ready(function () {
+		
+			$('#parentHorizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				tabidentify: 'hor_1', // The tab groups identifier
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#nested-tabInfo');
+					var $name = $('span', $info);
+		
+					$name.text($tab.text());
+		
+					$info.show();
+				}
+			});
+		
+			$('#ChildVerticalTab_1').easyResponsiveTabs({
+				type: 'vertical',
+				width: 'auto',
+				fit: true,
+				tabidentify: 'ver_1', // The tab groups identifier
+				activetab_bg: '#fff', // background color for active tabs in this group
+				inactive_bg: '#F5F5F5', // background color for inactive tabs in this group
+				active_border_color: '#c1c1c1', // border color for active tabs heads in this group
+				active_content_border_color: '#5AB1D0' // border color for active tabs contect in this group so that it matches the tab head border
+			});
+		
+		});
+	</script>
+	
+	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="j-folder/js/jquery.validate.min.js"></script>
+	<script src="j-folder/js/additional-methods.min.js"></script>
+	<script src="j-folder/js/jquery.form.min.js"></script>
+	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="j-folder/js/jquery-cloneya.min.js"></script>
+
+        
