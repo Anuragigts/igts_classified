@@ -12,6 +12,46 @@
 	<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
 	<link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
 	<script type="text/javascript" src="switchery.min.js"></script>
+	
+	<!-- jQuery Form Validation code -->
+		<script>
+		  
+		  // When the browser is ready...
+		  $(function() {
+		  
+			// Setup form validation on the #register-form element
+			$("#login_form").validate({
+			
+				// Specify the validation rules
+				rules: {
+					email: {
+						required: true,
+						email: true
+					},
+					password: {
+						required: true,
+						minlength: 5
+					},
+				},
+				
+				// Specify the validation error messages
+				messages: {
+					password: {
+						required: "Please provide a password",
+						minlength: "Your password must be at least 5 characters long"
+					},
+					email: "Please enter a valid email address",
+				},
+				
+				submitHandler: function(form) {
+					form.submit();
+				}
+			});
+
+		  });
+		  
+		  </script>
+		  
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<div class="bg_parallax image_02_parallax"></div>
@@ -89,17 +129,15 @@
 											});
 										</script>
 										<div class="login_form">
-											<form  method="post" class="log_form" action="" id="register-form">
+											<form  method="post" class="log_form" action="" id="login_form">
 												<div class="col-1">
 													<label>Email <sup style='color:red;'>*</sup>
 													<input placeholder="Enter Email" id="email" name="email" tabindex="1" required>
-													<?php echo form_error("email");?>
 													</label>
 												</div>
 												<div class="col-1">
 													<label>Password <sup style='color:red;'>*</sup>
 													<input type="password" placeholder="Enter password" id="password" name="password" tabindex="2" required>
-													<?php echo form_error("password");?>
 													</label>
 												</div>
 												<div class="col-1" id='wo_login'>
@@ -111,7 +149,7 @@
 													</div>
 												</div>
 												<div class="col-submit">
-													<input type='submit' id="login" name='login' class="btn btn-primary" value='Login' />
+													<input type='submit' id="submit" name='submit' class="btn btn-primary" value='Login' />
 												</div>
 												<div class="col-1" id='remember'>
 													<label> Remember Password
