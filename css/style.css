@@ -5046,3 +5046,8 @@ h4 a:hover{
 .imp_tant{
 	font-size: 17px;
 }
+.map_canvas { 
+  /*width: 300px; 
+  height: 200px; */
+  margin: 10px 20px 10px 0;
+}
