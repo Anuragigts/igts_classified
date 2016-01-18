@@ -131,7 +131,7 @@
 		  
 		  </script>
 		  
- <!-- Section Title-->    
+			<!-- Section Title-->    
             <div class="section-title-01">
                 <!-- Parallax Background -->
                 <div class="bg_parallax image_02_parallax"></div>
