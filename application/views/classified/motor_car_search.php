@@ -63,8 +63,6 @@
 		}(window.jQuery);
 	</script>
 	
-	<link rel="stylesheet" href="j-folder/css/demo.css">
-	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
@@ -600,59 +598,10 @@
 	<!-- End Shadow Semiboxed -->
 	<script src="js/jquery.js"></script> 
 	
-	<script>
-		jssor_1_slider_init();
-	</script>
-	
 	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
 	<script src="j-folder/js/jquery.validate.min.js"></script>
 	<script src="j-folder/js/additional-methods.min.js"></script>
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
-	<script src="j-folder/js/jquery-cloneya.min.js"></script>
 	
-	<script src="js/jquery.nicescroll.js"></script>
-	
-	
-	
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
-	<script>
-		$('.xuSlider').xuSlider();
-	</script>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36251023-1']);
-	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
-	
-	
-	<script>
-		$(document).ready(function(){
-			// Range value slider
-			$(function() {
-				$( '#slider-2-h' ).slider({
-					range: true,
-					min: 0,
-					max: 500,
-					values: [ 75, 300 ],
-					slide: function( event, ui ) {
-						$( '#2-h' ).html( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
-					}
-				});
-				$( '#2-h' ).html('$' + $('#slider-2-h' ).slider( 'values', 0 ) +
-					' - $' + $( '#slider-2-h' ).slider( 'values', 1 ) );
-			});
-
-		});
-	</script>
-
-        
+	<script src="js/jquery.nicescroll.js"></script>      

@@ -37,16 +37,14 @@
 			});
 		});
 	</script>
-	<link rel="stylesheet" href="j-folder/css/demo.css">
-	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
+	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
 		<div class="bg_parallax image_01_parallax"></div>
 	</div>
-	<!-- End Section Title-->
-	<!--Content Central -->
+	
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
@@ -142,6 +140,7 @@
 	</section>
 	<!-- End Shadow Semiboxed -->
 	<script src="js/jquery.js"></script> 
+	
 	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
 	<script src="j-folder/js/jquery.validate.min.js"></script>
 	<script src="j-folder/js/additional-methods.min.js"></script>

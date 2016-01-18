@@ -235,7 +235,7 @@
 	</div> 
 	
 	<div class="modal fade" id="feedback_1" role="dialog">
-		<div class="modal-dialog">
+		<div class="modal-dialog feedback_wid">
 			<!-- Modal content-->
 			<form action="#" method="post" class="j-forms " >
 				<div class="modal-content">
@@ -245,17 +245,15 @@
 					</div>
 					<div class="modal-body">
 						<div class="j-row">
-							<div class="span12 unit">
+							<div class="span6 unit">
 								<strong>Send us your feedback</strong>
 								<div class="bot_10 clearfix"></div>
-								<label class="label">Let us know what you think and we’ll be sure to review and improve where possible :</label>
-								<div class="input">
-									<textarea type="text" id="fead_back" name="fead_back" placeholder="Enter Your Feedback "></textarea>
-								</div><hr class="separator">
+								<strong>Let us know what you think and we’ll be sure to review and improve where possible :</strong>
+								<div class="input top_10">
+									<textarea type="text" id="fead_back" name="fead_back" class="fead_back"  placeholder="Enter Your Feedback "></textarea>
+								</div>
 							</div>
-						</div>
-						<div class="j-row">
-							<div class="span4 unit">
+							<div class="span5 unit">
 								<strong>How would you rate the following?</strong>
 								<div class="bot_10 clearfix"></div>
 								<label class="label">(1 - Very poor; 5 - Very good) :</label>
@@ -409,15 +407,15 @@
 										</label>
 									</div>
 								</div>
-							</div>
-							<div class="span8 unit">
+							</div><hr class="separator">
+						</div>
+						<div class="j-row">
+							<div class="span12 unit">
 								<strong>Tell us more about your experience</strong>
 								<div class="bot_10 clearfix"></div>
 								<div class="j-row">
-									<div class="span7 unit top_20">
+									<div class="span6 unit">
 										<label class="label">What were you using classified.com for today?</label>
-									</div>
-									<div class="span5 unit">
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>
@@ -430,12 +428,8 @@
 											<i></i>
 										</label>
 									</div>
-								</div>
-								<div class="j-row">
-									<div class="span7 unit top_20">
+									<div class="span6 unit">
 										<label class="label">Which category were you most interested in?</label>
-									</div>
-									<div class="span5 unit">
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>
@@ -449,10 +443,8 @@
 									</div>
 								</div>
 								<div class="j-row">
-									<div class="span7 unit top_20">
+									<div class="span6 unit">
 										<label class="label">How likely are you to return to classified.com?</label>
-									</div>
-									<div class="span5 unit">
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>
@@ -465,12 +457,8 @@
 											<i></i>
 										</label>
 									</div>
-								</div>
-								<div class="j-row">
-									<div class="span7 unit top_20">
+									<div class="span6 unit">
 										<label class="label">Would you recommend the site to a friend?</label>
-									</div>
-									<div class="span5 unit">
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>

@@ -11,8 +11,6 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="j-folder/css/demo.css">
-	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
@@ -307,5 +305,4 @@
 	<script src="j-folder/js/jquery.validate.min.js"></script>
 	<script src="j-folder/js/additional-methods.min.js"></script>
 	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
-	     
+	<script src="j-folder/js/j-forms.min.js"></script>     

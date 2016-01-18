@@ -40,8 +40,6 @@
 	
 	<link href="src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 	
-	<link rel="stylesheet" href="j-folder/css/demo.css">
-	<link rel="stylesheet" href="j-folder/css/font-awesome.min.css">
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    

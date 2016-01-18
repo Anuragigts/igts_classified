@@ -15,6 +15,9 @@
 		<div class="bg_parallax image_01_parallax"></div>
 	</div>
 	<!-- End Section Title-->
+	
+	<link rel="stylesheet" href="j-folder/css/j-forms.css" />
+	
 	<!--Content Central -->
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->

@@ -16,6 +16,8 @@
 		}
 	</style>
 	
+	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	
 	<script type="text/javascript">
 		$(function(){
 			/*cars*/

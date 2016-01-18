@@ -909,7 +909,7 @@ jQuery(document).ready(function($) {
 														<div class="inline-group">
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
-																<i></i>£ (Pound) 
+																<i></i> £ (Pound) 
 															</label>
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle1"  value="Euro">
