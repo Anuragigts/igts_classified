@@ -2605,7 +2605,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	line-height: 1rem;
 	font-weight: lighter;
 	font-style: italic;
-	padding: 10px 5px;
+	/* padding: 10px 5px; */
 	text-shadow:none;
 	margin-right: 10px;
 	border-radius: 50%;
@@ -5040,4 +5040,8 @@ h4 a:hover{
 
 .btn-4a:hover:before {
 	left: 80%;
+}
+
+.imp_tant{
+	font-size: 17px;
 }
