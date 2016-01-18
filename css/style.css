@@ -4100,8 +4100,9 @@ transition-delay:.2s;
 /*postad create error messages*/
  
 		.error{
-			display: none;
-			margin-left: 10px;
+			/* display: none;
+			margin-left: 10px; */
+			color:red;
 		}		
 		
 		.error_show{
