@@ -6,10 +6,12 @@
 <link rel='stylesheet' type='text/css' href='imgupload/gold.css' />
 <link rel='stylesheet' type='text/css' href='imgupload/goldurgent.css' />
 <link rel='stylesheet' type='text/css' href='imgupload/platinum.css' />
-<link rel='stylesheet' type='text/css' href='imgupload/jquery.fancybox.min.css' />
+<!-- <link rel='stylesheet' type='text/css' href='imgupload/jquery.fancybox.min.css' /> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 <script src="https://dl.dropboxusercontent.com/u/2241077/jquery.dragbetter.js"></script>
 <script src="imgupload/imageupload.js"></script>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
 
@@ -17,15 +19,71 @@
 		$(".multi-submit-btn").click(function(){
 			var img_count = $("#image_count").val();
 			var pck_type = $("#package_type").val();
+
+			/*free type image validation*/
+			if(pck_type == 'free'){
 			if (img_count == 0) {
-				$(".img_error").css('display', 'block'); return false;
+				$(".free_img_error").css('display', 'block'); return false;
 			}
-			else if(pck_type == 'platinum' && img_count > 15){
-				$(".img_error").css('display', 'block'); return false;
+			else if(pck_type == 'free' && (img_count > 5 || img_count < 3)){
+				$(".free_img_error").css('display', 'block'); return false;
 			}
 			else{
-				$(".img_error").css('display', 'none'); return true;
+				$(".free_img_error").css('display', 'none'); return true;
 			}
+		}
+
+		/*free+urgent type image validation*/
+		if(pck_type == 'free_urgent'){
+			if (img_count == 0) {
+				$(".freeurgent_img_error").css('display', 'block'); return false;
+			}
+			else if(pck_type == 'free_urgent' && img_count > 9){
+				$(".freeurgent_img_error").css('display', 'block'); return false;
+			}
+			else{
+				$(".freeurgent_img_error").css('display', 'none'); return true;
+			}
+		}
+
+		/*gold type image validation*/
+		if(pck_type == 'gold'){
+			if (img_count == 0) {
+				$(".gold_img_error").css('display', 'block'); return false;
+			}
+			else if(pck_type == 'gold' && img_count > 9){
+				$(".gold_img_error").css('display', 'block'); return false;
+			}
+			else{
+				$(".gold_img_error").css('display', 'none'); return true;
+			}
+		}
+
+		/*gold+urgent image validation*/
+		if(pck_type == 'gold_urgent'){
+			if (img_count == 0) {
+				$(".goldurgent_img_error").css('display', 'block'); return false;
+			}
+			else if(pck_type == 'gold_urgent' && img_count > 12){
+				$(".goldurgent_img_error").css('display', 'block'); return false;
+			}
+			else{
+				$(".goldurgent_img_error").css('display', 'none'); return true;
+			}
+		}
+
+		/*platinum image validation*/
+			if(pck_type == 'platinum'){
+			if (img_count == 0) {
+				$(".platinum_img_error").css('display', 'block'); return false;
+			}
+			else if(pck_type == 'platinum' && img_count > 15){
+				$(".platinum_img_error").css('display', 'block'); return false;
+			}
+			else{
+				$(".platinum_img_error").css('display', 'none'); return true;
+			}
+		}
 		});
 	});
 
@@ -463,10 +521,11 @@ jQuery(document).ready(function($) {
 			});
 
 			var thumb = getThumbnail(e.target,50,50);
+			var input = "<input type='hidden' name='pic_hide[]' id='pic_hide' value='"+imgObj.imgSrc+"'>";
 			var $link = $('<a rel="fancybox">').attr({
 				target:"_blank",
 				href: imgObj.imgSrc
-			}).append(thumb).appendTo($('.preview', $wrapper));
+			}).append(thumb).append(input).appendTo($('.preview', $wrapper));
 
 		}).attr('src',imgObj.imgSrc);
 
@@ -531,6 +590,7 @@ jQuery(document).ready(function($) {
 
 	    <link rel="stylesheet" href="js/jquery.cleditor.css" />
     
+
 		<script type="text/javascript">
 
           function getPosition(callback) {
@@ -622,7 +682,13 @@ jQuery(document).ready(function($) {
 										<div class="j-row">
 											<div class="col-sm-8 pad_bottm">
 												<ul class="social-team pull-left">
-													<li><b><?php echo ucfirst(@$cat); ?></b> /</li>
+													<li>
+														<b><?php echo ucfirst(@$cat); ?></b>
+														<input type='hidden' name='login_id' id='login_id' value="<?php echo @$login_id; ?>" />
+														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
+														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
+														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
+														 /</li>
 													<li><b><?php echo ucfirst(@$sub_name); ?></b> /</li>
 													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b></li>
 												</ul>                 
@@ -772,14 +838,14 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_services" id="next-step-radio" value="Yes">
+																<input type="radio" name="checkbox_services" id="next-step-radio" value="service_provider">
 																<i></i>Service Provider
 																	<sup data-toggle="tooltip" title="" data-original-title="Service Provider">
 																		<img src="img/icons/i.png">
 																	</sup>
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_services"  value="No">
+																<input type="radio" name="checkbox_services"  value="service_needed">
 																<i></i>Service needed
 																<sup data-toggle="tooltip" title="" data-original-title="Service needed">
 																	<img src="img/icons/i.png">
@@ -842,11 +908,11 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
+																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
 																<i></i>£ (Pound) 
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1"  value="No">
+																<input type="radio" name="checkbox_toggle1"  value="Euro">
 																<i></i> € (Euro)
 															</label>
 														</div>
@@ -1571,6 +1637,10 @@ jQuery(document).ready(function($) {
 
 											<!-- free__pck Start -->
 											<div class="j-row free_pck" style='display: none;'>
+												<div class="alert alert-danger free_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+												    <strong>Error!</strong> Please upload upto 3-5 images only
+												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
@@ -1598,6 +1668,10 @@ jQuery(document).ready(function($) {
 												
 											<!-- free_urgent_pck Start -->
 											<div class="j-row free_urgent_pck" style='display: none;'>
+												<div class="alert alert-danger freeurgent_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+												    <strong>Error!</strong> Please upload upto 9 images only
+												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
@@ -1627,14 +1701,15 @@ jQuery(document).ready(function($) {
 														</sup>
 													</label>
 													<div class="unit">
-														<label class="input append-big-btn">
+														<input type="file" name="file_video_free" id='file_video_free' >
+														<!-- <label class="input append-big-btn">
 															<div class="file-button">
 																Browse
 																<input type="file" name="file_video_free" id='file_video_free' >
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected">
 															<span class="hint">Only: mp4  Size: less 6 Mb</span>
-														</label>
+														</label> -->
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1655,6 +1730,10 @@ jQuery(document).ready(function($) {
 												
 											<!-- Gold package Start -->
 											<div class="j-row gold_pck" style='display: none;'>
+												<div class="alert alert-danger gold_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+												    <strong>Error!</strong> Please upload upto 9 images only
+												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
@@ -1684,14 +1763,15 @@ jQuery(document).ready(function($) {
 														</sup>
 													</label>
 													<div class="unit">
-														<label class="input append-big-btn">
+														<input type="file" name="file_video_gold" id='file_video_gold' >
+														<!-- <label class="input append-big-btn">
 															<div class="file-button">
 																Browse
 																<input type="file" name="file_video_gold" id='file_video_gold' >
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected">
 															<span class="hint">Only: mp4  Size: less 6 Mb</span>
-														</label>
+														</label> -->
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1712,6 +1792,10 @@ jQuery(document).ready(function($) {
 												
 											<!-- gold_urgent_pck Start -->
 											<div class="j-row gold_urgent_pck" style='display: none;'>
+												<div class="alert alert-danger goldurgent_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+												    <strong>Error!</strong> Please upload upto 12 images only
+												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
@@ -1741,14 +1825,15 @@ jQuery(document).ready(function($) {
 														</sup>
 													</label>
 													<div class="unit">
-														<label class="input append-big-btn">
+														<input type="file" name="goldurgent_video" id='goldurgent_video' />
+														<!-- <label class="input append-big-btn">
 															<div class="file-button">
 																Browse
 																<input type="file" name="goldurgent_video" id='goldurgent_video' />
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected">
 															<span class="hint">Only: MP4  Size: less 6 Mb</span>
-														</label>
+														</label> -->
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1769,7 +1854,7 @@ jQuery(document).ready(function($) {
 													
 											<!-- platinum package Start -->
 											<div class="j-row platinum_pck" style='display: none;'>
-												<div class="alert alert-danger img_error" style='display:none'; >
+												<div class="alert alert-danger platinum_img_error" style='display:none'; >
 												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 15 images only
 												  </div>
@@ -1803,11 +1888,12 @@ jQuery(document).ready(function($) {
 													</label>
 													<div class="unit">
 														<label class="input append-big-btn">
-															<div class="file-button">
+															<input type="file" name="file_video_platinum" id='file_video_platinum' />
+															<!-- <div class="file-button">
 																Browse
 																<input type="file" name="file_video_platinum" id='file_video_platinum' />
 															</div>
-															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<input type="text" id="file_input" readonly="" placeholder="no file selected"> -->
 															<span class="hint">Only: MP4  Size: less 6 Mb</span>
 														</label>
 													</div>
@@ -1968,7 +2054,8 @@ jQuery(document).ready(function($) {
 								<!-- end /.content -->
 
 								<div class="footer">
-									<input type="submit" class="multi-submit-btn" name='post_create_ad' value='postad' />
+									<input type="submit" class="btn btn-primary multi-submit-btn" name='post_create_ad' value='postad' />
+									<!-- <button type="button" class="primary-btn multi-submit-btn" >Postad</button> -->
 									<button type="button" class="primary-btn multi-next-btn" >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 								</div>

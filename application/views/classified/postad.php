@@ -59,6 +59,14 @@
 			
 		});
 	</script>
+
+
+	<script>
+		setTimeout(function(){
+			 $(".alert").hide();
+		},5000);
+		
+	</script>
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
@@ -79,6 +87,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1 col-sm-12  col-xs-12  login_padd">
+							<?php echo $this->view("classified_layout/success_error"); ?>
 							<div class="titles">
 								<h2>Post <span>YOUR </span>Deal</h2>
 								<hr class="tall">

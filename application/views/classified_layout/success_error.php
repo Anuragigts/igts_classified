@@ -21,3 +21,12 @@ if($this->session->userdata("chebox") == 1 && $this->session->userdata("info") !
         <button type="button" class="btn btn-danger btn-nop">No</button>
     </div>
 <?php } ?>
+
+<?php if($this->session->userdata("msg") != ""){ ?>
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
+    <h4>
+        <?php echo $this->session->userdata("msg");?>
+    </h4>
+</div>
+<?php } ?>

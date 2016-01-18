@@ -6,185 +6,123 @@
  * and open the template in the editor.
  */
 class Postad_model extends CI_Model{
-        public function ad_insert($files1,$files2,$files3,$files4,$files5,$files6,$files7,$files8,$files9){
-            //email configure
-             $config = Array(
-                 'protocol' => 'smtp',
-                 'smtp_host' => 'ssl://smtp.googlemail.com',
-                 'smtp_port' => 465,
-                 'smtp_user' => 'c.punnam@googlemail.com',
-                 'smtp_pass' => '12chandru12',
-                 );
+       public function postad_creat(){
+             /*AD type business or consumer*/
+                    $cur_date = date("Y")."".date("m");
+                        if($this->input->post('checkbox_toggle') == 'Yes'){
+                            $ad_type = 'business';
+                            
+                            $target_dir = "./ad_images/business_logos/";
+                        
+                    // $target_file = $target_dir . basename($_FILES["file"]["name"]);
+                    // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                    $new_name = explode(".", $_FILES["file"]["name"]);
+                    $business_logo = "buslogo_".time().".".end($new_name);
+                    move_uploaded_file($_FILES["file"]["tmp_name"],$target_dir.time().".".end($new_name));
+                        }
+                        else{
+                            $ad_type = 'consumer';
+                            $business_logo = '';
+                        }
+                        $data = array('ad_prefix' => $cur_date,
+                                    'login_id'  => $this->input->post('login_id'),
+                                    'package_type'=> $this->input->post('package_type'),
+                                    'deal_tag'    => $this->input->post('dealtag'),
+                                    'deal_desc'   =>$this->input->post('dealdescription'),
+                                     'currency'   =>$this->input->post('checkbox_toggle1'),
+                                    'service_type'=> $this->input->post('typeservice'),
+                                    'services'    => $this->input->post('checkbox_services'),
+                                    'price_type'  => $this->input->post('price_type'),
+                                    'price'       => $this->input->post('priceamount'),
+                                    'category_id' => $this->input->post('category_id'),
+                                    'sub_cat_id'  => $this->input->post('sub_id'),
+                                    'sub_scat_id' => $this->input->post('sub_sub_id'),
+                                    'ad_type'     => $ad_type,
+                                    'created_on'   => date('d-m-Y h:i:s'),
+                                    'updated_on'   => date('d-m-Y h:i:s'),
+                                    'ad_status'     => 1
+                                    );
+                // echo "<pre>"; print_r($data); exit;
+                    $this->db->insert('postad', $data);
 
-                $s_email = $this->input->post('seller-email');
-                 $this->load->library('email', $config);
-                 $this->email->set_newline("\r\n");
-                $this->email->from('test@igravitas.in', "Admin Team");
-                $this->email->to($s_email);
-                // $this->email->cc("manasa.s@igravitas.in");
-                $this->email->subject("Classifieds");
-                $message    =   "<h1 style='color:16A085;'>Thank you for posting Ad</h1>";
-                $pid    =       $this->session->userdata("login_id");
-                $uid    =       $this->session->userdata("user_type");
-                if($this->session->userdata("login_status") == 2){                                
-                        $message   .=   "<a href='".base_url()."common/activate/".$this->session->userdata("is_confirm")."'>Click Here To Activate your Account</a>";
-                             $this->email->message($message);
-                            $this->email->send();
-                }
-                // else{
-                //         $confirm    =   rand(10000,99999);
-                //         $con_val    = md5($pid.$confirm);
-                //         $this->db->update(
-                //                         "login" , array("is_confirm" => $con_val) , array ("login_id" => $pid , "user_type" => $uid )
-                //                         );
-                //         $message   .=   "<a href='".base_url()."common/deactivate/".$con_val."/".$pid."/".$uid."'>Click Here To Deactivate your Account</a>";
-                //          $this->email->message($message);
-                //          $this->email->send();                        
-                // }   
-                //echo $message;exit;
-                // $this->email->message($message);
-                // $this->email->send();
-                // echo $this->email->print_debugger();exit;
-                // $pid    =       $this->session->userdata("login_id");
-                // $uid    =       $this->session->userdata("user_type");
-                $dta    =       date("Y-m-d h:i:s");
-                if($this->input->post("checkaddr") != ""){
-                        $addr   =   $this->input->post("checkaddr"); 
-                }else{
-                        $add    =       array(
-                                                "login_id"      =>      $pid,
-                                                "city"          =>      $this->input->post("city"),
-                                                "state"         =>      $this->input->post("state"),
-                                                "country"       =>      $this->input->post("cty"),
-                                                "zip_code"      =>      $this->input->post("zipcode"),
-                                                "is_default"    =>      0,
-                                        );
-                        $this->db->insert("address",$add);
-                        $addr       =       $this->db->insert_id();
-                }
-                $is_fe      =       0;
-                $is_sp      =       0;
-                $is_ug      =       0;
-                foreach ($this->input->post("pay_check") as $op){
-                        $p = strtolower($op);
-                        if($p == "featured"){
-                                $is_fe      =       1;
-                        }
-                        if($p == "spotlight"){
-                                $is_sp      =       1;
-                        }
-                        if($p == "urgent"){
-                                $is_ug      =       1;
-                        }
-                } 
-                $dt     =       array(
-                                        "login_id"              =>      $pid,
-                                        "title"                 =>      $this->input->post("ad_title"),
-                                        "ad_desc"               =>      $this->input->post("desc"),
-                                        "price"                 =>      $this->input->post("price"),
-                                        "number"                =>      $this->input->post("seller-number"),
-                                        "link"                  =>      $this->input->post("ad_url"),
-                                        "addr_id"               =>      $addr,
-                                        "category_id"           =>      $this->input->post("cat"),
-                                        "sub_cat_id"            =>      $this->input->post("scat"),
-                                        "sub_scat_id"           =>      $this->input->post("sscat"),
-                                        "is_urgent"             =>      $is_ug,
-                                        "is_spotlight"          =>      $is_sp,
-                                        "is_featured"           =>      $is_fe,
-                                        "created_on"            =>      $dta,
-                                        "ad_status"             =>      2
+                       $insert_id = $this->db->insert_id();
+
+                       if ($insert_id != '') {
+                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
+                       }
+
+                       /*location map*/
+                    $loc = array('ad_id' => $insert_id,
+                                'loc_name' => $this->input->post('location'),
+                                'latt' => $this->input->post('lattitude'),
+                                'longg' => $this->input->post('longtitude')
                                 );
-                $this->db->insert("advertisement",$dt);
-                $inbs   =  $this->db->insert_id();
-                if($is_ug == 1){
-                        $dtf    =   $this->get_days("urgent");
-                        $tod    =   date('Y-m-d h:i:s', strtotime($dta. ' +'. $dtf .' days'));
-                        $this->insert_ad_type("urgent",$dta,$tod,$inbs);
-                }
-                if($is_sp == 1){
-                        $dtf    =   $this->get_days("spotlight");
-                        $tod    =   date('Y-m-d h:i:s', strtotime($dta. ' +'. $dtf .' days'));
-                        $this->insert_ad_type("spotlight",$dta,$tod,$inbs);
-                }
-                if($is_fe == 1){
-                        $dtf    =   $this->get_days("featured");
-                        $tod    =   date('Y-m-d h:i:s', strtotime($dta. ' +'. $dtf .' days'));
-                        $this->insert_ad_type("featured",$dta,$tod,$inbs);
-                }
-                if($files1 != ""){
-                        $this->insert_img($inbs,$files1,$dta);
-                }
-                if($files2 != ""){
-                        $this->insert_img($inbs,$files2,$dta);
-                }
-                if($files3 != ""){
-                        $this->insert_img($inbs,$files3,$dta);
-                }
-                if($files4 != ""){
-                        $this->insert_img($inbs,$files4,$dta);
-                }
-                if($files5 != ""){
-                        $this->insert_img($inbs,$files5,$dta);
-                }
-                if($files6 != ""){
-                        $this->insert_img($inbs,$files6,$dta);
-                }
-                if($files7 != ""){
-                        $this->insert_img($inbs,$files7,$dta);
-                }
-                if($files8 != ""){
-                        $this->insert_img($inbs,$files8,$dta);
-                }
-                if($files9 != ""){
-                        $this->insert_img($inbs,$files9,$dta);
-                }
-                if($inbs > 0){
-                        $this->email->from('test@igravitas.in', "Admin Team");
-                        $this->email->to("swetha@igravitas.in");
-                        $this->email->subject("Classifieds");
-                        $message    =   "<h1 style='color:16A085;'>Thank you for posting Ad</h1>";
+                        $this->db->insert("location", $loc);
 
-                        if($this->session->userdata("login_status") == 2){                                
-                                $message   .=   "<a href='".base_url()."common/activate/".$this->session->userdata("is_confirm")."'>Click Here To Activate your Account</a>";
-                        }
-                        // else{
-                        //         $confirm    =   rand(10000,99999);
-                        //         $con_val    = md5($pid.$confirm);
-                        //         $this->db->update(
-                        //                         "login" , array("is_confirm" => $con_val) , array ("login_id" => $pid , "user_type" => $uid )
-                        //                 );
-                        //         $message   .=   "<a href='".base_url()."common/deactivate/".$con_val."'>Click Here To Deactivate your Account</a>";
-                        // }   
-                        //echo $message;exit;
-                        $this->email->message($message);
-                        $this->email->send();
-                        return 1;
-                }
-                else{
-                        return 0;
-                }
-        }    
-        public function get_days($fr){
-                $dy     =       $this->db->get_where("ad_validity_price",array("ad_valid_name" => $fr))->row_array();
-                return  $dy["days"];
-        }
-        public  function insert_ad_type($tb_name,$dta,$tod,$adid){
-                $fet    =   array(
-                        "ad_id"              =>      $adid,
-                        "ad_fromdate"        =>      $dta,
-                        "ad_todate"          =>      $tod,
-                        "status"             =>      1
-                );
-                $this->db->insert($tb_name,$fet);
-        }
-        public  function insert_img($adid,$files1,$dta){
-                $img    =   array(
-                                    "ad_id"             =>      $adid,
-                                    "img_name"          =>      $files1,
-                                    "img_time"          =>      $dta,
-                                    "status"            =>      1   
-                            );
-                $this->db->insert("ad_img",$img);
-        }
+                        /*platinum package*/
+                    if ($this->input->post('package_type') == 'platinum') {
+                       $plat_data = array('ad_id' => $insert_id,
+                                            'ad_validfrom' => date("d-m-Y H:i:s"),
+                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
+                                            'status' => 1,
+                                            'posted_date' => date("d-m-Y H:i:s")
+                                    );
+                       $this->db->insert('platinum_ads', $plat_data);
+                    }
+
+                     /*image upload*/
+                             $i=1;
+                       foreach($this->input->post('pic_hide') as $rawData){ 
+                                $filteredData = explode(',', $rawData);
+                            $unencoded = base64_decode($filteredData[1]);
+                            //Create the image 
+                            $fp = fopen('./ad_images/'.time().$i.'.jpg', 'w');
+                            $plat_img = array('ad_id' => $insert_id,
+                                        'img_name' => time().$i.'.jpg',
+                                        'img_time' => date('d-m-Y H:i:s'),
+                                        'status' => 1,
+                                        'bus_logo' => $business_logo
+                                    );
+                        $this->db->insert("ad_img", $plat_img);
+                            fwrite($fp, $unencoded);
+                            fclose($fp); 
+                            $i++;
+                       }
+
+                       /*video upload*/
+                       if($_FILES['file_video_platinum']['name'] != ''){
+                       $target_dir = "./ad_videos/";
+                        
+                    $target_file = $target_dir . basename($_FILES["file_video_platinum"]["name"]);
+                    // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                    $new_name = explode(".", $_FILES["file_video_platinum"]["name"]);
+                    move_uploaded_file($_FILES["file_video_platinum"]["tmp_name"],$target_dir.time().".".end($new_name));
+                    $plat_video = array('ad_id' => $insert_id,
+                                    'video_name' => time().".".end($new_name),
+                                    'uploaded_time' => date('d-m-Y H:i:s')
+                                );
+                    $this->db->insert("videos", $plat_video);
+                                }
+                           
+
+                
+                    
+                            
+
+                    /*contact info*/
+                    if ( $ad_type == 'consumer') {
+                        $plat_cont = array('ad_id' => $insert_id,
+                                    'contact_name' => $this->input->post('conscontname'),
+                                    'email' => $this->input->post('consemail'),
+                                    'mobile' => $this->input->post('conssmblno')
+                                );
+                        $this->db->insert("contactinfo_consumer", $plat_cont);
+                    }
+
+                    
+            
+    }
+
+
 }
 ?>

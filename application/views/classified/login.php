@@ -11,6 +11,7 @@
 	</style>
 	<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
 	<link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
+	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	<script type="text/javascript" src="switchery.min.js"></script>
 	
 	<!-- jQuery Form Validation code -->

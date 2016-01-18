@@ -15,7 +15,7 @@ class Login extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "login"
                 );
-                if($this->input->post("login")){
+                if($this->input->post("submit")){
 
                         $this->form_validation->set_rules("email","Email Id","required|valid_email");
                         

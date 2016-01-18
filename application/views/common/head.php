@@ -299,17 +299,43 @@
 				$('.bus_consumer').click(function(){
 						var ch = $("input[name='checkbox_toggle']:checked").val();
 						if(ch == 'Yes'){
+							var login_id = $('#login_id').val();
+							$.ajax({
+							type: "POST",
+							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,
+							dataType: 'json',
+							data: {log_id: login_id, ad_type: 'business'},
+							success: function(res) {
+								$("#busname").val(res.busname);
+								$("#buscontname").val(res.cont_name);
+								$("#bussmblno").val(res.mobile);
+								$("#busemail").val(res.email);
+								}
+							});
 							$('#bus_logo').show(1000);
 							$('#business_form').show();
 							$('#consumer_form').hide();
 							$("#blah").hide();
 
-						}else{
+						}
+						else if(ch == 'No'){
+							$.ajax({
+							type: "POST",
+							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,
+							dataType: 'json',
+							data: {log_id: login_id, ad_type: 'consumer'},
+							success: function(res) {
+								// alert(res.name);
+								$("#conscontname").val(res.cont_name);
+								$("#conssmblno").val(res.mobile);
+								$("#consemail").val(res.email);
+								}
+							});
 							$('#bus_logo').hide(1000);
 							$('#business_form').hide();
 							$('#consumer_form').show();
 						}
-				});
+					});
 			
 			});
 		</script>
