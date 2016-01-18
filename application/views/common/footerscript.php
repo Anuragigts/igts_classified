@@ -254,6 +254,12 @@
 									<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
 								</div>
 							</div>
+							<div class="span12 unit">
+								<label class="label">Message :</label>
+								<div class="input">
+									<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
+								</div>
+							</div>
 							<div class="col-sm-12 unit">													
 								<button class="btn btn-primary " id='change_pwd'>Send Now</button>
 							</div>

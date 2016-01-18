@@ -273,6 +273,8 @@
 										<div class="col-md-12">
 											<div class="post-meta list_view_bottom" >
 												<ul>
+													<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+													<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
 													<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
 													<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 													<li><i class="fa fa-eye"></i><span>234 Views</span></li>
@@ -367,6 +369,8 @@
 										<div class="col-md-12">
 											<div class="post-meta list_view_bottom" >
 												<ul>
+													<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+													<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
 													<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
 													<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 													<li><i class="fa fa-eye"></i><span>234 Views</span></li>

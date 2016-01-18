@@ -9,9 +9,8 @@
 					overflow: hidden;
 				}
 			</style>
-		<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
-        <link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
-        <script type="text/javascript" src="switchery.min.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="signreg.css">
+		<script type="text/javascript" src="switchery.min.js"></script>
         <script type="text/javascript">
         /*accept number only*/
     function isNumber(evt) {
@@ -112,10 +111,10 @@
 											<form  method="post" class="log_form" action="" id="register-form">
 												<div class="col-1">
 													<label class="radio-inline">
-														<input type="radio" name="signup_type" value='consumer' class='sign_type'  checked />Consumer
+														<input type="radio" name="signup_type" value='consumer' class='sign_type'  checked /> Consumer
 													</label>
 													<label class="radio-inline">
-														<input type="radio" name="signup_type" value='business' class='sign_type' />Business
+														<input type="radio" name="signup_type" value='business' class='sign_type' /> Business
 													</label>
 												</div>
 												<div class="form" id='signup_consumer'>

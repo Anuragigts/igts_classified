@@ -341,10 +341,9 @@
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
 									<center><img src="img/icons/contact.png" alt="" class="contact_now_show img-responsive"></center>
 									<ul class="list-styles contact_now_hide" style="display:none;">
-										<li><i class="fa fa-phone "></i>+91 900001110</li>
-										<li><i class="fa fa-envelope"></i><a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
+										<li><strong><i class="fa fa-phone "></i>+91 900001110</strong></li>
 									</ul>
-									<center class="top_10">
+									<center class="top_5">
 										<div class="amt_bg">
 											<h3 style="color:white;padding-top:10px;">£1036</h3>
 										</div>
@@ -381,13 +380,19 @@
 												<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
 											</div>
 										</div>
+										<div class="span12 unit">
+											<label class="label">Message :</label>
+											<div class="input">
+												<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
+											</div>
+										</div>
 										<div class="col-sm-12 unit">													
 											<button class="btn btn-primary " id='change_pwd'>Send Now</button>
 										</div>
 									</div>
 								</aside>
 								<aside class="widget view_sidebar">
-									<h4><i class="fa fa-urgent"></i> Important Safety Tips</h4><hr>
+									<h4 class="imp_tant"><img src="img/icons/important.png" alt="Important" title="Important Points"> Important Safety Tips</h4><hr>
 									<ul class="list-styles">
 										<li><i class="fa fa-check"></i> <a href="#">Really cheap prices</a></li>
 										<li><i class="fa fa-check"></i> <a href="#">Irregular email addresses</a></li>

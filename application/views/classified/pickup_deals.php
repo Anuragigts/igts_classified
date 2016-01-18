@@ -123,6 +123,8 @@
 									<div class="col-md-12">
 										<div class="post-meta">
 											<ul>
+												<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+												<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
 												<li>
 													<i class="fa fa-user"></i>
 													<a href="#">Person Name</a>
@@ -221,6 +223,8 @@
 									<div class="col-md-12">
 										<div class="post-meta">
 											<ul>
+												<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+												<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
 												<li>
 													<i class="fa fa-user"></i>
 													<a href="#">Person Name</a>

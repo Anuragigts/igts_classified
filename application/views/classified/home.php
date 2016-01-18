@@ -483,7 +483,7 @@
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
 										<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-										<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										<div class="price"><span></span><b><img src="img/icons/fire.png" alt="Fire" title="Fire Icon" class="img-responsive"></b></div>
 									</div>
 								</div>
 								<?php	}
