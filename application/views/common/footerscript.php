@@ -1,11 +1,10 @@
-<!-- ======================= JQuery libs =========================== -->
-        <script src="<?php echo base_url(); ?>js/jquery-ui.1.10.4.min.js"></script>                
-        <script src="<?php echo base_url(); ?>js/nav/jquery.sticky.js" type="text/javascript"></script>    
+		<script src="<?php echo base_url(); ?>js/jquery-ui.1.10.4.min.js"></script>                
+		<script src="<?php echo base_url(); ?>js/nav/jquery.sticky.js" type="text/javascript"></script>    
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/totop/jquery.ui.totop.js" ></script>  
         <script type="text/javascript" src="<?php echo base_url(); ?>js/accordion/accordion.js" ></script>  
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>      
         <script type='text/javascript' src='<?php echo base_url(); ?>js/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>    
-		<script src="js/maps/gmap3.js"></script> 
+        <script src="js/maps/gmap3.js"></script> 
         
 		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     
@@ -14,12 +13,13 @@
         <script src="<?php echo base_url(); ?>js/filters/jquery.isotope.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>js/twitter/jquery.tweet.js"></script> 
         <script src="<?php echo base_url(); ?>js/flickr/jflickrfeed.min.js"></script>    
+        
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap.js"></script> 
         <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap/bootstrap-slider.js"></script> 
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/main.js"></script>
+       <script type="text/javascript" src="<?php echo base_url(); ?>js/main.js"></script>
         <script type='text/javascript' src="<?php echo base_url(); ?>js/inewsticker.js"></script>
 
-		<script type="text/javascript">
+        <script type="text/javascript">
             jQuery(document).ready(function() {
                 jQuery('.tp-banner').show().revolution({
                     dottedOverlay:"none",
@@ -85,8 +85,7 @@
 				});
 			});
 		</script>
-        <!--End Slider Function-->
-		
+       
 		
       <script src="js1/box-slider-all.jquery.min.js"></script>
       <script>
@@ -157,8 +156,7 @@
              });
          });
       </script>
-     
-		<script type="text/javascript">
+     <script type="text/javascript">
          var _gaq = _gaq || [];
          _gaq.push(['_setAccount', 'UA-10142508-2']);
          _gaq.push(['_trackPageview']);
@@ -181,10 +179,7 @@
 		</script>
 
 		
-		<!--  ======================= Modal Send Now ============================== -->
-	
-	
-    <!-- Modal -->
+	<!-- Modal -->
 	<div class="modal dialog1 fade" id="sendnow" role="dialog">
 		<div class="modal-dialog1">
 			<!-- Modal content-->
@@ -255,7 +250,7 @@
 								<div class="bot_10 clearfix"></div>
 								<label class="label">Let us know what you think and we’ll be sure to review and improve where possible :</label>
 								<div class="input">
-									<textarea type="text" id="text_feed" name="text_feed" placeholder="Enter Your Feedback "></textarea>
+									<textarea type="text" id="fead_back" name="fead_back" placeholder="Enter Your Feedback "></textarea>
 								</div><hr class="separator">
 							</div>
 						</div>
@@ -497,4 +492,5 @@
 		</div>
 	</div>
 	
+	<script src="j-folder/js/jquery.validate.min.js"></script>
 	
