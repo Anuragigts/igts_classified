@@ -82,23 +82,30 @@
 									<fieldset>
 
 										<div class="divider gap-bottom-25"></div>
-										<h1>Services</h1>
-										<!-- start name -->
+										<h3>Motor Point Category Application _Motor Bikes and Scooters</h3>
+										
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_services" id="next-step-radio" value="Yes">
-															<i></i>Service Provider
-															<sup data-toggle="tooltip" title="" data-original-title="Service Provider">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
+															<i></i>Seller
+															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_services"  value="No">
-															<i></i>Service needed
-															<sup data-toggle="tooltip" title="" data-original-title="Service needed">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>Needed
+															<sup data-toggle="tooltip" title="" data-original-title="Needed">
+																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+															</sup>
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -106,77 +113,6 @@
 												</div>
 											</div>
 										</div>
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Deal Tag / Caption 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png" alt="Dealtag" title="Dealtag Icon" class="img-responsive">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price <sup style='color:red;'>*</sup></label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Type of Service 
-													<sup data-toggle="tooltip" title="" data-original-title="Type of Service ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Type">
-														<img src="j-folder/img/type.png" alt="Type" title="Type Icon" class="img-responsive">
-													</label>
-													<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
-												</div>
-											</div>
-										</div>
-										<!-- end Business Logo -->
-										
-										
-										<h1>Pets</h1>
 										
 										<div class="j-row">
 											<div class="span6 unit">
@@ -228,7 +164,7 @@
 												<div class="j-row">
 													<div class="span6 unit top_20">
 														<div class="input">
-															<label class="icon-right" for="dealtag">
+															<label class="icon-right" for="priceamount">
 																<img src="j-folder/img/price.png">
 															</label>
 															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
@@ -253,114 +189,191 @@
 											
 											</div>
 										</div>
-										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Family Race
-													<sup data-toggle="tooltip" title="" data-original-title="Family Race">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="race">
-														<img src="j-folder/img/race.png" alt="race" title="race Icon" class="img-responsive">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
 													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Family Race">
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Type
-													<sup data-toggle="tooltip" title="" data-original-title="Type">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Type">
-														<img src="j-folder/img/type.png" alt="type" title="type Icon" class="img-responsive">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
 													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Type">
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
 												</div>
 											</div>
 										</div>
-										
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Age -->
-												<label class="label">Age
-													<sup data-toggle="tooltip" title="" data-original-title="Age">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Age">
+													<select name="Model">
+														<option value="none" selected disabled="">Select Model</option>
+														<option value="">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Bike Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Type ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Type">
+														<option value="none" selected disabled="">Select Type</option>
+														<option value="">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
 														<option value="none" selected disabled="">Select Age</option>
-														<option value="3months">0 to 3 Months</option>
-														<option value="6months">3 to 6 Months</option>
-														<option value="9months">6 to 9 Months</option>
-														<option value="12months">9 to 12 Months</option>
-														<option value="2years"> > 1 Year - < 2 Years</option>
-														<option value="3years"> > 2 Years - < 3 Years</option>
-														<option value="4years"> > 3 Years - < 4 Years</option>
-														<option value="5years"> > 4 Years - < 5 Years</option>
+														<option value="3months">Sample</option>
 													</select>
 													<i></i>
 												</label>
-											</div><!-- end Age -->
-											<div class="span6 unit"><!-- start Height -->
-												<label class="label">Height
-													<sup data-toggle="tooltip" title="" data-original-title="Height">
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="height">
-														<img src="j-folder/img/height.png" alt="height" title="height Icon" class="img-responsive">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
 													</label>
-													<input type="text" id="height" name="height" placeholder="Enter Height">
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
-											</div><!-- end Height -->
+											</div>
 										</div>
-										
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Gender -->
-												<label class="label">Gender
-													<sup data-toggle="tooltip" title="" data-original-title="Gender">
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="phone">
-														<i class="fa fa-male"></i>
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
 													</label>
-													<input type="text" id="gender" name="gender" placeholder="Enter Gender">
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
 												</div>
-											</div><!-- end Gender -->
+											</div>
+											<div class="span6 unit">
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
+													</label>
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Condition 
+													<sup data-toggle="tooltip" title="" data-original-title="Condition">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Condition">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
 										</div>
 										
 										
-										<h1>Women's Clothings</h1>
+										<h3>Motor Point Category Application _Boats</h3>
 										
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="No">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -368,6 +381,7 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Deal Tag 
@@ -393,321 +407,117 @@
 												</div>
 											</div><!-- end Deal Description -->
 										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<label class="input select">
-													<select name="Size">
-														<option value="none" selected disabled="">Select Size</option>
-														<option value="1size">1 Size</option>
-														<option value="2size">2 Size</option>
-														<option value="4size">4 Size</option>
-														<option value="6size">6 Size</option>
-														<option value="8size">8 Size</option>
-														<option value="10size">10 Size</option>
-														<option value="12size">12 Size</option>
-														<option value="14size">14 Size</option>
-														<option value="16size">16 Size</option>
-														<option value="18size">18 Size</option>
-														<option value="20size">20 Size</option>
-														<option value="21size">22 Size</option>
-														<option value="24size">24 Size</option>
-														<option value="26size">26 Size</option>
-														<option value="8lsize">8L Size</option>
-														<option value="10lsize">10L Size</option>
-														<option value="12lsize">12L Size</option>
-														<option value="14lsize">14L Size</option>
-														<option value="16lsize">16L Size</option>
-														<option value="18lsize">18L Size</option>
-														<option value="xsmallsize">X-Small Size</option>
-														<option value="smallsize">Small Size</option>
-														<option value="largesize">Large Size</option>
-														<option value="xlargesize">X-large Size</option>
-														<option value="mediumsize">Medium Size</option>
-														<option value="othersize">Other</option>
-													</select>
-													<i></i>
-												</label>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<label class="input select">
-													<select name="Color">
-														<option value="none" selected disabled="">Select Color</option>
-														<option value="Brown">Brown Color</option>
-														<option value="Gray">Gray Color</option>
-														<option value="Green">Green Color</option>
-														<option value="Cream">Cream Color</option>
-														<option value="White">White Color</option>
-														<option value="Navy">Navy Color</option>
-														<option value="Pink">Pink Color</option>
-														<option value="Red">Red Color</option>
-														<option value="Natural">Natural Color</option>
-														<option value="Tan">Tan Color</option>
-														<option value="Orange">Orange Color</option>
-														<option value="Yellow">Yellow Color</option>
-														<option value="Bronze">Bronze Color</option>
-														<option value="Nude">Nude Color</option>
-														<option value="Purple">Purple Color</option>
-														<option value="teal">teal Color</option>
-														<option value="Others">Other Color</option>
-													</select>
-													<i></i>
-												</label>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit 
-													<sup data-toggle="tooltip" title="" data-original-title="Fit">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<label class="input select">
-													<select name="Fit">
-														<option value="none" selected disabled="">Select Fit</option>
-														<option value="Regular">Regular</option>
-														<option value="Slim-fit">Slim-fit</option>
-														<option value="Long-line">Long-line</option>
-														<option value="Tailored">Tailored</option>
-														<option value="Baggy">Baggy</option>
-														<option value="Oversize">Oversize</option>
-														<option value="Other">Other</option>
-													</select>
-													<i></i>
-												</label>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Women's Shoes</h1>
-										<div class="j-row">
-											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
 														</label>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
+											<div class="span6 unit">
 												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
+													<div class="span6 unit top_20">
 														<div class="input">
-															<label class="icon-right" for="dealtag">
+															<label class="icon-right" for="priceamount">
 																<img src="j-folder/img/price.png">
 															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
 														</div>
 													</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
 												</div><!-- end service -->
+											
 											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Year
+													<sup data-toggle="tooltip" title="" data-original-title="Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="year_boat">
+														<img src="j-folder/img/reg.png" alt="year" title="year Icon" class="img-responsive">
+													</label>
+													<input type="text" id="year_boat" name="year_boat" placeholder="Enter Year">
 												</div>
 											</div>
 										</div>
-										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Color 
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Model">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Boats Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Boats Type ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="type">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
@@ -720,117 +530,63 @@
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
 											</div>
 										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+												<label class="label">Condition 
+													<sup data-toggle="tooltip" title="" data-original-title="Condition">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Heel Details 
-													<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
+												<label class="input select">
+													<select name="Condition">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Heel details">
-														<img src="j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
-													</label>
-													<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
-												</div>
 											</div>
 										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Shoes Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Shoes Styles 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
-												</div>
-											</div>
-										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
+										<h3>Motor Point Category Application _Campervans and Motor homes</h3>
 										
-										<h1>Women's Accessories</h1>
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="No">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -838,182 +594,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Women's Wedding</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Deal Tag 
@@ -1039,1603 +620,287 @@
 												</div>
 											</div><!-- end Deal Description -->
 										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										
-										<h1>Men's Clothings</h1>
-										
-										<div class="j-row">
-											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
 														</label>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png" alt="Dealtag" title="Dealtag Icon" class="img-responsive">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Deal Description 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
 												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
+													<div class="span6 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="priceamount">
+																<img src="j-folder/img/price.png">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
 														</div>
 													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
 													</div>
 												</div><!-- end service -->
+											
 											</div>
+										</div>
+										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
 												</div>
 											</div>
 										</div>
-										
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Color">
-														<option value="none" selected disabled="">Select Color</option>
-														<option value="Brown">Brown Color</option>
-														<option value="Gray">Gray Color</option>
-														<option value="Green">Green Color</option>
-														<option value="Cream">Cream Color</option>
-														<option value="White">White Color</option>
-														<option value="Navy">Navy Color</option>
-														<option value="Pink">Pink Color</option>
-														<option value="Red">Red Color</option>
-														<option value="Natural">Natural Color</option>
-														<option value="Tan">Tan Color</option>
-														<option value="Orange">Orange Color</option>
-														<option value="Yellow">Yellow Color</option>
-														<option value="Bronze">Bronze Color</option>
-														<option value="Nude">Nude Color</option>
-														<option value="Purple">Purple Color</option>
-														<option value="teal">teal Color</option>
-														<option value="Others">Other Color</option>
+													<select name="Model">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
 													</select>
 													<i></i>
 												</label>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Men's Shoes</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Shoes Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Shoes Styles 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Men's Accessories</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Men's Wedding</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png" alt="Dealtag" title="Dealtag Icon" class="img-responsive">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Deal Description 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										
-										<h1>Boy Clothings</h1>
-										
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png" alt="Dealtag" title="Dealtag Icon" class="img-responsive">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Deal Description 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit">
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+												<label class="label">Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Boats Type ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Color">
-														<option value="none" selected disabled="">Select Color</option>
-														<option value="Brown">Brown Color</option>
-														<option value="Gray">Gray Color</option>
-														<option value="Green">Green Color</option>
-														<option value="Cream">Cream Color</option>
-														<option value="White">White Color</option>
-														<option value="Navy">Navy Color</option>
-														<option value="Pink">Pink Color</option>
-														<option value="Red">Red Color</option>
-														<option value="Natural">Natural Color</option>
-														<option value="Tan">Tan Color</option>
-														<option value="Orange">Orange Color</option>
-														<option value="Yellow">Yellow Color</option>
-														<option value="Bronze">Bronze Color</option>
-														<option value="Nude">Nude Color</option>
-														<option value="Purple">Purple Color</option>
-														<option value="teal">teal Color</option>
-														<option value="Others">Other Color</option>
+													<select name="type">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
 													</select>
 													<i></i>
 												</label>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Transmission   
+													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Transmission ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
 													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Doors    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofDoors  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Seats    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofSeats  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
 											</div>
 										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+												<label class="label">MOT Status 
+													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
+													<label class="icon-right" for="MOT Status ">
+														<img src="j-folder/img/status.png" alt="MOT Status" title="MOT Status Icon" class="img-responsive">
 													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
 												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
 													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
 												</div>
 											</div>
 										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
 										
-										<h1>Boy Shoes</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Heel Details 
-													<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Heel details">
-														<img src="j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
-													</label>
-													<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Shoes Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Shoes Styles 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Boy Accessories</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Girls Clothings</h1>
+										<h3>Motor Point Category Application _Caravans</h3>
 										
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="No">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -2643,6 +908,7 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Deal Tag 
@@ -2668,284 +934,118 @@
 												</div>
 											</div><!-- end Deal Description -->
 										</div>
+										
 										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+											<div class="span6 unit">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
 														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
+														</label>
 													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
+												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
+												<div class="j-row">
+													<div class="span6 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="priceamount">
+																<img src="j-folder/img/price.png">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
+														</div>
+													</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
+												</div><!-- end service -->
+											
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
 												</div>
 											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Color">
-														<option value="none" selected disabled="">Select Color</option>
-														<option value="Brown">Brown Color</option>
-														<option value="Gray">Gray Color</option>
-														<option value="Green">Green Color</option>
-														<option value="Cream">Cream Color</option>
-														<option value="White">White Color</option>
-														<option value="Navy">Navy Color</option>
-														<option value="Pink">Pink Color</option>
-														<option value="Red">Red Color</option>
-														<option value="Natural">Natural Color</option>
-														<option value="Tan">Tan Color</option>
-														<option value="Orange">Orange Color</option>
-														<option value="Yellow">Yellow Color</option>
-														<option value="Bronze">Bronze Color</option>
-														<option value="Nude">Nude Color</option>
-														<option value="Purple">Purple Color</option>
-														<option value="teal">teal Color</option>
-														<option value="Others">Other Color</option>
+													<select name="Model">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Boats Type ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="type">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
 													</select>
 													<i></i>
 												</label>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
 													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Girls Shoes</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
 												</div>
 											</div>
 										</div>
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Color 
+												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
@@ -2958,296 +1058,62 @@
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">No of Doors    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
+												<label class="input select">
+													<select name="NoofDoors  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
 											</div>
 										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+												<label class="label">Condition 
+													<sup data-toggle="tooltip" title="" data-original-title="Condition">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Heel Details 
-													<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
+												<label class="input select">
+													<select name="Condition">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Heel details">
-														<img src="j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
-													</label>
-													<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
-												</div>
 											</div>
 										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Shoes Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Shoes Styles 
-													<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Shoes">
-														<img src="j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Girls Accessories</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										
-										
-										<h1>Boy Kids Clothings</h1>
+										<h3>Motor Point Category Application _Cars</h3>
 										
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="No">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -3255,6 +1121,7 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Deal Tag 
@@ -3280,285 +1147,117 @@
 												</div>
 											</div><!-- end Deal Description -->
 										</div>
+										
 										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+											<div class="span6 unit">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
 														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
+														</label>
 													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
+												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
+												<div class="j-row">
+													<div class="span6 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="priceamount">
+																<img src="j-folder/img/price.png">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
+														</div>
+													</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
+												</div><!-- end service -->
+											
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
 												</div>
 											</div>
 										</div>
-										
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Color">
-														<option value="none" selected disabled="">Select Color</option>
-														<option value="Brown">Brown Color</option>
-														<option value="Gray">Gray Color</option>
-														<option value="Green">Green Color</option>
-														<option value="Cream">Cream Color</option>
-														<option value="White">White Color</option>
-														<option value="Navy">Navy Color</option>
-														<option value="Pink">Pink Color</option>
-														<option value="Red">Red Color</option>
-														<option value="Natural">Natural Color</option>
-														<option value="Tan">Tan Color</option>
-														<option value="Orange">Orange Color</option>
-														<option value="Yellow">Yellow Color</option>
-														<option value="Bronze">Bronze Color</option>
-														<option value="Nude">Nude Color</option>
-														<option value="Purple">Purple Color</option>
-														<option value="teal">teal Color</option>
-														<option value="Others">Other Color</option>
+													<select name="Model">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
 													</select>
 													<i></i>
 												</label>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Boats Type ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
+												<label class="input select">
+													<select name="type">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										
-										<h1>Boy Kids Accessories</h1>
-										<div class="j-row">
-											<div class="span12 unit">
-												<div class="unit check logic-block-radio">
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
-															<i></i>Seller
-															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Needed
-															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-													</div>
-												</div>
 											</div>
 										</div>
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
-													</label>
-													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="dealdescription" name="dealdescription" placeholder="Enter Deal Description"></textarea>
-												</div>
-											</div><!-- end Deal Description -->
-										</div>
-										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
-														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
-													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="j-folder/img/price.png">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
-											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Color 
+												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
@@ -3571,89 +1270,162 @@
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
 													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Transmission   
+													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Transmission ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Doors    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofDoors  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Seats    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofSeats  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
 											</div>
 										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+												<label class="label">MOT Status 
+													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
+													<label class="icon-right" for="MOT Status ">
+														<img src="j-folder/img/status.png" alt="MOT Status" title="MOT Status Icon" class="img-responsive">
 													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
 													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
 												</div>
 											</div>
 										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Girls Kids Clothings</h1>
+										<h3>Motor Point Category Application _Motor Accessories</h3>
 										
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="No">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_wmcloth"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -3661,6 +1433,7 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Deal Tag 
@@ -3686,202 +1459,140 @@
 												</div>
 											</div><!-- end Deal Description -->
 										</div>
+										
 										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+											<div class="span6 unit">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
 														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
+														</label>
 													</div>
-													<div class="span5 unit top_20">
-														<div class="input">
-															<label class="icon-right" for="Price">
-																<img src="j-folder/img/price.png" alt="Price" title="Price Icon" class="img-responsive">
-															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
-														</div>
-													</div>
-												</div><!-- end service -->
+												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
+												<div class="j-row">
+													<div class="span6 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="priceamount">
+																<img src="j-folder/img/price.png">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
+														</div>
+													</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
+												</div><!-- end service -->
+											
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
 												</div>
 											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Color">
-														<option value="none" selected disabled="">Select Color</option>
-														<option value="Brown">Brown Color</option>
-														<option value="Gray">Gray Color</option>
-														<option value="Green">Green Color</option>
-														<option value="Cream">Cream Color</option>
-														<option value="White">White Color</option>
-														<option value="Navy">Navy Color</option>
-														<option value="Pink">Pink Color</option>
-														<option value="Red">Red Color</option>
-														<option value="Natural">Natural Color</option>
-														<option value="Tan">Tan Color</option>
-														<option value="Orange">Orange Color</option>
-														<option value="Yellow">Yellow Color</option>
-														<option value="Bronze">Bronze Color</option>
-														<option value="Nude">Nude Color</option>
-														<option value="Purple">Purple Color</option>
-														<option value="teal">teal Color</option>
-														<option value="Others">Other Color</option>
+													<select name="Model">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Boats Type ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="type">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
 													</select>
 													<i></i>
 												</label>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
 													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
 												</div>
 											</div>
 										</div>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Fit <sup style='color:red;'>*</sup></label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<img src="j-folder/img/height.png">
-													</label>
-													<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-												</div>
-											</div>
-										</div>
+										<h3>Motor Point Category Application _Bus_Truks_Coatch_Vans</h3>
 										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Material
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-													</label>
-													<input type="text" id="material" name="material" placeholder="Enter Material">
-												</div>
-											</div>
-										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Washing Instructions 
-													<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Length
-													<sup data-toggle="tooltip" title="" data-original-title="Charity">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Length">
-														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-													</label>
-													<input type="text" id="length" name="length" placeholder="Enter Length">
-												</div>
-											</div>
-										</div>
-										
-										<h1>Girls Kids Accessories</h1>
 										<div class="j-row">
 											<div class="span12 unit">
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="No">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_womsshooes"  value="No">
-															<i></i>Charity
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
@@ -3889,23 +1600,24 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Deal Tag -->
+											<div class="span6 unit">
 												<label class="label">Deal Tag 
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag">
+													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
 													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
+														<img src="j-folder/img/dealtag.png" alt="Dealtag" title="Dealtag Icon" class="img-responsive">
 													</label>
 													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 												</div>
-											</div><!-- end Deal Tag -->
-											<div class="span6 unit"><!-- start Deal Description -->
-												<label class="label">Deal Description
-													<sup data-toggle="tooltip" title="" data-original-title="Deal Description">
+											</div>
+											<div class="span6 unit">
+												<label class="label">Deal Description 
+													<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
@@ -3914,56 +1626,117 @@
 												</div>
 											</div><!-- end Deal Description -->
 										</div>
+										
 										<div class="j-row">
-											<div class="span6"><!-- start service -->
-												<div class="j-row">
-													<div class="span7 unit">
-														<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-															</sup>
+											<div class="span6 unit">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png">
+													</sup>
+												</label>
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
 														</label>
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£ (Pound) 
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> € (Euro)
-																</label>
-															</div>
-														</div>
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
+														</label>
 													</div>
-													<div class="span5 unit top_20">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<div class="j-row">
+													<div class="span6 unit top_20">
 														<div class="input">
-															<label class="icon-right" for="dealtag">
+															<label class="icon-right" for="priceamount">
 																<img src="j-folder/img/price.png">
 															</label>
-															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount">
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
 														</div>
 													</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
 												</div><!-- end service -->
+											
 											</div>
-											<div class="span6 unit"><!-- start Deal Tag -->
-												<label class="label">Size 
-													<sup data-toggle="tooltip" title="" data-original-title="Size">
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Size">
-														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture">
 												</div>
 											</div>
 										</div>
-										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Color 
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Model">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Boats Type ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="type">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
@@ -3976,65 +1749,138 @@
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Brand 
-													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Brand">
-														<img src="j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
 													</label>
-													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Transmission   
+													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Transmission ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Doors    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofDoors  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Seats    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofSeats  ">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
 											</div>
 										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">No of Items 
-													<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+												<label class="label">MOT Status 
+													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Items">
-														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
+													<label class="icon-right" for="MOT Status ">
+														<img src="j-folder/img/status.png" alt="MOT Status" title="MOT Status Icon" class="img-responsive">
 													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Material 
-													<sup data-toggle="tooltip" title="" data-original-title="Material">
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="material">
-														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
 													</label>
-													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
 												</div>
 											</div>
 										</div>
-										
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-												</div>
-											</div>
-										</div>
-
+									
 									</fieldset>
 
 									<fieldset>
