@@ -3825,10 +3825,7 @@ address strong{
 	border-left: 2px solid rgb(136, 196, 37);
 	font-weight: bold !important;
 }
-.img-hover img{
-	width:308px;
-	height:200px;
-}
+
 .significant_ad img{
 	width:358px !important;
 	height:198px !important;
@@ -5056,4 +5053,7 @@ h4 a:hover{
 }
 .feedback_wid{
 	width: 850px;
+}
+.about_text p{
+	text-align:justify;
 }
