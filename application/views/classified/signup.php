@@ -266,8 +266,9 @@
 
             </section>
 	<script src="js/jquery.js"></script> 
-            <script>
+    <script>
        setTimeout(function(){
             $(".alert").hide();
        },5000);
-</script>
+	</script>
+	<script src="j-folder/js/jquery.validate.min.js"></script>

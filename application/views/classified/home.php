@@ -1,6 +1,12 @@
 	<title>365 Deals :: Home</title>
 	<!-- Slide And Filter Section--> 
 	
+	<style>
+		.img-hover img{
+			width:308px;
+			height:200px;
+		}
+	</style>
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
 		<div class="tp-banner">

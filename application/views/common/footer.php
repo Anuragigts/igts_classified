@@ -6,7 +6,7 @@
 			<div class="col-md-5">
 				<div class="title-footer">
 					<h2>Save on your plans!
-					<br> <span>Select 365 Deals Ad</span>
+					<br> <span>Select 99 Deals Ad</span>
 					<br> our discounts by e-mail.</h2>
 				</div>
 
@@ -17,23 +17,24 @@
 			<div class="col-md-7">
 				<div class="row">                             
 					<!-- Social Us-->
-					<div class="col-md-3">
-						<h3>FOLLOW US</h3>
+					<div class="col-md-4">
+						<h3>LINKS</h3>
 						<ul class="social">
-							<li class="facebook"><span><i class="fa fa-facebook"></i></span><a href="#">Facebook</a></li>
-							<li class="twitter"><span><i class="fa fa-twitter"></i></span><a href="#">Twitter</a></li>
-							<li class="github"><span><i class="fa fa-github"></i></span><a href="#">Github</a></li>
+							<li><i class="fa fa-check"></i> <a href="about_us">About US</a></li>
+							<li><i class="fa fa-check"></i> <a href="#">Terms & Conditions</a></li>
+							<li><i class="fa fa-check"></i> <a href="#">Privacy Policy</a></li>
+							<li><i class="fa fa-check"></i> <a href="#">Contact us</a></li>
 						</ul>
 					</div>
 					<!-- End Social Us-->
 					
 					<!-- Recent links-->
-					<div class="col-md-5">
-						<h3>365 Deals SPECIALISTS </h3>
+					<div class="col-md-4">
+						<h3>99 Deals SPECIALISTS </h3>
 						<ul>
 							<li><i class="fa fa-check"></i> <a href="#">Golf Vacations</a></li>
 							<li><i class="fa fa-check"></i> <a href="#">Disney Parks Vacations</a></li>
-							<li><i class="fa fa-check"></i> <a href="#">Vacations As Advertised</a></li>                                    
+							<li><i class="fa fa-check"></i> <a href="#">Vacations As Advertised</a></li>
 						</ul>
 					</div>
 					<!-- End Recent links-->

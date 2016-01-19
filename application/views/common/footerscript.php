@@ -480,5 +480,5 @@
 		</div>
 	</div>
 	
-	<script src="j-folder/js/jquery.validate.min.js"></script>
+	
 	

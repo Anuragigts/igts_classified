@@ -180,3 +180,5 @@
 		},5000);
 		
 	</script>
+	
+	<script src="j-folder/js/jquery.validate.min.js"></script>
