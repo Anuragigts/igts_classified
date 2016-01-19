@@ -56,15 +56,26 @@ class Category_model extends CI_Model{
 
         /*pet category*/
         public function pets_sub_cat(){
-            $rs = $this->db->query("SELECT * FROM `sub_category` WHERE `sub_category`.`sub_category_id` NOT IN(SELECT sub_category.`sub_category_id` FROM `sub_category`, `sub_subcategory` WHERE
-sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` AND sub_category.`category_id` = 5
-GROUP BY sub_subcategory.`sub_category_id`) ");
+            $rs = $this->db->query("SELECT * FROM `sub_category` WHERE `sub_category`.`sub_category_id` NOT IN(SELECT sub_subcategory.`sub_category_id` FROM `sub_category`, `sub_subcategory` WHERE
+sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_subcategory.`sub_category_id`) AND sub_category.`category_id` = 5 ");
             return $rs->result_array();
         }
 
         /*pets big animals*/
          public function pets_big_animal(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 5");
+            return $rs->result_array();
+        }
+
+         /*pets small animals*/
+         public function pets_small_animal(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 6");
+            return $rs->result_array();
+        }
+
+        /*pets accessories animals*/
+         public function pets_accessories(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 7");
             return $rs->result_array();
         }
 
@@ -77,6 +88,44 @@ GROUP BY sub_subcategory.`sub_category_id`) ");
          /*services popular sub-category*/
          public function services_sub_pop(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 10");
+            return $rs->result_array();
+        }
+
+
+        /*cloths and life styles*/
+        /*women*/
+        public function cloths_women(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 20");
+            return $rs->result_array();
+        }
+
+        /*men*/
+        public function cloths_men(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 21");
+            return $rs->result_array();
+        }
+
+        /*boy*/
+        public function cloths_boy(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 22");
+            return $rs->result_array();
+        }
+
+        /*girls*/
+        public function cloths_girls(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 23");
+            return $rs->result_array();
+        }
+
+        /*baby boy*/
+        public function cloths_baby_boy(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 24");
+            return $rs->result_array();
+        }
+
+        /*baby girls*/
+        public function cloths_baby_girls(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 25");
             return $rs->result_array();
         }
 

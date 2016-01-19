@@ -699,7 +699,7 @@ jQuery(document).ready(function($) {
 											</div>
 											<div class="col-sm-4 pad_bottm">
 												<ul class="social-team pull-left">
-													<li><a href="" data-toggle="modal" data-target="#Services" ><b>Change Category</b></a></li>
+													<li><a href="" data-toggle="modal" data-target="#Pets" ><b>Change Category</b></a></li>
 												</ul>                 
 											</div>
 										</div> 
@@ -838,28 +838,6 @@ jQuery(document).ready(function($) {
 										
 										<div class="post_deal_bor top_10" style='margin-top: 20px;'>	
 											<div class="j-row">
-												<div class="span12 unit">
-													<div class="unit check logic-block-radio">
-														<div class="inline-group">
-															<label class="radio">
-																<input type="radio" name="checkbox_services" id="next-step-radio" value="service_provider">
-																<i></i>Service Provider
-																	<sup data-toggle="tooltip" title="" data-original-title="Service Provider">
-																		<img src="img/icons/i.png">
-																	</sup>
-															</label>
-															<label class="radio">
-																<input type="radio" name="checkbox_services"  value="service_needed">
-																<i></i>Service needed
-																<sup data-toggle="tooltip" title="" data-original-title="Service needed">
-																	<img src="img/icons/i.png">
-																</sup>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
 													<label class="label">Deal Tag / Caption 
 														<sup data-toggle="tooltip" title="" data-original-title="Postal">
@@ -951,6 +929,86 @@ jQuery(document).ready(function($) {
 												
 												</div>
 											</div>
+											<div class="j-row">
+												<div class="span6 unit">
+													<label class="label">Family Race
+														<sup data-toggle="tooltip" title="" data-original-title="Family Race">
+															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="race">
+															<img src="j-folder/img/race.png" alt="race" title="race Icon" class="img-responsive">
+														</label>
+														<input type="text" id="family_race" name="family_race" placeholder="Enter Family Race">
+													</div>
+												</div>
+												<div class="span6 unit">
+													<label class="label">Type
+														<sup data-toggle="tooltip" title="" data-original-title="Type">
+															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Type">
+															<img src="j-folder/img/type.png" alt="pet_type" title="type Icon" class="img-responsive">
+														</label>
+														<input type="text" id="pet_type" name="pet_type" placeholder="Enter Type">
+													</div>
+												</div>
+										</div>
+
+										<div class="j-row">
+											<div class="span6 unit"><!-- start Age -->
+												<label class="label">Age
+													<sup data-toggle="tooltip" title="" data-original-title="Age">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Age">
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">0 to 3 Months</option>
+														<option value="6months">3 to 6 Months</option>
+														<option value="9months">6 to 9 Months</option>
+														<option value="12months">9 to 12 Months</option>
+														<option value="2years"> > 1 Year - < 2 Years</option>
+														<option value="3years"> > 2 Years - < 3 Years</option>
+														<option value="4years"> > 3 Years - < 4 Years</option>
+														<option value="5years"> > 4 Years - < 5 Years</option>
+													</select>
+													<i></i>
+												</label>
+											</div><!-- end Age -->
+											<div class="span6 unit"><!-- start Height -->
+												<label class="label">Height
+													<sup data-toggle="tooltip" title="" data-original-title="Height">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="height">
+														<img src="j-folder/img/height.png" alt="height" title="height Icon" class="img-responsive">
+													</label>
+													<input type="text" id="height" name="height" placeholder="Enter Height">
+												</div>
+											</div><!-- end Height -->
+										</div>
+										<div class="j-row">
+											<div class="span6 unit"><!-- start Gender -->
+												<label class="label">Gender
+													<sup data-toggle="tooltip" title="" data-original-title="Gender">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<i class="fa fa-male"></i>
+													</label>
+													<input type="text" id="gender" name="gender" placeholder="Enter Gender">
+												</div>
+											</div><!-- end Gender -->
+										</div>
 										</div>
 									</fieldset>
 
@@ -2093,36 +2151,42 @@ jQuery(document).ready(function($) {
 	
 	
 	<!-- Modal -->
-	<form method='post' action="<?php echo base_url(); ?>postad_create_services" id='edit_service_cat'>
-		<div class="modal fade" id="Services" role="dialog">
+	<form method='post' action="<?php echo base_url(); ?>postad_create_pets" id='edit_pets_cat'>
+		<div class="modal fade" id="Pets" role="dialog">
 			<div class="modal-dialog">
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Services <span>Category </span></h2>
+						<h2>Pets <span>Category </span></h2>
 					</div>
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-md-10 col-md-offset-1 post_deal_bor">
-								<div class="row">
-									<div class="col-md-6 clearfix">
-										<h3>Professional
-											<input type='hidden' name='services_cat' id='services_cat' value='services' />
-											<input type='hidden' name='services_sub' id='services_sub' value='' />
-											<input type='hidden' name='services_sub_sub' id='services_sub_sub' value='' />
-										</h3>
-								<?php foreach ($services_sub_prof as $serv_prof) { ?>
-										<h4><a href="javascript:void(0)" id="<?php echo  $serv_prof['sub_category_id'].','.$serv_prof['sub_subcategory_id']; ?>" class='edit_service_prof'><?php echo ucfirst($serv_prof['sub_subcategory_name']); ?></a></h4>
+							<div class="col-md-2 clearfix">
+								<input type='hidden' name='pets_cat' id='pets_cat' value='pets' />
+								<input type='hidden' name='pets_sub' id='pets_sub' value='' />
+								<input type='hidden' name='pets_sub_sub' id='pets_sub_sub' value='' />
+								<?php foreach ($pets_sub_cat as $p_sub) { ?>
+									<h3><a id="<?php echo $p_sub['sub_category_id']; ?>" href="javascript:void(0);" class="edit_pets_others"  ><?php echo ucfirst($p_sub['sub_category_name']); ?></a></h3>
 								<?php	} ?>
-									</div>
-									<div class="col-md-6 clearfix">
-										<h3>Popular</h3>
-										<?php foreach ($services_sub_pop as $serv_pop) { ?>
-											<h4><a href="javascript:void(0)" id="<?php echo  $serv_pop['sub_category_id'].','.$serv_pop['sub_subcategory_id']; ?>" class='edit_service_pop'><?php echo ucfirst($serv_pop['sub_subcategory_name']); ?></a></h4>
-										<?php	} ?>
-									</div>
-								</div>
+							</div>
+							<div class="col-md-3 clearfix">
+								<h3>Big Animals</h3>
+								<?php foreach ($pets_big_animal as $p_animal) { ?>
+									<h4><a class="edit_pets_big" id="<?php echo  $p_animal['sub_category_id'].','.$p_animal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_animal['sub_subcategory_name']); ?></a></h4>
+								<?php	} ?>
+							</div>
+							<div class="col-md-3 clearfix">
+								<h3>Small Animals</h3>
+								<?php foreach ($pets_small_animal as $p_sanimal) { ?>
+									<h4><a class="edit_pets_small" id="<?php echo  $p_sanimal['sub_category_id'].','.$p_sanimal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_sanimal['sub_subcategory_name']); ?></a></h4>
+								<?php	} ?>
+							</div>
+							<div class="col-md-4 clearfix">
+								<h3>Pet Accessories</h3>
+								<?php foreach ($pets_accessories as $p_accessories) { ?>
+									<h4><a class="edit_pets_accessories" id="<?php echo  $p_accessories['sub_category_id'].','.$p_accessories['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_accessories['sub_subcategory_name']); ?></a></h4>
+								<?php	} ?>
 							</div>
 						</div>
 						<div class="modal-footer">

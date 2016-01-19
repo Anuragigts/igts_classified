@@ -9,12 +9,13 @@ class Postad_create_services extends CI_Controller{
                 
         }
         public function index(){
+            if($this->session->userdata("login_id") == ''){
+                redirect("login");
+            }
+
             if ($this->input->post("post_create_ad")) {
+                // echo "<pre>"; print_r($this->input->post()); exit;
                    $this->postad_model->postad_creat();
-                // if (true) {
-                    
-                        // redirect('postad');
-                // }
             }
             
 

@@ -24,6 +24,18 @@ class Postad extends CI_Controller{
                 /*pets categories*/
                 $data['pets_sub_cat'] = $this->category_model->pets_sub_cat();
                 $data['pets_big_animal'] = $this->category_model->pets_big_animal();
+                $data['pets_small_animal'] = $this->category_model->pets_small_animal();
+                $data['pets_accessories'] = $this->category_model->pets_accessories();
+
+                /*clothes & lifestyles*/
+                $data['cloths_women'] = $this->category_model->cloths_women();
+                $data['cloths_men'] = $this->category_model->cloths_men();
+                $data['cloths_boy'] = $this->category_model->cloths_boy();
+                $data['cloths_girls'] = $this->category_model->cloths_girls();
+                $data['cloths_baby_boy'] = $this->category_model->cloths_baby_boy();
+                $data['cloths_baby_girl'] = $this->category_model->cloths_baby_girls();
+
+
                 /*services*/
                 $data['services_sub_prof'] = $this->category_model->services_sub_prof();
                 $data['services_sub_pop'] = $this->category_model->services_sub_pop();

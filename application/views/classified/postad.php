@@ -521,47 +521,51 @@
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Clothing & LifeStyles <span>Category </span></h2>
 												</div>
+												<form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
 												<div class="modal-body">
 													<div class="row">
 														<div class="col-md-10 col-md-offset-1 post_deal_bor">
 															<div class="row">
 																<div class="col-md-4 clearfix">
+																	<input type='hidden' name='cloths_cat' id='cloths_cat' value='clothing & lifestyles' />
+																			<input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
+																			<input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
 																	<h3>Women</h3>
-																	<h4><a href="<?php echo base_url(); ?>postad_create_cloths">Clothing</a></h4>
-																	<h4><a href="#">Shoes</a></h4>
-																	<h4><a href="#">Accessories</a></h4>
-																	<h4><a href="#">Wedding</a></h4>
+																	<?php foreach ($cloths_women as $c_val) { ?>
+																	<h4><a id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" class="cloths_women"  href="javascript:void(0);"  ><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Men</h3>
-																	<h4><a href="#">Clothing</a></h4>
-																	<h4><a href="#">Shoes</a></h4>
-																	<h4><a href="#">Accessories</a></h4>
-																	<h4><a href="#">Wedding</a></h4>
+																	<?php foreach ($cloths_men as $c_men) { ?>
+																	<h4><a id="<?php echo  $c_men['sub_category_id'].','.$c_men['sub_subcategory_id']; ?>" class="cloths_men"  href="javascript:void(0);"  ><?php echo $c_men['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Boy</h3>
-																	<h4><a href="#">Clothing</a></h4>
-																	<h4><a href="#">Shoes</a></h4>
-																	<h4><a href="#">Accessories</a></h4>
+																	<?php foreach ($cloths_boy as $c_boy) { ?>
+																	<h4><a id="<?php echo  $c_boy['sub_category_id'].','.$c_boy['sub_subcategory_id']; ?>" class="cloths_boy"  href="javascript:void(0);"  ><?php echo $c_boy['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 															</div>
 															<div class="row">
 																<div class="col-md-4 clearfix">
 																	<h3>Girls</h3>
-																	<h4><a href="#">Clothing</a></h4>
-																	<h4><a href="#">Shoes</a></h4>
-																	<h4><a href="#">Accessories</a></h4>
+																	<?php foreach ($cloths_girls as $c_girl) { ?>
+																	<h4><a id="<?php echo  $c_girl['sub_category_id'].','.$c_girl['sub_subcategory_id']; ?>" class="cloths_girl"  href="javascript:void(0);"  ><?php echo $c_girl['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Baby Boy</h3>
-																	<h4><a href="#">Clothing</a></h4>
-																	<h4><a href="#">Accessories</a></h4>
+																	<?php foreach ($cloths_baby_boy as $c_bboy) { ?>
+																	<h4><a id="<?php echo  $c_bboy['sub_category_id'].','.$c_bboy['sub_subcategory_id']; ?>" class="cloths_bboy"  href="javascript:void(0);"  ><?php echo $c_bboy['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Baby Girl</h3>
-																	<h4><a href="#">Clothing</a></h4>
-																	<h4><a href="#">Accessories</a></h4>
+																	<?php foreach ($cloths_baby_girl as $c_bgirl) { ?>
+																	<h4><a id="<?php echo  $c_bgirl['sub_category_id'].','.$c_bgirl['sub_subcategory_id']; ?>" class="cloths_bgirl"  href="javascript:void(0);"  ><?php echo $c_bgirl['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 															</div>
 														</div>
@@ -570,6 +574,7 @@
 												<div class="modal-footer">
 													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
+											</form>
 											</div>
 										</div>
 									</div>
@@ -771,49 +776,36 @@
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Pets <span>Category </span></h2>
 												</div>
+												<form method='post' id='pets_form' action="<?php echo base_url(); ?>postad_create_pets">
 												<div class="modal-body">
 													<div class="row">
 														<div class="col-md-10 col-md-offset-1 post_deal_bor">
 															<div class="row">
 																<div class="col-md-2 clearfix">
-																	<h3><a href="#">Dogs</a></h3>
-																	<h3><a href="#">Cats</a></h3>
-																	<h3><a href="#">Fishes</a></h3>
-																	<h3><a href="#">Birds</a></h3>
-																	<h3><a href="#">Others</a></h3>
+																	<input type='hidden' name='pets_cat' id='pets_cat' value='pets' />
+																	<input type='hidden' name='pets_sub' id='pets_sub' value='' />
+																	<input type='hidden' name='pets_sub_sub' id='pets_sub_sub' value='' />
+																	<?php foreach ($pets_sub_cat as $p_sub) { ?>
+																		<h3><a id="<?php echo $p_sub['sub_category_id']; ?>" href="javascript:void(0);" class="pets_others"  ><?php echo ucfirst($p_sub['sub_category_name']); ?></a></h3>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Big Animals</h3>
-																	<h4><a href="<?php echo base_url(); ?>postad_create">Cobs</a></h4>
-																	<h4><a href="<?php echo base_url(); ?>postad_create">Donkeys</a></h4>
-																	<h4><a href="<?php echo base_url(); ?>postad_create">Horses</a></h4>
-																	<h4><a href="<?php echo base_url(); ?>postad_create">Ponies</a></h4>
-																	<h4><a href="#">Beef Cattle</a></h4>
-																	<h4><a href="#">Dairy Cattle</a></h4>
-																	<h4><a href="#">Others</a></h4>
+																	<?php foreach ($pets_big_animal as $p_animal) { ?>
+																		<h4><a class="pets_big" id="<?php echo  $p_animal['sub_category_id'].','.$p_animal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_animal['sub_subcategory_name']); ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Small Animals</h3>
-																	<h4><a href="#">Pigs</a></h4>
-																	<h4><a href="#">Sheeps</a></h4>
-																	<h4><a href="#">Goats</a></h4>
-																	<h4><a href="#">Poultry</a></h4>
-																	<h4><a href="#">Reptiles</a></h4>
-																	<h4><a href="#">Furry Pets</a></h4>
-																	<h4><a href="#">Others</a></h4>
+																	<?php foreach ($pets_small_animal as $p_sanimal) { ?>
+																		<h4><a class="pets_small" id="<?php echo  $p_sanimal['sub_category_id'].','.$p_sanimal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_sanimal['sub_subcategory_name']); ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Pet Accessories</h3>
-																	<h4><a href="#">Pet Foods</a></h4>
-																	<h4><a href="#">Toys & Training</a></h4>
-																	<h4><a href="#">Clothing & Accessories</a></h4>
-																	<h4><a href="#">Feeding Accessories</a></h4>
-																	<h4><a href="#">Beds, Cages, & Crates</a></h4>
-																	<h4><a href="#">Cleaning & Odour Control</a></h4>
-																	<h4><a href="#">Fish Tanks & Cabinets</a></h4>
-																	<h4><a href="#">Marine Aquarium & Ponds</a></h4>
-																	<h4><a href="#">Aquarium Landscaping</a></h4>
-																	<h4><a href="#">Other Maintenance Staff</a></h4>
+																	<?php foreach ($pets_accessories as $p_accessories) { ?>
+																		<h4><a class="pets_accessories" id="<?php echo  $p_accessories['sub_category_id'].','.$p_accessories['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_accessories['sub_subcategory_name']); ?></a></h4>
+																	<?php	} ?>
 																</div>
 															</div>
 														</div>
@@ -822,6 +814,7 @@
 												<div class="modal-footer">
 													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
+											</form>
 											</div>
 										</div>
 									</div>

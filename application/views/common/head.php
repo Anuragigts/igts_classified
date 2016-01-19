@@ -342,6 +342,7 @@
 
 		<script type="text/javascript">
 		$(function(){
+			/*services category*/
 			$(".service_prof").click(function(){
 				var sub = $(this).attr('id');
 				var sub1 = sub.split(",");
@@ -373,6 +374,181 @@
 				document.getElementById('services_sub').value = sub1[0];
 				document.getElementById('services_sub_sub').value = sub1[1];
 				document.getElementById('edit_service_cat').submit();
+			});
+
+		/*pets category*/
+
+		$(".pets_others").click(function(){
+				var sub = $(this).attr('id');
+				document.getElementById('pets_sub').value = sub;
+				document.getElementById('pets_form').submit();
+			});
+
+
+			$(".pets_big").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('pets_sub').value = sub1[0];
+				document.getElementById('pets_sub_sub').value = sub1[1];
+				document.getElementById('pets_form').submit();
+			});
+
+			$(".pets_small").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('pets_sub').value = sub1[0];
+				document.getElementById('pets_sub_sub').value = sub1[1];
+				document.getElementById('pets_form').submit();
+			});
+
+			$(".pets_accessories").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('pets_sub').value = sub1[0];
+				document.getElementById('pets_sub_sub').value = sub1[1];
+				document.getElementById('pets_form').submit();
+			});
+
+		/*edit model pets*/	
+
+		$(".edit_pets_others").click(function(){
+				var sub = $(this).attr('id');
+				document.getElementById('pets_sub').value = sub;
+				document.getElementById('edit_pets_cat').submit();
+			});
+
+			$(".edit_pets_big").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('pets_sub').value = sub1[0];
+				document.getElementById('pets_sub_sub').value = sub1[1];
+				document.getElementById('edit_pets_cat').submit();
+			});
+
+			$(".edit_pets_small").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('pets_sub').value = sub1[0];
+				document.getElementById('pets_sub_sub').value = sub1[1];
+				document.getElementById('edit_pets_cat').submit();
+			});
+
+			$(".edit_pets_accessories").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('pets_sub').value = sub1[0];
+				document.getElementById('pets_sub_sub').value = sub1[1];
+				document.getElementById('edit_pets_cat').submit();
+			});
+
+
+			/*cloths & lifestyles*/
+			/*women*/
+			$(".cloths_women").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('cloths_form').submit();
+			});
+
+			/*men*/
+			$(".cloths_men").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('cloths_form').submit();
+			});
+
+			/*boy*/
+			$(".cloths_boy").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('cloths_form').submit();
+			});
+
+			/*girl*/
+			$(".cloths_girl").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('cloths_form').submit();
+			});
+
+			/*baby boy*/
+			$(".cloths_bboy").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('cloths_form').submit();
+			});
+
+			/*baby girl*/
+			$(".cloths_bgirl").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('cloths_form').submit();
+			});
+
+			/*edit women*/
+			$(".edit_cloths_women").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('edit_cloths_cat').submit();
+			});
+
+			/*edit men*/
+			$(".edit_cloths_men").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('edit_cloths_cat').submit();
+			});
+
+			/*edit boy*/
+			$(".edit_cloths_boy").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('edit_cloths_cat').submit();
+			});
+
+			/*edit girls*/
+			$(".edit_cloths_girl").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('edit_cloths_cat').submit();
+			});
+
+			/*edit baby boy*/
+			$(".edit_cloths_bboy").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('edit_cloths_cat').submit();
+			});
+
+			/*edit baby girls*/
+			$(".edit_cloths_bgirl").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('cloths_sub').value = sub1[0];
+				document.getElementById('cloths_sub_sub').value = sub1[1];
+				document.getElementById('edit_cloths_cat').submit();
 			});
 	
 		});
