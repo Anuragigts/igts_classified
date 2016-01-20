@@ -51,15 +51,15 @@ class Postad_create_services extends CI_Controller{
 
         public function get_details(){
             $lid = $this->input->post('log_id');
-            $ad_type = $this->input->post('ad_type');
-            $res = $this->db->query("SELECT * FROM login, signup WHERE login.`login_id`= '$lid' AND signup.`signup_type` = '$ad_type'
-            GROUP BY login.`login_id`");
+            // $ad_type = $this->input->post('ad_type');
+            $res = $this->db->query("SELECT * FROM signup, login WHERE login.`signupid` = signup.`sid` AND
+ login.`login_id`= '$lid' GROUP BY login.`login_id`");
             foreach ($res->result_array() as $row) {
                 $data = array('busname' => $row['bus_name'],
                                 'cont_name'=>$row['first_name']."".$row['lastname'],
                                 'email'=>$row['login_email'],
-                                'mobile'=>$row['mobile'],
-                                'vat_number'=>$row['vat_number'] );
+                                'mobile'=>$row['mobile']/*,
+                                'vat_number'=>$row['vat_number']*/ );
             }
             echo json_encode($data);
         }

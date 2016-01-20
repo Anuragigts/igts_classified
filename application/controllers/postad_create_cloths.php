@@ -4,9 +4,21 @@ class Postad_create_cloths extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model("category_model");
+                $this->load->model("postad_cloths_model");
                 
         }
         public function index(){
+
+             if($this->session->userdata("login_id") == ''){
+                redirect("login");
+            }
+
+            if($this->input->post('post_create_ad_cloths')){
+                // echo "<pre>"; print_r($this->input->post()); exit;
+                $this->postad_cloths_model->postad_creat();
+            }
+
+
         	 $data = array(
                     "cloths_women"     =>  $this->category_model->cloths_women(),
                     "cloths_men"     =>  $this->category_model->cloths_men(),

@@ -304,12 +304,17 @@
 							type: "POST",
 							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,
 							dataType: 'json',
-							data: {log_id: login_id, ad_type: 'business'},
+							data: {log_id: login_id},
 							success: function(res) {
+								/*business*/
 								$("#busname").val(res.busname);
 								$("#buscontname").val(res.cont_name);
 								$("#bussmblno").val(res.mobile);
 								$("#busemail").val(res.email);
+								/*consumer*/
+								$("#conscontname").val(res.cont_name);
+								$("#conssmblno").val(res.mobile);
+								$("#consemail").val(res.email);
 								}
 							});
 							$('#bus_logo').show(1000);
@@ -323,9 +328,14 @@
 							type: "POST",
 							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,
 							dataType: 'json',
-							data: {log_id: login_id, ad_type: 'consumer'},
+							data: {log_id: login_id},
 							success: function(res) {
-								// alert(res.name);
+								/*business*/
+								$("#busname").val(res.busname);
+								$("#buscontname").val(res.cont_name);
+								$("#bussmblno").val(res.mobile);
+								$("#busemail").val(res.email);
+								/*consumer*/
 								$("#conscontname").val(res.cont_name);
 								$("#conssmblno").val(res.mobile);
 								$("#consemail").val(res.email);

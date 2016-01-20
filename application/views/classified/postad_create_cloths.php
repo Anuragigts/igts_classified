@@ -674,7 +674,7 @@ jQuery(document).ready(function($) {
 					<div class="row">
 						<div class="wrapper wrapper-640" style="padding-top: 0px;">
 
-							<form action="<?php echo base_url(); ?>postad_create_services" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
+							<form action="<?php echo base_url(); ?>postad_create_cloths" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
 
 								<div class="header">
 									<a href="postad" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a><p>Post a Deal</p>
@@ -689,7 +689,7 @@ jQuery(document).ready(function($) {
 													<li>
 														<b><?php echo ucfirst(@$cat); ?></b>
 														<input type='hidden' name='login_id' id='login_id' value="<?php echo @$login_id; ?>" />
-														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
+														<input type='hidden' name='category_id' id='category_id' value="<?php echo str_replace(" ","_",@$cat); ?>" />
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
 														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
 														 /</li>
@@ -842,21 +842,21 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Yes">
+																<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Seller">
 																<i></i>Seller
 																<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																	<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 																</sup>
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_wmcloth"  value="No">
+																<input type="radio" name="checkbox_wmcloth"  value="Needed">
 																<i></i>Needed
 																<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																	<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 																</sup>
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_wmcloth"  value="No">
+																<input type="radio" name="checkbox_wmcloth"  value="Charity">
 																<i></i>Charity
 																<sup data-toggle="tooltip" title="" data-original-title="Charity">
 																	<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
@@ -2591,7 +2591,7 @@ jQuery(document).ready(function($) {
 								<!-- end /.content -->
 
 								<div class="footer">
-									<input type="submit" class="btn btn-primary multi-submit-btn" name='post_create_ad' value='postad' />
+									<input type="submit" class="btn btn-primary multi-submit-btn" name='post_create_ad_cloths' value='postad' />
 									<!-- <button type="button" class="primary-btn multi-submit-btn" >Postad</button> -->
 									<button type="button" class="primary-btn multi-next-btn" >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>

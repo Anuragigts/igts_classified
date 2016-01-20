@@ -16,6 +16,9 @@ class Postad extends CI_Controller{
                 $this->load->library('upload',$config);
         }
         public function index(){
+            if($this->session->userdata("login_id") == ''){
+                redirect("login");
+            }
                 $plogin_id      =   $this->session->userdata("login_id");
                 $data = array(
                                 "title"     =>  "Classifieds",

@@ -674,7 +674,7 @@ jQuery(document).ready(function($) {
 					<div class="row">
 						<div class="wrapper wrapper-640" style="padding-top: 0px;">
 
-							<form action="<?php echo base_url(); ?>postad_create_services" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
+							<form action="<?php echo base_url(); ?>postad_create_pets" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
 
 								<div class="header">
 									<a href="postad" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a><p>Post a Deal</p>
@@ -2116,7 +2116,7 @@ jQuery(document).ready(function($) {
 								<!-- end /.content -->
 
 								<div class="footer">
-									<input type="submit" class="btn btn-primary multi-submit-btn" name='post_create_ad' value='postad' />
+									<input type="submit" class="btn btn-primary multi-submit-btn" name='post_create_ad_pets' value='postad' />
 									<!-- <button type="button" class="primary-btn multi-submit-btn" >Postad</button> -->
 									<button type="button" class="primary-btn multi-next-btn" >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>

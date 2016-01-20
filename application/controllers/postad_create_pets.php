@@ -4,8 +4,18 @@ class Postad_create_pets extends CI_Controller{
 	public function __construct(){
                 parent::__construct();
                   $this->load->model('category_model');
+                  $this->load->model('postad_pets_model');
                 }
         public function index(){
+
+            if($this->session->userdata("login_id") == ''){
+                redirect("login");
+            }
+
+            if($this->input->post('post_create_ad_pets')){
+                // echo "<pre>"; print_r($this->input->post()); exit;
+                $this->postad_pets_model->postad_creat();
+            }
         	 $data = array(
 		                    "pets_sub_cat"     =>  $this->category_model->pets_sub_cat(),
 		                    "pets_big_animal"     =>  $this->category_model->pets_big_animal(),

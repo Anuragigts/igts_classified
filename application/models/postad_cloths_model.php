@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class Postad_model extends CI_Model{
+class Postad_cloths_model extends CI_Model{
        public function postad_creat(){
              /*AD type business or consumer*/
                     $cur_date = date("Y")."".date("m");
@@ -59,8 +59,8 @@ class Postad_model extends CI_Model{
                                     'deal_tag'    => $this->input->post('dealtag'),
                                     'deal_desc'   =>$this->input->post('dealdescription'),
                                      'currency'   =>$this->input->post('checkbox_toggle1'),
-                                    'service_type'=> $this->input->post('typeservice'),
-                                    'services'    => $this->input->post('checkbox_services'),
+                                    'service_type'=> '',
+                                    'services'    => '',
                                     'price_type'  => $this->input->post('price_type'),
                                     'price'       => $this->input->post('priceamount'),
                                     'web_link'    => $url,
@@ -76,10 +76,6 @@ class Postad_model extends CI_Model{
                     $this->db->insert('postad', $data);
 
                        $insert_id = $this->db->insert_id();
-
-                       if ($insert_id != '') {
-                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
-                       }
 
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,
@@ -250,6 +246,82 @@ class Postad_model extends CI_Model{
                                 );
                         $this->db->insert("contactinfo_business", $plat_cont);
                     }
+
+                    /*women, men, boy, girls, baby boy, baby girl clothing details*/
+                     if ($this->input->post('sub_sub_id') == '359' || $this->input->post('sub_sub_id') == '363' ||
+                      $this->input->post('sub_sub_id') == '367' || $this->input->post('sub_sub_id') == '370' || 
+                      $this->input->post('sub_sub_id') == '373' || $this->input->post('sub_sub_id') == '375') {
+                           $women_cloths = array('ad_id' => $insert_id,
+                                                'cloth_type'=>$this->input->post('checkbox_wmcloth'),
+                                                'w_size' => $this->input->post('Size'),
+                                                'color' => $this->input->post('Color'),
+                                                'brand' => $this->input->post('brand'),
+                                                'no_of_items'=>$this->input->post('noofitem'),
+                                                'fit'=>$this->input->post('Fit'),
+                                                'made_in'=>$this->input->post('madein'),
+                                                'material'=>$this->input->post('material'),
+                                                'washing_instruct'=>$this->input->post('washinst'),
+                                                'length'=>$this->input->post('length')
+                                );
+                        $this->db->insert("lifestyle_clothing", $women_cloths);
+                        }
+
+                        /*women, men, boy, girl shoes details*/
+                        if ($this->input->post('sub_sub_id') == '360' || $this->input->post('sub_sub_id') == '364' || 
+                            $this->input->post('sub_sub_id') == '368' || $this->input->post('sub_sub_id') == '371') {
+                           $women_shoes = array('ad_id' => $insert_id,
+                                                'cloth_type'=>$this->input->post('checkbox_wmcloth'),
+                                                'shoe_size' => $this->input->post('size'),
+                                                'color' => $this->input->post('color'),
+                                                'brand' => $this->input->post('brand'),
+                                                'no_of_items'=>$this->input->post('noofitem'),
+                                                'heel_details'=>$this->input->post('Heeldetails'),
+                                                'shoe_material'=>$this->input->post('shoesmaterial'),
+                                                'shoe_style'=>$this->input->post('shoestyle'),
+                                                'made_in'=>$this->input->post('madein')
+                                );
+                        $this->db->insert("lifestyle_shoes", $women_shoes);
+                        }
+
+                        /*women, men, boy, girl, baby-boy, baby-girl accessories details*/
+                        if ($this->input->post('sub_sub_id') == '361' || $this->input->post('sub_sub_id') == '365' 
+                            || $this->input->post('sub_sub_id') == '369' || $this->input->post('sub_sub_id') == '372'
+                            || $this->input->post('sub_sub_id') == '374' || $this->input->post('sub_sub_id') == '376') {
+                           $women_accessories = array('ad_id' => $insert_id,
+                                                    'cloth_type'=>$this->input->post('checkbox_wmcloth'),
+                                                    'w_size' => $this->input->post('size'),
+                                                    'color' => $this->input->post('color'),
+                                                    'brand' => $this->input->post('brand'),
+                                                    'no_of_items'=>$this->input->post('noofitem'),
+                                                    'material'=>$this->input->post('shoesmaterial'),
+                                                    'made_in'=>$this->input->post('madein')
+                                );
+                        $this->db->insert("lifestyle_accessories", $women_accessories);
+                        }
+
+                        /*women wedding details*/
+                     if ($this->input->post('sub_sub_id') == '362' || $this->input->post('sub_sub_id') == '366') {
+                           $women_wedding = array('ad_id' => $insert_id,
+                                                'cloth_type'=>$this->input->post('checkbox_wmcloth'),
+                                                'w_size' => $this->input->post('size'),
+                                                'color' => $this->input->post('color'),
+                                                'brand' => $this->input->post('brand'),
+                                                'no_of_items'=>$this->input->post('noofitem'),
+                                                'fit'=>$this->input->post('fit'),
+                                                'made_in'=>$this->input->post('madein'),
+                                                'material'=>$this->input->post('material'),
+                                                'washing_instruct'=>$this->input->post('washinst'),
+                                                'length'=>$this->input->post('length')
+                                );
+                        $this->db->insert("lifestyle_wedding", $women_wedding);
+                        }
+
+                        
+                        if ($insert_id != '') {
+                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
+                       }
+                        
+                    
 
                     
             

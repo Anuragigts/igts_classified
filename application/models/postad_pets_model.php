@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class Postad_model extends CI_Model{
+class Postad_pets_model extends CI_Model{
        public function postad_creat(){
              /*AD type business or consumer*/
                     $cur_date = date("Y")."".date("m");
@@ -59,8 +59,8 @@ class Postad_model extends CI_Model{
                                     'deal_tag'    => $this->input->post('dealtag'),
                                     'deal_desc'   =>$this->input->post('dealdescription'),
                                      'currency'   =>$this->input->post('checkbox_toggle1'),
-                                    'service_type'=> $this->input->post('typeservice'),
-                                    'services'    => $this->input->post('checkbox_services'),
+                                    'service_type'=> '',
+                                    'services'    => '',
                                     'price_type'  => $this->input->post('price_type'),
                                     'price'       => $this->input->post('priceamount'),
                                     'web_link'    => $url,
@@ -249,6 +249,18 @@ class Postad_model extends CI_Model{
                                     'mobile'=>$this->input->post('bussmblno')
                                 );
                         $this->db->insert("contactinfo_business", $plat_cont);
+                    }
+
+                    /*pets details*/
+                    if ($this->input->post('category_id') == 'pets') {
+                        $pets_details = array('ad_id' => $insert_id,
+                                    'family_race' => $this->input->post('family_race'),
+                                    'pet_type' => $this->input->post('pet_type'),
+                                    'pet_age' => $this->input->post('Age'),
+                                    'height'=>$this->input->post('height'),
+                                    'gender'=>$this->input->post('gender')
+                                );
+                        $this->db->insert("pets_details", $pets_details);
                     }
 
                     
