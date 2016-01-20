@@ -68,6 +68,64 @@
 					}
 				});
 
+				/*signup type*/
+				$(function(){
+        	$('.sign_type').click(function(){
+                        var ch = $("input[name='signup_type']:checked").val();
+                        if(ch == 'business'){
+                            $("#signup_business").css('display', 'block');
+                            $("#signup_consumer").css('display', 'none');
+                        }else{
+                            $("#signup_business").css('display', 'none');
+                            $("#signup_consumer").css('display', 'block');
+	                        }
+	                });
+	        });
+				/*signup consumer and business characters only*/
+				$('#con_fname').keydown(function (e) {
+					if (e.shiftKey || e.ctrlKey || e.altKey) {
+					e.preventDefault();
+					} else {
+					var key = e.keyCode;
+						if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+						e.preventDefault();
+						}
+					}
+				});
+
+				$('#con_lname').keydown(function (e) {
+                    if (e.shiftKey || e.ctrlKey || e.altKey) {
+                    e.preventDefault();
+                    } else {
+                    var key = e.keyCode;
+                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                        e.preventDefault();
+                        }
+                    }
+                });
+
+            $('#bus_fname').keydown(function (e) {
+                    if (e.shiftKey || e.ctrlKey || e.altKey) {
+                    e.preventDefault();
+                    } else {
+                    var key = e.keyCode;
+                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                        e.preventDefault();
+                        }
+                    }
+                });
+
+             $('#bus_lname').keydown(function (e) {
+                    if (e.shiftKey || e.ctrlKey || e.altKey) {
+                    e.preventDefault();
+                    } else {
+                    var key = e.keyCode;
+                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                        e.preventDefault();
+                        }
+                    }
+                });
+
 
 			});
 		</script>

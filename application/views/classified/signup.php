@@ -23,30 +23,7 @@
             return true;
         }
 
-        $(function(){
-            $('#fname').keydown(function (e) {
-                    if (e.shiftKey || e.ctrlKey || e.altKey) {
-                    e.preventDefault();
-                    } else {
-                    var key = e.keyCode;
-                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-                        e.preventDefault();
-                        }
-                    }
-                });
-
-            $('#lname').keydown(function (e) {
-                    if (e.shiftKey || e.ctrlKey || e.altKey) {
-                    e.preventDefault();
-                    } else {
-                    var key = e.keyCode;
-                        if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-                        e.preventDefault();
-                        }
-                    }
-                });
-        });
-
+      
 
         $(function(){
                 $('.sign_type').click(function(){
@@ -59,6 +36,10 @@
                             $("#signup_consumer").css('display', 'block');
                         }
                 });
+
+                $.validator.addMethod("pwcheck", function(value) {
+				   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/.test(value); // consists of only these
+				});
 
                 $("#register_form").validate({
 			
@@ -82,11 +63,13 @@
 					},
 					bus_password: {
 						required: true,
-						minlength: 8
+						// minlength: 8,
+						pwcheck: true
 					},
 					con_password: {
 						required: true,
-						minlength: 8
+						// minlength: 8,
+						pwcheck: true
 					},
 				},
 				
@@ -102,11 +85,13 @@
 					bus_mobile: "Please enter your 10 Digit Mobile No",
 					bus_password: {
 						required: "Please provide a password",
-						minlength: "Your password must be at least 8 characters long"
+						// minlength: "Your password must be at least 8 characters long",
+						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit, one special character)"
 					},
 					con_password: {
 						required: "Please provide a password",
-						minlength: "Your password must be at least 8 characters long"
+						// minlength: "Your password must be at least 8 characters long",
+						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit, one special character)"
 					},
 					con_email: "Please enter a valid email address",
 					bus_email: "Please enter a valid email address",
