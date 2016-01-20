@@ -693,7 +693,7 @@ jQuery(document).ready(function($) {
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
 														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
 														 /</li>
-													<li><b><?php echo ucfirst(@$sub_name); ?></b> /</li>
+													<li><b><?php echo ucfirst(@$sub_name); ?></b> <?php if ($sub_sub_id != '') { ?> /<?php } ?></li>
 													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b></li>
 												</ul>                 
 											</div>
