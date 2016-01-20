@@ -403,7 +403,8 @@
 							$("#blah").hide();
 
 						}
-						else if(ch == 'No'){
+						if(ch == 'No'){
+							var login_id = $('#login_id').val();
 							$.ajax({
 							type: "POST",
 							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,

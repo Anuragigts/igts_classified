@@ -1,4 +1,4 @@
-	<title>365 Deals ::  Seeked Searches</title>
+	<title>99 Right Deals ::  Seeked Searches</title>
 	<style>
 		.section-title-01{
 		height: 273px;

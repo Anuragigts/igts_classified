@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Classifieds :: Admin Login</title>
+    <title>99 Right Deals :: Admin Login</title>
 
     <!-- GLOBAL STYLES -->
     <link href="<?php echo $this->config->item('admin_assets_url');?>css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-banner text-center">
-                    <h1><i class="fa fa-gears"></i>Classifieds</h1>
+                    <h1><i class="fa fa-gears"></i>99 Right Deals</h1>
                 </div>
                 <div class="portlet portlet-green">
                     <div class="portlet-heading login-heading">

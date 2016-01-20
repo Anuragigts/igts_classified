@@ -1,4 +1,4 @@
-	<title>365 Deals :: Home</title>
+	<title>99 Right Deals :: Home</title>
 	<!-- Slide And Filter Section--> 
 	
 	<style>

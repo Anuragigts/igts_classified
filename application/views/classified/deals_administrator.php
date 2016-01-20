@@ -1,4 +1,4 @@
-	<title>365 Deals :: Deals Administrator</title>
+	<title>99 Right Deals :: Deals Administrator</title>
 	
 	<style>
 		.section-title-01{

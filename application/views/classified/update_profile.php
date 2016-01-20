@@ -5,7 +5,7 @@
 		$mail_id = $prof_data['email'];
 		$mobile = $prof_data['mobile'];
 		} ?>
-	<title>365 Deals :: Deals Administrator</title>
+	<title>99 Right Deals :: Deals Administrator</title>
 	
 	<style>
 		.section-title-01{
