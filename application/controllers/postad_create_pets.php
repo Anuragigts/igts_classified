@@ -15,6 +15,7 @@ class Postad_create_pets extends CI_Controller{
             if($this->input->post('post_create_ad_pets')){
                 // echo "<pre>"; print_r($this->input->post()); exit;
                 $this->postad_pets_model->postad_creat();
+                
             }
         	 $data = array(
 		                    "pets_sub_cat"     =>  $this->category_model->pets_sub_cat(),

@@ -18,15 +18,6 @@
 	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
-	
-
-
-	<script>
-		setTimeout(function(){
-			 $(".alert").hide();
-		},5000);
-		
-	</script>
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
@@ -923,3 +914,10 @@
 		<!-- End content info - page Fill with  --> 
 	</section>
 	<!-- End Content Central -->
+
+	<script>
+		setTimeout(function(){
+			 $(".alert").hide();
+		},5000);
+		
+	</script>

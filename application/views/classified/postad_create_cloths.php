@@ -1451,7 +1451,11 @@ jQuery(document).ready(function($) {
 											
 											<div class="j-row">
 												<div class="span6 unit">
-													<label class="label">Fit <sup style='color:red;'>*</sup></label>
+													<label class="label">Fit
+														<sup data-toggle="tooltip" title="" data-original-title="Fit">
+															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														</sup>
+													</label>
 													<div class="input">
 														<label class="icon-right" for="phone">
 															<img src="j-folder/img/height.png">

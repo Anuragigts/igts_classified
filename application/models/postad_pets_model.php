@@ -77,9 +77,9 @@ class Postad_pets_model extends CI_Model{
 
                        $insert_id = $this->db->insert_id();
 
-                       if ($insert_id != '') {
-                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
-                       }
+                       // if ($insert_id != '') {
+                       //  $this->session->set_userdata("msg","Ad Posted Successfully!!");
+                       // }
 
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,
@@ -261,6 +261,10 @@ class Postad_pets_model extends CI_Model{
                                     'gender'=>$this->input->post('gender')
                                 );
                         $this->db->insert("pets_details", $pets_details);
+                    }
+
+                    if ($this->db->affected_rows() > 0) {
+                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
                     }
 
                     
