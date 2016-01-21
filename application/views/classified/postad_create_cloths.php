@@ -968,7 +968,11 @@ jQuery(document).ready(function($) {
 															</sup>
 														</label>
 														<label class="input select">
-															<select name="Size">
+															<?php if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
+																<input type="text" id="Size" name="Size" placeholder="Enter Size">
+														<?php	}
+														if (@$sub_sub_id == '359') { ?>
+														<select name="Size">
 																<option value="none" selected disabled="">Select Size</option>
 																<option value="1size">1 Size</option>
 																<option value="2size">2 Size</option>
@@ -998,6 +1002,9 @@ jQuery(document).ready(function($) {
 																<option value="othersize">Other</option>
 															</select>
 															<i></i>
+													<?php	}
+														 ?>
+															
 														</label>
 													</div>
 													<div class="span6 unit">
@@ -1069,6 +1076,8 @@ jQuery(document).ready(function($) {
 															</sup>
 														</label>
 														<label class="input select">
+															<!-- women clothing -->
+															<?php if (@$sub_sub_id == '359') { ?>
 															<select name="Fit">
 																<option value="none" selected disabled="">Select Fit</option>
 																<option value="Regular">Regular</option>
@@ -1080,6 +1089,13 @@ jQuery(document).ready(function($) {
 																<option value="Other">Other</option>
 															</select>
 															<i></i>
+															<?php }
+															/*men, boy, girl, kid boy, kid girl*/
+															if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
+																<input type="text" placeholder="Enter Fit" name="Fit" id="Fit">
+														<?php	}
+															 ?>
+															
 														</label>
 													</div>
 													<div class="span6 unit">
@@ -1204,19 +1220,6 @@ jQuery(document).ready(function($) {
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Heel Details 
-													<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Heel details">
-														<img src="j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
-													</label>
-													<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
-												</div>
-											</div>
-											<div class="span6 unit">
 												<label class="label">Shoes Material 
 													<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
@@ -1229,10 +1232,6 @@ jQuery(document).ready(function($) {
 													<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
 												</div>
 											</div>
-											
-										</div>
-										
-										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Shoes Styles 
 													<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
@@ -1246,20 +1245,54 @@ jQuery(document).ready(function($) {
 													<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
 												</div>
 											</div>
+											
+										</div>	
+
+										<div class="j-row">
+
 											<div class="span6 unit">
-												<label class="label">Made In 
-													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
+													<label class="label">Made In 
+														<sup data-toggle="tooltip" title="" data-original-title="Made In ">
+															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="Made In">
+															<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+														</label>
+														<input type="text" id="madein" name="madein" placeholder="Enter Made in">
+													</div>
+											</div>
+
+											<?php if (@$sub_sub_id == '360') { ?>
+												<div class="span6 unit">
+												<label class="label">Heel Details 
+													<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Made In">
-														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+													<label class="icon-right" for="Heel details">
+														<img src="j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
 													</label>
-													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
+													<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
 												</div>
 											</div>
-										</div>		
+										<?php	}
+										else{ ?>
+										<div class="span6 unit">
+												<div class="input">
+													<input type="hidden" id="Heeldetails" name="Heeldetails" value='' placeholder="Enter Heel Details">
+												</div>
+											</div>
+									<?php	} ?>
+											
+											
+											
+										</div>
+
+											
+
 											</div>
 											<?php } ?>
 									<?php if (@$sub_sub_name == 'Accessories') { ?>		

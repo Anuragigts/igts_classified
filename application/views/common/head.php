@@ -641,7 +641,145 @@
 				document.getElementById('cloths_sub_sub').value = sub1[1];
 				document.getElementById('edit_cloths_cat').submit();
 			});
-	
+
+			/*motor point*/
+
+			/*cars*/
+			$(".cars_cars").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit cars*/
+			$(".edit_cars_cars").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+			/*bike and scooter*/
+			$(".bike_scooters").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit bike and scooter*/
+			$(".edit_bike_scooters").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+				/*motor_caravans*/
+			$(".motor_caravans").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit motor_caravans*/
+			$(".edit_motor_caravans").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+			/*motor_vans_trucks*/
+			$(".motor_vans_trucks").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit motor_vans_trucks*/
+			$(".edit_motor_vans_trucks").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+			/*motor_coach_bus*/
+			$(".motor_coach_bus").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit motor_coach_bus*/
+			$(".edit_motor_coach_bus").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
 		});
 		</script>
+
+
+		<script type="text/javascript">
+		/*view more and view less form motor point*/
+		$(function(){
+			/*cars*/
+			$("#car_viewmore").click(function(){
+				$("#car_sec_part").css('display', 'block');
+				$("#car_viewmore").hide();
+				$('#car_viewless').show();
+			});
+		
+			$("#car_viewless").click(function(){
+				$("#car_sec_part").css('display', 'none');
+				$("#car_viewmore").show();
+				$('#car_viewless').hide();
+			});
+		
+			/*bikes*/
+			$("#bike_viewmore").click(function(){
+				$("#bike_sec_part").css('display', 'block');
+				$("#bike_viewmore").hide();
+				$("#bike_viewless").show();
+			});
+		
+			$("#bike_viewless").click(function(){
+				$("#bike_sec_part").css('display', 'none');
+				$("#bike_viewmore").show();
+				$("#bike_viewless").hide();
+			});
+		
+			/*e-zone*/
+			$("#ezone_viewmore").click(function(){
+				$("#ezone_sec_part").css('display', 'block');
+				$("#ezone_viewless").show();
+				$("#ezone_viewmore").hide();
+			});
+		
+			$("#ezone_viewless").click(function(){
+				$("#ezone_sec_part").css('display', 'none');
+				$("#ezone_viewless").hide();
+				$("#ezone_viewmore").show();
+			});
+			
+		});
+	</script>
 		
