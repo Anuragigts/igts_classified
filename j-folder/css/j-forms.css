@@ -386,7 +386,7 @@
 	transition:all.2s;
 }
 .j-forms .widget .addon-btn:hover,
-.j-forms .widget .addon-btn:focus { background-color:#d6d6d6; color:rgba(0,0,0,.87); }
+.j-forms .widget .addon-btn:focus { background-color:#ed7642; color:#fff; }
 
 .j-forms .widget .addon-btn:hover i,
 .j-forms .widget .addon-btn:focus i { color:rgba(0,0,0,.61); }
@@ -425,6 +425,8 @@
 	-moz-border-radius:0 3px 3px 0;
 	-o-border-radius:0 3px 3px 0;
 	border-radius:0 3px 3px 0;
+	background-color: #66c3a4;
+	color: #fff;
 }
 .j-forms .widget.left-50.right-50 .input input,
 .j-forms .widget.left-50.right-130 .input input,
