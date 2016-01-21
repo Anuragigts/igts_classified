@@ -333,21 +333,23 @@
 						<form action="#" method="post" class="j-forms " >
 							<div class="col-md-3">
 								<aside class="widget view_sidebar text_center">
-									<!--<center><img src="img/brand/intel.png" alt="" class="img-responsive"></center><hr>-->
+									<!--<img src="img/brand/intel.png" alt="Logo" title="Business Logo" class="img-responsive"><hr>-->
 									<img src="img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img">
 									<h3> User Name</h3><hr>
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
-									<center><img src="img/icons/contact.png" alt="" class="contact_now_show img-responsive"></center>
+									<img src="img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 									<ul class="list-styles contact_now_hide" style="display:none;">
 										<li><strong><i class="fa fa-phone "></i>+91 900001110</strong></li>
 									</ul>
-									<center class="top_5">
+									<div class="top_5">
 										<div class="amt_bg">
 											<h3 style="color:white;padding-top:10px;">£1036</h3>
 										</div>
-									</center>
+									</div>
 								</aside>
-								<center><a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a></center>
+								<div class="text_center">
+									<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
+								</div>
 								
 								<aside class="widget view_sidebar send_now_hide" style="display:none;">
 									<div class="j-row">

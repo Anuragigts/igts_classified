@@ -200,7 +200,7 @@
 													<span>Urgent</span>
 												</div>
 												<div class="img-hover">
-													<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+													<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 													<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 												</div>
 											</div>
@@ -237,7 +237,7 @@
 													</div>
 													
 													<div class="col-xs-4 serch_bus_logo">
-														<img src="img/brand/intel.png" alt="" class="img-responsive">
+														<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 													</div>
 												</div>
 												<hr class="separator">
@@ -254,14 +254,13 @@
 													</div>
 													<div class="col-xs-4">
 														<div class="row">
-															<div class="col-xs-8 col-xs-offset-1 amt_bg">
-																<h3 style="color:white;margin-top:5px;">£1106</h3>
+															<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																<h3 class="view_price">£1106</h3>
 															</div>
 															<div class="col-xs-12">
 																<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 															</div>
 														</div>
-														
 													</div>
 												</div>
 											</div>
@@ -280,7 +279,7 @@
 													<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 													<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 													<li><i class="fa fa-edit"></i></li>
-													<li><img src="img/icons/delete.png" alt="" class="img-responsive"></li>
+													<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 												</ul>                      
 											</div>
 										</div>
@@ -296,7 +295,7 @@
 													<span>Urgent</span>
 												</div>
 												<div class="img-hover">
-													<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+													<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 													<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 												</div>
 											</div>
@@ -333,7 +332,7 @@
 													</div>
 													
 													<div class="col-xs-4 serch_bus_logo">
-														<img src="img/brand/intel.png" alt="" class="img-responsive">
+														<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 													</div>
 												</div>
 												<hr class="separator">
@@ -350,14 +349,13 @@
 													</div>
 													<div class="col-xs-4">
 														<div class="row">
-															<div class="col-xs-8 col-xs-offset-1 amt_bg">
-																<h3 style="color:white;margin-top:5px;">£1106</h3>
+															<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																<h3 class="view_price">£1106</h3>
 															</div>
 															<div class="col-xs-12">
 																<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 															</div>
 														</div>
-														
 													</div>
 												</div>
 											</div>
@@ -376,7 +374,7 @@
 													<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 													<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 													<li><i class="fa fa-edit"></i></li>
-													<li><img src="img/icons/delete.png" alt="" class="img-responsive"></li>
+													<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 												</ul>                      
 											</div>
 										</div>

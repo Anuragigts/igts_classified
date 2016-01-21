@@ -41,7 +41,15 @@
 					
 					<div class="row">
 						<div class="col-sm-3">
-							
+							<div class="item_subpages">
+								<ul class="">
+									<li class="active_page"><a href='about_us'>About US</a></li>
+									<li><a href=''>Contact US</a></li>
+									<li><a href=''>Terms & Conditions</a></li>
+									<li><a href=''>Privacy Policy</a></li>
+									<li><a href=''>Refund Policy</a></li>
+								</ul>
+							</div>
 						</div>
 						<div class="col-md-9">
 							<p>There are few platforms that allow anyone to be an entrepreneur, any business to expand their sales and any person to clear out their house items, all in the same place. Classifieds, on the other hand, help every one of them.</p>

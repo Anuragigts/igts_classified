@@ -440,7 +440,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel" class="img-responsive">
+															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">
@@ -457,14 +457,13 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-8 col-xs-offset-1 amt_bg">
-																	<h3 style="color:white;margin-top:5px;">£1106</h3>
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price">£1106</h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
 															</div>
-															
 														</div>
 													</div>
 												</div>
@@ -536,7 +535,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel" class="img-responsive">
+															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">
@@ -553,14 +552,13 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-8 col-xs-offset-1 amt_bg">
-																	<h3 style="color:white;margin-top:5px;">£1106</h3>
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price">£1106</h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
 															</div>
-															
 														</div>
 													</div>
 												</div>
