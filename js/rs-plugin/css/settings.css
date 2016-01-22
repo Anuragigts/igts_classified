@@ -2116,7 +2116,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 .tp-loader.spinner0 {
   width: 40px;
   height: 40px;
-  background:url(../assets/loader.gif) no-repeat center center;
+  /* background:url(../assets/loader.gif) no-repeat center center; */
   background-color: #fff;
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
@@ -2147,7 +2147,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 
 
 
-.tp-loader.spinner5 	{	background:url(../assets/loader.gif) no-repeat 10px 10px;
+.tp-loader.spinner5 	{	/* background:url(../assets/loader.gif) no-repeat 10px 10px; */
 							background-color:#fff;
 							margin:-22px -22px;
 							width:44px;height:44px;
