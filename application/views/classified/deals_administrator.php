@@ -104,9 +104,6 @@
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
 													<div class="img-hover">
 														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
@@ -119,11 +116,6 @@
 																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="compared-category"></span>
-																	</div>
-																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -196,12 +188,9 @@
 									</div>
 									
 									<div class="col-md-12">
-										<div class="first_list">
+										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4 view_img">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
 													<div class="img-hover">
 														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
@@ -214,11 +203,6 @@
 																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="compared-category"></span>
-																	</div>
-																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -271,7 +255,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
+												<div class="post-meta list_view_bottom gold_bgcolor">
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
@@ -309,11 +293,6 @@
 																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="compared-category"></span>
-																	</div>
-																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">

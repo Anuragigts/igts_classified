@@ -44,7 +44,7 @@
 							<div class="item_subpages">
 								<ul class="">
 									<li class="active_page"><a href='about_us'>About US</a></li>
-									<li><a href=''>Contact US</a></li>
+									<li><a href='contact_us'>Contact US</a></li>
 									<li><a href=''>Terms & Conditions</a></li>
 									<li><a href=''>Privacy Policy</a></li>
 									<li><a href=''>Refund Policy</a></li>

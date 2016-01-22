@@ -90,7 +90,6 @@
 									<aside class="widget">
 										<h3 class="title-widget">Cars Filter</h3>
 										<div id="left">
-											
 											<ul class="nav menu" >  
 												<li id="filter_4" class="item-8 deeper parent">
 													<a class="" href="#">
@@ -345,63 +344,57 @@
 
 							<!-- Item Table-->
 							<div class="col-md-9">
-								<!-- sort-by-container-->
-								<div class="sort-by-container tooltip-hover">
-									<div class="row">
-										<div class="col-md-9">
-											<strong>Sort by:</strong>
-											<ul>                            
-												<li>
-													<div class="selector">
-														<select>
-															<option value="5">5 Starts</option>
-															<option value="4">4 Starts</option>
-															<option value="3">3 Starts</option>
-															<option value="2">2 Starts</option>
-															<option value="1">1 Starts</option>
-														</select>
-														<span class="custom-select">Users Rating</span>
-													</div>
-												</li>
-												<li>
-													<div class="selector">
-														<select>
-															<option value="1">Sort Ascending</option>
-															<option value="2">Sort Descending</option>
-														</select>
-														<span class="custom-select">Product</span>
-													</div>
-												</li>                            
-											</ul>
-										</div>
-										<div class="col-md-3">
-											<ul class="style-view">
-												<li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-													<a href="searchview">
-														<i class="fa fa-th-large"></i>
-													</a>
-												</li>
-												<li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-													<a href="searchview">
-														<i class="fa fa-list"></i>
-													</a>
-												</li> 
-											</ul>
-										</div>
+                                <div class="row">
+									<div class="col-sm-12">
+										<h2>Deals Administrator</h2>
+										<label>Hi User Name, you have 0 Pickup deals</label><hr>
 									</div>
 								</div>
-								<!-- sort-by-container-->
+                                
+                                <!-- sort-by-container-->
+                                <div class="sort-by-container tooltip-hover">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <strong>Sort by:</strong>
+                                            <ul>                            
+                                                <li>
+                                                    <div class="selector">
+                                                        <select>
+                                                            <option value="5">5 Starts</option>
+                                                            <option value="4">4 Starts</option>
+                                                            <option value="3">3 Starts</option>
+                                                            <option value="2">2 Starts</option>
+                                                            <option value="1">1 Starts</option>
+                                                        </select>
+                                                        <span class="custom-select">Users Rating</span>
+                                                    </div>
+                                                </li>
+                                           </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <ul class="style-view">
+                                                <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
+                                                    <a href="deals_administrator_box">
+                                                        <i class="fa fa-th-large"></i>
+                                                    </a>
+                                                </li>
+                                                <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
+                                                    <a href="deals_administrator">
+                                                        <i class="fa fa-list"></i>
+                                                    </a>
+                                                </li> 
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- sort-by-container-->
 
-								<div class="row list_view_searches">
-									
-									<!-- Item Gallery List View-->
-									<div class="col-md-12">
+                                <div class="row list_view_searches">
+                                    <!-- Item Gallery List View-->
+                                    <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
 													<div class="img-hover">
 														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
@@ -414,11 +407,6 @@
 																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="compared-category"></span>
-																	</div>
-																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -491,6 +479,93 @@
 									</div>
 									
 									<div class="col-md-12">
+										<div class="first_list gold_bgcolor">
+											<div class="row">
+												<div class="col-sm-4 view_img">
+													<div class="img-hover">
+														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+													</div>
+												</div>
+												<div class="col-sm-8 middle_text">
+													<div class="row">
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-4">
+																	<ul class="starts">
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																	</ul>
+																</div>
+																<div class="col-xs-8">
+																	<div class="location pull-right ">
+																		<i class="fa fa-map-marker "></i> 
+																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-xs-4 serch_bus_logo">
+															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+														</div>
+													</div>
+													<hr class="separator">
+													<div class="row">
+														<div class="col-xs-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																</div>
+																<div class="col-xs-12">
+																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price">£1106</h3>
+																</div>
+																<div class="col-xs-12">
+																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><!-- End Row-->
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="post-meta list_view_bottom gold_bgcolor">
+													<ul>
+														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+														<li><span>Deal ID : 112457856</span></li>
+														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+														<li><i class="fa fa-edit"></i></li>
+														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+													</ul>                      
+												</div>
+											</div>
+										</div><hr class="separator">	
+										<!-- End Item Gallery List View-->
+									</div>
+									
+									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
@@ -509,11 +584,6 @@
 																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="compared-category"></span>
-																	</div>
-																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">

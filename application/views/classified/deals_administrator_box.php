@@ -104,9 +104,6 @@
 								<div class="row first_box_list">
 									<!-- Item Gallery-->
 									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="featured-badge">
-											<span>Urgent</span>
-										</div>
 										<div class="img-hover">
 											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
 											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
@@ -129,14 +126,11 @@
 									<!-- End Item Gallery-->
 									<!-- Item Gallery-->
 									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="featured-badge">
-											<span>Urgent</span>
-										</div>
 										<div class="img-hover">
 											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
 											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 										</div>
-										<div class="info-gallery">
+										<div class="info-gallery gold_bgcolor">
 											<h3>Sample text Here</h3>
 											<hr class="separator">
 											<p>The Royal National is in London near Covent Garden and 100 meters.</p>

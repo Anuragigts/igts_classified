@@ -21,12 +21,6 @@
 	<script>
 			!function ($) {
 			
-			// Le left-menu sign
-			/* for older jquery version
-			$('#left ul.nav li.parent > a > span.sign').click(function () {
-				$(this).find('i:first').toggleClass("icon-minus");
-			}); */
-			
 			$(document).on("click","#left ul.nav li.parent > a > span.sign", function(){          
 				$(this).find('i:first').toggleClass("fa-minus");      
 			}); 

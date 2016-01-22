@@ -912,12 +912,14 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
-																<i></i> £ (Pound) 
+																<input type="radio" name="checkbox_toggle1" value="euro">
+																<i></i>
+																€ - Euro
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1"  value="Euro">
-																<i></i> € (Euro)
+																<input type="radio" name="checkbox_toggle1" value="pound">
+																<i></i>
+																£ - Pound
 															</label>
 														</div>
 													</div>
@@ -987,7 +989,7 @@ jQuery(document).ready(function($) {
 														</ul>
 														<div class="hot_deal_rad">
 															<label class="radio">
-																<input type="radio" name="select_packge" id="free_urgent" class='bus_consumer' value="Yes">
+																<input type="radio" name="select_packge" id="free_urgent" class='bus_consumer free_pck' value="Yes">
 																<i></i>Select Free 
 															</label>
 														</div>
