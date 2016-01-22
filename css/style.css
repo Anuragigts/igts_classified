@@ -5076,7 +5076,7 @@ h4 a:hover{
 }
 .hot_deal_rad label{
 	color:#FFF !important;
-	font-size:18px !important;
+	font-size:16px !important;
 }
 #form-contact input,textarea{
 	margin-top:10px;
@@ -5139,4 +5139,10 @@ h4 a:hover{
 }
 .view_sidebar ul li strong{
 	font-size:16px;
+}
+.divider_space{
+	padding-top:20px;
+}
+.bor_right{
+	border-right: 2px solid rgb(244, 244, 244);
 }
