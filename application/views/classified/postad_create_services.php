@@ -14,6 +14,60 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
+	$(function(){
+		$('.select_pack').change(function(){
+			// var chk = $(this).val();
+			var ch = $('input[name="select_packge[]"]:checked').val();
+			// alert(ch);
+			if(ch == 'freepackage'){
+				$(".free_pck").css("display", 'block');
+				$(".gold_pck").css("display", 'none');
+				$(".platinum_pck").css("display", 'none');
+				document.getElementById("package_type").value = 'free';
+				$("#freeurgent").removeAttr('disabled');
+				$("#goldurgent").attr('disabled', 'disabled');
+				$("#platinumurgent").attr('disabled', 'disabled');
+			}
+			if(ch == 'goldpackage'){
+				$(".free_pck").css("display", 'none');
+				$(".gold_pck").css("display", 'block');
+				$(".platinum_pck").css("display", 'none');
+				document.getElementById("package_type").value = 'gold';
+				$("#freeurgent").attr('disabled', 'disabled');
+				$("#goldurgent").removeAttr('disabled');
+				$("#platinumurgent").attr('disabled', 'disabled');
+			}
+			if(ch == 'platinumpackage'){
+				$(".free_pck").css("display", 'none');
+				$(".gold_pck").css("display", 'none');
+				$(".platinum_pck").css("display", 'block');
+				document.getElementById("package_type").value = 'platinum';
+				$("#freeurgent").attr('disabled', 'disabled');
+				$("#goldurgent").attr('disabled', 'disabled');
+				$("#platinumurgent").removeAttr('disabled');
+			}
+
+			if($('input.select_pack').filter(':checked').length == 1)
+		        $('input.select_pack:not(:checked)').attr('disabled', 'disabled');
+			    else
+			        $('input.select_pack').removeAttr('disabled');
+		});
+
+		$(".select_urgent_pack").change(function(){
+			var ur = $('.select_urgent_pack').filter(':checked').length;
+			if (ur == 1) {
+				var va = $(this).val();
+				if (va == 'freeurgent' || $('input.select_pack').filter(':checked').length == 0) {
+					$("#free_pck").attr('checked', true);
+				}
+				$("#package_urgent").val(va);
+			}
+			else{
+				$("#package_urgent").val("");
+			}
+		});
+	});
+
 
 	$(function(){
 		$(".multi-submit-btn").click(function(){
@@ -77,7 +131,7 @@
 			if (img_count == 0) {
 				$(".platinum_img_error").css('display', 'block'); return false;
 			}
-			else if(pck_type == 'platinum' && img_count > 15){
+			else if(pck_type == 'platinum' && img_count > 12){
 				$(".platinum_img_error").css('display', 'block'); return false;
 			}
 			else{
@@ -961,6 +1015,8 @@ jQuery(document).ready(function($) {
 										<div class="divider gap-bottom-25"></div>
 
 										<!-- start name -->
+										<!-- SERVICES, JOBS, PROPERTY, MOTOR POINTS -->
+										<?php if (@$cat == 'services') { ?>
 										<div class="j-row">
 											<div class="span4">
 												<!-- promotion-box-->
@@ -987,11 +1043,13 @@ jQuery(document).ready(function($) {
 																<h3 class="price_amt">£0</h3>
 															</div>
 														</ul>
-														<div class="hot_deal_rad">
-															<label class="radio">
-																<input type="radio" name="select_packge" id="free_urgent" class='bus_consumer free_pck' value="Yes">
-																<i></i>Select Free 
+														<div class="hot_deal_rad check">
+															<label class="checkbox">
+															<input type="checkbox" id='free_pck' name="select_packge[]" class='select_pack' value="freepackage" data-price="5">
+															<i></i>
+															Select Free 
 															</label>
+															
 														</div>
 													</div>
 													
@@ -1026,11 +1084,16 @@ jQuery(document).ready(function($) {
 															</div>
 														</ul>
 														
-														<div class="hot_deal_rad">
-															<label class="radio">
-																<input type="radio" name="select_packge" id="gold_urgent" class='bus_consumer' value="Yes">
-																<i></i>Select Gold
+														<div class="hot_deal_rad check">
+															<label class="checkbox">
+															<input type="checkbox" id='gold_pck' name="select_packge[]" class='select_pack' value="goldpackage" data-price="5">
+															<i></i>
+															Select Gold 
 															</label>
+															<!-- <label class="radio">
+																<input type="radio" name="select_packge" id="gold_pck" class='bus_consumer' value="goldpackage">
+																<i></i>Select Gold
+															</label> -->
 														</div>
 													</div>
 													<!-- End promotion-box-info-->
@@ -1064,11 +1127,16 @@ jQuery(document).ready(function($) {
 															</div>
 														</ul>
 														
-														<div class="hot_deal_rad">
-															<label class="radio">
-																<input type="radio" name="select_packge" id="platinum_urgent" class='bus_consumer' value="Yes">
-																<i></i>Select Platinum 
+														<div class="hot_deal_rad check">
+															<label class="checkbox">
+															<input type="checkbox" id='platinum_pck' name="select_packge[]" class='select_pack' value="platinumpackage" data-price="5">
+															<i></i>
+															Select Platinum 
 															</label>
+															<!-- <label class="radio">
+																<input type="radio" name="platinum_pck" id="platinum_pck" class='bus_consumer' value="platinumpackage">
+																<i></i>Select Platinum 
+															</label> -->
 														</div>
 													</div>
 													<!-- End promotion-box-info-->
@@ -1076,6 +1144,12 @@ jQuery(document).ready(function($) {
 												<!-- End promotion-box-->
 											</div>
 										</div>
+										<div class="divider_space"></div>
+
+										<div class="alert alert-danger pack_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+												    <strong>Error!</strong> Please select one package
+												</div>
 										
 										<div class="divider_space"></div>
 										<!--Consumer to Consumer Start-->
@@ -1085,7 +1159,7 @@ jQuery(document).ready(function($) {
 												<div class="promotion-box">
 													<div class="promotion-box-center color-2">
 														<div class="prince">
-															URGENT LABLE (HOT Symbol)
+															URGENT LABLE 
 														</div>
 													</div>
 													<!-- End promotion-box-center-->
@@ -1100,10 +1174,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="radio">
-																		<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																		<i></i>Select Free Urgent
+																	<label class="checkbox">
+																	<input type="checkbox" id='freeurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<i></i>
+																	Select Free Urgent
 																	</label>
+																	<!-- <label class="radio">
+																		<input type="radio" name="select_urgent_packge" id="freeurgent" value="freeurgent">
+																		<i></i>Select Free Urgent
+																	</label> -->
 																</div>
 															</div>
 														</div>
@@ -1117,10 +1196,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="radio">
-																		<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																		<i></i>Select Gold Urgent 
+																	<label class="checkbox">
+																	<input type="checkbox" id='goldurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<i></i>
+																	Select Gold Urgent 
 																	</label>
+																	<!-- <label class="radio">
+																		<input type="radio" name="select_urgent_packge" id="goldurgent" class='bus_consumer' value="goldurgent">
+																		<i></i>Select Gold Urgent 
+																	</label> -->
 																</div>
 															</div>
 														</div>
@@ -1134,10 +1218,15 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="radio">
-																		<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																		<i></i>Select platinum Urgent 
+																	<label class="checkbox">
+																	<input type="checkbox" id='platinumurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<i></i>
+																	Select platinum Urgent
 																	</label>
+																	<!-- <label class="radio">
+																		<input type="radio" name="select_urgent_packge" id="platinumurgent" class='bus_consumer' value="platinumurgent">
+																		<i></i>Select platinum Urgent 
+																	</label> -->
 																</div>
 															</div>
 														</div>
@@ -1146,199 +1235,10 @@ jQuery(document).ready(function($) {
 												<!-- End promotion-box-->
 											</div>
 										</div>
+										<?php	} ?>
 										<!-- Consumer to Consumer End-->
 										
 										<div class="divider_space"></div>
-										
-										<div class="j-row">
-											<h3>Pets, E-Zone, Clothing & Lifestyle, Home & Kitchen  Start</h3>
-											<div class="span4">
-												<!-- promotion-box-->
-												<div class="promotion-box">
-													<div class="promotion-box-center color-2">
-														<div class="prince">
-															Free
-														</div>
-													</div>
-													<!-- End promotion-box-center-->
-
-													<!-- promotion-box-info-->
-													<div class="promotion-box-info">
-														<ul class="list-styles">
-															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 5 photos</li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
-															<div class="free_bg text_center">
-																<h3 class="price_amt">£0</h3>
-															</div>
-														</ul>
-														<div class="hot_deal_rad">
-															<label class="radio">
-																<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																<i></i>Select Free 
-															</label>
-														</div>
-													</div>
-													
-													<!-- End promotion-box-info-->
-												</div>
-												<!-- End promotion-box-->
-											</div>
-
-											<div class="span4">
-												<!-- promotion-box-->
-												<div class="promotion-box">
-													<div class="promotion-box-center color-1">
-														<div class="prince">
-															Gold
-														</div>
-													</div>
-													<!-- End promotion-box-center-->
-
-													<!-- promotion-box-info-->
-													<div class="promotion-box-info">
-														<ul class="list-styles">
-															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 9 photos</li>
-															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
-															<li><i class="fa fa-check"></i> It Will High Light</li>
-															<li><i class="fa fa-check"></i> It will be display homepage  most valued ads for 3 days <a href="img/gold.png" class="fancybox">Example</a></li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li><i class="fa fa-check"></i> Thumps Up Symbol</li>
-															<div class="gold_bg text_center">
-																<h3 class="price_amt">£2.99</h3>
-															</div>
-														</ul>
-														
-														<div class="hot_deal_rad">
-															<label class="radio">
-																<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																<i></i>Select Gold
-															</label>
-														</div>
-													</div>
-													<!-- End promotion-box-info-->
-												</div>
-												<!-- End promotion-box-->
-											</div>
-											
-											<div class="span4">
-												<!-- promotion-box-->
-												<div class="promotion-box">
-													<div class="promotion-box-center color-3">
-														<div class="prince">
-															Platinum
-														</div>
-													</div>
-													<!-- End promotion-box-center-->
-
-													<!-- promotion-box-info-->
-													<div class="promotion-box-info">
-														<ul class="list-styles">
-															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 12 Images</li>
-															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
-															<li><i class="fa fa-check"></i>Ad will display 3D rotation for 5days </li>
-															<li><i class="fa fa-check"></i> It will be display Home page significant ads for 3days <a href="img/platinum.png" class="fancybox">Example</a></li>
-															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
-															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee</li>
-															<li><i class="fa fa-check"></i> Crown Symbol  </li>
-															<div class="platinum_bg text_center">
-																<h3 class="price_amt">£4.99</h3>
-															</div>
-														</ul>
-														
-														<div class="hot_deal_rad">
-															<label class="radio">
-																<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																<i></i>Select Platinum 
-															</label>
-														</div>
-													</div>
-													<!-- End promotion-box-info-->
-												</div>
-												<!-- End promotion-box-->
-											</div>
-										</div>
-										<!-- Pets, E-Zone, Clothing & Lifestyle End-->
-										
-										<div class="divider_space"></div>
-										
-										<!--Consumer to Consumer Start-->
-										<div class="j-row">
-											<div class="span12">
-												<!-- promotion-box-->
-												<div class="promotion-box">
-													<div class="promotion-box-center color-2">
-														<div class="prince">
-															URGENT LABLE (HOT Symbol)
-														</div>
-													</div>
-													<!-- End promotion-box-center-->
-													<div class="j-row">
-														<div class="span4 bor_right">
-															<!-- promotion-box-info-->
-															<div class="promotion-box-info">
-																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> £0.99-7Days (Exclusive VAT)</li>
-																	<div class="free_bg text_center">
-																		<h3 class="price_amt">£0.99</h3>
-																	</div>
-																</ul>
-																<div class="hot_deal_rad">
-																	<label class="radio">
-																		<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																		<i></i>Select Free Urgent
-																	</label>
-																</div>
-															</div>
-														</div>
-														<div class="span4 bor_right">
-															<!-- promotion-box-info-->
-															<div class="promotion-box-info">
-																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> £1.49 -14 days (Exclusive VAT)</li>
-																	<div class="free_bg text_center">
-																		<h3 class="price_amt">£1.49</h3>
-																	</div>
-																</ul>
-																<div class="hot_deal_rad">
-																	<label class="radio">
-																		<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																		<i></i>Select Gold Urgent 
-																	</label>
-																</div>
-															</div>
-														</div>
-														<div class="span4">
-															<!-- promotion-box-info-->
-															<div class="promotion-box-info">
-																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> £1.99-30 Days(Exclusive VAT)</li>
-																	<div class="free_bg text_center">
-																		<h3 class="price_amt">£1.99</h3>
-																	</div>
-																</ul>
-																<div class="hot_deal_rad">
-																	<label class="radio">
-																		<input type="radio" name="select_packge" id="" class='bus_consumer' value="Yes">
-																		<i></i>Select platinum Urgent 
-																	</label>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- End promotion-box-->
-											</div>
-										</div>
 										<!-- Consumer to Consumer End-->
 										
 									</fieldset>
@@ -1357,25 +1257,25 @@ jQuery(document).ready(function($) {
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">
 															<div id="free_wrapper"><div id=textbox_free></div></div>
-															<div id="dropzone_free"></div>
-														</div>
-														<div id="errormessages_free"><span style="display: none;"></span></div>
-
-														<div id="overlay_free"></div>
-													</div>
-												</div>
-												<div class="span8 unit">
-													<div class="j-row">
-														<div class="span12">
-															<div>
-																<h3>Upload Images ( 3-5 images ) :</h3>
-																<div id="output_free"><ul id="free"></ul></div>
+																<div id="dropzone_free"></div>
 															</div>
-															<div style="clear:both;"></div>
+															<div id="errormessages_free"><span style="display: none;"></span></div>
+
+															<div id="overlay_free"></div>
+														</div>
+													</div>
+													<div class="span8 unit">
+														<div class="j-row">
+															<div class="span12">
+																<div>
+																	<h3>Upload Images ( 3-5 images ) :</h3>
+																	<div id="output_free"><ul id="free"></ul></div>
+																</div>
+																<div style="clear:both;"></div>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											<!-- free_pck End -->
 												
 											<!-- free_urgent_pck Start -->
@@ -1467,7 +1367,7 @@ jQuery(document).ready(function($) {
 														</div>
 													</div>
 												</div>
-												<div class="span12 unit">
+												<!--<div class="span12 unit">
 													<label class="label">Video Link 
 														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
 															<img src="img/icons/i.png">
@@ -1475,16 +1375,16 @@ jQuery(document).ready(function($) {
 													</label>
 													<div class="unit">
 														<input type="file" name="file_video_gold" id='file_video_gold' >
-														<!-- <label class="input append-big-btn">
+														 <label class="input append-big-btn">
 															<div class="file-button">
 																Browse
 																<input type="file" name="file_video_gold" id='file_video_gold' >
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected">
 															<span class="hint">Only: mp4  Size: less 6 Mb</span>
-														</label> -->
+														</label> 
 													</div>
-												</div>
+												</div>-->
 												<div class="span12 unit">
 													<label class="label">Website Link 
 														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
@@ -1567,7 +1467,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row platinum_pck" style='display: none;'>
 												<div class="alert alert-danger platinum_img_error" style='display:none'; >
 												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
-												    <strong>Error!</strong> Please upload upto 15 images only
+												    <strong>Error!</strong> Please upload upto 12 images only
 												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
@@ -1584,7 +1484,7 @@ jQuery(document).ready(function($) {
 													<div class="j-row">
 														<div class="span12">
 															<div>
-																<h3>Upload Images ( 15 images ) :</h3>
+																<h3>Upload Images ( 12 images ) :</h3>
 																<div id="output_platinum"><ul id="free"></ul></div>
 															</div>
 															<div style="clear:both;"></div>
@@ -1600,14 +1500,18 @@ jQuery(document).ready(function($) {
 													<div class="unit">
 														<label class="input append-big-btn">
 															<input type="file" name="file_video_platinum" id='file_video_platinum' />
+															<video controls width="200px" id="vid" style="display:block"></video> 
 															<!-- <div class="file-button">
 																Browse
 																<input type="file" name="file_video_platinum" id='file_video_platinum' />
 															</div>
 															<input type="text" id="file_input" readonly="" placeholder="no file selected"> -->
-															<span class="hint">Only: MP4  Size: less 6 Mb</span>
+															<span class="hint">Only: MP4  Allow upto 30-Seconds video</span>
 														</label>
 													</div>
+													<div class="alert alert-danger platinum_video_error" style='display:none'; >
+												    <strong>Error!</strong> Please upload upto 30-Seconds video(mp4 format)
+												  	</div>
 												</div>
 												<div class="span12 unit">
 													<label class="label">Website Link 
@@ -1643,6 +1547,8 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span12 unit">
 													<input type='hidden' id='package_type' name='package_type' value='' />
+													<input type='hidden' id='package_urgent' name='package_urgent' value='' />
+													<input type='hidden' id='package_name' name='package_name' value='<?php echo @$package_name; ?>' />
 													<input type='hidden' id='image_count' name='image_count' value='0' />
 													<b>Contact Information</b>
 												</div>
@@ -1765,7 +1671,7 @@ jQuery(document).ready(function($) {
 								<!-- end /.content -->
 
 								<div class="footer text_center">
-									<input type="submit" class="primary-btn multi-submit-btn" name='post_create_ad' Value="Post Deal">
+									<input type="submit" class="primary-btn multi-submit-btn video_validate" name='post_create_ad' Value="Post Deal">
 									<button type="button" class="primary-btn multi-next-btn" >Next</button>
 									<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 								</div>

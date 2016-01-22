@@ -50,6 +50,7 @@ class Postad_create_pets extends CI_Controller{
               $data['sub_id'] = $sub_cat;
              $data['sub_sub_id'] = $sub_sub_cat;
              $data['login_id'] = $this->session->userdata("login_id");
+             $data['package_name'] = $this->category_model->package_name();
 
 	            $this->load->view("classified_layout/inner_template",$data);
         }

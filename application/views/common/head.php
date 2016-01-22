@@ -34,6 +34,37 @@
 		
 		<!-- character only -->
 		<script type="text/javascript">
+
+		/*video upload platinum*/
+			$(document).ready(function(){    
+				$("#file_video_platinum").change(function(e){    
+				var file = e.currentTarget.files[0];    
+				objectUrl = URL.createObjectURL(file);    
+				$("#vid").prop("src", objectUrl);    
+				});    
+				    
+				$('.video_validate').click(function(){
+				if ($("#vid").attr('src')) {
+				var seconds = $("#vid")[0].duration;    
+				if(seconds > 30){
+				$(".platinum_video_error").css('display', 'block');
+				return false;  
+				}
+				else{
+					$(".platinum_video_error").css('display', 'none');
+					return true;
+				}    
+				
+					}
+				else{
+					$(".platinum_video_error").css('display', 'none');
+					return true;
+				}
+				});    
+			    
+			});    
+
+
 			$(function () {
 				$('#conscontname').keydown(function (e) {
 					if (e.shiftKey || e.ctrlKey || e.altKey) {
@@ -731,6 +762,66 @@
 				var sub1 = sub.split(",");
 				document.getElementById('motor_sub').value = sub1[0];
 				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+			/*motor_plant_machinery*/
+			$(".motor_plant_machinery").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motor_sub_sub_sub').value = sub1[2];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit motor_plant_machinery*/
+			$(".edit_plant_machinery").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motor_sub_sub_sub').value = sub1[2];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+			/*motor_farming vehicles*/
+			$(".motor_farming").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motor_sub_sub_sub').value = sub1[2];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit motor_farming vehicles*/
+			$(".edit_motor_farming").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motor_sub_sub_sub').value = sub1[2];
+				document.getElementById('edit_motor_cat').submit();
+			});
+
+			/*motor_boats */
+			$(".motor_boats").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motor_sub_sub_sub').value = sub1[2];
+				document.getElementById('motorpoint_form').submit();
+			});
+
+			/*edit motor_boats*/
+			$(".edit_motor_boats").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('motor_sub').value = sub1[0];
+				document.getElementById('motor_sub_sub').value = sub1[1];
+				document.getElementById('motor_sub_sub_sub').value = sub1[2];
 				document.getElementById('edit_motor_cat').submit();
 			});
 

@@ -15,6 +15,29 @@
 
 <script type="text/javascript">
 
+	/*onload bike model dropdown*/
+	$(function(){
+		var bikeid = <?php echo @$sub_id ?>;
+		if (bikeid == '13') {
+		var id = <?php echo @$sub_sub_id; ?>;
+		$.post( "<?php echo base_url();?>postad_create_motors/get_bike_types",{id:id},function( data ) {
+			$(".bike_type").html(data);
+                        
+            });
+		}
+	});
+
+	$(function(){
+		$(".bike_type").change(function(){
+			var id = $(this).val();
+		$.post( "<?php echo base_url();?>postad_create_motors/get_bike_models",{id:id},function( data ) {
+			$(".bike_model").html(data);
+                        
+            });
+		});
+
+	});
+
 	$(function(){
 		$(".multi-submit-btn").click(function(){
 			var img_count = $("#image_count").val();
@@ -692,9 +715,11 @@ jQuery(document).ready(function($) {
 														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
 														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
+														<input type='hidden' name='sub_sub_sub_id' id='sub_sub_sub_id' value="<?php echo @$sub_sub_sub_id; ?>" />
 														 /</li>
-													<li><b><?php echo ucfirst(@$sub_name); ?></b> <?php if ($sub_sub_id != '') { ?> /<?php } ?></li>
-													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b></li>
+													<li><b><?php echo ucfirst(@$sub_name); ?></b>  /</li>
+													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b> <?php if ($sub_sub_sub_name != '') { ?>  /<?php	} ?></li>
+													<li><b><?php echo ucfirst(@$sub_sub_sub_name); ?></b></li>
 												</ul>                 
 											</div>
 											<div class="col-sm-4 pad_bottm">
@@ -838,6 +863,35 @@ jQuery(document).ready(function($) {
 										
 										<div class="post_deal_bor top_10" style='margin-top: 20px;'>	
 											<div class="j-row">
+											<div class="span12 unit">
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
+															<i></i>Seller
+															<sup data-toggle="tooltip" title="" data-original-title="Seller">
+																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+															</sup>
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>Needed
+															<sup data-toggle="tooltip" title="" data-original-title="Needed">
+																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+															</sup>
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike"  value="No">
+															<i></i>For Hire
+															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
+																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+															</sup>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
 													<label class="label">Deal Tag / Caption 
 														<sup data-toggle="tooltip" title="" data-original-title="Postal">
@@ -929,86 +983,171 @@ jQuery(document).ready(function($) {
 												
 												</div>
 											</div>
-											<div class="j-row">
-												<div class="span6 unit">
-													<label class="label">Family Race
-														<sup data-toggle="tooltip" title="" data-original-title="Family Race">
-															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="race">
-															<img src="j-folder/img/race.png" alt="race" title="race Icon" class="img-responsive">
-														</label>
-														<input type="text" id="family_race" name="family_race" placeholder="Enter Family Race">
-													</div>
-												</div>
-												<div class="span6 unit">
-													<label class="label">Type
-														<sup data-toggle="tooltip" title="" data-original-title="Type">
-															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Type">
-															<img src="j-folder/img/type.png" alt="pet_type" title="type Icon" class="img-responsive">
-														</label>
-														<input type="text" id="pet_type" name="pet_type" placeholder="Enter Type">
-													</div>
-												</div>
-										</div>
-
+											<?php if (@$sub_id == '13') { ?>
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Age -->
-												<label class="label">Age
-													<sup data-toggle="tooltip" title="" data-original-title="Age">
+											<div class="span6 unit">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
+													</label>
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly>
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Bike Type 
+													<sup data-toggle="tooltip" title="" data-original-title="Type ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
-													<select name="Age">
-														<option value="none" selected disabled="">Select Age</option>
-														<option value="3months">0 to 3 Months</option>
-														<option value="6months">3 to 6 Months</option>
-														<option value="9months">6 to 9 Months</option>
-														<option value="12months">9 to 12 Months</option>
-														<option value="2years"> > 1 Year - < 2 Years</option>
-														<option value="3years"> > 2 Years - < 3 Years</option>
-														<option value="4years"> > 3 Years - < 4 Years</option>
-														<option value="5years"> > 4 Years - < 5 Years</option>
+													<select name="Type" class='bike_type'>
+														<option value="none" selected disabled="">Select Type</option>
+														<option value="">Sample</option>
 													</select>
 													<i></i>
 												</label>
-											</div><!-- end Age -->
-											<div class="span6 unit"><!-- start Height -->
-												<label class="label">Height
-													<sup data-toggle="tooltip" title="" data-original-title="Height">
+											</div>
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
-												<div class="input">
-													<label class="icon-right" for="height">
-														<img src="j-folder/img/height.png" alt="height" title="height Icon" class="img-responsive">
-													</label>
-													<input type="text" id="height" name="height" placeholder="Enter Height">
-												</div>
-											</div><!-- end Height -->
+												<label class="input select">
+													<select name="Model" class='bike_model'>
+														<option value="none" selected disabled="">Select Model</option>
+														<option value="">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
 										</div>
 										<div class="j-row">
-											<div class="span6 unit"><!-- start Gender -->
-												<label class="label">Gender
-													<sup data-toggle="tooltip" title="" data-original-title="Gender">
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="phone">
-														<i class="fa fa-male"></i>
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
 													</label>
-													<input type="text" id="gender" name="gender" placeholder="Enter Gender">
+													<input type="text" id="color" name="color" placeholder="Enter Color">
 												</div>
-											</div><!-- end Gender -->
+											</div>
+											<div class="span6 unit">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
 										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select fuel</option>
+														<option value="Petrol">Petrol</option>
+														<option value="Diesel">Diesel</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
+													</label>
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Condition 
+													<sup data-toggle="tooltip" title="" data-original-title="Condition">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Condition">
+														<option value="none" selected disabled="">Select condition</option>
+														<option value="Excellent">Excellent</option>
+														<option value="Good">Good</option>
+														<option value="Average">Average</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<?php		} ?>
+
 										</div>
 									</fieldset>
 
@@ -2170,6 +2309,7 @@ jQuery(document).ready(function($) {
 																				<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
 																			<input type='hidden' name='motor_sub' id='motor_sub' value='' />
 																			<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
+																			<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
 																			</a>
 																		</li>
 																		<li>
@@ -2207,7 +2347,7 @@ jQuery(document).ready(function($) {
 																				foreach ($cars_fst1 as $car_val) {
 																					foreach ($car_val as $c_val) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_cars_cars' id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_cars_cars' id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2221,7 +2361,7 @@ jQuery(document).ready(function($) {
 																				foreach ($cars_sec1 as $car_sec) {
 																					foreach ($car_sec as $c_sec) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_cars_cars' id="<?php echo  $c_sec['sub_category_id'].','.$c_sec['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $c_sec['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_cars_cars' id="<?php echo  $c_sec['sub_category_id'].','.$c_sec['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $c_sec['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2239,7 +2379,7 @@ jQuery(document).ready(function($) {
 																				foreach ($bikes_fst1 as $bike_val) {
 																					foreach ($bike_val as $b_val) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_bike_scooters' id="<?php echo  $b_val['sub_category_id'].','.$b_val['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $b_val['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_bike_scooters' id="<?php echo  $b_val['sub_category_id'].','.$b_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $b_val['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2253,7 +2393,7 @@ jQuery(document).ready(function($) {
 																				foreach ($bikes_sec1 as $bike_sec) {
 																					foreach ($bike_sec as $b_sec) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_bike_scooters' id="<?php echo  $b_sec['sub_category_id'].','.$b_sec['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $b_sec['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_bike_scooters' id="<?php echo  $b_sec['sub_category_id'].','.$b_sec['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $b_sec['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2271,7 +2411,7 @@ jQuery(document).ready(function($) {
 																				foreach ($caravans_fst1 as $caravans_val) {
 																					foreach ($caravans_val as $cara_val) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2286,7 +2426,7 @@ jQuery(document).ready(function($) {
 																				foreach ($vans_sub_cat_fst1 as $vans_val) {
 																					foreach ($vans_val as $vans_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_motor_vans_trucks' id="<?php echo  $vans_val1['sub_category_id'].','.$vans_val1['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $vans_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_motor_vans_trucks' id="<?php echo  $vans_val1['sub_category_id'].','.$vans_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $vans_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2301,7 +2441,7 @@ jQuery(document).ready(function($) {
 																				foreach ($coach_sub_cat_fst1 as $coach_val) {
 																					foreach ($coach_val as $coach_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='edit_motor_coach_bus' id="<?php echo  $coach_val1['sub_category_id'].','.$coach_val1['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $coach_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_motor_coach_bus' id="<?php echo  $coach_val1['sub_category_id'].','.$coach_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $coach_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2315,25 +2455,25 @@ jQuery(document).ready(function($) {
 																			<div class="col-md-3 clearfix">
 																				<h3>Tractor Unit</h3>
 																				<?php foreach ($tractor_sub_cat_fst as $tractor_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($tractor_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='edit_plant_machinery' id="<?php echo  $tractor_sub_cat_fst1['sub_category_id'].','.$tractor_sub_cat_fst1['sub_subcategory_id'].','.$tractor_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($tractor_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>
 																			</div>
 																			<div class="col-md-3 clearfix">
 																				<h3>Rigid Trucks</h3>
 																				<?php foreach ($rigid_sub_cat_fst as $rigid_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($rigid_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='edit_plant_machinery' id="<?php echo  $rigid_sub_cat_fst1['sub_category_id'].','.$rigid_sub_cat_fst1['sub_subcategory_id'].','.$rigid_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($rigid_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>
 																			</div>
 																			<div class="col-md-3 clearfix">
 																				<h3>Trailers</h3>
 																				<?php foreach ($trailer_sub_cat_fst as $trailer_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($trailer_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='edit_plant_machinery' id="<?php echo  $trailer_sub_cat_fst1['sub_category_id'].','.$trailer_sub_cat_fst1['sub_subcategory_id'].','.$trailer_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($trailer_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>
 																			</div>
 																			<div class="col-md-3 clearfix">
 																				<h3>Plant Equipment</h3>
 																				<?php foreach ($equip_sub_cat_fst as $equip_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($equip_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='edit_plant_machinery' id="<?php echo  $equip_sub_cat_fst1['sub_category_id'].','.$equip_sub_cat_fst1['sub_subcategory_id'].','.$equip_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($equip_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>																				
 																			</div>
 																		</div>
@@ -2346,7 +2486,7 @@ jQuery(document).ready(function($) {
 																				foreach ($farm_sub_cat_fst1 as $farm_val) {
 																					foreach ($farm_val as $farm_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a href="javascript:void(0);"><?php echo $farm_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_motor_farming' id="<?php echo  $farm_val1['sub_category_id'].','.$farm_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $farm_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -2361,7 +2501,7 @@ jQuery(document).ready(function($) {
 																				foreach ($boat_sub_cat_fst1 as $boat_val) {
 																					foreach ($boat_val as $boat_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a href="javascript:void(0);"><?php echo $boat_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='edit_motor_boats' id="<?php echo  $boat_val1['sub_category_id'].','.$boat_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $boat_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}

@@ -246,6 +246,7 @@
 																				<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
 																			<input type='hidden' name='motor_sub' id='motor_sub' value='' />
 																			<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
+																			<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
 																			</a>
 																		</li>
 																		<li>
@@ -283,7 +284,7 @@
 																				foreach ($cars_fst1 as $car_val) {
 																					foreach ($car_val as $c_val) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='cars_cars' id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='cars_cars' id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -297,7 +298,7 @@
 																				foreach ($cars_sec1 as $car_sec) {
 																					foreach ($car_sec as $c_sec) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='cars_cars' id="<?php echo  $c_sec['sub_category_id'].','.$c_sec['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $c_sec['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='cars_cars' id="<?php echo  $c_sec['sub_category_id'].','.$c_sec['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $c_sec['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -315,7 +316,7 @@
 																				foreach ($bikes_fst1 as $bike_val) {
 																					foreach ($bike_val as $b_val) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='bike_scooters' id="<?php echo  $b_val['sub_category_id'].','.$b_val['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $b_val['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='bike_scooters' id="<?php echo  $b_val['sub_category_id'].','.$b_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $b_val['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -329,7 +330,7 @@
 																				foreach ($bikes_sec1 as $bike_sec) {
 																					foreach ($bike_sec as $b_sec) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='bike_scooters' id="<?php echo  $b_sec['sub_category_id'].','.$b_sec['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $b_sec['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='bike_scooters' id="<?php echo  $b_sec['sub_category_id'].','.$b_sec['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $b_sec['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -347,7 +348,7 @@
 																				foreach ($caravans_fst1 as $caravans_val) {
 																					foreach ($caravans_val as $cara_val) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -362,7 +363,7 @@
 																				foreach ($vans_sub_cat_fst1 as $vans_val) {
 																					foreach ($vans_val as $vans_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='motor_vans_trucks' id="<?php echo  $vans_val1['sub_category_id'].','.$vans_val1['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $vans_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='motor_vans_trucks' id="<?php echo  $vans_val1['sub_category_id'].','.$vans_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $vans_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -377,7 +378,7 @@
 																				foreach ($coach_sub_cat_fst1 as $coach_val) {
 																					foreach ($coach_val as $coach_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a class='motor_coach_bus' id="<?php echo  $coach_val1['sub_category_id'].','.$coach_val1['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo $coach_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='motor_coach_bus' id="<?php echo  $coach_val1['sub_category_id'].','.$coach_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $coach_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -391,25 +392,25 @@
 																			<div class="col-md-3 clearfix">
 																				<h3>Tractor Unit</h3>
 																				<?php foreach ($tractor_sub_cat_fst as $tractor_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($tractor_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='motor_plant_machinery' id="<?php echo  $tractor_sub_cat_fst1['sub_category_id'].','.$tractor_sub_cat_fst1['sub_subcategory_id'].','.$tractor_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($tractor_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>
 																			</div>
 																			<div class="col-md-3 clearfix">
 																				<h3>Rigid Trucks</h3>
 																				<?php foreach ($rigid_sub_cat_fst as $rigid_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($rigid_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='motor_plant_machinery' id="<?php echo  $rigid_sub_cat_fst1['sub_category_id'].','.$rigid_sub_cat_fst1['sub_subcategory_id'].','.$rigid_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($rigid_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>
 																			</div>
 																			<div class="col-md-3 clearfix">
 																				<h3>Trailers</h3>
 																				<?php foreach ($trailer_sub_cat_fst as $trailer_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($trailer_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='motor_plant_machinery' id="<?php echo  $trailer_sub_cat_fst1['sub_category_id'].','.$trailer_sub_cat_fst1['sub_subcategory_id'].','.$trailer_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($trailer_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>
 																			</div>
 																			<div class="col-md-3 clearfix">
 																				<h3>Plant Equipment</h3>
 																				<?php foreach ($equip_sub_cat_fst as $equip_sub_cat_fst1) { ?>
-																				<h4><a href="javascript:void(0)" ><?php echo ucfirst($equip_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
+																				<h4><a class='motor_plant_machinery' id="<?php echo  $equip_sub_cat_fst1['sub_category_id'].','.$equip_sub_cat_fst1['sub_subcategory_id'].','.$equip_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($equip_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
 																				<?php	} ?>																				
 																			</div>
 																		</div>
@@ -422,7 +423,7 @@
 																				foreach ($farm_sub_cat_fst1 as $farm_val) {
 																					foreach ($farm_val as $farm_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a href="javascript:void(0);"><?php echo $farm_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='motor_farming' id="<?php echo  $farm_val1['sub_category_id'].','.$farm_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $farm_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}
@@ -437,7 +438,7 @@
 																				foreach ($boat_sub_cat_fst1 as $boat_val) {
 																					foreach ($boat_val as $boat_val1) { ?>
 																			<div class="col-md-2 clearfix">
-																				<h4><a href="javascript:void(0);"><?php echo $boat_val1['sub_subcategory_name']; ?></a></h4>
+																				<h4><a class='motor_boats' id="<?php echo  $boat_val1['sub_category_id'].','.$boat_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $boat_val1['sub_subcategory_name']; ?></a></h4>
 																			</div>
 																			<?php	 	}
 																				}

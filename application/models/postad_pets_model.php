@@ -56,6 +56,8 @@ class Postad_pets_model extends CI_Model{
                         $data = array('ad_prefix' => $cur_date,
                                     'login_id'  => $this->input->post('login_id'),
                                     'package_type'=> $this->input->post('package_type'),
+                                    'urgent_package' => $this->input->post('package_urgent'),
+                                    'package_name' => $ad_type."_".$this->input->post('package_name'),
                                     'deal_tag'    => $this->input->post('dealtag'),
                                     'deal_desc'   =>$this->input->post('dealdescription'),
                                      'currency'   =>$this->input->post('checkbox_toggle1'),

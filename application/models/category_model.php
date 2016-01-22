@@ -172,25 +172,37 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
         /*motor point for plant machinery sub-category*/
                     /*Tractor Unit */
          public function tractor_sub_cat_fst(){
-            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 315");
+            $rs = $this->db->query("SELECT sub_subcategory.`sub_category_id`, sub_sub_subcategory.`sub_subcategory_id`,
+            sub_sub_subcategory.`sub_sub_subcategory_id`, sub_sub_subcategory.`sub_sub_subcategory_name` FROM `sub_subcategory`, `sub_sub_subcategory` 
+            WHERE sub_subcategory.`sub_subcategory_id` = sub_sub_subcategory.`sub_subcategory_id`
+            AND sub_sub_subcategory.`sub_subcategory_id` = 315");
             return $rs->result_array();
         }
 
                     /*Rigid Trucks*/
          public function rigid_sub_cat_fst(){
-            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 316");
+            $rs = $this->db->query("SELECT sub_subcategory.`sub_category_id`, sub_sub_subcategory.`sub_subcategory_id`,
+            sub_sub_subcategory.`sub_sub_subcategory_id`, sub_sub_subcategory.`sub_sub_subcategory_name` FROM `sub_subcategory`, `sub_sub_subcategory` 
+            WHERE sub_subcategory.`sub_subcategory_id` = sub_sub_subcategory.`sub_subcategory_id`
+            AND sub_sub_subcategory.`sub_subcategory_id` = 316");
             return $rs->result_array();
         }
 
                   /*Trailers Trucks*/
          public function trailer_sub_cat_fst(){
-            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 317");
+            $rs = $this->db->query("SELECT sub_subcategory.`sub_category_id`, sub_sub_subcategory.`sub_subcategory_id`,
+            sub_sub_subcategory.`sub_sub_subcategory_id`, sub_sub_subcategory.`sub_sub_subcategory_name` FROM `sub_subcategory`, `sub_sub_subcategory` 
+            WHERE sub_subcategory.`sub_subcategory_id` = sub_sub_subcategory.`sub_subcategory_id`
+            AND sub_sub_subcategory.`sub_subcategory_id` = 317");
             return $rs->result_array();
         }
 
             /*Plant Equipment*/
          public function equip_sub_cat_fst(){
-            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE sub_sub_subcategory.`sub_subcategory_id` = 318");
+            $rs = $this->db->query("SELECT sub_subcategory.`sub_category_id`, sub_sub_subcategory.`sub_subcategory_id`,
+            sub_sub_subcategory.`sub_sub_subcategory_id`, sub_sub_subcategory.`sub_sub_subcategory_name` FROM `sub_subcategory`, `sub_sub_subcategory` 
+            WHERE sub_subcategory.`sub_subcategory_id` = sub_sub_subcategory.`sub_subcategory_id`
+            AND sub_sub_subcategory.`sub_subcategory_id` = 318");
             return $rs->result_array();
         }
 
@@ -206,6 +218,11 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 
+        /*package name*/
+        public function package_name(){
+            $lid = $this->session->userdata("login_id");
+    return @mysql_result(mysql_query("SELECT signup_type FROM `signup`, `login` WHERE signup.`sid` = login.`signupid` AND login.`login_id` = '$lid' "), 0, 'signup_type');
+        }
 
 }
 ?>
