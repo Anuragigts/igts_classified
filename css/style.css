@@ -1547,7 +1547,7 @@ hr.separator:before {
 	position: absolute;
 }
 .price b{
-	background: #88C425 none repeat scroll 0% 0% !important;
+	background: rgb(64, 180, 139) none repeat scroll 0% 0% !important;
 	padding:10px;
 }
 .price b i{
@@ -2286,8 +2286,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     overflow: hidden !important;
 }
 .status {
-    width: 16px;
-    height: 16px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -2600,7 +2600,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	color: #fff;
 }
 .info-gallery .price b{
-	font-size: 0.8rem;
+	font-size: 12px;
 	line-height: 1rem;
 	font-weight: lighter;
 	font-style: italic;
@@ -4195,7 +4195,7 @@ a .login-op-btn:hover{
 }
 
 #map{
-	height:200px !important;
+	height:300px !important;
 }
 
 .marquetitle_hide{
@@ -5145,4 +5145,10 @@ h4 a:hover{
 }
 .bor_right{
 	border-right: 2px solid rgb(244, 244, 244);
+}
+.gold_bgcolor{
+	background-color: rgb(245, 234, 180);
+}
+.cont_a{
+	color:#777;
 }
