@@ -8,6 +8,9 @@
 			width: 100%;
 			overflow: hidden;
 		}
+		.img-hover img{
+			height: 197px;
+		}
 	</style>
 	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
@@ -72,24 +75,14 @@
 											<div class="post-meta" style="float: right;">
 												<ul>
 													<li>
-														<span class="cht-sm-pro" >
-															<span class="OnlineIcon"></span>	
-														</span>
+														<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right "><span>Send Now</span></a>
 													</li>
-													
-													<li>
-														<h5><a href="#">Chat Now</a></h5>
-													</li>
-													
-													<!--li>
-														<h4><a href="#">Reply</a></h4>
-													</li-->
 												</ul>                      
 											</div>
 											<hr class="separator clearfix">
 											<p style="float: left;width:350px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. </p>
 											<div class="clearfix" style="float: right;">
-											<a href="description_view"><img src="img/icons/viewdetail.png" alt="viewdetail" title="viewdetail Button" class="img-responsive"></a>
+											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
 											<div class="clearfix"></div>
 											<div class="prod_price"><b>Rs :10000/-</b></div>
@@ -172,24 +165,14 @@
 											<div class="post-meta" style="float: right;">
 												<ul>
 													<li>
-														<span class="cht-sm-pro" >
-															<span class="OnlineIcon"></span>	
-														</span>
+														<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right "><span>Send Now</span></a>
 													</li>
-													
-													<li>
-														<h5><a href="#">Chat Now</a></h5>
-													</li>
-													
-													<!--li>
-														<h4><a href="#">Reply</a></h4>
-													</li-->
 												</ul>                      
 											</div>
 											<hr class="separator clearfix">
 											<p style="float: left;width:350px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. </p>
 											<div class="clearfix" style="float: right;">
-												<a href="description_view"><img src="img/icons/viewdetail.png" alt="viewdetail" title="viewdetail Button" class="img-responsive"></a>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
 											<div class="clearfix"></div>
 											<div class="prod_price"><b>Rs :10000/-</b></div>
