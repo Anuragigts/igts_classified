@@ -198,14 +198,14 @@
 											<?php if($sig_val->img_name == ''){
 												?>
 											<div class="img-hover significant_ad">
-												<img src="ad_images/no_image.png" alt="significant1" title="significant1" class="img-responsive">
+												<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
 												<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 											</div>
 											<?php
 												}else{
 													?>
 											<div class="img-hover significant_ad">
-												<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="significant1" title="significant1" class="img-responsive">
+												<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="<?php echo $sig_val->img_name; ?>" title="significant" class="img-responsive">
 												<div class="overlay"><a href="ad_images/<?php echo $sig_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 											</div>
 											<?php	} ?>
@@ -279,13 +279,13 @@
 							<?php if($m_ads->img_name == ''){
 								?>
 							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="jobs1" title="jobs1" class="img-responsive">
+								<img src="ad_images/no_image.png" alt="no_image.png" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php }
 								else{ ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads->img_name; ?>" alt="jobs1" title="jobs1" class="img-responsive">
+								<img src="ad_images/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="ad_images/<?php echo $m_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php	} ?>
@@ -314,13 +314,13 @@
 							<?php if($m_ads_services->img_name == ''){
 								?>
 							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="services1" title="services1" class="img-responsive">
+								<img src="ad_images/no_image.png" alt="no_image.png" title="services" class="img-responsive">
 								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php }
 								else{ ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="services1" title="services1" class="img-responsive">
+								<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="ad_images/<?php echo $m_ads_services->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php	} ?>
@@ -347,13 +347,13 @@
 							<?php if($m_ads_pets->img_name == ''){
 								?>
 							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="pets1" title="pets1" class="img-responsive">
+								<img src="ad_images/no_image.png" alt="no_image.png" title="pets" class="img-responsive">
 								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php }
 								else{ ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="pets1" title="pets1" class="img-responsive">
+								<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
 								<div class="overlay"><a href="ad_images/<?php echo $m_ads_pets->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php	} ?>
@@ -380,13 +380,13 @@
 							<?php if($m_ads_deals->img_name == ''){
 								?>
 							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="deals1" title="deals1" class="img-responsive">
+								<img src="ad_images/no_image.png" alt="no_image.png" title="deals" class="img-responsive">
 								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php }
 								else{ ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_deals->img_name; ?>" alt="deals1" title="deals1" class="img-responsive">
+								<img src="ad_images/<?php echo $m_ads_deals->img_name; ?>" alt="<?php echo $m_ads_deals->img_name; ?>" title="deals" class="img-responsive">
 								<div class="overlay"><a href="ad_images/<?php echo $m_ads_deals->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php	} ?>
@@ -413,13 +413,13 @@
 							<?php if($m_ads_ezone->img_name == ''){
 								?>
 							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="ezone1" title="ezone1" class="img-responsive">
+								<img src="ad_images/no_image.png" alt="no_image.png" title="ezone" class="img-responsive">
 								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php }
 								else{ ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="ezone1" title="ezone1" class="img-responsive">
+								<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
 								<div class="overlay"><a href="ad_images/<?php echo $m_ads_ezone->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
 							<?php	} ?>
@@ -475,7 +475,7 @@
 									<?php		}
 										else{ ?>
 									<div class="img-hover">
-										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="" class="img-responsive">
+										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
 										<div class="overlay"><a href="ad_images/<?php echo $free_val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 									<?php	} ?>
@@ -531,7 +531,7 @@
 									<?php	}
 										else{ ?>
 									<div class="img-hover">
-										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="business_image1" title="business-image1" class="img-responsive">
+										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 									<div class="info-gallery">

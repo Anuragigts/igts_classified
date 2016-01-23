@@ -24,6 +24,13 @@ class Postad extends CI_Controller{
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad"
                         );
+
+                if ($this->session->userdata("postad_time") != '') {
+                    $new_time = time() - $this->session->userdata("postad_time");
+                    if ($new_time > 5) {
+                        $this->session->unset_userdata('postad_success');
+                    }
+                }
                 /*pets categories*/
                 $data['pets_sub_cat'] = $this->category_model->pets_sub_cat();
                 $data['pets_big_animal'] = $this->category_model->pets_big_animal();

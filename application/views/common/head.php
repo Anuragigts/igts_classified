@@ -35,6 +35,22 @@
 		<!-- character only -->
 		<script type="text/javascript">
 
+		/*currency change*/
+		$(function(){
+			$(".currency").change(function(){
+				var cur = $(this).val();
+				// alert(cur);
+				if (cur == 'euro') {
+					$(".free_euro").css('display', 'block');
+					$(".free_pound").css('display', 'none');
+				}
+				else if (cur == 'pound'){
+					$(".free_pound").css('display', 'block');
+					$(".free_euro").css('display', 'none');
+				}
+			});
+		});
+
 		/*video upload platinum*/
 			$(document).ready(function(){    
 				$("#file_video_platinum").change(function(e){    

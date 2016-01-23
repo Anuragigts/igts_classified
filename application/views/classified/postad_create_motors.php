@@ -867,21 +867,21 @@ jQuery(document).ready(function($) {
 												<div class="unit check logic-block-radio">
 													<div class="inline-group">
 														<label class="radio">
-															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Yes">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Seller">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_motbike"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="Needed">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 														</label>
 														<label class="radio">
-															<input type="radio" name="checkbox_motbike"  value="No">
+															<input type="radio" name="checkbox_motbike"  value="For Hire">
 															<i></i>For Hire
 															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">

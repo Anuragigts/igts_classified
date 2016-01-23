@@ -966,12 +966,12 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" value="euro">
+																<input type="radio" name="checkbox_toggle1" class='currency' value="euro">
 																<i></i>
 																€ - Euro
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" value="pound">
+																<input type="radio" name="checkbox_toggle1" class='currency' value="pound">
 																<i></i>
 																£ - Pound
 															</label>
@@ -1039,8 +1039,11 @@ jQuery(document).ready(function($) {
 															<li class="text_center"> -------------------- </li>
 															<li class="text_center"> -------------------- </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
-															<div class="free_bg text_center">
+															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
+															</div>
+															<div class="free_bg text_center free_euro" style="display:none;">
+																<h3 class="price_amt">€0</h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
@@ -1073,14 +1076,17 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 9 photos</li>
-															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
+															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
 															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
-															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 7days <a href="img/gold.png" class="fancybox">Example</a></li>
+															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 3days <a href="img/gold.png" class="fancybox">Example</a></li>
 															<li class="text_center"> -------------------- </li>
 															<li class="text_center"> -------------------- </li>
 															<li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
-															<div class="gold_bg text_center">
+															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£4.99</h3>
+															</div>
+															<div class="gold_bg text_center free_euro" style="display:none;">
+																<h3 class="price_amt">€6.59</h3>
 															</div>
 														</ul>
 														
@@ -1122,8 +1128,11 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Deal Title will display in Marquee</li>
 															<li><i class="fa fa-check"></i> Crown / Hot symbol will attach </li>
-															<div class="platinum_bg text_center">
-																<h3 class="price_amt">£5.99</h3>
+															<div class="platinum_bg text_center free_pound" style="display:none;">
+																<h3 class="price_amt">£9.99</h3>
+															</div>
+															<div class="platinum_bg text_center free_euro" style="display:none;">
+																<h3 class="price_amt">€13.20</h3>
 															</div>
 														</ul>
 														
@@ -1166,11 +1175,27 @@ jQuery(document).ready(function($) {
 													<div class="j-row">
 														<div class="span4 bor_right">
 															<!-- promotion-box-info-->
-															<div class="promotion-box-info">
+															<div class="promotion-box-info free_pound" style="display:none;">
 																<ul class="list-styles">
 																	<li><i class="fa fa-check"></i> £0.99-7Days (Exclusive VAT)</li>
-																	<div class="free_bg text_center">
+																	<div class="free_bg text_center " >
 																		<h3 class="price_amt">£0.99</h3>
+																	</div>
+																	
+																</ul>
+																<div class="hot_deal_rad">
+																	<label class="checkbox">
+																	<input type="checkbox" id='freeurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<i></i>
+																	Select Free Urgent
+																	</label>
+																</div>
+															</div>
+															<div class="promotion-box-info free_euro" style="display:none;">
+																<ul class="list-styles">
+																	<li><i class="fa fa-check"></i> €1.31-7Days (Exclusive VAT)</li>
+																	<div class="free_bg text_center " >
+																		<h3 class="price_amt">€1.31</h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
@@ -1179,19 +1204,15 @@ jQuery(document).ready(function($) {
 																	<i></i>
 																	Select Free Urgent
 																	</label>
-																	<!-- <label class="radio">
-																		<input type="radio" name="select_urgent_packge" id="freeurgent" value="freeurgent">
-																		<i></i>Select Free Urgent
-																	</label> -->
 																</div>
 															</div>
 														</div>
 														<div class="span4 bor_right">
 															<!-- promotion-box-info-->
-															<div class="promotion-box-info">
+															<div class="promotion-box-info free_pound" style="display:none;">
 																<ul class="list-styles">
 																	<li><i class="fa fa-check"></i> £1.49 -14 days (Exclusive VAT)</li>
-																	<div class="free_bg text_center">
+																	<div class="free_bg text_center " >
 																		<h3 class="price_amt">£1.49</h3>
 																	</div>
 																</ul>
@@ -1201,19 +1222,30 @@ jQuery(document).ready(function($) {
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
-																	<!-- <label class="radio">
-																		<input type="radio" name="select_urgent_packge" id="goldurgent" class='bus_consumer' value="goldurgent">
-																		<i></i>Select Gold Urgent 
-																	</label> -->
+																</div>
+															</div>
+															<div class="promotion-box-info free_euro" style="display:none;">
+																<ul class="list-styles">
+																	<li><i class="fa fa-check"></i> €1.97 -14 days (Exclusive VAT)</li>
+																	<div class="free_bg text_center " >
+																		<h3 class="price_amt">€1.97</h3>
+																	</div>
+																</ul>
+																<div class="hot_deal_rad">
+																	<label class="checkbox">
+																	<input type="checkbox" id='goldurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<i></i>
+																	Select Gold Urgent 
+																	</label>
 																</div>
 															</div>
 														</div>
 														<div class="span4">
 															<!-- promotion-box-info-->
-															<div class="promotion-box-info">
+															<div class="promotion-box-info free_pound" style="display:none;">
 																<ul class="list-styles">
 																	<li><i class="fa fa-check"></i> £1.99-30 Days(Exclusive VAT)</li>
-																	<div class="free_bg text_center">
+																	<div class="free_bg text_center " >
 																		<h3 class="price_amt">£1.99</h3>
 																	</div>
 																</ul>
@@ -1223,10 +1255,21 @@ jQuery(document).ready(function($) {
 																	<i></i>
 																	Select platinum Urgent
 																	</label>
-																	<!-- <label class="radio">
-																		<input type="radio" name="select_urgent_packge" id="platinumurgent" class='bus_consumer' value="platinumurgent">
-																		<i></i>Select platinum Urgent 
-																	</label> -->
+																</div>
+															</div>
+															<div class="promotion-box-info free_euro" style="display:none;">
+																<ul class="list-styles">
+																	<li><i class="fa fa-check"></i>€2.63-30 Days(Exclusive VAT)</li>
+																	<div class="free_bg text_center " >
+																		<h3 class="price_amt">€2.63</h3>
+																	</div>
+																</ul>
+																<div class="hot_deal_rad">
+																	<label class="checkbox">
+																	<input type="checkbox" id='platinumurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<i></i>
+																	Select platinum Urgent
+																	</label>
 																</div>
 															</div>
 														</div>
@@ -1656,6 +1699,20 @@ jQuery(document).ready(function($) {
 																<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
 															</div>
 														</div>
+													</div>
+												</div>
+												<div class="j-row">
+													<div class="span6 unit">
+														<label class="label">Terms & Conditions 
+															<sup data-toggle="tooltip" title="" data-original-title="Terms & Conditions">
+																<img src="img/icons/i.png">
+															</sup>
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition">
+															<i></i>
+															I accept Terms & Conditions 
+														</label>
 													</div>
 												</div>
 											</div>

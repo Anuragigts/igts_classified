@@ -72,6 +72,7 @@ class Postad_pets_model extends CI_Model{
                                     'ad_type'     => $ad_type,
                                     'created_on'   => date('d-m-Y h:i:s'),
                                     'updated_on'   => date('d-m-Y h:i:s'),
+                                    'terms_conditions' =>$this->input->post('terms_condition'),
                                     'ad_status'     => 1
                                     );
                 // echo "<pre>"; print_r($data); exit;
@@ -79,9 +80,10 @@ class Postad_pets_model extends CI_Model{
 
                        $insert_id = $this->db->insert_id();
 
-                       // if ($insert_id != '') {
-                       //  $this->session->set_userdata("msg","Ad Posted Successfully!!");
-                       // }
+                      if ($insert_id != '') {
+                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                        $this->session->set_userdata("postad_time",time());
+                       }
 
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,
@@ -265,11 +267,6 @@ class Postad_pets_model extends CI_Model{
                         $this->db->insert("pets_details", $pets_details);
                     }
 
-                    if ($this->db->affected_rows() > 0) {
-                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
-                    }
-
-                    
             
             }
 

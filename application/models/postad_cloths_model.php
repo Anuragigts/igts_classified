@@ -72,12 +72,18 @@ class Postad_cloths_model extends CI_Model{
                                     'ad_type'     => $ad_type,
                                     'created_on'   => date('d-m-Y h:i:s'),
                                     'updated_on'   => date('d-m-Y h:i:s'),
+                                    'terms_conditions' =>$this->input->post('terms_condition'),
                                     'ad_status'     => 1
                                     );
                 // echo "<pre>"; print_r($data); exit;
                     $this->db->insert('postad', $data);
 
                        $insert_id = $this->db->insert_id();
+
+                       if ($insert_id != '') {
+                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                        $this->session->set_userdata("postad_time",time());
+                       }
 
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,
@@ -319,13 +325,7 @@ class Postad_cloths_model extends CI_Model{
                         }
 
                         
-                        if ($insert_id != '') {
-                        $this->session->set_userdata("msg","Ad Posted Successfully!!");
-                       }
                         
-                    
-
-                    
             
             }
 
