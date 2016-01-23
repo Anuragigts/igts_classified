@@ -405,62 +405,7 @@
 			});
 		</script>
 
-		<script type="text/javascript">
-			$(function(){
-				$('.bus_consumer').click(function(){
-						var ch = $("input[name='checkbox_toggle']:checked").val();
-						if(ch == 'Yes'){
-							var login_id = $('#login_id').val();
-							$.ajax({
-							type: "POST",
-							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,
-							dataType: 'json',
-							data: {log_id: login_id},
-							success: function(res) {
-								/*business*/
-								$("#busname").val(res.busname);
-								$("#buscontname").val(res.cont_name);
-								$("#bussmblno").val(res.mobile);
-								$("#busemail").val(res.email);
-								/*consumer*/
-								$("#conscontname").val(res.cont_name);
-								$("#conssmblno").val(res.mobile);
-								$("#consemail").val(res.email);
-								}
-							});
-							$('#bus_logo').show(1000);
-							$('#business_form').show();
-							$('#consumer_form').hide();
-							$("#blah").hide();
-
-						}
-						if(ch == 'No'){
-							var login_id = $('#login_id').val();
-							$.ajax({
-							type: "POST",
-							url: "<?php echo base_url(); ?>postad_create_services/get_details" ,
-							dataType: 'json',
-							data: {log_id: login_id},
-							success: function(res) {
-								/*business*/
-								$("#busname").val(res.busname);
-								$("#buscontname").val(res.cont_name);
-								$("#bussmblno").val(res.mobile);
-								$("#busemail").val(res.email);
-								/*consumer*/
-								$("#conscontname").val(res.cont_name);
-								$("#conssmblno").val(res.mobile);
-								$("#consemail").val(res.email);
-								}
-							});
-							$('#bus_logo').hide(1000);
-							$('#business_form').hide();
-							$('#consumer_form').show();
-						}
-					});
-			
-			});
-		</script>
+		
 
 		<script type="text/javascript">
 		$(function(){
