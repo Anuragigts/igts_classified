@@ -44,7 +44,7 @@
 		<script>
 			$(document).ready(function(){
 				$(".send_now_show").click(function(){
-					$(".send_now_hide").show(1000);
+					$(".send_now_hide").toggle(1000);
 
 				});
 			});
@@ -53,7 +53,7 @@
 		<script>
 			$(document).ready(function(){
 				$(".contact_now_show").click(function(){
-					$(".contact_now_hide").show(1000);
+					$(".contact_now_hide").toggle(1000);
 
 				});
 			});
