@@ -87,7 +87,7 @@
 		</script>
        
 		
-      <script src="js1/box-slider-all.jquery.min.js"></script>
+      <script src="js/box-slider-all.jquery.min.js"></script>
       <script>
          $(function () {
              // This function runs before the slide transition starts
