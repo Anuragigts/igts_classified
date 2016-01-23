@@ -59,129 +59,185 @@
 		</div>
 		
 		<!-- content info - Blog-->
-		<div class="content_info">
-			<div class="paddings-mini">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-9  single-blog">
-							<!-- Post Item Gallery-->
-							<div class="post-item">
-								<div class="row">
-									<!-- Post Header-->
-									<div class="col-sm-9 col-xs-8">
-										<div class="featured-badge pull-right">
-											<span>Gold</span>
-										</div>
-										<div class="post-header">
-											<div class="hidden-xs post-format-icon post-format-standard">
-												<i class="fa fa-image"></i>
+		<form action="#" method="post" class="j-forms " >
+			<div class="content_info">
+				<div class="paddings-mini">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-9  single-blog">
+								<!-- Post Item Gallery-->
+								<div class="post-item">
+									<div class="row">
+										<!-- Post Header-->
+										<div class="col-sm-9 col-xs-8">
+											<div class="featured-badge pull-right">
+												<span>Gold</span>
 											</div>
-											<div class="post-info-wrap">
-												<h2 class="post-title"><a href="#" title="Post Format: Standard" rel="bookmark">POST FORMAT: GALLERY</a></h2>
-												<div class="post-meta" style="padding-top: 8px;">
-													<ul>
-														<li>
-															<i class="fa fa-user"></i>
-															<a href="#">User Name</a>
-														</li>
-
-														<li>
-															<i class="fa fa-clock-o"></i>
-															<span>April 23, 2015</span>
-														</li>
-
-														<li>
-															<i class="fa fa-eye"></i>
-															<span>234 Views</span>
-														</li>
-														
-														<li>
-															<span>Deal ID : 11554785514</span>
-														</li>
-
-													</ul>                      
+											<div class="post-header">
+												<div class="hidden-xs post-format-icon post-format-standard">
+													<i class="fa fa-fire"></i>
 												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-2 col-xs-4  post-header1 ">
-										<div class=" post-format-icon post-format-standard">
-											<i class="fa fa-fire"></i>
-										</div>
-									</div>
-									<!-- Post Header-->
-
-									<!-- Post Media-->
-									<div class="col-sm-12 col-xs-12">
-										<div id="gallery" style="display:none;">
-	
-											<img alt="Preview Image 1"
-												 src="img/blog/thumb-002.jpg" class="img-responsive" title="Image_1"
-												 data-image="img/blog/002.jpg">
-											
-											<img alt="Preview Image 2"
-												 src="img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
-												 data-image="img/blog/003.jpg">
-											
-											<img alt="Youtube Video" title="Video_1"
-												 data-type="youtube"
-												 data-videoid="A3PDXmYoF5U">
-
-											<img alt="Preview Image 3"
-												 src="img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
-												 data-image="img/blog/004.jpg">
-
-											<img alt="Preview Image 4"
-												 src="img/blog/thumb-005.jpg" class="img-responsive" title="Image_4"
-												 data-image="img/blog/005.jpg">
-											
-											<img alt="Preview Image 5"
-												 src="img/blog/thumb-006.jpg" class="img-responsive" title="Image_5"
-												 data-image="img/blog/006.jpg">
-
-											<img alt="Preview Image 6"
-												 src="img/blog/thumb-007.jpg" class="img-responsive" title="Image_6"
-												 data-image="img/blog/007.jpg">
-
-										</div>
-									</div>	
-									<!-- Post Media-->
-
-									
-									<div class="col-sm-12 col-xs-12 top_20">
-										<div id="parentHorizontalTab">
-											<ul class="resp-tabs-list hor_1">
-												<li>Description</li>
-												<li>Comments</li>
-												<li>Map View</li>
-											</ul>
-											<div class="resp-tabs-container hor_1">
-												<div>
-													<p>Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. </p>
-												</div>
-												<div>
-													<div class="comments-container">
-														<ul id="comments-list" class="comments-list">
+												<div class="post-info-wrap">
+													<h2 class="post-title"><a href="#">POST FORMAT: GALLERY</a></h2>
+													<div class="post-meta" style="padding-top: 8px;">
+														<ul>
 															<li>
-																<div class="comment-main-level">
-																	<!-- Avatar -->
-																	<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
-																	<!-- Contenedor del Comentario -->
-																	<div class="comment-box">
-																		<div class="comment-head">
-																			<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																			<span>hace 20 minutes</span>
-																			<i class="fa fa-reply"></i>
-																			<i class="fa fa-heart"></i>
-																		</div>
-																		<div class="comment-content">
-																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																<i class="fa fa-user"></i>
+																<a href="#">User Name</a>
+															</li>
+
+															<li>
+																<i class="fa fa-clock-o"></i>
+																<span>April 23, 2015</span>
+															</li>
+
+															<li>
+																<i class="fa fa-eye"></i>
+																<span>234 Views</span>
+															</li>
+															
+															<li>
+																<span>Deal ID : 11554785514</span>
+															</li>
+														</ul>                      
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-4  post-header1">
+											<div class="ratings">
+												<input id="5q" type="radio" name="quality-rating" value="5">
+												<label for="5q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="4q" type="radio" name="quality-rating" value="4">
+												<label for="4q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="3q" type="radio" name="quality-rating" value="3">
+												<label for="3q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="2q" type="radio" name="quality-rating" value="2">
+												<label for="2q">
+													<i class="fa fa-star"></i>
+												</label>
+												<input id="1q" type="radio" name="quality-rating" value="1" checked="">
+												<label for="1q">
+													<i class="fa fa-star"></i>
+												</label>
+											</div>
+										</div>
+										<!-- Post Header-->
+
+										<!-- Post Media-->
+										<div class="col-sm-12 col-xs-12">
+											<div id="gallery" style="display:none;">
+		
+												<img alt="Preview Image 1"
+													 src="img/blog/thumb-002.jpg" class="img-responsive" title="Image_1"
+													 data-image="img/blog/002.jpg">
+												
+												<img alt="Preview Image 2"
+													 src="img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
+													 data-image="img/blog/003.jpg">
+												
+												<img alt="Youtube Video" title="Video_1"
+													 data-type="youtube"
+													 data-videoid="A3PDXmYoF5U">
+
+												<img alt="Preview Image 3"
+													 src="img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
+													 data-image="img/blog/004.jpg">
+
+												<img alt="Preview Image 4"
+													 src="img/blog/thumb-005.jpg" class="img-responsive" title="Image_4"
+													 data-image="img/blog/005.jpg">
+												
+												<img alt="Preview Image 5"
+													 src="img/blog/thumb-006.jpg" class="img-responsive" title="Image_5"
+													 data-image="img/blog/006.jpg">
+
+												<img alt="Preview Image 6"
+													 src="img/blog/thumb-007.jpg" class="img-responsive" title="Image_6"
+													 data-image="img/blog/007.jpg">
+
+											</div>
+										</div>	
+										<!-- Post Media-->
+
+										
+										<div class="col-sm-12 col-xs-12 top_20">
+											<div id="parentHorizontalTab">
+												<ul class="resp-tabs-list hor_1">
+													<li>Description</li>
+													<li>Comments</li>
+													<li>Map View</li>
+												</ul>
+												<div class="resp-tabs-container hor_1">
+													<div>
+														<p>Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. </p>
+													</div>
+													<div>
+														<div class="comments-container">
+															<ul id="comments-list" class="comments-list">
+																<li>
+																	<div class="comment-main-level">
+																		<!-- Avatar -->
+																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																		<!-- Contenedor del Comentario -->
+																		<div class="comment-box">
+																			<div class="comment-head">
+																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
+																				<span>hace 20 minutes</span>
+																				<i class="fa fa-reply"></i>
+																				<i class="fa fa-heart"></i>
+																			</div>
+																			<div class="comment-content">
+																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																			</div>
 																		</div>
 																	</div>
-																</div>
-																<!-- Respuestas de los comentarios -->
-																<ul class="comments-list reply-list">
-																	<li>
+																	<!-- Respuestas de los comentarios -->
+																	<ul class="comments-list reply-list">
+																		<li>
+																			<!-- Avatar -->
+																			<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																			<!-- Contenedor del Comentario -->
+																			<div class="comment-box">
+																				<div class="comment-head">
+																					<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
+																					<span>hace 10 minutes</span>
+																					<i class="fa fa-reply"></i>
+																					<i class="fa fa-heart"></i>
+																				</div>
+																				<div class="comment-content">
+																					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																				</div>
+																			</div>
+																		</li>
+
+																		<li>
+																			<!-- Avatar -->
+																			<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																			<!-- Contenedor del Comentario -->
+																			<div class="comment-box">
+																				<div class="comment-head">
+																					<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
+																					<span>hace 10 minutes</span>
+																					<i class="fa fa-reply"></i>
+																					<i class="fa fa-heart"></i>
+																				</div>
+																				<div class="comment-content">
+																					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</li>
+
+																<li>
+																	<div class="comment-main-level">
 																		<!-- Avatar -->
 																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
 																		<!-- Contenedor del Comentario -->
@@ -196,141 +252,110 @@
 																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
 																			</div>
 																		</div>
-																	</li>
-
-																	<li>
-																		<!-- Avatar -->
-																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
-																		<!-- Contenedor del Comentario -->
-																		<div class="comment-box">
-																			<div class="comment-head">
-																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																				<span>hace 10 minutes</span>
-																				<i class="fa fa-reply"></i>
-																				<i class="fa fa-heart"></i>
-																			</div>
-																			<div class="comment-content">
-																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-																			</div>
-																		</div>
-																	</li>
-																</ul>
-															</li>
-
-															<li>
-																<div class="comment-main-level">
-																	<!-- Avatar -->
-																	<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
-																	<!-- Contenedor del Comentario -->
-																	<div class="comment-box">
-																		<div class="comment-head">
-																			<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
-																			<span>hace 10 minutes</span>
-																			<i class="fa fa-reply"></i>
-																			<i class="fa fa-heart"></i>
-																		</div>
-																		<div class="comment-content">
-																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-																		</div>
 																	</div>
-																</div>
-															</li>
-														</ul>
+																</li>
+															</ul>
+														</div>
 													</div>
-												</div>
-												<div>
-													<p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3852170.942842486!2d-3.127523422083684!3d54.755797801367365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1452233071813" width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+													<div>
+														<p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3852170.942842486!2d-3.127523422083684!3d54.755797801367365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1452233071813" width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
 
-									<!-- Post Footer-->
-									<div class="col-sm-12 col-xs-12">
-										<div class="post-footer">
-											<!-- Post Social-->
-											<ul class="post-social tooltip-hover">
-												<li>
-													<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
-														<i class="fa fa-facebook"></i>
-														<i class="fa fa-facebook"></i>
-													</a>
-												</li>
+										<!-- Post Footer-->
+										<div class="col-sm-12 col-xs-12">
+											<div class="post-footer">
+												<!-- Post Social-->
+												<ul class="post-social tooltip-hover">
+													<li>
+														<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
+															<i class="fa fa-facebook"></i>
+															<i class="fa fa-facebook"></i>
+														</a>
+													</li>
 
-												<li>
-													<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
-														<i class="fa fa-twitter"></i>
-														<i class="fa fa-twitter"></i>
-													</a>
-												</li>
+													<li>
+														<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
+															<i class="fa fa-twitter"></i>
+															<i class="fa fa-twitter"></i>
+														</a>
+													</li>
 
-												<li>
-													<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
-														<i class="fa fa-google-plus"></i>
-														<i class="fa fa-google-plus"></i>
-													</a>
-												</li>
+													<li>
+														<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
+															<i class="fa fa-google-plus"></i>
+															<i class="fa fa-google-plus"></i>
+														</a>
+													</li>
 
-												<li>
-													<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
-														<i class="fa fa-pinterest"></i>
-														<i class="fa fa-pinterest"></i>
-													</a>
-												</li>
+													<li>
+														<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
+															<i class="fa fa-pinterest"></i>
+															<i class="fa fa-pinterest"></i>
+														</a>
+													</li>
 
-												<li>
-													<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
-														<i class="fa fa-linkedin"></i>
-														<i class="fa fa-linkedin"></i>
-													</a>
-												</li>
+													<li>
+														<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
+															<i class="fa fa-linkedin"></i>
+															<i class="fa fa-linkedin"></i>
+														</a>
+													</li>
 
-												<li>
-													<a href="#" class="social-email" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-														<i class="fa fa-envelope-o"></i>
-														<i class="fa fa-envelope-o"></i>
-													</a>
-												</li>
-											</ul>
-											<!-- Post Social-->
+													<li>
+														<a href="#" class="social-email" data-toggle="tooltip" title="" data-original-title="Share on envelope">
+															<i class="fa fa-envelope-o"></i>
+															<i class="fa fa-envelope-o"></i>
+														</a>
+													</li>
+												</ul>
+												<!-- Post Social-->
+											</div>
 										</div>
-									</div>
-									<!-- Post Footer-->
-							   </div>
-							</div>
-							<!-- End Post Item Gallery-->
-							<h4><i class="fa fa-pencil"></i>New Comment</h4><hr>
-
-							<form action="#" class="form-theme">
-								<div class="row">
-									<div class="form-group">
-										<div class="col-md-6 form-theme">
-											<label>Your name *</label>
-											<input type="text" required="required" value="" placeholder="Please Enter Your Name" class="form-control" name="name">
-										</div>
-										<div class="col-md-6 form-theme">
-											<label>Your email address *</label>
-											<input type="email" required="required" value="" placeholder="Please Enter Your Email" class="form-control" name="email" >
-										</div>
-									</div>
+										<!-- Post Footer-->
+								   </div>
 								</div>
-								<div class="row">
-									<div class="form-group">
+								<!-- End Post Item Gallery-->
+								<h4><i class="fa fa-pencil"></i>New Comment</h4><hr>
+
+								<form action="#" class="form-theme">
+									<div class="row">
+										<div class="span6 unit">
+											<label class="label">Your Name :</label>
+											<div class="input">
+												<label class="icon-right" for="yourname">
+													<i class="fa fa-user"></i>
+												</label>
+												<input type="text" id="yourname" name="yourname" placeholder="Enter Your Name">
+											</div>
+										</div>
+										<div class="span6 unit">
+											<label class="label">Your Email :</label>
+											<div class="input">
+												<label class="icon-right" for="youremail">
+													<i class="fa fa-envelope-o"></i>
+												</label>
+												<input type="email" id="youremail" name="youremail" placeholder="Enter Your Email">
+											</div>
+										</div>
+										<div class="span12 unit">
+											<label class="label">Message :</label>
+											<div class="input">
+												<textarea type="text" id="" name="" placeholder="Enter Your Message "></textarea>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
 										<div class="col-md-12">
-											<label>Comment *</label>
-											<textarea placeholder="Please Enter Your Comment" class="form-control" name="comment"  required="required"></textarea>
+											<input type="submit" value="Post Comment" class="btn btn-primary">
 										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<input type="submit" value="Post Comment" class="btn btn-primary">
-									</div>
-								</div>
-							</form>
-						</div>
-						
-						<form action="#" method="post" class="j-forms " >
+								</form>
+							</div>
+							
 							<div class="col-md-3">
 								<aside class="widget view_sidebar text_center">
 									<!--<img src="img/brand/intel.png" alt="Logo" title="Business Logo" class="img-responsive"><hr>-->
@@ -402,11 +427,11 @@
 								</aside>
 								
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</section>
 		<!-- End Shadow Semiboxed -->
 	 

@@ -13,7 +13,7 @@
 			color:#fff !important;
 		}
 	</style>
-	
+	<link rel="stylesheet" href="js/filter.css"> <!-- Resource style -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('#scroll_area1').niceScroll({
@@ -43,26 +43,6 @@
 		}
 	</style>
 	  
-	<script>
-			!function ($) {
-			
-			// Le left-menu sign
-			/* for older jquery version
-			$('#left ul.nav li.parent > a > span.sign').click(function () {
-				$(this).find('i:first').toggleClass("icon-minus");
-			}); */
-			
-			$(document).on("click","#left ul.nav li.parent > a > span.sign", function(){          
-				$(this).find('i:first').toggleClass("fa-minus");      
-			}); 
-			
-			// Open Le current menu
-			$("#left ul.nav li.parent.active > a > span.sign").find('i:first').addClass("fa-minus");
-			$("#left ul.nav li.current").parents('ul.children').addClass("in");
-
-		}(window.jQuery);
-	</script>
-	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
@@ -87,257 +67,228 @@
 							<div class="col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<aside class="widget">
-										<h3 class="title-widget">Cars Filter</h3>
-										<div id="left">
-											<ul class="nav menu" >  
-												<li id="filter_4" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_4" href="#filter_sub_4" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Body Type</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_4" >
-														<li class="item-9 deeper parent" id="scroll_area1">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> All 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 2 Door Saloon
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 4 Door Saloon
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Saloon
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Convertible
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Coupe 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Estate
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 3 Door Hatchback
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 5 Door Hatchback 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Sports
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Light 4x4 Utility
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> MPV
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Others
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul>
-											<ul class="nav menu top_10">  
-												<li id="filter_1" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_1" href="#filter_sub_1" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Fuel type</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_1">
-														<li class="deeper parent">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i>Petrol
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Diesel
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Other
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul> 
-											<ul  class="nav menu top_10">  
-												<li id="filter_2" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_2" href="#filter_sub_2" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Mileage</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_2">
-														<li class="item-9 deeper parent">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> All 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Up to 15,000 miles 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Up to 30,000 miles
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Up to 60,000 miles
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Up to 80,000 miles
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Over 80,000 miles
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul>
-											<ul  class="nav menu top_10">  
-												<li id="filter_3" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_3" href="#filter_sub_3" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Seller Type</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_3">
-														<li class="item-9 deeper parent">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> All 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Trade
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Private
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul>
-											
-											<ul  class="nav menu top_10">  
-												<li id="filter_5" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_5" href="#filter_sub_5" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Transmission</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_5">
-														<li class="item-9 deeper parent">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Any 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Manual
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Automatic
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Others
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul>
-											<ul  class="nav menu top_10">  
-												<li id="filter_6" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_6" href="#filter_sub_6" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Engine Size</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_6">
-														<li class="item-9 deeper parent" id="scroll_area2">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Any
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Up to 999 cc 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 1,000 - 1,999 cc
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 2,000 - 2,999 cc
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 3,000 - 3,999 cc
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> 4,000 - 4,999 cc
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Over 4,999 cc
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul>
-											<ul  class="nav menu top_10">  
-												<li id="filter_7" class="item-8 deeper parent">
-													<a class="" href="#">
-														<span data-toggle="collapse" data-parent="#filter_7" href="#filter_sub_7" class="sign"><i class="fa fa-plus"></i></span>
-														<span class="lbl">Search Only</span>                      
-													</a>
-													<ul class="children nav-child unstyled small collapse filt_bor" id="filter_sub_7">
-														<li class="item-9 deeper parent">
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Urgent Deals 
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Feature Deals
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Deals With Pictures
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" name="" value="" >
-																<i></i> Others
-															</label>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
-									</aside>
-									<!-- Widget Filter -->
+									<h3 class="title-widget">Cars Filter</h3>
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Body Type</h4>
+										<div class="cd-filter-content">
+											<div  id="scroll_area1">
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> All 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2 Door Saloon
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 4 Door Saloon
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Saloon
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Convertible
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Coupe 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Estate
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 3 Door Hatchback
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 5 Door Hatchback 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Sports
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Light 4x4 Utility
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> MPV
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Others
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Fuel type</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i>Petrol
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Diesel
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Other
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Mileage</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> All 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Up to 15,000 miles 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Up to 30,000 miles
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Up to 60,000 miles
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Up to 80,000 miles
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Over 80,000 miles
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Seller Type</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> All 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Trade
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Private
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Transmission</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Any 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Manual
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Automatic
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Others
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Engine Size</h4>
+
+										<div class="cd-filter-content">
+											<div id="scroll_area2">
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Any
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Up to 999 cc 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 1,000 - 1,999 cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2,000 - 2,999 cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 3,000 - 3,999 cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 4,000 - 4,999 cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Over 4,999 cc
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Search Only</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Urgent Deals 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Feature Deals
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Deals With Pictures
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Others
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
 								</div>
 							</div>
 							<!-- End Item Table-->
@@ -672,4 +623,7 @@
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
 	
-	<script src="js/jquery.nicescroll.js"></script>      
+	<script src="js/jquery.nicescroll.js"></script> 
+
+	<script src="libs/jquery.mixitup.min.js"></script>
+	<script src="libs/main.js"></script> <!-- Resource jQuery -->	

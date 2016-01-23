@@ -120,13 +120,13 @@
 											</li>
 										</ul>
 										<h4 class="bus_image clr_w top_10"> Add More <i class="fa fa-plus"></i></h4>
-									<div class="input bus_img" style="display:none;">
-										<label class="icon-right" for="">
-											<i class="fa fa-map-marker "></i>
-										</label>
-										<input type="text" id="priceamount" name="priceamount" placeholder="Enter Location" onkeypress="return isNumber(event)">
-										<button type="submit" class="primary-btn btn grad-btn ln-tr">Find</button>
-									</div>
+										<div class="input bus_img" style="display:none;">
+											<label class="icon-right" for="">
+												<i class="fa fa-map-marker "></i>
+											</label>
+											<input type="text" id="priceamount" name="priceamount" placeholder="Enter Location">
+											<button type="submit" class="primary-btn btn grad-btn ln-tr">Find</button>
+										</div>
 									</div>
 								</aside>
 								<!-- Widget Filter -->
@@ -136,6 +136,13 @@
 
 						<!-- Item Table-->
 						<div class="col-md-9">
+							<div class="row">
+								<div class="col-sm-12">
+									<h2>Deals Administrator</h2>
+									<label>Hi User Name, you have 0 Pickup deals</label><hr>
+								</div>
+							</div>
+							
 							<!-- sort-by-container-->
 							<div class="sort-by-container tooltip-hover">
 								<div class="row">
@@ -154,26 +161,17 @@
 													<span class="custom-select">Users Rating</span>
 												</div>
 											</li>
-											<li>
-												<div class="selector">
-													<select>
-														<option value="1">Sort Ascending</option>
-														<option value="2">Sort Descending</option>
-													</select>
-													<span class="custom-select">Product</span>
-												</div>
-											</li>                            
-										</ul>
+									   </ul>
 									</div>
 									<div class="col-md-3">
 										<ul class="style-view">
 											<li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-												<a href="searchview">
+												<a href="deals_administrator_box">
 													<i class="fa fa-th-large"></i>
 												</a>
 											</li>
 											<li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-												<a href="searchview">
+												<a href="deals_administrator">
 													<i class="fa fa-list"></i>
 												</a>
 											</li> 
@@ -184,15 +182,11 @@
 							<!-- sort-by-container-->
 
 							<div class="row list_view_searches">
-								
 								<!-- Item Gallery List View-->
 								<div class="col-md-12">
 									<div class="first_list">
 										<div class="row">
 											<div class="col-sm-4 view_img">
-												<div class="featured-badge">
-													<span>Urgent</span>
-												</div>
 												<div class="img-hover">
 													<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
 													<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
@@ -205,11 +199,6 @@
 															<div class="col-xs-12">
 																<h3 class="list_title">Sample text Here</h3>
 															</div>
-															<!--div class="col-xs-4 ">
-																<div class="add-to-compare-list pull-right">
-																	<span class="compared-category"></span>
-																</div>
-															</div-->
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
@@ -282,6 +271,93 @@
 								</div>
 								
 								<div class="col-md-12">
+									<div class="first_list gold_bgcolor">
+										<div class="row">
+											<div class="col-sm-4 view_img">
+												<div class="img-hover">
+													<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+													<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+												</div>
+											</div>
+											<div class="col-sm-8 middle_text">
+												<div class="row">
+													<div class="col-sm-8">
+														<div class="row">
+															<div class="col-xs-12">
+																<h3 class="list_title">Sample text Here</h3>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-xs-4">
+																<ul class="starts">
+																	<li><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																</ul>
+															</div>
+															<div class="col-xs-8">
+																<div class="location pull-right ">
+																	<i class="fa fa-map-marker "></i> 
+																	<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-xs-4 serch_bus_logo">
+														<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+													</div>
+												</div>
+												<hr class="separator">
+												<div class="row">
+													<div class="col-xs-8">
+														<div class="row">
+															<div class="col-xs-12">
+																<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+															</div>
+															<div class="col-xs-12">
+																<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-4">
+														<div class="row">
+															<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																<h3 class="view_price">£1106</h3>
+															</div>
+															<div class="col-xs-12">
+																<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div><!-- End Row-->
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="post-meta list_view_bottom gold_bgcolor">
+												<ul>
+													<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+													<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+													<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+													<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+													<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+													<li><span>Deal ID : 112457856</span></li>
+													<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+													<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+													<li><i class="fa fa-edit"></i></li>
+													<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+												</ul>                      
+											</div>
+										</div>
+									</div><hr class="separator">	
+									<!-- End Item Gallery List View-->
+								</div>
+								
+								<div class="col-md-12">
 									<div class="first_list">
 										<div class="row">
 											<div class="col-sm-4 view_img">
@@ -300,11 +376,6 @@
 															<div class="col-xs-12">
 																<h3 class="list_title">Sample text Here</h3>
 															</div>
-															<!--div class="col-xs-4 ">
-																<div class="add-to-compare-list pull-right">
-																	<span class="compared-category"></span>
-																</div>
-															</div-->
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
@@ -394,44 +465,4 @@
 	<script src="j-folder/js/jquery.form.min.js"></script>
 	<script src="j-folder/js/j-forms.min.js"></script>
 
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
-	<script>
-		$('.xuSlider').xuSlider();
-	</script>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36251023-1']);
-	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 	
-	
-	<script>
-		$(document).ready(function(){
-			// Range value slider
-			$(function() {
-				$( '#slider-2-h' ).slider({
-					range: true,
-					min: 0,
-					max: 500,
-					values: [ 75, 300 ],
-					slide: function( event, ui ) {
-						$( '#2-h' ).html( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
-					}
-				});
-				$( '#2-h' ).html('$' + $('#slider-2-h' ).slider( 'values', 0 ) +
-					' - $' + $( '#slider-2-h' ).slider( 'values', 1 ) );
-			});
-
-		});
-	</script>
-
-        
