@@ -14,17 +14,7 @@
 		background: #3A4749 none repeat scroll 0% 0%;
 		color: #FFF;
 		}
-		#scroll_ezone {
-		  height: 550px;
-		}
-		#scroll_car {
-		  height: 450px;
-		}
-		#scroll_bike {
-		  height: 450px;
-		}
 	</style>
-	
 	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
@@ -106,9 +96,9 @@
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>E-Zone <span>Category </span></h2>
 												</div>
-												<div class="modal-body" >
-													<div class="row ezone_h3 mod_pad" >
-														<div class="col-md-12 post_deal_bor" id="scroll_ezone">
+												<div class="modal-body">
+													<div class="row ezone_h3 mod_pad">
+														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-3 clearfix">
 																	<h3>Phones & Tablets</h3>
@@ -288,7 +278,7 @@
 															<div class="tab-content">
 																<!--Tab1 Cars-->
 																<div class="tab-pane active" id="cars">
-																	<div class="col-md-12 post_deal_bor" id="scroll_car">
+																	<div class="col-md-12 post_deal_bor">
 																		<div class="row">
 																			<?php $cars_fst1 = array_chunk(@$cars_fst, 6);
 																				foreach ($cars_fst1 as $car_val) {
@@ -320,7 +310,7 @@
 																	</div>
 																</div>
 																<div class="tab-pane" id="bike_scooter">
-																	<div class="col-md-12 post_deal_bor" id="scroll_bike">
+																	<div class="col-md-12 post_deal_bor">
 																		<div class="row">
 																			<?php $bikes_fst1 = array_chunk(@$bikes_fst, 6);
 																				foreach ($bikes_fst1 as $bike_val) {
@@ -932,34 +922,3 @@
 		},5000);
 		
 	</script>
-	
-	<script type="text/javascript">
-		$(document).ready(function() {
-		  $('#scroll_ezone').niceScroll({
-			autohidemode: 'false',     // Do not hide scrollbar when mouse out
-			cursorborderradius: '0px', // Scroll cursor radius
-			background: '#E5E9E7',     // The scrollbar rail color
-			cursorwidth: '12px',       // Scroll cursor width
-			cursorcolor: '#48b76c'     // Scroll cursor color
-		  });
-		});
-		$(document).ready(function() {
-		  $('#scroll_car').niceScroll({
-			autohidemode: 'false',     // Do not hide scrollbar when mouse out
-			cursorborderradius: '0px', // Scroll cursor radius
-			background: '#E5E9E7',     // The scrollbar rail color
-			cursorwidth: '12px',       // Scroll cursor width
-			cursorcolor: '#48b76c'     // Scroll cursor color
-		  });
-		});
-		$(document).ready(function() {
-		  $('#scroll_bike').niceScroll({
-			autohidemode: 'false',     // Do not hide scrollbar when mouse out
-			cursorborderradius: '0px', // Scroll cursor radius
-			background: '#E5E9E7',     // The scrollbar rail color
-			cursorwidth: '12px',       // Scroll cursor width
-			cursorcolor: '#48b76c'     // Scroll cursor color
-		  });
-		});
-	</script>
-	<script src="js/jquery.nicescroll.js"></script> 
