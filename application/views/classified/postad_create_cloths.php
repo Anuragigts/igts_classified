@@ -14,6 +14,55 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
+	/*packages selection */
+	$(function(){
+		$('.select_pack').change(function(){
+			var ch = $('input[name="select_packge"]:checked').val();
+			if(ch == 'freepackage'){
+				$(".free_pck").css("display", 'block');
+				$(".gold_pck").css("display", 'none');
+				$(".platinum_pck").css("display", 'none');
+				document.getElementById("package_type").value = 'free';
+				$(".freeurgent").removeAttr('disabled');	
+				$(".platinumurgent").attr('checked', false);
+				$(".platinumurgent").attr('disabled', 'disabled');				
+				$(".goldurgent").attr('checked', false);
+				$(".goldurgent").attr('disabled', 'disabled');	
+				document.getElementById("package_urgent").value = '';
+			}
+			if(ch == 'goldpackage'){
+				$(".free_pck").css("display", 'none');
+				$(".gold_pck").css("display", 'block');
+				$(".platinum_pck").css("display", 'none');
+				document.getElementById("package_type").value = 'gold';
+				$(".freeurgent").attr('checked', false);
+				$(".freeurgent").attr('disabled', 'disabled');	
+				$(".goldurgent").removeAttr('disabled');	
+				$(".platinumurgent").attr('checked', false);
+				$(".platinumurgent").attr('disabled', 'disabled');
+				document.getElementById("package_urgent").value = '';
+			}
+			if(ch == 'platinumpackage'){
+				$(".free_pck").css("display", 'none');
+				$(".gold_pck").css("display", 'none');
+				$(".platinum_pck").css("display", 'block');
+				document.getElementById("package_type").value = 'platinum';
+				$(".freeurgent").attr('checked', false);
+				$(".freeurgent").attr('disabled', 'disabled');				
+				$(".goldurgent").attr('checked', false);
+				$(".goldurgent").attr('disabled', 'disabled');	
+				$(".platinumurgent").removeAttr('disabled');	
+				document.getElementById("package_urgent").value = '';			
+			}
+		});
+
+		$(".select_urgent_pack").change(function(){
+				var va = $(this).val();
+				$("#package_urgent").val(va);
+			
+		});
+	});
+
 	$(function(){
 		$(".multi-submit-btn").click(function(){
 			var img_count = $("#image_count").val();
@@ -1686,7 +1735,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
 																	<i></i>
 																	Select Free Urgent
 																	</label>
@@ -1702,7 +1751,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
 																	<i></i>
 																	Select Free Urgent
 																	</label>
@@ -1721,7 +1770,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
@@ -1737,7 +1786,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
@@ -1756,7 +1805,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
 																	<i></i>
 																	Select platinum Urgent
 																	</label>
@@ -1771,7 +1820,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
 																	<i></i>
 																	Select platinum Urgent
 																	</label>

@@ -14,6 +14,55 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
+	/*packages selection */
+	$(function(){
+		$('.select_pack').change(function(){
+			var ch = $('input[name="select_packge"]:checked').val();
+			if(ch == 'freepackage'){
+				$(".free_pck").css("display", 'block');
+				$(".gold_pck").css("display", 'none');
+				$(".platinum_pck").css("display", 'none');
+				document.getElementById("package_type").value = 'free';
+				$(".freeurgent").removeAttr('disabled');	
+				$(".platinumurgent").attr('checked', false);
+				$(".platinumurgent").attr('disabled', 'disabled');				
+				$(".goldurgent").attr('checked', false);
+				$(".goldurgent").attr('disabled', 'disabled');	
+				document.getElementById("package_urgent").value = '';
+			}
+			if(ch == 'goldpackage'){
+				$(".free_pck").css("display", 'none');
+				$(".gold_pck").css("display", 'block');
+				$(".platinum_pck").css("display", 'none');
+				document.getElementById("package_type").value = 'gold';
+				$(".freeurgent").attr('checked', false);
+				$(".freeurgent").attr('disabled', 'disabled');	
+				$(".goldurgent").removeAttr('disabled');	
+				$(".platinumurgent").attr('checked', false);
+				$(".platinumurgent").attr('disabled', 'disabled');
+				document.getElementById("package_urgent").value = '';
+			}
+			if(ch == 'platinumpackage'){
+				$(".free_pck").css("display", 'none');
+				$(".gold_pck").css("display", 'none');
+				$(".platinum_pck").css("display", 'block');
+				document.getElementById("package_type").value = 'platinum';
+				$(".freeurgent").attr('checked', false);
+				$(".freeurgent").attr('disabled', 'disabled');				
+				$(".goldurgent").attr('checked', false);
+				$(".goldurgent").attr('disabled', 'disabled');	
+				$(".platinumurgent").removeAttr('disabled');	
+				document.getElementById("package_urgent").value = '';			
+			}
+		});
+
+		$(".select_urgent_pack").change(function(){
+				var va = $(this).val();
+				$("#package_urgent").val(va);
+			
+		});
+	});
+
 	$(function(){
 		$(".multi-submit-btn").click(function(){
 			var img_count = $("#image_count").val();
@@ -932,7 +981,7 @@ jQuery(document).ready(function($) {
 												<div class="span6 unit">
 													<label class="label">Family Race
 														<sup data-toggle="tooltip" title="" data-original-title="Family Race">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 														</sup>
 													</label>
 													<div class="input">
@@ -945,7 +994,7 @@ jQuery(document).ready(function($) {
 												<div class="span6 unit">
 													<label class="label">Type
 														<sup data-toggle="tooltip" title="" data-original-title="Type">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 														</sup>
 													</label>
 													<div class="input">
@@ -961,7 +1010,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit"><!-- start Age -->
 												<label class="label">Age
 													<sup data-toggle="tooltip" title="" data-original-title="Age">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<label class="input select">
@@ -982,7 +1031,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit"><!-- start Height -->
 												<label class="label">Height
 													<sup data-toggle="tooltip" title="" data-original-title="Height">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
@@ -997,7 +1046,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit"><!-- start Gender -->
 												<label class="label">Gender
 													<sup data-toggle="tooltip" title="" data-original-title="Gender">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>
 												<div class="input">
@@ -1150,6 +1199,7 @@ jQuery(document).ready(function($) {
 										<div class="divider_space"></div>
 
 										<div class="alert alert-danger pack_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please select one package
 												</div>
 										
@@ -1177,7 +1227,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
 																	<i></i>
 																	Select Free Urgent
 																	</label>
@@ -1193,7 +1243,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
 																	<i></i>
 																	Select Free Urgent
 																	</label>
@@ -1212,7 +1262,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
@@ -1228,7 +1278,7 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
@@ -1247,10 +1297,14 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
 																	<i></i>
 																	Select platinum Urgent
 																	</label>
+																	<!-- <label class="radio">
+																		<input type="radio" name="select_urgent_packge" id="platinumurgent" class='bus_consumer' value="platinumurgent">
+																		<i></i>Select platinum Urgent 
+																	</label> -->
 																</div>
 															</div>
 															<div class="promotion-box-info free_euro" style='display:none;'>
@@ -1262,10 +1316,14 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
 																	<i></i>
 																	Select platinum Urgent
 																	</label>
+																	<!-- <label class="radio">
+																		<input type="radio" name="select_urgent_packge" id="platinumurgent" class='bus_consumer' value="platinumurgent">
+																		<i></i>Select platinum Urgent 
+																	</label> -->
 																</div>
 															</div>
 														</div>
@@ -1284,6 +1342,7 @@ jQuery(document).ready(function($) {
 											<!-- free__pck Start -->
 											<div class="j-row free_pck" style='display: none;'>
 												<div class="alert alert-danger free_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 3-5 images only
 												  </div>
 												<div class="span4 unit">
@@ -1314,6 +1373,7 @@ jQuery(document).ready(function($) {
 											<!-- free_urgent_pck Start -->
 											<div class="j-row free_urgent_pck" style='display: none;'>
 												<div class="alert alert-danger freeurgent_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 9 images only
 												  </div>
 												<div class="span4 unit">
@@ -1346,6 +1406,14 @@ jQuery(document).ready(function($) {
 													</label>
 													<div class="unit">
 														<input type="file" name="file_video_free" id='file_video_free' >
+														<!-- <label class="input append-big-btn">
+															<div class="file-button">
+																Browse
+																<input type="file" name="file_video_free" id='file_video_free' >
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<span class="hint">Only: mp4  Size: less 6 Mb</span>
+														</label> -->
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1367,6 +1435,7 @@ jQuery(document).ready(function($) {
 											<!-- Gold package Start -->
 											<div class="j-row gold_pck" style='display: none;'>
 												<div class="alert alert-danger gold_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 9 images only
 												  </div>
 												<div class="span4 unit">
@@ -1391,6 +1460,24 @@ jQuery(document).ready(function($) {
 														</div>
 													</div>
 												</div>
+												<!--<div class="span12 unit">
+													<label class="label">Video Link 
+														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<div class="unit">
+														<input type="file" name="file_video_gold" id='file_video_gold' >
+														 <label class="input append-big-btn">
+															<div class="file-button">
+																Browse
+																<input type="file" name="file_video_gold" id='file_video_gold' >
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<span class="hint">Only: mp4  Size: less 6 Mb</span>
+														</label>
+													</div>
+												</div> -->
 												<div class="span12 unit">
 													<label class="label">Website Link 
 														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
@@ -1410,6 +1497,7 @@ jQuery(document).ready(function($) {
 											<!-- gold_urgent_pck Start -->
 											<div class="j-row gold_urgent_pck" style='display: none;'>
 												<div class="alert alert-danger goldurgent_img_error" style='display:none;' >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 12 images only
 												  </div>
 												<div class="span4 unit">
@@ -1442,6 +1530,14 @@ jQuery(document).ready(function($) {
 													</label>
 													<div class="unit">
 														<input type="file" name="goldurgent_video" id='goldurgent_video' />
+														<!-- <label class="input append-big-btn">
+															<div class="file-button">
+																Browse
+																<input type="file" name="goldurgent_video" id='goldurgent_video' />
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected">
+															<span class="hint">Only: MP4  Size: less 6 Mb</span>
+														</label> -->
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1463,6 +1559,7 @@ jQuery(document).ready(function($) {
 											<!-- platinum package Start -->
 											<div class="j-row platinum_pck" style='display: none;'>
 												<div class="alert alert-danger platinum_img_error" style='display:none'; >
+												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 12 images only
 												  </div>
 												<div class="span4 unit">
@@ -1497,6 +1594,11 @@ jQuery(document).ready(function($) {
 														<label class="input append-big-btn">
 															<input type="file" name="file_video_platinum" id='file_video_platinum' />
 															<video controls width="200px" id="vid" style="display:block"></video> 
+															<!-- <div class="file-button">
+																Browse
+																<input type="file" name="file_video_platinum" id='file_video_platinum' />
+															</div>
+															<input type="text" id="file_input" readonly="" placeholder="no file selected"> -->
 															<span class="hint">Only: MP4  Allow upto 30-Seconds video</span>
 														</label>
 													</div>

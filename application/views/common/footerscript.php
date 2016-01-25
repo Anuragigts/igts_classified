@@ -178,57 +178,6 @@
 			});
 		</script>
 
-		<script type="text/javascript">
-		/*packages selection */
-			$(function(){
-				$('.select_pack').change(function(){
-					var ch = $('input[name="select_packge"]:checked').val();
-					if(ch == 'freepackage'){
-						$(".free_pck").css("display", 'block');
-						$(".gold_pck").css("display", 'none');
-						$(".platinum_pck").css("display", 'none');
-						document.getElementById("package_type").value = 'free';
-						$("#freeurgent").removeAttr('disabled');	
-						$("#platinumurgent").attr('checked', false);
-						$("#platinumurgent").attr('disabled', 'disabled');				
-						$("#goldurgent").attr('checked', false);
-						$("#goldurgent").attr('disabled', 'disabled');	
-						document.getElementById("package_urgent").value = '';
-					}
-					if(ch == 'goldpackage'){
-						$(".free_pck").css("display", 'none');
-						$(".gold_pck").css("display", 'block');
-						$(".platinum_pck").css("display", 'none');
-						document.getElementById("package_type").value = 'gold';
-						$("#freeurgent").attr('checked', false);
-						$("#freeurgent").attr('disabled', 'disabled');	
-						$("#goldurgent").removeAttr('disabled');	
-						$("#platinumurgent").attr('checked', false);
-						$("#platinumurgent").attr('disabled', 'disabled');
-						document.getElementById("package_urgent").value = '';
-					}
-					if(ch == 'platinumpackage'){
-						$(".free_pck").css("display", 'none');
-						$(".gold_pck").css("display", 'none');
-						$(".platinum_pck").css("display", 'block');
-						document.getElementById("package_type").value = 'platinum';
-						$("#freeurgent").attr('checked', false);
-						$("#freeurgent").attr('disabled', 'disabled');				
-						$("#goldurgent").attr('checked', false);
-						$("#goldurgent").attr('disabled', 'disabled');	
-						$("#platinumurgent").removeAttr('disabled');	
-						document.getElementById("package_urgent").value = '';			
-					}
-				});
-
-				$(".select_urgent_pack").change(function(){
-						var va = $(this).val();
-						$("#package_urgent").val(va);
-					
-				});
-			});
-		</script>
-
 		<!-- business consumer details automatically comes from here -->
 		<script type="text/javascript">
 			$(function(){
