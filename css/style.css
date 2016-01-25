@@ -2606,7 +2606,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-style: italic;
 	/* padding: 10px 5px; */
 	text-shadow:none;
-	margin-right: 10px;
+	margin-right: -21px;
 	border-radius: 50%;
 	color: green;
 }
