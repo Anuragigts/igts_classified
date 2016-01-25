@@ -196,8 +196,13 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
+																<div class="col-xs-8">
 																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<div class="col-xs-4 ">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-category"></span>
+																	</div>
 																</div>
 															</div>
 															<div class="row">
