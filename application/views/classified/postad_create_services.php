@@ -966,11 +966,11 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="pound">
 																<i></i> £ (Pound) 
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1"  value="Euro">
+																<input type="radio" name="checkbox_toggle1"  value="euro">
 																<i></i> € (Euro)
 															</label>
 														</div>
