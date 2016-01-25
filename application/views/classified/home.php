@@ -336,7 +336,9 @@
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
 								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
 							</div>
 						</div>
 						<?php } ?>
@@ -369,7 +371,9 @@
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
 								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
 							</div>
 						</div>
 						<?php } ?>
@@ -402,7 +406,9 @@
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
 								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
 							</div>
 						</div>
 						<?php } ?>
@@ -435,7 +441,9 @@
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
 								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
 							</div>
 						</div>
 						<?php } ?>
@@ -491,7 +499,9 @@
 											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 										</ul>
 										<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-										<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										<div class="price">
+											<span></span><b><img src="img/icons/fire.png" alt="fire" title="Fire Icon"></b>
+										</div>
 									</div>
 								</div>
 								<?php	}

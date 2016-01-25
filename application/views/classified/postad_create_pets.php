@@ -899,19 +899,6 @@ jQuery(document).ready(function($) {
 														<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 													</div>
 												</div><!-- end Deal Tag -->
-												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Type of Service 
-														<sup data-toggle="tooltip" title="" data-original-title="Type of Service">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="type">
-															<img src="j-folder/img/type.png" alt="type" title="Type">
-														</label>
-														<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
-													</div>
-												</div>
 											</div>
 											
 											<div class="j-row">
@@ -1038,7 +1025,7 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="height">
 														<img src="j-folder/img/height.png" alt="height" title="height Icon" class="img-responsive">
 													</label>
-													<input type="text" id="height" name="height" placeholder="Enter Height">
+													<input type="text" id="height" name="height" placeholder="Enter Height" onkeypress="return isNumber(event)">
 												</div>
 											</div><!-- end Height -->
 										</div>

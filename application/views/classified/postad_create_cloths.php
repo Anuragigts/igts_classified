@@ -928,19 +928,6 @@ jQuery(document).ready(function($) {
 														<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 													</div>
 												</div><!-- end Deal Tag -->
-												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Type of Service 
-														<sup data-toggle="tooltip" title="" data-original-title="Type of Service">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="type">
-															<img src="j-folder/img/type.png" alt="type" title="Type">
-														</label>
-														<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
-													</div>
-												</div>
 											</div>
 											
 											<div class="j-row">
@@ -1017,7 +1004,7 @@ jQuery(document).ready(function($) {
 														</label>
 														<label class="input select">
 															<?php if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																<input type="text" id="Size" name="Size" placeholder="Enter Size">
+																<input type="text" id="Size" name="Size" placeholder="Enter Size" onkeypress="return isNumber(event)">
 														<?php	}
 														if (@$sub_sub_id == '359') { ?>
 														<select name="Size">
@@ -1111,7 +1098,7 @@ jQuery(document).ready(function($) {
 															<label class="icon-right" for="Items">
 																<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 															</label>
-															<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+															<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
 														</div>
 													</div>
 												</div>
@@ -1217,7 +1204,7 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="Size">
 														<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
 													</label>
-													<input type="text" id="size" name="size" placeholder="Enter Size">
+													<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
 												</div>
 											</div>
 											<div class="span6 unit">
@@ -1260,7 +1247,7 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="Items">
 														<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 													</label>
-													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+													<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
 												</div>
 											</div>
 											
@@ -1356,7 +1343,7 @@ jQuery(document).ready(function($) {
 																<label class="icon-right" for="Size">
 																	<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
 																</label>
-																<input type="text" id="size" name="size" placeholder="Enter Size">
+																<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
 															</div>
 														</div>
 														<div class="span6 unit">
@@ -1399,7 +1386,7 @@ jQuery(document).ready(function($) {
 																<label class="icon-right" for="Items">
 																	<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 																</label>
-																<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+																<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
 															</div>
 														</div>
 														
@@ -1448,7 +1435,7 @@ jQuery(document).ready(function($) {
 														<label class="icon-right" for="Size">
 															<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
 														</label>
-														<input type="text" id="size" name="size" placeholder="Enter Size">
+														<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
 													</div>
 												</div>
 												<div class="span6 unit">
@@ -1491,7 +1478,7 @@ jQuery(document).ready(function($) {
 														<label class="icon-right" for="Items">
 															<img src="j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 														</label>
-														<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item">
+														<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
 													</div>
 												</div>
 												
