@@ -14,61 +14,6 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
-
-	$(function(){
-		$('.select_pack').change(function(){
-			// var chk = $(this).val();
-			var ch = $('input[name="select_packge[]"]:checked').val();
-			// alert(ch);
-			if(ch == 'freepackage'){
-				$(".free_pck").css("display", 'block');
-				$(".gold_pck").css("display", 'none');
-				$(".platinum_pck").css("display", 'none');
-				document.getElementById("package_type").value = 'free';
-				$("#freeurgent").removeAttr('disabled');
-				$("#goldurgent").attr('disabled', 'disabled');
-				$("#platinumurgent").attr('disabled', 'disabled');
-			}
-			if(ch == 'goldpackage'){
-				$(".free_pck").css("display", 'none');
-				$(".gold_pck").css("display", 'block');
-				$(".platinum_pck").css("display", 'none');
-				document.getElementById("package_type").value = 'gold';
-				$("#freeurgent").attr('disabled', 'disabled');
-				$("#goldurgent").removeAttr('disabled');
-				$("#platinumurgent").attr('disabled', 'disabled');
-			}
-			if(ch == 'platinumpackage'){
-				$(".free_pck").css("display", 'none');
-				$(".gold_pck").css("display", 'none');
-				$(".platinum_pck").css("display", 'block');
-				document.getElementById("package_type").value = 'platinum';
-				$("#freeurgent").attr('disabled', 'disabled');
-				$("#goldurgent").attr('disabled', 'disabled');
-				$("#platinumurgent").removeAttr('disabled');
-			}
-
-			if($('input.select_pack').filter(':checked').length == 1)
-		        $('input.select_pack:not(:checked)').attr('disabled', 'disabled');
-			    else
-			        $('input.select_pack').removeAttr('disabled');
-		});
-
-		$(".select_urgent_pack").change(function(){
-			var ur = $('.select_urgent_pack').filter(':checked').length;
-			if (ur == 1) {
-				var va = $(this).val();
-				if (va == 'freeurgent' || $('input.select_pack').filter(':checked').length == 0) {
-					$("#free_pck").attr('checked', true);
-				}
-				$("#package_urgent").val(va);
-			}
-			else{
-				$("#package_urgent").val("");
-			}
-		});
-	});
-
 	$(function(){
 		$(".multi-submit-btn").click(function(){
 			var img_count = $("#image_count").val();
@@ -1102,8 +1047,8 @@ jQuery(document).ready(function($) {
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
-															<label class="checkbox">
-															<input type="checkbox" id='free_pck' name="select_packge[]" class='select_pack' value="freepackage" data-price="5">
+															<label class="radio">
+															<input type="radio" id='free_pck' name="select_packge" class='select_pack' value="freepackage" data-price="5">
 															<i></i>
 															Select Free 
 															</label>
@@ -1146,8 +1091,8 @@ jQuery(document).ready(function($) {
 														</ul>
 														
 														<div class="hot_deal_rad check">
-															<label class="checkbox">
-															<input type="checkbox" id='gold_pck' name="select_packge[]" class='select_pack' value="goldpackage" data-price="5">
+															<label class="radio">
+															<input type="radio" id='gold_pck' name="select_packge" class='select_pack' value="goldpackage" data-price="5">
 															<i></i>
 															Select Gold 
 															</label>
@@ -1189,8 +1134,8 @@ jQuery(document).ready(function($) {
 														</ul>
 														
 														<div class="hot_deal_rad check">
-															<label class="checkbox">
-															<input type="checkbox" id='platinum_pck' name="select_packge[]" class='select_pack' value="platinumpackage" data-price="5">
+															<label class="radio">
+															<input type="radio" id='platinum_pck' name="select_packge" class='select_pack' value="platinumpackage" data-price="5">
 															<i></i>
 															Select Platinum 
 															</label>
@@ -1231,8 +1176,8 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="checkbox">
-																	<input type="checkbox" id='freeurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<label class="radio">
+																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack' value="freeurgent" data-price="5">
 																	<i></i>
 																	Select Free Urgent
 																	</label>
@@ -1247,8 +1192,8 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="checkbox">
-																	<input type="checkbox" id='freeurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="freeurgent" data-price="5">
+																	<label class="radio">
+																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack' value="freeurgent" data-price="5">
 																	<i></i>
 																	Select Free Urgent
 																	</label>
@@ -1266,8 +1211,8 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="checkbox">
-																	<input type="checkbox" id='goldurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<label class="radio">
+																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack' value="goldurgent" data-price="5">
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
@@ -1282,8 +1227,8 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="checkbox">
-																	<input type="checkbox" id='goldurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="goldurgent" data-price="5">
+																	<label class="radio">
+																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack' value="goldurgent" data-price="5">
 																	<i></i>
 																	Select Gold Urgent 
 																	</label>
@@ -1301,8 +1246,8 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="checkbox">
-																	<input type="checkbox" id='platinumurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<label class="radio">
+																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack' value="platinumurgent" data-price="5">
 																	<i></i>
 																	Select platinum Urgent
 																	</label>
@@ -1316,8 +1261,8 @@ jQuery(document).ready(function($) {
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
-																	<label class="checkbox">
-																	<input type="checkbox" id='platinumurgent' name="select_urgent_packge[]" class='select_urgent_pack' value="platinumurgent" data-price="5">
+																	<label class="radio">
+																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack' value="platinumurgent" data-price="5">
 																	<i></i>
 																	Select platinum Urgent
 																	</label>
