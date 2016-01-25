@@ -1547,7 +1547,7 @@ hr.separator:before {
 	position: absolute;
 }
 .price b{
-	background: rgb(64, 180, 139) none repeat scroll 0% 0% !important;
+	background: #fff none repeat scroll 0% 0% !important;
 	padding:10px;
 }
 .price b i{
@@ -1790,26 +1790,26 @@ hr.separator:before {
 
 /* Parallax Secion --------------------------*/
 .image_01_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 }
 .image_02_parallax{
 	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 	opacity:2.5;
 }
 .image_03_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 }
 .image_04_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 }
 .image_05_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 }
 .image_06_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 }
 .image_07_parallax{
-	background: url("../img/slide/ban5.jpg");
+	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
 }
 .bg_parallax{
   margin: 0 auto;
@@ -2608,6 +2608,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	text-shadow:none;
 	margin-right: 10px;
 	border-radius: 50%;
+	color: green;
 }
 .info-gallery .price span{
 	font-weight: lighter;
@@ -2846,7 +2847,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   border-bottom: 1px solid #eee;
 }
 .post-header1 {
-  padding: 30px 30px 0 30px;
+  padding: 59px  30px 0 30px;
 }
 .post-format-icon {
   float: left;
@@ -3660,11 +3661,9 @@ address strong{
 
 /* Filter widgets --------------------------------------------*/
 .container-by-widget-filter{
-  	margin-left: -20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-bottom: 70px;
+  	padding: 10px;
   	color: #ccc;
+	background-color: #424A44;
 }
 .filter-widget{
 	padding: 0;
