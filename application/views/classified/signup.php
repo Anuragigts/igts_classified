@@ -206,33 +206,33 @@
 													</div>
 													<div class="col-2">
 														<label>Business Name <sup style='color:red;'>*</sup>    
-															<input placeholder="Enter Business name" id="bus_name" name="bus_name" tabindex="1">
+															<input placeholder="Enter Business name" id="bus_name" name="bus_name" tabindex="3">
 														</label>
 													</div>
 													<div class="col-2">
 														<label>Business Address <sup style='color:red;'>*</sup>
-															<input placeholder="Enter Business Address" id="bus_address" name="bus_address" tabindex="2">
+															<input placeholder="Enter Business Address" id="bus_address" name="bus_address" tabindex="4">
 														</label>
 													</div>
 													<div class="col-2">
 														<label>Email <sup style='color:red;'>*</sup>
-															<input placeholder="Enter Email" id="bus_email" name="bus_email" tabindex="3">
+															<input placeholder="Enter Email" id="bus_email" name="bus_email" tabindex="5">
 														</label>
 													</div>
 													<div class="col-2">
 														<label>Password <sup style='color:red;'>*</sup>
-															<input type="password" placeholder="Enter password" id="bus_password" name="bus_password" tabindex="4">
+															<input type="password" placeholder="Enter password" id="bus_password" name="bus_password" tabindex="6">
 															
 														</label>
 													</div>
 													<div class="col-2">
 														<label>Phone Number <sup style='color:red;'>*</sup>
-															<input placeholder="Enter Mobile number" id="bus_mobile" name="bus_mobile" tabindex="5" maxlength='10' onkeypress="return isNumber(event)" >
+															<input placeholder="Enter Mobile number" id="bus_mobile" name="bus_mobile"  maxlength='10' onkeypress="return isNumber(event)" tabindex="7">
 														</label>
 													</div>
 													<div class="col-2">
 														<label>VAT Number
-															<input placeholder="Enter VAT number" id="vat_number" name="vat_number" tabindex="5" >
+															<input placeholder="Enter VAT number" id="vat_number" name="vat_number" tabindex="8" >
 														</label>
 													</div>
 												</div>

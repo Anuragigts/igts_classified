@@ -336,9 +336,11 @@
 											</div>
 										</div>
 										
-										
 										<hr class="separator">
+										
 										<h2>Home Appliances</h2>
+										
+										
 										<h3>Air Conditioners</h3>
 										<div class="j-row">
 											<div class="span6 unit">
@@ -402,6 +404,1198 @@
 											</div>
 										</div>
 										
+										<hr class="separator">
+										
+										<h3>Air Coolers</h3>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="capacity">
+														<img src="j-folder/img/ram.png" alt="Memory" title="Memory Icon">
+													</label>
+													<input type="text" id="capacity" name="capacity" placeholder="Enter Capacity Capacity">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Water Level Indicator
+													<sup data-toggle="tooltip" title="" data-original-title="Water Level Indicator">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="waterlevind">
+														<option value="none" selected disabled="">Select Air Direction</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Cooling Area (sq.ft.)
+													<sup data-toggle="tooltip" title="" data-original-title="Cooling Area (sq.ft.)">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="coolarea">
+														<option value="none" selected disabled="">Select Air Direction</option>
+														<option value="">Up to 100 Sq Ft</option>
+														<option value="">Up to 150 Sq Ft</option>
+														<option value="">Up to 200 Sq Ft</option>
+														<option value="">Up to 250 Sq Ft</option>
+														<option value="">Up to 300 Sq Ft</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Weight & Dimensions
+													<sup data-toggle="tooltip" title="" data-original-title="Weight & Dimensions">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter Weight & Dimensions">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Display Type
+													<sup data-toggle="tooltip" title="" data-original-title="Display Type">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="displaytype">
+														<img src="j-folder/img/displayty.png" alt="displaytype" title="Display type Icon">
+													</label>
+													<input type="text" id="displaytype" name="displaytype" placeholder="Enter Display Type">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Air Direction 
+													<sup data-toggle="tooltip" title="" data-original-title="Air Direction">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="airdirection">
+														<option value="none" selected disabled="">Select Air Direction</option>
+														<option value="">1 Way</option>
+														<option value="">2 Way</option>
+														<option value="">3 Way</option>
+														<option value="">4 Way</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Fans</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Regulator Included
+													<sup data-toggle="tooltip" title="" data-original-title="Regulator Included">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="regulator">
+														<option value="none" selected disabled="">Select Regulator Included</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No. of Blades
+													<sup data-toggle="tooltip" title="" data-original-title="No. of Blades">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="blades">
+														<option value="none" selected disabled="">Select Air Direction</option>
+														<option value="">1 Blade</option>
+														<option value="">2 Blade</option>
+														<option value="">3 Blade</option>
+														<option value="">4 Blade</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Refrigerators</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="capacity">
+														<img src="j-folder/img/ram.png" alt="Memory" title="Memory Icon">
+													</label>
+													<input type="text" id="capacity" name="capacity" placeholder="Enter Capacity Capacity">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Door Lock
+													<sup data-toggle="tooltip" title="" data-original-title="Door Lock">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="doorlock">
+														<option value="none" selected disabled="">Select Door Lock</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Vegetable Basket
+													<sup data-toggle="tooltip" title="" data-original-title="Cooling Area (sq.ft.)">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="vegitablebasket">
+														<option value="none" selected disabled="">Select Vegetable Basket</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Dimensions
+													<sup data-toggle="tooltip" title="" data-original-title="Dimensions">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter  Dimensions">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Washing Machines</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit"><!-- start Deal Tag -->
+												<label class="label">Wash Load 
+													<sup data-toggle="tooltip" title="" data-original-title="Wash Load">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="washload">
+														<img src="j-folder/img/wash.png" alt="wash" title="wash Icon" class="img-responsive">
+													</label>
+													<input type="text" id="washload" name="washload" placeholder="Enter Wash Load">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Heavy Wash
+													<sup data-toggle="tooltip" title="" data-original-title="Heavy Wash">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="heavywash">
+														<option value="none" selected disabled="">Select Heavy Wash</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Buzzer
+													<sup data-toggle="tooltip" title="" data-original-title="Buzzer">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="buzzer">
+														<option value="none" selected disabled="">Select Buzzer</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Electric Iron</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Power Consumption
+													<sup data-toggle="tooltip" title="" data-original-title="Power Consumption">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="powerconsumption">
+														<option value="none" selected disabled="">Select Power Consumption</option>
+														<option value="">500 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Plate Type
+													<sup data-toggle="tooltip" title="" data-original-title="Plate Type">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="platetype">
+														<option value="none" selected disabled="">Select Plate Type</option>
+														<option value="">Non-stick sole</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Vacuum Cleaners</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Suction Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">500 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Dust Level Indicator
+													<sup data-toggle="tooltip" title="" data-original-title="Dust Level Indicator">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="dustlevelind">
+														<option value="none" selected disabled="">Select Dust Level Indicator</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Water Heaters & Room Heaters</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">500 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacityheat">
+														<option value="none" selected disabled="">Select Dust Level Indicator</option>
+														<option value="">1 Litre</option>
+														<option value="">2 Litre</option>
+														<option value="">3 Litre</option>
+														<option value="">4 Litre</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Sewing Machine</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Weight
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="weight">
+														<option value="none" selected disabled="">Select Weight</option>
+														<option value="">Light weight</option>
+														<option value="">Normal weight</option>
+														<option value="">Heavy weight</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Dryers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Drying Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="drycap">
+														<option value="none" selected disabled="">Select Drying Capacity</option>
+														<option value="">1 Kg</option>
+														<option value="">2 Kg</option>
+														<option value="">3 Kg</option>
+														<option value="">4 Kg</option>
+														<option value="">5 Kg</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Emergency Light</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Battery
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="lightbattery">
+														<option value="none" selected disabled="">Select Battery</option>
+														<option value="">1-2 hours</option>
+														<option value="">2-3 hours</option>
+														<option value="">3-4 hours</option>
+														<option value="">4-5 hours</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h2>Small Appliances</h2>
+										<h3>Microwave Ovens & OTG</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacityheat">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">4 Litre</option>
+														<option value="">8 Litre</option>
+														<option value="">10 Litre</option>
+														<option value="">12 Litre</option>
+														<option value="">14 Litre</option>
+														<option value="">16 Litre</option>
+														<option value="">18 Litre</option>
+														<option value="">20 Litre</option>
+														<option value="">22 Litre</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">500 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Maximum Cooking Time
+													<sup data-toggle="tooltip" title="" data-original-title="Maximum Cooking Time">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="cooktime">
+														<option value="none" selected disabled="">Select Cooking Time</option>
+														<option value="">15min</option>
+														<option value="">20min</option>
+														<option value="">25min</option>
+														<option value="">30min</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">500 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Food Processors</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Speed Controls
+													<sup data-toggle="tooltip" title="" data-original-title="Speed Controls">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="speedctrl">
+														<option value="none" selected disabled="">Select Speed Controls</option>
+														<option value="">2 Speed</option>
+														<option value="">3 Speed</option>
+														<option value="">4 Speed</option>
+														<option value="">5 Speed</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">500 W</option>
+														<option value="">600 W</option>
+														<option value="">700 W</option>
+														<option value="">800 W</option>
+														<option value="">900 W</option>
+														<option value="">1000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Food processing Bowl
+													<sup data-toggle="tooltip" title="" data-original-title="Food processing Bowl">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="foodbowl">
+														<option value="none" selected disabled="">Select Food processing Bowl</option>
+														<option value="">1.5 Lit</option>
+														<option value="">1.6 Lit</option>
+														<option value="">1.7 Lit</option>
+														<option value="">1.8 Lit</option>
+														<option value="">2 Lit</option>
+														<option value="">2.2 Lit</option>
+														<option value="">2.5 Lit</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Mixer Grinder Juicers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Speed Controls
+													<sup data-toggle="tooltip" title="" data-original-title="Speed Controls">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="speedctrl">
+														<option value="none" selected disabled="">Select Speed Controls</option>
+														<option value="">2 Speed</option>
+														<option value="">3 Speed</option>
+														<option value="">4 Speed</option>
+														<option value="">5 Speed</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Power Indicator
+													<sup data-toggle="tooltip" title="" data-original-title="Power Indicator">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="powerind">
+														<option value="none" selected disabled="">Select Power Indicator</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Food processing Bowl
+													<sup data-toggle="tooltip" title="" data-original-title="Food processing Bowl">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="foodbowl">
+														<option value="none" selected disabled="">Select Food processing Bowl</option>
+														<option value="">1.5 Lit</option>
+														<option value="">1.6 Lit</option>
+														<option value="">1.7 Lit</option>
+														<option value="">1.8 Lit</option>
+														<option value="">2 Lit</option>
+														<option value="">2.2 Lit</option>
+														<option value="">2.5 Lit</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Cookers & Steamers ,Grills & Tandooris</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacity">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">2 Slice</option>
+														<option value="">3 Slice</option>
+														<option value="">4 Slice</option>
+														<option value="">5 Slice</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">400 W</option>
+														<option value="">600 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Toasters & Sandwich Makers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacity">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">1.5 Lit</option>
+														<option value="">1.6 Lit</option>
+														<option value="">1.7 Lit</option>
+														<option value="">1.8 Lit</option>
+														<option value="">2 Lit</option>
+														<option value="">2.2 Lit</option>
+														<option value="">2.5 Lit</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">400 W</option>
+														<option value="">600 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Blenders & Choppers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Suction Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="suctionpower">
+														<option value="none" selected disabled="">Select Suction Power</option>
+														<option value="">500 W</option>
+														<option value="">600 W</option>
+														<option value="">700 W</option>
+														<option value="">800 W</option>
+														<option value="">900 W</option>
+														<option value="">1000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Transparent Bowl 
+													<sup data-toggle="tooltip" title="" data-original-title="Transparent Bowl">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="transparentbowl">
+														<option value="none" selected disabled="">Select Transparent Bowl</option>
+														<option value="">1 Lit</option>
+														<option value="">1.5 Lit</option>
+														<option value="">2 Lit</option>
+														<option value="">2.5 Lit</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Coffee Tea Makers & Kettles</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacity">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">2-3 Cups</option>
+														<option value="">3-4 Cups</option>
+														<option value="">4-5 Cups</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power Consumption
+													<sup data-toggle="tooltip" title="" data-original-title="Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="power">
+														<option value="none" selected disabled="">Select Power Consumption</option>
+														<option value="">400 W</option>
+														<option value="">600 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										
+										<hr class="separator">
+										
+										<h3>Fryers & Snack makers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacity">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">1 Lit</option>
+														<option value="">1.5 Lit</option>
+														<option value="">2 Lit</option>
+														<option value="">2.5 Lit</option>
+														<option value="">3 Lit</option>
+														<option value="">3.5 Lit</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Timer
+													<sup data-toggle="tooltip" title="" data-original-title="Timer">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="timer">
+														<option value="none" selected disabled="">Select Timer</option>
+														<option value="">upto 20 min</option>
+														<option value="">upto 25 min</option>
+														<option value="">upto 30 min</option>
+														<option value="">upto 35 min</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Power Indicator
+													<sup data-toggle="tooltip" title="" data-original-title="Power Indicator">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="powerind">
+														<option value="none" selected disabled="">Select Power Indicator</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Temperature Control
+													<sup data-toggle="tooltip" title="" data-original-title="Temperature Control">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="temperature">
+														<option value="none" selected disabled="">Select Temperature</option>
+														<option value="">80 - 120 Degree Celsius</option>
+														<option value="">120 - 160 Degree Celsius</option>
+														<option value="">160 - 200 Degree Celsius</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Water Purifiers</h3>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacity">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">2 Lit</option>
+														<option value="">3 Lit</option>
+														<option value="">4 Lit</option>
+														<option value="">5 Lit</option>
+														<option value="">6 Lit</option>
+														<option value="">8 Lit</option>
+														<option value="">10 Lit</option>
+														<option value="">12 Lit</option>
+														<option value="">14 Lit</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Dimensions
+													<sup data-toggle="tooltip" title="" data-original-title="Dimensions">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter  Dimensions">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Dishwashers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Noise Level
+													<sup data-toggle="tooltip" title="" data-original-title="Noise Level">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/noise.png" alt="Noise" title="Noise Icon">
+													</label>
+													<input type="text" id="noise" name="noise" placeholder="Enter Noise Level">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Voltage
+													<sup data-toggle="tooltip" title="" data-original-title="Voltage">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Voltage">
+														<img src="j-folder/img/voltage.png" alt="Voltage" title="Voltage Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter Voltage">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Indicator
+													<sup data-toggle="tooltip" title="" data-original-title="Power Indicator">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="powerind">
+														<option value="none" selected disabled="">Select Power Indicator</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Weight
+													<sup data-toggle="tooltip" title="" data-original-title="Weight & Dimensions">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter Weight & Dimensions">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Laptop & Computers</h3>
+										
+										<h3>Laptops</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Operating System
+													<sup data-toggle="tooltip" title="" data-original-title="Operating System">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Version">
+														<img src="j-folder/img/opesys.png" alt="Version" title="Version Icon">
+													</label>
+													<input type="text" id="opersys" name="opersys" placeholder="Enter Operating System">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Screen Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="screensize">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Operating System
+													<sup data-toggle="tooltip" title="" data-original-title="Operating System">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Version">
+														<img src="j-folder/img/opesys.png" alt="Version" title="Version Icon">
+													</label>
+													<input type="text" id="opersys" name="opersys" placeholder="Enter Operating System">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Weight
+													<sup data-toggle="tooltip" title="" data-original-title="Weight">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter Weight">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">RAM
+													<sup data-toggle="tooltip" title="" data-original-title="RAM">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="ram">
+														<img src="j-folder/img/ram.png" alt="RAM" title="RAM Icon">
+													</label>
+													<input type="text" id="ram" name="ram" placeholder="Enter RAM">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Battery
+													<sup data-toggle="tooltip" title="" data-original-title="Battery">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="batterybcup">
+														<img src="j-folder/img/battery.png" alt="Battery" title="Battery Icon">
+													</label>
+													<input type="text" id="batterybcup" name="batterybcup" placeholder="Enter Battery Backup">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">HDD Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="HDD Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="memory">
+														<img src="j-folder/img/ram.png" alt="Memory" title="Memory Icon">
+													</label>
+													<input type="text" id="memory" name="memory" placeholder="Enter HDD Capacity">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
 										
 										<h3>Property Residential Category</h3>
 										
