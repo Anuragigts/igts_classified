@@ -13,24 +13,15 @@
 			color:#fff !important;
 		}
 	</style>
-	<link rel="stylesheet" href="js/filter.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
-		  $('#scroll_area1').niceScroll({
-			autohidemode: 'false',     // Do not hide scrollbar when mouse out
-			cursorborderradius: '0px', // Scroll cursor radius
-			background: '#E5E9E7',     // The scrollbar rail color
-			cursorwidth: '12px',       // Scroll cursor width
-			cursorcolor: '#48b76c'     // Scroll cursor color
-		  });
-		});
-		$(document).ready(function() {
-		  $('#scroll_area2').niceScroll({
-			autohidemode: 'false',     // Do not hide scrollbar when mouse out
-			cursorborderradius: '0px', // Scroll cursor radius
-			background: '#E5E9E7',     // The scrollbar rail color
-			cursorwidth: '12px',       // Scroll cursor width
-			cursorcolor: '#48b76c'     // Scroll cursor color
+		  $('.cd-filter-content').niceScroll({
+			autohidemode: 'false',     
+			cursorborderradius: '0px', 
+			background: '#E5E9E7',     
+			cursorwidth: '12px',       
+			cursorcolor: '#ED7642'     
 		  });
 		});
 	</script>
@@ -232,7 +223,7 @@
 										<h4 class="title-widget">Engine Size</h4>
 
 										<div class="cd-filter-content">
-											<div id="scroll_area2">
+											<div id="scroll_area1">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
 													<i></i> Any

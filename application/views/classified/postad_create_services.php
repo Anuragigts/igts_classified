@@ -966,14 +966,12 @@ jQuery(document).ready(function($) {
 													<div class="unit check logic-block-radio">
 														<div class="inline-group">
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" class='currency' value="euro">
-																<i></i>
-																€ - Euro
+																<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+																<i></i> £ (Pound) 
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" class='currency' value="pound">
-																<i></i>
-																£ - Pound
+																<input type="radio" name="checkbox_toggle1"  value="Euro">
+																<i></i> € (Euro)
 															</label>
 														</div>
 													</div>
@@ -982,7 +980,7 @@ jQuery(document).ready(function($) {
 													<div class="j-row">
 														<div class="span6 unit top_20">
 															<div class="input">
-																<label class="icon-right" for="dealtag">
+																<label class="icon-right" for="price">
 																	<img src="j-folder/img/price.png" alt="price" title="Price">
 																</label>
 																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
