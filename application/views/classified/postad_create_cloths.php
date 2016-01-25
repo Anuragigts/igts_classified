@@ -1831,7 +1831,7 @@ jQuery(document).ready(function($) {
 												<div class="alert alert-danger free_img_error" style='display:none;' >
 												    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
 												    <strong>Error!</strong> Please upload upto 3-5 images only
-												  </div>
+												</div>
 												<div class="span4 unit">
 													<div style="width:240px;">
 														<div id="dropzone-wrapper">

@@ -27,7 +27,7 @@ class Postad extends CI_Controller{
 
                 if ($this->session->userdata("postad_time") != '') {
                     $new_time = time() - $this->session->userdata("postad_time");
-                    if ($new_time > 5) {
+                    if ($new_time > 8) {
                         $this->session->unset_userdata('postad_success');
                     }
                 }
