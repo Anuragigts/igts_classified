@@ -1547,7 +1547,7 @@ hr.separator:before {
 	position: absolute;
 }
 .price b{
-	background: #fff none repeat scroll 0% 0% !important;
+	/* background: #fff none repeat scroll 0% 0% !important; */
 	padding:10px;
 }
 .price b i{
@@ -2606,7 +2606,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-style: italic;
 	/* padding: 10px 5px; */
 	text-shadow:none;
-	margin-right: -21px;
+	/* margin-right: -21px; */
 	border-radius: 50%;
 	color: green;
 }
@@ -4268,13 +4268,27 @@ a .login-op-btn:hover{
     top: 0px;
     left: auto;
 }
-.first_list span.compared-category {
+.first_list span.plattinum_icon {
     background: transparent url("../img/icons/crown.png") repeat scroll 0% 0%;
     width: 31px;
     height: 31px;
     display: block;
     cursor: pointer;
 } 
+.first_list span.gold_icon{
+    background: transparent url("../img/icons/thumb.png") repeat scroll 0% 0%;
+    width: 31px;
+    height: 31px;
+    display: block;
+    cursor: pointer;
+}
+.first_list span.free_icon{
+    background: transparent url("../img/icons/fire.png") repeat scroll 0% 0%;
+    width: 31px;
+    height: 31px;
+    display: block;
+    cursor: pointer;
+}
 
 /*--*/
 
