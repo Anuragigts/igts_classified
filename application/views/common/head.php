@@ -129,7 +129,7 @@
 	                });
 	        });
 				/*signup consumer and business characters only*/
-				$('#con_fname').keydown(function (e) {
+				/*$('#con_fname').keydown(function (e) {
 					if (e.shiftKey || e.ctrlKey || e.altKey) {
 					e.preventDefault();
 					} else {
@@ -149,7 +149,7 @@
                         e.preventDefault();
                         }
                     }
-                });
+                });*/
 
             $('#bus_fname').keydown(function (e) {
                     if (e.shiftKey || e.ctrlKey || e.altKey) {

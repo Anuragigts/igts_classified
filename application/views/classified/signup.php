@@ -41,12 +41,22 @@
 				   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/.test(value); // consists of only these
 				});
 
+				 jQuery.validator.addMethod("character", function (value) {
+			         return /^[a-zA-Z\s]+$/.test(value);
+			        });
+
                 $("#register_form").validate({
 			
 				// Specify the validation rules
 				rules: {
-					con_fname: "required",
-					con_lname: "required",
+					con_fname: {
+						required: true,
+						character:true
+					},
+					con_lname: {
+						required: true,
+						character:true
+					},
 					con_mobile: "required",
 					con_email: {
 						required: true,
@@ -75,8 +85,14 @@
 				
 				// Specify the validation error messages
 				messages: {
-					con_fname: "Please enter your first name",
-					con_lname: "Please enter your last name",
+					con_fname: {
+						required: "Please enter your first name",
+						character: "please Enter characters"
+					},
+					con_lname: {
+						required: "Please enter your first name",
+						character: "please Enter characters"
+					},
 					con_mobile: "Please enter your 10 Digit Mobile No",
 					bus_fname: "Please enter your first name",
 					bus_lname: "Please enter your last name",
