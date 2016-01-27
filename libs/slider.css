@@ -25,9 +25,8 @@ ol { list-style: none; }
   position: relative;
 }
 
-.xuSlider {
-  
-
+.xuSlider_box {
+	height: 168px !important;
 }
 
 .viewport { height: 100%; }
