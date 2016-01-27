@@ -276,11 +276,209 @@
 									</div>
 									
 									<div class="col-md-12">
+										<div class="first_list">
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="featured-badge">
+														<span>Urgent</span>
+													</div>
+													<div class="xuSlider">
+														<ul class="sliders">
+															<li><img src="images/sliders0.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+															<li><img src="images/sliders1.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+															<li><img src="images/sliders2.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+															<li><img src="images/sliders3.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+															<li><img src="images/sliders4.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+														</ul>
+														<div class="direction-nav">
+															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
+															<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
+														</div>
+														<div class="control-nav">
+															<li data-id="1"><a href="javascript:;">1</a></li>
+															<li data-id="2"><a href="javascript:;">2</a></li>
+															<li data-id="3"><a href="javascript:;">3</a></li>
+															<li data-id="4"><a href="javascript:;">4</a></li>
+															<li data-id="5"><a href="javascript:;">5</a></li>
+														</div>	
+													</div>
+												</div>
+												<div class="col-sm-8 middle_text">
+													<div class="row">
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="col-xs-8">
+																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<div class="col-xs-4 ">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-category"></span>
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-4">
+																	<ul class="starts">
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																	</ul>
+																</div>
+																<div class="col-xs-8">
+																	<div class="location pull-right ">
+																		<i class="fa fa-map-marker "></i> 
+																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-xs-4 serch_bus_logo">
+															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+														</div>
+													</div>
+													<hr class="separator">
+													<div class="row">
+														<div class="col-xs-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																</div>
+																<div class="col-xs-12">
+																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price">£1106</h3>
+																</div>
+																<div class="col-xs-12">
+																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><!-- End Row-->
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="post-meta list_view_bottom" >
+													<ul>
+														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+														<li><span>Deal ID : 112457856</span></li>
+														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+														<li><i class="fa fa-edit"></i></li>
+														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+													</ul>                      
+												</div>
+											</div>
+										</div><hr class="separator">	
+										<!-- End Item Gallery List View-->
+									</div>
+									
+									<div class="col-md-12">
+										<div class="first_list gold_bgcolor">
+											<div class="row">
+												<div class="col-sm-4 view_img">
+													<div class="img-hover">
+														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+													</div>
+												</div>
+												<div class="col-sm-8 middle_text">
+													<div class="row">
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-4">
+																	<ul class="starts">
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																	</ul>
+																</div>
+																<div class="col-xs-8">
+																	<div class="location pull-right ">
+																		<i class="fa fa-map-marker "></i> 
+																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-xs-4 serch_bus_logo">
+															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+														</div>
+													</div>
+													<hr class="separator">
+													<div class="row">
+														<div class="col-xs-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																</div>
+																<div class="col-xs-12">
+																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price">£1106</h3>
+																</div>
+																<div class="col-xs-12">
+																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><!-- End Row-->
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="post-meta list_view_bottom gold_bgcolor">
+													<ul>
+														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+														<li><span>Deal ID : 112457856</span></li>
+														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+														<li><i class="fa fa-edit"></i></li>
+														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+													</ul>                      
+												</div>
+											</div>
+										</div><hr class="separator">	
+										<!-- End Item Gallery List View-->
+									</div>
+									
+									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="featured-badge">
-														<span>Gold + U</span>
+														<span>Urgent</span>
 													</div>
 													<div class="img-hover">
 														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
@@ -347,6 +545,93 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom gold_bgcolor">
+													<ul>
+														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
+														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
+														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
+														<li><span>Deal ID : 112457856</span></li>
+														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
+														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
+														<li><i class="fa fa-edit"></i></li>
+														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+													</ul>                      
+												</div>
+											</div>
+										</div><hr class="separator">	
+										<!-- End Item Gallery List View-->
+									</div>
+									
+									<div class="col-md-12">
+										<div class="first_list">
+											<div class="row">
+												<div class="col-sm-4 view_img">
+													<div class="img-hover">
+														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+													</div>
+												</div>
+												<div class="col-sm-8 middle_text">
+													<div class="row">
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-4">
+																	<ul class="starts">
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star"></i></a></li>
+																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																	</ul>
+																</div>
+																<div class="col-xs-8">
+																	<div class="location pull-right ">
+																		<i class="fa fa-map-marker "></i> 
+																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-xs-4 serch_bus_logo">
+															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+														</div>
+													</div>
+													<hr class="separator">
+													<div class="row">
+														<div class="col-xs-8">
+															<div class="row">
+																<div class="col-xs-12">
+																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																</div>
+																<div class="col-xs-12">
+																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price">£1106</h3>
+																</div>
+																<div class="col-xs-12">
+																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><!-- End Row-->
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="post-meta list_view_bottom" >
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
