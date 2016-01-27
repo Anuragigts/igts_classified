@@ -159,7 +159,7 @@
 												</label>
 												<div class="input">
 													<label class="icon-right" for="screensize">
-														<i class="fa fa-laptop"></i>
+														<img src="j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
 													</label>
 													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
 												</div>
@@ -1508,6 +1508,7 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Screen Size 
@@ -1517,9 +1518,87 @@
 												</label>
 												<div class="input">
 													<label class="icon-right" for="screensize">
-														<i class="fa fa-laptop"></i>
+														<img src="j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
 													</label>
 													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Weight
+													<sup data-toggle="tooltip" title="" data-original-title="Weight">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter Weight">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">RAM
+													<sup data-toggle="tooltip" title="" data-original-title="RAM">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="ram">
+														<img src="j-folder/img/ram.png" alt="RAM" title="RAM Icon">
+													</label>
+													<input type="text" id="ram" name="ram" placeholder="Enter RAM">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Battery
+													<sup data-toggle="tooltip" title="" data-original-title="Battery">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="batterybcup">
+														<img src="j-folder/img/battery.png" alt="Battery" title="Battery Icon">
+													</label>
+													<input type="text" id="batterybcup" name="batterybcup" placeholder="Enter Battery Backup">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">HDD Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="HDD Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="memory">
+														<img src="j-folder/img/ram.png" alt="Memory" title="Memory Icon">
+													</label>
+													<input type="text" id="memory" name="memory" placeholder="Enter HDD Capacity">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>All In One</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
 												</div>
 											</div>
 											<div class="span6 unit">
@@ -1539,6 +1618,19 @@
 										
 										<div class="j-row">
 											<div class="span6 unit">
+												<label class="label">Screen Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="screensize">
+														<img src="j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
+													</label>
+													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+												</div>
+											</div>
+											<div class="span6 unit">
 												<label class="label">Weight
 													<sup data-toggle="tooltip" title="" data-original-title="Weight">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -1551,6 +1643,9 @@
 													<input type="text" id="weight" name="weight" placeholder="Enter Weight">
 												</div>
 											</div>
+										</div>
+										
+										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">RAM
 													<sup data-toggle="tooltip" title="" data-original-title="RAM">
@@ -1564,9 +1659,6 @@
 													<input type="text" id="ram" name="ram" placeholder="Enter RAM">
 												</div>
 											</div>
-										</div>
-										
-										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Battery
 													<sup data-toggle="tooltip" title="" data-original-title="Battery">
@@ -1580,6 +1672,9 @@
 													<input type="text" id="batterybcup" name="batterybcup" placeholder="Enter Battery Backup">
 												</div>
 											</div>
+										</div>
+										
+										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">HDD Capacity
 													<sup data-toggle="tooltip" title="" data-original-title="HDD Capacity">
@@ -1591,6 +1686,1116 @@
 														<img src="j-folder/img/ram.png" alt="Memory" title="Memory Icon">
 													</label>
 													<input type="text" id="memory" name="memory" placeholder="Enter HDD Capacity">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Printers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Print Speed Mono
+													<sup data-toggle="tooltip" title="" data-original-title="Print Speed Mono">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="printspeedmono">
+														<option value="none" selected disabled="">Select Print Speed Mono</option>
+														<option value="">5PPM</option>
+														<option value="">6PPM</option>
+														<option value="">7PPM</option>
+														<option value="">8PPM</option>
+														<option value="">9PPM</option>
+														<option value="">10PPM</option>
+														<option value="">11PPM</option>
+														<option value="">12PPM</option>
+														<option value="">13PPM</option>
+														<option value="">14PPM</option>
+														<option value="">15PPM</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Weight
+													<sup data-toggle="tooltip" title="" data-original-title="Weight">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter Weight">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Wi-Fi Devices</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Wireless Speed
+													<sup data-toggle="tooltip" title="" data-original-title="Wireless Speed">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="wirelesspeed">
+														<option value="none" selected disabled="">Select Print Speed Mono</option>
+														<option value="">100 Mbps</option>
+														<option value="">150 Mbps</option>
+														<option value="">200 Mbps</option>
+														<option value="">250 Mbps</option>
+														<option value="">300 Mbps</option>
+														<option value="">350 Mbps</option>
+														<option value="">400 Mbps</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Frequency
+													<sup data-toggle="tooltip" title="" data-original-title="Frequency">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="frequency">
+														<option value="none" selected disabled="">Select Frequency</option>
+														<option value="">2.4835 GHz</option>
+														<option value="">3.6 GHz</option>
+														<option value="">4.9 GHz</option>
+														<option value="">5 GHz</option>
+														<option value="">5.9 GHz</option>
+														<option value="">60 GHz</option>
+														<option value="">900 MHz</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Network
+													<sup data-toggle="tooltip" title="" data-original-title="Network">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="network">
+														<option value="none" selected disabled="">Select Network</option>
+														<option value="">2G Network</option>
+														<option value="">3G Network</option>
+														<option value="">4G Network	</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Number of LAN Ports
+													<sup data-toggle="tooltip" title="" data-original-title="Number of LAN Ports">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="lanports">
+														<option value="none" selected disabled="">Select LAN Ports</option>
+														<option value="">2 Ports</option>
+														<option value="">3 Ports</option>
+														<option value="">4 Ports</option>
+														<option value="">5 Ports</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										
+										<hr class="separator">
+										
+										<h3>External Hard Drives & Pen Drives</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="capacity">
+														<option value="none" selected disabled="">Select Capacity</option>
+														<option value="">512 MB</option>
+														<option value="">1GB</option>
+														<option value="">2GB</option>
+														<option value="">4GB</option>
+														<option value="">8GB</option>
+														<option value="">16GB</option>
+														<option value="">32GB</option>
+														<option value="">64GB</option>
+														<option value="">128GB</option>
+														<option value="">500GB</option>
+														<option value="">1TB</option>
+														<option value="">2TB</option>
+														<option value="">4Tb</option>
+														<option value="">8TB</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Connectivity
+													<sup data-toggle="tooltip" title="" data-original-title="Connectivity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="connectivity">
+														<option value="none" selected disabled="">Select Connectivity</option>
+														<option value="">USB 1.1 - 12 Mbps</option>
+														<option value="">USB 2.0 - 480 Mbps</option>
+														<option value="">USB 3.0 - 4.8 Gbps</option>
+														<option value="">Firewire 400 Mbps - 800 Mbps</option>
+														<option value="">(e) SATA 2.0/3.0 - 3 Gbps/6Gbps</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Keyboards</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Interface
+													<sup data-toggle="tooltip" title="" data-original-title="Interface">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="interface">
+														<option value="none" selected disabled="">Select Interface</option>
+														<option value="">USB</option>
+														<option value="">Wireless</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Mouse</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Interface
+													<sup data-toggle="tooltip" title="" data-original-title="Interface">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="interface">
+														<option value="none" selected disabled="">Select Interface</option>
+														<option value="">USB</option>
+														<option value="">Wireless</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Buttons
+													<sup data-toggle="tooltip" title="" data-original-title="Buttons">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="buttons">
+														<option value="none" selected disabled="">Select Buttons</option>
+														<option value="">2 Buttons</option>
+														<option value="">3 Buttons</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Headsets</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Headsets</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Length
+													<sup data-toggle="tooltip" title="" data-original-title="Charity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Length">
+														<img src="j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
+													</label>
+													<input type="text" id="length" name="length" placeholder="Enter Length">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Ink & Toner</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Softwares</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Softwares
+													<sup data-toggle="tooltip" title="" data-original-title="Softwares">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="softwares">
+														<option value="none" selected disabled="">Select Softwares</option>
+														<option value="">Operating System</option>
+														<option value="">Security & Utilities</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h2>Personal Care</h2>
+										
+										<h3>Shavers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power
+													<sup data-toggle="tooltip" title="" data-original-title="Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="power">
+														<option value="none" selected disabled="">Select Power</option>
+														<option value="">50 V - 150 V</option>
+														<option value="">100 V - 240 V</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Shavers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Cutting Length
+													<sup data-toggle="tooltip" title="" data-original-title="Cutting Length">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="cutlength">
+														<option value="none" selected disabled="">Select Cutting Length</option>
+														<option value="">0.2 - 6 mm</option>
+														<option value="">0.3 - 8 mm</option>
+														<option value="">0.4 - 10 mm</option>
+														<option value="">0.5 - 13 mm</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Blade Type
+													<sup data-toggle="tooltip" title="" data-original-title="Blade Type">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="bladetype">
+														<option value="none" selected disabled="">Select Blade Type</option>
+														<option value="">Self-Sharpening High-Carbon Steel</option>
+														<option value="">Stainless Steel</option>
+														<option value="">Precise Blade</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<h3>Body Groomers & Epilators & Pedometers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Battery
+													<sup data-toggle="tooltip" title="" data-original-title="Battery">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="batterybcup">
+														<img src="j-folder/img/battery.png" alt="Battery" title="Battery Icon">
+													</label>
+													<input type="text" id="batterybcup" name="batterybcup" placeholder="Enter Battery Backup">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Hair Dryers & Hair Stylers</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power Consumption
+													<sup data-toggle="tooltip" title="" data-original-title="Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="power">
+														<option value="none" selected disabled="">Select Power Consumption</option>
+														<option value="">400 W</option>
+														<option value="">600 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+														<option value="">2000 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Length
+													<sup data-toggle="tooltip" title="" data-original-title="Cutting Length">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="cutlength">
+														<option value="none" selected disabled="">Select Cutting Length</option>
+														<option value="">1 Meter</option>
+														<option value="">1.5 Meter</option>
+														<option value="">2 Meter</option>
+														<option value="">2.5 Meter</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Monitors</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Screen Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="screensize">
+														<img src="j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
+													</label>
+													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Screen type
+													<sup data-toggle="tooltip" title="" data-original-title="Screen type">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="screentype">
+														<option value="none" selected disabled="">Select Screen type</option>
+														<option value="">LED</option>
+														<option value="">LCD</option>
+														<option value="">Normal</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h2>Home Entertainment</h2>
+										
+										<h3>LCD LED Televisions</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Screen Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="screensize">
+														<img src="j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
+													</label>
+													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Screen type
+													<sup data-toggle="tooltip" title="" data-original-title="Screen type">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="screentype">
+														<option value="none" selected disabled="">Select Screen type</option>
+														<option value="">LED</option>
+														<option value="">LCD</option>
+														<option value="">Normal</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power Consumption
+													<sup data-toggle="tooltip" title="" data-original-title="Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="power">
+														<option value="none" selected disabled="">Select Power Consumption</option>
+														<option value="">25 W</option>
+														<option value="">50 W</option>
+														<option value="">60 W</option>
+														<option value="">70 W</option>
+														<option value="">80 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Aspect Ratio
+													<sup data-toggle="tooltip" title="" data-original-title="Aspect Ratio">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="aspectratio">
+														<option value="none" selected disabled="">Select Aspect Ratio</option>
+														<option value="">4:3</option>
+														<option value="">16:9</option>
+														<option value="">21:9</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+											
+										<hr class="separator">
+										
+										<h3>Home Theatre Systems & Audio Systems</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power Consumption
+													<sup data-toggle="tooltip" title="" data-original-title="Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="power">
+														<option value="none" selected disabled="">Select Power Consumption</option>
+														<option value="">500 W</option>
+														<option value="">800 W</option>
+														<option value="">1000 W</option>
+														<option value="">1200 W</option>
+														<option value="">1500 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Channel
+													<sup data-toggle="tooltip" title="" data-original-title="Channel">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="channel">
+														<option value="none" selected disabled="">Select Channel</option>
+														<option value="">5.1</option>
+														<option value="">7.1</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">USB
+													<sup data-toggle="tooltip" title="" data-original-title="Channel">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="usb">
+														<option value="none" selected disabled="">Select USB</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>DVD & Blue-Ray Players</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Power Consumption
+													<sup data-toggle="tooltip" title="" data-original-title="Power">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="power">
+														<option value="none" selected disabled="">Select Power Consumption</option>
+														<option value="">6 W</option>
+														<option value="">8 W</option>
+														<option value="">10 W</option>
+														<option value="">12 W</option>
+														<option value="">15 W</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Channel
+													<sup data-toggle="tooltip" title="" data-original-title="Channel">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="channel">
+														<option value="none" selected disabled="">Select Channel</option>
+														<option value="">5.1</option>
+														<option value="">7.1</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Dolby Digital Plus
+													<sup data-toggle="tooltip" title="" data-original-title="Dolby Digital Plus">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="digitalplus">
+														<option value="none" selected disabled="">Select Dolby Digital Plus</option>
+														<option value="">Yes</option>
+														<option value="">No</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<hr class="separator">
+										
+										<h3>Musical Instruments</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand
+													<sup data-toggle="tooltip" title="" data-original-title="Brand">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Brand">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Keys
+													<sup data-toggle="tooltip" title="" data-original-title="Keys">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="keys">
+														<option value="none" selected disabled="">Select Keys</option>
+														<option value="">32 Keys</option>
+														<option value="">44 Keys</option>
+														<option value="">49 Keys</option>
+														<option value="">61 Keys</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Built-in Tones
+													<sup data-toggle="tooltip" title="" data-original-title="Built-in Tones">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="builttones">
+														<option value="none" selected disabled="">Select Built-in Tones</option>
+														<option value="">50 built-in tones</option>
+														<option value="">100 built-in tones</option>
+														<option value="">200 built-in tones</option>
+														<option value="">300 built-in tones</option>
+														<option value="">400 built-in tones</option>
+														<option value="">500 built-in tones</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Built-in Rhythms
+													<sup data-toggle="tooltip" title="" data-original-title="Built-in Rhythms">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="builtrhythms">
+														<option value="none" selected disabled="">Select Built-in Rhythms</option>
+														<option value="">30 built-in rhythms</option>
+														<option value="">50 built-in rhythms</option>
+														<option value="">100 built-in rhythms</option>
+														<option value="">120 built-in rhythms</option>
+														<option value="">150 built-in rhythms</option>
+														<option value="">180 built-in rhythms</option>
+														<option value="">200 built-in rhythms</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Dimensions
+													<sup data-toggle="tooltip" title="" data-original-title="Dimensions">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter  Dimensions">
 												</div>
 											</div>
 										</div>
