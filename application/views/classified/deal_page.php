@@ -46,7 +46,7 @@
 													<i></i>Business 
 												</label>
 											</div>
-											<div class="inline-group hot_deal_rad">
+											<div class="inline-group hot_deal_rad1">
 												<label class="radio">
 													<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
 													<i></i>Consumer 
@@ -79,7 +79,7 @@
 													<div class="input">
 														<input type="email" placeholder="Enter Location" name="email">
 													</div>
-													<button type="submit" class="addon-btn adn-130 adn-right">
+													<button type="submit" class="bg addon-btn adn-130 adn-right">
 														Find a Deal
 													</button>
 												</div>

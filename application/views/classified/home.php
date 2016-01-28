@@ -462,6 +462,52 @@
 		<section class="content_info">
 			<!-- Info Resalt-->
 			<div class="padding-bottom">
+				<!-- End boxes-carousel-->
+				<div class="container">
+					<div class="titles recen_ad">
+						<h2><span>Business </span>DEAL</h2>
+					</div>
+				</div>
+				<!-- End Title-->
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="business_img img-responsive">
+						</div>
+						<div class="col-sm-9">
+							<div id="boxes-carousel">
+								<!-- Item carousel Boxed-->
+								<?php foreach ($business_ads as $b_ads) { ?>
+								<div>
+									<?php if($b_ads->img_name == ''){ ?>
+									<div class="img-hover">
+										<img src="ad_images/no_image.png" alt="business_image1" title="business-image1" class="img-responsive">
+										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<div class="info-gallery">
+										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
+										<hr class="separator">
+										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/lg.png" /></b></div>
+									</div>
+									<?php	}
+										else{ ?>
+									<div class="img-hover">
+										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									</div>
+									<div class="info-gallery">
+										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
+										<hr class="separator">
+										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+									</div>
+									<?php	} ?>
+								</div>
+								<?php	} ?>
+								<!-- End Item carousel Boxed-->
+							</div>
+						</div>
+					</div>
+				</div>
 				<!-- Title -->
 				<div class="container">
 					<div class="titles recen_ad">
@@ -517,52 +563,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- End boxes-carousel-->
-				<div class="container">
-					<div class="titles recen_ad">
-						<h2><span>Business </span>DEAL</h2>
-					</div>
-				</div>
-				<!-- End Title-->
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-3">
-							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="business_img img-responsive">
-						</div>
-						<div class="col-sm-9">
-							<div id="boxes-carousel">
-								<!-- Item carousel Boxed-->
-								<?php foreach ($business_ads as $b_ads) { ?>
-								<div>
-									<?php if($b_ads->img_name == ''){ ?>
-									<div class="img-hover">
-										<img src="ad_images/no_image.png" alt="business_image1" title="business-image1" class="img-responsive">
-										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-									<div class="info-gallery">
-										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
-										<hr class="separator">
-										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/lg.png" /></b></div>
-									</div>
-									<?php	}
-										else{ ?>
-									<div class="img-hover">
-										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-									<div class="info-gallery">
-										<h3><?php echo substr($b_ads->title, 0, 20); ?></h3>
-										<hr class="separator">
-										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
-									</div>
-									<?php	} ?>
-								</div>
-								<?php	} ?>
-								<!-- End Item carousel Boxed-->
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<div class="container">
 					<div class="row">
 						<!--<div id="m1" class="marquee">	

@@ -191,18 +191,19 @@
 															<li data-id="5"><a href="javascript:;">5</a></li>
 														</div>	
 													</div>
+													<div class="">
+														<div class="price11">
+															<span></span><b>
+															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+														</div>
+													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="plattinum_icon"></span>
-																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -302,18 +303,19 @@
 															<li data-id="5"><a href="javascript:;">5</a></li>
 														</div>	
 													</div>
+													<div class="">
+														<div class="price11">
+															<span></span><b>
+															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+														</div>
+													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="plattinum_icon"></span>
-																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -389,23 +391,24 @@
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="img-hover">
-														<img src="img/blog/009.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+												<div class="col-sm-4 ">
+													<div class="img-hover view_img">
+														<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
+														<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+													</div>
+													<div class="">
+														<div class="price11">
+															<span></span><b>
+															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+														</div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="gold_icon"></span>
-																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -481,27 +484,33 @@
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
-												<div class="col-sm-4 view_img">
+												<div class="col-sm-4">
 													<div class="featured-badge">
 														<span>Urgent</span>
 													</div>
-													<div class="img-hover">
+													<div class="img-hover view_img">
 														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+													</div>
+													<div class="">
+														<div class="price11">
+															<span></span><b>
+															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+														</div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
-																<div class="col-xs-4 ">
+																<!--div class="col-xs-4 ">
 																	<div class="add-to-compare-list pull-right">
 																		<span class="gold_icon"></span>
 																	</div>
-																</div>
+																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
