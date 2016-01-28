@@ -71,14 +71,14 @@
 										<!-- Post Header-->
 										<div class="col-sm-9 col-xs-8">
 											<div class="featured-badge pull-right">
-												<span>Gold</span>
+												<span>Urgent</span>
 											</div>
 											<div class="post-header">
 												<div class="hidden-xs post-format-icon post-format-standard">
-													<i class="fa fa-fire"></i>
+													<img src="img/icons/crown.png" alt="Crown" title="Crown Icon">
 												</div>
 												<div class="post-info-wrap">
-													<h2 class="post-title"><a href="#">POST FORMAT: GALLERY</a></h2>
+													<h2 class="post-title"><a href="#">PORSCHE CAYMAN Porsche Cayman</a></h2>
 													<div class="post-meta" style="padding-top: 8px;">
 														<ul>
 															<li>
@@ -142,9 +142,9 @@
 													 src="img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
 													 data-image="img/blog/003.jpg">
 												
-												<img alt="Youtube Video" title="Video_1"
+												<!--img alt="Youtube Video" title="Video_1"
 													 data-type="youtube"
-													 data-videoid="A3PDXmYoF5U">
+													 data-videoid="A3PDXmYoF5U"-->
 
 												<img alt="Preview Image 3"
 													 src="img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
@@ -176,7 +176,26 @@
 												</ul>
 												<div class="resp-tabs-container hor_1">
 													<div>
-														<p>Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. Hyundai i10 Magna 1.2 Kappa , 2010 , Well maintained car in Excellent Condition , All four new tires , New Batter , Comprehensive Insurance . Price is Slightly Negotiable. </p>
+														<p>2007 PORSCHE CAYMAN Petrol Porsche Cayman 2.7 *Black 59359 miles with the following features: Full Leather, Bluesilve, Air Conditioning, Radio CD Player, Cruise Control, Electric Mirrors, Illuminated Vanity Mirrors, Green And Black, Alloy Wheels, 5 Speed Manual Gearbox, Alarm, Remote Central Locking, Immobiliser, Airbags, Sport Styling Kit, Anti-Lock Braking System (ABS), Body Coloured Bumpers, 12v Auxillary Power Socket.</p><br>
+														
+														<p>
+															<table class="table table-bordered">
+																<tbody>
+																	<tr><td>1</td><td>Posted</td><td>3 days ago</td></tr>
+																	<tr><td>2</td><td>Body type</td><td>Coupe</td></tr>
+																	<tr><td>3</td><td>Make</td><td>Porsche</td></tr>
+																	<tr><td>4</td><td>Fuel type</td><td>Petrol</td></tr>
+																	<tr><td>5</td><td>Model</td><td>Cayman</td></tr>
+																	<tr><td>6</td><td>Transmission</td><td>Manual</td></tr>
+																	<tr><td>7</td><td>Year</td><td>2007</td></tr>
+																	<tr><td>8</td><td>Mileage</td><td>59359</td></tr>
+																	<tr><td>9</td><td>Weblink</td>
+																		<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
+																	</tr>
+																</tbody>
+															</table>
+														</p>
+														
 													</div>
 													<div>
 														<div class="comments-container">
@@ -190,8 +209,9 @@
 																			<div class="comment-head">
 																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
 																				<span>hace 20 minutes</span>
-																				<i class="fa fa-reply"></i>
-																				<i class="fa fa-heart"></i>
+																				<p class="reting_view">
+																					3 Ratings
+																				</p>
 																			</div>
 																			<div class="comment-content">
 																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
@@ -206,10 +226,11 @@
 																			<!-- Contenedor del Comentario -->
 																			<div class="comment-box">
 																				<div class="comment-head">
-																					<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
-																					<span>hace 10 minutes</span>
-																					<i class="fa fa-reply"></i>
-																					<i class="fa fa-heart"></i>
+																					<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
+																					<span>hace 15 minutes</span>
+																					<p class="reting_view">
+																						4 Ratings
+																					</p>
 																				</div>
 																				<div class="comment-content">
 																					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
@@ -225,8 +246,9 @@
 																				<div class="comment-head">
 																					<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
 																					<span>hace 10 minutes</span>
-																					<i class="fa fa-reply"></i>
-																					<i class="fa fa-heart"></i>
+																					<p class="reting_view">
+																						5 Ratings
+																					</p>
 																				</div>
 																				<div class="comment-content">
 																					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
@@ -243,10 +265,11 @@
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
-																				<h6 class="comment-name"><a href="">Lorena Rojero</a></h6>
-																				<span>hace 10 minutes</span>
-																				<i class="fa fa-reply"></i>
-																				<i class="fa fa-heart"></i>
+																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
+																				<span>hace 20 minutes</span>
+																				<p class="reting_view">
+																					2 Ratings
+																				</p>
 																			</div>
 																			<div class="comment-content">
 																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
@@ -272,42 +295,42 @@
 													<li>
 														<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
 															<i class="fa fa-facebook"></i>
-															<i class="fa fa-facebook"></i>
+															<i class="fa fa-facebook facebook"></i>
 														</a>
 													</li>
 
 													<li>
 														<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
 															<i class="fa fa-twitter"></i>
-															<i class="fa fa-twitter"></i>
+															<i class="fa fa-twitter twitter"></i>
 														</a>
 													</li>
 
 													<li>
 														<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
 															<i class="fa fa-google-plus"></i>
-															<i class="fa fa-google-plus"></i>
+															<i class="fa fa-google-plus google-plus"></i>
 														</a>
 													</li>
 
 													<li>
 														<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
 															<i class="fa fa-pinterest"></i>
-															<i class="fa fa-pinterest"></i>
+															<i class="fa fa-pinterest pinterest"></i>
 														</a>
 													</li>
 
 													<li>
 														<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
 															<i class="fa fa-linkedin"></i>
-															<i class="fa fa-linkedin"></i>
+															<i class="fa fa-linkedin linkedin"></i>
 														</a>
 													</li>
 
 													<li>
 														<a href="#" class="social-email" data-toggle="tooltip" title="" data-original-title="Share on envelope">
 															<i class="fa fa-envelope-o"></i>
-															<i class="fa fa-envelope-o"></i>
+															<i class="fa fa-envelope-o envelope"></i>
 														</a>
 													</li>
 												</ul>
@@ -364,7 +387,7 @@
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
 									<img src="img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 									<ul class="list-styles contact_now_hide" style="display:none;">
-										<li><strong><i class="fa fa-phone "></i>+91 900001110</strong></li>
+										<li><i class="fa fa-phone phn"></i><strong> +91 900001110</strong></li>
 									</ul>
 									<div class="top_5">
 										<div class="amt_bg">
@@ -372,13 +395,14 @@
 										</div>
 									</div>
 								</aside>
-								<div class="text_center">
+								<div class="">
 									<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
+									<a class="report_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Report</span></a>
 								</div>
 								
 								<aside class="widget view_sidebar send_now_hide" style="display:none;">
 									<div class="j-row">
-										<div class="span12 unit">
+										<div class="unit">
 											<label class="label">Contact Name :</label>
 											<div class="input">
 												<label class="icon-right" for="name">
@@ -387,7 +411,7 @@
 												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
 											</div>
 										</div>
-										<div class="span12 unit">
+										<div class="unit">
 											<label class="label">Mobile Number :</label>
 											<div class="input">
 												<label class="icon-right" for="phone">
@@ -396,7 +420,7 @@
 												<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
 											</div>
 										</div>
-										<div class="span12 unit">
+										<div class="unit">
 											<label class="label">Email :</label>
 											<div class="input">
 												<label class="icon-right" for="email">
@@ -405,25 +429,54 @@
 												<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
 											</div>
 										</div>
-										<div class="span12 unit">
+										<div class="unit">
 											<label class="label">Message :</label>
 											<div class="input">
 												<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
 											</div>
 										</div>
-										<div class="col-sm-12 unit">													
+										<div class="unit">													
 											<button class="btn btn-primary " id='change_pwd'>Send Now</button>
 										</div>
 									</div>
 								</aside>
-								<aside class="widget view_sidebar">
-									<h4 class="imp_tant"><img src="img/icons/important.png" alt="Important" title="Important Points"> Important Safety Tips</h4><hr>
+								
+								<aside class="widget view_sidebar report_hide" style="display:none;">
+									<div class="j-row">
+										<label class="radio">
+											<input type="radio" name="report_view" value="" checked="">
+											<i></i> This is illegal/fraudulent
+										</label>
+										<label class="radio">
+											<input type="radio" name="report_view" value="">
+											<i></i> This deal is spam
+										</label>
+										<label class="radio">
+											<input type="radio" name="report_view" value="">
+											<i></i> This deal is a duplicate
+										</label>
+										<label class="radio">
+											<input type="radio" name="report_view" value="">
+											<i></i> This deal is in the wrong category
+										</label>
+										<div class="unit">
+											<div class="input">
+												<textarea type="text" id="" name="" placeholder="Please Provide more Information"></textarea>
+											</div>
+										</div>
+										<div class="unit">													
+											<button class="btn btn-primary " id='change_pwd'>Send Report</button>
+										</div>
+									</div>
+								</aside>
+								<aside class="widget view_sidebar1">
+									<h3 class="imp_tant1">Important Safety Tips</h3>
 									<ul class="list-styles">
-										<li><i class="fa fa-check"></i> <a href="#">Really cheap prices</a></li>
-										<li><i class="fa fa-check"></i> <a href="#">Irregular email addresses</a></li>
-										<li><i class="fa fa-check"></i> <a href="#">Contact info in pictures</a></li>
+										<li><i class="fa fa-check imp"></i> <a href="#">Really cheap prices</a></li>
+										<li><i class="fa fa-check imp"></i> <a href="#">Irregular email addresses</a></li>
+										<li><i class="fa fa-check imp"></i> <a href="#">Contact info in pictures</a></li>
 									</ul>
-									<p class="bot_10">To learn more, visit the <a href="#"> click here</a> to report this listing.</p>
+									<p class="text_center imp">To learn more, visit the <a href="#" class="imp"> click here</a> to report this listing.</p>
 								</aside>
 								
 							</div>

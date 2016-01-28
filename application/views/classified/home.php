@@ -235,7 +235,13 @@
 													<!-- end Tab Two - contact -->
 												</div>
 												<a class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
-												<div class="price"><span></span><b><img src="img/icons/crown.png" alt="Crown" title="Crown Icon"></b></div>
+												<div class="bus_logo">
+													<span></span><b><img data-u="image" src="img/brand/lg.png" /></b>
+												</div>
+												<div class="price11">
+													<span></span><b>
+													<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+												</div>
 											</div>
 										</figure>
 										<?php 

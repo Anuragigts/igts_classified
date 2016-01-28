@@ -173,11 +173,11 @@
 												<div class="col-sm-4">
 													<div class="xuSlider">
 														<ul class="sliders">
-															<li><img src="images/sliders0.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="images/sliders1.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="images/sliders2.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="images/sliders3.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="images/sliders4.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
 														</ul>
 														<div class="direction-nav">
 															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -284,11 +284,11 @@
 													</div>
 													<div class="xuSlider">
 														<ul class="sliders">
-															<li><img src="images/sliders0.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="images/sliders1.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="images/sliders2.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="images/sliders3.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="images/sliders4.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
 														</ul>
 														<div class="direction-nav">
 															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -391,7 +391,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="img/blog/009.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -486,7 +486,7 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover">
-														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -578,7 +578,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -586,13 +586,8 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="free_icon"></span>
-																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -673,7 +668,7 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover">
-														<img src="img/hotel-img/1.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -681,13 +676,8 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="free_icon"></span>
-																	</div>
 																</div>
 															</div>
 															<div class="row">

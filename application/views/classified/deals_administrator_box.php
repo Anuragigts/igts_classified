@@ -173,11 +173,11 @@
 									<div class="col-xs-12 col-sm-6 col-md-4">
 										<div class="xuSlider xuSlider_box">
 											<ul class="sliders">
-												<li><img src="images/sliders0.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-												<li><img src="images/sliders1.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-												<li><img src="images/sliders2.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-												<li><img src="images/sliders3.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-												<li><img src="images/sliders4.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+												<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+												<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+												<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+												<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+												<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
 											</ul>
 											<div class="direction-nav">
 												<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -215,11 +215,11 @@
 										</div>
 										<div class="xuSlider xuSlider_box">
 											<ul class="sliders">
-												<li><img src="images/sliders0.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-												<li><img src="images/sliders1.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-												<li><img src="images/sliders2.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-												<li><img src="images/sliders3.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-												<li><img src="images/sliders4.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+												<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+												<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+												<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+												<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+												<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
 											</ul>
 											<div class="direction-nav">
 												<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -254,7 +254,9 @@
 									<div class="col-xs-12 col-sm-6 col-md-4">
 										<div class="img-hover">
 											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											<div class="overlay">
+												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+											</div>
 										</div>
 										<div class="info-gallery gold_bgcolor">
 											<h3>Sample text Here</h3>
@@ -280,7 +282,9 @@
 										</div>
 										<div class="img-hover">
 											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											<div class="overlay">
+												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+											</div>
 										</div>
 										<div class="info-gallery gold_bgcolor">
 											<h3>Sample text Here</h3>
@@ -303,7 +307,9 @@
 									<div class="col-xs-12 col-sm-6 col-md-4">
 										<div class="img-hover">
 											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											<div class="overlay">
+												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+											</div>
 										</div>
 										<div class="info-gallery">
 											<h3>Sample text Here</h3>
@@ -329,7 +335,9 @@
 										</div>
 										<div class="img-hover">
 											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay"><a href="img/hotel-img/1.jpg" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+											<div class="overlay">
+												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+											</div>
 										</div>
 										<div class="info-gallery">
 											<h3>Sample text Here</h3>
