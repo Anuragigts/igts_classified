@@ -297,7 +297,7 @@ class Postad_cloths_model extends CI_Model{
                             || $this->input->post('sub_sub_id') == '374' || $this->input->post('sub_sub_id') == '376') {
                            $women_accessories = array('ad_id' => $insert_id,
                                                     'cloth_type'=>$this->input->post('checkbox_wmcloth'),
-                                                    'w_size' => $this->input->post('size'),
+                                                    'w_size' => '',
                                                     'color' => $this->input->post('color'),
                                                     'brand' => $this->input->post('brand'),
                                                     'no_of_items'=>$this->input->post('noofitem'),
@@ -315,8 +315,8 @@ class Postad_cloths_model extends CI_Model{
                                                 'color' => $this->input->post('color'),
                                                 'brand' => $this->input->post('brand'),
                                                 'no_of_items'=>$this->input->post('noofitem'),
-                                                'fit'=>$this->input->post('fit'),
-                                                'made_in'=>$this->input->post('madein'),
+                                                'fit'=>'',
+                                                'made_in'=>'',
                                                 'material'=>$this->input->post('material'),
                                                 'washing_instruct'=>$this->input->post('washinst'),
                                                 'length'=>$this->input->post('length')
