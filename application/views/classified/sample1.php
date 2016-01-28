@@ -275,7 +275,7 @@
 												</label>
 												<div class="input">
 													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
+														<img src="j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
 													</label>
 													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 												</div>
@@ -3013,7 +3013,7 @@
 												</label>
 												<div class="input">
 													<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png">
+														<img src="j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
 													</label>
 													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 												</div>

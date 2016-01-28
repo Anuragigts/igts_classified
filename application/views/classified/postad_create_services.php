@@ -975,7 +975,7 @@ jQuery(document).ready(function($) {
 																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
 															</div>
 														</div>
-														<div class="span6 unit"><!-- start Deal Tag -->
+														<div class="span6 unit">
 															<label class="label">Price Type 
 																<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -990,7 +990,7 @@ jQuery(document).ready(function($) {
 																<i></i>
 															</label>
 														</div>
-													</div><!-- end service -->
+													</div>
 												
 												</div>
 											</div>
