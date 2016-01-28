@@ -908,56 +908,6 @@ jQuery(document).ready(function($) {
 													</div>
 												</div><!-- end Deal Description -->
 											</div>
-											
-											<div class="j-row">
-												<div class="span6 unit">
-													<label class="label">Price 
-														<sup data-toggle="tooltip" title="" data-original-title="Price">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="unit check logic-block-radio">
-														<div class="inline-group">
-															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
-																<i></i> £ (Pound) 
-															</label>
-															<label class="radio">
-																<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
-																<i></i> € (Euro)
-															</label>
-														</div>
-													</div>
-												</div>
-												<div class="span6 unit">
-													<div class="j-row">
-														<div class="span6 unit top_20">
-															<div class="input">
-																<label class="icon-right" for="price">
-																	<img src="j-folder/img/price.png" alt="price" title="Price">
-																</label>
-																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
-															</div>
-														</div>
-														<div class="span6 unit"><!-- start Deal Tag -->
-															<label class="label">Price Type 
-																<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
-																	<img src="img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<label class="input select">
-																<select name="price_type">
-																	<option value="none" selected disabled="">Select type</option>
-																	<option value="Negotiable">Negotiable</option>
-																	<option value="Fixed">Fixed</option>
-																</select>
-																<i></i>
-															</label>
-														</div>
-													</div><!-- end service -->
-												
-												</div>
-											</div>
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Family Race
@@ -1038,6 +988,55 @@ jQuery(document).ready(function($) {
 												</div>
 											</div><!-- end Gender -->
 										</div>
+										<div class="j-row">
+												<div class="span6 unit">
+													<label class="label">Price 
+														<sup data-toggle="tooltip" title="" data-original-title="Price">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+																<input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
+																<i></i> £ (Pound) 
+															</label>
+															<label class="radio">
+																<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
+																<i></i> € (Euro)
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="span6 unit">
+													<div class="j-row">
+														<div class="span6 unit top_20">
+															<div class="input">
+																<label class="icon-right" for="price">
+																	<img src="j-folder/img/price.png" alt="price" title="Price">
+																</label>
+																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
+															</div>
+														</div>
+														<div class="span6 unit"><!-- start Deal Tag -->
+															<label class="label">Price Type 
+																<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<label class="input select">
+																<select name="price_type">
+																	<option value="none" selected disabled="">Select type</option>
+																	<option value="Negotiable">Negotiable</option>
+																	<option value="Fixed">Fixed</option>
+																</select>
+																<i></i>
+															</label>
+														</div>
+													</div><!-- end service -->
+												
+												</div>
+											</div>
 										</div>
 									</fieldset>
 

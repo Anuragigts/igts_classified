@@ -796,7 +796,7 @@
 			});
 
 			/*edit find a proprty */
-			$(".propertyforsale").click(function(){
+			$(".edit_propertyforsale").click(function(){
 				var sub = $(this).attr('id');
 				var sub1 = sub.split(",");
 				document.getElementById('property_sub').value = sub1[0];

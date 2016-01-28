@@ -343,20 +343,6 @@
 																</div>
 																<div class="tab-pane" id="Motorhomes_Caravans">
 																	<div class="col-md-12 post_deal_bor">
-																		<h3 class='text_center'>Caravans</h3>
-																		<div class="row">
-																			<?php $caravans_fst1 = array_chunk(@$caravans_fst, 6);
-																				foreach ($caravans_fst1 as $caravans_val) {
-																					foreach ($caravans_val as $cara_val) { ?>
-																			<div class="col-md-2 clearfix">
-																				<h4><a class='motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
-																			</div>
-																			<?php	 	}
-																				}
-																				?>
-																		</div>
-
-																		<h3 class='text_center'>Motorhomes</h3>
 																		<div class="row">
 																			<?php $caravans_fst1 = array_chunk(@$caravans_fst, 6);
 																				foreach ($caravans_fst1 as $caravans_val) {

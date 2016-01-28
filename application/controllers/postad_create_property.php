@@ -4,7 +4,7 @@ class Postad_create_property extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                   $this->load->model("category_model");
-                  $this->load->model("postad_model");
+                  $this->load->model("postad_property_model");
                   $this->load->helper('url');
                   date_default_timezone_set("Europe/London");
                 
@@ -15,7 +15,7 @@ class Postad_create_property extends CI_Controller{
             }
 
             if ($this->input->post("post_create_ad")) {
-                 // $this->postad_model->postad_creat();
+                 $this->postad_property_model->postad_creat();
             }
             
 
