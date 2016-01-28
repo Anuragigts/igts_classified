@@ -1021,7 +1021,7 @@ jQuery(document).ready(function($) {
 												
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Brand 
+														<label class="label">Brand Name 
 															<sup data-toggle="tooltip" title="" data-original-title="Brand">
 																<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
@@ -1189,7 +1189,7 @@ jQuery(document).ready(function($) {
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Brand 
+												<label class="label">Brand Name
 													<sup data-toggle="tooltip" title="" data-original-title="Brand">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
@@ -1297,19 +1297,6 @@ jQuery(document).ready(function($) {
 									<?php if (@$sub_sub_name == 'Accessories') { ?>		
 											<div id="women_accessories">
 													<div class="j-row">
-														<div class="span6 unit"><!-- start Deal Tag -->
-															<label class="label">Size 
-																<sup data-toggle="tooltip" title="" data-original-title="Size">
-																	<img src="img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<div class="input">
-																<label class="icon-right" for="Size">
-																	<img src="j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-																</label>
-																<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
-															</div>
-														</div>
 														<div class="span6 unit">
 															<label class="label">Color 
 																<sup data-toggle="tooltip" title="" data-original-title="Color">
@@ -1342,12 +1329,8 @@ jQuery(document).ready(function($) {
 														</label>
 															</div>
 														</div>
-														
-													</div>
-													
-													<div class="j-row">
 														<div class="span6 unit">
-															<label class="label">Brand 
+															<label class="label">Brand Name
 																<sup data-toggle="tooltip" title="" data-original-title="Brand">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
@@ -1359,6 +1342,9 @@ jQuery(document).ready(function($) {
 																<input type="text" id="brand" name="brand" placeholder="Enter Brand">
 															</div>
 														</div>
+													</div>
+													
+													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">No of Items 
 																<sup data-toggle="tooltip" title="" data-original-title="No of Items">
@@ -1372,10 +1358,6 @@ jQuery(document).ready(function($) {
 																<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
 															</div>
 														</div>
-														
-													</div>
-													
-													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Material 
 																<sup data-toggle="tooltip" title="" data-original-title="Material">
@@ -1388,7 +1370,10 @@ jQuery(document).ready(function($) {
 																</label>
 																<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
 															</div>
-														</div>
+														</div>														
+													</div>
+													
+													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Made In 
 																<sup data-toggle="tooltip" title="" data-original-title="Made In ">
@@ -1458,7 +1443,7 @@ jQuery(document).ready(function($) {
 											
 											<div class="j-row">
 												<div class="span6 unit">
-													<label class="label">Brand 
+													<label class="label">Brand Name
 														<sup data-toggle="tooltip" title="" data-original-title="Brand">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
@@ -1485,37 +1470,6 @@ jQuery(document).ready(function($) {
 												</div>
 												
 											</div>
-											
-											<div class="j-row">
-												<div class="span6 unit">
-													<label class="label">Fit
-														<sup data-toggle="tooltip" title="" data-original-title="Fit">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="phone">
-															<img src="j-folder/img/height.png">
-														</label>
-														<input type="text" id="fit" name="fit" placeholder="Enter Fit">
-													</div>
-												</div>
-												<div class="span6 unit">
-													<label class="label">Made In 
-														<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Made In">
-															<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-														</label>
-														<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-													</div>
-												</div>
-												
-											</div>
-											
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Material
