@@ -157,7 +157,7 @@
 			if (img_count == 0) {
 				$(".platinum_img_error").css('display', 'block'); return false;
 			}
-			else if(pck_type == 'platinum' && img_count > 15){
+			else if(pck_type == 'platinum' && img_count > 12){
 				$(".platinum_img_error").css('display', 'block'); return false;
 			}
 			else{
@@ -2169,7 +2169,7 @@ jQuery(document).ready(function($) {
 											<!-- platinum package Start -->
 											<div class="j-row platinum_pck" style='display: none;'>
 												<div class="alert alert-danger platinum_img_error" style='display:none'; >
-												    <strong>Error!</strong> Please upload upto 15 images only
+												    <strong>Error!</strong> Please upload upto 12 images only
 												  </div>
 												<div class="span4 unit">
 													<div style="width:240px;">
@@ -2186,7 +2186,7 @@ jQuery(document).ready(function($) {
 													<div class="j-row">
 														<div class="span12">
 															<div>
-																<h3>Upload Images ( 15 images ) :</h3>
+																<h3>Upload Images ( 12 images ) :</h3>
 																<div id="output_platinum"><ul id="free"></ul></div>
 															</div>
 															<div style="clear:both;"></div>

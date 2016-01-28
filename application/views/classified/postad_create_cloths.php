@@ -1159,10 +1159,29 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													<label class="input select">
+														<select name="color">
+															<option value="none" selected disabled="">Select Color</option>
+															<option value="Brown">Brown Color</option>
+															<option value="Gray">Gray Color</option>
+															<option value="Green">Green Color</option>
+															<option value="Cream">Cream Color</option>
+															<option value="White">White Color</option>
+															<option value="Navy">Navy Color</option>
+															<option value="Pink">Pink Color</option>
+															<option value="Red">Red Color</option>
+															<option value="Natural">Natural Color</option>
+															<option value="Tan">Tan Color</option>
+															<option value="Orange">Orange Color</option>
+															<option value="Yellow">Yellow Color</option>
+															<option value="Bronze">Bronze Color</option>
+															<option value="Nude">Nude Color</option>
+															<option value="Purple">Purple Color</option>
+															<option value="teal">teal Color</option>
+															<option value="Others">Other Color</option>
+														</select>
+														<i></i>
 													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
 												</div>
 											</div>
 											
@@ -1298,10 +1317,29 @@ jQuery(document).ready(function($) {
 																</sup>
 															</label>
 															<div class="input">
-																<label class="icon-right" for="Color">
-																	<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
-																</label>
-																<input type="text" id="color" name="color" placeholder="Enter Color">
+																<label class="input select">
+															<select name="color">
+																<option value="none" selected disabled="">Select Color</option>
+																<option value="Brown">Brown Color</option>
+																<option value="Gray">Gray Color</option>
+																<option value="Green">Green Color</option>
+																<option value="Cream">Cream Color</option>
+																<option value="White">White Color</option>
+																<option value="Navy">Navy Color</option>
+																<option value="Pink">Pink Color</option>
+																<option value="Red">Red Color</option>
+																<option value="Natural">Natural Color</option>
+																<option value="Tan">Tan Color</option>
+																<option value="Orange">Orange Color</option>
+																<option value="Yellow">Yellow Color</option>
+																<option value="Bronze">Bronze Color</option>
+																<option value="Nude">Nude Color</option>
+																<option value="Purple">Purple Color</option>
+																<option value="teal">teal Color</option>
+																<option value="Others">Other Color</option>
+															</select>
+															<i></i>
+														</label>
 															</div>
 														</div>
 														
@@ -1390,10 +1428,29 @@ jQuery(document).ready(function($) {
 														</sup>
 													</label>
 													<div class="input">
-														<label class="icon-right" for="Color">
-															<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+														<label class="input select">
+															<select name="color">
+																<option value="none" selected disabled="">Select Color</option>
+																<option value="Brown">Brown Color</option>
+																<option value="Gray">Gray Color</option>
+																<option value="Green">Green Color</option>
+																<option value="Cream">Cream Color</option>
+																<option value="White">White Color</option>
+																<option value="Navy">Navy Color</option>
+																<option value="Pink">Pink Color</option>
+																<option value="Red">Red Color</option>
+																<option value="Natural">Natural Color</option>
+																<option value="Tan">Tan Color</option>
+																<option value="Orange">Orange Color</option>
+																<option value="Yellow">Yellow Color</option>
+																<option value="Bronze">Bronze Color</option>
+																<option value="Nude">Nude Color</option>
+																<option value="Purple">Purple Color</option>
+																<option value="teal">teal Color</option>
+																<option value="Others">Other Color</option>
+															</select>
+															<i></i>
 														</label>
-														<input type="text" id="color" name="color" placeholder="Enter Color">
 													</div>
 												</div>
 												
