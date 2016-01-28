@@ -1045,7 +1045,7 @@
 
 /* Ratings
 ==================================== */
-.j-forms .rating-group { color:rgba(0,0,0,.87); height:30px; line-height:30px; margin-bottom:4px; }
+.j-forms .rating-group { height:30px; line-height:30px; }
 
 .j-forms .rating-group:last-child { margin-bottom:0; }
 
