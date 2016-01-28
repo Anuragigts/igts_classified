@@ -798,7 +798,7 @@ hr.tall{
 	max-width: 90%;
 }
 .nav-tabs li{
-	margin-right: 5px;
+	/* margin-right: 5px; */
 	font-size: 0.8rem;
 }
 .nav-tabs li i{
@@ -2675,7 +2675,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-style: italic;
 	padding: 20px 20px;
 	text-shadow:none;
-	margin-right: 10px;
+	margin-right: -45px !important;
 	border-radius: 50%;
 }
 .info-gallery .bus_logo span{
@@ -5142,7 +5142,15 @@ h4 a:hover{
 	background-color: rgb(102, 195, 164);
 	padding: 9px 17px 3px;
 }
+.hot_deal_rad1{
+	background-color: #E95413;
+	padding: 9px 17px 3px;
+}
 .hot_deal_rad label{
+	color:#FFF !important;
+	font-size:16px !important;
+}
+.hot_deal_rad1 label{
 	color:#FFF !important;
 	font-size:16px !important;
 }
@@ -5247,4 +5255,7 @@ h4 a:hover{
 }
 .table a{
 	color:#777;
+}
+.bg{
+	background-color: #E95413 !important;
 }

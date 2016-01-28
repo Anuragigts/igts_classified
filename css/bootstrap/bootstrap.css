@@ -5799,10 +5799,10 @@ button.close {
   line-height: 1.42857143;
 }
 .modal-body {
-  /* position: relative; */
-  padding: 15px;
-  background-color: #F8F0F0;
-  /* min-height: 263px; */
+	/* position: relative; */
+	padding: 35px;
+	background-color: #f4f4f4;
+	/* min-height: 263px; */
 }
 .modal-footer {
   padding: 10px;
