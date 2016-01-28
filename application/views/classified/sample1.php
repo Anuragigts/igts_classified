@@ -65,6 +65,205 @@
 
 										<div class="divider gap-bottom-25"></div>
 										
+										<h3>Jobs Category</h3>
+										
+										<div class="j-row">
+											<div class="span6 unit"><!-- start Deal Tag -->
+												<label class="label">Job Tag / Caption 
+													<sup data-toggle="tooltip" title="" data-original-title="Postal">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="dealtag">
+														<img src="j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
+													</label>
+													<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
+												</div>
+											</div><!-- end Deal Tag -->
+										</div>
+										
+										<div class="j-row">
+											<div class="span12 unit"><!-- start Deal Description -->
+												<label class="label">Job Description 
+													<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<textarea type="text" id="dealdescription" name="dealdescription" cols="40" placeholder="Enter Deal Description"></textarea>
+													<input type='hidden' name='text_hide' id='text_hide' value='' />
+												</div>
+											</div><!-- end Deal Description -->
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Price 
+													<sup data-toggle="tooltip" title="" data-original-title="Price">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Pound">
+															<i></i> £ (Pound) 
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_toggle1"  value="Euro">
+															<i></i> € (Euro)
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="span6 unit">
+												<div class="j-row">
+													<div class="span6 unit top_20">
+														<div class="input">
+															<label class="icon-right" for="dealtag">
+																<img src="j-folder/img/price.png" alt="price" title="Price">
+															</label>
+															<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
+														</div>
+													</div>
+													<div class="span6 unit"><!-- start Deal Tag -->
+														<label class="label">Price Type 
+															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<label class="input select">
+															<select name="price_type">
+																<option value="none" selected disabled="">Select type</option>
+																<option value="Negotiable">Negotiable</option>
+																<option value="Fixed">Fixed</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
+												</div><!-- end service -->
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Type of Job
+													<sup data-toggle="tooltip" title="" data-original-title="Type of Job">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="typeofjob">
+														<option value="none" selected disabled="">Select Type of Job</option>
+														<option value="Negotiable">Java</option>
+														<option value="Fixed">Phone gap</option>
+														<option value="Fixed">Web Developer</option>
+														<option value="Fixed">Web Designer</option>
+														<option value="Fixed">Software Developer</option>
+														<option value="Fixed">Graphic Designer</option>
+														<option value="Fixed">Tester</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Salary Min
+													<sup data-toggle="tooltip" title="" data-original-title="Salary Min">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="salarymin">
+														<img src="j-folder/img/price.png" alt="price" title="Price">
+													</label>
+													<input type="text" id="salarymin" name="salarymin" placeholder="Enter Salary Min">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Salary Max
+													<sup data-toggle="tooltip" title="" data-original-title="Salary Max">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="salarymax">
+														<img src="j-folder/img/price.png" alt="price" title="Price">
+													</label>
+													<input type="text" id="salarymax" name="salarymax" placeholder="Enter Salary Max">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Salary type
+													<sup data-toggle="tooltip" title="" data-original-title="Salary type">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="salarytype">
+														<option value="none" selected disabled="">Select Salary type</option>
+														<option value="">Year</option>
+														<option value="">Month</option>
+														<option value="">Hour</option>
+														<option value="">Week</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Suitable skill
+													<sup data-toggle="tooltip" title="" data-original-title="Suitable skill">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="suitableskils">
+														<img src="j-folder/img/skill.png" alt="skill" title="Skill">
+													</label>
+													<input type="text" id="suitableskils" name="suitableskils" placeholder="Enter Suitable skill">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Position  for
+													<sup data-toggle="tooltip" title="" data-original-title="Position  for">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="positionfor">
+														<option value="none" selected disabled="">Select Position  for</option>
+														<option value="">Fresher</option>
+														<option value="">Experience</option>
+														<option value="">Internship</option>
+														<option value="">Contract</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Company Name
+													<sup data-toggle="tooltip" title="" data-original-title="Company Name">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="companyname">
+														<img src="j-folder/img/company.png" alt="company" title="Company Name">
+													</label>
+													<input type="text" id="companyname" name="companyname" placeholder="Enter Company Name">
+												</div>
+											</div>
+										</div>
+										
 										<h3>E- Zone</h3>
 										
 										<div class="j-row">
@@ -117,6 +316,7 @@
 													</div>
 												</div>
 											</div>
+											
 											<div class="span6 unit">
 												<div class="j-row">
 													<div class="span6 unit top_20">
@@ -2980,22 +3180,6 @@
 														<img src="j-folder/img/property.png" alt="Property" title="Property Icon">
 													</label>
 													<input type="text" id="Ownership" name="Ownership" placeholder="Enter Property Ownership">
-												</div>
-											</div>
-										</div>
-
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Floor number 
-													<sup data-toggle="tooltip" title="" data-original-title="Plot area">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Ownership">
-														<img src="j-folder/img/property.png" alt="Floor number" title="Floor number">
-													</label>
-													<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number">
 												</div>
 											</div>
 										</div>
