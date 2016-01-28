@@ -786,6 +786,24 @@
 				document.getElementById('edit_motor_cat').submit();
 			});
 
+			/*find a proprty */
+			$(".propertyforsale").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('property_sub').value = sub1[0];
+				document.getElementById('property_sub_sub').value = sub1[1];
+				document.getElementById('property_form').submit();
+			});
+
+			/*edit find a proprty */
+			$(".propertyforsale").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('property_sub').value = sub1[0];
+				document.getElementById('property_sub_sub').value = sub1[1];
+				document.getElementById('edit_property_form').submit();
+			});
+
 		});
 		</script>
 

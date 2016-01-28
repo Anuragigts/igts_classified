@@ -5,6 +5,7 @@ class Postad_create_cloths extends CI_Controller{
                 parent::__construct();
                 $this->load->model("category_model");
                 $this->load->model("postad_cloths_model");
+                date_default_timezone_set("Europe/London");
                 
         }
         public function index(){
@@ -14,8 +15,7 @@ class Postad_create_cloths extends CI_Controller{
             }
 
             if($this->input->post('post_create_ad_cloths')){
-                // echo "<pre>"; print_r($this->input->post()); exit;
-                $this->postad_cloths_model->postad_creat();
+               $this->postad_cloths_model->postad_creat();
             }
 
 

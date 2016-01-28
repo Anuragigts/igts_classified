@@ -224,5 +224,17 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
     return @mysql_result(mysql_query("SELECT signup_type FROM `signup`, `login` WHERE signup.`sid` = login.`signupid` AND login.`login_id` = '$lid' "), 0, 'signup_type');
         }
 
+        /*property for residential*/
+        public function property_residential(){
+        $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE sub_category_id = 11 ");
+            return $rs->result_array();
+        }
+
+        /*property for commercial*/
+        public function property_commercial(){
+        $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE sub_category_id = 26 ");
+            return $rs->result_array();
+        }
+
 }
 ?>

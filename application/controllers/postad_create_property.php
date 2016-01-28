@@ -1,6 +1,6 @@
 <?php 
 
-class Postad_create_services extends CI_Controller{
+class Postad_create_property extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                   $this->load->model("category_model");
@@ -15,20 +15,20 @@ class Postad_create_services extends CI_Controller{
             }
 
             if ($this->input->post("post_create_ad")) {
-                 $this->postad_model->postad_creat();
+                 // $this->postad_model->postad_creat();
             }
             
 
         	 $data = array(
-                    "services_sub_prof"     =>  $this->category_model->services_sub_prof(),
-                    "services_sub_pop"     =>  $this->category_model->services_sub_pop(),
+                    "property_residential"     =>  $this->category_model->property_residential(),
+                    "property_commercial"     =>  $this->category_model->property_commercial(),
                                 "title"     =>  "Classifieds",
-                                "content"   =>  "postad_create_services"
+                                "content"   =>  "postad_create_property"
                         );
 
-             $cat = $this->input->post('services_cat');
-             $sub_cat = $this->input->post('services_sub');
-             $sub_sub_cat = $this->input->post('services_sub_sub');
+             $cat = $this->input->post('property_cat');
+             $sub_cat = $this->input->post('property_sub');
+             $sub_sub_cat = $this->input->post('property_sub_sub');
 
              $sub_name = @mysql_result(mysql_query("SELECT * FROM `sub_category` WHERE sub_category_id = '$sub_cat'"), 0, 'sub_category_name');
              $sub_sub_name = @mysql_result(mysql_query("SELECT * FROM `sub_subcategory` WHERE `sub_subcategory_id` = '$sub_sub_cat'"), 0, 'sub_subcategory_name');

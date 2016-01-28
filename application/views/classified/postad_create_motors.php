@@ -26,9 +26,7 @@
 				document.getElementById("package_type").value = 'free';
 				$(".freeurgent").removeAttr('disabled');	
 				$(".platinumurgent").attr('checked', false);
-				$(".platinumurgent").attr('disabled', 'disabled');				
 				$(".goldurgent").attr('checked', false);
-				$(".goldurgent").attr('disabled', 'disabled');	
 				document.getElementById("package_urgent").value = '';
 			}
 			if(ch == 'goldpackage'){
@@ -37,10 +35,8 @@
 				$(".platinum_pck").css("display", 'none');
 				document.getElementById("package_type").value = 'gold';
 				$(".freeurgent").attr('checked', false);
-				$(".freeurgent").attr('disabled', 'disabled');	
 				$(".goldurgent").removeAttr('disabled');	
 				$(".platinumurgent").attr('checked', false);
-				$(".platinumurgent").attr('disabled', 'disabled');
 				document.getElementById("package_urgent").value = '';
 			}
 			if(ch == 'platinumpackage'){
@@ -49,9 +45,7 @@
 				$(".platinum_pck").css("display", 'block');
 				document.getElementById("package_type").value = 'platinum';
 				$(".freeurgent").attr('checked', false);
-				$(".freeurgent").attr('disabled', 'disabled');				
 				$(".goldurgent").attr('checked', false);
-				$(".goldurgent").attr('disabled', 'disabled');	
 				$(".platinumurgent").removeAttr('disabled');	
 				document.getElementById("package_urgent").value = '';			
 			}
@@ -87,6 +81,18 @@
             });
 		});
 
+	});
+
+	/*onload car and vans, trucks, coachs, buses, boats dropdown*/
+	$(function(){
+		var carid = <?php echo @$sub_id ?>;
+		if (carid == '12' || carid == '14' || carid == '15' || carid == '16' || carid == '19') {
+		var id = <?php echo @$sub_sub_id; ?>;
+		$.post( "<?php echo base_url();?>postad_create_motors/get_car_models",{id:id},function( data ) {
+			$(".car_model").html(data);
+                        
+            });
+		}
 	});
 
 	$(function(){
@@ -1018,6 +1024,7 @@ jQuery(document).ready(function($) {
 												
 												</div>
 											</div>
+											<!-- bike form -->
 											<?php if (@$sub_id == '13') { ?>
 										<div class="j-row">
 											<div class="span6 unit">
@@ -1182,6 +1189,530 @@ jQuery(document).ready(function($) {
 											</div>
 										</div>
 										<?php		} ?>
+										<!-- cars, vans, coaches, buses form -->
+										<?php if (@$sub_id == '12' || @$sub_id == '15' || @$sub_id == '16') { ?>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
+													</label>
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly >
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Model" class='car_model'>
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select Fuel</option>
+														<option value="Petrol">Petrol</option>
+														<option value="Diesel">Diesel</option>
+														<option value="Electric">Electric</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Transmission   
+													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Transmission">
+														<option value="none" selected disabled="">Select Transmission</option>
+														<option value="Manual">Manual</option>
+														<option value="Semi-Automatic">Semi-Automatic</option>
+														<option value="Automatic">Automatic</option>
+														<option value="Others">Others</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Doors    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofDoors">
+														<option value="none" selected disabled="">Select doors</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="others">others</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Seats    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofSeats">
+														<option value="none" selected disabled="">Select No of seats</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">MOT Status 
+													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="MOT Status ">
+														<img src="j-folder/img/status.png" alt="MOT Status" title="MOT Status Icon" class="img-responsive">
+													</label>
+													<input type="text" id="mot_status" name="mot_status" placeholder="Enter MOT Status">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
+													</label>
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
+												</div>
+											</div>
+										</div>	
+										<?php	} ?>
+
+										<?php if (@$sub_id == '19') { ?>
+											<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly>
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Year
+													<sup data-toggle="tooltip" title="" data-original-title="Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="year_boat">
+														<img src="j-folder/img/reg.png" alt="year" title="year Icon" class="img-responsive">
+													</label>
+													<input type="text" id="year_boat" name="year_boat" placeholder="Enter Year">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Model" class='car_model'>
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select FuelType</option>
+														<option value="Diesel">Diesel</option>
+														<option value="Petrol">Petrol</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Condition 
+													<sup data-toggle="tooltip" title="" data-original-title="Condition">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Condition">
+														<option value="none" selected disabled="">Select Condition</option>
+														<option value="Excellent">Excellent</option>
+														<option value="good">good</option>
+														<option value="average">average</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<?php } ?>
+
+										<?php if (@$sub_id == '14') { ?>
+											<div class="j-row">
+												<div class="span6 unit">
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+																<input type="radio" name="Caravans" id="next-step-radio"  value="Caravans">
+																<i></i> Caravans 
+															</label>
+															<label class="radio">
+																<input type="radio" name="Caravans"  value="Motorhomes">
+																<i></i> Motorhomes
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Vehicle Registration  Number 
+													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="veh_regno">
+														<img src="j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
+													</label>
+													<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly >
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Model" class='car_model'>
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Registration Year
+													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="reg_year">
+														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Fuel Type  
+													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="FuelType">
+														<option value="none" selected disabled="">Select Fuel</option>
+														<option value="Petrol">Petrol</option>
+														<option value="Diesel">Diesel</option>
+														<option value="Electric">Electric</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Transmission   
+													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Transmission">
+														<option value="none" selected disabled="">Select Transmission</option>
+														<option value="Manual">Manual</option>
+														<option value="Semi-Automatic">Semi-Automatic</option>
+														<option value="Automatic">Automatic</option>
+														<option value="Others">Others</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Engine Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Engine Sise">
+														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
+												</div>
+											</div>
+										</div>
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Doors    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofDoors">
+														<option value="none" selected disabled="">Select doors</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="others">others</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">No of Seats    
+													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="NoofSeats">
+														<option value="none" selected disabled="">Select No of seats</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">No of Miles Covered 
+													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="No of Miles Covered ">
+														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">MOT Status 
+													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="MOT Status ">
+														<img src="j-folder/img/status.png" alt="MOT Status" title="MOT Status Icon" class="img-responsive">
+													</label>
+													<input type="text" id="mot_status" name="mot_status" placeholder="Enter MOT Status">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Road TAX status  
+													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
+														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="road_tax">
+														<img src="j-folder/img/roadtax.png" alt="Road TAX" title="Road TAX Icon" class="img-responsive">
+													</label>
+													<input type="text" id="road_tax" name="road_tax" placeholder="Enter Road TAX status ">
+												</div>
+											</div>
+										</div>	
+										<?php } ?>
 
 										</div>
 									</fieldset>
@@ -1207,11 +1738,11 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 5 photos</li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
+															<li class="text_center"> XXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXX </li>
 															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox">Example</a></li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
+															<li class="text_center"> XXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXX </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
@@ -1250,11 +1781,11 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 9 photos</li>
-															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
+															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
 															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
-															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 3days <a href="img/gold.png" class="fancybox">Example</a></li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
+															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 7days <a href="img/gold.png" class="fancybox">Example</a></li>
+															<li class="text_center"> XXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXX </li>
 															<li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£4.99</h3>
@@ -1293,7 +1824,7 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 12 Images</li>
 															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
-															<li class="text_center"> -------------------- </li>
+															<li class="text_center"> XXXXXXXXXX </li>
 															<li><i class="fa fa-check"></i> Displayed in 3D rotation as vertical banner  on Homepage for 7days <a href="img/platinum.png" class="fancybox">Example</a></li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Deal Title will display in Marquee</li>
@@ -1354,9 +1885,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
+																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="7daysurgent"  data-price="5">
 																	<i></i>
-																	Select Free Urgent
+																	Urgent
 																	</label>
 																</div>
 															</div>
@@ -1369,9 +1900,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
+																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="7daysurgent"  data-price="5">
 																	<i></i>
-																	Select Free Urgent
+																	Urgent
 																	</label>
 																</div>
 															</div>
@@ -1387,9 +1918,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
+																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="14daysurgent"  data-price="5">
 																	<i></i>
-																	Select Gold Urgent 
+																	Urgent 
 																	</label>
 																</div>
 															</div>
@@ -1402,9 +1933,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
+																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="14daysurgent"  data-price="5">
 																	<i></i>
-																	Select Gold Urgent 
+																	Urgent 
 																	</label>
 																</div>
 															</div>
@@ -1420,9 +1951,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="30daysurgent"  data-price="5">
 																	<i></i>
-																	Select platinum Urgent
+																	Urgent
 																	</label>
 																</div>
 															</div>
@@ -1435,9 +1966,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="30daysurgent"  data-price="5">
 																	<i></i>
-																	Select platinum Urgent
+																	Urgent
 																	</label>
 																</div>
 															</div>
@@ -1564,16 +2095,6 @@ jQuery(document).ready(function($) {
 															</div>
 															<div style="clear:both;"></div>
 														</div>
-													</div>
-												</div>
-												<div class="span12 unit">
-													<label class="label">Video Link 
-														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="unit">
-														<input type="file" name="file_video_gold" id='file_video_gold' >
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -1723,6 +2244,8 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span12 unit">
 													<input type='hidden' id='package_type' name='package_type' value='' />
+													<input type='hidden' id='package_urgent' name='package_urgent' value='' />
+													<input type='hidden' id='package_name' name='package_name' value='<?php echo @$package_name; ?>' />
 													<input type='hidden' id='image_count' name='image_count' value='0' />
 													<b>Contact Information</b>
 												</div>
@@ -1840,7 +2363,7 @@ jQuery(document).ready(function($) {
 															</sup>
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition">
+															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked>
 															<i></i>
 															I accept Terms & Conditions 
 														</label>

@@ -84,6 +84,11 @@ class Postad extends CI_Controller{
                 /*motor point for boats*/
                 $data['boat_sub_cat_fst'] = $this->category_model->boat_sub_cat_fst();
 
+                /*find a property residential*/
+                $data['property_residential'] = $this->category_model->property_residential();                
+                /*find a property commercial*/
+                $data['property_commercial'] = $this->category_model->property_commercial();
+
                 if($plogin_id != ""){
                         /*$data = array(
                                 "title"     =>  "Classifieds",

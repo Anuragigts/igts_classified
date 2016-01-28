@@ -25,9 +25,7 @@
 				document.getElementById("package_type").value = 'free';
 				$(".freeurgent").removeAttr('disabled');	
 				$(".platinumurgent").attr('checked', false);
-				$(".platinumurgent").attr('disabled', 'disabled');				
 				$(".goldurgent").attr('checked', false);
-				$(".goldurgent").attr('disabled', 'disabled');	
 				document.getElementById("package_urgent").value = '';
 			}
 			if(ch == 'goldpackage'){
@@ -36,10 +34,8 @@
 				$(".platinum_pck").css("display", 'none');
 				document.getElementById("package_type").value = 'gold';
 				$(".freeurgent").attr('checked', false);
-				$(".freeurgent").attr('disabled', 'disabled');	
 				$(".goldurgent").removeAttr('disabled');	
 				$(".platinumurgent").attr('checked', false);
-				$(".platinumurgent").attr('disabled', 'disabled');
 				document.getElementById("package_urgent").value = '';
 			}
 			if(ch == 'platinumpackage'){
@@ -48,9 +44,7 @@
 				$(".platinum_pck").css("display", 'block');
 				document.getElementById("package_type").value = 'platinum';
 				$(".freeurgent").attr('checked', false);
-				$(".freeurgent").attr('disabled', 'disabled');				
 				$(".goldurgent").attr('checked', false);
-				$(".goldurgent").attr('disabled', 'disabled');	
 				$(".platinumurgent").removeAttr('disabled');	
 				document.getElementById("package_urgent").value = '';			
 			}
@@ -1580,12 +1574,12 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 5 photos</li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
@@ -1623,11 +1617,11 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 9 photos</li>
-															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
+															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
 															<li><i class="fa fa-check"></i> It Will High Light</li>
-															<li><i class="fa fa-check"></i> It will be display homepage  most valued ads for 3 days <a href="img/gold.png" class="fancybox">Example</a></li>
-															<li class="text_center"> -------------------- </li>
-															<li class="text_center"> -------------------- </li>
+															<li><i class="fa fa-check"></i> It will be display homepage  most valued ads for 7days <a href="img/gold.png" class="fancybox">Example</a></li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
+															<li class="text_center"> XXXXXXXXXXXXXXX </li>
 															<li><i class="fa fa-check"></i> Thumps Up Symbol</li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£2.99</h3>
@@ -1667,7 +1661,7 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Up to 12 Images</li>
 															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
 															<li><i class="fa fa-check"></i>Ad will display 3D rotation for 5days </li>
-															<li><i class="fa fa-check"></i> It will be display Home page significant ads for 3days <a href="img/platinum.png" class="fancybox">Example</a></li>
+															<li><i class="fa fa-check"></i> It will be display Home page significant ads for 7days <a href="img/platinum.png" class="fancybox">Example</a></li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee</li>
 															<li><i class="fa fa-check"></i> Crown Symbol  </li>
@@ -1722,9 +1716,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
+																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="7daysurgent"  data-price="5">
 																	<i></i>
-																	Select Free Urgent
+																	Urgent
 																	</label>
 																	
 																</div>
@@ -1738,9 +1732,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_free_urgent" class='select_urgent_pack freeurgent' value="freeurgent" disabled data-price="5">
+																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="7daysurgent"  data-price="5">
 																	<i></i>
-																	Select Free Urgent
+																	Urgent
 																	</label>
 																	
 																</div>
@@ -1757,9 +1751,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
+																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="14daysurgent"  data-price="5">
 																	<i></i>
-																	Select Gold Urgent 
+																	Urgent 
 																	</label>
 																	
 																</div>
@@ -1773,9 +1767,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_gold_urgent" class='select_urgent_pack goldurgent' value="goldurgent" disabled data-price="5">
+																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="14daysurgent"  data-price="5">
 																	<i></i>
-																	Select Gold Urgent 
+																	Urgent 
 																	</label>
 																	
 																</div>
@@ -1792,9 +1786,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="30daysurgent"  data-price="5">
 																	<i></i>
-																	Select platinum Urgent
+																	Urgent
 																	</label>
 																</div>
 															</div>
@@ -1807,9 +1801,9 @@ jQuery(document).ready(function($) {
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_platinum_urgent" class='select_urgent_pack platinumurgent' value="platinumurgent" disabled data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="30daysurgent"  data-price="5">
 																	<i></i>
-																	Select platinum Urgent
+																	Urgent
 																	</label>
 																</div>
 															</div>
@@ -2204,7 +2198,7 @@ jQuery(document).ready(function($) {
 																</sup>
 															</label>
 															<label class="checkbox">
-																<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition">
+																<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked>
 																<i></i>
 																I accept Terms & Conditions 
 															</label>

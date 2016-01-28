@@ -343,6 +343,20 @@
 																</div>
 																<div class="tab-pane" id="Motorhomes_Caravans">
 																	<div class="col-md-12 post_deal_bor">
+																		<h3 class='text_center'>Caravans</h3>
+																		<div class="row">
+																			<?php $caravans_fst1 = array_chunk(@$caravans_fst, 6);
+																				foreach ($caravans_fst1 as $caravans_val) {
+																					foreach ($caravans_val as $cara_val) { ?>
+																			<div class="col-md-2 clearfix">
+																				<h4><a class='motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
+																			</div>
+																			<?php	 	}
+																				}
+																				?>
+																		</div>
+
+																		<h3 class='text_center'>Motorhomes</h3>
 																		<div class="row">
 																			<?php $caravans_fst1 = array_chunk(@$caravans_fst, 6);
 																				foreach ($caravans_fst1 as $caravans_val) {
@@ -596,6 +610,7 @@
 										</div>
 									</div>
 									<!-- Modal -->
+									<form method='post' id='property_form' action="<?php echo base_url(); ?>postad_create_property">
 									<div class="modal fade" id="Property" role="dialog">
 										<div class="modal-dialog">
 											<!-- Modal content-->
@@ -609,18 +624,20 @@
 														<div class="col-md-10 col-md-offset-1 post_deal_bor">
 															<div class="row">
 																<div class="col-md-6 clearfix">
-																	<h3>Residential</h3>
-																	<h4><a href="#">Property to Rent</a></h4>
-																	<h4><a href="#">Property to Share</a></h4>
-																	<h4><a href="#">Land for Sale/Lease</a></h4>
-																	<h4><a href="#">Property for Sale</a></h4>
+																	<h3>Residential
+																		<input type='hidden' name='property_cat' id='property_cat' value='findaproperty' />
+																			<input type='hidden' name='property_sub' id='property_sub' value='' />
+																			<input type='hidden' name='property_sub_sub' id='property_sub_sub' value='' />
+																	</h3>
+																	<?php foreach ($property_residential as $prop_val) { ?>
+																		<h4><a href="javascript:void(0)" id="<?php echo  $prop_val['sub_category_id'].','.$prop_val['sub_subcategory_id']; ?>" class='propertyforsale'><?php echo ucfirst($prop_val['sub_subcategory_name']); ?></a></h4>
+																	<?php } ?>
 																</div>
 																<div class="col-md-6 clearfix">
 																	<h3>Commercial</h3>
-																	<h4><a href="#">Property to Rent</a></h4>
-																	<h4><a href="#">Property to Share</a></h4>
-																	<h4><a href="#">Property for Sale</a></h4>
-																	<h4><a href="#">Land for Sale/Lease</a></h4>
+																	<?php foreach ($property_commercial as $prop_val1) { ?>
+																		<h4><a href="javascript:void(0)" id="<?php echo  $prop_val1['sub_category_id'].','.$prop_val1['sub_subcategory_id']; ?>" class='propertyforsale'><?php echo ucfirst($prop_val1['sub_subcategory_name']); ?></a></h4>
+																	<?php } ?>
 																</div>
 															</div>
 														</div>
@@ -632,6 +649,7 @@
 											</div>
 										</div>
 									</div>
+								</form>
 									<!-- Find a Property content End-->
 								</div>
 								<div class="row top_13">

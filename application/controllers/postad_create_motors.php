@@ -5,6 +5,7 @@ class Postad_create_motors extends CI_Controller{
                 parent::__construct();
                   $this->load->model('category_model');
                   $this->load->model('postad_motor_model');
+                  date_default_timezone_set("Europe/London");
                 }
         public function index(){
 
@@ -13,7 +14,6 @@ class Postad_create_motors extends CI_Controller{
             }
 
             if($this->input->post('post_create_ad_motors')){
-                // echo "<pre>"; print_r($this->input->post()); exit;
                 $this->postad_motor_model->postad_creat();
             }
         	 $data = array(
@@ -67,6 +67,7 @@ class Postad_create_motors extends CI_Controller{
               $data['sub_id'] = $sub_cat;
              $data['sub_sub_id'] = $sub_sub_cat;
              $data['sub_sub_sub_id'] = $sub_sub_sub_cat;
+             $data['package_name'] = $this->category_model->package_name();
              $data['login_id'] = $this->session->userdata("login_id");
 
 	            $this->load->view("classified_layout/inner_template",$data);
@@ -91,6 +92,16 @@ class Postad_create_motors extends CI_Controller{
                $va      =   $this->postad_motor_model->bike_models();
                foreach ($va as $st){
                         $cst    .=   '<option value='.$st->id.'>'.$st->bike_model.'</option>';
+               }
+               echo $cst;
+        }
+
+        /*car model*/
+        public function get_car_models(){
+            $cst     =   '<option value="none" selected disabled="">Select car model</option>';
+               $va      =   $this->postad_motor_model->car_models();
+               foreach ($va as $st){
+                        $cst    .=   '<option value='.$st->id.'>'.$st->car_model.'</option>';
                }
                echo $cst;
         }

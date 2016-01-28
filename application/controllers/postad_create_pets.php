@@ -5,6 +5,7 @@ class Postad_create_pets extends CI_Controller{
                 parent::__construct();
                   $this->load->model('category_model');
                   $this->load->model('postad_pets_model');
+                  date_default_timezone_set("Europe/London");
                 }
         public function index(){
 
@@ -13,7 +14,6 @@ class Postad_create_pets extends CI_Controller{
             }
 
             if($this->input->post('post_create_ad_pets')){
-                // echo "<pre>"; print_r($this->input->post()); exit;
                 $this->postad_pets_model->postad_creat();
                 
             }
