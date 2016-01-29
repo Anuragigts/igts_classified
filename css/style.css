@@ -2620,8 +2620,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .info-gallery .price11{
 	float: right;
 	position: absolute;
-	top: -37px;
-	left: 0px;
+	top: -40px;
+	left: 315px;
 	text-shadow: 2px 3px 3px rgba(0,0,0,0.5);
 	font-size: 2.5rem;
 	line-height: 2rem;
@@ -3128,8 +3128,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .post-social li a.social-dropbox:hover {
     background-color: #018bd3 !important
 }
-.post-social li a.social-email:hover {
-    background-color: #000 !important
+.post-social li a.social-globe {
+    background-color: #5C89C7 !important
+}
+.post-social li a.social-globe:hover {
+    background-color: #E24A14 !important
 }
 .post-social li a.social-facebook:hover {
     background-color: #395793 !important
@@ -5250,8 +5253,8 @@ h4 a:hover{
 .pinterest{
 	color:#cb2027 !important;
 }
-.envelope{
-	color:#777777 !important;
+.globe{
+	color:#ffffff !important;
 }
 .table a{
 	color:#777;
