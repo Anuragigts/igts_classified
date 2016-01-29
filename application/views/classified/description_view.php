@@ -179,21 +179,28 @@
 														<p>2007 PORSCHE CAYMAN Petrol Porsche Cayman 2.7 *Black 59359 miles with the following features: Full Leather, Bluesilve, Air Conditioning, Radio CD Player, Cruise Control, Electric Mirrors, Illuminated Vanity Mirrors, Green And Black, Alloy Wheels, 5 Speed Manual Gearbox, Alarm, Remote Central Locking, Immobiliser, Airbags, Sport Styling Kit, Anti-Lock Braking System (ABS), Body Coloured Bumpers, 12v Auxillary Power Socket.</p><br>
 														
 														<p>
-															<table class="table table-bordered">
-																<tbody>
-																	<tr><td>1</td><td>Posted</td><td>3 days ago</td></tr>
-																	<tr><td>2</td><td>Body type</td><td>Coupe</td></tr>
-																	<tr><td>3</td><td>Make</td><td>Porsche</td></tr>
-																	<tr><td>4</td><td>Fuel type</td><td>Petrol</td></tr>
-																	<tr><td>5</td><td>Model</td><td>Cayman</td></tr>
-																	<tr><td>6</td><td>Transmission</td><td>Manual</td></tr>
-																	<tr><td>7</td><td>Year</td><td>2007</td></tr>
-																	<tr><td>8</td><td>Mileage</td><td>59359</td></tr>
-																	<tr><td>9</td><td>Weblink</td>
-																		<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
-																	</tr>
-																</tbody>
-															</table>
+															<div class="row">
+																<div class="col-sm-6">
+																	<table class="table table-bordered">
+																		<tbody>
+																			<tr><th>Posted</th><td>3 days ago</td></tr>
+																			<tr><th>Body type</th><td>Coupe</td></tr>
+																			<tr><th>Make</th><td>Porsche</td></tr>
+																			<tr><th>Fuel type</th><td>Petrol</td></tr>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="col-sm-6">
+																	<table class="table table-bordered">
+																		<tbody>
+																			<tr><th>Model</th><td>Cayman</td></tr>
+																			<tr><th>Transmission</th><td>Manual</td></tr>
+																			<tr><th>Year</th><td>2007</td></tr>
+																			<tr><th>Mileage</th><td>59359</td></tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
 														</p>
 														
 													</div>
@@ -202,7 +209,10 @@
 															<ul id="comments-list" class="comments-list">
 																<li>
 																	<div class="comment-main-level">
-																		<!-- Avatar -->
+																		<!-- Avatar 
+																			<tr><th>Weblink</th>
+																			<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
+																		</tr>-->
 																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">

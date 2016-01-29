@@ -58,7 +58,7 @@
 								<div class="row top_20">
 									<div class="col-sm-8 col-sm-offset-2">
 										<div class="row">
-											<div class="span6 unit"><!-- start Deal Tag -->
+											<div class="span6 unit">
 												<label class="input select">
 													<select name="price_type">
 														<option value="none" selected disabled="">Select Category</option>
