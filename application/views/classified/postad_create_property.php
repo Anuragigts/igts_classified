@@ -1173,8 +1173,6 @@
 														<img src="j-folder/img/property.png" alt="Floor number" title="Floor number">
 													</label>
 													<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number" onkeypress="return isNumber(event)">
-														</label>
-														<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number">
 													</div>
 												</div>
 											</div>
