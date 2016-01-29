@@ -1061,12 +1061,14 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 5 photos</li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
@@ -1108,8 +1110,10 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
 															<li><i class="fa fa-check"></i> It Will High Light</li>
 															<li><i class="fa fa-check"></i> It will be display homepage  most valued ads for 7 days <a href="img/gold.png" class="fancybox">Example</a></li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
-															<li class="text_center"> XXXXXXXXXXXXX </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i> Thumps Up Symbol</li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£2.99</h3>
@@ -1151,8 +1155,9 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
 															<li><i class="fa fa-check"></i>Ad will display 3D rotation for 5days </li>
 															<li><i class="fa fa-check"></i> It will be display Home page significant ads for 7days <a href="img/platinum.png" class="fancybox">Example</a></li>
+															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide</li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
-															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee</li>
+															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> Example</a></li>
 															<li><i class="fa fa-check"></i> Crown Symbol  </li>
 															<div class="platinum_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£4.99</h3>
