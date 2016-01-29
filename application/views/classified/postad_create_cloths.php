@@ -23,7 +23,7 @@
 				$(".gold_pck").css("display", 'none');
 				$(".platinum_pck").css("display", 'none');
 				document.getElementById("package_type").value = 'free';
-				$(".freeurgent").removeAttr('disabled');	
+				$(".freeurgent").attr('checked', false);	
 				$(".platinumurgent").attr('checked', false);
 				$(".goldurgent").attr('checked', false);
 				document.getElementById("package_urgent").value = '';
@@ -34,7 +34,7 @@
 				$(".platinum_pck").css("display", 'none');
 				document.getElementById("package_type").value = 'gold';
 				$(".freeurgent").attr('checked', false);
-				$(".goldurgent").removeAttr('disabled');	
+				$(".goldurgent").attr('checked', false);	
 				$(".platinumurgent").attr('checked', false);
 				document.getElementById("package_urgent").value = '';
 			}
@@ -45,7 +45,7 @@
 				document.getElementById("package_type").value = 'platinum';
 				$(".freeurgent").attr('checked', false);
 				$(".goldurgent").attr('checked', false);
-				$(".platinumurgent").removeAttr('disabled');	
+				$(".platinumurgent").attr('checked', false);	
 				document.getElementById("package_urgent").value = '';			
 			}
 		});
@@ -2214,7 +2214,7 @@ jQuery(document).ready(function($) {
 																</sup>
 															</label>
 															<label class="checkbox">
-																<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked>
+																<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
 																<i></i>
 																I accept Terms & Conditions 
 															</label>

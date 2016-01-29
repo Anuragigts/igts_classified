@@ -2365,7 +2365,7 @@ jQuery(document).ready(function($) {
 															</sup>
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked>
+															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
 															<i></i>
 															I accept Terms & Conditions 
 														</label>

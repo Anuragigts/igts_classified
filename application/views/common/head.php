@@ -804,6 +804,17 @@
 				document.getElementById('edit_property_form').submit();
 			});
 
+			/*Job Category*/
+			$(".job_detail").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('jobs_sub').value = sub1[0];
+				document.getElementById('jobs_sub_sub').value = sub1[1];
+				document.getElementById('jobs_form').submit();
+			});
+
+
+
 		});
 		</script>
 

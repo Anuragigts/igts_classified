@@ -236,5 +236,10 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 
+        public function jobs_details(){
+            $rs = $this->db->query("SELECT * FROM `sub_category` WHERE `category_id` = 1");
+            return $rs->result_array();
+        }
+
 }
 ?>

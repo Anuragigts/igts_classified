@@ -793,113 +793,27 @@
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Jobs <span>Category </span></h2>
 												</div>
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-10 col-md-offset-1 post_deal_bor">
-															<div class="row">
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Accounting & Finance</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Construction</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Financial Services</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Banking</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Building Services</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Sales & Marketing</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">News & Media</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Retail</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Purchasing & Supply</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">IT & Telecom</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Hardware & Networking</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Healthcare & Old Age Care</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Human Resource & Training</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Office Administrative Jobs</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Driving</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">P.A. & Secretarial</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Architecture</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Catering Jobs</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Front Office & Help Desk</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Electrician & Plumbing Tools</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Chemical Engineering</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Electronics & Electrical Engineering</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Logistics & Supply Chain Management</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Mechanical Engineering</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Dentists</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Management Jobs</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Telesales</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Petroleum Engineering</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Power Engineering</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Graduate Jobs</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Nursing Jobs</a></h3>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3><a href="#">Miscelleneous</a></h3>
+												<form method='post' id='jobs_form' action="<?php echo base_url(); ?>Postad_create_jobs">
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-10 col-md-offset-1 post_deal_bor">
+																<div class="row">
+																	<input type='hidden' name='jobs_cat' id='jobs_cat' value='jobs' />
+																	<input type='hidden' name='jobs_sub' id='jobs_sub' value='' />
+																	<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
+																	<?php foreach ($jobs as $j_val) { ?>
+																	<div class="col-md-4 clearfix">
+																	<h3><a href="javascript:void(0)" class='job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h3>
+																	</div>
+																	<?php } ?>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
+													<div class="modal-footer">
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													</div>
+												</form>
 											</div>
 										</div>
 									</div>

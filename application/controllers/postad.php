@@ -89,6 +89,9 @@ class Postad extends CI_Controller{
                 /*find a property commercial*/
                 $data['property_commercial'] = $this->category_model->property_commercial();
 
+                /*Job category details*/
+                $data['jobs'] = $this->category_model->jobs_details();
+
                 if($plogin_id != ""){
                         /*$data = array(
                                 "title"     =>  "Classifieds",
