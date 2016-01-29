@@ -263,6 +263,18 @@ class Postad_job_model extends CI_Model{
                                 );
                         $this->db->insert("job_details", $job_details);
 
+                        /*urgent lable expiry*/
+                    if ($this->input->post('package_urgent') != '') {
+                        $days = array_shift(explode("daysurgent", $this->input->post('package_urgent')));
+                        $urgent_details = array('ad_id' => $insert_id,
+                                    'valid_from' => date('d-m-Y H:i:s'),
+                                    'valid_to' => date('d-m-Y H:i:s', strtotime("+$days days")),
+                                    'no_ofdays' => $days,
+                                    'status'=>1
+                                );
+                        $this->db->insert("urgent_details", $urgent_details);
+                    }
+
                     
             
             }
