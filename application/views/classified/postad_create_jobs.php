@@ -791,7 +791,7 @@ jQuery(document).ready(function($) {
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
 																<i></i>Consumer 
-																<sup data-toggle="tooltip" title="" data-original-title="Postal Code">
+																<sup data-toggle="tooltip" title="" data-original-title="Consumer">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
@@ -1802,7 +1802,7 @@ jQuery(document).ready(function($) {
 									<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 									<?php foreach ($jobs as $j_val) { ?>
 									<div class="col-md-4 clearfix">
-									<h3><a href="javascript:void(0)" class='edit_job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h3>
+									<h4><a href="javascript:void(0)" class='edit_job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
 									</div>
 									<?php } ?>
 								</div>
