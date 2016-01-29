@@ -1373,7 +1373,7 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="year_boat">
 														<img src="j-folder/img/reg.png" alt="year" title="year Icon" class="img-responsive">
 													</label>
-													<input type="text" id="year_boat" name="year_boat" placeholder="Enter Year">
+													<input type="text" id="year_boat" name="year_boat" placeholder="Enter Year" onkeypress="return isNumber(event)">
 												</div>
 											</div>
 										</div>
