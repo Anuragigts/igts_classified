@@ -52,6 +52,15 @@
 		
 		<script>
 			$(document).ready(function(){
+				$(".report_show").click(function(){
+					$(".report_hide").toggle(1000);
+
+				});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function(){
 				$(".contact_now_show").click(function(){
 					$(".contact_now_hide").toggle(1000);
 
@@ -295,7 +304,7 @@
 	<div class="modal fade" id="feedback_1" role="dialog">
 		<div class="modal-dialog feedback_wid">
 			<!-- Modal content-->
-			<form action="#" method="post" class="j-forms " >
+			<form action="#" method="post" class="j-forms tooltip-hover" >
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -304,190 +313,9 @@
 					<div class="modal-body">
 						<div class="j-row">
 							<div class="span6 unit">
-								<strong>Send us your feedback</strong>
-								<div class="bot_10 clearfix"></div>
-								<strong>Let us know what you think and we’ll be sure to review and improve where possible :</strong>
-								<div class="input top_10">
-									<textarea type="text" id="fead_back" name="fead_back" class="fead_back"  placeholder="Enter Your Feedback "></textarea>
-								</div>
-							</div>
-							<div class="span5 unit">
-								<strong>How would you rate the following?</strong>
-								<div class="bot_10 clearfix"></div>
-								<label class="label">(1 - Very poor; 5 - Very good) :</label>
-								<div class="rating-group">
-									<label class="label">Accuracy of info :</label>
-									<div class="ratings">
-										<input id="5acc" type="radio" name="Accuracy-rating">
-										<label for="5acc">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="4acc" type="radio" name="Accuracy-rating">
-										<label for="4acc">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="3acc" type="radio" name="Accuracy-rating">
-										<label for="3acc">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="2acc" type="radio" name="Accuracy-rating">
-										<label for="2acc">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="1acc" type="radio" name="Accuracy-rating">
-										<label for="1acc">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-									</div>
-								</div>
-								<div class="rating-group">
-									<label class="label">Ease of booking :</label>
-									<div class="ratings">
-										<input id="5ease" type="radio" name="Ease-rating">
-										<label for="5ease">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="4ease" type="radio" name="Ease-rating">
-										<label for="4ease">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="3ease" type="radio" name="Ease-rating">
-										<label for="3ease">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="2ease" type="radio" name="Ease-rating">
-										<label for="2ease">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="1ease" type="radio" name="Ease-rating">
-										<label for="1ease">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-									</div>
-								</div>
-								<div class="rating-group">
-									<label class="label">Stability and Speed :</label>
-									<div class="ratings">
-										<input id="5Stab" type="radio" name="Stability-rating">
-										<label for="5Stab">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="4Stab" type="radio" name="Stability-rating">
-										<label for="4Stab">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="3Stab" type="radio" name="Stability-rating">
-										<label for="3Stab">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="2Stab" type="radio" name="Stability-rating">
-										<label for="2Stab">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="1Stab" type="radio" name="Stability-rating">
-										<label for="1Stab">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-									</div>
-								</div>
-								<div class="rating-group">
-									<label class="label">Range of product :</label>
-									<div class="ratings">
-										<input id="5rang" type="radio" name="Range-rating">
-										<label for="5rang">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="4rang" type="radio" name="Range-rating">
-										<label for="4rang">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="3rang" type="radio" name="Range-rating">
-										<label for="3rang">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="2rang" type="radio" name="Range-rating">
-										<label for="2rang">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="1rang" type="radio" name="Range-rating">
-										<label for="1rang">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-									</div>
-								</div>
-								<div class="rating-group">
-									<label class="label">Pricing :</label>
-									<div class="ratings">
-										<input id="5price" type="radio" name="Pricing-rating">
-										<label for="5price">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="4price" type="radio" name="Pricing-rating">
-										<label for="4price">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="3price" type="radio" name="Pricing-rating">
-										<label for="3price">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="2price" type="radio" name="Pricing-rating">
-										<label for="2price">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="1price" type="radio" name="Pricing-rating">
-										<label for="1price">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-									</div>
-								</div>
-								<div class="rating-group">
-									<label class="label">Overall :</label>
-									<div class="ratings">
-										<input id="5overl" type="radio" value='5' name="Overall-rating">
-										<label for="5overl">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="4overl" type="radio" value='4' name="Overall-rating">
-										<label for="4overl">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="3overl" type="radio" value='3' name="Overall-rating">
-										<label for="3overl">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="2overl" type="radio" value='2' name="Overall-rating">
-										<label for="2overl">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-										<input id="1overl" type="radio" value='1' name="Overall-rating">
-										<label for="1overl">
-											<i class="fa fa-thumbs-o-up"></i>
-										</label>
-									</div>
-								</div>
-							</div><hr class="separator">
-						</div>
-						<div class="j-row">
-							<div class="span12 unit">
-								<strong>Tell us more about your experience</strong>
-								<div class="bot_10 clearfix"></div>
 								<div class="j-row">
-									<div class="span6 unit">
-										<label class="label">What were you using classified.com for today?</label>
-										<label class="input select">
-											<select name="classified">
-												<option value="none" selected disabled="">Please select an option</option>
-												<option value="">Find information prior to booking</option>
-												<option value="">Making a booking</option>
-												<option value="">Comparing prices</option>
-												<option value="">Showing someone an offer</option>
-												<option value="">Something else</option>
-											</select>
-											<i></i>
-										</label>
-									</div>
-									<div class="span6 unit">
-										<label class="label">Which category were you most interested in?</label>
+									<div class="span12 unit">
+										<label class="label">Which category were you most interested in ?</label>
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>
@@ -499,10 +327,8 @@
 											<i></i>
 										</label>
 									</div>
-								</div>
-								<div class="j-row">
-									<div class="span6 unit">
-										<label class="label">How likely are you to return to classified.com?</label>
+									<div class="span12 unit">
+										<label class="label">How likely are you to return to to 99 right Deals ?</label>
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>
@@ -515,8 +341,8 @@
 											<i></i>
 										</label>
 									</div>
-									<div class="span6 unit">
-										<label class="label">Would you recommend the site to a friend?</label>
+									<div class="span12 unit">
+										<label class="label">Would you recommend the site to a friend ?</label>
 										<label class="input select">
 											<select name="classified">
 												<option value="none" selected disabled="">Please select an option</option>
@@ -527,10 +353,177 @@
 										</label>
 									</div>
 								</div>
-							</div><hr class="separator">
-							<div class="col-sm-12 unit text_center">													
-								<button class="btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Submit</span></button>
 							</div>
+								
+							<div class="span6 unit">
+								<strong>How would you rate the following?</strong>
+								<div class="bot_10 clearfix"></div>
+								<label class="label">(1 - Very poor; 5 - Very good) :</label>
+								<div class="rating-group">
+									<label class="label">Easy to Use :</label>
+									<div class="ratings">
+										<input id="5acc" type="radio" name="easytouse">
+										<label for="5acc">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="4acc" type="radio" name="easytouse">
+										<label for="4acc">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="3acc" type="radio" name="easytouse">
+										<label for="3acc">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="2acc" type="radio" name="easytouse">
+										<label for="2acc">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="1acc" type="radio" name="easytouse">
+										<label for="1acc">
+											<i class="fa fa-smile-o"></i>
+										</label>
+									</div>
+								</div>
+								<div class="rating-group">
+									<label class="label">Stability and Speed :</label>
+									<div class="ratings">
+										<input id="5Stab" type="radio" name="Stability-rating">
+										<label for="5Stab">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="4Stab" type="radio" name="Stability-rating">
+										<label for="4Stab">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="3Stab" type="radio" name="Stability-rating">
+										<label for="3Stab">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="2Stab" type="radio" name="Stability-rating">
+										<label for="2Stab">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="1Stab" type="radio" name="Stability-rating">
+										<label for="1Stab">
+											<i class="fa fa-smile-o"></i>
+										</label>
+									</div>
+								</div>
+								<div class="rating-group">
+									<label class="label">Design :</label>
+									<div class="ratings">
+										<input id="5price" type="radio" name="Design-rating">
+										<label for="5price">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="4price" type="radio" name="Design-rating">
+										<label for="4price">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="3price" type="radio" name="Design-rating">
+										<label for="3price">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="2price" type="radio" name="Design-rating">
+										<label for="2price">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="1price" type="radio" name="Design-rating">
+										<label for="1price">
+											<i class="fa fa-smile-o"></i>
+										</label>
+									</div>
+								</div>
+								<div class="rating-group">
+									<label class="label">Overall :</label>
+									<div class="ratings">
+										<input id="5overl" type="radio" value='5' name="Overall-rating">
+										<label for="5overl">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="4overl" type="radio" value='4' name="Overall-rating">
+										<label for="4overl">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="3overl" type="radio" value='3' name="Overall-rating">
+										<label for="3overl">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="2overl" type="radio" value='2' name="Overall-rating">
+										<label for="2overl">
+											<i class="fa fa-smile-o"></i>
+										</label>
+										<input id="1overl" type="radio" value='1' name="Overall-rating">
+										<label for="1overl">
+											<i class="fa fa-smile-o"></i>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="j-row">
+							<div class="span6 unit">
+								<label class="label">Feedback 
+									<sup data-toggle="tooltip" title="" data-original-title="Feedback">
+										<img src="img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<textarea type="text" id="Feedback" name="Feedback" placeholder="Enter Your Feedback "></textarea>
+								</div>
+							</div>
+							<div class="span6 unit">
+								<label class="label">Email 
+									<sup data-toggle="tooltip" title="" data-original-title="Email">
+										<img src="img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<label class="icon-right" for="email">
+										<i class="fa fa-envelope-o"></i>
+									</label>
+									<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
+								</div>
+							</div>
+						</div>
+						<div class="j-row">
+							<div class="span6 unit">
+								<label class="label">Mobile Number 
+									<sup data-toggle="tooltip" title="" data-original-title="Mobile Number ">
+										<img src="img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<label class="icon-right" for="phone">
+										<i class="fa fa-phone"></i>
+									</label>
+									<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number ">
+								</div>
+							</div>
+							<div class="span6 unit">
+								<label class="label">Category
+									<sup data-toggle="tooltip" title="" data-original-title="Category">
+										<img src="img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<label class="input select">
+									<select name="Category">
+										<option value="none" selected disabled="">Select Category</option>
+										<option value="">E-Zone</option>
+										<option value="">Motor Point</option>
+										<option value="">Clothing & LifeStyles</option>
+										<option value="">Services</option>
+										<option value="">Find a Property</option>
+										<option value="">Home & Kitchen</option>
+										<option value="">Pets</option>
+										<option value="">Jobs</option>
+									</select>
+									<i></i>
+								</label>
+							</div>
+							<div class="col-sm-12 unit">													
+								<button class="btn_v btn-4 btn-4a fa fa-arrow-right pull-right"><span>Submit</span></button>
+							</div><hr class="separator">
 						</div>
 					</div>
 				</div>

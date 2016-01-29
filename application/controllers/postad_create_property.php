@@ -61,6 +61,25 @@ class Postad_create_property extends CI_Controller{
             }
             echo json_encode($data);
         }
+
+
+        public function get_property(){
+            $cst     =   '<option value="none" selected disabled="">Select property for</option>';
+               $va      =   $this->postad_property_model->get_property();
+               foreach ($va as $st){
+                        $cst    .=   '<option value='.$st->sub_subcategory_id.'>'.$st->sub_subcategory_name.'</option>';
+               }
+               echo $cst;
+        }
+
+        public function get_property_type(){
+            $cst     =   '<option value="none" selected disabled="">Select property type</option>';
+               $va      =   $this->postad_property_model->get_property_type();
+               foreach ($va as $st){
+                        $cst    .=   '<option value='.$st->sub_sub_subcategory_id.'>'.$st->sub_sub_subcategory_name.'</option>';
+               }
+               echo $cst;
+        }
     }
 
  ?>

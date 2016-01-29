@@ -6,6 +6,19 @@
  * and open the template in the editor.
  */
 class Postad_property_model extends CI_Model{
+        /*property for in residential and commercial*/
+            public function get_property(){
+            $cv     =   $this->input->post("id");
+            return $this->db->get_where("sub_subcategory",array("sub_category_id" => $cv))->result();
+            }
+
+            public function get_property_type(){
+            $cv     =   $this->input->post("id");
+            return $this->db->get_where("sub_sub_subcategory",array("sub_subcategory_id" => $cv))->result();
+            }
+
+
+
        public function postad_creat(){
              /*AD type business or consumer*/
                     $cur_date = date("Y")."".date("m");
@@ -255,46 +268,37 @@ class Postad_property_model extends CI_Model{
                         $this->db->insert("contactinfo_business", $plat_cont);
                     }
 
-                    /*property rent & property share for residential*/
-                    if ($this->input->post('sub_sub_id') == '51' || $this->input->post('sub_sub_id') == '52') {
+                    /*property for residential*/
+                    if ($this->input->post('sub_id') == '11') {
                      $pro_rent = array('ad_id' => $insert_id,
+                                    'property_for'=>$this->input->post('property_for'),
+                                    'property_type'=>$this->input->post('property_type'),
                                     'bed_rooms' => $this->input->post('Bedrooms'),
                                     'bath_rooms' => $this->input->post('Bathrooms'),
                                     'build_area'=>$this->input->post('area'),
-                                    'possession'=>$this->input->post('Possession'),
+                                    'position'=>$this->input->post('Position'),
                                     'property_age'=>$this->input->post('propertyage'),
                                     'property_ownership'=>$this->input->post('Ownership'),
                                     'floor_number'=>$this->input->post('floor_number')
                                 );
-                        $this->db->insert("property_rent_share", $pro_rent);   
+                        $this->db->insert("property_resid_commercial", $pro_rent);   
                     }
 
-                    /*property rent & property share for commercial*/
-                    if ($this->input->post('sub_sub_id') == '379' || $this->input->post('sub_sub_id') == '380') {
+                    /*property for commercial*/
+                    if ($this->input->post('sub_id') == '26') {
                      $pro_rent = array('ad_id' => $insert_id,
-                                    'bed_rooms' =>'',
+                                    'property_for'=>$this->input->post('property_for'),
+                                    'property_type'=>$this->input->post('property_type'),
+                                    'bed_rooms' => '',
                                     'bath_rooms' => $this->input->post('Bathrooms'),
                                     'build_area'=>$this->input->post('area'),
-                                    'possession'=>$this->input->post('Possession'),
+                                    'position'=>$this->input->post('Position'),
                                     'property_age'=>$this->input->post('propertyage'),
                                     'property_ownership'=>$this->input->post('Ownership'),
                                     'floor_number'=>$this->input->post('floor_number')
                                 );
-                        $this->db->insert("property_rent_share", $pro_rent);   
+                        $this->db->insert("property_resid_commercial", $pro_rent);   
                     }
-
-                    /*land for sale/lease and property for sale in residetial, commercial*/
-                    if ($this->input->post('sub_sub_id') == '377' || $this->input->post('sub_sub_id') == '382' || $this->input->post('sub_sub_id') == '378' || $this->input->post('sub_sub_id') == '381') {
-                     $pro_rent = array('ad_id' => $insert_id,
-                                    'plot_area' =>$this->input->post('area'),
-                                    'posession' => $this->input->post('Possession'),
-                                    'property_ownership'=>$this->input->post('Ownership')
-                                );
-                        $this->db->insert("property_land_sale", $pro_rent);   
-                    }
-
-                    
-            
             }
 
 

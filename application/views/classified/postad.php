@@ -610,20 +610,16 @@
 														<div class="col-md-10 col-md-offset-1 post_deal_bor">
 															<div class="row">
 																<div class="col-md-6 clearfix">
-																	<h3>Residential
+																	<h3><a href="javascript:void(0)" id="11,0" class='propertyforsale'>Residential</a>
 																		<input type='hidden' name='property_cat' id='property_cat' value='findaproperty' />
 																			<input type='hidden' name='property_sub' id='property_sub' value='' />
 																			<input type='hidden' name='property_sub_sub' id='property_sub_sub' value='' />
 																	</h3>
-																	<?php foreach ($property_residential as $prop_val) { ?>
-																		<h4><a href="javascript:void(0)" id="<?php echo  $prop_val['sub_category_id'].','.$prop_val['sub_subcategory_id']; ?>" class='propertyforsale'><?php echo ucfirst($prop_val['sub_subcategory_name']); ?></a></h4>
-																	<?php } ?>
 																</div>
 																<div class="col-md-6 clearfix">
-																	<h3>Commercial</h3>
-																	<?php foreach ($property_commercial as $prop_val1) { ?>
-																		<h4><a href="javascript:void(0)" id="<?php echo  $prop_val1['sub_category_id'].','.$prop_val1['sub_subcategory_id']; ?>" class='propertyforsale'><?php echo ucfirst($prop_val1['sub_subcategory_name']); ?></a></h4>
-																	<?php } ?>
+																	<h3>
+																		<a href="javascript:void(0)" id="26,0" class='propertyforsale'>Commercial</a>
+																	</h3>
 																</div>
 															</div>
 														</div>

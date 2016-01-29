@@ -14,6 +14,23 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
+	/*property type (residential and commercial)*/
+	$(function(){
+		$('.property_for').change(function(){
+		var proid = $("#property_for").val();
+		$.post( "<?php echo base_url();?>postad_create_property/get_property_type",{id:proid},function( data ) {
+			$(".property_type").html(data);
+            });
+		});
+	});
+
+	/*property for (residential and commercial)*/
+	$(function(){
+		var proid = <?php echo @$sub_id ?>;
+		$.post( "<?php echo base_url();?>postad_create_property/get_property",{id:proid},function( data ) {
+			$(".property_for").html(data);
+            });
+	});
 	
 	/*packages selection */
 	$(function(){
@@ -736,8 +753,7 @@ jQuery(document).ready(function($) {
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
 														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
 														 /</li>
-													<li><b><?php echo ucfirst(@$sub_name); ?></b> /</li>
-													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b></li>
+													<li><b><?php echo ucfirst(@$sub_name); ?></b></li>
 												</ul>                 
 											</div>
 											<div class="col-sm-4 pad_bottm">
@@ -909,42 +925,62 @@ jQuery(document).ready(function($) {
 													</div>
 												</div><!-- end Deal Description -->
 											</div>
-											<!-- property rent and property share -->
-											<?php if (@$sub_sub_id == '51' || @$sub_sub_id == '52') { ?>
+											<!-- residntials property -->
+											<?php if (@$sub_id == '11') { ?>
 											<div class="j-row">
-											<div class="span6 unit"><!-- Bedrooms Tag -->
-												<label class="label">Bedrooms 
+												<div class="span6 unit">
+													<label class="label">Property For
+														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<label class="input select">
+														<select name="property_for" id='property_for' class='property_for'>
+															<option value="none" selected disabled="">Select property for</option>
+														</select>
+														<i></i>
+													</label>
+												</div>
+												<div class="span6 unit">
+													<label class="label">Property Type
+														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<label class="input select">
+														<select name="property_type" class='property_type'>
+															<option value="none" selected disabled="">Select property type</option>
+														</select>
+														<i></i>
+													</label>
+												</div>
+											</div>
+											<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Bed Room
 													<sup data-toggle="tooltip" title="" data-original-title="Bedrooms">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="Bedrooms">
-														<option value="none" selected disabled="">Select Bedrooms</option>
-														<option value="1 Bedroom">1 Bedroom</option>
-														<option value="2 Bedrooms">2 Bedrooms</option>
-														<option value="3 Bedrooms">3 Bedrooms</option>
-														<option value="4 Bedrooms">4 Bedrooms</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="input">
+													<label class="icon-right" for="Bedrooms">
+														<img src="j-folder/img/bed.png" alt="bed room" title="Bed room">
+													</label>
+													<input type="text" id="Bedrooms" name="Bedrooms" placeholder="Enter Bed room" onkeypress="return isNumber(event)">
+												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Bathrooms
-													<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+												<label class="label">Bath Room
+													<sup data-toggle="tooltip" title="" data-original-title="BathRoom">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="Bathrooms">
-														<option value="none" selected disabled="">Select Bathrooms</option>
-														<option value="1 Bathroom">1 Bathroom</option>
-														<option value="2 Bathrooms">2 Bathrooms</option>
-														<option value="3 Bathrooms">3 Bathrooms</option>
-														<option value="4 Bathrooms">4 Bathrooms</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="input">
+													<label class="icon-right" for="BathRoom">
+														<img src="j-folder/img/bath.png" alt="bed room" title="Bed room">
+													</label>
+													<input type="text" id="Bathrooms" name="Bathrooms" placeholder="Enter bath room" onkeypress="return isNumber(event)">
+												</div>
 											</div>
 										</div>
 										
@@ -959,42 +995,37 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="area">
 														<img src="j-folder/img/area.png" alt="Area" title="area">
 													</label>
-													<input type="text" id="area" name="area" placeholder="Enter Super built-up area">
+													<input type="text" id="area" name="area" placeholder="Enter Super built-up area" onkeypress="return isNumber(event)">
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Possession 
-													<sup data-toggle="tooltip" title="" data-original-title="Possession">
+												<label class="label">Position
+													<sup data-toggle="tooltip" title="" data-original-title="Position">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="Possession">
-														<option value="none" selected disabled="">Select Possession</option>
-														<option value="Immediate">Immediate</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="input">
+													<label class="icon-right" for="area">
+														<img src="j-folder/img/position.png" alt="Position" title="Position">
+													</label>
+													<input type="text" id="Position" name="Position" placeholder="Enter Position">
+												</div>
 											</div>
 										</div>
 										
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Property Age
-													<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
+													<sup data-toggle="tooltip" title="" data-original-title="Property Age">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="propertyage">
-														<option value="none" selected disabled="">Select Property Age</option>
-														<option value="1 to 5 Years Old">1 to 5 Years Old</option>
-														<option value="5 to 10 Years Old">5 to 10 Years Old</option>
-														<option value="10 to 15 Years Old">10 to 15 Years Old</option>
-														<option value="15 to 20 Years Old">15 to 20 Years Old</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="input">
+													<label class="icon-right" for="BathRoom">
+														<img src="j-folder/img/bed.png" alt="Property Age" title="Property Age">
+													</label>
+													<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" onkeypress="return isNumber(event)">
+												</div>
 											</div>
 											<div class="span6 unit">
 												<label class="label">Property Ownership 
@@ -1025,76 +1056,52 @@ jQuery(document).ready(function($) {
 													<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number">
 												</div>
 											</div>
-										</div>	
-											<?php } ?>
-											
-										<?php if ($sub_sub_id == '377' || $sub_sub_id == '378' || $sub_sub_id == '381' || $sub_sub_id == '382') { ?>
-												<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Plot area
-													<sup data-toggle="tooltip" title="" data-original-title="Plot area">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="area">
-														<img src="j-folder/img/area.png" alt="Area" title="area">
-													</label>
-													<input type="text" id="area" name="area" placeholder="Enter Plot area">
-												</div>
-											</div>
-											<div class="span6 unit">
-												<label class="label">Possession 
-													<sup data-toggle="tooltip" title="" data-original-title="Possession">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<label class="input select">
-													<select name="Possession">
-														<option value="none" selected disabled="">Select Possession</option>
-														<option value="Immediate">Immediate</option>
-													</select>
-													<i></i>
-												</label>
-											</div>
 										</div>
-										<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Property Ownership 
-													<sup data-toggle="tooltip" title="" data-original-title="Property Ownership">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="Ownership">
-														<img src="j-folder/img/property.png" alt="Property" title="Property Icon">
-													</label>
-													<input type="text" id="Ownership" name="Ownership" placeholder="Enter Property Ownership">
-												</div>
-											</div>
-										</div>
-											<?php } ?>
-
-											<?php if (@$sub_sub_id == '379' || @$sub_sub_id == '380') { ?>
+										<?php } ?>
+										<?php if (@$sub_id == '26') { ?>
 											<div class="j-row">
-											<div class="span6 unit">
-												<label class="label">Bathrooms
-													<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<label class="input select">
-													<select name="Bathrooms">
-														<option value="none" selected disabled="">Select Bathrooms</option>
-														<option value="1 Bathroom">1 Bathroom</option>
-														<option value="2 Bathrooms">2 Bathrooms</option>
-														<option value="3 Bathrooms">3 Bathrooms</option>
-														<option value="4 Bathrooms">4 Bathrooms</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="span6 unit">
+													<label class="label">Property For
+														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<label class="input select">
+														<select name="property_for" id='property_for' class='property_for'>
+															<option value="none" selected disabled="">Select property for</option>
+														</select>
+														<i></i>
+													</label>
+												</div>
+												<div class="span6 unit">
+													<label class="label">Property Type
+														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<label class="input select">
+														<select name="property_type" class='property_type'>
+															<option value="none" selected disabled="">Select property type</option>
+														</select>
+														<i></i>
+													</label>
+												</div>
 											</div>
-											<div class="span6 unit">
+											<div class="j-row">
+												<div class="span6 unit">
+													<label class="label">No of Bath Rooms
+														<sup data-toggle="tooltip" title="" data-original-title="BathRoom">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+														</sup>
+													</label>
+													<div class="input">
+														<label class="icon-right" for="BathRoom">
+															<img src="j-folder/img/bath.png" alt="bed room" title="Bed room">
+														</label>
+														<input type="text" id="Bathrooms" name="Bathrooms" placeholder="Enter bath room" onkeypress="return isNumber(event)">
+													</div>
+												</div>
+												<div class="span6 unit">
 												<label class="label">Super built-up area
 													<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -1104,48 +1111,41 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="area">
 														<img src="j-folder/img/area.png" alt="Area" title="area">
 													</label>
-													<input type="text" id="area" name="area" placeholder="Enter Super built-up area">
+													<input type="text" id="area" name="area" placeholder="Enter Super built-up area" onkeypress="return isNumber(event)">
 												</div>
 											</div>
 										</div>
 										
 										<div class="j-row">
-											
 											<div class="span6 unit">
-												<label class="label">Possession 
-													<sup data-toggle="tooltip" title="" data-original-title="Possession">
+												<label class="label">Position
+													<sup data-toggle="tooltip" title="" data-original-title="Position">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="Possession">
-														<option value="none" selected disabled="">Select Possession</option>
-														<option value="Immediate">Immediate</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="input">
+													<label class="icon-right" for="area">
+														<img src="j-folder/img/position.png" alt="Position" title="Position">
+													</label>
+													<input type="text" id="Position" name="Position" placeholder="Enter Position">
+												</div>
 											</div>
 											<div class="span6 unit">
 												<label class="label">Property Age
-													<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
+													<sup data-toggle="tooltip" title="" data-original-title="Property Age">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="propertyage">
-														<option value="none" selected disabled="">Select Property Age</option>
-														<option value="1 to 5 Years Old">1 to 5 Years Old</option>
-														<option value="5 to 10 Years Old">5 to 10 Years Old</option>
-														<option value="10 to 15 Years Old">10 to 15 Years Old</option>
-														<option value="15 to 20 Years Old">15 to 20 Years Old</option>
-													</select>
-													<i></i>
-												</label>
+												<div class="input">
+													<label class="icon-right" for="BathRoom">
+														<img src="j-folder/img/bed.png" alt="Property Age" title="Property Age">
+													</label>
+													<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" onkeypress="return isNumber(event)">
+												</div>
 											</div>
 										</div>
 										
 										<div class="j-row">
-											
 											<div class="span6 unit">
 												<label class="label">Property Ownership 
 													<sup data-toggle="tooltip" title="" data-original-title="Property Ownership">
@@ -1172,12 +1172,10 @@ jQuery(document).ready(function($) {
 													<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number">
 												</div>
 											</div>
-
 										</div>
-
-											
-											<?php } ?>
-											<div class="j-row">
+										<?php } ?>		
+										
+										<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Price 
 														<sup data-toggle="tooltip" title="" data-original-title="Price">
@@ -1952,20 +1950,16 @@ jQuery(document).ready(function($) {
 							<div class="col-md-10 col-md-offset-1 post_deal_bor">
 								<div class="row">
 									<div class="col-md-6 clearfix">
-										<h3>Residential
+										<h3><a href="javascript:void(0)" id="11,0" class='edit_propertyforsale'>Residential</a>
 											<input type='hidden' name='property_cat' id='property_cat' value='findaproperty' />
 												<input type='hidden' name='property_sub' id='property_sub' value='' />
 												<input type='hidden' name='property_sub_sub' id='property_sub_sub' value='' />
 										</h3>
-										<?php foreach ($property_residential as $prop_val) { ?>
-											<h4><a href="javascript:void(0)" id="<?php echo  $prop_val['sub_category_id'].','.$prop_val['sub_subcategory_id']; ?>" class='edit_propertyforsale'><?php echo ucfirst($prop_val['sub_subcategory_name']); ?></a></h4>
-										<?php } ?>
 									</div>
 									<div class="col-md-6 clearfix">
-										<h3>Commercial</h3>
-										<?php foreach ($property_commercial as $prop_val1) { ?>
-											<h4><a href="javascript:void(0)" id="<?php echo  $prop_val1['sub_category_id'].','.$prop_val1['sub_subcategory_id']; ?>" class='edit_propertyforsale'><?php echo ucfirst($prop_val1['sub_subcategory_name']); ?></a></h4>
-										<?php } ?>
+										<h3>
+											<a href="javascript:void(0)" id="26,0" class='edit_propertyforsale'>Commercial</a>
+										</h3>
 									</div>
 								</div>
 							</div>
