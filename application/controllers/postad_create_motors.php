@@ -19,8 +19,8 @@ class Postad_create_motors extends CI_Controller{
         	 $data = array(
 		                    "cars_fst"     =>  $this->category_model->cars_sub_cat_fst(),
 		                    "cars_sec"     =>  $this->category_model->cars_sub_cat_sec(),
-			        	 	"bikes_fst"     =>  $this->category_model->bikes_sub_cat_fst(),
-			        	 	"bikes_sec"     =>  $this->category_model->bikes_sub_cat_sec(),
+    			        	 	"bikes_fst"     =>  $this->category_model->bikes_sub_cat_fst(),
+    			        	 	"bikes_sec"     =>  $this->category_model->bikes_sub_cat_sec(),
                             "caravans_fst" => $this->category_model->caravans_sub_cat_fst(),
                             "vans_sub_cat_fst" => $this->category_model->vans_sub_cat_fst(),
                             "coach_sub_cat_fst" => $this->category_model->coach_sub_cat_fst(),
