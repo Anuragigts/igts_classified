@@ -358,7 +358,7 @@
 							<div class="span6 unit">
 								<strong>How would you rate the following?</strong>
 								<div class="bot_10 clearfix"></div>
-								<label class="label">(1 - Very poor; 5 - Very good) :</label>
+								<label class="rating_wise">(1 - Very poor   &nbsp;&nbsp;&nbsp;&nbsp;   5 - Very good) :</label>
 								<div class="rating-group">
 									<label class="label">Easy to Use :</label>
 									<div class="ratings">
