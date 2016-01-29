@@ -59,7 +59,7 @@
 		</div>
 		
 		<!-- content info - Blog-->
-		<form action="#" method="post" class="j-forms " >
+		<form action="#" method="post" class="j-forms">
 			<div class="content_info">
 				<div class="paddings-mini">
 					<div class="container">
@@ -105,28 +105,7 @@
 											</div>
 										</div>
 										<div class="col-sm-3 col-xs-4  post-header1">
-											<div class="ratings">
-												<input id="5q" type="radio" name="quality-rating" value="5">
-												<label for="5q">
-													<i class="fa fa-star"></i>
-												</label>
-												<input id="4q" type="radio" name="quality-rating" value="4">
-												<label for="4q">
-													<i class="fa fa-star"></i>
-												</label>
-												<input id="3q" type="radio" name="quality-rating" value="3">
-												<label for="3q">
-													<i class="fa fa-star"></i>
-												</label>
-												<input id="2q" type="radio" name="quality-rating" value="2">
-												<label for="2q">
-													<i class="fa fa-star"></i>
-												</label>
-												<input id="1q" type="radio" name="quality-rating" value="1" checked="">
-												<label for="1q">
-													<i class="fa fa-star"></i>
-												</label>
-											</div>
+											
 										</div>
 										<!-- Post Header-->
 
@@ -338,9 +317,9 @@
 													</li>
 
 													<li>
-														<a href="#" class="social-email" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-															<i class="fa fa-envelope-o"></i>
-															<i class="fa fa-envelope-o envelope"></i>
+														<a href="http://365deals.igravitas.in/" target="_blank" class="social-globe" data-toggle="tooltip" title="" data-original-title="Weblink">
+															<i class="fa fa-globe"></i>
+															<i class="fa fa-globe globe"></i>
 														</a>
 													</li>
 												</ul>
@@ -353,40 +332,65 @@
 								<!-- End Post Item Gallery-->
 								<h4><i class="fa fa-pencil"></i>New Comment</h4><hr>
 
-								<form action="#" class="form-theme">
-									<div class="row">
-										<div class="span6 unit">
-											<label class="label">Your Name :</label>
-											<div class="input">
-												<label class="icon-right" for="yourname">
-													<i class="fa fa-user"></i>
-												</label>
-												<input type="text" id="yourname" name="yourname" placeholder="Enter Your Name">
-											</div>
+								<div class="row">
+									<div class="span6 unit">
+										<label class="label">Your Name :</label>
+										<div class="input">
+											<label class="icon-right" for="yourname">
+												<i class="fa fa-user"></i>
+											</label>
+											<input type="text" id="yourname" name="yourname" placeholder="Enter Your Name">
 										</div>
-										<div class="span6 unit">
-											<label class="label">Your Email :</label>
-											<div class="input">
-												<label class="icon-right" for="youremail">
-													<i class="fa fa-envelope-o"></i>
-												</label>
-												<input type="email" id="youremail" name="youremail" placeholder="Enter Your Email">
-											</div>
+									</div>
+									<div class="span6 unit">
+										<label class="label">Your Email :</label>
+										<div class="input">
+											<label class="icon-right" for="youremail">
+												<i class="fa fa-envelope-o"></i>
+											</label>
+											<input type="email" id="youremail" name="youremail" placeholder="Enter Your Email">
 										</div>
-										<div class="span12 unit">
-											<label class="label">Message :</label>
-											<div class="input">
-												<textarea type="text" id="" name="" placeholder="Enter Your Message "></textarea>
+									</div>
+									<div class="span12 unit">
+										<label class="label">Message :</label>
+										<div class="input">
+											<textarea type="text" id="" name="" placeholder="Enter Your Message "></textarea>
+										</div>
+									</div>
+									<div class="span4 unit">
+										<div class="clearfix"></div>
+										<div class="rating-group">
+											<label class="label">Your Rating :</label>
+											<div class="ratings">
+												<input id="5acc" type="radio" name="user_tating">
+												<label for="5acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="4acc" type="radio" name="user_tating">
+												<label for="4acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="3acc" type="radio" name="user_tating">
+												<label for="3acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="2acc" type="radio" name="user_tating">
+												<label for="2acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="1acc" type="radio" name="user_tating">
+												<label for="1acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
 											</div>
 										</div>
 									</div>
-									
-									<div class="row">
-										<div class="col-md-12">
-											<input type="submit" value="Post Comment" class="btn btn-primary">
-										</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<input type="submit" value="Post Comment" class="btn btn-primary">
 									</div>
-								</form>
+								</div>
 							</div>
 							
 							<div class="col-md-3">
