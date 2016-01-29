@@ -1733,8 +1733,7 @@
 									<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 									<?php foreach ($jobs as $j_val) { ?>
 									<div class="col-md-4 clearfix">
-										<h3><a href="javascript:void(0)" class='edit_job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h3>
-									<h4><a href="javascript:void(0)" class='edit_job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
+										<h4><a href="javascript:void(0)" class='edit_job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
 									</div>
 									<?php } ?>
 								</div>
