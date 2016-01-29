@@ -1791,7 +1791,7 @@ jQuery(document).ready(function($) {
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Services <span>Category </span></h2>
+						<h2>Jobs <span>Category </span></h2>
 					</div>
 					<div class="modal-body">
 						<div class="row">
