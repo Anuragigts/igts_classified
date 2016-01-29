@@ -928,6 +928,28 @@ jQuery(document).ready(function($) {
 											<!-- residntials property -->
 											<?php if (@$sub_id == '11') { ?>
 											<div class="j-row">
+												<div class="span5 unit">
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+																<input type="radio" name="offered_type" value="Offered">
+																<i></i>Offered 
+																<sup data-toggle="tooltip" title="" data-original-title="Offered">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<label class="radio">
+																<input type="radio" name="offered_type" value="Wanted">
+																<i></i>Wanted 
+																<sup data-toggle="tooltip" title="" data-original-title="Wanted">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Property For
 														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
@@ -1059,6 +1081,28 @@ jQuery(document).ready(function($) {
 										</div>
 										<?php } ?>
 										<?php if (@$sub_id == '26') { ?>
+										<div class="j-row">
+												<div class="span5 unit">
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+																<input type="radio" name="offered_type" value="Offered">
+																<i></i>Offered 
+																<sup data-toggle="tooltip" title="" data-original-title="Offered">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<label class="radio">
+																<input type="radio" name="offered_type" value="Wanted">
+																<i></i>Wanted 
+																<sup data-toggle="tooltip" title="" data-original-title="Wanted">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Property For

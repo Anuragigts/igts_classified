@@ -271,6 +271,7 @@ class Postad_property_model extends CI_Model{
                     /*property for residential*/
                     if ($this->input->post('sub_id') == '11') {
                      $pro_rent = array('ad_id' => $insert_id,
+                                    'offered_type'=>$this->input->post('offered_type'),
                                     'property_for'=>$this->input->post('property_for'),
                                     'property_type'=>$this->input->post('property_type'),
                                     'bed_rooms' => $this->input->post('Bedrooms'),
@@ -287,6 +288,7 @@ class Postad_property_model extends CI_Model{
                     /*property for commercial*/
                     if ($this->input->post('sub_id') == '26') {
                      $pro_rent = array('ad_id' => $insert_id,
+                                    'offered_type'=>$this->input->post('offered_type'),
                                     'property_for'=>$this->input->post('property_for'),
                                     'property_type'=>$this->input->post('property_type'),
                                     'bed_rooms' => '',
