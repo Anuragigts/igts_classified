@@ -1025,6 +1025,8 @@
 													<div class="input">
 														<label class="icon-right" for="reg_year">
 														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
 													</div>
@@ -1055,6 +1057,8 @@
 													<div class="input">
 														<label class="icon-right" for="No of Miles Covered ">
 														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 													</div>
@@ -1070,6 +1074,8 @@
 													<div class="input">
 														<label class="icon-right" for="Engine Sise">
 														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size " onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
 													</div>
@@ -1176,6 +1182,8 @@
 													<div class="input">
 														<label class="icon-right" for="reg_year">
 														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
 													</div>
@@ -1224,6 +1232,8 @@
 													<div class="input">
 														<label class="icon-right" for="Engine Sise">
 														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
 													</div>
@@ -1278,6 +1288,8 @@
 													<div class="input">
 														<label class="icon-right" for="No of Miles Covered ">
 														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 													</div>
@@ -1488,6 +1500,8 @@
 													<div class="input">
 														<label class="icon-right" for="reg_year">
 														<img src="j-folder/img/reg.png" alt="Reg" title="Reg Icon" class="img-responsive">
+													</label>
+													<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="reg_year" name="reg_year" placeholder="Enter Registration Year">
 													</div>
@@ -1536,6 +1550,8 @@
 													<div class="input">
 														<label class="icon-right" for="Engine Sise">
 														<img src="j-folder/img/engsize.png" alt="Miles" title="Engine Icon" class="img-responsive">
+													</label>
+													<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size " onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="eng_size" name="eng_size" placeholder="Enter Engine Size ">
 													</div>
@@ -1590,6 +1606,8 @@
 													<div class="input">
 														<label class="icon-right" for="No of Miles Covered ">
 														<img src="j-folder/img/miles.png" alt="Miles" title="Miles Icon" class="img-responsive">
+													</label>
+													<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered" onkeypress="return isNumber(event)">
 														</label>
 														<input type="text" id="tot_miles" name="tot_miles" placeholder="Enter No of Miles Covered">
 													</div>
