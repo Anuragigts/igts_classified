@@ -480,7 +480,7 @@
 												<form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
 												<div class="modal-body">
 													<div class="row">
-														<div class="col-md-10 col-md-offset-1 post_deal_bor">
+														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-4 clearfix">
 																	<input type='hidden' name='cloths_cat' id='cloths_cat' value='clothing & lifestyles' />
@@ -556,7 +556,7 @@
 												<form method='post' id='services_form' action="<?php echo base_url(); ?>postad_create_services">
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-10 col-md-offset-1 post_deal_bor">
+															<div class="col-md-12 post_deal_bor">
 																<div class="row">
 																	<div class="col-md-6 clearfix">
 																		<h3>Professional
@@ -607,7 +607,7 @@
 												</div>
 												<div class="modal-body">
 													<div class="row">
-														<div class="col-md-10 col-md-offset-1 post_deal_bor">
+														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-6 clearfix">
 																	<h3><a href="javascript:void(0)" id="11,0" class='propertyforsale'>Residential</a>
@@ -655,7 +655,7 @@
 												</div>
 												<div class="modal-body">
 													<div class="row">
-														<div class="col-md-10 col-md-offset-1 post_deal_bor">
+														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-4 clearfix">
 																	<h3>Kitchen Essentials</h3>
@@ -735,7 +735,7 @@
 												<form method='post' id='pets_form' action="<?php echo base_url(); ?>postad_create_pets">
 												<div class="modal-body">
 													<div class="row">
-														<div class="col-md-10 col-md-offset-1 post_deal_bor">
+														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-2 clearfix">
 																	<input type='hidden' name='pets_cat' id='pets_cat' value='pets' />
@@ -796,14 +796,14 @@
 												<form method='post' id='jobs_form' action="<?php echo base_url(); ?>postad_create_jobs">
 													<div class="modal-body">
 														<div class="row">
-															<div class="col-md-10 col-md-offset-1 post_deal_bor">
+															<div class="col-md-12  post_deal_bor">
 																<div class="row">
 																	<input type='hidden' name='jobs_cat' id='jobs_cat' value='jobs' />
 																	<input type='hidden' name='jobs_sub' id='jobs_sub' value='' />
 																	<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 																	<?php foreach ($jobs as $j_val) { ?>
 																	<div class="col-md-4 clearfix">
-																	<h3><a href="javascript:void(0)" class='job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h3>
+																	<h4><a href="javascript:void(0)" class='job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
 																	</div>
 																	<?php } ?>
 																</div>

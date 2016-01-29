@@ -78,7 +78,7 @@
 													<img src="img/icons/crown.png" alt="Crown" title="Crown Icon">
 												</div>
 												<div class="post-info-wrap">
-													<h2 class="post-title"><a href="#">PORSCHE CAYMAN Porsche Cayman</a></h2>
+													<h2 class="post-title"><a href="#">PORSCHE CAYMAN Cayman</a></h2>
 													<div class="post-meta" style="padding-top: 8px;">
 														<ul>
 															<li>
@@ -330,6 +330,65 @@
 								   </div>
 								</div>
 								<!-- End Post Item Gallery-->
+								<a class="review_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Write a Review</span></a>
+								
+								<div class="widget view_sidebar review_hide" style="display:none;">
+									<div class="j-row">
+										<div class="span6 unit">
+											<label class="label">Review Title :</label>
+											<div class="input">
+												<label class="icon-right" for="name">
+													<i class="fa fa-user"></i>
+												</label>
+												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Review Title">
+											</div>
+										</div>
+										<div class="span6 unit">
+											<label class="label">Your Review :</label>
+											<div class="input">
+												<textarea type="text" id="" name="" placeholder="EnterYour Review"></textarea>
+											</div>
+										</div>
+										<div class="span6 unit">
+											<label class="label">Name :</label>
+											<div class="input">
+												<label class="icon-right" for="name">
+													<i class="fa fa-user"></i>
+												</label>
+												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Name">
+											</div>
+										</div>
+										<div class="span6 rating-group top_20">
+											<label class="label">Your Rating :</label>
+											<div class="ratings">
+												<input id="5acc" type="radio" name="user_tating">
+												<label for="5acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="4acc" type="radio" name="user_tating">
+												<label for="4acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="3acc" type="radio" name="user_tating">
+												<label for="3acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="2acc" type="radio" name="user_tating">
+												<label for="2acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+												<input id="1acc" type="radio" name="user_tating">
+												<label for="1acc">
+													<i class="fa fa-smile-o"></i>
+												</label>
+											</div>
+										</div>
+										<div class="span12 unit">													
+											<button class="btn btn-primary " id='change_pwd'>Add Review</button>
+										</div>
+									</div>
+								</div>
+								
 								<h4><i class="fa fa-pencil"></i>New Comment</h4><hr>
 
 								<div class="row">
@@ -359,31 +418,7 @@
 									</div>
 									<div class="span4 unit">
 										<div class="clearfix"></div>
-										<div class="rating-group">
-											<label class="label">Your Rating :</label>
-											<div class="ratings">
-												<input id="5acc" type="radio" name="user_tating">
-												<label for="5acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="4acc" type="radio" name="user_tating">
-												<label for="4acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="3acc" type="radio" name="user_tating">
-												<label for="3acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="2acc" type="radio" name="user_tating">
-												<label for="2acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="1acc" type="radio" name="user_tating">
-												<label for="1acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-											</div>
-										</div>
+										
 									</div>
 								</div>
 								<div class="row">
