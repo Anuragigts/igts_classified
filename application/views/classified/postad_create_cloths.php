@@ -1072,7 +1072,7 @@ jQuery(document).ready(function($) {
 															<?php }
 															/*men, boy, girl, kid boy, kid girl*/
 															if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" onkeypress="return isNumber(event)">
+																<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" >
 														<?php	}
 															 ?>
 															
