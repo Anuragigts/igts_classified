@@ -791,7 +791,7 @@ jQuery(document).ready(function($) {
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
 																<i></i>Consumer 
-																<sup data-toggle="tooltip" title="" data-original-title="Postal Code">
+																<sup data-toggle="tooltip" title="" data-original-title="Consumer">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
@@ -911,7 +911,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
 													<label class="label">Deal Tag / Caption 
-														<sup data-toggle="tooltip" title="" data-original-title="Postal">
+														<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -1057,7 +1057,7 @@ jQuery(document).ready(function($) {
 														</label>
 														<label class="input select">
 															<!-- women clothing -->
-															<?php if (@$sub_sub_id == '359') { ?>
+														 	<?php if (@$sub_sub_id == '359') { ?>
 															<select name="Fit">
 																<option value="none" selected disabled="">Select Fit</option>
 																<option value="Regular">Regular</option>
@@ -1121,7 +1121,7 @@ jQuery(document).ready(function($) {
 												<div class="j-row">
 													<div class="span6 unit">
 														<label class="label">Length
-															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+															<sup data-toggle="tooltip" title="" data-original-title="Length">
 																<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
@@ -1498,7 +1498,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Length
-														<sup data-toggle="tooltip" title="" data-original-title="Charity">
+														<sup data-toggle="tooltip" title="" data-original-title="Length">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>

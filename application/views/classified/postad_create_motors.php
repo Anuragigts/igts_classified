@@ -831,7 +831,7 @@ jQuery(document).ready(function($) {
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
 																<i></i>Consumer 
-																<sup data-toggle="tooltip" title="" data-original-title="Postal Code">
+																<sup data-toggle="tooltip" title="" data-original-title="Consumer">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
@@ -946,9 +946,9 @@ jQuery(document).ready(function($) {
 											</div>
 										</div>
 											<div class="j-row">
-												<div class="span6 unit"><!-- start Deal Tag -->
+												<div class="span6 unit">
 													<label class="label">Deal Tag / Caption 
-														<sup data-toggle="tooltip" title="" data-original-title="Postal">
+														<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -962,7 +962,7 @@ jQuery(document).ready(function($) {
 											</div>
 											
 											<div class="j-row">
-												<div class="span12 unit"><!-- start Deal Description -->
+												<div class="span12 unit">
 													<label class="label">Deal Description 
 														<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -1008,7 +1008,7 @@ jQuery(document).ready(function($) {
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Bike Type 
-													<sup data-toggle="tooltip" title="" data-original-title="Type ">
+													<sup data-toggle="tooltip" title="" data-original-title="Bike Type ">
 														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 													</sup>
 												</label>

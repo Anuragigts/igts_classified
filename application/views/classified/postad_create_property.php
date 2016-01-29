@@ -808,7 +808,7 @@ jQuery(document).ready(function($) {
 															<label class="radio">
 																<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
 																<i></i>Consumer 
-																<sup data-toggle="tooltip" title="" data-original-title="Postal Code">
+																<sup data-toggle="tooltip" title="" data-original-title="Consumer">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
@@ -952,7 +952,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Property For
-														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+														<sup data-toggle="tooltip" title="" data-original-title="Property For">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -965,7 +965,7 @@ jQuery(document).ready(function($) {
 												</div>
 												<div class="span6 unit">
 													<label class="label">Property Type
-														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+														<sup data-toggle="tooltip" title="" data-original-title="Property Type">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -1067,7 +1067,7 @@ jQuery(document).ready(function($) {
 										<div class="j-row">
 											<div class="span6 unit">
 												<label class="label">Floor number 
-													<sup data-toggle="tooltip" title="" data-original-title="Plot area">
+													<sup data-toggle="tooltip" title="" data-original-title="Floor number">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
@@ -1106,7 +1106,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Property For
-														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+														<sup data-toggle="tooltip" title="" data-original-title="Property For">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -1119,7 +1119,7 @@ jQuery(document).ready(function($) {
 												</div>
 												<div class="span6 unit">
 													<label class="label">Property Type
-														<sup data-toggle="tooltip" title="" data-original-title="Bathrooms">
+														<sup data-toggle="tooltip" title="" data-original-title="Property Type">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -1134,7 +1134,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">No of Bath Rooms
-														<sup data-toggle="tooltip" title="" data-original-title="BathRoom">
+														<sup data-toggle="tooltip" title="" data-original-title="No of Bath Rooms">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
@@ -1205,7 +1205,7 @@ jQuery(document).ready(function($) {
 											</div>
 											<div class="span6 unit">
 												<label class="label">Floor number 
-													<sup data-toggle="tooltip" title="" data-original-title="Plot area">
+													<sup data-toggle="tooltip" title="" data-original-title="Floor number">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
