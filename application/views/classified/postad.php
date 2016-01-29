@@ -793,7 +793,7 @@
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Jobs <span>Category </span></h2>
 												</div>
-												<form method='post' id='jobs_form' action="<?php echo base_url(); ?>Postad_create_jobs">
+												<form method='post' id='jobs_form' action="<?php echo base_url(); ?>postad_create_jobs">
 													<div class="modal-body">
 														<div class="row">
 															<div class="col-md-10 col-md-offset-1 post_deal_bor">

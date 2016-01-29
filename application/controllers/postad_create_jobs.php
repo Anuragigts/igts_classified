@@ -20,9 +20,8 @@ class Postad_create_jobs extends CI_Controller{
             
 
         	 $data = array(
-                    // "services_sub_prof"     =>  $this->category_model->services_sub_prof(),
-                    // "services_sub_pop"     =>  $this->category_model->services_sub_pop(),
-                                "title"     =>  "Classifieds",
+                    "jobs"     =>  $this->category_model->jobs_details(),
+                               "title"     =>  "Classifieds",
                                 "content"   =>  "postad_create_jobs"
                         );
 
