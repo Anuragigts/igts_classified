@@ -5259,3 +5259,6 @@ h4 a:hover{
 .bg{
 	background-color: #E95413 !important;
 }
+tbody th,td{
+	font-size: 0.875rem;
+}

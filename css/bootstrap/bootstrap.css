@@ -2269,7 +2269,7 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -2298,7 +2298,7 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -2306,7 +2306,7 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
@@ -5756,7 +5756,7 @@ button.close {
 .modal-dialog {
   position: relative;
   width: auto;
-  padding-top: 88px;
+  padding-top: 75px;
   margin: 10px;
 }
 .modal-content {
