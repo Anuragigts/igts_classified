@@ -61,6 +61,15 @@
 		
 		<script>
 			$(document).ready(function(){
+				$(".review_show").click(function(){
+					$(".review_hide").toggle(1000);
+
+				});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function(){
 				$(".contact_now_show").click(function(){
 					$(".contact_now_hide").toggle(1000);
 
