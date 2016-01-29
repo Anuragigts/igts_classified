@@ -882,7 +882,7 @@ jQuery(document).ready(function($) {
 											<div class="j-row">
 												<div class="span6 unit"><!-- start Deal Tag -->
 													<label class="label">Job Tag / Caption 
-														<sup data-toggle="tooltip" title="" data-original-title="Postal">
+														<sup data-toggle="tooltip" title="" data-original-title="Job tag">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
