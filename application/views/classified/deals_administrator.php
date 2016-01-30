@@ -166,7 +166,7 @@
                                 <!-- sort-by-container-->
 
                                 <div class="row list_view_searches">
-                                    <!-- Item Gallery List View-->
+                                    <!-- platinum package start-->
                                     <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -253,7 +253,7 @@
 														</div>
 													</div>
 												</div>
-											</div><!-- End Row-->
+											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12">
@@ -265,7 +265,6 @@
 														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -273,9 +272,10 @@
 												</div>
 											</div>
 										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
 									</div>
-									
+									<!-- platinum package end -->
+
+									<!-- platinum+urgent package start -->
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -377,7 +377,6 @@
 														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -387,7 +386,9 @@
 										</div><hr class="separator">	
 										<!-- End Item Gallery List View-->
 									</div>
-									
+									<!-- platinum+urgent package end -->
+
+									<!-- gold package starts -->
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
@@ -470,7 +471,6 @@
 														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -478,9 +478,10 @@
 												</div>
 											</div>
 										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
 									</div>
+									<!-- gold package end -->
 									
+									<!-- gold+urgent package starts -->
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
@@ -571,7 +572,6 @@
 														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -579,9 +579,10 @@
 												</div>
 											</div>
 										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
 									</div>
+									<!-- gold+urgent package end -->
 									
+									<!-- free package starts -->
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -658,7 +659,6 @@
 														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -666,9 +666,10 @@
 												</div>
 											</div>
 										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
 									</div>
+									<!-- free package ends -->
 									
+									<!-- free+urgent package starts -->
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -748,7 +749,6 @@
 														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-comments"></i><a href="#" title="Comment on Post Format: Standard">Leave a comment</a></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -756,8 +756,8 @@
 												</div>
 											</div>
 										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
 									</div>
+									<!-- free+urgent package ends -->
 								</div>
 							</div>
 						</form>
