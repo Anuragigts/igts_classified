@@ -162,9 +162,9 @@
 	#slide-features .btn{
 		margin-bottom: 20px;
 	}
-	footer{
+	/* footer{
 		text-align: center;
-	}
+	} */
 	.testimonial-info{
 		text-align: center;
 		padding-bottom: 100px;
@@ -310,8 +310,13 @@
 		width: 50%;
 	}
 }
-@media handheld, only screen and (max-width: 470px) {
+@media handheld, only screen and (max-width: 320px) {
 	.portfolioFilter a {
 		font-size: 9px;
+	}
+	.post_deal_bor {
+		border: 2px solid rgb(155, 147, 147);
+		padding: 11px 7px 0px;
+		width: 256px;
 	}
 }
