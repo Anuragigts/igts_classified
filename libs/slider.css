@@ -45,9 +45,12 @@ ol { list-style: none; }
 }
 
 .sliders li img {
-  max-width: 100%;
-  display: block;
-  height: 220px;
+	max-width: 100%;
+	display: block;
+	height: 220px;
+	border-top: 1px solid #f4f4f4;
+	border-left: 1px solid #f4f4f4;
+	border-right: 1px solid #f4f4f4;
 }
 
 .direction-nav a {
