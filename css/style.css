@@ -3901,6 +3901,8 @@ address strong{
 .view_price{
 	color:white;
 	padding-left:5px;
+	font-size: 20px;
+	font-weight: bold;
 }
 .slider_bg{
 	background-color: #f4f4f4 !important;
