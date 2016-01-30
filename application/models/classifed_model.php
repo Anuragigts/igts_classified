@@ -273,6 +273,19 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
+
+	/*my ads in deals administrator*/
+	public function my_ads(){
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->from("postad as ad");
+		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->group_by("img.ad_id");
+		$this->db->order_by("ad.created_on", "DESC");
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 }
 
 

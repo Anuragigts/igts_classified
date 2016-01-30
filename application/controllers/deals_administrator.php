@@ -8,15 +8,18 @@
 class  Deals_administrator extends CI_Controller{
         public function __construct(){
                 parent::__construct();
-                //$this->load->model("login_model");
+                $this->load->model("classifed_model");
         }
         public function index(){
                 if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
+
+                $my_ads = $this->classifed_model->my_ads();
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "deals_administrator"
+                        "content"   =>  "deals_administrator",
+                        'my_ads_details'=> $my_ads
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
