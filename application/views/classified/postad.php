@@ -54,30 +54,6 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
-									<div class="modal fade" id="ForSale" role="dialog">
-										<div class="modal-dialog">
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Hot Deals <span>Category </span></h2>
-												</div>
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-4 clearfix">
-														</div>
-														<div class="col-md-4 clearfix">
-														</div>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- Deals content End-->
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
@@ -94,7 +70,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>E-Zone <span>Category </span></h2>
+													<h2>E-Zone Category</h2>
 												</div>
 												<div class="modal-body">
 													<div class="row ezone_h3 mod_pad">
@@ -233,7 +209,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Motor Point <span>Category </span></h2>
+													<h2>Motor Point Category</h2>
 												</div>
 												<form method='post' id='motorpoint_form' action="<?php echo base_url(); ?>postad_create_motors">
 													<div class="modal-body tabs-detailed">
@@ -475,7 +451,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Clothing & LifeStyles <span>Category </span></h2>
+													<h2>Clothing & LifeStyles Category</h2>
 												</div>
 												<form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
 												<div class="modal-body">
@@ -551,7 +527,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Services <span>Category </span></h2>
+													<h2>Services Category</h2>
 												</div>
 												<form method='post' id='services_form' action="<?php echo base_url(); ?>postad_create_services">
 													<div class="modal-body">
@@ -603,7 +579,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Find a Property <span>Category </span></h2>
+													<h2>Find a Property Category</h2>
 												</div>
 												<div class="modal-body">
 													<div class="row">
@@ -651,7 +627,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Home & Kitchen <span>Category </span></h2>
+													<h2>Home & Kitchen Category</h2>
 												</div>
 												<div class="modal-body">
 													<div class="row">
@@ -730,7 +706,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Pets <span>Category </span></h2>
+													<h2>Pets Category</h2>
 												</div>
 												<form method='post' id='pets_form' action="<?php echo base_url(); ?>postad_create_pets">
 												<div class="modal-body">
@@ -791,7 +767,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Jobs <span>Category </span></h2>
+													<h2>Jobs Category</h2>
 												</div>
 												<form method='post' id='jobs_form' action="<?php echo base_url(); ?>postad_create_jobs">
 													<div class="modal-body">
