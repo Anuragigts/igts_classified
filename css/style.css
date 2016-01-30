@@ -4781,6 +4781,9 @@ aside label .checkbox{
 }
 .view_img img{
 	height: 219px;
+	border-top: 1px solid #f4f4f4;
+	border-left: 1px solid #f4f4f4;
+	border-right: 1px solid #f4f4f4;
 }
 .sign_bg{
 	padding-top: 31px;
@@ -5267,4 +5270,9 @@ tbody th,td{
 }
 .cd-filter-content label{
 	color: rgb(246, 237, 237) !important;
+}
+.view_price{
+	color:white;
+	padding-top:10px;
+	margin-right: 50px !important;
 }
