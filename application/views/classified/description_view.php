@@ -440,7 +440,7 @@
 									</ul>
 									<div class="top_5">
 										<div class="amt_bg">
-											<h3 style="color:white;padding-top:10px;">£1036</h3>
+											<h3 class="view_price">£1036</h3>
 										</div>
 									</div>
 								</aside>

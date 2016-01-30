@@ -743,7 +743,7 @@ jQuery(document).ready(function($) {
     <section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
+			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<!-- content info - Blog-->
@@ -909,7 +909,8 @@ jQuery(document).ready(function($) {
 													<img id="blah" src="#" alt=''/>
 												</div>
 												<div class="span2 unit" class='del_img'>
-												<a href='javascript:void(0);' id="del_img" style='display:none;'><img src="ad_images/delete.png" alt=''/></a>
+												<a href='javascript:void(0);' id="del_img" style='display:none;'>
+												<img src="ad_images/delete.png" alt='delete' title="Delete"/></a>
 												</div>
 											</div>
 										</div>
@@ -924,21 +925,21 @@ jQuery(document).ready(function($) {
 															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Seller">
 															<i></i>Seller
 															<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
 														<label class="radio">
 															<input type="radio" name="checkbox_motbike"  value="Needed">
 															<i></i>Needed
 															<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
 														<label class="radio">
 															<input type="radio" name="checkbox_motbike"  value="For Hire">
 															<i></i>For Hire
 															<sup data-toggle="tooltip" title="" data-original-title="For Hire">
-																<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
 													</div>
@@ -981,7 +982,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Vehicle Registration  Number 
 													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -994,7 +995,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Manufacture 
 													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1009,7 +1010,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Bike Type 
 													<sup data-toggle="tooltip" title="" data-original-title="Bike Type ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1023,7 +1024,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Model 
 													<sup data-toggle="tooltip" title="" data-original-title="Model ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1039,7 +1040,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1052,7 +1053,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Registration Year
 													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1067,7 +1068,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Fuel Type  
 													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1082,7 +1083,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Miles Covered 
 													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1097,7 +1098,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Engine Size 
 													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1110,7 +1111,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Road TAX status  
 													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1125,7 +1126,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Condition 
 													<sup data-toggle="tooltip" title="" data-original-title="Condition">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1146,7 +1147,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Vehicle Registration  Number 
 													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1159,7 +1160,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Manufacture 
 													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1174,7 +1175,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Model 
 													<sup data-toggle="tooltip" title="" data-original-title="Model ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1188,7 +1189,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1203,7 +1204,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Registration Year
 													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1216,7 +1217,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Fuel Type  
 													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1234,7 +1235,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Transmission   
 													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1251,7 +1252,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Engine Size 
 													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1266,7 +1267,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Doors    
 													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1284,7 +1285,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Seats    
 													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1306,7 +1307,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Miles Covered 
 													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1319,7 +1320,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">MOT Status 
 													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1335,7 +1336,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Road TAX status  
 													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1353,7 +1354,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Manufacture 
 													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1366,7 +1367,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Year
 													<sup data-toggle="tooltip" title="" data-original-title="Year">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1381,7 +1382,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Model 
 													<sup data-toggle="tooltip" title="" data-original-title="Model ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1395,7 +1396,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1410,7 +1411,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Fuel Type  
 													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1425,7 +1426,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Condition 
 													<sup data-toggle="tooltip" title="" data-original-title="Condition">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1463,7 +1464,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Vehicle Registration  Number 
 													<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1476,7 +1477,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Manufacture 
 													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1491,7 +1492,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Model 
 													<sup data-toggle="tooltip" title="" data-original-title="Model ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1505,7 +1506,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Color
 													<sup data-toggle="tooltip" title="" data-original-title="Color">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1520,7 +1521,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Registration Year
 													<sup data-toggle="tooltip" title="" data-original-title="Registration Year">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1533,7 +1534,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Fuel Type  
 													<sup data-toggle="tooltip" title="" data-original-title="Fuel Type">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1551,7 +1552,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Transmission   
 													<sup data-toggle="tooltip" title="" data-original-title="Transmission ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1568,7 +1569,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Engine Size 
 													<sup data-toggle="tooltip" title="" data-original-title="Engine Size ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1583,7 +1584,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Doors    
 													<sup data-toggle="tooltip" title="" data-original-title="No of Doors  ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1601,7 +1602,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Seats    
 													<sup data-toggle="tooltip" title="" data-original-title="No of Seats  ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<label class="input select">
@@ -1623,7 +1624,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">No of Miles Covered 
 													<sup data-toggle="tooltip" title="" data-original-title="No of Miles Covered ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1636,7 +1637,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">MOT Status 
 													<sup data-toggle="tooltip" title="" data-original-title="MOT Status ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1652,7 +1653,7 @@ jQuery(document).ready(function($) {
 											<div class="span6 unit">
 												<label class="label">Road TAX status  
 													<sup data-toggle="tooltip" title="" data-original-title="Road TAX status ">
-														<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">

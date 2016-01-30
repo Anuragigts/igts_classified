@@ -292,7 +292,7 @@
 								<div class="row">
 									<div class="col-sm-12 unit">
 										<h3>Manage contact email</h3>
-										<label>Login with: <?php echo $mail_id; ?>
+										<label>Login with: <strong><?php echo $mail_id; ?></strong>
 										<input type='hidden' name='email' id='email' value="<?php echo $mail_id; ?>" />
 										</label>
 									</div>
@@ -313,10 +313,10 @@
 									<div class="col-sm-12 unit">
 										<h3>Deactivate account</h3>
 										<div class="unit check">
-											<p>Please don't leave us!</p>
-											<p>Every time an account is deactivated, one of the team cries and it takes hours to get them talking again :(</p>
-											<p>If you 're really sure...</p>
-											<p>Please help us improve Classified by letting us know why you're leaving:</p>
+											<p><strong>Please don't leave us! </strong></p>
+											<p><strong>Every time an account is deactivated, one of the team cries and it takes hours to get them talking again :</strong></p>
+											<p><strong>If you 're really sure...</strong></p>
+											<p><strong>Please help us improve Classified by letting us know why you're leaving:</strong></p>
 											<label class="radio">
 											<input type="radio" name="you_make_it" value="Yeah" checked="">
 											<i></i>I don't have any more stuff to put on Classified

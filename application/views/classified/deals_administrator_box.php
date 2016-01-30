@@ -168,195 +168,197 @@
 										</div>
 									</div>
 								</div>
-								<div class="row first_box_list">
-									
-									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="xuSlider xuSlider_box">
-											<ul class="sliders">
-												<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-												<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-												<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-												<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-												<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-											</ul>
-											<div class="direction-nav">
-												<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-												<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
+								<div class="first_box_list">
+									<div class="row">
+										<div class="col-xs-12 col-sm-6 col-md-4">
+											<div class="featured-badge">
+												<span>Urgent</span>
 											</div>
-											<div class="control-nav">
-												<li data-id="1"><a href="javascript:;">1</a></li>
-												<li data-id="2"><a href="javascript:;">2</a></li>
-												<li data-id="3"><a href="javascript:;">3</a></li>
-												<li data-id="4"><a href="javascript:;">4</a></li>
-												<li data-id="5"><a href="javascript:;">5</a></li>
-											</div>	
-										</div>
-										<div class="info-gallery">
-											<h3>Sample text Here</h3>
-											<hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters.</p>
-											<ul class="starts">
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-											</ul>
-											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price">
-												<b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>125 £
+											<div class="xuSlider xuSlider_box">
+												<ul class="sliders">
+													<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+													<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+													<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+													<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+													<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+												</ul>
+												<div class="direction-nav">
+													<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
+													<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
+												</div>
+												<div class="control-nav">
+													<li data-id="1"><a href="javascript:;">1</a></li>
+													<li data-id="2"><a href="javascript:;">2</a></li>
+													<li data-id="3"><a href="javascript:;">3</a></li>
+													<li data-id="4"><a href="javascript:;">4</a></li>
+													<li data-id="5"><a href="javascript:;">5</a></li>
+												</div>	
 											</div>
-										</div>
-									</div>
-									
-									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="featured-badge">
-											<span>Urgent</span>
-										</div>
-										<div class="xuSlider xuSlider_box">
-											<ul class="sliders">
-												<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-												<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-												<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-												<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-												<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-											</ul>
-											<div class="direction-nav">
-												<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-												<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-											</div>
-											<div class="control-nav">
-												<li data-id="1"><a href="javascript:;">1</a></li>
-												<li data-id="2"><a href="javascript:;">2</a></li>
-												<li data-id="3"><a href="javascript:;">3</a></li>
-												<li data-id="4"><a href="javascript:;">4</a></li>
-												<li data-id="5"><a href="javascript:;">5</a></li>
-											</div>	
-										</div>
-										<div class="info-gallery">
-											<h3>Sample text Here</h3>
-											<hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters.</p>
-											<ul class="starts">
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-											</ul>
-											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price">
-												<b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>125 £
+											<div class="info-gallery">
+												<h3>Sample text Here</h3>
+												<hr class="separator">
+												<p>The Royal National is in London near Covent Garden and 100 meters.</p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<div class="price">
+													<b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>£125 
+												</div>
 											</div>
 										</div>
-									</div>
-									
-									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="img-hover">
-											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay">
-												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+										
+										<div class="col-xs-12 col-sm-6 col-md-4">
+											<div class="xuSlider xuSlider_box">
+												<ul class="sliders">
+													<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+													<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+													<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+													<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+													<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+												</ul>
+												<div class="direction-nav">
+													<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
+													<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
+												</div>
+												<div class="control-nav">
+													<li data-id="1"><a href="javascript:;">1</a></li>
+													<li data-id="2"><a href="javascript:;">2</a></li>
+													<li data-id="3"><a href="javascript:;">3</a></li>
+													<li data-id="4"><a href="javascript:;">4</a></li>
+													<li data-id="5"><a href="javascript:;">5</a></li>
+												</div>	
+											</div>
+											<div class="info-gallery">
+												<h3>Sample text Here</h3>
+												<hr class="separator">
+												<p>The Royal National is in London near Covent Garden and 100 meters.</p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<div class="price">
+													<b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>£125
+												</div>
 											</div>
 										</div>
-										<div class="info-gallery gold_bgcolor">
-											<h3>Sample text Here</h3>
-											<hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters.</p>
-											<ul class="starts">
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-											</ul>
-											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price">
-												<b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>125 £
+										
+										<div class="col-xs-12 col-sm-6 col-md-4">
+											<div class="featured-badge">
+												<span>Urgent</span>
 											</div>
-										</div>
-									</div>
-									
-									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="featured-badge">
-											<span>Urgent</span>
-										</div>
-										<div class="img-hover">
-											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay">
-												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+											<div class="img-hover">
+												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<div class="overlay">
+													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+												</div>
 											</div>
-										</div>
-										<div class="info-gallery gold_bgcolor">
-											<h3>Sample text Here</h3>
-											<hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters.</p>
-											<ul class="starts">
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-											</ul>
-											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price">
-												<b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>125 £
+											<div class="info-gallery gold_bgcolor">
+												<h3>Sample text Here</h3>
+												<hr class="separator">
+												<p>The Royal National is in London near Covent Garden and 100 meters.</p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<div class="price">
+													<b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>£125
+												</div>
 											</div>
 										</div>
 									</div>
 									
-									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="img-hover">
-											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay">
-												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+									<div class="row">
+										<div class="col-xs-12 col-sm-6 col-md-4">
+											<div class="img-hover">
+												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<div class="overlay">
+													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+												</div>
+											</div>
+											<div class="info-gallery gold_bgcolor">
+												<h3>Sample text Here</h3>
+												<hr class="separator">
+												<p>The Royal National is in London near Covent Garden and 100 meters.</p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<div class="price">
+													<b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>£125
+												</div>
 											</div>
 										</div>
-										<div class="info-gallery">
-											<h3>Sample text Here</h3>
-											<hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters.</p>
-											<ul class="starts">
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-											</ul>
-											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price">
-												<b><img src="img/icons/fire.png" alt="Fire" title="Fire Icon"></b>125 £
+										
+										<div class="col-xs-12 col-sm-6 col-md-4">
+											<div class="featured-badge">
+												<span>Urgent</span>
+											</div>
+											<div class="img-hover">
+												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<div class="overlay">
+													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+												</div>
+											</div>
+											<div class="info-gallery">
+												<h3>Sample text Here</h3>
+												<hr class="separator">
+												<p>The Royal National is in London near Covent Garden and 100 meters.</p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<div class="price">
+													<b></b>£125
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-xs-12 col-sm-6 col-md-4">
+											<div class="img-hover">
+												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<div class="overlay">
+													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
+												</div>
+											</div>
+											<div class="info-gallery">
+												<h3>Sample text Here</h3>
+												<hr class="separator">
+												<p>The Royal National is in London near Covent Garden and 100 meters.</p>
+												<ul class="starts">
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+												</ul>
+												<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<div class="price">
+													<b></b>£125
+												</div>
 											</div>
 										</div>
 									</div>
-									
-									<div class="col-xs-12 col-sm-6 col-md-4">
-										<div class="featured-badge">
-											<span>Urgent</span>
-										</div>
-										<div class="img-hover">
-											<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
-											<div class="overlay">
-												<a href="description_view"><i class="top_20 fa fa-link"></i></a>
-											</div>
-										</div>
-										<div class="info-gallery">
-											<h3>Sample text Here</h3>
-											<hr class="separator">
-											<p>The Royal National is in London near Covent Garden and 100 meters.</p>
-											<ul class="starts">
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-											</ul>
-											<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price">
-												<b><img src="img/icons/fire.png" alt="Fire" title="Fire Icon"></b>125 £
-											</div>
-										</div>
-									</div>
-								
 								</div>
 							</div>
 						</form>

@@ -713,7 +713,7 @@ jQuery(document).ready(function($) {
     <section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
+			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<!-- content info - Blog-->
@@ -880,7 +880,8 @@ jQuery(document).ready(function($) {
 													<img id="blah" src="#" alt='blah' title="blah"/>
 												</div>
 												<div class="span2 unit" class='del_img'>
-												<a href='javascript:void(0);' id="del_img" style='display:none;'><img src="ad_images/delete.png" alt=''/></a>
+												<a href='javascript:void(0);' id="del_img" style='display:none;'>
+												<img src="ad_images/delete.png" alt='delete' title="Delete"/></a>
 												</div>
 											</div>
 										</div>
