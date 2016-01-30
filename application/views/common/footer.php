@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<!-- Title Footer-->
-			<div class="col-md-5">
+			<div class="col-sm-5">
 				<div class="title-footer">
 					<h2>Save on your plans!
 					<br> <span>Select 99 Deals Ad</span>
@@ -14,10 +14,10 @@
 			</div>
 			<!-- End Title Footer-->
 
-			<div class="col-md-7">
+			<div class="col-sm-7">
 				<div class="row">                             
 					<!-- Social Us-->
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<h3>LINKS</h3>
 						<ul class="social">
 							<li><i class="fa fa-check"></i> <a href="about_us">About US</a></li>
@@ -29,7 +29,7 @@
 					<!-- End Social Us-->
 					
 					<!-- Recent links-->
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<h3>99 Deals SPECIALISTS </h3>
 						<ul>
 							<li><i class="fa fa-check"></i> <a href="#">Golf Vacations</a></li>
@@ -40,7 +40,7 @@
 					<!-- End Recent links-->
 
 					<!-- Contact Us-->
-					<div class="col-md-4">
+					<div class="col-sm-4">
 					   <h3>CONTACT US</h3>
 					   <ul class="contact_footer">
 							<li>
