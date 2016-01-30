@@ -14,6 +14,14 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 <script type="text/javascript">
+	function ValidateAlpha(evt)
+    {
+        var keyCode = (evt.which) ? evt.which : evt.keyCode
+        if ((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32)
+         
+        return false;
+            return true;
+    }
 	/*packages selection */
 	$(function(){
 		$('.select_pack').change(function(){
@@ -1072,7 +1080,7 @@ jQuery(document).ready(function($) {
 															<?php }
 															/*men, boy, girl, kid boy, kid girl*/
 															if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" >
+																<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" onKeyPress="return ValidateAlpha(event);">
 														<?php	}
 															 ?>
 															

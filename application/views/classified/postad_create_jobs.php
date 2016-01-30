@@ -846,7 +846,7 @@
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Job Tag / Caption 
-													<sup data-toggle="tooltip" title="" data-original-title="Postal">
+													<sup data-toggle="tooltip" title="" data-original-title="Job Tag">
 													<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 														<sup data-toggle="tooltip" title="" data-original-title="Job tag">
