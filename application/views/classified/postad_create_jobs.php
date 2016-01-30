@@ -846,9 +846,6 @@
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Job Tag / Caption 
-													<sup data-toggle="tooltip" title="" data-original-title="Job Tag">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
 														<sup data-toggle="tooltip" title="" data-original-title="Job tag">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
@@ -1052,7 +1049,7 @@
 													<div class="promotion-box-info">
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 5 Images</li>
+															<li><i class="fa fa-check"></i> Up to 5 photos</li>
 															<li class="text_center"><br></li>
 															<li class="text_center"> <br></li>
 															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox">Example</a></li>
@@ -1092,7 +1089,7 @@
 													<div class="promotion-box-info">
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 9 Images</li>
+															<li><i class="fa fa-check"></i> Up to 9 photos</li>
 															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
 															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
 															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 7days <a href="img/gold.png" class="fancybox">Example</a></li>
