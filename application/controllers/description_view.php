@@ -111,11 +111,9 @@ class Description_view extends CI_Controller{
                                                             'Color'=> $val->color,
                                                             'Brand'=>$val->brand,
                                                             'No of Items'=>$val->no_of_items,
-                                                            'Fit'=>$val->fit,
                                                             'Washing Instruction'=>$val->washing_instruct,
                                                             'Material'=>$val->material,
-                                                            'Length'=>$val->length,
-                                                            'Made In'=>$val->made_in);
+                                                            'Length'=>$val->length);
                                     } 
                             }
                     }
