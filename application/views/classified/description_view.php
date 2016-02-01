@@ -60,6 +60,9 @@
 		<?php 
 		/*ad_ description details*/
 		foreach ($ads_desc as $ads_desc_val) {
+			/*package type and urgent*/
+			$package_type = $ads_desc_val->package_type;
+			$urgent_pack = $ads_desc_val->urgent_package;
 			/*currency symbol*/ 
 	        	if ($ads_desc_val->currency == 'pound') {
 	        		$currency = '£';
@@ -103,13 +106,30 @@
 									<div class="row">
 										<!-- Post Header-->
 										<div class="col-sm-9 col-xs-8">
-											<div class="featured-badge pull-right">
+											<?php if ($urgent_pack != "") { ?>
+												<div class="featured-badge pull-right">
 												<span>Urgent</span>
 											</div>
+											<?php	} ?>
 											<div class="post-header">
-												<div class="hidden-xs post-format-icon post-format-standard">
-													<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Crown Icon">
-												</div>
+												<?php if ($package_type == 'platinum') { ?>
+													<div class="hidden-xs post-format-icon post-format-standard">
+														<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Crown Icon">
+													</div>
+												<?php	} ?>
+
+												<?php if ($package_type == 'gold') { ?>
+													<div class="hidden-xs post-format-icon post-format-standard">
+														<img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Thumb Icon">
+													</div>
+												<?php	} ?>
+
+												<?php if ($package_type == 'free') { ?>
+													<div class="hidden-xs post-format-icon post-format-standard">
+														<img src="<?php echo base_url(); ?>img/icons/fire.png" alt="Fire" title="Fire Icon">
+													</div>
+												<?php	} ?>
+												
 												<div class="post-info-wrap">
 													<h2 class="post-title"><a href="#"><?php echo $tag; ?></a></h2>
 													<div class="post-meta" style="padding-top: 8px;">
