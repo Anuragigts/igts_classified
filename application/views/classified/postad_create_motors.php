@@ -1745,7 +1745,6 @@ jQuery(document).ready(function($) {
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
@@ -1832,7 +1831,7 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Displayed in 3D rotation as vertical banner  on Homepage for 7days <a href="img/platinum.png" class="fancybox"><strong><strong>Example</strong></strong></a></li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
-															<li><i class="fa fa-check"></i> Crown / Hot symbol will attach </li>
+															<li><i class="fa fa-check"></i> Crown symbol will attach </li>
 															<div class="platinum_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£9.99</h3>
 															</div>

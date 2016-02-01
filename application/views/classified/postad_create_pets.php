@@ -1115,7 +1115,7 @@
 															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide</li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
-															<li><i class="fa fa-check"></i> Crown Symbol  </li>
+															<li><i class="fa fa-check"></i> Crown symbol will attach </li>
 															<div class="platinum_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£4.99</h3>
 															</div>
