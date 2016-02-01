@@ -25,8 +25,11 @@ ol { list-style: none; }
   position: relative;
 }
 
-.xuSlider_box {
+.xuSlider_plat_urgtnt {
 	height: 168px !important;
+}
+.xuSlider_plat {
+	height: 169px !important;
 }
 
 .viewport { height: 100%; }
@@ -52,7 +55,10 @@ ol { list-style: none; }
 	border-left: 1px solid #f4f4f4;
 	border-right: 1px solid #f4f4f4;
 }
-.xuSlider_box ul li img{
+.xuSlider_plat_urgtnt ul li img{
+	width:263px;
+}
+.xuSlider_plat ul li img{
 	width:263px;
 }
 .direction-nav a {
