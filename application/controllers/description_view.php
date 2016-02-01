@@ -95,7 +95,7 @@ class Description_view extends CI_Controller{
                                                                 'Color'=> $val->color,
                                                                 'Brand'=>$val->brand,
                                                                 'No of Items'=>$val->no_of_items,
-                                                                'No of Items'=>$val->heel_details,
+                                                                'Heel details'=>$val->heel_details,
                                                                 'Material'=>$val->shoe_material,
                                                                 'Shoe style'=>$val->shoe_style,
                                                                 'Made In'=>$val->made_in);
