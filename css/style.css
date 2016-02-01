@@ -3609,6 +3609,7 @@ address strong{
 	margin-bottom: 40px;
 	padding: 0;
 	background: #3a4749;
+	padding: 5px;
 }
 .sort-by-container ul{
 	margin: 0;
@@ -5262,4 +5263,7 @@ tbody th,td{
 }
 .box_img img{
 	height: 169px !important;
+}
+.top_bar_top{
+	padding-top:2px;
 }
