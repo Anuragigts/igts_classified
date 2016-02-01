@@ -5276,3 +5276,6 @@ tbody th,td{
 	margin-top: -30px !important;
 	height: 90px;
 }
+#limit_scrol{
+	height: 200px;
+}
