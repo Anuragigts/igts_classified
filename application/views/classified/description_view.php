@@ -57,7 +57,40 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		
+		<?php 
+		/*ad_ description details*/
+		foreach ($ads_desc as $ads_desc_val) {
+			/*currency symbol*/ 
+	        	if ($ads_desc_val->currency == 'pound') {
+	        		$currency = '£';
+	        	}
+	        	else if ($ads_desc_val->currency == 'euro') {
+	        		$currency = '€';
+	        	}
+			$tag = $ads_desc_val->deal_tag;
+			$desc = $ads_desc_val->deal_desc;
+				if($ads_desc_val->ad_type == 'consumer'){
+					$name = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'contact_name');
+					$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'mobile');
+				}
+				if($ads_desc_val->ad_type == 'business'){
+					$name = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'contact_person');
+					$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'mobile');
+				}
+				$posted_on = date("M d, Y", strtotime($ads_desc_val->created_on));
+				$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
+				$price = $currency.$ads_desc_val->price;
+
+				/*weblink*/
+			if ($ads_desc_val->web_link != '') {
+				$web_url = $ads_desc_val->web_link;
+			}
+			else{
+				$web_url = '';
+			}
+
+		}
+		 ?>
 		<!-- content info - Blog-->
 		<form action="#" method="post" class="j-forms">
 			<div class="content_info">
@@ -78,17 +111,17 @@
 													<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Crown Icon">
 												</div>
 												<div class="post-info-wrap">
-													<h2 class="post-title"><a href="#">PORSCHE CAYMAN Cayman</a></h2>
+													<h2 class="post-title"><a href="#"><?php echo $tag; ?></a></h2>
 													<div class="post-meta" style="padding-top: 8px;">
 														<ul>
 															<li>
 																<i class="fa fa-user"></i>
-																<a href="#">User Name</a>
+																<a href="#"><?php echo $name; ?></a>
 															</li>
 
 															<li>
 																<i class="fa fa-clock-o"></i>
-																<span>April 23, 2015</span>
+																<span><?php echo $posted_on; ?></span>
 															</li>
 
 															<li>
@@ -97,7 +130,7 @@
 															</li>
 															
 															<li>
-																<span>Deal ID : 11554785514</span>
+																<span>Deal ID : <?php echo $dealid; ?></span>
 															</li>
 														</ul>                      
 													</div>
@@ -112,35 +145,13 @@
 										<!-- Post Media-->
 										<div class="col-sm-12 col-xs-12">
 											<div id="gallery" style="display:none;">
-		
-												<img alt="Preview Image 1"
-													 src="<?php echo base_url(); ?>img/blog/thumb-002.jpg" class="img-responsive" title="Image_1"
-													 data-image="<?php echo base_url(); ?>img/blog/002.jpg">
-												
-												<img alt="Preview Image 2"
-													 src="<?php echo base_url(); ?>img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
-													 data-image="<?php echo base_url(); ?>img/blog/003.jpg">
-												
-												<!--img alt="Youtube Video" title="Video_1"
-													 data-type="youtube"
-													 data-videoid="A3PDXmYoF5U"-->
+												<?php foreach ($ads_pics as $ads_pics_val) {
 
-												<img alt="Preview Image 3"
-													 src="<?php echo base_url(); ?>img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
-													 data-image="<?php echo base_url(); ?>img/blog/004.jpg">
-
-												<img alt="Preview Image 4"
-													 src="<?php echo base_url(); ?>img/blog/thumb-005.jpg" class="img-responsive" title="Image_4"
-													 data-image="<?php echo base_url(); ?>img/blog/005.jpg">
-												
-												<img alt="Preview Image 5"
-													 src="<?php echo base_url(); ?>img/blog/thumb-006.jpg" class="img-responsive" title="Image_5"
-													 data-image="<?php echo base_url(); ?>img/blog/006.jpg">
-
-												<img alt="Preview Image 6"
-													 src="<?php echo base_url(); ?>img/blog/thumb-007.jpg" class="img-responsive" title="Image_6"
-													 data-image="<?php echo base_url(); ?>img/blog/007.jpg">
-
+												 ?>
+													<img alt="Preview Image 1"
+													 src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" class="img-responsive" title="<?php echo $ads_pics_val->img_name; ?>"
+													 data-image="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>">
+												<?php } ?>
 											</div>
 										</div>	
 										<!-- Post Media-->
@@ -155,30 +166,24 @@
 												</ul>
 												<div class="resp-tabs-container hor_1">
 													<div>
-														<p>2007 PORSCHE CAYMAN Petrol Porsche Cayman 2.7 *Black 59359 miles with the following features: Full Leather, Bluesilve, Air Conditioning, Radio CD Player, Cruise Control, Electric Mirrors, Illuminated Vanity Mirrors, Green And Black, Alloy Wheels, 5 Speed Manual Gearbox, Alarm, Remote Central Locking, Immobiliser, Airbags, Sport Styling Kit, Anti-Lock Braking System (ABS), Body Coloured Bumpers, 12v Auxillary Power Socket.</p><br>
+														<p><?php echo $desc; ?></p><br>
 														
 														<p>
+															<!-- body content for services -->
 															<div class="row">
-																<div class="col-sm-6">
-																	<table class="table table-bordered">
-																		<tbody>
-																			<tr><th>Posted</th><td>3 days ago</td></tr>
-																			<tr><th>Body type</th><td>Coupe</td></tr>
-																			<tr><th>Make</th><td>Porsche</td></tr>
-																			<tr><th>Fuel type</th><td>Petrol</td></tr>
-																		</tbody>
-																	</table>
-																</div>
-																<div class="col-sm-6">
-																	<table class="table table-bordered">
-																		<tbody>
-																			<tr><th>Model</th><td>Cayman</td></tr>
-																			<tr><th>Transmission</th><td>Manual</td></tr>
-																			<tr><th>Year</th><td>2007</td></tr>
-																			<tr><th>Mileage</th><td>59359</td></tr>
-																		</tbody>
-																	</table>
-																</div>
+																<?php
+																$body_content1 = array_chunk($body_content, 2, true);
+																 foreach ($body_content1 as $val) {
+																 	foreach ($val as $k => $value) { ?>
+																 		<div class="col-sm-6">
+																			<table class="table table-bordered">
+																				<tbody>
+																					<tr><th><?php echo $k; ?></th><td><?php echo $value; ?></td></tr>
+																				</tbody>
+																			</table>
+																		</div>
+																 <?php	}
+																  	} ?>
 															</div>
 														</p>
 														
@@ -317,7 +322,7 @@
 													</li>
 
 													<li>
-														<a href="http://365deals.igravitas.in/" target="_blank" class="social-globe" data-toggle="tooltip" title="" data-original-title="Weblink">
+														<a href="https://<?php echo $web_url; ?>" target="_blank" class="social-globe" data-toggle="tooltip" title="" data-original-title="Weblink">
 															<i class="fa fa-globe"></i>
 															<i class="fa fa-globe globe"></i>
 														</a>
@@ -432,15 +437,17 @@
 								<aside class="widget view_sidebar text_center">
 									<!--<img src="img/brand/intel.png" alt="Logo" title="Business Logo" class="img-responsive"><hr>-->
 									<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img">
-									<h3> User Name</h3><hr>
-									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
+									<h3> <?php echo $name; ?></h3><hr>
+									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php foreach ($ads_loc as $ads_loc_val) {
+										echo $ads_loc_val->loc_name;
+									} ?></i></h4>
 									<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 									<ul class="list-styles contact_now_hide" style="display:none;">
-										<li><i class="fa fa-phone phn"></i><strong> +91 900001110</strong></li>
+										<li><i class="fa fa-phone phn"></i><strong> <?php echo $mobile; ?></strong></li>
 									</ul>
 									<div class="top_5">
 										<div class="amt_bg">
-											<h3 class="view_price_1">£1036</h3>
+											<h3 class="view_price_1"><?php echo $price; ?></h3>
 										</div>
 									</div>
 								</aside>

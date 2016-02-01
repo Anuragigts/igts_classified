@@ -286,6 +286,99 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
+	/*ad description view details*/
+	public function ads_description_details(){
+		$this->db->select("*");
+		$this->db->from("postad");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*ad description view images*/
+	public function ads_description_pics(){
+		$this->db->select("*");
+		$this->db->from("ad_img");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*ad description view location*/
+	public function ads_description_loc(){
+		$this->db->select("*");
+		$this->db->from("location");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*details for pets*/
+	public function ads_detailed_pets(){
+		$this->db->select("*");
+		$this->db->from("pets_details");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*details for clothing_&_lifestyles*/
+	/*clothing*/
+	public function ads_detailed_cloths(){
+		$this->db->select("*");
+		$this->db->from("lifestyle_clothing");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*accessories*/
+	public function ads_detailed_acces(){
+		$this->db->select("*");
+		$this->db->from("lifestyle_accessories");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*lifestyle_shoes*/
+	public function ads_detailed_shoes(){
+		$this->db->select("*");
+		$this->db->from("lifestyle_shoes");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*lifestyle_wedding*/
+	public function ads_detailed_wedding(){
+		$this->db->select("*");
+		$this->db->from("lifestyle_wedding");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*resindtilal and commercial property*/
+	public function ads_detailed_prop(){
+		$this->db->select("	(SELECT `sub_subcategory_name` FROM `sub_subcategory` WHERE sub_subcategory_id = property_for) AS prop_for, 
+		(SELECT `sub_sub_subcategory_name` FROM `sub_sub_subcategory` WHERE sub_sub_subcategory_id = property_type) AS prop_type, 
+		property_resid_commercial.*");
+		$this->db->from("property_resid_commercial");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*Job category*/
+	public function ads_detailed_jobs(){
+		$this->db->select("*");
+		$this->db->from("job_details");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 }
 
 

@@ -20,10 +20,10 @@
 					<div class="col-sm-4">
 						<h3>LINKS</h3>
 						<ul class="social">
-							<li><i class="fa fa-check"></i> <a href="about_us">About US</a></li>
+							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
 							<li><i class="fa fa-check"></i> <a href="#">Terms & Conditions</a></li>
 							<li><i class="fa fa-check"></i> <a href="#">Privacy Policy</a></li>
-							<li><i class="fa fa-check"></i> <a href="contact_us">Contact us</a></li>
+							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
 						</ul>
 					</div>
 					<!-- End Social Us-->
