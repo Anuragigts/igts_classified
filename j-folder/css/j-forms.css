@@ -199,7 +199,7 @@
 	margin-bottom: 4px;
 	position: relative;
 	line-height:15px;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 .j-forms .radio,
 .j-forms .checkbox,
