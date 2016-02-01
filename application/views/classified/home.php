@@ -29,13 +29,12 @@
 			<div class="filter-header">
 				<form action="searchview">
 					<input type="text" required="required" placeholder="I'm looking for" class="input-large">
-					<div class="selector">
+					<div class="selector1">
 						<select class="guests-input">
 							<?php foreach ($show_all as $show_val) { ?>
 							<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
 							<?php	} ?>
 						</select>
-						<span class="custom-select">All Categories</span>
 					</div>
 					<input type="text" required="required" placeholder="Location" class="input-large">
 					<i class="fa fa-map-marker fa-2x loca_pad"></i>

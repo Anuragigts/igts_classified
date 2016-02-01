@@ -195,7 +195,7 @@
 											<div class="featured-badge">
 												<span>Urgent</span>
 											</div>
-											<div class="xuSlider xuSlider_box">
+											<div class="xuSlider xuSlider_plat_urgtnt">
 												<ul class="sliders">
 													<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
 													<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
@@ -240,7 +240,7 @@
 										if ($m_details->package_type == 'platinum' && $m_details->urgent_package == '') {
 										 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
-											<div class="xuSlider xuSlider_box">
+											<div class="xuSlider xuSlider_plat">
 												<ul class="sliders">
 													<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
 													<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
@@ -288,7 +288,7 @@
 											<div class="featured-badge">
 												<span>Urgent</span>
 											</div>
-											<div class="img-hover">
+											<div class="img-hover box_img">
 												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
@@ -319,7 +319,7 @@
 									if ($m_details->package_type == 'gold' && $m_details->urgent_package == '') {
 									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
-											<div class="img-hover">
+											<div class="img-hover box_img">
 												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
@@ -353,7 +353,7 @@
 											<div class="featured-badge">
 												<span>Urgent</span>
 											</div>
-											<div class="img-hover">
+											<div class="img-hover box_img">
 												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view"><i class="top_20 fa fa-link"></i></a>
@@ -384,7 +384,7 @@
 									if ($m_details->package_type == 'free' && $m_details->urgent_package == '') {
 									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
-											<div class="img-hover">
+											<div class="img-hover box_img">
 												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view"><i class="top_20 fa fa-link"></i></a>

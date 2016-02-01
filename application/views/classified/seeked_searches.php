@@ -77,7 +77,7 @@
 							<div class="col-sm-9">
 								<div class="row">
 									<div class="col-sm-12">
-										<h2>Seeked Searches</h2>
+										<h2>Reserved Searches</h2>
 										<label>Hi User Name, you have 0 saved Deals</label>
 										<hr>
 										<!-- start cloned right side buttons element -->
