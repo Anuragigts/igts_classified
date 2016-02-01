@@ -90,15 +90,28 @@ class Description_view extends CI_Controller{
                                 $value->sub_scat_id == '368' || $value->sub_scat_id == '371') {
                                 $detailed_styles = $this->classifed_model->ads_detailed_shoes();
                                 foreach ($detailed_styles as $val) {
-                                        $body_content = array('Cloth Type' => $val->cloth_type,
-                                                                'Size'=>$val->shoe_size,
-                                                                'Color'=> $val->color,
-                                                                'Brand'=>$val->brand,
-                                                                'No of Items'=>$val->no_of_items,
-                                                                'Heel details'=>$val->heel_details,
-                                                                'Material'=>$val->shoe_material,
-                                                                'Shoe style'=>$val->shoe_style,
-                                                                'Made In'=>$val->made_in);
+                                        if ($val->heel_details != '') {
+                                            $body_content = array('Cloth Type' => $val->cloth_type,
+                                                                    'Size'=>$val->shoe_size,
+                                                                    'Color'=> $val->color,
+                                                                    'Brand'=>$val->brand,
+                                                                    'No of Items'=>$val->no_of_items,
+                                                                    'Heel details'=>$val->heel_details,
+                                                                    'Material'=>$val->shoe_material,
+                                                                    'Shoe style'=>$val->shoe_style,
+                                                                    'Made In'=>$val->made_in);
+                                        }
+                                        else{
+                                            $body_content = array('Cloth Type' => $val->cloth_type,
+                                                                    'Size'=>$val->shoe_size,
+                                                                    'Color'=> $val->color,
+                                                                    'Brand'=>$val->brand,
+                                                                    'No of Items'=>$val->no_of_items,
+                                                                    'Material'=>$val->shoe_material,
+                                                                    'Shoe style'=>$val->shoe_style,
+                                                                    'Made In'=>$val->made_in);
+                                        }
+                                        
                                     } 
                             }
 
