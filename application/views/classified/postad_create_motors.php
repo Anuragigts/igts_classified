@@ -1745,6 +1745,7 @@ jQuery(document).ready(function($) {
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
