@@ -1029,9 +1029,7 @@
 															<li><i class="fa fa-check"></i> Up to 5 Images</li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
+															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox"><strong>Example</strong></a></li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
