@@ -172,6 +172,7 @@
 													 src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" class="img-responsive" title="<?php echo $ads_pics_val->img_name; ?>"
 													 data-image="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>">
 												<?php } ?>
+												<!-- <video controls width="200px" id="vid" style="display:block"></video> -->
 											</div>
 										</div>	
 										<!-- Post Media-->

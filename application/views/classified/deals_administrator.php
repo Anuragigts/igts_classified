@@ -318,8 +318,8 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom" >
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $m_details->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
@@ -447,8 +447,8 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom" >
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $m_details->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
