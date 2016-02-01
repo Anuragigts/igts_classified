@@ -21,5 +21,19 @@ class Description_view extends CI_Controller{
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }
+        public function details($id){
+            if ($this->uri->segment(3) == '') {
+                   redirect('deals_administrator');
+                }
+            if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
+                $data   =   array(
+                        "title"     =>  "Classifieds",
+                        "content"   =>  "description_view"
+                );
+                
+                $this->load->view("classified_layout/inner_template",$data);
+        }
 }
 

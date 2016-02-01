@@ -11,36 +11,36 @@
 		}
 	</style>
 	
-	<script type='text/javascript' src='unitegallery/js/ug-common-libraries.js'></script>	
-	<script type='text/javascript' src='unitegallery/js/ug-functions.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-thumbsgeneral.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-thumbsstrip.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-touchthumbs.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-panelsbase.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-strippanel.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-gridpanel.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-thumbsgrid.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-tiles.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-tiledesign.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-avia.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-slider.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-sliderassets.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-touchslider.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-zoomslider.js'></script>	
-	<script type='text/javascript' src='unitegallery/js/ug-video.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-gallery.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-lightbox.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-carousel.js'></script>
-	<script type='text/javascript' src='unitegallery/js/ug-api.js'></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-common-libraries.js"></script>	
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-functions.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-thumbsgeneral.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-thumbsstrip.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-touchthumbs.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-panelsbase.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-strippanel.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-gridpanel.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-thumbsgrid.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-tiles.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-tiledesign.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-avia.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-slider.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-sliderassets.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-touchslider.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-zoomslider.js"></script>	
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-video.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-gallery.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-lightbox.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-carousel.js"></script>
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-api.js"></script>
 
-	<link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
+	<link rel='stylesheet' href="<?php echo base_url(); ?>unitegallery/css/unite-gallery.css" type='text/css' />
 	
-	<script type='text/javascript' src='unitegallery/themes/default/ug-theme-default.js'></script>
-	<link rel='stylesheet' 		  href='unitegallery/themes/default/ug-theme-default.css' type='text/css' />
+	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/themes/default/ug-theme-default.js"></script>
+	<link rel='stylesheet' 		  href="<?php echo base_url(); ?>unitegallery/themes/default/ug-theme-default.css" type='text/css' />
 	
-	<link href="src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url(); ?>src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
 	<div class="section-title-01">
@@ -55,7 +55,7 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<!-- content info - Blog-->
@@ -75,7 +75,7 @@
 											</div>
 											<div class="post-header">
 												<div class="hidden-xs post-format-icon post-format-standard">
-													<img src="img/icons/crown.png" alt="Crown" title="Crown Icon">
+													<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Crown Icon">
 												</div>
 												<div class="post-info-wrap">
 													<h2 class="post-title"><a href="#">PORSCHE CAYMAN Cayman</a></h2>
@@ -114,32 +114,32 @@
 											<div id="gallery" style="display:none;">
 		
 												<img alt="Preview Image 1"
-													 src="img/blog/thumb-002.jpg" class="img-responsive" title="Image_1"
-													 data-image="img/blog/002.jpg">
+													 src="<?php echo base_url(); ?>img/blog/thumb-002.jpg" class="img-responsive" title="Image_1"
+													 data-image="<?php echo base_url(); ?>img/blog/002.jpg">
 												
 												<img alt="Preview Image 2"
-													 src="img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
-													 data-image="img/blog/003.jpg">
+													 src="<?php echo base_url(); ?>img/blog/thumb-003.jpg" class="img-responsive" title="Image_2"
+													 data-image="<?php echo base_url(); ?>img/blog/003.jpg">
 												
 												<!--img alt="Youtube Video" title="Video_1"
 													 data-type="youtube"
 													 data-videoid="A3PDXmYoF5U"-->
 
 												<img alt="Preview Image 3"
-													 src="img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
-													 data-image="img/blog/004.jpg">
+													 src="<?php echo base_url(); ?>img/blog/thumb-004.jpg" class="img-responsive" title="Image_3"
+													 data-image="<?php echo base_url(); ?>img/blog/004.jpg">
 
 												<img alt="Preview Image 4"
-													 src="img/blog/thumb-005.jpg" class="img-responsive" title="Image_4"
-													 data-image="img/blog/005.jpg">
+													 src="<?php echo base_url(); ?>img/blog/thumb-005.jpg" class="img-responsive" title="Image_4"
+													 data-image="<?php echo base_url(); ?>img/blog/005.jpg">
 												
 												<img alt="Preview Image 5"
-													 src="img/blog/thumb-006.jpg" class="img-responsive" title="Image_5"
-													 data-image="img/blog/006.jpg">
+													 src="<?php echo base_url(); ?>img/blog/thumb-006.jpg" class="img-responsive" title="Image_5"
+													 data-image="<?php echo base_url(); ?>img/blog/006.jpg">
 
 												<img alt="Preview Image 6"
-													 src="img/blog/thumb-007.jpg" class="img-responsive" title="Image_6"
-													 data-image="img/blog/007.jpg">
+													 src="<?php echo base_url(); ?>img/blog/thumb-007.jpg" class="img-responsive" title="Image_6"
+													 data-image="<?php echo base_url(); ?>img/blog/007.jpg">
 
 											</div>
 										</div>	
@@ -192,7 +192,7 @@
 																			<tr><th>Weblink</th>
 																			<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
 																		</tr>-->
-																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																		<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
@@ -211,7 +211,7 @@
 																	<ul class="comments-list reply-list">
 																		<li>
 																			<!-- Avatar -->
-																			<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																			<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
 																			<!-- Contenedor del Comentario -->
 																			<div class="comment-box">
 																				<div class="comment-head">
@@ -229,7 +229,7 @@
 
 																		<li>
 																			<!-- Avatar -->
-																			<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																			<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
 																			<!-- Contenedor del Comentario -->
 																			<div class="comment-box">
 																				<div class="comment-head">
@@ -250,7 +250,7 @@
 																<li>
 																	<div class="comment-main-level">
 																		<!-- Avatar -->
-																		<div class="comment-avatar"><img src="img/icons/man.png" alt="man" title="man"></div>
+																		<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
@@ -431,10 +431,10 @@
 							<div class="col-md-3">
 								<aside class="widget view_sidebar text_center">
 									<!--<img src="img/brand/intel.png" alt="Logo" title="Business Logo" class="img-responsive"><hr>-->
-									<img src="img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img">
+									<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img">
 									<h3> User Name</h3><hr>
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i>Location</i></h4>
-									<img src="img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
+									<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 									<ul class="list-styles contact_now_hide" style="display:none;">
 										<li><i class="fa fa-phone phn"></i><strong> +91 900001110</strong></li>
 									</ul>
@@ -537,13 +537,13 @@
 	</section>
 		<!-- End Shadow Semiboxed -->
 	 
-	<script src="src/jquery.easyResponsiveTabs.js"></script>
+	<script src="<?php echo base_url(); ?>src/jquery.easyResponsiveTabs.js"></script>
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function () {

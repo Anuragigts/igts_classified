@@ -245,10 +245,17 @@
 																</div>
 															</div>
 														</div>
+														<?php if ($m_details->bus_logo != '') { ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															</div>
+														<?php }
+														else{ ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+															</div>
+													<?php	}		 ?>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -258,14 +265,14 @@
 																	<p class=""><?php echo $m_details->deal_desc; ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php $currency.$m_details->price ?></h3>
+																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -342,7 +349,7 @@
 														<div class="col-sm-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<h3 class="list_title"><?php $m_details->deal_tag ?></h3>
+																	<h3 class="list_title"><?php echo $m_details->deal_tag; ?></h3>
 																</div>
 															</div>
 															<div class="row">
@@ -358,32 +365,39 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" title="<?php $m_details->loc_name ?>"> Location</a>
+																		<a href="" class="location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($m_details->bus_logo != '') { ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															</div>
+														<?php }
+														else{ ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+															</div>
+													<?php	}		 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php $m_details->deal_desc ?></p>
+																	<p class=""><?php echo $m_details->deal_desc; ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php $currency.$m_details->price ?></h3>
+																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -426,7 +440,7 @@
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
@@ -462,9 +476,16 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($m_details->bus_logo != '') { ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															</div>
+														<?php }
+														else{ ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+															</div>
+													<?php	}		 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -474,7 +495,7 @@
 																	<p class=""><?php echo $m_details->deal_desc; ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -526,7 +547,7 @@
 													</div>
 													<div class="img-hover view_img">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
@@ -567,9 +588,16 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($m_details->bus_logo != '') { ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															</div>
+														<?php }
+														else{ ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+															</div>
+													<?php	}		 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -579,7 +607,7 @@
 																	<p class=""><?php echo $m_details->deal_desc; ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -628,7 +656,7 @@
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -658,9 +686,16 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($m_details->bus_logo != '') { ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															</div>
+														<?php }
+														else{ ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+															</div>
+													<?php	}		 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -670,7 +705,7 @@
 																	<p class=""><?php echo $m_details->deal_desc; ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -722,7 +757,7 @@
 													</div>
 													<div class="img-hover">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -752,9 +787,16 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($m_details->bus_logo != '') { ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															</div>
+														<?php }
+														else{ ?>
+															<div class="col-xs-4 serch_bus_logo">
+															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+															</div>
+													<?php	}		 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -764,7 +806,7 @@
 																	<p class=""><?php echo $m_details->deal_desc; ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>

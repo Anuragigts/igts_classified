@@ -16,6 +16,7 @@ class  Deals_administrator extends CI_Controller{
                 }
 
                 $my_ads = $this->classifed_model->my_ads();
+                // echo "<pre>"; print_r($this);
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deals_administrator",

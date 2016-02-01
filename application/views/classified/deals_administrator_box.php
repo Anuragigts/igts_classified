@@ -170,6 +170,27 @@
 								</div>
 								<div class="first_box_list">
 									<div class="row">
+										<?php foreach ($my_ads_details as $m_details) {
+                                    	/*person name*/
+                                    	if ($m_details->ad_type == 'business') {
+                                    	$person_name = @mysql_result(mysql_query("SELECT `contact_person` FROM `contactinfo_business` WHERE ad_id = '$m_details->ad_id'"), 0,'contact_person');
+                                    	}
+                                    	else if ($m_details->ad_type == 'consumer') {
+                                    	$person_name = @mysql_result(mysql_query("SELECT `contact_name` FROM `contactinfo_consumer` WHERE ad_id = '$m_details->ad_id'"), 0,'contact_name');
+                                    	}
+
+                                    	/*currency symbol*/ 
+                                    	if ($m_details->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($m_details->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}
+                                    ?>
+										<!-- platinum+urgent starts -->
+										<?php 
+										if ($m_details->package_type == 'platinum' && $m_details->urgent_package != '') {
+										 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="featured-badge">
 												<span>Urgent</span>
@@ -211,7 +232,13 @@
 												</div>
 											</div>
 										</div>
+										<?php } ?>
+										<!-- platinum+urgent ends -->
 										
+										<!-- platinum starts -->
+										<?php 
+										if ($m_details->package_type == 'platinum' && $m_details->urgent_package == '') {
+										 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="xuSlider xuSlider_box">
 												<ul class="sliders">
@@ -250,7 +277,13 @@
 												</div>
 											</div>
 										</div>
+										<?php } ?>
+										<!-- platinum ends -->
 										
+										<!-- gold+urgent starts -->
+										<?php 
+										if ($m_details->package_type == 'gold' && $m_details->urgent_package != '') {
+										 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="featured-badge">
 												<span>Urgent</span>
@@ -278,9 +311,13 @@
 												</div>
 											</div>
 										</div>
-									</div>
+										<?php } ?>
+										<!-- gold+urgent starts -->
 									
-									<div class="row">
+										<!-- gold starts -->
+										<?php 
+									if ($m_details->package_type == 'gold' && $m_details->urgent_package == '') {
+									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="img-hover">
 												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
@@ -305,7 +342,13 @@
 												</div>
 											</div>
 										</div>
+										<?php } ?>
+										<!-- gold ends-->
 										
+										<!-- free+urgent starts-->
+										<?php 
+									if ($m_details->package_type == 'free' && $m_details->urgent_package != '') {
+									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="featured-badge">
 												<span>Urgent</span>
@@ -333,7 +376,13 @@
 												</div>
 											</div>
 										</div>
+										<?php } ?>
+										<!-- free+urgent ends-->
 										
+										<!-- free starts-->
+										<?php 
+									if ($m_details->package_type == 'free' && $m_details->urgent_package == '') {
+									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="img-hover">
 												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
@@ -358,6 +407,9 @@
 												</div>
 											</div>
 										</div>
+										<?php } ?>
+										<!-- free ends-->
+										<?php } ?>
 									</div>
 								</div>
 							</div>
