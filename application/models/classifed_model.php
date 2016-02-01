@@ -281,7 +281,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->group_by("img.ad_id");
-		$this->db->order_by("ad.created_on", "DESC");
+		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
 		return $res->result();
 	}
