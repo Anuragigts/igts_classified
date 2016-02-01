@@ -319,4 +319,8 @@
 		padding: 11px 7px 0px;
 		width: 256px;
 	}
+	.selector1 select {
+		height: 50px;
+		width: 284px;
+	}
 }

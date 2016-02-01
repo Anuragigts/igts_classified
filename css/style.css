@@ -895,12 +895,23 @@ hr.tall{
 .filter-header .selector{
 	position: relative;
 	min-width: 60px;
-	width: 15%;
 	line-height: 0;
 	float: left;
 	color: #999;
 	font-size: 0.9rem;
 	height: 50px;
+}
+.filter-header .selector1{
+	position: relative;
+	min-width: 60px;
+	line-height: 0;
+	float: left;
+	color: #999;
+	font-size: 0.9rem;
+	height: 50px;
+}
+.selector1 select{
+	height:50px;
 }
 .selector select {
 	position: absolute;
@@ -939,36 +950,7 @@ hr.tall{
 .filter-header :-ms-input-placeholder {  
    color: #565656;  
 }
-span.custom-select {
-	padding-left: 15px;
-	padding-right: 15px;
-	height: 50px;
-	color: #565656;
-}
-span.custom-select {
-	background: #fff;
-	border: none;
-	line-height: normal;
-	font-size: 0.9rem;
-}
-.selector span.custom-select:before {
-	position: absolute;
-	right: 0;
-	top: 0;
-	content: '';
-	background: #999;
-	width: 24px;
-	height: 100%;
-}
-.selector span.custom-select:after {
-	position: absolute;
-	right: 9px;
-	top: 22px;
-	border-top: 5px solid #fff;
-	border-left: 3px solid transparent;
-	border-right: 3px solid transparent;
-	content: "";
-}
+
 .filter-header input[type="submit"]{
 	width: 16%;
 	border: 0;
@@ -5277,4 +5259,7 @@ tbody th,td{
 	color:white;
 	padding-top:10px;
 	margin-right: 50px !important;
+}
+.box_img img{
+	height: 169px !important;
 }
