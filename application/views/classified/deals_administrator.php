@@ -245,16 +245,20 @@
 																</div>
 															</div>
 														</div>
-														<?php if ($m_details->bus_logo != '') { ?>
+														<?php
+														if ($m_details->ad_type == 'business') {
+															if ($m_details->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
 															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
-														<?php }
-														else{ ?>
-															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-													<?php	}		 ?>
+															<?php }
+															else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																</div>
+														<?php	}
+															}
+																 ?>
 														
 													</div>
 													<hr class="separator">
@@ -371,16 +375,20 @@
 															</div>
 														</div>
 														
-														<?php if ($m_details->bus_logo != '') { ?>
+														<?php
+														if ($m_details->ad_type == 'business') {
+															if ($m_details->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
 															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
-														<?php }
-														else{ ?>
-															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-													<?php	}		 ?>
+															<?php }
+															else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																</div>
+														<?php	}
+															}
+																 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -476,16 +484,20 @@
 															</div>
 														</div>
 														
-														<?php if ($m_details->bus_logo != '') { ?>
+														<?php
+														if ($m_details->ad_type == 'business') {
+															if ($m_details->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
 															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
-														<?php }
-														else{ ?>
-															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-													<?php	}		 ?>
+															<?php }
+															else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																</div>
+														<?php	}
+															}
+																 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -588,16 +600,20 @@
 															</div>
 														</div>
 														
-														<?php if ($m_details->bus_logo != '') { ?>
+														<?php
+														if ($m_details->ad_type == 'business') {
+															if ($m_details->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
 															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
-														<?php }
-														else{ ?>
-															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-													<?php	}		 ?>
+															<?php }
+															else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																</div>
+														<?php	}
+															}
+																 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -686,16 +702,20 @@
 															</div>
 														</div>
 														
-														<?php if ($m_details->bus_logo != '') { ?>
+														<?php
+														if ($m_details->ad_type == 'business') {
+															if ($m_details->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
 															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
-														<?php }
-														else{ ?>
-															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-													<?php	}		 ?>
+															<?php }
+															else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																</div>
+														<?php	}
+															}
+																 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -787,16 +807,20 @@
 															</div>
 														</div>
 														
-														<?php if ($m_details->bus_logo != '') { ?>
+														<?php
+														if ($m_details->ad_type == 'business') {
+															if ($m_details->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
 															<img src="ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
-														<?php }
-														else{ ?>
-															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-													<?php	}		 ?>
+															<?php }
+															else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																</div>
+														<?php	}
+															}
+																 ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
