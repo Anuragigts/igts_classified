@@ -28,7 +28,7 @@
 			<ul class="collapse"><!-- collapse class for collapse the drop down -->
 				<!-- website title - Logo class -->
 				<li class="title">
-					<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/365deal.png"  alt="Logo">  </a> 
+					<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/99rightdeal.png"  class="main_logo" alt="Logo" title="99 Right Deals">  </a> 
 				</li>
 				<?php $lid  =$this->session->userdata("login_id");
 				if($lid == ''){ ?>
@@ -42,7 +42,7 @@
 				 ?>
 				<!-- <li style="margin-top: 8px;"><a href="login" class="bor_log">LOGIN</a></li>
 				<li style="margin-top: 8px;"><a href="signup" class="bor_reg">REGISTER</a></li> -->
-				<li class=" pull-right"><a href="<?php echo base_url(); ?>postad"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="postanad"> </a></li>
+				<li class=" pull-right"><a href="<?php echo base_url(); ?>postad"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="postanad" title="Post Deal"> </a></li>
 			</ul>
 		</nav>
 		<!-- Main Nav -->
