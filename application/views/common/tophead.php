@@ -28,7 +28,7 @@
 			<ul class="collapse"><!-- collapse class for collapse the drop down -->
 				<!-- website title - Logo class -->
 				<li class="title">
-					<a href="index.php"><img src="<?php echo base_url(); ?>img/365deal.png"  alt="Logo">  </a> 
+					<a href="index.php"><img src="<?php echo base_url(); ?>img/365deal.png" class="main_logo" alt="Logo" title="99 Right Deals">  </a> 
 				</li>
 				<?php $lid  =$this->session->userdata("login_id");
 				if($lid == ''){ ?>
