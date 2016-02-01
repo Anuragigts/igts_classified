@@ -19,7 +19,7 @@ ul,
 ol { list-style: none; }
 
 .xuSlider {
- /*  width: 600px; */
+ /*  width: 256px; */
   height: 220px;
   overflow: hidden;
   position: relative;
@@ -45,14 +45,16 @@ ol { list-style: none; }
 }
 
 .sliders li img {
-	max-width: 100%;
+	width: 256px;
 	display: block;
 	height: 220px;
 	border-top: 1px solid #f4f4f4;
 	border-left: 1px solid #f4f4f4;
 	border-right: 1px solid #f4f4f4;
 }
-
+.xuSlider_box ul li img{
+	width:263px;
+}
 .direction-nav a {
   position: absolute;
   top: calc( 57% - 33px );
