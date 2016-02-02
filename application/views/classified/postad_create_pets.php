@@ -1696,7 +1696,7 @@
 						<h2>Pets <span>Category </span></h2>
 					</div>
 					<div class="modal-body">
-						<div class="row">
+						<div class="row post_deal_bor">
 							<div class="col-md-2 clearfix">
 								<input type='hidden' name='pets_cat' id='pets_cat' value='pets' />
 								<input type='hidden' name='pets_sub' id='pets_sub' value='' />
