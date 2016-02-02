@@ -103,7 +103,10 @@
 							<div class="item-table">
 								<div class="header-table color-red">
 									 <img src="img/icons/people.png" alt="people" title="people image">
-									<h2>User Name</h2>
+									 <?php foreach ($my_ads_details as $m_details) {
+									 	$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$m_details->login_id')  "), 0, 'first_name');
+									 } ?>
+									<h2><?php echo $log_name; ?></h2>
 									<!--<span>$ 99 / per month</span> -->
 								</div>
 								<ul class="dashboard_tag">
@@ -123,7 +126,7 @@
                                 <div class="row">
 									<div class="col-sm-12">
 										<h2>Deals Administrator</h2>
-										<label>Hi User Name, you have 0 Pickup deals</label><hr>
+										<label>Hi <?php echo $log_name; ?>, you have 0 Pickup deals</label><hr>
 									</div>
 								</div>
                                 
@@ -293,7 +296,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo $m_details->deal_desc; ?></p>
+																	<p class=""><?php echo substr($m_details->deal_desc, 0, 90); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -422,7 +425,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo $m_details->deal_desc; ?></p>
+																	<p class=""><?php echo substr($m_details->deal_desc, 0, 90); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -531,7 +534,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo $m_details->deal_desc; ?> </p>
+																	<p class=""><?php echo substr($m_details->deal_desc, 0, 90); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -647,7 +650,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo $m_details->deal_desc; ?></p>
+																	<p class=""><?php echo substr($m_details->deal_desc, 0, 90); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -749,7 +752,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo $m_details->deal_desc; ?> </p>
+																	<p class=""><?php echo substr($m_details->deal_desc, 0, 90); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -854,7 +857,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo $m_details->deal_desc; ?> </p>
+																	<p class=""><?php echo substr($m_details->deal_desc, 0, 90); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>

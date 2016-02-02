@@ -19,13 +19,15 @@ class Classified extends CI_Controller{
                 );
                 $lid = $this->session->userdata('login_id');
                 
-                                $news = array('Golders Green',
+                               /* $news = array('Golders Green',
                                             '1 Bedroom Apartment with Patio in Central London',
                                             'STOLEN BMW F650 GS',
                                             'Small kittens',
-                                            'Female African grey');
-                                $news1 = array_chunk($news, 2);
-                                $data['news'] = $news1;
+                                            'Female African grey');*/
+                            /*marquee title*/
+                            $news = $this->classifed_model->marquee();
+                           // echo "<pre>"; print_r($this);
+                                $data['news'] = $news;
                                 $data['show_all'] = $this->classifed_model->show_all();
                                                      
                 if($lid != ''){

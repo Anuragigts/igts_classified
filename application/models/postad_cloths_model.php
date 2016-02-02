@@ -140,6 +140,7 @@ class Postad_cloths_model extends CI_Model{
                         /*platinum package*/
                     if ($this->input->post('package_type') == 'platinum') {
                        $plat_data = array('ad_id' => $insert_id,
+                                        'marquee'=>$this->input->post('marquee_title'),
                                             'ad_validfrom' => date("d-m-Y H:i:s"),
                                             'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
                                             'status' => 1,

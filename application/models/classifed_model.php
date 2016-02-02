@@ -3,6 +3,15 @@
 
 Class Classifed_model extends CI_model{
 
+	/*marquee title*/
+	public function marquee(){
+		$this->db->select("pads.marquee, ad.ad_id");
+		$this->db->from("postad as ad");
+		$this->db->join("platinum_ads as pads", "pads.ad_id = ad.ad_id","join");
+		$this->db->order_by('ad.ad_id', "DESC");
+		$rs = $this->db->get();
+		return $rs->result();
+	}
 
 	/*show all categories in home page*/
 	public function show_all(){
@@ -374,6 +383,72 @@ Class Classifed_model extends CI_model{
 	public function ads_detailed_jobs(){
 		$this->db->select("*");
 		$this->db->from("job_details");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*motor point*/
+	/*bikes*/
+	public function ads_detailed_bikes(){
+		$this->db->select("*");
+		$this->db->from("motor_bike_ads");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*cars, vans, buses*/
+	public function ads_detailed_cars(){
+		$this->db->select("*");
+		$this->db->from("motor_car_van_bus_ads");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*motor home caravans*/
+	public function ads_detailed_motorhomes(){
+		$this->db->select("*");
+		$this->db->from("motor_home_ads");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*motor boats*/
+	public function ads_detailed_boats(){
+		$this->db->select("*");
+		$this->db->from("motor_boats");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+
+
+	/*review inserting*/
+	public function review_insert(){
+		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'review_title'	=> $this->input->post('review_title'),
+						'review_msg'	=> $this->input->post('review_msg'),
+						'review_name'	=> $this->input->post('review_name'),
+						'rating'		=> $this->input->post('user_rating'),
+						'review_time'	=> date("d-m-Y H:i:s")
+			);
+			$this->db->insert("review_rating", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	/*display ads_review()*/
+	public function ads_review(){
+		$this->db->select("*");
+		$this->db->from("review_rating");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();

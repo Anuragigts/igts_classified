@@ -14,6 +14,7 @@ class Description_view extends CI_Controller{
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
+
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "description_view"
@@ -29,7 +30,7 @@ class Description_view extends CI_Controller{
                    redirect('login');
                 }
 
-                /*category wise display*/
+                 /*category wise display*/
                 $detailed_desc = $this->classifed_model->ads_description_details();
                 foreach ($detailed_desc as $value) {
                     /*services*/
@@ -187,6 +188,82 @@ class Description_view extends CI_Controller{
                                     }
 
                 }
+                /*motor point*/
+                if ($value->category_id == 'motorpoint') {
+                    /*bikes*/
+                    if ($value->sub_cat_id == '13') {
+                 $detailed_bikes = $this->classifed_model->ads_detailed_bikes();   
+                 foreach ($detailed_bikes as $val) {
+                    $body_content = array('Registration Number' => $val->reg_number,
+                                        'Manufacture'=>$val->manufacture,
+                                        'Bike Type'=> $val->bike_type,
+                                        'Model'=>$val->model,
+                                        'Color'=>$val->color,
+                                        'Reg year'=>$val->reg_year,
+                                        'Fuel Type'=>$val->fuel_type,
+                                        'No of miles'=>$val->no_of_miles,
+                                        'Engine size'=>$val->engine_size,
+                                        'Road tax'=>$val->road_tax,
+                                        'Condition'=>$val->condition
+                                        );
+                                    }    
+                    }
+                    /*cars, vans, buses*/
+                    if ($value->sub_cat_id == '12' || $value->sub_cat_id == '15' || $value->sub_cat_id == '16') {
+                $detailed_cars = $this->classifed_model->ads_detailed_cars();        
+                foreach ($detailed_cars as $val) {
+                    $body_content = array('Registration Number' => $val->reg_number,
+                                        'Manufacture'=>$val->manufacture,
+                                        'Model'=>$val->model,
+                                        'Color'=>$val->color,
+                                        'Reg year'=>$val->reg_year,
+                                        'Fuel Type'=>$val->fueltype,
+                                        'Transmission'=>$val->transmission,
+                                        'Engine size'=>$val->engine_size,
+                                        'No of doors'=>$val->noofdoors,
+                                        'No of seats'=>$val->noofseats,
+                                        'No of miles'=>$val->tot_miles,
+                                        'MOT Status'=>$val->mot_status,
+                                        'Road tax'=>$val->road_tax
+                                        );
+                                    } 
+                    }
+                    /*motor homes and caravans*/
+                    if ($value->sub_cat_id == '14') {
+                $detailed_motorhomes = $this->classifed_model->ads_detailed_motorhomes();
+                 foreach ($detailed_motorhomes as $val) {
+                    $body_content = array('Type of motors' => $val->typeofmotorhome,
+                                        'Registration Number' => $val->reg_number,
+                                        'Manufacture'=>$val->manufacture,
+                                        'Model'=>$val->model,
+                                        'Color'=>$val->color,
+                                        'Reg year'=>$val->reg_year,
+                                        'Fuel Type'=>$val->fueltype,
+                                        'Transmission'=>$val->transmission,
+                                        'Engine size'=>$val->engine_size,
+                                        'No of doors'=>$val->noofdoors,
+                                        'No of seats'=>$val->noofseats,
+                                        'No of miles'=>$val->tot_miles,
+                                        'MOT Status'=>$val->mot_status,
+                                        'Road tax'=>$val->road_tax
+                                        );
+                                    } 
+                    }
+                    /*boats*/
+                    if ($value->sub_cat_id == '19') {
+                $detailed_boats = $this->classifed_model->ads_detailed_boats();  
+                    foreach ($detailed_boats as $val) {
+                    $body_content = array('Manufacture'=>$val->manufacture,
+                                        'Year'=>$val->year,
+                                        'Model'=>$val->model,
+                                        'Color'=>$val->color,
+                                        'Fuel Type'=>$val->fueltype,
+                                        'Condition'=>$val->condition,
+                                        );
+                                    }       
+                    }
+                }
+
             }
                 
 
@@ -196,16 +273,37 @@ class Description_view extends CI_Controller{
                 $ads_description_pics = $this->classifed_model->ads_description_pics();
                 /*location for ad*/
                 $ads_description_loc = $this->classifed_model->ads_description_loc();
+                /*review and rating*/
+                $ads_review = $this->classifed_model->ads_review();
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "description_view",
                         "ads_desc"=> $ads_description_details,
                         "ads_pics"=> $ads_description_pics,
                         "ads_loc"=> $ads_description_loc,
-                        "body_content"=>$body_content
+                        "body_content"=>$body_content,
+                        "ads_review"=>$ads_review
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
+        }
+
+        public function review(){
+             if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
+            /*add review*/
+                $adid = $this->input->post('ad_id');
+                $review_insert = $this->classifed_model->review_insert();
+                    if ($review_insert == 1) {
+                        $this->session->set_flashdata('msg', 'Review added Successfully!!');
+                        redirect("description_view/details/$adid");
+                    }
+                    else{
+                       $this->session->set_flashdata('err', 'Internal error occured'); 
+                        redirect("description_view/details/$adid");
+                    }
+                
         }
 }
 

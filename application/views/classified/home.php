@@ -67,7 +67,7 @@
 								<div class="mt-news">
 									<ul>
 										<?php foreach ($news as $n_val) { ?>
-										<li><a href="javascript:void(0);" target="_self"><?php echo implode(",", $n_val); ?> </a></li>
+										<li><a href="javascript:void(0);" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
 										<?php	} ?>
 									</ul>
 								</div>

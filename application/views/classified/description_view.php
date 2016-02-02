@@ -9,6 +9,9 @@
 			width: 100%;
 			overflow: hidden;
 		}
+		.j-forms{
+			box-shadow:none !important;
+		}
 	</style>
 	
 	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-common-libraries.js"></script>	
@@ -60,6 +63,8 @@
 		<?php 
 		/*ad_ description details*/
 		foreach ($ads_desc as $ads_desc_val) {
+			/*ad id*/
+			$ad_id_no = $ads_desc_val->ad_id;
 			/*package type and urgent*/
 			$package_type = $ads_desc_val->package_type;
 			$urgent_pack = $ads_desc_val->urgent_package;
@@ -95,7 +100,6 @@
 		}
 		 ?>
 		<!-- content info - Blog-->
-		<form action="#" method="post" class="j-forms">
 			<div class="content_info">
 				<div class="paddings-mini">
 					<div class="container">
@@ -182,7 +186,7 @@
 											<div id="parentHorizontalTab">
 												<ul class="resp-tabs-list hor_1">
 													<li>Description</li>
-													<li>Comments</li>
+													<li>Reviews</li>
 													<li>Map View</li>
 												</ul>
 												<div class="resp-tabs-container hor_1">
@@ -212,86 +216,31 @@
 													<div>
 														<div class="comments-container">
 															<ul id="comments-list" class="comments-list">
-																<li>
+																<?php foreach ($ads_review as $r_val) { ?>
+																	<li>
 																	<div class="comment-main-level">
 																		<!-- Avatar 
 																			<tr><th>Weblink</th>
 																			<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
 																		</tr>-->
-																		<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
+																		<!-- <div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div> -->
 																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
-																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																				<span>hace 20 minutes</span>
+																				<h6 class="comment-name"><a href=""><?php echo $r_val->review_title; ?></a></h6>
+																				<span><?php echo date("M d, Y", strtotime($r_val->review_time)); ?></span>
 																				<p class="reting_view">
-																					3 Ratings
+																					<?php echo $r_val->rating; ?> Ratings
 																				</p>
 																			</div>
 																			<div class="comment-content">
-																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																				<?php echo $r_val->review_msg; ?>
 																			</div>
 																		</div>
 																	</div>
 																	<!-- Respuestas de los comentarios -->
-																	<ul class="comments-list reply-list">
-																		<li>
-																			<!-- Avatar -->
-																			<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
-																			<!-- Contenedor del Comentario -->
-																			<div class="comment-box">
-																				<div class="comment-head">
-																					<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																					<span>hace 15 minutes</span>
-																					<p class="reting_view">
-																						4 Ratings
-																					</p>
-																				</div>
-																				<div class="comment-content">
-																					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-																				</div>
-																			</div>
-																		</li>
-
-																		<li>
-																			<!-- Avatar -->
-																			<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
-																			<!-- Contenedor del Comentario -->
-																			<div class="comment-box">
-																				<div class="comment-head">
-																					<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																					<span>hace 10 minutes</span>
-																					<p class="reting_view">
-																						5 Ratings
-																					</p>
-																				</div>
-																				<div class="comment-content">
-																					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-																				</div>
-																			</div>
-																		</li>
-																	</ul>
 																</li>
-
-																<li>
-																	<div class="comment-main-level">
-																		<!-- Avatar -->
-																		<div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div>
-																		<!-- Contenedor del Comentario -->
-																		<div class="comment-box">
-																			<div class="comment-head">
-																				<h6 class="comment-name by-author"><a href="">Agustin Ortiz</a></h6>
-																				<span>hace 20 minutes</span>
-																				<p class="reting_view">
-																					2 Ratings
-																				</p>
-																			</div>
-																			<div class="comment-content">
-																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-																			</div>
-																		</div>
-																	</div>
-																</li>
+																<?php	} ?>
 															</ul>
 														</div>
 													</div>
@@ -356,8 +305,67 @@
 								   </div>
 								</div>
 								<!-- End Post Item Gallery-->
+								<?php echo $this->view("classified_layout/success_error"); ?>
 								<a class="review_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Write a Review</span></a>
-								
+								<!-- jQuery Form Validation code -->
+								<style type="text/css">
+								.error{
+									color: red !important;
+								}
+								</style>
+								<script>
+								  
+								  // When the browser is ready...
+								  $(function() {
+								  
+									// Setup form validation on the #register-form element
+									$("#rating_form").validate({
+									
+										// Specify the validation rules
+										rules: {
+											review_title: {
+												required: true,
+												minlength: 20
+											},
+											review_msg: {
+												required: true,
+												minlength: 60
+											},
+											review_name: {
+												required: true
+											},
+											user_rating: {
+												required: true
+											}
+										},
+										
+										// Specify the validation error messages
+										messages: {
+											review_title: {
+												required: "Please Enter review title",
+												minlength: "Title contains atleast 20 characters"
+											},
+											review_msg: {
+												required: "Please Enter review message",
+												minlength: "Title contains atleast 60 characters"
+											},
+											review_name: {
+												required: "Please Enter review name"
+											},
+											user_rating: {
+												required: "Please give review rating"
+											}
+										},
+										
+										submitHandler: function(form) {
+											form.submit();
+										}
+									});
+
+								  });
+								  
+								  </script>
+								<form action="<?php echo base_url(); ?>description_view/review" id="rating_form" method="post" class="j-forms">
 								<div class="widget view_sidebar review_hide" style="display:none;">
 									<div class="j-row">
 										<div class="span6 unit">
@@ -366,13 +374,14 @@
 												<label class="icon-right" for="name">
 													<i class="fa fa-user"></i>
 												</label>
-												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Review Title">
+												<input type="text" id="review_title" name="review_title" placeholder="Enter Review Title">
+												<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
 											</div>
 										</div>
 										<div class="span6 unit">
 											<label class="label">Your Review :</label>
 											<div class="input">
-												<textarea type="text" id="" name="" placeholder="EnterYour Review"></textarea>
+												<textarea type="text" id="review_msg" name="review_msg" placeholder="Enter Your Review"></textarea>
 											</div>
 										</div>
 										<div class="span6 unit">
@@ -381,77 +390,40 @@
 												<label class="icon-right" for="name">
 													<i class="fa fa-user"></i>
 												</label>
-												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Name">
+												<input type="text" id="review_name" name="review_name" placeholder="Enter Name">
 											</div>
 										</div>
-										<div class="span6 rating-group top_20">
+										<div class="span6 rating-group ">
 											<label class="label">Your Rating :</label>
 											<div class="ratings">
-												<input id="5acc" type="radio" name="user_tating">
+												<input id="5acc" type="radio" name="user_rating" value='5'>
 												<label for="5acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="4acc" type="radio" name="user_tating">
+												<input id="4acc" type="radio" name="user_rating" value='4'>
 												<label for="4acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="3acc" type="radio" name="user_tating">
+												<input id="3acc" type="radio" name="user_rating" value='3'>
 												<label for="3acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="2acc" type="radio" name="user_tating">
+												<input id="2acc" type="radio" name="user_rating" value='2'>
 												<label for="2acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="1acc" type="radio" name="user_tating">
+												<input id="1acc" type="radio" name="user_rating" value='1'>
 												<label for="1acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
 											</div>
 										</div>
 										<div class="span12 unit">													
-											<button class="btn btn-primary " id='change_pwd'>Add Review</button>
+											<button type="submit" class="btn btn-primary" name="add_review" id='add_review'>Add Review</button>
 										</div>
 									</div>
 								</div>
-								
-								<h4><i class="fa fa-pencil"></i>New Comment</h4><hr>
-
-								<div class="row">
-									<div class="span6 unit">
-										<label class="label">Your Name :</label>
-										<div class="input">
-											<label class="icon-right" for="yourname">
-												<i class="fa fa-user"></i>
-											</label>
-											<input type="text" id="yourname" name="yourname" placeholder="Enter Your Name">
-										</div>
-									</div>
-									<div class="span6 unit">
-										<label class="label">Your Email :</label>
-										<div class="input">
-											<label class="icon-right" for="youremail">
-												<i class="fa fa-envelope-o"></i>
-											</label>
-											<input type="email" id="youremail" name="youremail" placeholder="Enter Your Email">
-										</div>
-									</div>
-									<div class="span12 unit">
-										<label class="label">Message :</label>
-										<div class="input">
-											<textarea type="text" id="" name="" placeholder="Enter Your Message "></textarea>
-										</div>
-									</div>
-									<div class="span4 unit">
-										<div class="clearfix"></div>
-										
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<input type="submit" value="Post Comment" class="btn btn-primary">
-									</div>
-								</div>
+								</form>
 							</div>
 							
 							<div class="col-md-3">
@@ -476,7 +448,7 @@
 									<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 									<a class="report_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Report</span></a>
 								</div>
-								
+								<form action="#" method="post" class="j-forms">
 								<aside class="widget view_sidebar send_now_hide" style="display:none;">
 									<div class="j-row">
 										<div class="unit">
@@ -517,7 +489,8 @@
 										</div>
 									</div>
 								</aside>
-								
+								</form>
+								<form action="#" method="post" class="j-forms">
 								<aside class="widget view_sidebar report_hide" style="display:none;">
 									<div class="j-row">
 										<label class="radio">
@@ -546,6 +519,7 @@
 										</div>
 									</div>
 								</aside>
+							</form>
 								<aside class="widget view_sidebar1">
 									<h3 class="imp_tant1">Important Safety Tips</h3>
 									<ul class="list-styles">
@@ -561,7 +535,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
 	</section>
 		<!-- End Shadow Semiboxed -->
 	 
@@ -614,6 +587,12 @@
 			jQuery("#gallery").unitegallery();
 
 		});
+		
+	</script>
+	<script>
+		setTimeout(function(){
+			 $(".alert").hide();
+		},5000);
 		
 	</script>
 	
