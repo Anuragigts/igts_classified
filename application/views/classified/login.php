@@ -79,7 +79,7 @@
 								<div class="row login_totpad login_totpad_bor">
 									<div class="col-md-4 login_left">
 										<div class="log_leftpad text_center">
-											<a href="index.php"><img src="img/99deals1.png" class="log_logo" alt="Logo" title="Logo 365 Deals"></a> 
+											<a href="index.php"><img src="img/99rdlogin.png" class="log_logo" alt="Logo" title="Logo 365 Deals"></a> 
 											<h4 class="log_side top_20"><a href="signup">Create New Account</a></h4>
 											<h4 class="log_side"><a href="forgot_password">Forgot Password</a></h4>
 											<div class="login-options">

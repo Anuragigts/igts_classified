@@ -20,8 +20,8 @@
 		  $('.cd-filter-content').niceScroll({
 			autohidemode: 'false',     
 			cursorborderradius: '0px', 
-			background: '#E5E9E7',     
-			cursorwidth: '12px',       
+			background: '#f4f4f4',     
+			cursorwidth: '8px',       
 			cursorcolor: '#ED7642'     
 		  });
 		});
