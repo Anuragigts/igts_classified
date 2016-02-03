@@ -26,9 +26,9 @@ class Description_view extends CI_Controller{
             if ($this->uri->segment(3) == '') {
                    redirect('deals_administrator');
                 }
-            if ($this->session->userdata('login_id') == '') {
+            /*if ($this->session->userdata('login_id') == '') {
                    redirect('login');
-                }
+                }*/
 
                  /*category wise display*/
                 $detailed_desc = $this->classifed_model->ads_description_details();
@@ -43,7 +43,8 @@ class Description_view extends CI_Controller{
                     if ($value->category_id == 'pets') {
                         $detailed_pets = $this->classifed_model->ads_detailed_pets();
                         foreach ($detailed_pets as $val) {
-                            $body_content = array('Family Race' => $val->family_race,
+                            $body_content = array('Service Type' => $value->services,
+                                                    'Family Race' => $val->family_race,
                                                     'Pet Type'=>$val->pet_type,
                                                     'Pet Age'=> $val->pet_age,
                                                     'height'=>$val->height,

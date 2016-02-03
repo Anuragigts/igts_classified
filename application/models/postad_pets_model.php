@@ -62,7 +62,7 @@ class Postad_pets_model extends CI_Model{
                                     'deal_desc'   =>$this->input->post('dealdescription'),
                                      'currency'   =>$this->input->post('checkbox_toggle1'),
                                     'service_type'=> '',
-                                    'services'    => '',
+                                    'services'    => $this->input->post('checkbox_wmcloth'),
                                     'price_type'  => $this->input->post('price_type'),
                                     'price'       => $this->input->post('priceamount'),
                                     'web_link'    => $url,

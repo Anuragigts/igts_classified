@@ -26,9 +26,12 @@ class Classified extends CI_Controller{
                                             'Female African grey');*/
                             /*marquee title*/
                             $news = $this->classifed_model->marquee();
-                           // echo "<pre>"; print_r($this);
+                           
                                 $data['news'] = $news;
                                 $data['show_all'] = $this->classifed_model->show_all();
+
+                                /*most value show all ads*/
+                                $data['mostvalue_show_all'] = $this->classifed_model->mostvalue_show_all();
                                                      
                 if($lid != ''){
                  /*over all ads for most value ads(displayed for jobs only)*/
@@ -41,7 +44,7 @@ class Classified extends CI_Controller{
                     $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
                     /*dammy for most value ads for ezone */
                     $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
-
+                    /*platinum ads*/
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
                    
                     $data['free_ads'] = $this->classifed_model->free_ads();  
@@ -62,7 +65,7 @@ class Classified extends CI_Controller{
                     $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
                     /*dammy for most value ads for ezone */
                     $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
-
+                    /*platinum ads*/
                     $data['sig_ads'] = $this->classifed_model->sig_ads();
                     $data['free_ads'] = $this->classifed_model->free_ads();
 
@@ -70,6 +73,8 @@ class Classified extends CI_Controller{
                     $data['business_ads'] = $this->classifed_model->business_ads();             
 
                 }
+
+                // echo "<pre>"; print_r($this);
 
                 $this->load->view("classified_layout/inner_template",$data);
         }

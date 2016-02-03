@@ -123,6 +123,24 @@ Class Classifed_model extends CI_model{
 	}
 
 
+	/*most value ads for show all in home page*/
+	public function mostvalue_show_all(){
+		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
+		$this->db->from("`featured` AS fs");
+		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
+		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
+		$this->db->limit(2 ,6);
+		$this->db->group_by("fs.`ad_id`");
+		$this->db->order_by('ads.created_on', 'DESC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
 	/*over all ads for most value ads(displayed for jobs only)*/
 	public function most_ads(){
 		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
@@ -220,14 +238,14 @@ Class Classifed_model extends CI_model{
 
 
 	public function sig_ads(){
-		$this->db->select("spl.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`link`, ads.`number`, 
-		(SELECT login_email FROM `login` WHERE login_id = ads.`login_id`) AS mail_id, ads.`created_on`");
-		$this->db->from("`spotlight` AS spl");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = spl.`ad_id`", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = spl.`ad_id`", "left");
-		$this->db->limit(2, 4);
-		$this->db->group_by("spl.`ad_id`");
-		$this->db->order_by('ads.created_on', 'DESC');
+		$this->db->select("ads.*, img.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ads");
+		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		$this->db->where('ads.package_type', 'platinum');
+		$this->db->group_by('img.ad_id');
+		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -239,18 +257,14 @@ Class Classifed_model extends CI_model{
 	}
 
 	public function free_ads(){
-		$this->db->select("ads.`title`, ads.`ad_desc`, ads.`created_on`, img.img_name,
-		(SELECT `City_name` FROM `cities` WHERE `City_id` = (SELECT `city` FROM `address` WHERE `address_id` = ads.`addr_id`)) city,
-		(SELECT `Country_name` FROM `countries` WHERE `Country_id` = (SELECT `country` FROM `address` WHERE `address_id` = ads.`addr_id`))country");
-		$this->db->from("`advertisement` AS ads");
-		$this->db->join('ad_img as img', 'img.ad_id = ads.ad_id', 'left');
-		// $where = array('is_urgent' => 0, 'is_spotlight' => 0, 'is_featured' => 0);
-		// $this->db->where($where);
-		$this->db->where('is_urgent', 1);
-		$this->db->where('is_spotlight', 0);
-		$this->db->where('is_featured', 0);
-		$this->db->limit(8);
-		$this->db->order_by('ads.created_on', 'ASC');
+		$this->db->select("ads.*, img.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ads");
+		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		$this->db->where('ads.ad_type', 'consumer');
+		$this->db->group_by('img.ad_id');
+		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -264,14 +278,14 @@ Class Classifed_model extends CI_model{
 
 	/*business ads in home page*/
 	public function business_ads(){
-		$this->db->select("spl.*, `img`.`img_name`, img.bus_logo, ads.`title`, ads.`ad_desc`, ads.`link`, ads.`number`, 
-		(SELECT login_email FROM `login` WHERE login_id = ads.`login_id`) AS mail_id, ads.`created_on`");
-		$this->db->from("`spotlight` AS spl");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = spl.`ad_id`", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = spl.`ad_id`", "left");
-		$this->db->limit(8);
-		$this->db->group_by("spl.`ad_id`");
-		$this->db->order_by('ads.created_on', 'ASC');
+		$this->db->select("ads.*, img.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ads");
+		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		$this->db->where('ads.ad_type', 'business');
+		$this->db->group_by('img.ad_id');
+		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){

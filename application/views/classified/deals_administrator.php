@@ -327,7 +327,6 @@
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
@@ -456,7 +455,6 @@
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
@@ -565,7 +563,6 @@
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
@@ -681,7 +678,6 @@
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
@@ -783,7 +779,6 @@
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
@@ -888,7 +883,6 @@
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y", strtotime($m_details->created_on)); ?></span></li>
 														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
@@ -909,71 +903,22 @@
 		</div>
 	</section>
 
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-<script type="text/javascript">
-		function getPosition(callback) {
-		  var geocoder = new google.maps.Geocoder();
-		  var postcode = document.getElementById("postalcode").value;
-		
-		  geocoder.geocode({'address': postcode}, function(results, status) 
-		  {   
-			if (status == google.maps.GeocoderStatus.OK) 
-			{
-			  callback({
-				latt: results[0].geometry.location.lat(),
-				lng: results[0].geometry.location.lng()
-			  });
-			}
-		  });
-		}
-		
-		function setup_map(latitude, longitude) { 
-		  var _position = { lat: latitude, lng: longitude};
-		  
-		  var mapOptions = {
-			zoom: 12,
-			center: _position
-		  }
-		
-		  var map = new google.maps.Map(document.getElementById('map_area'), mapOptions);
-		
-		  var marker = new google.maps.Marker({
-			position: mapOptions.center,
-			map: map
-		  });
-		}
-		
-		function address(latt, long1){
-		$.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
-		success: function(data){
-		$('#location').val(data.results[0].formatted_address);
-		$('#lattitude').val(latt);
-		$('#longtitude').val(long1);
-		
-		   /*or you could iterate the components for only the city and state*/
-		}
-		});
-		}
-		
-		window.onload = function() {
-		  setup_map(51.5073509, -0.12775829999998223);
-		}
-	</script> 
+
 	<!--MAP Modal -->
 	<div class="modal fade" id="map_location" role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
-			<form action="#" method="post" class="j-forms " >
+			<!-- <form action="#" method="post" class="j-forms " > -->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h2>Map Location</h2>
 					</div>
 					<div class="modal-body">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2235.799000737637!2d-3.3203220839681395!3d55.91818548669171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c43f44f06177%3A0xf173594c2e8d70de!2sHermiston+House+Cottage%2C+Currie%2C+Edinburgh+EH14+4AQ%2C+UK!5e0!3m2!1sen!2s!4v1454408991821" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+						<div id="googleMap" style="width:950px;height:380px;"></div>
 					</div>
 				</div>
-			</form>
+			<!-- </form> -->
 		</div>
 	</div>
 	
@@ -1004,3 +949,36 @@
 	  })();
 
 	</script>	
+
+	<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(55.9058347,-3.3274721000000227);
+
+function initialize()
+{
+var mapProp = {
+  center: myCenter,
+  zoom:5,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position: myCenter,
+  title:'Click to zoom'
+  });
+
+marker.setMap(map);
+
+// Zoom to 9 when clicking on marker
+google.maps.event.addListener(marker,'click',function() {
+  map.setZoom(9);
+  map.setCenter(marker.getPosition());
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
