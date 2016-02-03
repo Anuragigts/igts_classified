@@ -1451,10 +1451,16 @@ jQuery(document).ready(function($) {
 															<label class="radio">
 																<input type="radio" name="Caravans" id="next-step-radio"  value="Caravans">
 																<i></i> Caravans 
+																<sup data-toggle="tooltip" title="" data-original-title="Caravans">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
 															</label>
 															<label class="radio">
 																<input type="radio" name="Caravans"  value="Motorhomes">
 																<i></i> Motorhomes
+																<sup data-toggle="tooltip" title="" data-original-title="Motorhomes">
+																	<img src="img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
 															</label>
 														</div>
 													</div>
