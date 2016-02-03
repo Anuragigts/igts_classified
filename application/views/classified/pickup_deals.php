@@ -75,6 +75,20 @@
 			//responsive code end
 		};
 	</script>
+
+	<script type="text/javascript">
+	$(function(){
+		$(".favourite_label").click(function(){
+			var val = $(".compared-hotel").hasClass('active');
+			if (val == false) {
+				$(".compared-hotel").addClass('active');
+			}
+			else{
+				$(".compared-hotel").removeClass('active');
+			}
+		});
+	});
+	</script>
 	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
@@ -233,8 +247,11 @@
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
 																<div class="col-xs-4">
+																	
 																	<div class="add-to-compare-list pull-right">
+																		<a href="javascript:void(0);" class="favourite_label">
 																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+																		</a>
 																	</div>
 																</div>
 															</div>
