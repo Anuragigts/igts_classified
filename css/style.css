@@ -2139,7 +2139,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #newsletterForm .form-control,
 #newsletterForm .input-group-btn .btn-primary,
 #newsletterForm .input-group-addon{
-	height: 45px;
+	/* height: 45px; */
 	border:solid 1px #dedede;
 }
 #newsletterForm .form-control{
@@ -2726,7 +2726,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 /* Galley list-view---------------------------------------------------------------*/
 .list-view .img-hover{
-	width: 30%;
+	width: 100%;
 	float: left;
 }
 .list-view .info-gallery{
@@ -3884,7 +3884,7 @@ address strong{
 	padding-top:5px ;
 }
 .top_4{
-	margin-top:10px ;
+	margin-top:19px ;
 }
 .view_price{
 	color:white;
@@ -4310,6 +4310,20 @@ a .login-op-btn:hover{
     top: 0px;
     left: auto;
 }
+.first_list span.compared-hotel {
+	background: url('../img/icons/favinactive.png');
+	width: 31px;
+	height: 31px;
+	display: block;
+	cursor: pointer;
+}
+.first_list span.compared-hotel.active {
+    background: url('../img/icons/favactive.png');
+	width: 31px;
+	height: 31px;
+	display: block;
+    cursor: pointer !important;
+}
 .first_list span.plattinum_icon {
     background: transparent url("../img/icons/crown.png") repeat scroll 0% 0%;
     width: 35px;
@@ -4719,7 +4733,7 @@ ul {
 		width: 220px;
 	}
 	.list_view_bottom {
-		padding: 9px 9px 63px;
+		padding: 0px 8px 51px;
 		border-right: 1px solid #E1E1E1;
 		border-bottom: 1px solid #E1E1E1;
 		border-left: 1px solid #E1E1E1;
@@ -4727,6 +4741,9 @@ ul {
 	.post-meta {
 		font-size: 9px;
 		color: #999;
+	}
+	.sort-by-container ul li {
+		width: 44%;
 	}
 }
 
