@@ -45,7 +45,8 @@
 				},
 				
 				submitHandler: function(form) {
-					form.submit();
+					return true;
+					//form.submit();
 				}
 			});
 
