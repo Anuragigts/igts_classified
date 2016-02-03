@@ -196,6 +196,7 @@ p{
 	color: #777;
 	font-size: 0.875rem;
 	line-height: 1.2rem;
+	word-wrap: break-word !important;
 }
 footer ul,
 .sitemap,
@@ -5336,4 +5337,7 @@ tbody tr {
 }
 tbody tr th{
 	float: left;
+}
+.whit_e{
+	color:#fff !important;
 }
