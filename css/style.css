@@ -314,10 +314,13 @@ hr.tall {
 .list-styles li{
  	line-height: 30px;
 }
+.list-styles li .fancybox{
+	color:#0DC5B2;
+}
 .list-styles li a,
 .list-styles li{
-	font-size: 14px;
-	color: #231F1F;
+	font-size: 13px;
+	font-weight: bold;
 }
 .list-styles li i{
 	border-radius: 50%;
@@ -575,9 +578,9 @@ hr.tall{
 	border-bottom: 1px solid #dedede !important;
 	max-height: 61px;
 }
-.header-v1.is-sticky img{
-	height: 60px !important;
-	margin-top: 0px !important;
+.header-v1.is-sticky .main_logo{
+	/* height: 60px !important; */
+	margin-top: -14px !important;
 }
 .header-v3{	
 	background: #fff;	
@@ -785,7 +788,6 @@ hr.tall{
 .title-header h1{
 	color: #fff;
 	font-size: 5.2rem;
-	text-shadow: 2px 3px 3px rgba(0,0,0,0.5);
 	line-height: 5.6rem;
 	font-weight: bold;
 }
@@ -793,7 +795,6 @@ hr.tall{
 	color: #f7f7f7;
 	margin: 0 auto 30px auto;
 	max-width: 700px;
-	text-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
 
 /* Nav Tabs ------------------------------*/
@@ -848,10 +849,11 @@ hr.tall{
 	padding: 0;
 	max-width: 90%;
 	margin: 1px auto 0px;
-	height: 54px;
+	height: 58px;
 	border-radius: 0px 5px 5px;
-	border: 2px solid;
-	color: #383A3C;
+	border: 3px solid;
+	color: #88C425;
+	background-color: #fff;
 }
 .filter-header.flights-filter{
 	height: auto !important;
@@ -914,7 +916,8 @@ hr.tall{
 	font-size: 0.9rem;
 }
 .selector1 select{
-	height:50px;
+	height:52px;
+	line-height: 46px !important;
 }
 .selector select {
 	position: absolute;
@@ -4378,16 +4381,7 @@ a .login-op-btn:hover{
 	padding-top: 21px;
 	padding-left: 35px;
 }
- .featured-badge {
-    width: 116px;
-	height: 86px;
-	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
-	padding-top: 10px;
-	position: absolute;
-	left: 754px;
-	top: -23px;
-	z-index: 7;
-} 
+
 .featured-badge {
     width: 116px;
 	height: 86px;
@@ -4398,8 +4392,7 @@ a .login-op-btn:hover{
 	top: -23px;
 	z-index: 7;
 }
-
- .featured-badge span {
+.featured-badge span {
     display: block;
     text-align: left;
     color: #FFF;
@@ -4407,6 +4400,48 @@ a .login-op-btn:hover{
     text-transform: uppercase;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 	/* transform: matrix(0.7, -0.7, 0.8, 0.7, 1, -8); */
+	padding-top: 24px;
+	padding-left: 35px;
+}
+.most_valued_badge{
+    width: 116px;
+	height: 86px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 10px;
+	position: absolute;
+	left: 162px;
+	top: -23px;
+	z-index: 7;
+}
+.most_valued_badge span {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+	/* transform: matrix(0.7, -0.7, 0.8, 0.7, 1, -8); */
+	padding-top: 24px;
+	padding-left: 35px;
+}
+.bus_rec_badge {
+    width: 116px;
+	height: 86px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 10px;
+	position: absolute;
+	left: 743px;
+	top: -23px;
+	z-index: 7;
+}
+
+ .bus_rec_badge span {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 	padding-top: 24px;
 	padding-left: 35px;
 }
@@ -4948,7 +4983,7 @@ h4 a:hover{
 	cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;
 }
 .recentad_heig{
-	height:425px;
+	height:422px;
 }
 .business_img{
 	height:306px;width: 264px;
@@ -5292,4 +5327,13 @@ tbody th,td{
 }
 #limit_scrol{
 	height: 200px;
+}
+tbody tr td{
+	float: right;
+}
+tbody tr {
+	border-bottom: 1px solid #ddd;
+}
+tbody tr th{
+	float: left;
 }

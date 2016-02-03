@@ -2269,11 +2269,11 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+ /*  border-bottom: 2px solid #ddd; */
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -5203,13 +5203,11 @@ a.list-group-item:focus {
 .list-group-item.active:hover .list-group-item-heading > small,
 .list-group-item.active:focus .list-group-item-heading > small,
 .list-group-item.active .list-group-item-heading > .small,
-.list-group-item.active:hover .list-group-item-heading > .small,
-.list-group-item.active:focus .list-group-item-heading > .small {
+.list-group-item.active:hover .list-group-item-heading > .small {
   color: inherit;
 }
 .list-group-item.active .list-group-item-text,
-.list-group-item.active:hover .list-group-item-text,
-.list-group-item.active:focus .list-group-item-text {
+.list-group-item.active:hover .list-group-item-text {
   color: #c7ddef;
 }
 .list-group-item-success {
@@ -5222,14 +5220,12 @@ a.list-group-item-success {
 a.list-group-item-success .list-group-item-heading {
   color: inherit;
 }
-a.list-group-item-success:hover,
-a.list-group-item-success:focus {
+a.list-group-item-success:hover {
   color: #3c763d;
   background-color: #d0e9c6;
 }
 a.list-group-item-success.active,
-a.list-group-item-success.active:hover,
-a.list-group-item-success.active:focus {
+a.list-group-item-success.active:hover {
   color: #fff;
   background-color: #3c763d;
   border-color: #3c763d;
@@ -5244,8 +5240,7 @@ a.list-group-item-info {
 a.list-group-item-info .list-group-item-heading {
   color: inherit;
 }
-a.list-group-item-info:hover,
-a.list-group-item-info:focus {
+a.list-group-item-info:hover {
   color: #31708f;
   background-color: #c4e3f3;
 }
@@ -5266,8 +5261,7 @@ a.list-group-item-warning {
 a.list-group-item-warning .list-group-item-heading {
   color: inherit;
 }
-a.list-group-item-warning:hover,
-a.list-group-item-warning:focus {
+a.list-group-item-warning:hover{
   color: #8a6d3b;
   background-color: #faf2cc;
 }
