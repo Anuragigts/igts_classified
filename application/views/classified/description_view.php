@@ -291,9 +291,9 @@
 													</li>
 
 													<li>
-														<a href="https://<?php echo $web_url; ?>" target="_blank" class="social-globe" data-toggle="tooltip" title="" data-original-title="Weblink">
-															<i class="fa fa-globe"></i>
-															<i class="fa fa-globe globe"></i>
+														<a href="https://<?php echo $web_url; ?>" target="_blank" class="social-globe">
+															<i class="">Weblink</i>
+															<i class="whit_e"> Weblink</i>
 														</a>
 													</li>
 												</ul>

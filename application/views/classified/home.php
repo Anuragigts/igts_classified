@@ -32,7 +32,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical" >
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/6.jpg"  alt="Slider3" title="Slider3">
+					<img src="img/slide/3.jpg"  alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
 				</li>
 			</ul> 
