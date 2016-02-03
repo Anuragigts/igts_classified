@@ -903,7 +903,6 @@
 		</div>
 	</section>
 
-
 	<!--MAP Modal -->
 	<div class="modal fade" id="map_location" role="dialog">
 		<div class="modal-dialog">

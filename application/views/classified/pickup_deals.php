@@ -268,7 +268,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a>
+																		<a href="" class="location" data-toggle="modal" data-target="#map_location"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -808,8 +808,65 @@
 	</section>
 	
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
 	
+	
+	<!--MAP Modal -->
+	<div class="modal fade" id="map_location" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<form action="#" method="post" class="j-forms " >
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Map Location</h2>
+					</div>
+					<div class="modal-body">
+						<div id="googleMap" style="width:500px;height:380px;"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+	<script>
+		var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+
+		function initialize()
+		{
+		var mapProp = {
+		  center: myCenter,
+		  zoom:5,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+
+		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+		var marker = new google.maps.Marker({
+		  position: myCenter,
+		  title:'Click to zoom'
+		  });
+
+		marker.setMap(map);
+
+		// Zoom to 9 when clicking on marker
+		google.maps.event.addListener(marker,'click',function() {
+		  map.setZoom(9);
+		  map.setCenter(marker.getPosition());
+		  });
+			 
+		google.maps.event.addListener(map,'center_changed',function() {
+		// 3 seconds after the center of the map has changed, pan back to the marker
+		  window.setTimeout(function() {
+			map.panTo(marker.getPosition());
+		  },3000);
+		  });
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+	<script src="js/jquery.js"></script> 
 	
 	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
 	<script src="j-folder/js/jquery.validate.min.js"></script>

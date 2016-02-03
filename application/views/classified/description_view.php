@@ -368,23 +368,23 @@
 								<form action="<?php echo base_url(); ?>description_view/review" id="rating_form" method="post" class="j-forms">
 								<div class="widget view_sidebar review_hide" style="display:none;">
 									<div class="j-row">
-										<div class="span6 unit">
+										<div class="span12 unit">
 											<label class="label">Review Title :</label>
 											<div class="input">
-												<label class="icon-right" for="name">
-													<i class="fa fa-user"></i>
+												<label class="icon-right" for="review_title">
+													<i class="fa fa-compass"></i>
 												</label>
 												<input type="text" id="review_title" name="review_title" placeholder="Enter Review Title">
 												<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
 											</div>
 										</div>
-										<div class="span6 unit">
+										<div class="span12 unit">
 											<label class="label">Your Review :</label>
 											<div class="input">
 												<textarea type="text" id="review_msg" name="review_msg" placeholder="Enter Your Review"></textarea>
 											</div>
 										</div>
-										<div class="span6 unit">
+										<div class="span12 unit">
 											<label class="label">Name :</label>
 											<div class="input">
 												<label class="icon-right" for="name">
@@ -393,33 +393,33 @@
 												<input type="text" id="review_name" name="review_name" placeholder="Enter Name">
 											</div>
 										</div>
-										<div class="span6 rating-group ">
-											<label class="label">Your Rating :</label>
+										<div class="span4 rating-group">
+											<label class="label">Your Rating</label>
 											<div class="ratings">
-												<input id="5acc" type="radio" name="user_rating" value='5'>
+												<input id="5acc" type="radio" name="user_rating" value="5">
 												<label for="5acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="4acc" type="radio" name="user_rating" value='4'>
+												<input id="4acc" type="radio" name="user_rating" value="4">
 												<label for="4acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="3acc" type="radio" name="user_rating" value='3'>
+												<input id="3acc" type="radio" name="user_rating" value="3">
 												<label for="3acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="2acc" type="radio" name="user_rating" value='2'>
+												<input id="2acc" type="radio" name="user_rating" value="2">
 												<label for="2acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
-												<input id="1acc" type="radio" name="user_rating" value='1'>
+												<input id="1acc" type="radio" name="user_rating" value="1" checked="">
 												<label for="1acc">
 													<i class="fa fa-smile-o"></i>
 												</label>
 											</div>
 										</div>
-										<div class="span12 unit">													
-											<button type="submit" class="btn btn-primary" name="add_review" id='add_review'>Add Review</button>
+										<div class="span12 unit clearfix top_20">													
+											<input type="submit" class="btn btn-primary" name="add_review" id='add_review' value="Add Review"> 
 										</div>
 									</div>
 								</div>

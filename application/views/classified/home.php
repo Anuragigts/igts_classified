@@ -12,9 +12,32 @@
 	</style>
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
-		<div class="tp-banner">
-			<div class="bg_parallax image_02_parallax"></div>
-			<div class="tp-bannertimer"></div>
+		<div class="tp-banner" >
+			<!-- SLIDES CONTENT-->
+			<ul> 
+				<!-- SLIDE  -->
+				<li data-transition="slidevertical">
+					<!-- MAIN IMAGE -->
+					<img src="img/slide/1.jpg" alt="Slider1" title="Slider1">
+					<!-- LAYERS -->
+				</li>
+
+				<!-- SLIDE  -->
+				<li data-transition="slidevertical">
+					<!-- MAIN IMAGE -->
+					<img src="img/slide/2.jpg"  alt="Slider2" title="Slider2">
+					<!-- LAYERS -->
+				</li>
+
+				<!-- SLIDE  -->
+				<li data-transition="slidevertical" >
+					<!-- MAIN IMAGE -->
+					<img src="img/slide/6.jpg"  alt="Slider3" title="Slider3">
+					<!-- LAYERS -->
+				</li>
+			</ul> 
+			<!-- END SLIDES  --> 
+			<div class="tp-bannertimer"></div>  
 		</div>
 		<!-- SLIDE CONTENT-->
 		<!-- FILTER HEADER - TITLE HEADER-->
@@ -310,6 +333,9 @@
 							</div>
 							<?php }
 								else{ ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
+							</div>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="ad_images/<?php echo $val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
@@ -480,6 +506,9 @@
 						<div class="col-xs-12 col-sm-6 col-md-3 ezone">
 							<?php if($m_ads_ezone->img_name == ''){
 								?>
+							<div class="bus_rec_badge">
+								<span>Urgent</span>
+							</div>
 							<div class="img-hover">
 								<img src="ad_images/no_image.png" alt="no_image.png" title="ezone" class="img-responsive">
 								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
@@ -528,7 +557,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="business_img img-responsive">
+							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="recentad_heig img-responsive">
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel">
@@ -547,6 +576,9 @@
 									</div>
 									<?php	}
 										else{ ?>
+									<div class="bus_rec_badge">
+										<span>Urgent</span>
+									</div>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
@@ -605,6 +637,9 @@
 									</div>
 									<?php		}
 										else{ ?>
+									<div class="bus_rec_badge">
+										<span>Urgent</span>
+									</div>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>

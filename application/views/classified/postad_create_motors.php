@@ -1745,13 +1745,13 @@ jQuery(document).ready(function($) {
 														<ul class="list-styles">
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 5 Images</li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox"><strong>Example</strong></a></li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"><br></li>
+															<li class="text_center"> <br></li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
 															</div>
@@ -1792,10 +1792,10 @@ jQuery(document).ready(function($) {
 															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
 															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
 															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 7days <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
 															<li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£4.99</h3>
 															</div>
