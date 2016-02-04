@@ -115,7 +115,7 @@
 						</div>
 						<div class="col-md-4">
 							<div class="titles">
-								<h2><span>SIGNIFICANT </span>DEAL</h2>
+								<h2><span>SIGNIFICANT </span>DEALS</h2>
 								<hr class="tall">
 							</div>
 						</div>
@@ -318,7 +318,7 @@
 			<div class="paddings-mini">
 				<div class="container">
 					<div class="titles recen_ad">
-						<h2>MOST <span>VALUE </span>DEAL</h2>
+						<h2>MOST <span>VALUE </span>DEALS</h2>
 					</div>
 					<!-- Nav Filters -->
 					<div class="portfolioFilter">
@@ -561,7 +561,7 @@
 				<!-- End boxes-carousel-->
 				<div class="container">
 					<div class="titles recen_ad">
-						<h2><span>Business </span>DEAL</h2>
+						<h2><span>Business </span>DEALS</h2>
 					</div>
 				</div>
 				<!-- End Title-->
@@ -688,7 +688,7 @@
 				<!-- Title -->
 				<div class="container">
 					<div class="titles recen_ad">
-						<h2><span>RECENT </span>DEAL</h2>
+						<h2><span>RECENT </span>DEALS</h2>
 					</div>
 				</div>
 				<!-- End Title-->

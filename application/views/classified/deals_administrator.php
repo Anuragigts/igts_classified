@@ -78,6 +78,16 @@
 		};
 	</script>
 	
+	<script type="text/javascript">
+	$(function(){
+		$(".loc_map").click(function(){
+			var val = $(".loc_map").attr("id");
+			var val1 = val.split(",");
+			$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+		});
+	});
+	</script>
+
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
@@ -170,6 +180,9 @@
 																<option value="none" selected disabled="">Select Price</option>
 																<option value="5">Sort Ascending</option>
 																<option value="4">Sort Descending</option>
+																<option value="4">Last 7 days</option>
+																<option value="4">Last 14 days</option>
+																<option value="4">Last 30 days</option>
 															</select>
 															<i></i>
 														</label>
@@ -270,7 +283,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $m_details->latt.','.$m_details->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -398,7 +411,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $m_details->latt.','.$m_details->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -506,7 +519,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $m_details->latt.','.$m_details->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -621,7 +634,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $m_details->latt.','.$m_details->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -695,10 +708,16 @@
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="img-hover">
+												<div class="col-sm-4">
+													<div class="img-hover view_img">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+													</div>
+													<div class="">
+														<div class="price11">
+															<span></span><b>
+															<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
+														</div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -722,7 +741,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $m_details->latt.','.$m_details->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -796,13 +815,19 @@
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
-												<div class="col-sm-4 view_img">
+												<div class="col-sm-4">
 													<div class="featured-badge">
 														<span>Urgent</span>
 													</div>
-													<div class="img-hover">
+													<div class="img-hover view_img">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+													</div>
+													<div class="">
+														<div class="price11">
+															<span></span><b>
+															<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
+														</div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -826,7 +851,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $m_details->latt.','.$m_details->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $m_details->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -913,8 +938,8 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h2>Map Location</h2>
 					</div>
-					<div class="modal-body">
-						<div id="googleMap" style="width:950px;height:380px;"></div>
+					<div class="modal-body map_show">
+						
 					</div>
 				</div>
 			<!-- </form> -->
