@@ -6,7 +6,7 @@
 /** form field **/
 .log_form {
   display: block;
-  margin: 30px;
+  margin: 15px;
   overflow: hidden;
   background: #fff;
   border: 3px solid #e4e4e4;
@@ -145,5 +145,7 @@ button.submitbtn:hover {
 	color:#A1CB57;
 	border:2px solid #A1CB57;
 }
-
+.login_img{
+	padding: 122px 0px 8px 33px;
+}
 
