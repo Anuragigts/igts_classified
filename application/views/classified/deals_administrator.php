@@ -113,9 +113,11 @@
 							<div class="item-table">
 								<div class="header-table color-red">
 									 <img src="img/icons/people.png" alt="people" title="people image">
-									 <?php foreach ($my_ads_details as $m_details) {
-									 	$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$m_details->login_id')  "), 0, 'first_name');
-									 } ?>
+									 <?php
+									 // echo $this->session->userdata('login_id');
+									  // foreach ($my_ads_details as $m_details) {
+									 	$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+									 //} ?>
 									<h2><?php echo $log_name; ?></h2>
 									<!--<span>$ 99 / per month</span> -->
 								</div>
