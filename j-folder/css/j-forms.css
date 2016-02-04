@@ -1070,7 +1070,7 @@
 .j-forms .ratings input + label:hover,
 .j-forms .ratings input + label:hover ~ label,
 .j-forms .ratings input:checked + label,
-.j-forms .ratings input:checked + label ~ label { color: #EF530D; }
+.j-forms .ratings input:checked + label ~ label { color: #417FB0; }
 
 /* Social links
 ==================================== */
