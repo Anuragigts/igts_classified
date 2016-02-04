@@ -65,6 +65,177 @@
 
 										<div class="divider gap-bottom-25"></div>
 										
+										<h4>E-Zone Category</h4>
+										
+										<div class="j-row">
+											<div class="span12 unit">
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Seller">
+															<i></i>Seller
+															<sup data-toggle="tooltip" title="" data-original-title="Seller">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike"  value="Needed">
+															<i></i>Needed
+															<sup data-toggle="tooltip" title="" data-original-title="Needed">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand Name
+													<sup data-toggle="tooltip" title="" data-original-title="Brand Name">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="brandname">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brandname" name="brandname" placeholder="Enter Brand Name">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Screen Size 
+													<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="screensize">
+														<img src="j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
+													</label>
+													<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Model Name 
+													<sup data-toggle="tooltip" title="" data-original-title="Model Name">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="modelname">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="modelname" name="modelname" placeholder="Enter Model Name">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Operating System
+													<sup data-toggle="tooltip" title="" data-original-title="Operating System">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="opersys">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="opersys" name="opersys" placeholder="Enter Operating System">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Made In 
+													<sup data-toggle="tooltip" title="" data-original-title="Made In ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Made In">
+														<img src="j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+													</label>
+													<input type="text" id="madein" name="madein" placeholder="Enter Made in">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Storage
+													<sup data-toggle="tooltip" title="" data-original-title="Storage">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="storage">
+														<option value="none" selected disabled="">Select Storage</option>
+														<option value="">512 MB</option>
+														<option value="">1GB</option>
+														<option value="">2GB</option>
+														<option value="">4GB</option>
+														<option value="">8GB</option>
+														<option value="">16GB</option>
+														<option value="">32GB</option>
+														<option value="">64GB</option>
+														<option value="">128GB</option>
+														<option value="">500GB</option>
+														<option value="">1TB</option>
+														<option value="">2TB</option>
+														<option value="">4Tb</option>
+														<option value="">8TB</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Warranty 
+													<sup data-toggle="tooltip" title="" data-original-title="Warranty">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="warranty">
+														<img src="j-folder/img/warranty.png" alt="warranty" title="warranty" class="img-responsive">
+													</label>
+													<input type="text" id="warranty" name="warranty" placeholder="Enter Warranty">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Manufacturer part number 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacturer part number ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="Manufacture" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacturer part number ">
+												</div>
+											</div>
+										</div>
+										
 										<h4>Motor Point Category Application _Farming and Plant Michinary</h4>
 										<div class="j-row">
 											<div class="span6 unit">

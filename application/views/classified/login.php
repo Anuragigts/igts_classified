@@ -73,24 +73,14 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<div class="login-form">
-								<div class="login-title pad_bottm">
-									<h2 class="text1 text_center ">Login</h2>
+								<div class="login-title">
+									<h2 class="text1 text_center">Login</h2>
 								</div>
 								<?php echo $this->view("classified_layout/success_error"); ?>
 								<div class="row login_totpad login_totpad_bor">
 									<div class="col-md-4 login_left">
-										<div class="log_leftpad text_center">
-											<a href="index.php"><img src="img/99rightdeal.png" class="log_logo" alt="Logo" title="Logo 365 Deals"></a> 
-											<h4 class="log_side top_20"><a href="signup">Create New Account</a></h4>
-											<h4 class="log_side"><a href="forgot_password">Forgot Password</a></h4>
-											<div class="login-options">
-												<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
-											</div>
-											<!-- end FB login -->
-											<div class=" login-options">
-												<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
-											</div>
-											<!-- end GP login -->
+										<div class="">
+											<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/logols.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
 										</div>
 									</div>
 									<div class="col-md-8">
@@ -143,24 +133,32 @@
 													</label>
 												</div>
 												<div class="col-1" id='wo_login'>
-													<label> Want to Post an Ad without Login
-													<input type='hidden' name='w_login' id='w_login' value='0'>
+													<label class="pull-left"> <a href="signup" class="signup_clr">Sign Up</a>
 													</label>
-													<div class="text_center check_topb">
-														<input type="checkbox" id='w_check' name='w_check' onclick='check()' class="js-switch">
-													</div>
+													<label> Remember Password
+														<input type='hidden' name='remember' id='remember' value='0' />
+													</label>
+													<div class="check_botb pull-right"><input type="checkbox" class="js-switch"></div>
 												</div>
 												<div class="col-submit">
-													<input type='submit' id="submit" name='submit' class="btn btn-primary" value='Login' />
-												</div>
-												<div class="col-1" id='remember'>
-													<label> Remember Password
-													<input type='hidden' name='remember' id='remember' value='0' />
-													</label>
-													<div class="text_center check_botb"><input type="checkbox" class="js-switch"></div>
+													<input type='submit' id="submit" name='submit' class="pull-left btn btn-primary" value='Login' />
+													<h4 class="log_side pull-right"><a href="forgot_password" class="signup_clr">Forgot Password</a></h4>
 												</div>
 											</form>
 											<!-- End form -->
+											<div class="row social_icons">
+												<div class="col-md-6">
+													<div class="login-options">
+														<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<!-- end FB login -->
+													<div class=" login-options">
+														<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>

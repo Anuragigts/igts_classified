@@ -160,17 +160,14 @@
                             <div class="row ">
 								<div class="col-sm-10 col-sm-offset-1">
 									<div class="login-title pad_bottm">
-										<h2 class="text1 text_center ">Sign UP</h2>
+										<h2 class="text1 text_center">Sign UP</h2>
 									</div>
 									<div class="row login_totpad">
-									   <div class="col-md-3 signup_left">
-											<div class="text_center">
-												<a href="index.php"><img src="img/99rightdeal.png" class="log_logo" alt="Logo" title="Logo 365 Deals"></a> 
-												<h4 class="log_side top_20"><a href="signup">Create New Account</a></h4>
-												<h4 class="log_side"><a href="forgot_password">Forgot Password</a></h4>
+										<div class="col-md-3 signup_left">
+											<div class="">
+												<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/logols.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
 											</div>
 										</div>
-                                    
 										<div class="col-sm-9">
 											<div class="login-form">
 												<div class="login-title">
