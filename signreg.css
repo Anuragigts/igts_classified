@@ -89,7 +89,7 @@ label > input {
   
   .col-2, .col-3, .col-4 , .col-1{ box-shadow: 1px 1px #e4e4e4; border: none; }
   
-  .col-2 { width: 50% }
+  .col-2 { width: 49.81%;}
   .col-31 { width: 75% }
   .col-1 { width: 100% }
   .col-3 { width: 33.3333333333% }
