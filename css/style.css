@@ -39,6 +39,11 @@
 	color: rgb(255, 255, 255);
 	min-height: 500px;
 }
+.signup_left{
+	background-color: #5EC3A3;
+	color: rgb(255, 255, 255);
+	min-height: 450px;
+}
 /* .log_leftpad{
 	padding:20px;
 } */
@@ -52,7 +57,7 @@
 
 .log_logo{
 	padding-top: 108px;
-	width: 246px;
+	/* width: 246px; */
 }
 .top_20{
 	padding-top:20px;
@@ -3914,13 +3919,14 @@ address strong{
 	padding-top:5px ;
 }
 .top_4{
-	margin-top:19px ;
+	margin-top:10px ;
 }
 .view_price{
 	color:white;
 	padding-left:5px;
 	font-size: 20px;
 	font-weight: bold;
+	margin-top: 9px;
 }
 .slider_bg{
 	background-color: #f4f4f4 !important;
@@ -5034,7 +5040,7 @@ h4 a:hover{
 	cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;
 }
 .recentad_heig{
-	height:422px;
+	height:381px;
 }
 .business_img{
 	height:306px;width: 264px;
@@ -5390,4 +5396,9 @@ tbody tr th{
 }
 .whit_e{
 	color:#fff !important;
+}
+.fead_back_modal{
+	border: 2px solid #ED7642;
+	padding: 26px 17px 0px 18px;
+	border-radius: 16px;
 }
