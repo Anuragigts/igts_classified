@@ -2635,6 +2635,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	top: -15px;
 	position: absolute;
 }
+.info-gallery .business_crown{
+	float: right;
+	position: absolute;
+	top: -40px;
+	left: 235px;
+	text-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+	font-size: 2.5rem;
+	line-height: 2rem;
+	font-weight: normal;
+	color: #fff;
+}
+.info-gallery .business_crown b{
+	font-size: 12px;
+	line-height: 1rem;
+	font-weight: lighter;
+	font-style: italic;
+	/* padding: 10px 5px; */
+	text-shadow:none;
+	/* margin-right: -21px; */
+	border-radius: 50%;
+	color: green;
+}
+.info-gallery .business_crown span{
+	font-weight: lighter;
+	font-size: 1.8rem;
+	right: -20px;
+	top: -15px;
+	position: absolute;
+}
 .price11{
 	float: right;
 	position: absolute;
@@ -4431,12 +4460,11 @@ a .login-op-btn:hover{
 	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
 	padding-top: 10px;
 	position: absolute;
-	left: 743px;
+	margin-left: 176px;
 	top: -23px;
 	z-index: 7;
 }
-
- .bus_rec_badge span {
+.bus_rec_badge span {
     display: block;
     text-align: left;
     color: #FFF;
@@ -4446,6 +4474,28 @@ a .login-op-btn:hover{
 	padding-top: 24px;
 	padding-left: 35px;
 }
+
+.significant_badge {
+    width: 116px;
+	height: 86px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 10px;
+	position: absolute;
+	margin-left: 250px;
+	top: -23px;
+	z-index: 7;
+}
+.significant_badge span {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+	padding-top: 24px;
+	padding-left: 35px;
+}
+
 .serch_bus_logo img{
 	height:60px;
 	width:130px;
