@@ -18,14 +18,14 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/1.jpg" alt="Slider1" title="Slider1">
+					<img src="img/slide/2.jpg" alt="Slider1" title="Slider1">
 					<!-- LAYERS -->
 				</li>
 
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/2.jpg"  alt="Slider2" title="Slider2">
+					<img src="img/slide/1.jpg"  alt="Slider2" title="Slider2">
 					<!-- LAYERS -->
 				</li>
 

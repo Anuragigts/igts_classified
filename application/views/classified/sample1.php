@@ -65,6 +65,156 @@
 
 										<div class="divider gap-bottom-25"></div>
 										
+										<h4>Home and Kitchen Category Application</h4>
+										
+										<div class="j-row">
+											<div class="span12 unit">
+												<div class="unit check logic-block-radio">
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike" id="next-step-radio" value="Seller">
+															<i></i>Seller
+															<sup data-toggle="tooltip" title="" data-original-title="Seller">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike"  value="Needed">
+															<i></i>Needed
+															<sup data-toggle="tooltip" title="" data-original-title="Needed">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<label class="radio">
+															<input type="radio" name="checkbox_motbike"  value="Needed">
+															<i></i>Charity
+															<sup data-toggle="tooltip" title="" data-original-title="Charity">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Brand Name
+													<sup data-toggle="tooltip" title="" data-original-title="Brand Name">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="brandname">
+														<i class="fa fa-laptop"></i>
+													</label>
+													<input type="text" id="brandname" name="brandname" placeholder="Enter Brand Name">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Material
+													<sup data-toggle="tooltip" title="" data-original-title="Material">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Material">
+														<img src="j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+													</label>
+													<input type="text" id="material" name="material" placeholder="Enter Material">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Color 
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Assembly
+													<sup data-toggle="tooltip" title="" data-original-title="Assembly">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="assembly">
+														<img src="j-folder/img/assembly.png" alt="assembly" title="Assembly Icon" class="img-responsive">
+													</label>
+													<input type="text" id="assembly" name="assembly" placeholder="Enter Assembly">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Dimensions
+													<sup data-toggle="tooltip" title="" data-original-title="Dimensions">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Weight">
+														<img src="j-folder/img/weight.png" alt="Weight" title="Weight Icon">
+													</label>
+													<input type="text" id="weight" name="weight" placeholder="Enter  Dimensions">
+												</div>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Capacity
+													<sup data-toggle="tooltip" title="" data-original-title="Capacity">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="capacity">
+														<img src="j-folder/img/ram.png" alt="Memory" title="Memory Icon">
+													</label>
+													<input type="text" id="capacity" name="capacity" placeholder="Enter Capacity">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Item Conditions 
+													<sup data-toggle="tooltip" title="" data-original-title="Item Conditions ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="itemconditions">
+														<option value="none" selected disabled="">Select Item Conditions </option>
+														<option value="">Good</option>
+														<option value="">Bad</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Warranty 
+													<sup data-toggle="tooltip" title="" data-original-title="Warranty">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="warranty">
+														<img src="j-folder/img/warranty.png" alt="warranty" title="warranty" class="img-responsive">
+													</label>
+													<input type="text" id="warranty" name="warranty" placeholder="Enter Warranty">
+												</div>
+											</div>
+										</div>
+										
 										<h4>E-Zone Category</h4>
 										
 										<div class="j-row">
