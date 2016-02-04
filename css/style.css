@@ -37,12 +37,12 @@
 .login_left{
 	background-color: #5EC3A3;
 	color: rgb(255, 255, 255);
-	min-height: 500px;
+	min-height: 415px;
 }
 .signup_left{
 	background-color: #5EC3A3;
 	color: rgb(255, 255, 255);
-	min-height: 450px;
+	min-height: 425px;
 }
 /* .log_leftpad{
 	padding:20px;
@@ -67,7 +67,7 @@
 }
 
 .log_side a:hover{
-	color:#D6DFE1 !important;
+	color:#88C425 !important;
 }
 a{
 	color:#FFF;
