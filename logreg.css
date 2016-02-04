@@ -6,12 +6,13 @@
 /** form field **/
 .log_form {
   display: block;
-  margin: 30px;
+  margin: 20px;
   overflow: hidden;
   background: #fff;
   border: 3px solid #e4e4e4;
   border-radius: 15px;
   font-size: 0;
+  padding-bottom: 10px;
 }
 
 form > div > label {
@@ -87,7 +88,7 @@ label > input {
   .form > div { display: inline-block; }
   .col-submit { display: block; }
   
-  .col-2, .col-3, .col-4 , .col-1{ box-shadow: 1px 1px #e4e4e4; border: none; }
+  .col-2, .col-3, .col-4 , .col-1, .col-31{ box-shadow: 1px 1px #e4e4e4; border: none; }
   
   .col-2 { width: 50% }
   .col-31 { width: 75% }
@@ -145,5 +146,12 @@ button.submitbtn:hover {
 	color:#A1CB57;
 	border:2px solid #A1CB57;
 }
-
-
+.social_icons{
+	padding: 0px 19px 0px 23px !important;
+}
+.signup_clr{
+	color: rgb(94, 195, 163);
+}
+.login_img{
+	padding: 122px 0px 8px 33px;
+}
