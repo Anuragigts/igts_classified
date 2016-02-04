@@ -231,6 +231,11 @@
 											  ?>
 										<figure class="slide jbs-current">
 											<?php if($sig_val->img_name == ''){
+												if ($sig_val->urgent_package != '') { ?>
+													<div class="significant_badge">
+													<span>Urgent</span>
+												</div>
+												<?php }
 												?>
 											<div class="img-hover significant_ad">
 												<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
@@ -238,6 +243,12 @@
 											</div>
 											<?php
 												}else{
+												if ($sig_val->urgent_package != '') {
+													?>
+													<div class="significant_badge">
+													<span>Urgent</span>
+													</div>
+													<?php }
 													?>
 											<div class="img-hover significant_ad">
 												<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="<?php echo $sig_val->img_name; ?>" title="significant" class="img-responsive">
@@ -576,9 +587,11 @@
 									</div>
 									<?php	}
 										else{ ?>
-									<div class="bus_rec_badge">
-										<span>Urgent</span>
-									</div>
+										<?php if ($b_ads->urgent_package != '') { ?>
+											<div class="bus_rec_badge">
+												<span>Urgent</span>
+											</div>
+										<?php } ?>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
@@ -593,6 +606,25 @@
 										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
+										 <?php if ($b_ads->package_type == 'platinum') { ?>
+										 	<div class="business_crown">
+											<span></span><b>
+											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+											</div>
+										<?php	 } ?>
+										<?php if ($b_ads->package_type == 'gold') { ?>
+										 	<div class="business_crown">
+											<span></span><b>
+											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
+											</div>
+										<?php	 } ?>
+										<?php if ($b_ads->package_type == 'free') { ?>
+										 	<div class="business_crown">
+											<span></span><b>
+											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
+											</div>
+										<?php	 } ?>
+										 
 										 <p><?php echo substr($b_ads->deal_desc, 0, 50); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -631,15 +663,22 @@
 									foreach ($free_ads as $free_val) { ?>
 								<div>
 									<?php if ($free_val->img_name == '') { ?>
+									<?php if ($free_val->urgent_package != '') { ?>
+											<div class="bus_rec_badge">
+												<span>Urgent</span>
+											</div>
+										<?php } ?>
 									<div class="img-hover">
 										<img src="ad_images/no_image.png" alt="" class="img-responsive">
 										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
 									<?php		}
 										else{ ?>
-									<div class="bus_rec_badge">
-										<span>Urgent</span>
-									</div>
+										<?php if ($free_val->urgent_package != '') { ?>
+											<div class="bus_rec_badge">
+												<span>Urgent</span>
+											</div>
+										<?php } ?>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
