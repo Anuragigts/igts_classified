@@ -4,7 +4,7 @@
 	<style>
 		.img-hover img{
 			width:308px;
-			height:200px;
+			height:160px;
 			border-top: 1px solid #f4f4f4;
 			border-left: 1px solid #f4f4f4;
 			border-right: 1px solid #f4f4f4;

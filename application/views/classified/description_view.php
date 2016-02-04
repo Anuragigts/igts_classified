@@ -104,7 +104,7 @@
 				<div class="paddings-mini">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-9  single-blog">
+							<div class="col-md-9 col-sm-8 single-blog">
 								<!-- Post Item Gallery-->
 								<div class="post-item">
 									<div class="row">
@@ -365,11 +365,15 @@
 								  });
 								  
 								  </script>
-								<form action="<?php echo base_url(); ?>description_view/review" id="rating_form" method="post" class="j-forms">
+								<form action="<?php echo base_url(); ?>description_view/review" id="rating_form" method="post" class="j-forms tooltip-hover">
 								<div class="widget view_sidebar review_hide" style="display:none;">
 									<div class="j-row">
 										<div class="span12 unit">
-											<label class="label">Review Title :</label>
+											<label class="label">Review Title 
+												<sup data-toggle="tooltip" title="" data-original-title="Review Title">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+												</sup>
+											</label>
 											<div class="input">
 												<label class="icon-right" for="review_title">
 													<i class="fa fa-compass"></i>
@@ -379,13 +383,21 @@
 											</div>
 										</div>
 										<div class="span12 unit">
-											<label class="label">Your Review :</label>
+											<label class="label">Your Review 
+												<sup data-toggle="tooltip" title="" data-original-title="Your Review ">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+												</sup>
+											</label>
 											<div class="input">
 												<textarea type="text" id="review_msg" name="review_msg" placeholder="Enter Your Review"></textarea>
 											</div>
 										</div>
 										<div class="span12 unit">
-											<label class="label">Name :</label>
+											<label class="label">Name 
+												<sup data-toggle="tooltip" title="" data-original-title="Name">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+												</sup>
+											</label>
 											<div class="input">
 												<label class="icon-right" for="name">
 													<i class="fa fa-user"></i>
@@ -394,7 +406,11 @@
 											</div>
 										</div>
 										<div class="span4 rating-group">
-											<label class="label">Your Rating</label>
+											<label class="label">Your Rating
+												<sup data-toggle="tooltip" title="" data-original-title="Your Rating">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+												</sup>
+											</label>
 											<div class="ratings">
 												<input id="5acc" type="radio" name="user_rating" value="5">
 												<label for="5acc">
@@ -426,7 +442,7 @@
 								</form>
 							</div>
 							
-							<div class="col-md-3">
+							<div class="col-md-3 col-sm-4 col-xs-12">
 								<aside class="widget view_sidebar text_center">
 									<!--<img src="img/brand/intel.png" alt="Logo" title="Business Logo" class="img-responsive"><hr>-->
 									<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img">
@@ -448,78 +464,94 @@
 									<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 									<a class="report_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Report</span></a>
 								</div>
-								<form action="#" method="post" class="j-forms">
-								<aside class="widget view_sidebar send_now_hide" style="display:none;">
-									<div class="j-row">
-										<div class="unit">
-											<label class="label">Contact Name :</label>
-											<div class="input">
-												<label class="icon-right" for="name">
-													<i class="fa fa-user"></i>
+								<form action="#" method="post" class="j-forms tooltip-hover">
+									<aside class="widget view_sidebar send_now_hide" style="display:none;">
+										<div class="j-row">
+											<div class="unit">
+												<label class="label">Contact Name
+													<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+												<div class="input">
+													<label class="icon-right" for="name">
+														<i class="fa fa-user"></i>
+													</label>
+													<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+												</div>
 											</div>
-										</div>
-										<div class="unit">
-											<label class="label">Mobile Number :</label>
-											<div class="input">
-												<label class="icon-right" for="phone">
-													<i class="fa fa-phone"></i>
+											<div class="unit">
+												<label class="label">Mobile Number
+													<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<i class="fa fa-phone"></i>
+													</label>
+													<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+												</div>
 											</div>
-										</div>
-										<div class="unit">
-											<label class="label">Email :</label>
-											<div class="input">
-												<label class="icon-right" for="email">
-													<i class="fa fa-envelope-o"></i>
+											<div class="unit">
+												<label class="label">Email
+													<sup data-toggle="tooltip" title="" data-original-title="Email">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+												<div class="input">
+													<label class="icon-right" for="email">
+														<i class="fa fa-envelope-o"></i>
+													</label>
+													<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+												</div>
+											</div>
+											<div class="unit">
+												<label class="label">Message
+													<sup data-toggle="tooltip" title="" data-original-title="Message">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
+												</div>
+											</div>
+											<div class="unit">													
+												<button class="btn btn-primary " id='change_pwd'>Send Now</button>
 											</div>
 										</div>
-										<div class="unit">
-											<label class="label">Message :</label>
-											<div class="input">
-												<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
-											</div>
-										</div>
-										<div class="unit">													
-											<button class="btn btn-primary " id='change_pwd'>Send Now</button>
-										</div>
-									</div>
-								</aside>
+									</aside>
 								</form>
-								<form action="#" method="post" class="j-forms">
-								<aside class="widget view_sidebar report_hide" style="display:none;">
-									<div class="j-row">
-										<label class="radio">
-											<input type="radio" name="report_view" value="" checked="">
-											<i></i> This is illegal/fraudulent
-										</label>
-										<label class="radio">
-											<input type="radio" name="report_view" value="">
-											<i></i> This deal is spam
-										</label>
-										<label class="radio">
-											<input type="radio" name="report_view" value="">
-											<i></i> This deal is a duplicate
-										</label>
-										<label class="radio">
-											<input type="radio" name="report_view" value="">
-											<i></i> This deal is in the wrong category
-										</label>
-										<div class="unit">
-											<div class="input">
-												<textarea type="text" id="" name="" placeholder="Please Provide more Information"></textarea>
+								<form action="#" method="post" class="j-forms tooltip-hover">
+									<aside class="widget view_sidebar report_hide" style="display:none;">
+										<div class="j-row">
+											<label class="radio">
+												<input type="radio" name="report_view" value="" checked="">
+												<i></i> This is illegal/fraudulent
+											</label>
+											<label class="radio">
+												<input type="radio" name="report_view" value="">
+												<i></i> This deal is spam
+											</label>
+											<label class="radio">
+												<input type="radio" name="report_view" value="">
+												<i></i> This deal is a duplicate
+											</label>
+											<label class="radio">
+												<input type="radio" name="report_view" value="">
+												<i></i> This deal is in the wrong category
+											</label>
+											<div class="unit">
+												<div class="input">
+													<textarea type="text" id="" name="" placeholder="Please Provide more Information"></textarea>
+												</div>
+											</div>
+											<div class="unit">													
+												<button class="btn btn-primary " id='change_pwd'>Send Report</button>
 											</div>
 										</div>
-										<div class="unit">													
-											<button class="btn btn-primary " id='change_pwd'>Send Report</button>
-										</div>
-									</div>
-								</aside>
-							</form>
+									</aside>
+								</form>
 								<aside class="widget view_sidebar1">
 									<h3 class="imp_tant1">Important Safety Tips</h3>
 									<ul class="list-styles">
