@@ -35,6 +35,7 @@ class Description_view extends CI_Controller{
                 }
                  /*category wise display*/
                 $detailed_desc = $this->classifed_model->ads_description_details();
+                 $body_content = '';
                 foreach ($detailed_desc as $value) {
                     /*services*/
                     if ($value->category_id == 'services') {
@@ -273,10 +274,22 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '59' || $value->sub_cat_id == '60'
                         || $value->sub_cat_id == '61' || $value->sub_cat_id == '62'
                         || $value->sub_cat_id == '63' || $value->sub_cat_id == '64'
-                        || $value->sub_cat_id == '64' || $value->sub_cat_id == '66') {
+                        || $value->sub_cat_id == '65' || $value->sub_cat_id == '66') {
                 $detailed_ezones = $this->classifed_model->ads_detailed_ezones();  
                     foreach ($detailed_ezones as $val) {
-                    $body_content = array('Service Type'=>$value->services,
+                        if ($val->operating_system == 0 || $val->storage == 0) {
+                            $body_content = array('Service Type'=>$value->services,
+                                        'Brand_name'=>$val->brand_name,
+                                        'Size'=>$val->size,
+                                        'Color'=>$val->color,
+                                        'Model name'=>$val->model_name,
+                                        'Made in'=>$val->made_in,
+                                        'Warranty'=>$val->warranty,
+                                        'Manufacture'=>$val->manufacture
+                                        );
+                        }
+                        else{
+                            $body_content = array('Service Type'=>$value->services,
                                         'Brand_name'=>$val->brand_name,
                                         'Size'=>$val->size,
                                         'Color'=>$val->color,
@@ -287,6 +300,8 @@ class Description_view extends CI_Controller{
                                         'Warranty'=>$val->warranty,
                                         'Manufacture'=>$val->manufacture
                                         );
+                        }
+                    
                                     }       
                     }
                     # code...
@@ -315,7 +330,6 @@ class Description_view extends CI_Controller{
 
             }
                 
-
                 /*desc info*/
                 $ads_description_details = $this->classifed_model->ads_description_details();
                 /*images for ad*/
