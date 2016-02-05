@@ -130,7 +130,7 @@
 										<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
 										<div class="overlay">
 											<h2>Hot Deals</h2>
-											<a class="info" href="deal_page">View Details</a>
+											<a class="info" href="#">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -148,7 +148,7 @@
 										<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
 										<div class="overlay">
 											<h2>Motor Point</h2>
-											<a class="info" href="motor_car_search">View Details</a>
+											<a class="info" href="#">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -159,7 +159,7 @@
 										<img class="img-responsive" src="img/featured/clothing.jpg" alt="clothing" title="clothing Category">
 										<div class="overlay">
 											<h2>Clothing & LifeStyles</h2>
-											<a class="info" href="clot_life_search">View Details</a>
+											<a class="info" href="#">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -177,7 +177,7 @@
 										<img class="img-responsive" src="img/featured/property.jpg" alt="property" title="property Category">
 										<div class="overlay">
 											<h2>Find a Property</h2>
-											<a class="info" href="property_search">View Details</a>
+											<a class="info" href="#">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -188,7 +188,7 @@
 										<img class="img-responsive" src="img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
 										<div class="overlay">
 											<h2>Home & Kitchen</h2>
-											<a class="info" href="home_kitchen_search">View Details</a>
+											<a class="info" href="#">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -197,7 +197,7 @@
 										<img class="img-responsive" src="img/featured/pets.jpg" alt="pets" title="pets Category">
 										<div class="overlay">
 											<h2>Pets</h2>
-											<a class="info" href="pets_search">View Details</a>
+											<a class="info" href="#">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -206,7 +206,7 @@
 										<img class="img-responsive" src="img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
 										<div class="overlay">
 											<h2>Jobs</h2>
-											<div><a class="info" href="job_search">View Details</a></div>
+											<div><a class="info" href="#">View Details</a></div>
 										</div>
 									</div>
 								</div>
@@ -575,68 +575,15 @@
 								<!-- Item carousel Boxed-->
 								<?php foreach ($business_ads as $b_ads) { ?>
 								<div>
-									<?php if($b_ads->img_name == ''){ ?>
-									<div class="img-hover">
-										<img src="ad_images/no_image.png" alt="business_image1" title="business-image1" class="img-responsive">
-										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+									<?php if ($b_ads->urgent_package != '') { ?>
+									<div class="bus_rec_badge">
+										<span>Urgent</span>
 									</div>
-									<div class="info-gallery">
-										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
-										<hr class="separator">
-										<div class="bus_logo"><span></span><b><img data-u="image" src="img/brand/lg.png" /></b></div>
-									</div>
-									<?php	}
-										else{ ?>
-										<?php if ($b_ads->urgent_package != '') { ?>
-											<div class="bus_rec_badge">
-												<span>Urgent</span>
-											</div>
-										<?php } ?>
+									<?php } ?>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
-									<?php if ($b_ads->package_type == 'gold') { ?>
-									<div class="info-gallery gold_bgcolor">
-										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
-										<hr class="separator">
-										<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
-										<?php	}
-										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
-									<?php	}
-										 ?>
-										 <?php if ($b_ads->package_type == 'platinum') { ?>
-										 	<div class="business_crown">
-											<span></span><b>
-											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-											</div>
-										<?php	 } ?>
-										<?php if ($b_ads->package_type == 'gold') { ?>
-										 	<div class="business_crown">
-											<span></span><b>
-											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
-											</div>
-										<?php	 } ?>
-										<?php if ($b_ads->package_type == 'free') { ?>
-										 	<div class="business_crown">
-											<span></span><b>
-											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
-											</div>
-										<?php	 } ?>
-										 
-										 <p><?php echo substr($b_ads->deal_desc, 0, 45); ?> </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
-										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-									</div>
-									<?php }else { ?>
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
 										<hr class="separator">
@@ -665,8 +612,7 @@
 											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
 											</div>
 										<?php	 } ?>
-										 
-										 <p><?php echo substr($b_ads->deal_desc, 0, 45); ?> </p>
+										<p><?php echo substr($b_ads->deal_desc, 0, 45); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -676,8 +622,7 @@
 										</ul>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
-										<?php	} ?>
-									<?php	} ?>
+									
 								</div>
 								<?php	} ?>
 								<!-- End Item carousel Boxed-->
