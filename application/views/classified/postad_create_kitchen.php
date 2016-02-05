@@ -1001,8 +1001,8 @@
 												<label class="input select">
 													<select name="itemconditions">
 														<option value="none" selected disabled="">Select Item Conditions </option>
-														<option value="">Good</option>
-														<option value="">Bad</option>
+														<option value="Good">Good</option>
+														<option value="Bad">Bad</option>
 													</select>
 													<i></i>
 												</label>

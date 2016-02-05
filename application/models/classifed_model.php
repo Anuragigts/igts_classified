@@ -448,6 +448,15 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
+	/*kitchen home details*/
+	public function ads_detailed_kitchen(){
+		$this->db->select("*");
+		$this->db->from("kitchenhome_ads");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 
 
 	/*review inserting*/

@@ -275,7 +275,8 @@ class Description_view extends CI_Controller{
                         || $value->sub_cat_id == '64' || $value->sub_cat_id == '66') {
                 $detailed_ezones = $this->classifed_model->ads_detailed_ezones();  
                     foreach ($detailed_ezones as $val) {
-                    $body_content = array('Brand_name'=>$val->brand_name,
+                    $body_content = array('Service Type'=>$value->services,
+                                        'Brand_name'=>$val->brand_name,
                                         'Size'=>$val->size,
                                         'Color'=>$val->color,
                                         'Model name'=>$val->model_name,
@@ -284,6 +285,27 @@ class Description_view extends CI_Controller{
                                         'Storage'=>$val->storage,
                                         'Warranty'=>$val->warranty,
                                         'Manufacture'=>$val->manufacture
+                                        );
+                                    }       
+                    }
+                    # code...
+                }
+
+                if ($value->category_id == 'kitchenhome') {
+                    /*ezone*/
+                    if ($value->sub_cat_id == '67' || $value->sub_cat_id == '68'
+                        || $value->sub_cat_id == '69') {
+                $detailed_kitchen = $this->classifed_model->ads_detailed_kitchen();  
+                    foreach ($detailed_kitchen as $val) {
+                    $body_content = array('Service Type'=>$value->services,
+                                        'Brand_name'=>$val->brand_name,
+                                        'Material'=>$val->material,
+                                        'Color'=>$val->color,
+                                        'Assembly'=>$val->assembly,
+                                        'Dimensions'=>$val->dimensions,
+                                        'Capacity'=>$val->capacity,
+                                        'Items condition'=>$val->items_condition,
+                                        'Warranty'=>$val->warranty
                                         );
                                     }       
                     }

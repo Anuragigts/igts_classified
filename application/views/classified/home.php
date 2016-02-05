@@ -584,6 +584,34 @@
 										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
+									<?php if ($b_ads->package_type == 'gold') { ?>
+									<div class="info-gallery gold_bgcolor">
+										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
+										<hr class="separator">
+										<?php if ($b_ads->bus_logo != '') { ?>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+										<?php	}
+										else{ ?>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+									<?php	}
+										 ?>
+										<?php if ($b_ads->package_type == 'gold') { ?>
+										 	<div class="business_crown">
+											<span></span><b>
+											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
+											</div>
+										<?php	 } ?>
+										<p><?php echo substr($b_ads->deal_desc, 0, 46); ?> </p>
+										<ul class="starts">
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+										</ul>
+										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									</div>
+									<?php }else{ ?>
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
 										<hr class="separator">
@@ -598,12 +626,6 @@
 										 	<div class="business_crown">
 											<span></span><b>
 											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-											</div>
-										<?php	 } ?>
-										<?php if ($b_ads->package_type == 'gold') { ?>
-										 	<div class="business_crown">
-											<span></span><b>
-											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
 											</div>
 										<?php	 } ?>
 										<?php if ($b_ads->package_type == 'free') { ?>
@@ -622,6 +644,7 @@
 										</ul>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
+									<?php	} ?>
 									
 								</div>
 								<?php	} ?>
