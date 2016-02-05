@@ -9,9 +9,6 @@
 			width: 100%;
 			overflow: hidden;
 		}
-		.checkbox{
-			color:#fff !important;
-		}
 	</style>
 	<link rel="stylesheet" href="js/filter.css"> 
 	<script type="text/javascript">
@@ -21,7 +18,7 @@
 			cursorborderradius: '0px', 
 			background: '#f4f4f4',     
 			cursorwidth: '8px',       
-			cursorcolor: '#ED7642'     
+			cursorcolor: '#E95413'     
 		  });
 		});
 	</script>
