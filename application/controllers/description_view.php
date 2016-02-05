@@ -14,12 +14,7 @@ class Description_view extends CI_Controller{
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
-                if ($this->session->userdata("postad_time") != '') {
-                    $new_time = time() - $this->session->userdata("postad_time");
-                    if ($new_time > 0) {
-                        $this->session->unset_userdata('postad_success');
-                    }
-                }
+                
 
                 $data   =   array(
                         "title"     =>  "Classifieds",
@@ -29,6 +24,12 @@ class Description_view extends CI_Controller{
                 $this->load->view("classified_layout/inner_template",$data);
         }
         public function details($id){
+            if ($this->session->userdata("postad_time") != '') {
+                    $new_time = time() - $this->session->userdata("postad_time");
+                    if ($new_time > 0) {
+                        $this->session->unset_userdata('postad_success');
+                    }
+                }
             if ($this->uri->segment(3) == '') {
                    redirect('deals_administrator');
                 }
