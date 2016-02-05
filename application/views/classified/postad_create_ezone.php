@@ -1160,7 +1160,7 @@
 															<li><i class="fa fa-check"></i> Up to 9 Images</li>
 															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
 															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
-															<li><i class="fa fa-check"></i> It will be display homepage  most valued ads for 7 days <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 7days <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
@@ -1205,7 +1205,7 @@
 															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide</li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
-															<li><i class="fa fa-check"></i> Crown symbol will attach </li>
+															<li><i class="fa fa-check"></i> Crown symbol will attach  </li>
 															<div class="platinum_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£4.99</h3>
 															</div>

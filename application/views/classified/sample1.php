@@ -28,6 +28,28 @@
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
 		</div>
 		
+		<div class='content_info'>
+			<div class='paddings-mini'>
+				<!-- content-->
+				<div class='container'>
+					<div class='row'>
+						<div class='col-sm-8 col-md-offset-2 activate_signup'>
+							<div class='row'>
+								<div class="col-sm-6">
+									<img src="<?php echo base_url(); ?>img/99rightdeal.png"  class="" alt="Logo" title="99 Right Deals">
+								</div>
+								<div class="col-sm-6">
+									<div class='titles pull-right'>
+										<h2><span>WELCOME </span></h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- content info - Blog-->
 		<div class="content_info" style="background-color: rgb(244, 244, 244);">
 			<div class="paddings-mini">

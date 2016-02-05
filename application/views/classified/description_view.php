@@ -104,6 +104,20 @@
 				<div class="paddings-mini">
 					<div class="container">
 						<div class="row">
+							<div class="bread_ccrumbs">
+								<div class="container">
+									<div class="crumbs">
+										<ul>
+											<li><a href="<?php echo base_url(); ?>index.php">Home</a></li>
+											<li>/</li>
+											<li><a href="<?php echo base_url(); ?>deals_administrator">Deal Administrator</a></li>  
+											<li></li>
+										</ul>    
+									</div>
+								</div>  
+							</div> 
+						</div> 
+						<div class="row">
 							<div class="col-md-9 col-sm-8 single-blog">
 								<!-- Post Item Gallery-->
 								<div class="post-item">
