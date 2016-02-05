@@ -416,7 +416,7 @@ xcustom form elements
 .cd-filter-block h4 {
   /* filter block title */
   position: relative;
-	padding: 11px 0px 8px 27px;
+	padding: 11px 0px 8px 11px;
   color: #9a9a9a;
   /* text-transform: uppercase; */
   -webkit-user-select: none;
@@ -432,7 +432,8 @@ xcustom form elements
   /* arrow */
   content: '';
   position: absolute;
-  left: 0;
+  color:#fff !important;
+  right: 10px;
   top: 50%;
   width: 16px;
   height: 16px;
