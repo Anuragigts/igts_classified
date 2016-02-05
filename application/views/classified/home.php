@@ -130,7 +130,7 @@
 										<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
 										<div class="overlay">
 											<h2>Hot Deals</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="deal_page">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -148,7 +148,7 @@
 										<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
 										<div class="overlay">
 											<h2>Motor Point</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="motor_car_search">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -159,7 +159,7 @@
 										<img class="img-responsive" src="img/featured/clothing.jpg" alt="clothing" title="clothing Category">
 										<div class="overlay">
 											<h2>Clothing & LifeStyles</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="clot_life_search">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -177,7 +177,7 @@
 										<img class="img-responsive" src="img/featured/property.jpg" alt="property" title="property Category">
 										<div class="overlay">
 											<h2>Find a Property</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="property_search">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -188,7 +188,7 @@
 										<img class="img-responsive" src="img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
 										<div class="overlay">
 											<h2>Home & Kitchen</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="home_kitchen_search">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -197,7 +197,7 @@
 										<img class="img-responsive" src="img/featured/pets.jpg" alt="pets" title="pets Category">
 										<div class="overlay">
 											<h2>Pets</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="pets_search">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -206,7 +206,7 @@
 										<img class="img-responsive" src="img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
 										<div class="overlay">
 											<h2>Jobs</h2>
-											<div><a class="info" href="#">View Details</a></div>
+											<div><a class="info" href="job_search">View Details</a></div>
 										</div>
 									</div>
 								</div>
