@@ -612,7 +612,7 @@
 											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr($b_ads->deal_desc, 0, 45); ?> </p>
+										<p><?php echo substr($b_ads->deal_desc, 0, 46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -675,7 +675,7 @@
 									<div class="info-gallery gold_bgcolor">
 										<h3><?php echo substr($free_val->deal_tag, 0, 20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr($free_val->deal_desc, 0, 50); ?> </p>
+										<p><?php echo substr($free_val->deal_desc, 0, 46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -700,7 +700,7 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag, 0, 20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr($free_val->deal_desc, 0, 50); ?> </p>
+										<p><?php echo substr($free_val->deal_desc, 0, 46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
