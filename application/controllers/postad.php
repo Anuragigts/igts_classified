@@ -92,6 +92,22 @@ class Postad extends CI_Controller{
                 /*Job category details*/
                 $data['jobs'] = $this->category_model->jobs_details();
 
+                /*Ezone category details*/
+                $data['ezone_phones'] = $this->category_model->ezone_phones();
+                $data['ezone_home'] = $this->category_model->ezone_home();
+                $data['ezone_small'] = $this->category_model->ezone_small();
+                $data['ezone_laptops'] = $this->category_model->ezone_laptops();
+                $data['ezone_accesories'] = $this->category_model->ezone_accesories();
+                $data['ezone_pcare'] = $this->category_model->ezone_pcare();
+                $data['ezone_entertainment'] = $this->category_model->ezone_entertainment();
+                $data['ezone_photo'] = $this->category_model->ezone_photo();
+
+                /*home and kitchen*/
+                $data['kitchen_essentials'] = $this->category_model->kitchen_essentials();
+                $data['kitchen_home'] = $this->category_model->kitchen_home();
+                $data['kitchen_decor'] = $this->category_model->kitchen_decor();
+
+
                 if($plogin_id != ""){
                         /*$data = array(
                                 "title"     =>  "Classifieds",

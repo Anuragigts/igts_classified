@@ -241,5 +241,73 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 
+        /*ezone category*/
+        /*phone and tablets*/
+        public function ezone_phones(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 59");
+            return $rs->result_array();
+        }
+
+        /*home appliances*/
+        public function ezone_home(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 60");
+            return $rs->result_array();
+        }
+
+        /*small appliances*/
+        public function ezone_small(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 61");
+            return $rs->result_array();
+        }
+
+        /*small appliances*/
+        public function ezone_laptops(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 62");
+            return $rs->result_array();
+        }
+
+        /*accessories*/
+        public function ezone_accesories(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 63");
+            return $rs->result_array();
+        }
+
+        /*person care*/
+        public function ezone_pcare(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 64");
+            return $rs->result_array();
+        }
+
+        /*person care*/
+        public function ezone_entertainment(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 65");
+            return $rs->result_array();
+        }
+
+        /*person care*/
+        public function ezone_photo(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 66");
+            return $rs->result_array();
+        }
+
+        /*kitchen and home*/
+        /*kitchen essentials*/
+        public function kitchen_essentials(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 67");
+            return $rs->result_array();
+        }
+
+        /*home essentials*/
+        public function kitchen_home(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 68");
+            return $rs->result_array();
+        }
+
+        /*kitchen decor*/
+        public function kitchen_decor(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 69");
+            return $rs->result_array();
+        }
+
 }
 ?>

@@ -1348,7 +1348,7 @@ jQuery(document).ready(function($) {
 											</div>
 										</div>	
 										<?php	} ?>
-
+										<!-- boats -->
 										<?php if (@$sub_id == '19') { ?>
 											<div class="j-row">
 											<div class="span6 unit">
@@ -1442,7 +1442,7 @@ jQuery(document).ready(function($) {
 										</div>
 										
 										<?php } ?>
-
+										<!-- motor homes and caravans -->
 										<?php if (@$sub_id == '14') { ?>
 											<div class="j-row">
 												<div class="span6 unit">
@@ -1670,6 +1670,98 @@ jQuery(document).ready(function($) {
 												</div>
 											</div>
 										</div>	
+										<?php } ?>
+
+										<!-- plant machinery and farming vehicles -->
+										<?php if (@$sub_id == '17' || @$sub_id == '18') { ?>
+											<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Manufacture 
+													<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<?php if (@$sub_id == '17') { ?>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_sub_name); ?>' readonly>
+												</div>
+												<?php }
+												else{ ?>
+												<div class="input">
+													<label class="icon-right" for="manufacture">
+														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													</label>
+													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='' >
+												</div>
+												<?php } ?>
+												
+											</div>
+											<div class="span6 unit">
+												<label class="label">Year
+													<sup data-toggle="tooltip" title="" data-original-title="Year">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="year_boat">
+														<img src="j-folder/img/reg.png" alt="year" title="year Icon" class="img-responsive">
+													</label>
+													<input type="text" id="year_boat" name="year_boat" placeholder="Enter Year" onkeypress="return isNumber(event)">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Model 
+													<sup data-toggle="tooltip" title="" data-original-title="Model ">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Model" class='car_model'>
+														<option value="none" selected disabled="">Select Age</option>
+														<option value="3months">Sample</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="span6 unit">
+												<label class="label">Color
+													<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="Color">
+														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													</label>
+													<input type="text" id="color" name="color" placeholder="Enter Color">
+												</div>
+											</div>
+										</div>
+										
+										<div class="j-row">
+											<div class="span6 unit">
+												<label class="label">Condition 
+													<sup data-toggle="tooltip" title="" data-original-title="Condition">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<label class="input select">
+													<select name="Condition">
+														<option value="none" selected disabled="">Select condition</option>
+														<option value="Excellent">Excellent</option>
+														<option value="Good">Good</option>
+														<option value="Average">Average</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+										</div>
 										<?php } ?>
 
 										<div class="j-row">

@@ -10,7 +10,7 @@
 		}
 		.nav-tabs li a {
 		border: 0px none;
-		padding: 12px 14px;
+		padding: 12px 13px;
 		background: #3A4749 none repeat scroll 0% 0%;
 		color: #FFF;
 		}
@@ -68,9 +68,15 @@
 										<div class="modal-dialog">
 											<!-- Modal content-->
 											<div class="modal-content">
+												<form method='post' id='ezone_form' action="<?php echo base_url(); ?>postad_create_ezone">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>E-Zone Category</h2>
+													<h2>E-Zone Category
+														<input type='hidden' name='ezone_cat' id='ezone_cat' value='ezone' />
+														<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
+														<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
+														<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />
+													</h2>
 												</div>
 												<div class="modal-body">
 													<div class="row ezone_h3 mod_pad">
@@ -78,61 +84,27 @@
 															<div class="row">
 																<div class="col-md-3 clearfix">
 																	<h3>Phones & Tablets</h3>
-																	<h4><a href="#">Mobile Phones</a></h4>
-																	<h4><a href="#">Tablets & iPads</a></h4>
-																	<h4><a href="#">Bluetooth Devices</a></h4>
-																	<h4><a href="#">Landline Phones</a></h4>
-																	<h4><a href="#">Adaptors & Connectors</a></h4>
-																	<h4><a href="#">Docks & Keypads</a></h4>
-																	<h4><a href="#">Cases & Sleeves</a></h4>
-																	<h4><a href="#">Screen Guards</a></h4>
-																	<h4><a href="#">Powerbanks</a></h4>
-																	<h4><a href="#">Wearable Devices</a></h4>
+																	<?php foreach ($ezone_phones as $ezone_phones_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Home Appliances</h3>
-																	<h4><a href="#">Air Conditioners</a></h4>
-																	<h4><a href="#">Air Coolers</a></h4>
-																	<h4><a href="#">Fans</a></h4>
-																	<h4><a href="#">Refrigerators</a></h4>
-																	<h4><a href="#">Washing Machines</a></h4>
-																	<h4><a href="#">Electric Iron</a></h4>
-																	<h4><a href="#">Vacuum Cleaners</a></h4>
-																	<h4><a href="#">Water Heaters</a></h4>
-																	<h4><a href="#">Room Heaters</a></h4>
-																	<h4><a href="#">Sewing Machine</a></h4>
-																	<h4><a href="#">Dryers</a></h4>
-																	<h4><a href="#">Emergency Light</a></h4>
+																	<?php foreach ($ezone_home as $ezone_home_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Small Appliances</h3>
-																	<h4><a href="#">Microwave Ovens & OTG</a></h4>
-																	<h4><a href="#">Food Processors</a></h4>
-																	<h4><a href="#">Mixer Grinder Juicers</a></h4>
-																	<h4><a href="#">Cookers & Steamers</a></h4>
-																	<h4><a href="#">Toasters & Sandwich Makers</a></h4>
-																	<h4><a href="#">Blenders & Choppers</a></h4>
-																	<h4><a href="#">Grills & Tandooris</a></h4>
-																	<h4><a href="#">Coffee Tea Makers & Kettles</a></h4>
-																	<h4><a href="#">Fryers & Snack makers</a></h4>
-																	<h4><a href="#">Water Purifiers</a></h4>
-																	<h4><a href="#">Dishwashers</a></h4>
-																	<h4><a href="#">Flour Mill</a></h4>
+																	<?php foreach ($ezone_small as $ezone_small_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Laptop & Computers</h3>
-																	<h4><a href="#">Laptops</a></h4>
-																	<h4><a href="#">All in One</a></h4>
-																	<h4><a href="#">Printers</a></h4>
-																	<h4><a href="#">Wi-Fi Devices</a></h4>
-																	<h4><a href="#">External Hard Drives</a></h4>
-																	<h4><a href="#">Pen Drives</a></h4>
-																	<h4><a href="#">Keyboards</a></h4>
-																	<h4><a href="#">Mouse</a></h4>
-																	<h4><a href="#">Headsets</a></h4>
-																	<h4><a href="#">Cables & Connectors</a></h4>
-																	<h4><a href="#">Ink & Toner</a></h4>
-																	<h4><a href="#">Softwares</a></h4>
+																	<?php foreach ($ezone_laptops as $ezone_laptops_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_laptops_val['sub_category_id'].','.$ezone_laptops_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_laptops_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 															</div>
 															<div class="row col-md-12" >
@@ -141,43 +113,27 @@
 															<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
 																<div class="col-md-3 clearfix">
 																	<h3>Accessories</h3>
-																	<h4><a href="#">Tablet & iPad Accessories</a></h4>
-																	<h4><a href="#">iPhone Accessories</a></h4>
-																	<h4><a href="#">Mobile Accessories</a></h4>
-																	<h4><a href="#">Computer Accessories</a></h4>
-																	<h4><a href="#">Headphones & Earphones</a></h4>
-																	<h4><a href="#">Audio Video Accessories</a></h4>
-																	<h4><a href="#">Camera Accessories</a></h4>
-																	<h4><a href="#">Inverters, Stablizers & Power</a></h4>
-																	<h4><a href="#">Battery</a></h4>
+																	<?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Personal Care</h3>
-																	<h4><a href="#">Shavers</a></h4>
-																	<h4><a href="#">Trimmers</a></h4>
-																	<h4><a href="#">Body Groomers</a></h4>
-																	<h4><a href="#">Hair Dryers</a></h4>
-																	<h4><a href="#">Hair Stylers</a></h4>
-																	<h4><a href="#">Epilators</a></h4>
-																	<h4><a href="#">Pedometers</a></h4>
-																	<h4><a href="#">Monitors</a></h4>
-																	<h4><a href="#">Massagers</a></h4>
+																	<?php foreach ($ezone_pcare as $ezone_pcare_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_pcare_val['sub_category_id'].','.$ezone_pcare_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_pcare_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Home Entertainment</h3>
-																	<h4><a href="#">LCD LED Televisions</a></h4>
-																	<h4><a href="#">Home Theatre Systems</a></h4>
-																	<h4><a href="#">DVD & Blue-Ray Players</a></h4>
-																	<h4><a href="#">Audio Systems</a></h4>
-																	<h4><a href="#">Gaming</a></h4>
-																	<h4><a href="#">Musical Instruments</a></h4>
-																	<h4><a href="#">Projectors</a></h4>
+																	<?php foreach ($ezone_entertainment as $ezone_entertainment_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_entertainment_val['sub_category_id'].','.$ezone_entertainment_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_entertainment_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-3 clearfix">
 																	<h3>Photography</h3>
-																	<h4><a href="#">Digital SLR Cameras</a></h4>
-																	<h4><a href="#">Point & Shoot Cameras</a></h4>
-																	<h4><a href="#">Camcorders</a></h4>
+																	<?php foreach ($ezone_photo as $ezone_photo_val) { ?>
+																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 															</div>
 															<div class="row col-md-12" >
@@ -189,6 +145,7 @@
 												<div class="modal-footer">
 													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -219,7 +176,7 @@
 																	<ul class="nav nav-tabs" id="myTab">
 																		<li class="active">
 																			<a href="#cars" data-toggle="tab"> Cars
-																				<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
+																			<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
 																			<input type='hidden' name='motor_sub' id='motor_sub' value='' />
 																			<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
 																			<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
@@ -624,10 +581,15 @@
 									<div class="modal fade" id="Kitchen" role="dialog">
 										<div class="modal-dialog">
 											<!-- Modal content-->
+											<form method='post' id='kitchen_form' action="<?php echo base_url(); ?>postad_create_kitchen">
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Home & Kitchen Category</h2>
+													<h2>Home & Kitchen Category
+														<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='kitchenhome' />
+														<input type='hidden' name='kitchen_sub' id='kitchen_sub' value='' />
+														<input type='hidden' name='kitchen_sub_sub' id='kitchen_sub_sub' value='' />
+													</h2>
 												</div>
 												<div class="modal-body">
 													<div class="row">
@@ -635,49 +597,21 @@
 															<div class="row">
 																<div class="col-md-4 clearfix">
 																	<h3>Kitchen Essentials</h3>
-																	<h4><a href="#">Kitchen Tools</a></h4>
-																	<h4><a href="#">Kitchen Storage</a></h4>
-																	<h4><a href="#">Cookware</a></h4>
-																	<h4><a href="#">Bakeware</a></h4>
-																	<h4><a href="#">Cooktops & Burners</a></h4>
-																	<h4><a href="#">Barbeque Furniture</a></h4>
-																	<h4><a href="#">Table Linen</a></h4>
-																	<h4><a href="#">Others</a></h4>
+																	<?php foreach ($kitchen_essentials as $kitchen_essentials_val) { ?>
+																	<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_essentials_val['sub_category_id'].','.$kitchen_essentials_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_essentials_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Home Essentials</h3>
-																	<h4><a href="#">Bathroom Accessories</a></h4>
-																	<h4><a href="#">Bedroom Accessories</a></h4>
-																	<h4><a href="#">Carpets & Flooring</a></h4>
-																	<h4><a href="#">Cleaning Services</a></h4>
-																	<h4><a href="#">Plumbing & Electrician Services</a></h4>
-																	<h4><a href="#">Windows & Conservatories</a></h4>
-																	<h4><a href="#">Door, Machinery & Tools</a></h4>
-																	<h4><a href="#">Garden Equipment</a></h4>
-																	<h4><a href="#">Furniture for Garden</a></h4>
-																	<h4><a href="#">Sheds @ Garden</a></h4>
-																	<h4><a href="#">Plants @ Garden</a></h4>
-																	<h4><a href="#">Dining Room Furniture</a></h4>
-																	<h4><a href="#">Living Room Furniture</a></h4>
-																	<h4><a href="#">Furniture for Kids</a></h4>
-																	<h4><a href="#">Outdoor Furniture</a></h4>
-																	<h4><a href="#">Study & Office Room Furniture</a></h4>
-																	<h4><a href="#">Other</a></h4>
+																	<?php foreach ($kitchen_home as $kitchen_home_val) { ?>
+																	<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_home_val['sub_category_id'].','.$kitchen_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_home_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 																<div class="col-md-4 clearfix">
 																	<h3>Decor</h3>
-																	<h4><a href="#">Curtains & Accessories</a></h4>
-																	<h4><a href="#">Candles & Fragrances</a></h4>
-																	<h4><a href="#">Vases & Flowers</a></h4>
-																	<h4><a href="#">Wall Décor</a></h4>
-																	<h4><a href="#">Home Accent</a></h4>
-																	<h4><a href="#">Religion & Spirituality</a></h4>
-																	<h4><a href="#">Photo frames & Albums</a></h4>
-																	<h4><a href="#">Rugs & Carpets</a></h4>
-																	<h4><a href="#">Cushions & Throws</a></h4>
-																	<h4><a href="#">Table Lamps & Ceiling Lights</a></h4>
-																	<h4><a href="#">Wall & Outdoor Lights</a></h4>
-																	<h4><a href="#">Others</a></h4>
+																	<?php foreach ($kitchen_decor as $kitchen_decor_val) { ?>
+																	<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_decor_val['sub_category_id'].','.$kitchen_decor_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_decor_val['sub_subcategory_name']; ?></a></h4>
+																	<?php	} ?>
 																</div>
 															</div>
 														</div>
@@ -687,6 +621,7 @@
 													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 												</div>
 											</div>
+										</form>
 										</div>
 									</div>
 									<!-- Home & Kitchen content End-->

@@ -14,6 +14,12 @@ class Description_view extends CI_Controller{
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
+                if ($this->session->userdata("postad_time") != '') {
+                    $new_time = time() - $this->session->userdata("postad_time");
+                    if ($new_time > 0) {
+                        $this->session->unset_userdata('postad_success');
+                    }
+                }
 
                 $data   =   array(
                         "title"     =>  "Classifieds",
@@ -26,10 +32,6 @@ class Description_view extends CI_Controller{
             if ($this->uri->segment(3) == '') {
                    redirect('deals_administrator');
                 }
-            /*if ($this->session->userdata('login_id') == '') {
-                   redirect('login');
-                }*/
-
                  /*category wise display*/
                 $detailed_desc = $this->classifed_model->ads_description_details();
                 foreach ($detailed_desc as $value) {
@@ -259,10 +261,33 @@ class Description_view extends CI_Controller{
                                         'Model'=>$val->model,
                                         'Color'=>$val->color,
                                         'Fuel Type'=>$val->fueltype,
-                                        'Condition'=>$val->condition,
+                                        'Condition'=>$val->condition
                                         );
                                     }       
                     }
+                }
+
+                if ($value->category_id == 'ezone') {
+                    /*ezone*/
+                    if ($value->sub_cat_id == '59' || $value->sub_cat_id == '60'
+                        || $value->sub_cat_id == '61' || $value->sub_cat_id == '62'
+                        || $value->sub_cat_id == '63' || $value->sub_cat_id == '64'
+                        || $value->sub_cat_id == '64' || $value->sub_cat_id == '66') {
+                $detailed_ezones = $this->classifed_model->ads_detailed_ezones();  
+                    foreach ($detailed_ezones as $val) {
+                    $body_content = array('Brand_name'=>$val->brand_name,
+                                        'Size'=>$val->size,
+                                        'Color'=>$val->color,
+                                        'Model name'=>$val->model_name,
+                                        'Operating system'=>$val->operating_system,
+                                        'Made in'=>$val->made_in,
+                                        'Storage'=>$val->storage,
+                                        'Warranty'=>$val->warranty,
+                                        'Manufacture'=>$val->manufacture
+                                        );
+                                    }       
+                    }
+                    # code...
                 }
 
             }

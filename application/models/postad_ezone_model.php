@@ -1,31 +1,12 @@
-<?php 
+<?php
 
-class Postad_motor_model extends CI_Model{
-
-	public function bike_type(){
-    	$cv     =   $this->input->post("id");
-    return $this->db->get_where("bike_type",array("brand_id" => $cv))->result();
-    }
-
-    public function bike_models(){
-                $cv     =   $this->input->post("id");
-    return $this->db->get_where("bike_model",array("btype_id" => $cv))->result();
-    }
-
-    /*car models*/
-    public function car_models(){
-        $cv     =   $this->input->post("id");
-    return $this->db->get_where("car_model",array("brand_id" => $cv))->result();
-    }
-
-    /*get_plant_models*/
-    public function get_plant_models(){
-        $cv     =   $this->input->post("id");
-    return $this->db->get_where("car_model",array("brand_id" => $cv))->result();
-    }
-
-
-    public function postad_creat(){
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+class Postad_ezone_model extends CI_Model{
+       public function postad_creat(){
              /*AD type business or consumer*/
                     $cur_date = date("Y")."".date("m");
                         if($this->input->post('checkbox_toggle') == 'Yes'){
@@ -81,7 +62,7 @@ class Postad_motor_model extends CI_Model{
                                     'deal_desc'   =>$this->input->post('dealdescription'),
                                      'currency'   =>$this->input->post('checkbox_toggle1'),
                                     'service_type'=> '',
-                                    'services'    => $this->input->post('checkbox_motbike'),
+                                    'services'    => $this->input->post('checkbox_wmcloth'),
                                     'price_type'  => $this->input->post('price_type'),
                                     'price'       => $this->input->post('priceamount'),
                                     'web_link'    => $url,
@@ -275,97 +256,37 @@ class Postad_motor_model extends CI_Model{
                         $this->db->insert("contactinfo_business", $plat_cont);
                     }
 
-                    /*motor point details*/
-                    if ($this->input->post('category_id') == 'motorpoint') {
-                        /*cars, vans, coaches, buses details*/
-                         if ($this->input->post('sub_id') == '12' || $this->input->post('sub_id') == '15' || $this->input->post('sub_id') == '16') {
-                            $cars_details = array('ad_id' => $insert_id,
-                                            'reg_number' => $this->input->post('veh_regno'),
-                                            'manufacture' => $this->input->post('manufacture'),
-                                            'model' => $this->input->post('Model'),
-                                            'color'=>$this->input->post('color'),
-                                            'reg_year'=>$this->input->post('reg_year'),
-                                            'fueltype'=>$this->input->post('FuelType'),
-                                            'transmission'=>$this->input->post('Transmission'),
-                                            'engine_size'=>$this->input->post('eng_size'),
-                                            'noofdoors'=>$this->input->post('NoofDoors'),
-                                            'noofseats'=>$this->input->post('NoofSeats'),
-                                            'tot_miles'=>$this->input->post('tot_miles'),
-                                            'mot_status'=>$this->input->post('mot_status'),
-                                            'road_tax'=>$this->input->post('road_tax')
+                    /*ezone details*/
+                    if ($this->input->post('category_id') == 'ezone') {
+                        $pets_details = array('ad_id' => $insert_id,
+                                    'brand_name' => $this->input->post('brandname'),
+                                    'size' => $this->input->post('screensize'),
+                                    'color' => $this->input->post('color'),
+                                    'model_name'=>$this->input->post('modelname'),
+                                    'operating_system'=>$this->input->post('opersys'),
+                                    'made_in'=>$this->input->post('ezone_madein'),
+                                    'storage'=>$this->input->post('storage'),
+                                    'warranty'=>$this->input->post('warranty'),
+                                    'manufacture'=>$this->input->post('ezone_manufacture')
                                 );
-                        $this->db->insert("motor_car_van_bus_ads", $cars_details);
-                        }
+                        $this->db->insert("ezone_details", $pets_details);
+                    }
 
-                        /*bike details*/
-                        if ($this->input->post('sub_id') == '13') {
-                            $bike_details = array('ad_id' => $insert_id,
-		                                    'reg_number' => $this->input->post('veh_regno'),
-		                                    'manufacture' => $this->input->post('manufacture'),
-		                                    'bike_type' => $this->input->post('Type'),
-		                                    'model'=>$this->input->post('Model'),
-		                                    'color'=>$this->input->post('color'),
-											'reg_year'=>$this->input->post('reg_year'),
-											'fuel_type'=>$this->input->post('FuelType'),
-											'no_of_miles'=>$this->input->post('tot_miles'),
-											'engine_size'=>$this->input->post('eng_size'),
-											'road_tax'=>$this->input->post('road_tax'),
-											'condition'=>$this->input->post('Condition')
+                    /*urgent lable expiry*/
+                    if ($this->input->post('package_urgent') != '') {
+                        $days = array_shift(explode("daysurgent", $this->input->post('package_urgent')));
+                        $urgent_details = array('ad_id' => $insert_id,
+                                    'valid_from' => date('d-m-Y H:i:s'),
+                                    'valid_to' => date('d-m-Y H:i:s', strtotime("+$days days")),
+                                    'no_ofdays' => $days,
+                                    'status'=>1
                                 );
-                        $this->db->insert("motor_bike_ads", $bike_details);
-                        }
-
-                        /*motor_boats details*/
-                        if ($this->input->post('sub_id') == '19') {
-                            $motor_boats = array('ad_id' => $insert_id,
-                                            'manufacture' => $this->input->post('manufacture'),
-                                            'year' => $this->input->post('year_boat'),
-                                            'model'=>$this->input->post('Model'),
-                                            'color'=>$this->input->post('color'),
-                                            'fueltype'=>$this->input->post('FuelType'),
-                                            'condition'=>$this->input->post('Condition')
-                                );
-                        $this->db->insert("motor_boats", $motor_boats);
-                        }
-
-                        /*Campervans and Motor homes details*/
-                        if ($this->input->post('sub_id') == '14') {
-                            $motor_homes = array('ad_id' => $insert_id,
-                                            'typeofmotorhome'=>$this->input->post('Caravans'),
-                                            'reg_number' => $this->input->post('veh_regno'),
-                                            'manufacture' => $this->input->post('manufacture'),
-                                            'model' => $this->input->post('Model'),
-                                            'color'=>$this->input->post('color'),
-                                            'reg_year'=>$this->input->post('reg_year'),
-                                            'fueltype'=>$this->input->post('FuelType'),
-                                            'transmission'=>$this->input->post('Transmission'),
-                                            'engine_size'=>$this->input->post('eng_size'),
-                                            'noofdoors'=>$this->input->post('NoofDoors'),
-                                            'noofseats'=>$this->input->post('NoofSeats'),
-                                            'tot_miles'=>$this->input->post('tot_miles'),
-                                            'mot_status'=>$this->input->post('mot_status'),
-                                            'road_tax'=>$this->input->post('road_tax')
-                                );
-                        $this->db->insert("motor_home_ads", $motor_homes);
-                        }
-
-                            /*urgent lable expiry*/
-                        if ($this->input->post('package_urgent') != '') {
-                            $days = array_shift(explode("daysurgent", $this->input->post('package_urgent')));
-                            $urgent_details = array('ad_id' => $insert_id,
-                                        'valid_from' => date('d-m-Y H:i:s'),
-                                        'valid_to' => date('d-m-Y H:i:s', strtotime("+$days days")),
-                                        'no_ofdays' => $days,
-                                        'status'=>1
-                                    );
-                            $this->db->insert("urgent_details", $urgent_details);
-                        }
+                        $this->db->insert("urgent_details", $urgent_details);
                     }
 
             
             }
 
+
 }
-
-
- ?>
+?>

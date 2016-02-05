@@ -439,6 +439,15 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
+	/*ezone details*/
+	public function ads_detailed_ezones(){
+		$this->db->select("*");
+		$this->db->from("ezone_details");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 
 
 	/*review inserting*/

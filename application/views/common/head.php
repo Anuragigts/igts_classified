@@ -821,6 +821,42 @@
 				document.getElementById('edit_jobs_form').submit();
 			});
 
+			/*Ezone Category*/
+			$(".ezone_detail").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('ezone_sub').value = sub1[0];
+				document.getElementById('ezone_sub_sub').value = sub1[1];
+				document.getElementById('ezone_form').submit();
+			});
+
+			/*edit ezone category*/
+			$(".edit_ezone_detail").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('ezone_sub').value = sub1[0];
+				document.getElementById('ezone_sub_sub').value = sub1[1];
+				document.getElementById('edit_ezone_cat').submit();
+			});
+
+			/*kitchen detail Category*/
+			$(".kitchen_detail").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('kitchen_sub').value = sub1[0];
+				document.getElementById('kitchen_sub_sub').value = sub1[1];
+				document.getElementById('kitchen_form').submit();
+			});
+
+			/*edit kitchen detail Category*/
+			$(".edit_kitchen_detail").click(function(){
+				var sub = $(this).attr('id');
+				var sub1 = sub.split(",");
+				document.getElementById('kitchen_sub').value = sub1[0];
+				document.getElementById('kitchen_sub_sub').value = sub1[1];
+				document.getElementById('edit_kitchen_form').submit();
+			});
+
 
 
 		});
