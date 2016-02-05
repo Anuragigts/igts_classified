@@ -196,6 +196,7 @@
 															<!-- body content for services -->
 															<div class="row">
 																<?php
+																if (!empty($body_content)) {
 																$body_content1 = array_chunk($body_content, 2, true);
 																 foreach ($body_content1 as $val) {
 																 	foreach ($val as $k => $value) { ?>
@@ -207,7 +208,8 @@
 																			</table>
 																		</div>
 																 <?php	}
-																  	} ?>
+																  	}
+																  } ?>
 															</div>
 														</p>
 														
