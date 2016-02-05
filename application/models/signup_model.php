@@ -70,9 +70,22 @@ class Signup_model extends CI_Model{
                 $this->email->to($mail);
                 // $this->email->cc("manasa.s@igravitas.in");
                 $this->email->subject("Classifieds");
-                $message    =   "<h1 style='color:16A085;'>Thank you for Signing Up</h1>";
-                 $message   .=   "<a href='".base_url()."common/signup_activate/".$is_confirm."'>Click Here To Activate your Account</a>";
-                 $this->email->message($message);
+                $message    =   "<div style='padding: 81px 150px;'>
+									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px 20px;background-color: #9FC955;'>
+										<h2 style='color: #fff;float:right;'><span>WELCOME ! </span></h2>
+										<h2 style='color: #fff;'><span>99 Right Deals </span></h2>
+									</div>
+									<div style='margin-top:20px'></div>
+									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
+										<h3>Hi ".$this->input->post('con_fname').",</h3>
+										<p> Thanks for Creating 99RightDeal Account. In Order to Activate your account, please click on the link below so that we can be sure that this email address belongs to you.</p>
+										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#9FC955;'>Click Here To Activate your Account</a>
+										<div style='margin-top:20px'></div>
+										<p>Thanks</p>
+										<p><b>99RightDeals Team</b></p>
+									</div>
+								</div>";
+                $this->email->message($message);
                 $this->email->send();
            
         }
