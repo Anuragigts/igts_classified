@@ -586,7 +586,7 @@
 									</div>
 									<?php if ($b_ads->package_type == 'gold') { ?>
 									<div class="info-gallery gold_bgcolor">
-										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
+										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
 											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
@@ -601,7 +601,7 @@
 											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr($b_ads->deal_desc, 0, 46); ?> </p>
+										<p><?php echo substr($b_ads->deal_desc,0,46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -613,7 +613,7 @@
 									</div>
 									<?php }else{ ?>
 									<div class="info-gallery">
-										<h3><?php echo substr($b_ads->deal_tag, 0, 20); ?></h3>
+										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
 											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
@@ -634,7 +634,7 @@
 											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr($b_ads->deal_desc, 0, 46); ?> </p>
+										<p><?php echo substr($b_ads->deal_desc,0,46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -696,9 +696,9 @@
 									<?php	} ?>
 									<?php if ($free_val->package_type == 'gold') { ?>
 									<div class="info-gallery gold_bgcolor">
-										<h3><?php echo substr($free_val->deal_tag, 0, 20); ?></h3>
+										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr($free_val->deal_desc, 0, 46); ?> </p>
+										<p><?php echo substr($free_val->deal_desc,0,46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -721,9 +721,9 @@
 									</div>
 									<?php }else{ ?>
 									<div class="info-gallery">
-										<h3><?php echo substr($free_val->deal_tag, 0, 20); ?></h3>
+										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr($free_val->deal_desc, 0, 46); ?> </p>
+										<p><?php echo substr($free_val->deal_desc,0,46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
