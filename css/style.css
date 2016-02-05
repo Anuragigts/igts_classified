@@ -1106,8 +1106,31 @@ hr.tall{
 	font-size: 15px;
 	color: #fff;
 }
-.section-title-01 .crumbs ul li a:hover{
-	text-decoration: underline;
+.bread_ccrumbs{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.bread_ccrumbs .crumbs{
+	position: relative;
+}
+.bread_ccrumbs .crumbs ul{
+	display: table;
+	list-style: none;
+}
+.bread_ccrumbs .crumbs ul li{
+	display: inline-block;
+	padding-right: 5px;
+	line-height: 20px;
+	font-size: 18px;
+}
+.bread_ccrumbs ul li a{
+	text-decoration: none;
+	color:#5C89C7;
+}
+.bread_ccrumbs ul li a:hover{
+	text-decoration: none;
+	color:#E95413;
 }
 /* Section Title 2 ----------------------------------------------------*/
 .section-title-02{
@@ -5406,4 +5429,8 @@ tbody tr th{
 	border: 2px solid #ED7642;
 	padding: 26px 17px 0px 18px;
 	border-radius: 16px;
+}
+.activate_signup{
+	border: 2px solid rgb(233, 84, 19);
+	border-radius: 20px;
 }
