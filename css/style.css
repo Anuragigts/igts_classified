@@ -3737,9 +3737,14 @@ address strong{
 
 /* Filter widgets --------------------------------------------*/
 .container-by-widget-filter{
-  	padding: 10px;
+  	/* padding: 10px;
   	color: #ccc;
-	background-color: #424A44;
+	background-color: #424A44; */
+	padding: 10px;
+	color: #ccc;
+	background-color: #ffffff;
+	border: 2px solid #E95413 !important;
+	border-radius: 10px;
 }
 .filter-widget{
 	padding: 0;
@@ -3846,7 +3851,7 @@ address strong{
 	font-size: 1rem;
 }
 .title-widget{
-	background-color: #ed7642;
+	background-color: #E95413;
 	margin-bottom: 20px;
 	padding: 10px;
 	position: relative;
@@ -5365,7 +5370,7 @@ tbody th,td{
 	font-size: 0.875rem;
 }
 .cd-filter-content label{
-	color: rgb(246, 237, 237) !important;
+	/* color: rgb(246, 237, 237) !important; */
 }
 .view_price_1{
 	color:white;
