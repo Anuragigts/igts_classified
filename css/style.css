@@ -5431,6 +5431,28 @@ tbody tr th{
 	border-radius: 16px;
 }
 .activate_signup{
-	border: 2px solid rgb(233, 84, 19);
+	border: 2px solid #9FC955;
 	border-radius: 20px;
+	padding: 0px 10px;
+	background-color: rgb(159, 201, 85);
+}
+.activate_signup1{
+	border: 2px solid #9FC955;
+	border-radius: 20px;
+	padding: 10px 10px;
+}
+.activate_signup1 a{
+	color:#9FC955;
+}
+.titles_mail{
+	margin: 25px auto;
+	text-align: center;
+	position: relative;
+}
+
+.titles_mail h2{
+	color: #fff;
+	padding: 0;
+	z-index: 1;
+	position: relative;
 }
