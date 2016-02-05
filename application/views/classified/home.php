@@ -666,7 +666,7 @@
 											</div>
 										<?php	 } ?>
 										 
-										 <p><?php echo substr($b_ads->deal_desc, 0, 50); ?> </p>
+										 <p><?php echo substr($b_ads->deal_desc, 0, 45); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
