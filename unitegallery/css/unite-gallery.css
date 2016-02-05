@@ -17,8 +17,9 @@
 .ug-item-wrapper img{
 	width:auto;
 	max-width:none;
+	width: 575px !important;
+	left: 136px !important;
 }
-
 .---------General_Styles--------{}
 
 .ug-rtl{
