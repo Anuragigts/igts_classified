@@ -159,7 +159,89 @@
 										<img class="img-responsive" src="img/featured/clothing.jpg" alt="clothing" title="clothing Category">
 										<div class="overlay">
 											<h2>Clothing & LifeStyles</h2>
-											<a class="info" href="clot_life_search">View Details</a>
+											<a class="info" href="#" data-toggle="modal" data-target="#LifeStyles1">View Details</a>
+										</div>
+									</div>
+								</div>
+								<!-- Modal -->
+								<div class="modal fade" id="LifeStyles1" role="dialog">
+									<div class="modal-dialog">
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h2>Clothing & LifeStyles Category</h2>
+											</div>
+											<form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
+											<div class="modal-body">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="row">
+															<div class="col-md-4 col-sm-4 col-xs-12">
+																<div class="hovereffect">
+																	<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
+																	<div class="overlay">
+																		<h2>Women</h2>
+																		<a class="info" href="deal_page">View Details</a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 col-sm-4 col-xs-12">
+																<div class="hovereffect">
+																	<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
+																	<div class="overlay">
+																		<h2>Men</h2>
+																		<a class="info" href="#">View Details</a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 col-sm-4 col-xs-12">
+																<div class="hovereffect">
+																	<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
+																	<div class="overlay">
+																		<h2>Boy</h2>
+																		<a class="info" href="motor_car_search">View Details</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row top_20">
+															<div class="col-md-4 col-sm-4 col-xs-12">
+																<div class="hovereffect">
+																	<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
+																	<div class="overlay">
+																		<h2>Girls</h2>
+																		<a class="info" href="deal_page">View Details</a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 col-sm-4 col-xs-12">
+																<div class="hovereffect">
+																	<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
+																	<div class="overlay">
+																		<h2>Baby Boy</h2>
+																		<a class="info" href="#">View Details</a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 col-sm-4 col-xs-12">
+																<div class="hovereffect">
+																	<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
+																	<div class="overlay">
+																		<h2>Baby Girl</h2>
+																		<a class="info" href="motor_car_search">View Details</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="top_20"></div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+											</div>
+										</form>
 										</div>
 									</div>
 								</div>
