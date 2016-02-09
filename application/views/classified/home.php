@@ -321,7 +321,7 @@
 												?>
 											<div class="img-hover significant_ad">
 												<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-												<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-link"></i></a></div>
+												<div class="overlay"><a href="ad_images/no_image.png" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php
 												}else{
@@ -334,7 +334,7 @@
 													?>
 											<div class="img-hover significant_ad">
 												<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="<?php echo $sig_val->img_name; ?>" title="significant" class="img-responsive">
-												<div class="overlay"><a href="description_view/details/<?php echo $sig_val->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+												<div class="overlay"><a href="description_view/details/<?php echo $sig_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php	} ?>
 											<div class="info-gallery slider_bg">
@@ -426,7 +426,7 @@
 								 ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
-								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
 							<div class="info-gallery gold_bgcolor">
@@ -459,7 +459,7 @@
 								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
-								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
 							<div class="info-gallery gold_bgcolor">
@@ -491,7 +491,7 @@
 								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
-								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
 							<div class="info-gallery gold_bgcolor">
@@ -523,7 +523,7 @@
 								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
-								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
 							<div class="info-gallery gold_bgcolor">
@@ -556,7 +556,7 @@
 								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
-								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
 							<div class="info-gallery gold_bgcolor">
@@ -610,7 +610,7 @@
 									<?php } ?>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-										<div class="overlay"><a href="ad_images/<?php echo $b_ads->img_name; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<?php if ($b_ads->package_type == 'gold') { ?>
 									<div class="info-gallery gold_bgcolor">
@@ -707,7 +707,7 @@
 										<?php } ?>
 									<div class="img-hover">
 										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
-										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="fancybox"><i class="fa fa-link"></i></a></div>
+										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									
 									<?php if ($free_val->package_type == 'gold') { ?>
