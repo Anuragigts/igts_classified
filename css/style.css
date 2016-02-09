@@ -2552,6 +2552,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	border:solid #dedede 1px;
 	padding: 20px 12px 30px 12px;
 	margin-bottom: 40px;
+	min-height: 220px;
 }
 #boxes-carousel .info-gallery{
 	border-right: 0;

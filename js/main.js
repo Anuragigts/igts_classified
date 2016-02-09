@@ -192,7 +192,7 @@ $(document).ready(function($) {
   $(window).load(function(){
       var $container = $('.portfolioContainer');
       $container.isotope({
-      filter: '*',
+      filter: '.showall',
           animationOptions: {
           duration: 750,
           easing: 'linear',
