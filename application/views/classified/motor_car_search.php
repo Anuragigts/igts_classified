@@ -1,4 +1,4 @@
-	<title>365 Deals :: Motor_car_search</title>
+	<title>99 Right Deals :: Motor_car_search</title>
 	
 	<style>
 		.section-title-01{
@@ -10,6 +10,7 @@
 			overflow: hidden;
 		}
 	</style>
+	
 	<link rel="stylesheet" href="js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -24,6 +25,7 @@
 	</script>
 	
 	<link rel="stylesheet" href="libs/slider.css">
+	
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
@@ -105,7 +107,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms" action="#" class="j-forms" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container">
@@ -405,6 +407,39 @@
                                     </div>
                                 </div>
                                 <!-- sort-by-container-->
+								
+								<div class="row">
+                                    <div class="col-md-12">
+										<div class="unit check logic-block-radio">
+											<div class="inline-group">
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio" id="next-step-radio" class=	'bus_consumer' value="Yes">
+													<i></i>Cars 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"   value="No">
+													<i></i>Bikes & Motor-homes 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Vans & Busses
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Plant-Machinery 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Farming Vehicles 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Boats 
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
 
                                 <div class="row list_view_searches">
                                     <!-- platinum+urgent package start -->

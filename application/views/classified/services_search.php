@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Pets search</title>
+	<title>99 Right Deals :: Services Search</title>
 	
 	<style>
 		.section-title-01{
@@ -25,6 +25,7 @@
 	</script>
 	
 	<link rel="stylesheet" href="libs/slider.css">
+	
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
@@ -106,7 +107,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms" action="#" class="j-forms" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container">
@@ -115,26 +116,110 @@
 							<div class="col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<h3 class="title-widget">Pets Filter</h3>
+									<h3 class="title-widget">Services Filter</h3>
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Pet Type</h4>
+										<h4 class="title-widget">Services</h4>
 										<div class="cd-filter-content">
-											<div>
+											<div id="limit_scrol">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Cats 
+													<i></i> Accounting & taxation services
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Dogs
+													<i></i> Astrology & numerology services
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Fishes
+													<i></i> Business services
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Birds
+													<i></i> Coachings & training
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Community services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Doctors & hospital services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Dry cleaning & laundry services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Embroidery services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Entertainment services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Funeral services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Friendship & dating services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Home, construction & renovation services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Health & fitness
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Household services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> IT & digital marketing services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Loan & insurance
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Logistics & transport services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Massage & beauty services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Motor services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Nurse & carer services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Nannies services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Party & wedding services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Restaurant & food services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Solicitor services
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Travel & vacation services
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
@@ -145,145 +230,25 @@
 									</div>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget"> Price Range</h4>
-										<div class="cd-filter-content">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 500 & Below 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 501 - Rs. 2000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 2001 - Rs. 5000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 5001 - Rs. 8000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 8001 - Rs. 10000
-												</label><label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 10001 - Rs. 14999
-												</label><label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 15000 & Above
-												</label>
-											</div>
-										</div>
-									</div>
-
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Deals posted in</h4>
-
-										<div class="cd-filter-content">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 1 Month
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 2 Month
-												</label>
-											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Deal Type</h4>
+										<h4 class="title-widget">Seller Type</h4>
 
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Offering Deals 
+													<i></i> All 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Wanted Deals
+													<i></i> Trade
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Private
 												</label>
 											</div>
-										</div> 
-									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Location</h4>
-
-										<div class="cd-filter-content">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Madhapur
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Banjara Hills
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> madhapur
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Secunderabad 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Kachiguda 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> JNTU 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> KPHP 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Jubilee Hills 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lakdikapul
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Khairatabad
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Dilsukhnagar
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
-												</label>
-											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div>
+									</div> 
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget">Search Only</h4>
@@ -307,8 +272,8 @@
 													<i></i> Others
 												</label>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div>
+									</div> 
 								</div>
 							</div>
 							<!-- End Item Table-->
@@ -378,6 +343,23 @@
                                     </div>
                                 </div>
                                 <!-- sort-by-container-->
+								
+								<div class="row">
+                                    <div class="col-md-12">
+										<div class="unit check logic-block-radio">
+											<div class="inline-group">
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="services_radio" id="next-step-radio" class=	'bus_consumer' value="">
+													<i></i> Professional 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="services_radio"   value="">
+													<i></i> Popular
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
 
                                 <div class="row list_view_searches">
                                     <!-- platinum+urgent package start -->
@@ -419,8 +401,13 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
+																<div class="col-xs-8">
 																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+																	</div>
 																</div>
 															</div>
 															<div class="row">

@@ -530,8 +530,8 @@
 									</div>
 									<!-- Modal -->
 									<form method='post' id='property_form' action="<?php echo base_url(); ?>postad_create_property">
-									<div class="modal fade" id="Property" role="dialog">
-										<div class="modal-dialog">
+									<div class="modal dialog1 fade" id="Property" role="dialog">
+										<div class="modal-dialog1">
 											<!-- Modal content-->
 											<div class="modal-content">
 												<div class="modal-header">
@@ -542,14 +542,14 @@
 													<div class="row">
 														<div class="col-md-12 post_deal_bor">
 															<div class="row">
-																<div class="col-md-6 clearfix">
+																<div class="col-md-12 text_center clearfix">
 																	<h3><a href="javascript:void(0)" id="11,0" class='propertyforsale'>Residential</a>
 																		<input type='hidden' name='property_cat' id='property_cat' value='findaproperty' />
 																			<input type='hidden' name='property_sub' id='property_sub' value='' />
 																			<input type='hidden' name='property_sub_sub' id='property_sub_sub' value='' />
 																	</h3>
 																</div>
-																<div class="col-md-6 clearfix">
+																<div class="col-md-12 text_center clearfix">
 																	<h3>
 																		<a href="javascript:void(0)" id="26,0" class='propertyforsale'>Commercial</a>
 																	</h3>

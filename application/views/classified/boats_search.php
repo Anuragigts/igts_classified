@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Pets search</title>
+	<title>99 Right Deals :: Boats Search</title>
 	
 	<style>
 		.section-title-01{
@@ -25,6 +25,7 @@
 	</script>
 	
 	<link rel="stylesheet" href="libs/slider.css">
+	
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
@@ -106,7 +107,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms" action="#" class="j-forms" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container">
@@ -115,34 +116,46 @@
 							<div class="col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<h3 class="title-widget">Pets Filter</h3>
+									<h3 class="title-widget">Boats Filter</h3>
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Pet Type</h4>
+										<h4 class="title-widget">Boats</h4>
 										<div class="cd-filter-content">
-											<div>
+											<div  id="limit_scrol">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Cats 
+													<i></i> Boat Trailers  
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Dogs
+													<i></i> Commercial Boats 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Fishes
+													<i></i> Motor Boats   
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Birds
+													<i></i> RIBs and Inflatable Boats  
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Others
+													<i></i> Sailing Boats and Yachts
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Canoes
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Dinghies
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Traditional Boats
 												</label>
 											</div>
-										</div>
-									</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget"> Price Range</h4>
@@ -150,140 +163,164 @@
 											<div id="limit_scrol">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 500 & Below 
+													<i></i> Rs. 50000 & Below
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 501 - Rs. 2000
+													<i></i> Rs. 50000 - Rs. 2,00,000
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 2001 - Rs. 5000
+													<i></i> Rs. 2,00,000 - Rs. 4,00,000
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 5001 - Rs. 8000
+													<i></i> Rs. 4,00,000 - Rs. 6,00,000
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 8001 - Rs. 10000
-												</label><label class="checkbox">
+													<i></i> Rs. 6,00,000 - Rs. 8,00,000
+												</label>
+												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 10001 - Rs. 14999
-												</label><label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 15000 & Above
+													<i></i> Rs. 10,00,000 & Above
 												</label>
 											</div>
 										</div>
 									</div>
 
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Deals posted in</h4>
-
-										<div class="cd-filter-content">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 1 Month
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 2 Month
-												</label>
-											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Deal Type</h4>
+										<h4 class="title-widget">Fuel type</h4>
 
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Offering Deals 
+													<i></i>Petrol
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Wanted Deals
+													<i></i> Diesel
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Gas
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Other
 												</label>
 											</div>
 										</div> 
-									</div>
+									</div> 
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Location</h4>
-
+										<h4 class="title-widget">Manufacture</h4>
 										<div class="cd-filter-content">
 											<div id="limit_scrol">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Madhapur
+													<i></i> AB Inflatables
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Banjara Hills
+													<i></i>  AB Yachts 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> madhapur
+													<i></i>  Admiral
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Secunderabad 
+													<i></i> Albatross
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Kachiguda 
+													<i></i>  Albin 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> JNTU 
+													<i></i>   Angler  
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> KPHP 
+													<i></i>  Angler 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Jubilee Hills 
+													<i></i> Angler 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Lakdikapul
+													<i></i>  Angler 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Khairatabad
+													<i></i> Other
+												</label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Boat Length</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<div class="input">
+													<input type="text" id="" name="minimum" placeholder="Minimum">
+												</div>
+												<div class="input top_10">
+													<input type="text" id="" name="maximum" placeholder="Maximum">
+												</div>
+												<div class="input top_10">
+													<button class="btn btn-primary">Search</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Seller Type</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> All 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Dilsukhnagar
+													<i></i> Trade
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Others
+													<i></i> Private
 												</label>
 											</div>
 										</div> <!-- cd-filter-content -->
 									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Condition</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> excellent
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Good
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Average
+												</label>
+											</div>
+										</div> 
+									</div>
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget">Search Only</h4>
@@ -378,6 +415,39 @@
                                     </div>
                                 </div>
                                 <!-- sort-by-container-->
+								
+								<div class="row">
+                                    <div class="col-md-12">
+										<div class="unit check logic-block-radio">
+											<div class="inline-group">
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio" id="next-step-radio" class=	'bus_consumer' value="Yes">
+													<i></i>Cars 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"   value="No">
+													<i></i>Bikes & Motor-homes 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Vans & Busses
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Plant-Machinery 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Farming Vehicles 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Boats 
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
 
                                 <div class="row list_view_searches">
                                     <!-- platinum+urgent package start -->
@@ -419,8 +489,13 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
+																<div class="col-xs-8">
 																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+																	</div>
 																</div>
 															</div>
 															<div class="row">

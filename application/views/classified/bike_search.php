@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Pets search</title>
+	<title>99 Right Deals :: Bike search</title>
 	
 	<style>
 		.section-title-01{
@@ -25,6 +25,7 @@
 	</script>
 	
 	<link rel="stylesheet" href="libs/slider.css">
+	
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
@@ -106,7 +107,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms" action="#" class="j-forms" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container">
@@ -115,35 +116,155 @@
 							<div class="col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<h3 class="title-widget">Pets Filter</h3>
+									<h3 class="title-widget">Bikes & Motor Filter</h3>
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Pet Type</h4>
+										<h4 class="title-widget">Motors</h4>
 										<div class="cd-filter-content">
-											<div>
+											<div  id="limit_scrol">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Cats 
+													<i></i> Honda 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Dogs
+													<i></i> Yamaha
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Fishes
+													<i></i> Suzuki
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Birds
+													<i></i> Kawasaki 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Other Motorbikes
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Piaggio 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> KTM	
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Aprilia 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Dirtbike
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Triumph
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Peugeot 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> BMW 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Gilera
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Vespa
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> SYM
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Stomp
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Sinnis
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> AJS
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Harley-Davidson
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Quadzilla 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Kymco
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> WK
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Ducati
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Pulse
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Apache
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Hyosung
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Gas Gas
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Baotian
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Lambretta
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Husqvarna
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> TVS
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Discover
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> CPI
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Enfield
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
 													<i></i> Others
 												</label>
 											</div>
-										</div>
-									</div>
-									
+										</div> 
+									</div> 
+
 									<div class="cd-filter-block">
 										<h4 class="title-widget"> Price Range</h4>
 										<div class="cd-filter-content">
@@ -177,113 +298,190 @@
 											</div>
 										</div>
 									</div>
-
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Deals posted in</h4>
-
-										<div class="cd-filter-content">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 1 Month
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 2 Month
-												</label>
-											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Deal Type</h4>
+										<h4 class="title-widget">Fuel type</h4>
 
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Offering Deals 
+													<i></i>Petrol
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Wanted Deals
+													<i></i> Diesel
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Other
 												</label>
 											</div>
-										</div> 
+										</div>
 									</div>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Location</h4>
+										<h4 class="title-widget">Registration year</h4>
+										<div class="cd-filter-content">
+											<div id="limit_scrol">
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2015 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2014 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2013 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2012 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2011 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2010 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2009 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2008 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2007 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 2006 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Below 2005 
+												</label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Mileage</h4>
 
 										<div class="cd-filter-content">
 											<div id="limit_scrol">
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Madhapur
+													<i></i> All 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Banjara Hills
+													<i></i> Up to 10,000 miles 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> madhapur
+													<i></i> Up to 15,000 miles 
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Secunderabad 
+													<i></i> Up to 30,000 miles
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> Kachiguda 
+													<i></i> Up to 60,000 miles
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> JNTU 
+													<i></i> Up to 80,000 miles
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
-													<i></i> KPHP 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Jubilee Hills 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lakdikapul
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Khairatabad
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Dilsukhnagar
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
+													<i></i> Over 80,000 miles
 												</label>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Engine Size</h4>
+
+										<div class="cd-filter-content">
+											<div id="limit_scrol">
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Any 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 50cc and under
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 51-125cc 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 126-250cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 251-400cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 401-500cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 501-600cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 601-800cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 801-1000cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> 1001-1200cc
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Over 1200cc
+												</label>
+											</div>
+										</div>
+									</div> 
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Seller Type</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> All 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Trade
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Private
+												</label>
+											</div>
+										</div>
+									</div>
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget">Search Only</h4>
@@ -307,8 +505,8 @@
 													<i></i> Others
 												</label>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div>
+									</div>
 								</div>
 							</div>
 							<!-- End Item Table-->
@@ -378,6 +576,39 @@
                                     </div>
                                 </div>
                                 <!-- sort-by-container-->
+								
+								<div class="row">
+                                    <div class="col-md-12">
+										<div class="unit check logic-block-radio">
+											<div class="inline-group">
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio" id="next-step-radio" class=	'bus_consumer' value="Yes">
+													<i></i>Cars 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"   value="No">
+													<i></i>Bikes & Motor-homes 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Vans & Busses
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Plant-Machinery 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Farming Vehicles 
+												</label>
+												<label class="radio" style="font-size: 13px;">
+													<input type="radio" name="motor_radio"  value="No">
+													<i></i>Boats 
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
 
                                 <div class="row list_view_searches">
                                     <!-- platinum+urgent package start -->
@@ -419,8 +650,13 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
+																<div class="col-xs-8">
 																	<h3 class="list_title">Sample text Here</h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+																	</div>
 																</div>
 															</div>
 															<div class="row">

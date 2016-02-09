@@ -864,6 +864,28 @@
 										<!-- end Business Logo -->
 										<div class="post_deal_bor top_10" style='margin-top: 20px;'>
 											<div class="j-row">
+												<div class="span5 unit">
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+															<input type="radio" name="offered_type" value="Offered">
+															<i></i>Offered 
+															<sup data-toggle="tooltip" title="" data-original-title="Offered">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+															</label>
+															<label class="radio">
+															<input type="radio" name="offered_type" value="Wanted">
+															<i></i>Wanted 
+															<sup data-toggle="tooltip" title="" data-original-title="Wanted">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Deal Tag / Caption 
 													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
@@ -893,28 +915,6 @@
 											</div>
 											<!-- residntials property -->
 											<?php if (@$sub_id == '11') { ?>
-											<div class="j-row">
-												<div class="span5 unit">
-													<div class="unit check logic-block-radio">
-														<div class="inline-group">
-															<label class="radio">
-															<input type="radio" name="offered_type" value="Offered">
-															<i></i>Offered 
-															<sup data-toggle="tooltip" title="" data-original-title="Offered">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-															</label>
-															<label class="radio">
-															<input type="radio" name="offered_type" value="Wanted">
-															<i></i>Wanted 
-															<sup data-toggle="tooltip" title="" data-original-title="Wanted">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Property For
@@ -1044,28 +1044,6 @@
 											</div>
 											<?php } ?>
 											<?php if (@$sub_id == '26') { ?>
-											<div class="j-row">
-												<div class="span5 unit">
-													<div class="unit check logic-block-radio">
-														<div class="inline-group">
-															<label class="radio">
-															<input type="radio" name="offered_type" value="Offered">
-															<i></i>Offered 
-															<sup data-toggle="tooltip" title="" data-original-title="Offered">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-															</label>
-															<label class="radio">
-															<input type="radio" name="offered_type" value="Wanted">
-															<i></i>Wanted 
-															<sup data-toggle="tooltip" title="" data-original-title="Wanted">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
 											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Property For
@@ -1251,7 +1229,7 @@
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 5 Images</li>
 															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox"><strong>Example</strong></a></li>
-															<li><i class="fa fa-check"></i> Includes 20% VAT</li>
+															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"><br></li>
 															<li class="text_center"><br></li>
