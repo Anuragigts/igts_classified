@@ -83,7 +83,7 @@
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: #A1CB57;
-  border:2px solid #A1CB57;
+  border:1px solid #A1CB57;
   color:#fff;
   background-position: 0 -15px;
 }

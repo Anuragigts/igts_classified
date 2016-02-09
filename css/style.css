@@ -236,25 +236,14 @@ ul.single-carousel,
 .btn-primary:last-child{
 	margin-right: 0;
 }
-.btn-primary:hover{
-	border-color: #cdcdcd;
-	-webkit-transition: 0.3s all ease;
-	-moz-transition: 0.3s all ease;
-	-o-transition: 0.3s all ease;
-	-ms-transition: 0.3s all ease;
-	transition: 0.3s all ease;
-}
+
 .btn-default{
 	font-size: 0.875rem;
 	border-color: #dedede;
 	text-shadow:none;
 }
-.btn:hover{
-	opacity: 0.8;
-}
-.btn-primary:hover{
-	color: #fff !important;	
-}
+
+
 .paddings{
 	padding: 60px 0;
 }
@@ -3951,8 +3940,8 @@ address strong{
 }
 .view_price{
 	color:white;
-	padding-left:5px;
-	font-size: 20px;
+	padding-left:0px;
+	font-size: 18px;
 	font-weight: bold;
 	margin-top: 9px;
 }
@@ -4535,7 +4524,7 @@ a .login-op-btn:hover{
 	width:130px;
 }
 .amt_bg{
-	background: transparent url("../img/icons/tag.png") no-repeat scroll center center;
+	background: transparent url("../img/icons/tag.png") no-repeat scroll center center;;
 }
 .achor_hov1 h4 a{
 		color:#0088cc;
@@ -5397,8 +5386,9 @@ tbody th,td{
 }
 .view_price_1{
 	color:white;
-	padding-top:10px;
-	margin-right: 50px !important;
+	padding: 23px 37px 27px 38px;
+	margin-right: 76px !important;
+	font-size: 18px;
 }
 .box_img img{
 	height: 169px !important;

@@ -2253,7 +2253,7 @@ th {
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -3923,6 +3923,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
+  padding: 10px 30px 10px;
 }
 .nav-tabs > li > a {
   margin-right: 2px;
@@ -5831,6 +5832,11 @@ button.close {
 		padding-top:150px;
 		margin: 30px auto;
 	}
+	.modal-dialog3 {
+		width: 820px;
+		padding-top:80px;
+		margin: 30px auto;
+	}
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -5845,14 +5851,25 @@ button.close {
   }
 }
 @media (max-width: 320px) {
-  .dialog1{
-    width: 330px;
-	padding-top:170px;
-  }
-  .dialog2{
-    width: 330px;
-	padding-top:170px;
-  }
+	.dialog1{
+		width: 330px;
+		padding-top:170px;
+	}
+	.dialog2{
+		width: 330px;
+		padding-top:170px;
+	} 
+	.dialog3{
+		width: 330px;
+		padding-top:170px;
+	}
+	.modal-content h2{
+		font-size:16px;
+	}
+	
+	.modal-body {
+		padding: 15px;
+	}
 }
 .tooltip {
   position: absolute;
