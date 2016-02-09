@@ -12,7 +12,39 @@
 		.j-forms{
 			box-shadow:none !important;
 		}
+		.add-to-compare-list {
+			position: absolute;
+			left: auto;
+		}
+		.add-to-compare-list span.compared-hotel {
+			background: url(<?php echo base_url(); ?>img/icons/favinactive.png);
+			width: 31px;
+			height: 31px;
+			display: block;
+			cursor: pointer;
+		}
+		.add-to-compare-list span.compared-hotel.active {
+			background: url(<?php echo base_url(); ?>img/icons/favactive.png);
+			width: 31px;
+			height: 31px;
+			display: block;
+			cursor: pointer !important;
+		}
 	</style>
+	
+	<script type="text/javascript">
+	$(function(){
+		$(".favourite_label").click(function(){
+			var val = $(".compared-hotel").hasClass('active');
+			if (val == false) {
+				$(".compared-hotel").addClass('active');
+			}
+			else{
+				$(".compared-hotel").removeClass('active');
+			}
+		});
+	});
+	</script>
 	
 	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-common-libraries.js"></script>	
 	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-functions.js"></script>
@@ -175,8 +207,12 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-3 col-xs-4  post-header1">
-											
+										<div class="col-sm-2 col-xs-4  post-header1">
+											<div class="add-to-compare-list">
+												<a href="javascript:void(0);" class="favourite_label">
+													<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+												</a>
+											</div>
 										</div>
 										<!-- Post Header-->
 
@@ -321,7 +357,7 @@
 											</div>
 										</div>
 										<!-- Post Footer-->
-								   </div>
+									</div>
 								</div>
 								<!-- End Post Item Gallery-->
 								<?php echo $this->view("classified_layout/success_error"); ?>

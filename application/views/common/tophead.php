@@ -66,7 +66,7 @@
 
 		#aa {
 
-			background: url(img/icons/feedback.png) no-repeat;
+			background: url(<?php echo base_url(); ?>img/icons/feedback.png) no-repeat;
 
 			width: 40px;
 

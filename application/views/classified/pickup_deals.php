@@ -247,7 +247,6 @@
 																	<h3 class="list_title">Sample text Here</h3>
 																</div>
 																<div class="col-xs-4">
-																	
 																	<div class="add-to-compare-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label">
 																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>

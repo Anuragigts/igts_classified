@@ -134,7 +134,7 @@
                                 <div class="row">
 									<div class="col-sm-12">
 										<h2>Deals Administrator</h2>
-										<label>Hi <?php echo $log_name; ?>, you have 0 Pickup deals</label><hr>
+										<label>Hi <?php echo $log_name; ?></label><hr>
 									</div>
 								</div>
                                 

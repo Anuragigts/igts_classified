@@ -997,31 +997,31 @@ jQuery(document).ready(function($) {
 														</label>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Color 
-															<sup data-toggle="tooltip" title="" data-original-title="Color">
+														<label class="label">Colour 
+															<sup data-toggle="tooltip" title="" data-original-title="Colour">
 																<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
 														<label class="input select">
-															<select name="Color">
-																<option value="none" selected disabled="">Select Color</option>
-																<option value="Brown">Brown Color</option>
-																<option value="Gray">Gray Color</option>
-																<option value="Green">Green Color</option>
-																<option value="Cream">Cream Color</option>
-																<option value="White">White Color</option>
-																<option value="Navy">Navy Color</option>
-																<option value="Pink">Pink Color</option>
-																<option value="Red">Red Color</option>
-																<option value="Natural">Natural Color</option>
-																<option value="Tan">Tan Color</option>
-																<option value="Orange">Orange Color</option>
-																<option value="Yellow">Yellow Color</option>
-																<option value="Bronze">Bronze Color</option>
-																<option value="Nude">Nude Color</option>
-																<option value="Purple">Purple Color</option>
-																<option value="teal">teal Color</option>
-																<option value="Others">Other Color</option>
+															<select name="color">
+																<option value="none" selected disabled="">Select Colour</option>
+																<option value="Brown">Brown Colour</option>
+																<option value="Gray">Gray Colour</option>
+																<option value="Green">Green Colour</option>
+																<option value="Cream">Cream Colour</option>
+																<option value="White">White Colour</option>
+																<option value="Navy">Navy Colour</option>
+																<option value="Pink">Pink Colour</option>
+																<option value="Red">Red Colour</option>
+																<option value="Natural">Natural Colour</option>
+																<option value="Tan">Tan Colour</option>
+																<option value="Orange">Orange Colour</option>
+																<option value="Yellow">Yellow Colour</option>
+																<option value="Bronze">Bronze Colour</option>
+																<option value="Nude">Nude Colour</option>
+																<option value="Purple">Purple Colour</option>
+																<option value="teal">teal Colour</option>
+																<option value="Others">Other Colour</option>
 															</select>
 															<i></i>
 														</label>
@@ -1162,32 +1162,32 @@ jQuery(document).ready(function($) {
 												</div>
 											</div>
 											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+												<label class="label">Colour 
+													<sup data-toggle="tooltip" title="" data-original-title="Colour">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
 													<label class="input select">
 														<select name="color">
-															<option value="none" selected disabled="">Select Color</option>
-															<option value="Brown">Brown Color</option>
-															<option value="Gray">Gray Color</option>
-															<option value="Green">Green Color</option>
-															<option value="Cream">Cream Color</option>
-															<option value="White">White Color</option>
-															<option value="Navy">Navy Color</option>
-															<option value="Pink">Pink Color</option>
-															<option value="Red">Red Color</option>
-															<option value="Natural">Natural Color</option>
-															<option value="Tan">Tan Color</option>
-															<option value="Orange">Orange Color</option>
-															<option value="Yellow">Yellow Color</option>
-															<option value="Bronze">Bronze Color</option>
-															<option value="Nude">Nude Color</option>
-															<option value="Purple">Purple Color</option>
-															<option value="teal">teal Color</option>
-															<option value="Others">Other Color</option>
+															<option value="none" selected disabled="">Select Colour</option>
+															<option value="Brown">Brown Colour</option>
+															<option value="Gray">Gray Colour</option>
+															<option value="Green">Green Colour</option>
+															<option value="Cream">Cream Colour</option>
+															<option value="White">White Colour</option>
+															<option value="Navy">Navy Colour</option>
+															<option value="Pink">Pink Colour</option>
+															<option value="Red">Red Colour</option>
+															<option value="Natural">Natural Colour</option>
+															<option value="Tan">Tan Colour</option>
+															<option value="Orange">Orange Colour</option>
+															<option value="Yellow">Yellow Colour</option>
+															<option value="Bronze">Bronze Colour</option>
+															<option value="Nude">Nude Colour</option>
+															<option value="Purple">Purple Colour</option>
+															<option value="teal">teal Colour</option>
+															<option value="Others">Other Colour</option>
 														</select>
 														<i></i>
 													</label>
@@ -1307,32 +1307,32 @@ jQuery(document).ready(function($) {
 											<div id="women_accessories">
 													<div class="j-row">
 														<div class="span6 unit">
-															<label class="label">Color 
-																<sup data-toggle="tooltip" title="" data-original-title="Color">
+															<label class="label">Colour 
+																<sup data-toggle="tooltip" title="" data-original-title="Colour">
 																	<img src="img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
 															<div class="input">
 																<label class="input select">
 															<select name="color">
-																<option value="none" selected disabled="">Select Color</option>
-																<option value="Brown">Brown Color</option>
-																<option value="Gray">Gray Color</option>
-																<option value="Green">Green Color</option>
-																<option value="Cream">Cream Color</option>
-																<option value="White">White Color</option>
-																<option value="Navy">Navy Color</option>
-																<option value="Pink">Pink Color</option>
-																<option value="Red">Red Color</option>
-																<option value="Natural">Natural Color</option>
-																<option value="Tan">Tan Color</option>
-																<option value="Orange">Orange Color</option>
-																<option value="Yellow">Yellow Color</option>
-																<option value="Bronze">Bronze Color</option>
-																<option value="Nude">Nude Color</option>
-																<option value="Purple">Purple Color</option>
-																<option value="teal">teal Color</option>
-																<option value="Others">Other Color</option>
+																<option value="none" selected disabled="">Select Colour</option>
+																<option value="Brown">Brown Colour</option>
+																<option value="Gray">Gray Colour</option>
+																<option value="Green">Green Colour</option>
+																<option value="Cream">Cream Colour</option>
+																<option value="White">White Colour</option>
+																<option value="Navy">Navy Colour</option>
+																<option value="Pink">Pink Colour</option>
+																<option value="Red">Red Colour</option>
+																<option value="Natural">Natural Colour</option>
+																<option value="Tan">Tan Colour</option>
+																<option value="Orange">Orange Colour</option>
+																<option value="Yellow">Yellow Colour</option>
+																<option value="Bronze">Bronze Colour</option>
+																<option value="Nude">Nude Colour</option>
+																<option value="Purple">Purple Colour</option>
+																<option value="teal">teal Colour</option>
+																<option value="Others">Other Colour</option>
 															</select>
 															<i></i>
 														</label>
@@ -1416,32 +1416,32 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span6 unit">
-													<label class="label">Color 
-														<sup data-toggle="tooltip" title="" data-original-title="Color">
+													<label class="label">Colour 
+														<sup data-toggle="tooltip" title="" data-original-title="Colour">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
 														<label class="input select">
 															<select name="color">
-																<option value="none" selected disabled="">Select Color</option>
-																<option value="Brown">Brown Color</option>
-																<option value="Gray">Gray Color</option>
-																<option value="Green">Green Color</option>
-																<option value="Cream">Cream Color</option>
-																<option value="White">White Color</option>
-																<option value="Navy">Navy Color</option>
-																<option value="Pink">Pink Color</option>
-																<option value="Red">Red Color</option>
-																<option value="Natural">Natural Color</option>
-																<option value="Tan">Tan Color</option>
-																<option value="Orange">Orange Color</option>
-																<option value="Yellow">Yellow Color</option>
-																<option value="Bronze">Bronze Color</option>
-																<option value="Nude">Nude Color</option>
-																<option value="Purple">Purple Color</option>
-																<option value="teal">teal Color</option>
-																<option value="Others">Other Color</option>
+																<option value="none" selected disabled="">Select Colour</option>
+																<option value="Brown">Brown Colour</option>
+																<option value="Gray">Gray Colour</option>
+																<option value="Green">Green Colour</option>
+																<option value="Cream">Cream Colour</option>
+																<option value="White">White Colour</option>
+																<option value="Navy">Navy Colour</option>
+																<option value="Pink">Pink Colour</option>
+																<option value="Red">Red Colour</option>
+																<option value="Natural">Natural Colour</option>
+																<option value="Tan">Tan Colour</option>
+																<option value="Orange">Orange Colour</option>
+																<option value="Yellow">Yellow Colour</option>
+																<option value="Bronze">Bronze Colour</option>
+																<option value="Nude">Nude Colour</option>
+																<option value="Purple">Purple Colour</option>
+																<option value="teal">teal Colour</option>
+																<option value="Others">Other Colour</option>
 															</select>
 															<i></i>
 														</label>
@@ -2283,7 +2283,7 @@ jQuery(document).ready(function($) {
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Cloths <span>Category </span></h2>
+						<h2>Clothes <span>Category </span></h2>
 					</div>
 					<div class="modal-body">
 						<div class="row">

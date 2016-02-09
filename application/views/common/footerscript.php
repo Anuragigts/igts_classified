@@ -475,7 +475,7 @@
 								<div class="col-sm-6 unit">
 									<label class="label">Feedback 
 										<sup data-toggle="tooltip" title="" data-original-title="Feedback">
-											<img src="img/icons/i.png" alt="Help" title="Help Label">
+											<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 										</sup>
 									</label>
 									<div class="input">
@@ -485,7 +485,7 @@
 								<div class="col-sm-6 unit">
 									<label class="label">Email 
 										<sup data-toggle="tooltip" title="" data-original-title="Email">
-											<img src="img/icons/i.png" alt="Help" title="Help Label">
+											<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 										</sup>
 									</label>
 									<div class="input">
@@ -500,7 +500,7 @@
 								<div class="col-sm-6 unit">
 									<label class="label">Mobile Number 
 										<sup data-toggle="tooltip" title="" data-original-title="Mobile Number ">
-											<img src="img/icons/i.png" alt="Help" title="Help Label">
+											<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 										</sup>
 									</label>
 									<div class="input">
@@ -513,7 +513,7 @@
 								<div class="col-sm-6 unit">
 									<label class="label">Category
 										<sup data-toggle="tooltip" title="" data-original-title="Category">
-											<img src="img/icons/i.png" alt="Help" title="Help Label">
+											<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 										</sup>
 									</label>
 									<label class="input select">

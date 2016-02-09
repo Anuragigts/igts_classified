@@ -238,7 +238,7 @@
 											<div class="info-gallery">
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
-												<p><?php echo substr($m_details->deal_desc, 0, 46); ?></p>
+												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -285,7 +285,7 @@
 											<div class="info-gallery">
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
-												<p><?php echo substr($m_details->deal_desc, 0, 46); ?></p>
+												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -319,7 +319,7 @@
 											<div class="info-gallery gold_bgcolor">
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
-												<p><?php echo substr($m_details->deal_desc, 0, 46); ?></p>
+												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -350,7 +350,7 @@
 											<div class="info-gallery gold_bgcolor">
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
-												<p><?php echo substr($m_details->deal_desc, 0, 46); ?></p>
+												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -384,7 +384,7 @@
 											<div class="info-gallery">
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
-												<p><?php echo substr($m_details->deal_desc, 0, 46); ?></p>
+												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -415,7 +415,7 @@
 											<div class="info-gallery">
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
-												<p><?php echo substr($m_details->deal_desc, 0, 46); ?></p>
+												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
 												<ul class="starts">
 													<li><a href="#"><i class="fa fa-star"></i></a></li>
 													<li><a href="#"><i class="fa fa-star"></i></a></li>

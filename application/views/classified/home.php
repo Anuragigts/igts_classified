@@ -17,9 +17,29 @@
 			<ul> 
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
-					<!-- MAIN IMAGE -->
-					<img src="img/slide/2.jpg" alt="Slider1" title="Slider1">
+					<img src="img/slide/2.jpg" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
 					<!-- LAYERS -->
+					<!-- LAYER NR. 2 -->
+					<div class="tp-caption large_bold_white sft stb"
+						data-x="center"
+						data-y="260"
+						data-speed="300"
+						data-start="1000"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Find Your Category
+					</div>
+
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption small_light_white sfb stb"
+						data-x="center"
+						data-y="325"
+						data-speed="500"
+						data-start="1200"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+					</div>
 				</li>
 
 				<!-- SLIDE  -->
@@ -27,6 +47,26 @@
 					<!-- MAIN IMAGE -->
 					<img src="img/slide/1.jpg"  alt="Slider2" title="Slider2">
 					<!-- LAYERS -->
+					<div class="tp-caption large_bold_white sft stb"
+						data-x="center"
+						data-y="260"
+						data-speed="300"
+						data-start="1000"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Find Your Category
+					</div>
+
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption small_light_white sfb stb"
+						data-x="center"
+						data-y="325"
+						data-speed="500"
+						data-start="1200"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+					</div>
 				</li>
 
 				<!-- SLIDE  -->
@@ -34,6 +74,26 @@
 					<!-- MAIN IMAGE -->
 					<img src="img/slide/3.jpg"  alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
+					<div class="tp-caption large_bold_white sft stb"
+						data-x="center"
+						data-y="260"
+						data-speed="300"
+						data-start="1000"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Find Your Category
+					</div>
+
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption small_light_white sfb stb"
+						data-x="center"
+						data-y="325"
+						data-speed="500"
+						data-start="1200"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+					</div>
 				</li>
 			</ul> 
 			<!-- END SLIDES  --> 
@@ -42,12 +102,6 @@
 		<!-- SLIDE CONTENT-->
 		<!-- FILTER HEADER - TITLE HEADER-->
 		<div class="filter-title">
-			<!-- TITLE HEADER-->
-			<div class="title-header">
-				<h1>Find Your Category</h1>
-				<p class="lead">Book cheap hotels and make payment facilities, free cancellation when the hotel so provides, compare prices and find all the options for your vacation.</p>
-			</div>
-			<!-- END TITLE HEADER-->
 			<!-- FILTER HEADER-->
 			<div class="filter-header">
 				<form action="searchview">
@@ -362,7 +416,7 @@
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
-												<a class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
+												<a href="#" data-toggle="modal" data-target="#sendnow"  class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 												<?php  if ($sig_val->ad_type == 'business') {
 														if ($sig_val->bus_logo != '') {
 													 ?>
