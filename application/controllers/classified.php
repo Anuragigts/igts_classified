@@ -41,7 +41,7 @@ class Classified extends CI_Controller{
                     /*dammy for most value ads for pets */
                     $data['most_ads_pets'] = $this->classifed_model->most_ads_pets();
                     /*dammy for most value ads for deals */
-                    $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
+                    // $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
                     /*dammy for most value ads for ezone */
                     $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
                     /*platinum ads*/
@@ -62,7 +62,7 @@ class Classified extends CI_Controller{
                     /*dammy for most value ads for pets */
                     $data['most_ads_pets'] = $this->classifed_model->most_ads_pets();
                     /*dammy for most value ads for deals */
-                    $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
+                    // $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
                     /*dammy for most value ads for ezone */
                     $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
                     /*platinum ads*/

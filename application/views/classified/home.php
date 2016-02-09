@@ -352,7 +352,7 @@
 												<div class="tab-content">
 													<!-- Tab One - DESCRIPTION -->
 													<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">
-														<p><?php echo substr($sig_val->deal_desc, 0, 60); ?> </p>
+														<p><?php echo substr(strip_tags($sig_val->deal_desc), 0, 50); ?> </p>
 													</div>
 													<!-- end Tab One - DESCRIPTION -->
 													<!-- Tab Two - contact -->
@@ -408,7 +408,7 @@
 						<a href="#jobs" data-filter=".jobs">jobs</a>
 						<a href="#services" data-filter=".services">Services</a>
 						<a href="#pets" data-filter=".pets">Pets</a>
-						<a href="#deals" data-filter=".deals">Deals</a>
+						<!-- <a href="#deals" data-filter=".deals">Deals</a> -->
 						<a href="#ezone" data-filter=".ezone">E-Zone</a>
 					</div>
 					<!-- End Nav Filters -->
@@ -418,26 +418,21 @@
 						<?php foreach ($mostvalue_show_all as $val){
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 showall">
-							<?php if($val->img_name == ''){
-								?>
-							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="no_image.png" title="jobs" class="img-responsive">
-								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-							</div>
-							<?php }
-								else{ ?>
-							<div class="most_valued_badge">
-								<span>Urgent</span>
-							</div>
+							<?php if ($val->urgent_package != '') { ?>
+									<div class="most_valued_badge">
+										<span>Urgent</span>
+									</div>
+								<?php	}
+								 ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
-								<div class="overlay"><a href="ad_images/<?php echo $val->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
-							<?php	} ?>
-							<div class="info-gallery">
-								<h3><?php echo substr($val->title, 0, 20); ?></h3>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr($val->ad_desc, 0, 20); ?> </p>
+								<p><?php echo substr(strip_tags($val->deal_desc),0,46); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -445,7 +440,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
 								</div>
@@ -457,23 +452,20 @@
 						<?php foreach ($most_ads as $m_ads){
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 jobs">
-							<?php if($m_ads->img_name == ''){
-								?>
-							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="no_image.png" title="jobs" class="img-responsive">
-								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-							</div>
-							<?php }
-								else{ ?>
+							<?php if ($m_ads->urgent_package != '') { ?>
+									<div class="most_valued_badge">
+										<span>Urgent</span>
+									</div>
+								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
-								<div class="overlay"><a href="ad_images/<?php echo $m_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
-							<?php	} ?>
-							<div class="info-gallery">
-								<h3><?php echo substr($m_ads->title, 0, 20); ?></h3>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr($m_ads->ad_desc, 0, 20); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,46); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -481,7 +473,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
 								</div>
@@ -492,23 +484,20 @@
 						<?php foreach ($most_ads_services as $m_ads_services){
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 services">
-							<?php if($m_ads_services->img_name == ''){
-								?>
-							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="no_image.png" title="services" class="img-responsive">
-								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+							<?php if ($m_ads_services->urgent_package != '') { ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
 							</div>
-							<?php }
-								else{ ?>
+								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
-								<div class="overlay"><a href="ad_images/<?php echo $m_ads_services->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
-							<?php	} ?>
-							<div class="info-gallery">
-								<h3><?php echo substr($m_ads_services->title, 0, 20); ?></h3>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr($m_ads_services->ad_desc, 0, 20); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,46); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -516,7 +505,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
 								</div>
@@ -527,23 +516,20 @@
 						<?php foreach ($most_ads_pets as $m_ads_pets){
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 pets">
-							<?php if($m_ads_pets->img_name == ''){
-								?>
-							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="no_image.png" title="pets" class="img-responsive">
-								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+							<?php if ($m_ads_pets->urgent_package != '') { ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
 							</div>
-							<?php }
-								else{ ?>
+								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
-								<div class="overlay"><a href="ad_images/<?php echo $m_ads_pets->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
-							<?php	} ?>
-							<div class="info-gallery">
-								<h3><?php echo substr($m_ads_pets->title, 0, 20); ?></h3>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr($m_ads_pets->ad_desc, 0, 20); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,46); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -551,72 +537,32 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
-						<!-- most valued ads for deals -->
-						<?php foreach ($most_ads_deals as $m_ads_deals){
-							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 deals">
-							<?php if($m_ads_deals->img_name == ''){
-								?>
-							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="no_image.png" title="deals" class="img-responsive">
-								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-							</div>
-							<?php }
-								else{ ?>
-							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_deals->img_name; ?>" alt="<?php echo $m_ads_deals->img_name; ?>" title="deals" class="img-responsive">
-								<div class="overlay"><a href="ad_images/<?php echo $m_ads_deals->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-							</div>
-							<?php	} ?>
-							<div class="info-gallery">
-								<h3><?php echo substr($m_ads_deals->title, 0, 20); ?></h3>
-								<hr class="separator">
-								<p><?php echo substr($m_ads_deals->ad_desc, 0, 20); ?> </p>
-								<ul class="starts">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-								</ul>
-								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
+						
 						<!-- most valued ads for ezone -->
 						<?php foreach ($most_ads_ezone as $m_ads_ezone){
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 ezone">
-							<?php if($m_ads_ezone->img_name == ''){
-								?>
-							<div class="bus_rec_badge">
+							<?php if ($m_ads_ezone->urgent_package != '') { ?>
+							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
-							<div class="img-hover">
-								<img src="ad_images/no_image.png" alt="no_image.png" title="ezone" class="img-responsive">
-								<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-							</div>
-							<?php }
-								else{ ?>
+								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
-								<div class="overlay"><a href="ad_images/<?php echo $m_ads_ezone->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 							</div>
-							<?php	} ?>
-							<div class="info-gallery">
-								<h3><?php echo substr($m_ads_ezone->title, 0, 20); ?></h3>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr($m_ads_ezone->ad_desc, 0, 20); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,46); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -624,7 +570,7 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
 								</ul>
-								<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
 								</div>
@@ -683,7 +629,7 @@
 											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr($b_ads->deal_desc,0,46); ?> </p>
+										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -716,7 +662,7 @@
 											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr($b_ads->deal_desc,0,46); ?> </p>
+										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -754,19 +700,7 @@
 									// echo "<pre>"; print_r(@$free_ads);
 									foreach ($free_ads as $free_val) { ?>
 								<div>
-									<?php if ($free_val->img_name == '') { ?>
 									<?php if ($free_val->urgent_package != '') { ?>
-											<div class="bus_rec_badge">
-												<span>Urgent</span>
-											</div>
-										<?php } ?>
-									<div class="img-hover">
-										<img src="ad_images/no_image.png" alt="" class="img-responsive">
-										<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
-									</div>
-									<?php		}
-										else{ ?>
-										<?php if ($free_val->urgent_package != '') { ?>
 											<div class="bus_rec_badge">
 												<span>Urgent</span>
 											</div>
@@ -775,12 +709,12 @@
 										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 									</div>
-									<?php	} ?>
+									
 									<?php if ($free_val->package_type == 'gold') { ?>
 									<div class="info-gallery gold_bgcolor">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr($free_val->deal_desc,0,46); ?> </p>
+										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -805,7 +739,7 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr($free_val->deal_desc,0,46); ?> </p>
+										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
 										<ul class="starts">
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
 											<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -817,9 +751,6 @@
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
 											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>
-											<?php	} ?>
-											<?php if ($free_val->package_type == 'gold') { ?>
-											<span></span><b><img src="img/icons/thumb.png" alt="thumb" title="Thumb Icon"></b>
 											<?php	} ?>
 											<?php if ($free_val->package_type == 'free') { ?>
 											<span></span><b><img src="img/icons/fire.png" alt="fire" title="Fire Icon"></b>

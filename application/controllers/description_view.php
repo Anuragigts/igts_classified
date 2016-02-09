@@ -267,6 +267,19 @@ class Description_view extends CI_Controller{
                                         );
                                     }       
                     }
+
+                    /*plant machinery and farming vehicles*/
+                    if ($value->sub_cat_id == '17' || $value->sub_cat_id == '18') {
+                $detailed_plant = $this->classifed_model->ads_detailed_plantfarms();  
+                    foreach ($detailed_plant as $val) {
+                    $body_content = array('Manufacture'=>$val->manufacture,
+                                        'Year'=>$val->reg_year,
+                                        'Model'=>$val->model,
+                                        'Color'=>$val->color,
+                                        'Condition'=>$val->condition
+                                        );
+                                    }       
+                    }
                 }
 
                 if ($value->category_id == 'ezone') {

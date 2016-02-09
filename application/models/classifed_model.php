@@ -125,13 +125,14 @@ Class Classifed_model extends CI_model{
 
 	/*most value ads for show all in home page*/
 	public function mostvalue_show_all(){
-		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
-		$this->db->from("`featured` AS fs");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(2 ,6);
-		$this->db->group_by("fs.`ad_id`");
-		$this->db->order_by('ads.created_on', 'DESC');
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
+
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -143,13 +144,14 @@ Class Classifed_model extends CI_model{
 	}
 	/*over all ads for most value ads(displayed for jobs only)*/
 	public function most_ads(){
-		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
-		$this->db->from("`featured` AS fs");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(2 ,6);
-		$this->db->group_by("fs.`ad_id`");
-		$this->db->order_by('ads.created_on', 'DESC');
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "jobs");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -162,13 +164,14 @@ Class Classifed_model extends CI_model{
 
 /*dammy for most value ads for services */
 	public function most_ads_services(){
-		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
-		$this->db->from("`featured` AS fs");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit('3');
-		$this->db->group_by("fs.`ad_id`");
-		$this->db->order_by('ads.created_on', 'ASC');
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "services");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -181,13 +184,14 @@ Class Classifed_model extends CI_model{
 
 	/*dammy for most value ads for pets */
 	public function most_ads_pets(){
-		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
-		$this->db->from("`featured` AS fs");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(3, 5);
-		$this->db->group_by("fs.`ad_id`");
-		$this->db->order_by('ads.created_on', 'ASC');
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "pets");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -198,34 +202,18 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-/*dammy for most value ads for deals */
-	public function most_ads_deals(){
-		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
-		$this->db->from("`featured` AS fs");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(1,3);
-		$this->db->group_by("fs.`ad_id`");
-		$this->db->order_by('ads.created_on', 'DESC');
-		$m_res = $this->db->get();
 
-		if($m_res->num_rows() > 0){
-			return $m_res->result();
-		}
-		else{
-			return array();
-		}
-	}
 
 /*dammy for most value ads for ezone */
 	public function most_ads_ezone(){
-		$this->db->select("`fs`.*, `img`.`img_name`, ads.`title`, ads.`ad_desc`, ads.`created_on`");
-		$this->db->from("`featured` AS fs");
-		$this->db->join("`advertisement` AS ads", "ads.ad_id = fs.ad_id", "join");
-		$this->db->join("ad_img AS img", "img.ad_id = fs.ad_id", "left");
-		$this->db->limit(2, 4);
-		$this->db->group_by("fs.`ad_id`");
-		$this->db->order_by('ads.created_on', 'DESC');
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "ezone");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -434,6 +422,15 @@ Class Classifed_model extends CI_model{
 	public function ads_detailed_boats(){
 		$this->db->select("*");
 		$this->db->from("motor_boats");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*plant machinery and farming vehicles*/
+	public function ads_detailed_plantfarms(){
+		$this->db->select("*");
+		$this->db->from("motor_plant_farming");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();

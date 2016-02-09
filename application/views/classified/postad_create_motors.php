@@ -1721,11 +1721,16 @@ jQuery(document).ready(function($) {
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
-												<label class="input select">
-													<select name="Model" class='car_model'>
+												<label class="input">
+													<label class="icon-right" for="Model">
+														<img src="j-folder/img/manufacture.png" alt="Model" title="Model Icon" class="img-responsive">
+													</label>
+													<input type="text" id="Model" name="plant_model" placeholder="Enter Model">
+													<!-- <select name="Model" class='car_model'>
 														<option value="none" selected disabled="">Select Age</option>
 														<option value="3months">Sample</option>
-													</select>
+													</select> -->
+
 													<i></i>
 												</label>
 											</div>

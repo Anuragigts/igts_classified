@@ -349,6 +349,18 @@ class Postad_motor_model extends CI_Model{
                         $this->db->insert("motor_home_ads", $motor_homes);
                         }
 
+                        /*plant machinery and farming vehicles*/
+                        if ($this->input->post('sub_id') == '17' || $this->input->post('sub_id') == '18') {
+                            $motor_homes = array('ad_id' => $insert_id,
+                                            'manufacture'=> $this->input->post('manufacture'),
+                                            'reg_year'=> $this->input->post('year_boat'),
+                                            'model'=> $this->input->post('plant_model'),
+                                            'color'=> $this->input->post('color'),
+                                            'condition'=>$this->input->post('Condition')
+                                );
+                        $this->db->insert("motor_plant_farming", $motor_homes);
+                        }
+
                             /*urgent lable expiry*/
                         if ($this->input->post('package_urgent') != '') {
                             $days = array_shift(explode("daysurgent", $this->input->post('package_urgent')));
