@@ -310,8 +310,8 @@
 		</div>
 	</div> 
 	
-	<div class="modal fade" id="feedback_1" role="dialog">
-		<div class="modal-dialog">
+	<div class="modal dialog3" id="feedback_1" role="dialog">
+		<div class="modal-dialog3">
 			<!-- Modal content-->
 			<form action="#" method="post" class="j-forms tooltip-hover" >
 				<div class="modal-content">
