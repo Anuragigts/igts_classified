@@ -11,7 +11,7 @@ function UGZoomSliderControl(){
 	var t = this;
 	
 	var g_options = {
-		slider_zoom_step: 0.8,							//the step of zooming with mouse wheel or zoom button
+		slider_zoom_step: 1.2,							//the step of zooming with mouse wheel or zoom button
 		slider_zoom_max_ratio: 6,						//max zoom ratio
 		slider_zoom_return_pan_duration: 400,			//the return from pan animation duration 
 		slider_zoom_return_pan_easing: "easeOutCubic"	//the return from pan wasing function
