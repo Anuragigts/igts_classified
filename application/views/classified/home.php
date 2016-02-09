@@ -432,7 +432,7 @@
 							<div class="info-gallery gold_bgcolor">
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($val->deal_desc),0,46); ?> </p>
+								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -465,7 +465,7 @@
 							<div class="info-gallery gold_bgcolor">
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,46); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -497,7 +497,7 @@
 							<div class="info-gallery gold_bgcolor">
 								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,46); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -529,7 +529,7 @@
 							<div class="info-gallery gold_bgcolor">
 								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,46); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -562,7 +562,7 @@
 							<div class="info-gallery gold_bgcolor">
 								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,46); ?> </p>
+								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
 								<ul class="starts">
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
