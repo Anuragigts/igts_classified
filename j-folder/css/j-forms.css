@@ -6,7 +6,9 @@
 /* Main */
 /*=================================================================*/
 
-
+.post_deal_bor label{
+	font-weight:bold !important;
+}
 /* Default
 =============================== */
 .wrapper {
@@ -41,7 +43,7 @@
 }
 .j-forms .input { position:relative; }
 
-.j-forms .unit { position:relative; margin-bottom:25px; }
+.j-forms .unit { position:relative; margin-bottom:20px; }
 
 .j-forms .link {
 	border-bottom:1px solid #90caf9;
