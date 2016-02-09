@@ -3923,7 +3923,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
-  padding: 10px 30px 10px;
 }
 .nav-tabs > li > a {
   margin-right: 2px;
