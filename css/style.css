@@ -309,13 +309,15 @@ hr.tall {
 .list-styles li{
  	line-height: 30px;
 }
+.promotion-box-info .list-styles li{
+	font-weight:bold;
+}
 .list-styles li .fancybox{
 	color:#0DC5B2;
 }
 .list-styles li a,
 .list-styles li{
 	font-size: 13px;
-	font-weight: bold;
 }
 .list-styles li i{
 	border-radius: 50%;
@@ -327,6 +329,17 @@ hr.tall {
 	font-size: 0.7rem;
 	padding: 0px 3px;
 	/* margin-right: 8px; */
+}
+.filters_categories .list-styles li a,
+.filters_categories .list-styles li{
+	font-size: 16px;
+	color:#777;
+}
+.filters_categories .list-styles li i{
+	border-radius: 50%;
+	color: #E95413; 
+	text-align: center;
+	font-size: 1.0rem;
 }
 .show-grid .show-grid-block {
 	padding-top: 10px;
@@ -5450,4 +5463,16 @@ tbody tr th{
 }
 .similar_deal_bot img{
 	width: 285px;
+}
+.pad_bott_140{
+	padding-bottom: 140px;
+}
+.pad_bott_50{
+	padding-bottom: 50px;
+}
+.pad_bott_100{
+	padding-bottom: 100px;
+}
+.filters_left{
+	padding-left:20px;
 }
