@@ -37,7 +37,11 @@
 .login_left{
 	background-color: #5EC3A3;
 	color: rgb(255, 255, 255);
-	min-height: 415px;
+}
+.login_name{
+	color: rgb(255, 255, 255);
+	padding-top: 16px;
+	float:right;
 }
 .signup_left{
 	background-color: #5EC3A3;
@@ -339,7 +343,7 @@ hr.tall {
 	border-radius: 50%;
 	color: #E95413; 
 	text-align: center;
-	font-size: 1.0rem;
+	font-size: 1.2rem;
 }
 .show-grid .show-grid-block {
 	padding-top: 10px;
@@ -2565,7 +2569,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	border:solid #dedede 1px;
 	padding: 20px 12px 30px 12px;
 	margin-bottom: 40px;
-	min-height: 220px;
+	min-height: 247px;
 }
 #boxes-carousel .info-gallery{
 	border-right: 0;
@@ -4094,8 +4098,8 @@ body{
 }
 .login_totpad{
 	border: 2px solid #5EC3A3;
-	border-top-right-radius: 2em;
-	border-bottom-right-radius: 2em;
+	border-bottom-right-radius: 1em;
+	border-bottom-left-radius: 1em;
 }
 .login_totpad_bor{
 	border: 2px solid #5EC3A3;
@@ -4876,9 +4880,6 @@ aside label .checkbox{
 	color:#FFF;
 }
 
-.list-styles ul li a{
-	font-weight:bold;
-}
 .price_amt{
 	color: #FFF;
 	margin-left: -42px;
@@ -5072,7 +5073,7 @@ h4 a:hover{
 	cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;
 }
 .recentad_heig{
-	height:381px;
+	height:406px;
 }
 .business_img{
 	height:306px;width: 264px;
@@ -5475,4 +5476,7 @@ tbody tr th{
 }
 .filters_left{
 	padding-left:20px;
+}
+.home_price{
+	font-size: 30px !important;
 }
