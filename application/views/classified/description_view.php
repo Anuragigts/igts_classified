@@ -16,14 +16,14 @@
 			position: absolute;
 			left: auto;
 		}
-		.add-to-compare-list span.compared-hotel {
+		.add-to-compare-list span.favourite_label1 {
 			background: url(<?php echo base_url(); ?>img/icons/favinactive.png);
 			width: 31px;
 			height: 31px;
 			display: block;
 			cursor: pointer;
 		}
-		.add-to-compare-list span.compared-hotel.active {
+		.add-to-compare-list span.favourite_label1.active {
 			background: url(<?php echo base_url(); ?>img/icons/favactive.png);
 			width: 31px;
 			height: 31px;
@@ -34,13 +34,43 @@
 	
 	<script type="text/javascript">
 	$(function(){
+		/*favourite ad display*/
+		var fav_count = <?php echo count($ads_favourite); ?>;
+		if (fav_count != 0) {
+			$(".favourite_label1").addClass('active');
+		}
+		else{
+			$(".favourite_label1").removeClass('active');
+		}
 		$(".favourite_label").click(function(){
-			var val = $(".compared-hotel").hasClass('active');
+			var val = $(".favourite_label1").hasClass('active');
 			if (val == false) {
-				$(".compared-hotel").addClass('active');
+				$.ajax({
+				type: "POST",
+				url: "<?php echo base_url();?>description_view/add_favourite",
+				data: {
+					ad_id: $("#ad_id").val(), 
+					login_id: $("#login_id").val()
+				},
+				// dataType: "json",
+				success: function (data) {
+				}
+			})
+				$(".favourite_label1").addClass('active');
 			}
 			else{
-				$(".compared-hotel").removeClass('active');
+				$.ajax({
+				type: "POST",
+				url: "<?php echo base_url();?>description_view/remove_favourite",
+				data: {
+					ad_id: $("#ad_id").val(), 
+					login_id: $("#login_id").val()
+				},
+				// dataType: "json",
+				success: function (data) {
+				}
+			})
+				$(".favourite_label1").removeClass('active');
 			}
 		});
 	});
@@ -97,6 +127,8 @@
 		foreach ($ads_desc as $ads_desc_val) {
 			/*ad id*/
 			$ad_id_no = $ads_desc_val->ad_id;
+			/*login_id*/
+			$login_id = $ads_desc_val->login_id;
 			/*package type and urgent*/
 			$package_type = $ads_desc_val->package_type;
 			$urgent_pack = $ads_desc_val->urgent_package;
@@ -209,8 +241,10 @@
 										</div>
 										<div class="col-sm-2 col-xs-4  post-header1">
 											<div class="add-to-compare-list">
+												<input type="hidden" name="ad_id" id="ad_id" value="<?php echo $ad_id_no; ?>" />
+												<input type="hidden" name="login_id" id="login_id" value="<?php echo $login_id; ?>" />
 												<a href="javascript:void(0);" class="favourite_label">
-													<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+													<span class="favourite_label1" title="Add to favourites"></span>
 												</a>
 											</div>
 										</div>
@@ -347,7 +381,7 @@
 													</li>
 
 													<li>
-														<a href="https://<?php echo $web_url; ?>" target="_blank" class="social-globe">
+														<a href="<?php echo $web_url; ?>" target="_blank" class="social-globe">
 															<i class="">Weblink</i>
 															<i class="whit_e"> Weblink</i>
 														</a>

@@ -79,12 +79,12 @@
 	<script type="text/javascript">
 	$(function(){
 		$(".favourite_label").click(function(){
-			var val = $(".compared-hotel").hasClass('active');
+			var val = $(".favourite_label1").hasClass('active');
 			if (val == false) {
-				$(".compared-hotel").addClass('active');
+				$(".favourite_label1").addClass('active');
 			}
 			else{
-				$(".compared-hotel").removeClass('active');
+				$(".favourite_label1").removeClass('active');
 			}
 		});
 	});
@@ -115,7 +115,7 @@
 							<div class="item-table">
 								<div class="header-table color-red">
 									 <img src="img/icons/people.png" alt="people" title="people image">
-									<h2>User Name</h2>
+									<h2><?php echo @$log_name; ?></h2>
 									<!--<span>$ 99 / per month</span> -->
 								</div>
 								<ul class="dashboard_tag">
@@ -135,7 +135,7 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<h2>Pickup deals</h2>
-										<label>Hi User Name, you have 0 Pickup deals</label><hr>
+										<label>Hi <?php echo @$log_name; ?>, you have <?php echo count(@$pickup_deals); ?> Pickup deals</label><hr>
 									</div>
 								</div>
 								
@@ -205,20 +205,34 @@
 								
 								<div class="row list_view_searches">
                                     <!-- platinum+urgent package start -->
-									<div class="col-md-12">
+                                    <?php foreach (@$pickup_deals as $pvalue) {
+                                    	/*currency symbol*/ 
+                                    	if ($pvalue->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($pvalue->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}
+                                    	if ($pvalue->package_type == 'platinum' && $pvalue->urgent_package != '') {
+                                     ?>
+                                    <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
+													<?php if ($pvalue->urgent_package !='') { ?>
+														<div class="featured-badge">
+															<span>Urgent</span>
+														</div>
+													<?php } ?>
 													<div class="xuSlider">
 														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+															<?php 
+															$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->ad_id'");
+															while ($res = mysql_fetch_object($pic)) { ?>
+															<li><img src="ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<?php	
+																}
+															 ?>
 														</ul>
 														<div class="direction-nav">
 															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -244,12 +258,12 @@
 														<div class="col-sm-8">
 															<div class="row">
 																<div class="col-xs-8">
-																	<h3 class="list_title">Sample text Here</h3>
+																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
 																</div>
 																<div class="col-xs-4">
-																	<div class="add-to-compare-list pull-right">
+																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label">
-																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>
+																		<span class="favourite_label1 active" title="Add to favourite"></span>
 																		</a>
 																	</div>
 																</div>
@@ -282,7 +296,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_tag), 20); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -292,7 +306,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
+																	<h3 class="view_price"><?php echo $currency.$pvalue->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -307,34 +321,38 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom" >
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $pvalue->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
+														<li><i class="fa fa-eye"></i><span>0 Views</span></li>
+														<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
 													</ul>                      
 												</div>
 											</div>
 										</div><hr class="separator">	
 										<!-- End Item Gallery List View-->
 									</div>
+									<?php } ?>
 									<!-- platinum+urgent package end -->
 									
 									<!-- platinum package start-->
+									<?php 
+									if ($pvalue->package_type == 'platinum' && $pvalue->urgent_package == ''){
+									 ?>
                                     <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4">
 													<div class="xuSlider">
 														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+															<?php 
+															$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->ad_id'");
+															while ($res = mysql_fetch_object($pic)) { ?>
+															<li><img src="ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<?php	
+																}
+															 ?>
 														</ul>
 														<div class="direction-nav">
 															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -359,8 +377,15 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
+																<div class="col-xs-8">
+																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-favourite-list pull-right">
+																		<a href="javascript:void(0);" class="favourite_label">
+																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		</a>
+																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -391,7 +416,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -401,7 +426,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
+																	<h3 class="view_price"><?php echo $currency.$pvalue->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -416,29 +441,33 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom" >
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $pvalue->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
+														<li><i class="fa fa-eye"></i><span>0 Views</span></li>
+														<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
 													</ul>                      
 												</div>
 											</div>
 										</div><hr class="separator">	
 									</div>
+									<?php } ?>
 									<!-- platinum package end -->
 
 									<!-- gold+urgent package starts -->
+									<?php 
+									if ($pvalue->package_type == 'gold' && $pvalue->urgent_package != ''){
+									 ?>
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
+													<?php if ($pvalue->urgent_package !='') { ?>
+														<div class="featured-badge">
+															<span>Urgent</span>
+														</div>
+													<?php } ?>
 													<div class="img-hover view_img">
 														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
@@ -454,14 +483,16 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
+																<div class="col-xs-8">
+																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="gold_icon"></span>
+																<div class="col-xs-4">
+																	<div class="add-to-favourite-list pull-right">
+																		<a href="javascript:void(0);" class="favourite_label">
+																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		</a>
 																	</div>
-																</div-->
+																</div>
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -491,7 +522,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -501,7 +532,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
+																	<h3 class="view_price"><?php echo $currency.$pvalue->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -516,22 +547,24 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom gold_bgcolor">
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $pvalue->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
+														<li><i class="fa fa-eye"></i><span>0 Views</span></li>
+														<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
 													</ul>                      
 												</div>
 											</div>
 										</div><hr class="separator">	
 									</div>
+									<?php } ?>
 									<!-- gold+urgent package end -->
 									
 									<!-- gold package starts -->
+									<?php 
+									if ($pvalue->package_type == 'gold' && $pvalue->urgent_package == ''){
+									 ?>
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
@@ -551,8 +584,15 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
+																<div class="col-xs-8">
+																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-favourite-list pull-right">
+																		<a href="javascript:void(0);" class="favourite_label">
+																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		</a>
+																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -583,7 +623,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -593,7 +633,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
+																	<h3 class="view_price"><?php echo $currency.$pvalue->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -608,29 +648,33 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom gold_bgcolor">
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $pvalue->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
+														<li><i class="fa fa-eye"></i><span>0 Views</span></li>
+														<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
 													</ul>                      
 												</div>
 											</div>
 										</div><hr class="separator">	
 									</div>
+									<?php } ?>
 									<!-- gold package end -->
 									
 									<!-- free+urgent package starts -->
+									<?php 
+									if ($pvalue->package_type == 'free' && $pvalue->urgent_package != ''){
+									 ?>
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
+													<?php if ($pvalue->urgent_package !='') { ?>
+														<div class="featured-badge">
+															<span>Urgent</span>
+														</div>
+													<?php } ?>
 													<div class="img-hover">
 														<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
@@ -640,8 +684,15 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
+																<div class="col-xs-8">
+																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-favourite-list pull-right">
+																		<a href="javascript:void(0);" class="favourite_label">
+																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		</a>
+																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -672,7 +723,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -682,7 +733,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
+																	<h3 class="view_price"><?php echo $currency.$pvalue->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -697,22 +748,24 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom" >
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $pvalue->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
+														<li><i class="fa fa-eye"></i><span>0 Views</span></li>
+														<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
 													</ul>                      
 												</div>
 											</div>
 										</div><hr class="separator">	
 									</div>
+									<?php } ?>
 									<!-- free+urgent package ends -->
 									
 									<!-- free package starts -->
+									<?php 
+									if ($pvalue->package_type == 'free' && $pvalue->urgent_package == ''){
+									 ?>
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -726,8 +779,15 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
+																<div class="col-xs-8">
+																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																</div>
+																<div class="col-xs-4">
+																	<div class="add-to-favourite-list pull-right">
+																		<a href="javascript:void(0);" class="favourite_label">
+																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		</a>
+																	</div>
 																</div>
 															</div>
 															<div class="row">
@@ -758,7 +818,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -768,7 +828,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
+																	<h3 class="view_price"><?php echo $currency.$pvalue->price; ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -783,20 +843,20 @@
 											<div class="col-md-12">
 												<div class="post-meta list_view_bottom" >
 													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><i class="fa fa-camera"></i><a href="#"><?php echo $pvalue->img_count; ?></a></li>
+														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
+														<li><i class="fa fa-eye"></i><span>0 Views</span></li>
+														<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
 													</ul>                      
 												</div>
 											</div>
 										</div><hr class="separator">	
 									</div>
+									<?php } ?>
 									<!-- free package ends -->
+									<?php } ?>
 								</div>
 							</div>
 						</form>

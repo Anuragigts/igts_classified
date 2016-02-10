@@ -351,6 +351,8 @@ class Description_view extends CI_Controller{
                 $ads_description_loc = $this->classifed_model->ads_description_loc();
                 /*review and rating*/
                 $ads_review = $this->classifed_model->ads_review();
+                /*favourite ad or not*/
+                $ads_favourite = $this->classifed_model->ads_favourite();
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "description_view",
@@ -358,12 +360,14 @@ class Description_view extends CI_Controller{
                         "ads_pics"=> $ads_description_pics,
                         "ads_loc"=> $ads_description_loc,
                         "body_content"=>$body_content,
-                        "ads_review"=>$ads_review
+                        "ads_review"=>$ads_review,
+                        "ads_favourite"=>$ads_favourite
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }
 
+        /*review rating*/
         public function review(){
              if ($this->session->userdata('login_id') == '') {
                    redirect('login');
@@ -380,6 +384,28 @@ class Description_view extends CI_Controller{
                         redirect("description_view/details/$adid");
                     }
                 
+        }
+
+        /*favourite ads*/
+        public function add_favourite(){
+            $fav = $this->classifed_model->add_favourite();
+            if ($fav == 1) {
+                echo '1';
+            }
+            else{
+                echo '0';
+            }
+        }
+
+        /*remove favourite ads*/
+        public function remove_favourite(){
+            $fav = $this->classifed_model->remove_favourite();
+            if ($fav == 1) {
+                echo '1';
+            }
+            else{
+                echo '0';
+            }
         }
 }
 

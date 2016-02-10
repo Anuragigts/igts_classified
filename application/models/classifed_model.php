@@ -291,6 +291,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
@@ -482,6 +483,63 @@ Class Classifed_model extends CI_model{
 		$res = $this->db->get();
 		return $res->result();
 	}
+
+	/*display favourite ad or not(icon symbol)*/
+	public function ads_favourite(){
+		$this->db->select("*");
+		$this->db->from("favourite_deals");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$this->db->where('login_id', $this->session->userdata('login_id'));
+		$this->db->where('status', 1);
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*display in pickup deals*/
+	public function pickup_deals(){
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->from("postad as ad");
+		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
+		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->group_by("img.ad_id");
+		$this->db->order_by("ad.ad_id", "DESC");
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	/*add favourites to logged user*/
+	public function add_favourite(){
+		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'login_id'	=> $this->input->post('login_id'),
+						'status'	=> '1'
+			);
+			$this->db->insert("favourite_deals", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	/*remove favourites to logged user*/
+	public function remove_favourite(){
+			$wr = array(
+			'ad_id'=> $this->input->post('ad_id'),
+			'login_id'	=> $this->input->post('login_id')
+			);
+			$this->db->delete("favourite_deals", $wr);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+
 
 }
 
