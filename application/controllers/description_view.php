@@ -27,6 +27,7 @@ class Description_view extends CI_Controller{
             /*without logi*/
             if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
+                    $login = '';
                 }
                 else{
                     $login_status = 'yes';
