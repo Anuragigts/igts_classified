@@ -4359,19 +4359,19 @@ a .login-op-btn:hover{
 	font-size: 0.85rem;
 	line-height: 1.3rem;
 }
-.first_list.add-to-compare-list {
+.first_list.add-to-favourite-list {
     position: absolute;
     top: 0px;
     left: auto;
 }
-.first_list span.compared-hotel {
+.first_list span.favourite_label1 {
 	background: url('../img/icons/favinactive.png');
 	width: 31px;
 	height: 31px;
 	display: block;
 	cursor: pointer;
 }
-.first_list span.compared-hotel.active {
+.first_list span.favourite_label1.active {
     background: url('../img/icons/favactive.png');
 	width: 31px;
 	height: 31px;
