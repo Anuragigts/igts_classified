@@ -50,6 +50,13 @@
 		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 		<div class="content_info">
 			<div class="paddings">
+				<div class="container pad_bott_50">
+					<div class="row">
+						<div class="col-md-10 col-sm-8 col-md-offset-1">
+							<iframe allowfullscreen="true" scrolling="no" src="https://s0.2mdn.net/5371183/1454679064549/index_970x250/index_970x250.html" id="200_119_express_html_inpage_0.if" style="width: 970px; height: 250px;" frameborder="0" height="250" width="970"></iframe>
+						</div>
+					</div>
+				</div>
 				<div class="container">
 					<div class="row">
 						<!-- Item Table-->
@@ -130,6 +137,16 @@
 									</div>
 								</aside>
 								<!-- Widget Filter -->
+							</div>
+							<div class="row top_20">
+								<div class="col-sm-12">
+									<iframe id="google_ad_92003487801" sandbox="allow-scripts" src="https://tpc.googlesyndication.com/sadbundle/11713703021028404835/300x250/300x250_RI.html#t=2984758803809756206&amp;p=https%3A%2F%2Fgoogleads.g.doubleclick.net" scrolling="no" style="border:0;overflow:hidden;" frameborder="0" height="250" width="260"></iframe>
+								</div>
+							</div>
+							<div class="row top_20">
+								<div class="col-sm-12">
+									<iframe id="google_ad_92003487801" sandbox="allow-scripts" src="https://tpc.googlesyndication.com/sadbundle/11713703021028404835/300x250/300x250_RI.html#t=2984758803809756206&amp;p=https%3A%2F%2Fgoogleads.g.doubleclick.net" scrolling="no" style="border:0;overflow:hidden;" frameborder="0" height="250" width="260"></iframe>
+								</div>
 							</div>
 						</div>
 						<!-- End Item Table-->

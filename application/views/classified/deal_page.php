@@ -246,9 +246,9 @@
 										</div> <!-- cd-filter-block -->
 
 										<div class="cd-filter-block">
-											<h4 class="title-widget">Fuel type</h4>
+											<h4 class="title-widget closed">Fuel type</h4>
 
-											<div class="cd-filter-content">
+											<div class="cd-filter-content" style="overflow: hidden; display: none;">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -267,9 +267,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget">Mileage</h4>
+											<h4 class="title-widget closed">Mileage</h4>
 
-											<div class="cd-filter-content">
+											<div class="cd-filter-content" style="overflow: hidden; display: none;">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -300,9 +300,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget">Seller Type</h4>
+											<h4 class="title-widget closed">Seller Type</h4>
 
-											<div class="cd-filter-content">
+											<div class="cd-filter-content" style="overflow: hidden; display: none;">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -321,9 +321,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget">Transmission</h4>
+											<h4 class="title-widget closed">Transmission</h4>
 
-											<div class="cd-filter-content">
+											<div class="cd-filter-content" style="overflow: hidden; display: none;">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -346,9 +346,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget">Engine Size</h4>
+											<h4 class="title-widget closed">Engine Size</h4>
 
-											<div class="cd-filter-content">
+											<div class="cd-filter-content" style="overflow: hidden; display: none;">
 												<div id="scroll_area1">
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >

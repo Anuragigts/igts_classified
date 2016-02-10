@@ -33,6 +33,16 @@
                 });             
             }); 
         </script>
+
+        <script>
+			$(document).ready(function(){
+				$("#e_zone_fil_show").click(function(){
+					$("#e_zone_fil_hide").toggle(1000);
+
+				});
+			});
+		</script>
+
 		<script>
 			$(document).ready(function(){
 				$(".bus_image").click(function(){
