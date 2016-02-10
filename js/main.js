@@ -85,6 +85,15 @@ $(document).ready(function($) {
        itemsMobile : [500,1],
        pagination: false
    });
+   $("#boxes-carousel112").owlCarousel({
+       autoPlay: 3200,      
+       items : 4,
+       navigation: true,
+       itemsDesktopSmall : [1024,3],
+       itemsTablet : [768,2],
+       itemsMobile : [500,1],
+       pagination: false
+   });
 
   //=================================== Carousel teams  ==================================//
    $("#team-carousel").owlCarousel({
