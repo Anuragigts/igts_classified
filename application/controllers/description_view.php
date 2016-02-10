@@ -30,6 +30,7 @@ class Description_view extends CI_Controller{
                 }
                 else{
                     $login_status = 'yes';
+                    $login = $this->session->userdata('login_id');
                 }
             if ($this->session->userdata("postad_time") != '') {
                     $new_time = time() - $this->session->userdata("postad_time");
@@ -370,6 +371,7 @@ class Description_view extends CI_Controller{
                         "ads_review"=>$ads_review,
                         "ads_favourite"=>$ads_favourite,
                         "login_status"=>$login_status,
+                        "login"=>$login,
                         'req_url'=> base_url()."description_view/details/".$id
                 );
                 

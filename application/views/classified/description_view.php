@@ -134,7 +134,7 @@
 			/*ad id*/
 			$ad_id_no = $ads_desc_val->ad_id;
 			/*login_id*/
-			$login_id = $ads_desc_val->login_id;
+			//$login_id = $ads_desc_val->login_id;
 			/*package type and urgent*/
 			$package_type = $ads_desc_val->package_type;
 			$urgent_pack = $ads_desc_val->urgent_package;
@@ -252,7 +252,7 @@
 										<div class="col-sm-2 col-xs-4  post-header1">
 											<div class="add-to-compare-list">
 												<input type="hidden" name="ad_id" id="ad_id" value="<?php echo $ad_id_no; ?>" />
-												<input type="hidden" name="login_id" id="login_id" value="<?php echo $login_id; ?>" />
+												<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 												<a href="javascript:void(0);" class="favourite_label">
 													<span class="favourite_label1" title="Add to favourites"></span>
 												</a>
