@@ -420,7 +420,7 @@
 
 								  });
 								  
-								  </script>
+								</script>
 								<form action="<?php echo base_url(); ?>description_view/review" id="rating_form" method="post" class="j-forms tooltip-hover">
 								<div class="widget view_sidebar review_hide" style="display:none;">
 									<div class="j-row">
@@ -621,6 +621,190 @@
 							</div>
 						</div>
 					</div>
+					
+					<!-- Title -->
+					<div class="container">
+						<div class="titles recen_ad">
+							<h2><span>SIMILAR </span>DEALS</h2>
+						</div>
+					</div>
+					<!-- End Title-->
+					
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<div id="boxes-carousel112">
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+									
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+										   <div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+										<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+
+									<!-- Item carousel Boxed-->
+									<div>
+										<div class="img-hover similar_deal_bot">
+											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
+											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
+										</div>
+
+										<div class="info-gallery">
+											<h3>Sample Text Here</h3>
+											<hr class="separator">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+											<ul class="starts">
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star"></i></a></li>
+												<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+											</ul>
+											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
+										</div>
+									</div>
+									<!-- End Item carousel Boxed-->
+								</div>
+							</div>
+						</div>
+					</div>
+				   <!-- End boxes-carousel-->
 				</div>
 			</div>
 	</section>

@@ -71,18 +71,21 @@ class Signup_model extends CI_Model{
                 // $this->email->cc("manasa.s@igravitas.in");
                 $this->email->subject("Classifieds");
                 $message    =   "<div style='padding: 81px 150px;'>
-									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px 20px;background-color: #9FC955;'>
-										<h2 style='color: #fff;float:right;'><span>WELCOME ! </span></h2>
-										<h2 style='color: #fff;'><span>99 Right Deals </span></h2>
+									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
+										<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
+										<img src='http://79deals.igravitas.in/images/maillogo.png'>
 									</div>
 									<div style='margin-top:20px'></div>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
+										<h2>Account Confirmations</h2>
 										<h3>Hi ".$this->input->post('con_fname').",</h3>
-										<p> Thanks for Creating 99RightDeal Account. In Order to Activate your account, please click on the link below so that we can be sure that this email address belongs to you.</p>
+										<p>Welcome to 99Rightdeals.com</p>
+										<p> To complete your registration please confirm that you have received this email by clicking below</p>
 										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#9FC955;'>Click Here To Activate your Account</a>
 										<div style='margin-top:20px'></div>
-										<p>Thanks</p>
-										<p><b>99RightDeals Team</b></p>
+										<p>Here are all the details you'll need to log on and start find your perfect deal.</p>
+										<p>Best Wishes,</p>
+										<p>The <a href=''><strong style='color:#9FC955;'>99RightDeals </strong></a>Team</p>
 									</div>
 								</div>";
                 $this->email->message($message);
