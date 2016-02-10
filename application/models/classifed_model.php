@@ -502,7 +502,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
-		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
