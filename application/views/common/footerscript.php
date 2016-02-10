@@ -38,7 +38,48 @@
 			$(document).ready(function(){
 				$("#e_zone_fil_show").click(function(){
 					$("#e_zone_fil_hide").toggle(1000);
-
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#motor_fil_show").click(function(){
+					$("#motor_fil_hide").toggle(1000);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#clot_fil_show").click(function(){
+					$("#clot_fil_hide").toggle(1000);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#service_fil_show").click(function(){
+					$("#service_fil_hide").toggle(1000);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#property_fil_show").click(function(){
+					$("#property_fil_hide").toggle(1000);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#home_fil_show").click(function(){
+					$("#home_fil_hide").toggle(1000);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#pets_fil_show").click(function(){
+					$("#pets_fil_hide").toggle(1000);
 				});
 			});
 		</script>

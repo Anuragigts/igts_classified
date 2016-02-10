@@ -32,24 +32,35 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
-							<div class="login-form">
-								<div class="login-title">
-									<h2 class="text1 text_center">Forgot Password</h2>
+							<div class="row login_totpad">
+								<div class="col-sm-12">		
+									<div class="row login_left">
+										<div class="col-md-6">
+											<div class=" pull-left">
+												<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/maillogo.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
+											</div>
+										</div>
+										<div class="col-md-6">
+											<h2 class="login_name">Forgot Password</h2>
+										</div>
+									</div>
+									<div class="login-form">
+										<!-- End Title -->
+										<?php echo $this->view("classified_layout/success_error"); ?>
+										<form  method="post" class="log_form" action="" id="forgot-form">
+											<div class="col-12">
+												<label>Current Email <sup style='color:red;'>*</sup>
+												<input placeholder="Enter Your Email" id="forgotemail" name="forgotemail" tabindex="1">
+												<?php echo form_error("forgotemail");?>
+												</label>
+											</div>
+											<div class="col-submit">
+												<input type="submit" id="forgot" name='forgot' class="btn btn-primary" value="Submit">
+											</div>
+										</form>
+										<!-- End form -->
+									</div>
 								</div>
-								<!-- End Title -->
-								<?php echo $this->view("classified_layout/success_error"); ?>
-								<form  method="post" class="log_form" action="" id="forgot-form">
-									<div class="col-12">
-										<label>Current Email <sup style='color:red;'>*</sup>
-										<input placeholder="Enter Your Email" id="forgotemail" name="forgotemail" tabindex="1">
-										<?php echo form_error("forgotemail");?>
-										</label>
-									</div>
-									<div class="col-submit">
-										<input type="submit" id="forgot" name='forgot' class="btn btn-primary" value="Submit">
-									</div>
-								</form>
-								<!-- End form -->
 							</div>
 							<!-- end login form -->
 						</div>

@@ -159,16 +159,18 @@
                         <div class="container">
                             <div class="row ">
 								<div class="col-sm-10 col-sm-offset-1">
-									<div class="login-title pad_bottm">
-										<h2 class="text1 text_center">Sign UP</h2>
-									</div>
 									<div class="row login_totpad">
-										<div class="col-md-3 signup_left">
-											<div class="">
-												<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/logols.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
+										<div class="col-sm-12">
+											<div class="row login_left">
+												<div class="col-md-8">
+													<div class=" pull-left">
+														<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/maillogo.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
+													</div>
+												</div>
+												<div class="col-md-4">
+													<h2 class="login_name">SignUp</h2>
+												</div>
 											</div>
-										</div>
-										<div class="col-sm-9">
 											<div class="login-form">
 												<div class="login-title">
 													<?php echo $this->view("classified_layout/success_error"); ?>

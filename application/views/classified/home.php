@@ -487,13 +487,7 @@
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
-								<ul class="starts">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-								</ul>
+								<h3 class="home_price">£454</h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -520,13 +514,7 @@
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
-								<ul class="starts">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-								</ul>
+								<h3 class="home_price">£454</h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -552,13 +540,7 @@
 								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
-								<ul class="starts">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-								</ul>
+								<h3 class="home_price">£454</h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -584,13 +566,7 @@
 								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
-								<ul class="starts">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-								</ul>
+								<h3 class="home_price">£454</h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -617,13 +593,7 @@
 								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
-								<ul class="starts">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-								</ul>
+								<h3 class="home_price">£454</h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -684,13 +654,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
+										<h3 class="home_price">£454</h3>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -717,13 +681,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
+										<h3 class="home_price">£454</h3>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -769,13 +727,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
+										<h3 class="home_price">£454</h3>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
@@ -794,13 +746,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
-										<ul class="starts">
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-										</ul>
+										<h3 class="home_price">£454</h3>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>

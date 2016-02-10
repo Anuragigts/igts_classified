@@ -676,7 +676,7 @@
 					<!-- Title -->
 					<div class="container">
 						<div class="titles recen_ad">
-							<h2><span>SIMILAR </span>DEALS</h2>
+							<h2><span>RECOMMENDED </span>DEALS</h2>
 						</div>
 					</div>
 					<!-- End Title-->

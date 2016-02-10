@@ -71,19 +71,12 @@
 			<div class="paddings-mini">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
+						<div class="col-md-6 col-md-offset-3">
 							<div class="login-form">
-								<div class="login-title">
-									<h2 class="text1 text_center">Login</h2>
-								</div>
 								<?php echo $this->view("classified_layout/success_error"); ?>
-								<div class="row login_totpad login_totpad_bor">
-									<div class="col-md-4 login_left">
-										<div class="">
-											<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/logols.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
-										</div>
-									</div>
-									<div class="col-md-8">
+								<div class="row login_totpad">
+									
+									<div class="col-md-12">
 										<script type="text/javascript">
 											function check(){
 												var ch = document.getElementById('w_check').checked;
@@ -120,42 +113,50 @@
 												});
 											});
 										</script>
-										<div class="login_form">
-											<form  method="post" class="log_form" action="" id="login_form">
-												<div class="col-1">
-													<label>Email <sup style='color:red;'>*</sup>
-													<input placeholder="Enter Email" id="email" name="email" tabindex="1" required>
-													</label>
-												</div>
-												<div class="col-1">
-													<label>Password <sup style='color:red;'>*</sup>
-													<input type="password" placeholder="Enter password" id="password" name="password" tabindex="2" required>
-													</label>
-												</div>
-												<div class="col-1" id='wo_login'>
-													<label class="pull-left"> <a href="signup" class="signup_clr">Sign Up</a>
-													</label>
-													<label> Remember Password
-														<input type='hidden' name='remember' id='remember' value='0' />
-													</label>
-													<div class="check_botb pull-right"><input type="checkbox" class="js-switch"></div>
-												</div>
-												<div class="col-submit">
-													<input type='submit' id="submit" name='submit' class="pull-left btn btn-primary" value='Login' />
-													<h4 class="log_side pull-right"><a href="forgot_password" class="signup_clr">Forgot Password</a></h4>
-												</div>
-											</form>
-											<!-- End form -->
-											<div class="row social_icons">
-												<div class="col-md-6">
-													<div class="login-options">
-														<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
+										<div class="">
+											<div class="row login_left">
+												<div class="col-md-8">
+													<div class=" pull-left">
+														<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/maillogo.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
 													</div>
 												</div>
-												<div class="col-md-6">
-													<!-- end FB login -->
-													<div class=" login-options">
-														<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+												<div class="col-md-4">
+													<h2 class="login_name">Login</h2>
+												</div>
+											</div>
+											<div class="login_form">
+												<form  method="post" class="log_form" action="" id="login_form">
+													<div class="col-1">
+														<label>Email <sup style='color:red;'>*</sup>
+														<input placeholder="Enter Email" id="email" name="email" tabindex="1" required>
+														</label>
+													</div>
+													<div class="col-1">
+														<label>Password <sup style='color:red;'>*</sup>
+														<input type="password" placeholder="Enter password" id="password" name="password" tabindex="2" required>
+														</label>
+													</div>
+													<div class="col-1" id='wo_login'>
+														<label> <a href="signup" class="signup_clr">Sign Up</a>
+														</label>
+													</div>
+													<div class="col-submit">
+														<input type='submit' id="submit" name='submit' class="pull-left btn btn-primary" value='Login' />
+														<h4 class="log_side pull-right"><a href="forgot_password" class="signup_clr">Forgot Password</a></h4>
+													</div>
+												</form>
+												<!-- End form -->
+												<div class="row social_icons">
+													<div class="col-md-6">
+														<div class="login-options">
+															<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<!-- end FB login -->
+														<div class=" login-options">
+															<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+														</div>
 													</div>
 												</div>
 											</div>

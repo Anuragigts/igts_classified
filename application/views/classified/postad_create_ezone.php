@@ -1125,6 +1125,7 @@
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<div class="free_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£0</h3>
 															</div>
@@ -1166,6 +1167,7 @@
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
+															<li class="text_center"> <br> </li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£2.99</h3>
 															</div>
@@ -1200,9 +1202,8 @@
 															<li><i class="fa fa-check"></i> Validity : 30 days</li>
 															<li><i class="fa fa-check"></i> Up to 12 Images</li>
 															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
-															<li><i class="fa fa-check"></i>Ad will display 3D rotation for 5days </li>
-															<li><i class="fa fa-check"></i> It will be display Home page significant ads for 7days <a href="img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
-															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide</li>
+															<li><i class="fa fa-check"></i> Ad will display 3D rotation on Homepage Significant Ads for 5 days<a href="img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result</li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Crown symbol will attach  </li>
