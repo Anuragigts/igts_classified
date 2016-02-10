@@ -342,18 +342,18 @@
 .j-forms .checkbox:hover i,
 .j-forms .radio:hover i,
 .j-forms .checkbox-toggle:hover i,
-.j-forms .radio-toggle:hover i { border:2px solid rgba(48,63,159,.6); }
+.j-forms .radio-toggle:hover i { border:2px solid #E95413; }
 
 .j-forms .radio input:checked + i,
 .j-forms .checkbox input:checked + i,
 .j-forms .radio-toggle input:checked + i,
-.j-forms .checkbox-toggle input:checked + i { border:2px solid rgba(48,63,159,.9); }
+.j-forms .checkbox-toggle input:checked + i { border:2px solid #E95413; }
 
 .j-forms .radio input:checked + i,
-.j-forms .checkbox input:checked + i { color:rgba(48,63,159,.9); }
+.j-forms .checkbox input:checked + i { color:#E95413; }
 
 .j-forms .checkbox-toggle input:checked + i,
-.j-forms .radio-toggle input:checked + i { background-color:#e8eaf6; }
+.j-forms .radio-toggle input:checked + i { background-color:#E95413; }
 
 /* Widget
 =============================== */
