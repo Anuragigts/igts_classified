@@ -5448,3 +5448,6 @@ tbody tr th{
 	z-index: 1;
 	position: relative;
 }
+.similar_deal_bot img{
+	width: 285px;
+}
