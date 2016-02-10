@@ -24,6 +24,13 @@ class Description_view extends CI_Controller{
                 $this->load->view("classified_layout/inner_template",$data);
         }
         public function details($id){
+            /*without logi*/
+            if ($this->session->userdata('login_id') == '') {
+                    $login_status = 'no';
+                }
+                else{
+                    $login_status = 'yes';
+                }
             if ($this->session->userdata("postad_time") != '') {
                     $new_time = time() - $this->session->userdata("postad_time");
                     if ($new_time > 0) {
@@ -361,7 +368,9 @@ class Description_view extends CI_Controller{
                         "ads_loc"=> $ads_description_loc,
                         "body_content"=>$body_content,
                         "ads_review"=>$ads_review,
-                        "ads_favourite"=>$ads_favourite
+                        "ads_favourite"=>$ads_favourite,
+                        "login_status"=>$login_status,
+                        'req_url'=> base_url()."description_view/details/".$id
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
@@ -388,6 +397,9 @@ class Description_view extends CI_Controller{
 
         /*favourite ads*/
         public function add_favourite(){
+            if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
             $fav = $this->classifed_model->add_favourite();
             if ($fav == 1) {
                 echo '1';
@@ -399,6 +411,9 @@ class Description_view extends CI_Controller{
 
         /*remove favourite ads*/
         public function remove_favourite(){
+            if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
             $fav = $this->classifed_model->remove_favourite();
             if ($fav == 1) {
                 echo '1';

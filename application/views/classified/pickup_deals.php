@@ -79,12 +79,21 @@
 	<script type="text/javascript">
 	$(function(){
 		$(".favourite_label").click(function(){
+			var id = $(this).attr('id');
+			var id1 = id.split(',');
 			var val = $(".favourite_label1").hasClass('active');
-			if (val == false) {
-				$(".favourite_label1").addClass('active');
-			}
-			else{
-				$(".favourite_label1").removeClass('active');
+			if (val == true) {
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>description_view/remove_favourite",
+					data: {
+						ad_id: id1[0], 
+						login_id: id1[1]
+					},
+					success: function (data) {
+						$("div .del"+id1[0]+id1[1]).remove();
+					}
+				})
 			}
 		});
 	});
@@ -215,7 +224,7 @@
                                     	}
                                     	if ($pvalue->package_type == 'platinum' && $pvalue->urgent_package != '') {
                                      ?>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4">
@@ -262,7 +271,7 @@
 																</div>
 																<div class="col-xs-4">
 																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" class="favourite_label">
+																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active" title="Add to favourite"></span>
 																		</a>
 																	</div>
@@ -299,7 +308,7 @@
 																	<p class=""><?php echo substr(strip_tags($pvalue->deal_tag), 20); ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -340,7 +349,7 @@
 									<?php 
 									if ($pvalue->package_type == 'platinum' && $pvalue->urgent_package == ''){
 									 ?>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4">
@@ -382,8 +391,8 @@
 																</div>
 																<div class="col-xs-4">
 																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+																		<span class="favourite_label1 active"  title="Add to favourite"></span>
 																		</a>
 																	</div>
 																</div>
@@ -419,7 +428,7 @@
 																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -459,7 +468,7 @@
 									<?php 
 									if ($pvalue->package_type == 'gold' && $pvalue->urgent_package != ''){
 									 ?>
-									<div class="col-md-12">
+									<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4">
@@ -470,7 +479,7 @@
 													<?php } ?>
 													<div class="img-hover view_img">
 														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
@@ -488,8 +497,8 @@
 																</div>
 																<div class="col-xs-4">
 																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+																		<span class="favourite_label1 active"  title="Add to favourite"></span>
 																		</a>
 																	</div>
 																</div>
@@ -525,7 +534,7 @@
 																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -565,13 +574,13 @@
 									<?php 
 									if ($pvalue->package_type == 'gold' && $pvalue->urgent_package == ''){
 									 ?>
-									<div class="col-md-12">
+									<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
 														<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
@@ -589,8 +598,8 @@
 																</div>
 																<div class="col-xs-4">
 																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+																		<span class="favourite_label1 active"  title="Add to favourite"></span>
 																		</a>
 																	</div>
 																</div>
@@ -626,7 +635,7 @@
 																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -666,7 +675,7 @@
 									<?php 
 									if ($pvalue->package_type == 'free' && $pvalue->urgent_package != ''){
 									 ?>
-									<div class="col-md-12">
+									<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
@@ -677,7 +686,7 @@
 													<?php } ?>
 													<div class="img-hover">
 														<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -689,8 +698,8 @@
 																</div>
 																<div class="col-xs-4">
 																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+																		<span class="favourite_label1 active"  title="Add to favourite"></span>
 																		</a>
 																	</div>
 																</div>
@@ -726,7 +735,7 @@
 																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -766,13 +775,13 @@
 									<?php 
 									if ($pvalue->package_type == 'free' && $pvalue->urgent_package == ''){
 									 ?>
-									<div class="col-md-12">
+									<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
 														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -784,8 +793,8 @@
 																</div>
 																<div class="col-xs-4">
 																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
+																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+																		<span class="favourite_label1 active"  title="Add to favourite"></span>
 																		</a>
 																	</div>
 																</div>
@@ -821,7 +830,7 @@
 																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,20); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>

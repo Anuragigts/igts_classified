@@ -43,7 +43,12 @@
 			$(".favourite_label1").removeClass('active');
 		}
 		$(".favourite_label").click(function(){
+			var log = $("#login_status").val();
+			if (log == 'no') {
+				window.location.href = "<?php echo base_url(); ?>login";
+			}
 			var val = $(".favourite_label1").hasClass('active');
+			/*adding to favourite*/
 			if (val == false) {
 				$.ajax({
 				type: "POST",
@@ -59,6 +64,7 @@
 				$(".favourite_label1").addClass('active');
 			}
 			else{
+				/*deleting from favourite*/
 				$.ajax({
 				type: "POST",
 				url: "<?php echo base_url();?>description_view/remove_favourite",
@@ -172,7 +178,11 @@
 								<div class="container">
 									<div class="crumbs">
 										<ul>
-											<li><a href="<?php echo base_url(); ?>index.php">Home</a></li>
+											<li><a href="<?php echo base_url(); ?>index.php">
+												Home
+												<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
+												<input type='hidden' name="req_url" id="req_url" value="<?php echo @$req_url; ?>" />
+											</a></li>
 											<li>/</li>
 											<li><a href="<?php echo base_url(); ?>deals_administrator">Deal Administrator</a></li>  
 											<li></li>

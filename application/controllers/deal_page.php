@@ -11,9 +11,6 @@ class Deal_page extends CI_Controller{
                 //$this->load->model("signup_model");
                }
         public function index(){
-            if ($this->session->userdata('login_id') == '') {
-                   redirect('login');
-                }
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deal_page"
