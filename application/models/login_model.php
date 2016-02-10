@@ -109,7 +109,7 @@ class Login_model extends CI_Model{
                 $this->email->from('test@igravitas.in', "Admin Team");
                 $this->email->to($mail);
                 // $this->email->cc("manasa.s@igravitas.in");
-                $this->email->subject("Classifieds-Forget password");
+                $this->email->subject("99 Right Deals Forgotten Password");
                 $message    =   "<div style='padding: 81px 150px;'>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
 										<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
@@ -120,7 +120,7 @@ class Login_model extends CI_Model{
 										<h2>Forget Password</h2>
 										<p>Hi, We've received a request to reset your 99rightdeal password.</p>
 										<p> To initiate the process, please click the following link</p>
-										<a href='".base_url()."common/forgot/".$random_code."' style='color:#9FC955;'>Click Here To Verify your Account</a>
+										<a href='".base_url()."common/forgot/".$random_code."' style='color:#9FC955;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Reset Your Password</a>
 										<div style='margin-top:20px'></div>
 										<p>If clicking the link above does not work, copy and paste the URL in a new browser window. The URL will expire in 24 hours for security reasons. If you did not make this request, simply ignore this message.</p>
 										<p>Best Wishes,</p>

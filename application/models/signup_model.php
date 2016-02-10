@@ -69,7 +69,7 @@ class Signup_model extends CI_Model{
                 $this->email->from('test@igravitas.in', "Admin Team");
                 $this->email->to($mail);
                 // $this->email->cc("manasa.s@igravitas.in");
-                $this->email->subject("Classifieds");
+                $this->email->subject("99 Right Deals Account Verification");
                 $message    =   "<div style='padding: 81px 150px;'>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
 										<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
@@ -81,7 +81,7 @@ class Signup_model extends CI_Model{
 										<h3>Hi ".$this->input->post('con_fname').",</h3>
 										<p>Welcome to 99Rightdeals.com</p>
 										<p> To complete your registration please confirm that you have received this email by clicking below</p>
-										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#9FC955;'>Click Here To Activate your Account</a>
+										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#9FC955;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Activate your Account</a>
 										<div style='margin-top:20px'></div>
 										<p>Here are all the details you'll need to log on and start find your perfect deal.</p>
 										<p>Best Wishes,</p>
