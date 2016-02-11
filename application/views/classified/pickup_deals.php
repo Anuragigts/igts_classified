@@ -296,9 +296,18 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($pvalue->ad_type != 'consumer') {
+																if ($pvalue->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -416,9 +425,18 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($pvalue->ad_type != 'consumer') {
+																if ($pvalue->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -478,7 +496,7 @@
 														</div>
 													<?php } ?>
 													<div class="img-hover view_img">
-														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="ad_images/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -522,9 +540,18 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($pvalue->ad_type != 'consumer') {
+																if ($pvalue->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -579,7 +606,7 @@
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
-														<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
+														<img src="ad_images/<?php echo $pvalue->img_name; ?>" alt="no_image.png" title="significant" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -623,9 +650,18 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($pvalue->ad_type != 'consumer') {
+																if ($pvalue->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -685,7 +721,7 @@
 														</div>
 													<?php } ?>
 													<div class="img-hover">
-														<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="ad_images/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -723,9 +759,18 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($pvalue->ad_type != 'consumer') {
+																if ($pvalue->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
@@ -780,7 +825,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="ad_images/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -818,9 +863,18 @@
 															</div>
 														</div>
 														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
+														<?php if ($pvalue->ad_type != 'consumer') {
+																if ($pvalue->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
 													</div>
 													<hr class="separator">
 													<div class="row">
