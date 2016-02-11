@@ -97,6 +97,44 @@
 			//responsive code end
 		};
 	</script>
+
+	 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', function () {
+            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                var place = places.getPlace();
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+                $("#latt").val(latitude);
+                $("#longg").val(longitude);
+            });
+        });
+
+        $(function(){
+        	$("#find_deal").click(function(){
+        		var cat = $("#category_name").val();
+        		var latt = $("#latt").val();
+        		var longg = $("#longg").val();
+        		var bustype = $("input[name=business_type]:checked").val();
+        		$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>deal_page/result_form",
+					data: {
+						cat: cat,
+						latt: latt,
+						longg: longg,
+						bustype: bustype
+					},
+					success: function (data) {
+						$(".result_hide").css("display", 'block');
+						$(".search_result").html(data);
+					}
+				})
+        	});
+        });
+    </script>
 	  
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
@@ -130,13 +168,13 @@
 										<div class="unit check logic-block-radio">
 											<div class="inline-group hot_deal_rad">
 												<label class="radio">
-													<input type="radio" name="checkbox_toggle" id="next-step-radio" class='bus_consumer' value="Yes">
+													<input type="radio" name="business_type" class='bus_type' value="business">
 													<i></i>Business 
 												</label>
 											</div>
 											<div class="inline-group hot_deal_rad1">
 												<label class="radio">
-													<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
+													<input type="radio" name="business_type" class='bus_type'  value="consumer">
 													<i></i>Consumer 
 												</label>
 											</div>
@@ -148,16 +186,18 @@
 										<div class="row">
 											<div class="span6 unit">
 												<label class="input select">
-													<select name="price_type">
+													<input type='hidden' name='latt' id='latt' value='' >
+													<input type='hidden' name='longg' id='longg' value='' >
+													<select name="category_name" id="category_name">
 														<option value="none" selected disabled="">Select Category</option>
-														<option value="">E-Zone</option>
-														<option value="">Motor Point</option>
-														<option value="">Clothing & LifeStyles</option>
-														<option value="">Services</option>
-														<option value="">Find a Property</option>
-														<option value="">Home & Kitchen</option>
-														<option value="">Pets</option>
-														<option value="">Jobs</option>
+														<option value="ezone">E-Zone</option>
+														<option value="motorpoint">Motor Point</option>
+														<option value="clothing_&_lifestyles">Clothing & LifeStyles</option>
+														<option value="services">Services</option>
+														<option value="findaproperty">Find a Property</option>
+														<option value="kitchenhome">Home & Kitchen</option>
+														<option value="pets">Pets</option>
+														<option value="jobs">Jobs</option>
 													</select>
 													<i></i>
 												</label>
@@ -165,9 +205,9 @@
 											<div class="span6 unit">
 												<div class="widget right-130">
 													<div class="input">
-														<input type="email" placeholder="Enter Location" name="email">
+														<input type="text" placeholder="Enter Location" id="find_loc" name="find_loc">
 													</div>
-													<button type="submit" class="bg addon-btn adn-130 adn-right">
+													<button type="button" id='find_deal' class="bg addon-btn adn-130 adn-right">
 														Find a Deal
 													</button>
 												</div>
@@ -177,9 +217,10 @@
 								</div>
 							</div>
 							
-							<hr class="top_20 separator">
 							
-							<div class="row">
+							
+							<div class="row deal_result_hide result_hide" style='display:none;'>
+								<hr class="top_20 separator">
 								<!-- Item Table-->
 								<div class="col-sm-3">
 									<div class="container-by-widget-filter bg-dark color-white">
@@ -246,9 +287,9 @@
 										</div> <!-- cd-filter-block -->
 
 										<div class="cd-filter-block">
-											<h4 class="title-widget closed">Fuel type</h4>
+											<h4 class="title-widget">Fuel type</h4>
 
-											<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div class="cd-filter-content">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -267,9 +308,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget closed">Mileage</h4>
+											<h4 class="title-widget">Mileage</h4>
 
-											<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div class="cd-filter-content">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -300,9 +341,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget closed">Seller Type</h4>
+											<h4 class="title-widget">Seller Type</h4>
 
-											<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div class="cd-filter-content">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -321,9 +362,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget closed">Transmission</h4>
+											<h4 class="title-widget">Transmission</h4>
 
-											<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div class="cd-filter-content">
 												<div>
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -346,9 +387,9 @@
 										</div> <!-- cd-filter-block -->
 										
 										<div class="cd-filter-block">
-											<h4 class="title-widget closed">Engine Size</h4>
+											<h4 class="title-widget">Engine Size</h4>
 
-											<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div class="cd-filter-content">
 												<div id="scroll_area1">
 													<label class="checkbox">
 														<input type="checkbox" name="" value="" >
@@ -476,599 +517,7 @@
 									</div>
 									<!-- sort-by-container-->
 
-									<div class="row list_view_searches">
-										<!-- platinum+urgent package start -->
-										<div class="col-md-12">
-											<div class="first_list">
-												<div class="row">
-													<div class="col-sm-4">
-														<div class="featured-badge">
-															<span>Urgent</span>
-														</div>
-														<div class="xuSlider">
-															<ul class="sliders">
-																<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-																<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-																<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-																<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-																<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-															</ul>
-															<div class="direction-nav">
-																<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-																<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-															</div>
-															<div class="control-nav">
-																<li data-id="1"><a href="javascript:;">1</a></li>
-																<li data-id="2"><a href="javascript:;">2</a></li>
-																<li data-id="3"><a href="javascript:;">3</a></li>
-																<li data-id="4"><a href="javascript:;">4</a></li>
-																<li data-id="5"><a href="javascript:;">5</a></li>
-															</div>	
-														</div>
-														<div class="">
-															<div class="price11">
-																<span></span><b>
-																<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-8 middle_text">
-														<div class="row">
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<h3 class="list_title">Sample text Here</h3>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-xs-4">
-																		<ul class="starts">
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																		</ul>
-																	</div>
-																	<div class="col-xs-8">
-																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="col-xs-4 serch_bus_logo">
-																<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-														</div>
-														<hr class="separator">
-														<div class="row">
-															<div class="col-xs-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-xs-4">
-																<div class="row">
-																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																		<h3 class="view_price">£1106</h3>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div><!-- End Row-->
-											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="post-meta list_view_bottom" >
-														<ul>
-															<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-															<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-															<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-															<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-															<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-															<li><span>Deal ID : 112457856</span></li>
-															<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-															<li><i class="fa fa-edit"></i></li>
-															<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-														</ul>                      
-													</div>
-												</div>
-											</div><hr class="separator">	
-											<!-- End Item Gallery List View-->
-										</div>
-										<!-- platinum+urgent package end -->
-										
-										<!-- platinum package start-->
-										<div class="col-md-12">
-											<div class="first_list">
-												<div class="row">
-													<div class="col-sm-4">
-														<div class="xuSlider">
-															<ul class="sliders">
-																<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-																<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-																<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-																<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-																<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-															</ul>
-															<div class="direction-nav">
-																<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-																<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-															</div>
-															<div class="control-nav">
-																<li data-id="1"><a href="javascript:;">1</a></li>
-																<li data-id="2"><a href="javascript:;">2</a></li>
-																<li data-id="3"><a href="javascript:;">3</a></li>
-																<li data-id="4"><a href="javascript:;">4</a></li>
-																<li data-id="5"><a href="javascript:;">5</a></li>
-															</div>	
-														</div>
-														<div class="">
-															<div class="price11">
-																<span></span><b>
-																<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-8 middle_text">
-														<div class="row">
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<h3 class="list_title">Sample text Here</h3>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-xs-4">
-																		<ul class="starts">
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																		</ul>
-																	</div>
-																	<div class="col-xs-8">
-																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="col-xs-4 serch_bus_logo">
-																<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-														</div>
-														<hr class="separator">
-														<div class="row">
-															<div class="col-xs-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-xs-4">
-																<div class="row">
-																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																		<h3 class="view_price">£1106</h3>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="post-meta list_view_bottom" >
-														<ul>
-															<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-															<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-															<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-															<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-															<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-															<li><span>Deal ID : 112457856</span></li>
-															<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-															<li><i class="fa fa-edit"></i></li>
-															<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-														</ul>                      
-													</div>
-												</div>
-											</div><hr class="separator">	
-										</div>
-										<!-- platinum package end -->
-
-										<!-- gold+urgent package starts -->
-										<div class="col-md-12">
-											<div class="first_list gold_bgcolor">
-												<div class="row">
-													<div class="col-sm-4">
-														<div class="featured-badge">
-															<span>Urgent</span>
-														</div>
-														<div class="img-hover view_img">
-															<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
-															<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-														</div>
-														<div class="">
-															<div class="price11">
-																<span></span><b>
-																<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-8 middle_text">
-														<div class="row">
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<h3 class="list_title">Sample text Here</h3>
-																	</div>
-																	<!--div class="col-xs-4 ">
-																		<div class="add-to-compare-list pull-right">
-																			<span class="gold_icon"></span>
-																		</div>
-																	</div-->
-																</div>
-																<div class="row">
-																	<div class="col-xs-4">
-																		<ul class="starts">
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																		</ul>
-																	</div>
-																	<div class="col-xs-8">
-																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="col-xs-4 serch_bus_logo">
-																<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-														</div>
-														<hr class="separator">
-														<div class="row">
-															<div class="col-xs-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-xs-4">
-																<div class="row">
-																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																		<h3 class="view_price">£1106</h3>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div><!-- End Row-->
-											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="post-meta list_view_bottom gold_bgcolor">
-														<ul>
-															<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-															<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-															<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-															<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-															<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-															<li><span>Deal ID : 112457856</span></li>
-															<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-															<li><i class="fa fa-edit"></i></li>
-															<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-														</ul>                      
-													</div>
-												</div>
-											</div><hr class="separator">	
-										</div>
-										<!-- gold+urgent package end -->
-										
-										<!-- gold package starts -->
-										<div class="col-md-12">
-											<div class="first_list gold_bgcolor">
-												<div class="row">
-													<div class="col-sm-4 ">
-														<div class="img-hover view_img">
-															<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-															<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-														</div>
-														<div class="">
-															<div class="price11">
-																<span></span><b>
-																<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-8 middle_text">
-														<div class="row">
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<h3 class="list_title">Sample text Here</h3>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-xs-4">
-																		<ul class="starts">
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																		</ul>
-																	</div>
-																	<div class="col-xs-8">
-																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="col-xs-4 serch_bus_logo">
-																<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-														</div>
-														<hr class="separator">
-														<div class="row">
-															<div class="col-xs-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-xs-4">
-																<div class="row">
-																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																		<h3 class="view_price">£1106</h3>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div><!-- End Row-->
-											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="post-meta list_view_bottom gold_bgcolor">
-														<ul>
-															<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-															<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-															<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-															<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-															<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-															<li><span>Deal ID : 112457856</span></li>
-															<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-															<li><i class="fa fa-edit"></i></li>
-															<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-														</ul>                      
-													</div>
-												</div>
-											</div><hr class="separator">	
-										</div>
-										<!-- gold package end -->
-										
-										<!-- free+urgent package starts -->
-										<div class="col-md-12">
-											<div class="first_list">
-												<div class="row">
-													<div class="col-sm-4 view_img">
-														<div class="featured-badge">
-															<span>Urgent</span>
-														</div>
-														<div class="img-hover">
-															<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
-															<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-														</div>
-													</div>
-													<div class="col-sm-8 middle_text">
-														<div class="row">
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<h3 class="list_title">Sample text Here</h3>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-xs-4">
-																		<ul class="starts">
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																		</ul>
-																	</div>
-																	<div class="col-xs-8">
-																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="col-xs-4 serch_bus_logo">
-																<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-														</div>
-														<hr class="separator">
-														<div class="row">
-															<div class="col-xs-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-xs-4">
-																<div class="row">
-																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																		<h3 class="view_price">£1106</h3>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div><!-- End Row-->
-											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="post-meta list_view_bottom" >
-														<ul>
-															<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-															<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-															<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-															<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-															<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-															<li><span>Deal ID : 112457856</span></li>
-															<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-															<li><i class="fa fa-edit"></i></li>
-															<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-														</ul>                      
-													</div>
-												</div>
-											</div><hr class="separator">	
-										</div>
-										<!-- free+urgent package ends -->
-										
-										<!-- free package starts -->
-										<div class="col-md-12">
-											<div class="first_list">
-												<div class="row">
-													<div class="col-sm-4 view_img">
-														<div class="img-hover">
-															<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
-															<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-														</div>
-													</div>
-													<div class="col-sm-8 middle_text">
-														<div class="row">
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<h3 class="list_title">Sample text Here</h3>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-xs-4">
-																		<ul class="starts">
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star"></i></a></li>
-																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																		</ul>
-																	</div>
-																	<div class="col-xs-8">
-																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="col-xs-4 serch_bus_logo">
-																<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-															</div>
-														</div>
-														<hr class="separator">
-														<div class="row">
-															<div class="col-xs-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-xs-4">
-																<div class="row">
-																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																		<h3 class="view_price">£1106</h3>
-																	</div>
-																	<div class="col-xs-12">
-																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div><!-- End Row-->
-											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="post-meta list_view_bottom" >
-														<ul>
-															<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-															<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-															<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-															<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-															<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-															<li><span>Deal ID : 112457856</span></li>
-															<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-															<li><i class="fa fa-edit"></i></li>
-															<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-														</ul>                      
-													</div>
-												</div>
-											</div><hr class="separator">	
-										</div>
-										<!-- free package ends -->
+									<div class="row list_view_searches search_result">
 									</div>
 								</div>
 							</div>

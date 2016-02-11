@@ -305,7 +305,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($pvalue->deal_tag), 20); ?> </p>
+																	<p class=""><?php echo substr(strip_tags($pvalue->deal_desc), 20); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>

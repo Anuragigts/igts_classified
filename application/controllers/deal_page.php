@@ -8,7 +8,7 @@
 class Deal_page extends CI_Controller{
         public function __construct(){
                 parent::__construct();
-                //$this->load->model("signup_model");
+                $this->load->model("hotdealsearch_model");
                }
         public function index(){
                 $data   =   array(
@@ -17,6 +17,11 @@ class Deal_page extends CI_Controller{
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
+        }
+
+        public function result_form(){
+           $rs['result'] = $this->hotdealsearch_model->hotdeal_search();
+           echo $this->load->view("classified/deal_page_search", $rs);
         }
 }
 

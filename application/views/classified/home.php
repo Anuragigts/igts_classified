@@ -470,6 +470,13 @@
 					<div class="portfolioContainer">
 						<!-- showall in most valued ads starts-->
 						<?php foreach ($mostvalue_show_all as $val){
+									/*currency symbol*/ 
+                                    	if ($val->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($val->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 showall">
 							<?php if ($val->urgent_package != '') { ?>
@@ -487,7 +494,7 @@
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
-								<h3 class="home_price">£454</h3>
+								<h3 class="home_price"><?php echo $currency.$val->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -498,6 +505,13 @@
 						<!-- showall in most valued ads ends-->
 						<!-- most valued ads for jobs -->
 						<?php foreach ($most_ads as $m_ads){
+									/*currency symbol*/ 
+                                    	if ($m_ads->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($m_ads->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 jobs">
 							<?php if ($m_ads->urgent_package != '') { ?>
@@ -514,7 +528,7 @@
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
-								<h3 class="home_price">£454</h3>
+								<h3 class="home_price"><?php echo $currency.$m_ads->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -524,6 +538,13 @@
 						<?php } ?>
 						<!-- most valued ads for services -->
 						<?php foreach ($most_ads_services as $m_ads_services){
+										/*currency symbol*/ 
+                                    	if ($m_ads_services->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($m_ads_services->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 services">
 							<?php if ($m_ads_services->urgent_package != '') { ?>
@@ -540,7 +561,7 @@
 								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
-								<h3 class="home_price">£454</h3>
+								<h3 class="home_price"><?php echo $currency.$m_ads_services->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -550,6 +571,13 @@
 						<?php } ?>
 						<!-- most valued ads for pets -->
 						<?php foreach ($most_ads_pets as $m_ads_pets){
+									/*currency symbol*/ 
+                                    	if ($m_ads_pets->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($m_ads_pets->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 pets">
 							<?php if ($m_ads_pets->urgent_package != '') { ?>
@@ -566,7 +594,7 @@
 								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
-								<h3 class="home_price">£454</h3>
+								<h3 class="home_price"><?php echo $currency.$m_ads_pets->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -577,6 +605,13 @@
 						
 						<!-- most valued ads for ezone -->
 						<?php foreach ($most_ads_ezone as $m_ads_ezone){
+									/*currency symbol*/ 
+                                    	if ($m_ads_ezone->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($m_ads_ezone->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 ezone">
 							<?php if ($m_ads_ezone->urgent_package != '') { ?>
@@ -593,7 +628,7 @@
 								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
-								<h3 class="home_price">£454</h3>
+								<h3 class="home_price"><?php echo $currency.$m_ads_ezone->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
@@ -625,7 +660,15 @@
 						<div class="col-sm-9">
 							<div id="boxes-carousel">
 								<!-- Item carousel Boxed-->
-								<?php foreach ($business_ads as $b_ads) { ?>
+								<?php foreach ($business_ads as $b_ads) {
+									/*currency symbol*/ 
+                                    	if ($b_ads->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($b_ads->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+								 ?>
 								<div>
 									<?php if ($b_ads->urgent_package != '') { ?>
 									<div class="bus_rec_badge">
@@ -654,7 +697,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<h3 class="home_price">£454</h3>
+										<h3 class="home_price"><?php echo $currency.$b_ads->price; ?></h3>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -681,7 +724,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<h3 class="home_price">£454</h3>
+										<h3 class="home_price"><?php echo $currency.$b_ads->price; ?></h3>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -710,7 +753,15 @@
 								<!-- Item carousel Boxed-->
 								<?php 
 									// echo "<pre>"; print_r(@$free_ads);
-									foreach ($free_ads as $free_val) { ?>
+									foreach ($free_ads as $free_val) {
+										/*currency symbol*/ 
+                                    	if ($free_val->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($free_val->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+									 ?>
 								<div>
 									<?php if ($free_val->urgent_package != '') { ?>
 											<div class="bus_rec_badge">
@@ -727,7 +778,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
-										<h3 class="home_price">£454</h3>
+										<h3 class="home_price"><?php echo $currency.$free_val->price; ?></h3>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
@@ -746,7 +797,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
-										<h3 class="home_price">£454</h3>
+										<h3 class="home_price"><?php echo $currency.$free_val->price; ?></h3>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
