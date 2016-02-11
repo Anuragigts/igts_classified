@@ -95,6 +95,33 @@
 						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
 					</div>
 				</li>
+				
+				<!-- SLIDE  -->
+				<li data-transition="slidevertical" >
+					<!-- MAIN IMAGE -->
+					<img src="img/slide/4.jpg"  alt="Slider3" title="Slider3">
+					<!-- LAYERS -->
+					<div class="tp-caption large_bold_white sft stb"
+						data-x="center"
+						data-y="260"
+						data-speed="300"
+						data-start="1000"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Find Your Category
+					</div>
+
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption small_light_white sfb stb"
+						data-x="center"
+						data-y="325"
+						data-speed="500"
+						data-start="1200"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+					</div>
+				</li>
 			</ul> 
 			<!-- END SLIDES  --> 
 			<div class="tp-bannertimer"></div>  
@@ -193,7 +220,7 @@
 										<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 										<div class="overlay">
 											<h2>E-Zone</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="ezone_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -202,7 +229,7 @@
 										<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
 										<div class="overlay">
 											<h2>Motor Point</h2>
-											<a class="info" href="motor_car_search">View Details</a>
+											<a class="info" href="motor_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -213,89 +240,7 @@
 										<img class="img-responsive" src="img/featured/clothing.jpg" alt="clothing" title="clothing Category">
 										<div class="overlay">
 											<h2>Clothing & LifeStyles</h2>
-											<a class="info" href="#" data-toggle="modal" data-target="#LifeStyles1">View Details</a>
-										</div>
-									</div>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="LifeStyles1" role="dialog">
-									<div class="modal-dialog">
-										<!-- Modal content-->
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h2>Clothing & LifeStyles Category</h2>
-											</div>
-											<form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
-											<div class="modal-body">
-												<div class="row">
-													<div class="col-md-12">
-														<div class="row">
-															<div class="col-md-4 col-sm-4 col-xs-12">
-																<div class="hovereffect">
-																	<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
-																	<div class="overlay">
-																		<h2>Women</h2>
-																		<a class="info" href="deal_page">View Details</a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4 col-sm-4 col-xs-12">
-																<div class="hovereffect">
-																	<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
-																	<div class="overlay">
-																		<h2>Men</h2>
-																		<a class="info" href="#">View Details</a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4 col-sm-4 col-xs-12">
-																<div class="hovereffect">
-																	<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
-																	<div class="overlay">
-																		<h2>Boy</h2>
-																		<a class="info" href="motor_car_search">View Details</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="row top_20">
-															<div class="col-md-4 col-sm-4 col-xs-12">
-																<div class="hovereffect">
-																	<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
-																	<div class="overlay">
-																		<h2>Girls</h2>
-																		<a class="info" href="deal_page">View Details</a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4 col-sm-4 col-xs-12">
-																<div class="hovereffect">
-																	<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
-																	<div class="overlay">
-																		<h2>Baby Boy</h2>
-																		<a class="info" href="#">View Details</a>
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4 col-sm-4 col-xs-12">
-																<div class="hovereffect">
-																	<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
-																	<div class="overlay">
-																		<h2>Baby Girl</h2>
-																		<a class="info" href="motor_car_search">View Details</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="top_20"></div>
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-											</div>
-										</form>
+											<a class="info" href="clothing_lifestyles_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -304,7 +249,7 @@
 										<img class="img-responsive" src="img/featured/services.jpg" alt="services" title="services Category">
 										<div class="overlay">
 											<h2>Services</h2>
-											<a class="info" href="#">View Details</a>
+											<a class="info" href="professional_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -313,7 +258,7 @@
 										<img class="img-responsive" src="img/featured/property.jpg" alt="property" title="property Category">
 										<div class="overlay">
 											<h2>Find a Property</h2>
-											<a class="info" href="property_search">View Details</a>
+											<a class="info" href="residential_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -324,7 +269,7 @@
 										<img class="img-responsive" src="img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
 										<div class="overlay">
 											<h2>Home & Kitchen</h2>
-											<a class="info" href="home_kitchen_search">View Details</a>
+											<a class="info" href="home_kitchen_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -333,7 +278,7 @@
 										<img class="img-responsive" src="img/featured/pets.jpg" alt="pets" title="pets Category">
 										<div class="overlay">
 											<h2>Pets</h2>
-											<a class="info" href="pets_search">View Details</a>
+											<a class="info" href="pets_view">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -342,7 +287,7 @@
 										<img class="img-responsive" src="img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
 										<div class="overlay">
 											<h2>Jobs</h2>
-											<div><a class="info" href="job_search">View Details</a></div>
+											<div><a class="info" href="job_view">View Details</a></div>
 										</div>
 									</div>
 								</div>
@@ -406,16 +351,17 @@
 												<div class="tab-content">
 													<!-- Tab One - DESCRIPTION -->
 													<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">
-														<p><?php echo substr(strip_tags($sig_val->deal_desc), 0, 50); ?> </p>
+														<p><?php echo substr(strip_tags($sig_val->deal_desc), 0, 40); ?> </p>
 													</div>
 													<!-- end Tab One - DESCRIPTION -->
 													<!-- Tab Two - contact -->
 													<div class="tab-pane paddi_ng" id="contact<?php echo $i; ?>">
-														<p> Mobile : <?php echo $person; ?></p>
-														<p> Email : <?php echo $mobile; ?></p>
+														<p> Mobile : <?php echo $person; ?> , Email : <?php echo $mobile; ?></p>
+														<p> </p>
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
+												<h3 class="home_price">£435</h3>
 												<a href="#" data-toggle="modal" data-target="#sendnow"  class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 												<?php  if ($sig_val->ad_type == 'business') {
 														if ($sig_val->bus_logo != '') {

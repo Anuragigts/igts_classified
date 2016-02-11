@@ -130,14 +130,14 @@
 												<ul class="list-styles">
 													<li id="e_zone_fil_show"><i class="fa fa-arrow-circle-o-right"></i> E-Zone
 														<ul class="filters_left" id="e_zone_fil_hide" style="display:none;">
-															<li><i class="fa fa-angle-right"></i> <a href="">Phones & Tablets</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Home Appliances</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Small Appliances</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Laptop & Computers</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Accessories</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Personal Care</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Home Entertainment</a></li>
-															<li><i class="fa fa-angle-right"></i> <a href="">Photography</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="phones_tablets_view">Phones & Tablets</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="home_applications_view">Home Appliances</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="small_applicaances_view">Small Appliances</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="laptop_computers_view">Laptop & Computers</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="accessories_view">Accessories</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="personal_care_view">Personal Care</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="home_entertainment_view">Home Entertainment</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="photography_view">Photography</a></li>
 														</ul>
 													</li>
 													<li id="motor_fil_show"><i class="fa fa-arrow-circle-o-right"></i> Motor Point

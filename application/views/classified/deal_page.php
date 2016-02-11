@@ -86,11 +86,10 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<div class="clearfix"></div>
-		<div class="content_info">
-			<form action="" method="post" class="j-forms" style="background-color: white ! important;">
-				<div class="paddings-mini ">
-					<div class="container wow fadeInUp">
+		<form action="" method="post" class="j-forms" style="background-color: white ! important;">
+			<div class="content_info">
+				<div class="paddings">
+					<div class="container">
 						<div class="row">
 							<div class="col-md-12 tabs-detailed">
 								<!-- Nav Tabs-->
@@ -151,10 +150,12 @@
 									</div>
 								</div>
 							</div>
+						</div>
+					</div>
 							
-							
-							
-							<div class="row deal_result_hide result_hide" style='display:none;'>
+					<div class="container">
+						<div class="row">		
+							<div class="deal_result_hide result_hide" style='display:none;'>
 								<hr class="top_20 separator">
 								<!-- Item Table-->
 								<div class="col-sm-3">
@@ -218,8 +219,8 @@
 														<i></i> Others
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div> 
+										</div> 
 
 										<div class="cd-filter-block">
 											<h4 class="title-widget closed">Fuel type</h4>
@@ -239,8 +240,8 @@
 														<i></i> Other
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div> 
+										</div> 
 										
 										<div class="cd-filter-block">
 											<h4 class="title-widget closed">Mileage</h4>
@@ -272,8 +273,8 @@
 														<i></i> Over 80,000 miles
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div>
+										</div>
 										
 										<div class="cd-filter-block">
 											<h4 class="title-widget closed">Seller Type</h4>
@@ -293,8 +294,8 @@
 														<i></i> Private
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div> 
+										</div> 
 										
 										<div class="cd-filter-block">
 											<h4 class="title-widget closed">Transmission</h4>
@@ -318,8 +319,8 @@
 														<i></i> Others
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div> 
+										</div>
 										
 										<div class="cd-filter-block">
 											<h4 class="title-widget closed">Engine Size</h4>
@@ -355,8 +356,8 @@
 														<i></i> Over 4,999 cc
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div> 
+										</div>
 										
 										<div class="cd-filter-block">
 											<h4 class="title-widget closed">Search Only</h4>
@@ -380,8 +381,8 @@
 														<i></i> Others
 													</label>
 												</div>
-											</div> <!-- cd-filter-content -->
-										</div> <!-- cd-filter-block -->
+											</div> 
+										</div> 
 									</div>
 								</div>
 								<!-- End Item Table-->
@@ -459,8 +460,8 @@
 						</div>
 					</div>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</section>
 	<!-- End Shadow Semiboxed -->
 	
