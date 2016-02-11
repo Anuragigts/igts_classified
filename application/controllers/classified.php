@@ -32,6 +32,14 @@ class Classified extends CI_Controller{
 
                                 /*most value show all ads*/
                                 $data['mostvalue_show_all'] = $this->classifed_model->mostvalue_show_all();
+                                /*most value for motor point*/
+                                $data['most_ads_motor'] = $this->classifed_model->most_ads_motor();
+                                /*most value for cloths and lifestyles*/
+                                $data['most_ads_cloths'] = $this->classifed_model->most_ads_cloths();
+                                /*most value for find a property*/
+                                $data['most_ads_property'] = $this->classifed_model->most_ads_property();
+                                /*most value for home and kitchen*/
+                                $data['most_ads_khome'] = $this->classifed_model->most_ads_khome();
                                                      
                 if($lid != ''){
                  /*over all ads for most value ads(displayed for jobs only)*/

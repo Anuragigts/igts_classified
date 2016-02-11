@@ -9,6 +9,34 @@
 class hotdealsearch_model extends CI_Model{
        
         public function hotdeal_search(){
+        	/*all categories and both business and consumer*/
+        		if ($this->input->post('cat') == 'all' && $this->input->post('bustype') == '0') {
+        			$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+					$this->db->from("postad as ad");
+					$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+					$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+					$this->db->where('loc.latt', $this->input->post('latt'));
+					$this->db->where('loc.longg', $this->input->post('longg'));
+					$this->db->group_by("img.ad_id");
+					$this->db->order_by("ad.ad_id", "DESC");
+					$res = $this->db->get();
+					return $res->result();
+        		}
+        		else if ($this->input->post('cat') == 'all' && ($this->input->post('bustype') != '' || $this->input->post('bustype') != '0')) {
+        			/*all categories and respective bus type*/
+        			$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+					$this->db->from("postad as ad");
+					$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+					$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+					$this->db->where('ad.ad_type', $this->input->post('bustype'));
+					$this->db->where('loc.latt', $this->input->post('latt'));
+					$this->db->where('loc.longg', $this->input->post('longg'));
+					$this->db->group_by("img.ad_id");
+					$this->db->order_by("ad.ad_id", "DESC");
+					$res = $this->db->get();
+					return $res->result();
+        		}
+        		else{
         		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 				$this->db->from("postad as ad");
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
@@ -21,6 +49,7 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->order_by("ad.ad_id", "DESC");
 				$res = $this->db->get();
 				return $res->result();
+			}
         }
 }
 ?>

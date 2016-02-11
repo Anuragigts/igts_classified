@@ -67,7 +67,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<i class="fa fa-map-marker "></i> 
-																			<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
@@ -243,6 +243,23 @@
 											}
 										 } ?>
 
+			<div class="modal fade" id="map_location" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<!-- <form action="#" method="post" class="j-forms " > -->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h2>Map Location</h2>
+							</div>
+							<div class="modal-body map_show">
+								
+							</div>
+						</div>
+					<!-- </form> -->
+				</div>
+			</div>
+
 	<link rel="stylesheet" href="libs/slider.css">
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
@@ -311,4 +328,15 @@
 	</script>
 	 <script>
 		$('.xuSlider').xuSlider();
+	</script>
+
+	<!-- location map -->
+	<script type="text/javascript">
+	$(function(){
+		$(".loc_map").click(function(){
+			var val = $(".loc_map").attr("id");
+			var val1 = val.split(",");
+			$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+		});
+	});
 	</script>

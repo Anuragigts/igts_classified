@@ -405,11 +405,15 @@
 					<!-- Nav Filters -->
 					<div class="portfolioFilter">
 						<a href="#showall" data-filter=".showall" class="current">Show All</a>
-						<a href="#jobs" data-filter=".jobs">jobs</a>
-						<a href="#services" data-filter=".services">Services</a>
-						<a href="#pets" data-filter=".pets">Pets</a>
-						<!-- <a href="#deals" data-filter=".deals">Deals</a> -->
 						<a href="#ezone" data-filter=".ezone">E-Zone</a>
+						<a href="#motorpoint" data-filter=".motorpoint">Motor Point</a>
+						<a href="#cloths_lifestyles" data-filter=".cloths_lifestyles">Clothing & LifeStyles</a>
+						<a href="#services" data-filter=".services">Services</a>
+						<a href="#findproperty" data-filter=".findproperty">Find a Property</a>
+						<a href="#homekitchen" data-filter=".homekitchen">Home & Kitchen</a>
+						<a href="#pets" data-filter=".pets">Pets</a>
+						<a href="#jobs" data-filter=".jobs">jobs</a>
+						
 					</div>
 					<!-- End Nav Filters -->
 					<!-- Items Gallery filters-->
@@ -515,6 +519,143 @@
 							</div>
 						</div>
 						<?php } ?>
+
+						<!-- most valued ads for motor point -->
+						<?php foreach ($most_ads_motor as $motor_val){
+										/*currency symbol*/ 
+                                    	if ($motor_val->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($motor_val->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+							?>
+						<div class="col-xs-12 col-sm-6 col-md-3 motorpoint">
+							<?php if ($motor_val->urgent_package != '') { ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
+							</div>
+								<?php	} ?>
+							<div class="img-hover">
+								<img src="ad_images/<?php echo $motor_val->img_name; ?>" alt="<?php echo $motor_val->img_name; ?>" title="services" class="img-responsive">
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+							</div>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($motor_val->deal_tag,0,20); ?></h3>
+								<hr class="separator">
+								<p><?php echo substr(strip_tags($motor_val->deal_desc),0,44); ?> </p>
+								<h3 class="home_price"><?php echo $currency.$motor_val->price; ?></h3>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+
+						<!-- most valued ads for cloths and lifestyles -->
+						<?php foreach ($most_ads_cloths as $cloth_val){
+										/*currency symbol*/ 
+                                    	if ($cloth_val->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($cloth_val->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+							?>
+						<div class="col-xs-12 col-sm-6 col-md-3 cloths_lifestyles">
+							<?php if ($cloth_val->urgent_package != '') { ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
+							</div>
+								<?php	} ?>
+							<div class="img-hover">
+								<img src="ad_images/<?php echo $cloth_val->img_name; ?>" alt="<?php echo $cloth_val->img_name; ?>" title="services" class="img-responsive">
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+							</div>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($cloth_val->deal_tag,0,20); ?></h3>
+								<hr class="separator">
+								<p><?php echo substr(strip_tags($cloth_val->deal_desc),0,44); ?> </p>
+								<h3 class="home_price"><?php echo $currency.$cloth_val->price; ?></h3>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+
+						<!-- most valued ads for find a property -->
+						<?php foreach ($most_ads_property as $prop_val){
+										/*currency symbol*/ 
+                                    	if ($prop_val->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($prop_val->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+							?>
+						<div class="col-xs-12 col-sm-6 col-md-3 findproperty">
+							<?php if ($prop_val->urgent_package != '') { ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
+							</div>
+								<?php	} ?>
+							<div class="img-hover">
+								<img src="ad_images/<?php echo $prop_val->img_name; ?>" alt="<?php echo $prop_val->img_name; ?>" title="services" class="img-responsive">
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+							</div>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($prop_val->deal_tag,0,20); ?></h3>
+								<hr class="separator">
+								<p><?php echo substr(strip_tags($prop_val->deal_desc),0,44); ?> </p>
+								<h3 class="home_price"><?php echo $currency.$prop_val->price; ?></h3>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+
+						<!-- most valued ads for home and kitchen -->
+						<?php foreach ($most_ads_khome as $khome_val){
+										/*currency symbol*/ 
+                                    	if ($khome_val->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($khome_val->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+							?>
+						<div class="col-xs-12 col-sm-6 col-md-3 homekitchen">
+							<?php if ($khome_val->urgent_package != '') { ?>
+							<div class="most_valued_badge">
+								<span>Urgent</span>
+							</div>
+								<?php	} ?>
+							<div class="img-hover">
+								<img src="ad_images/<?php echo $khome_val->img_name; ?>" alt="<?php echo $khome_val->img_name; ?>" title="services" class="img-responsive">
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+							</div>
+							
+							<div class="info-gallery gold_bgcolor">
+								<h3><?php echo substr($khome_val->deal_tag,0,20); ?></h3>
+								<hr class="separator">
+								<p><?php echo substr(strip_tags($khome_val->deal_desc),0,44); ?> </p>
+								<h3 class="home_price"><?php echo $currency.$khome_val->price; ?></h3>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<div class="price">
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+
 						<!-- most valued ads for pets -->
 						<?php foreach ($most_ads_pets as $m_ads_pets){
 									/*currency symbol*/ 

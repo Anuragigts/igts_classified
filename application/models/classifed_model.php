@@ -182,6 +182,86 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
+	/*dammy for most value ads for motorpoint */
+	public function most_ads_motor(){
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "motorpoint");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	/*dammy for most value ads for cloths and lifestyles */
+	public function most_ads_cloths(){
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "clothing_&_lifestyles");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	/*dammy for most value ads for find a property*/
+	public function most_ads_property(){
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "findaproperty");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	/*dammy for most value ads for home and kitchen*/
+	public function most_ads_khome(){
+		$this->db->select("ad.*, img.*");
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.category_id", "kitchenhome");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.ad_id', 'DESC');
+		$this->db->limit(8);
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
 	/*dammy for most value ads for pets */
 	public function most_ads_pets(){
 		$this->db->select("ad.*, img.*");

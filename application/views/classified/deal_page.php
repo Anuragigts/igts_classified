@@ -123,7 +123,7 @@
 													<input type='hidden' name='latt' id='latt' value='' >
 													<input type='hidden' name='longg' id='longg' value='' >
 													<select name="category_name" id="category_name">
-														<option value="none" selected disabled="">Select Category</option>
+														<option value="all" selected >All</option>
 														<option value="ezone">E-Zone</option>
 														<option value="motorpoint">Motor Point</option>
 														<option value="clothing_&_lifestyles">Clothing & LifeStyles</option>
