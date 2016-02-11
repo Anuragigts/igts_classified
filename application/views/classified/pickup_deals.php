@@ -290,7 +290,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location" data-toggle="modal" data-target="#map_location"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $pvalue->latt.','.$pvalue->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $pvalue->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -299,7 +299,7 @@
 														<?php if ($pvalue->ad_type != 'consumer') {
 																if ($pvalue->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -419,7 +419,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $pvalue->latt.','.$pvalue->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $pvalue->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -428,7 +428,7 @@
 														<?php if ($pvalue->ad_type != 'consumer') {
 																if ($pvalue->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -534,7 +534,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $pvalue->latt.','.$pvalue->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $pvalue->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -543,7 +543,7 @@
 														<?php if ($pvalue->ad_type != 'consumer') {
 																if ($pvalue->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -644,7 +644,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $pvalue->latt.','.$pvalue->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $pvalue->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -653,7 +653,7 @@
 														<?php if ($pvalue->ad_type != 'consumer') {
 																if ($pvalue->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -753,7 +753,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $pvalue->latt.','.$pvalue->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $pvalue->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -762,7 +762,7 @@
 														<?php if ($pvalue->ad_type != 'consumer') {
 																if ($pvalue->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -857,7 +857,7 @@
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
 																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a>
+																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $pvalue->latt.','.$pvalue->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $pvalue->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
 															</div>
@@ -866,7 +866,7 @@
 														<?php if ($pvalue->ad_type != 'consumer') {
 																if ($pvalue->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $pvalue->bus_logo; ?>" alt="<?php echo $pvalue->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -936,17 +936,17 @@
 	<div class="modal fade" id="map_location" role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
-			<form action="#" method="post" class="j-forms " >
+			<!-- <form action="#" method="post" class="j-forms " > -->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h2>Map Location</h2>
 					</div>
-					<div class="modal-body">
-						<div id="googleMap" style="width:500px;height:380px;"></div>
+					<div class="modal-body map_show">
+						
 					</div>
 				</div>
-			</form>
+			<!-- </form> -->
 		</div>
 	</div>
 	
@@ -1005,3 +1005,14 @@
 
 	<script src="libs/jquery.mixitup.min.js"></script>
 	<script src="libs/main.js"></script>
+
+	<!-- location map -->
+	<script type="text/javascript">
+	$(function(){
+		$(".loc_map").click(function(){
+			var val = $(".loc_map").attr("id");
+			var val1 = val.split(",");
+			$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+		});
+	});
+	</script>

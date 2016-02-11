@@ -157,8 +157,170 @@
 						<div class="row">		
 							<div class="deal_result_hide result_hide" style='display:none;'>
 								<hr class="top_20 separator">
+								<div class="col-sm-3 all_categories">
+								<div class="container-by-widget-filter bg-dark color-white">
+									<!-- Widget Filter -->
+									<h3 class="title-widget">Filters</h3>
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Categories</h4>
+										<div class="cd-filter-content">
+											<div class="filters_categories">
+												<ul class="list-styles">
+													<li id="e_zone_fil_show"><i class="fa fa-arrow-circle-o-right"></i> E-Zone
+														<ul class="filters_left" id="e_zone_fil_hide" style="display:none;">
+															<li><i class="fa fa-angle-right"></i> <a href="phones_tablets_view">Phones & Tablets</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="home_applications_view">Home Appliances</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="small_applicaances_view">Small Appliances</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="laptop_computers_view">Laptop & Computers</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="accessories_view">Accessories</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="personal_care_view">Personal Care</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="home_entertainment_view">Home Entertainment</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="photography_view">Photography</a></li>
+														</ul>
+													</li>
+													<li id="motor_fil_show"><i class="fa fa-arrow-circle-o-right"></i> Motor Point
+														<ul class="filters_left" id="motor_fil_hide" style="display:none;">
+															<li><i class="fa fa-angle-right"></i> <a href="cars_view">Cars</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="bikes_scoters_view">Bikes & Scooters</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="motorhomes_caravans_view">Motor-homes & Caravans</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="vans_trunks_svu_view">Vans,Trunks & SUV's</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="coaches_busses_view">Coaches & Buses</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="plantmachinery_view">Plant Machinery</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="farmingvehicles_view">Farming Vehicles</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="boats_view">Boats</a></li>
+														</ul>
+													</li>
+													<li id="clot_fil_show"><i class="fa fa-arrow-circle-o-right"></i> Clothing & LifeStyles
+														<ul class="filters_left" id="clot_fil_hide" style="display:none;">
+															<li><i class="fa fa-angle-right"></i> <a href="women_view">Women</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="men_view">Men </a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="boys_view">Boy</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="girls_view">Girls</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="baby_boy_view">Baby Boy</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="baby_girl_view">Baby Girl</a></li>
+														</ul>
+													</li>
+													<li id="service_fil_show"><i class="fa fa-arrow-circle-o-right"></i> Services
+														<ul class="filters_left" id="service_fil_hide" style="display:none;">
+															<li><i class="fa fa-angle-right"></i> <a href="professional_view">Professional </a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="popular_view">Popular </a></li>
+														</ul>
+													</li>
+													<li id="property_fil_show"><i class="fa fa-arrow-circle-o-right"></i> Find a Property
+														<ul class="filters_left" id="property_fil_hide" style="display:none;">
+															<li><i class="fa fa-angle-right"></i> <a href="residential_view">Residential</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="commercial_view">Commercial </a></li>
+														</ul>
+													</li>
+													<li id="home_fil_show"><i class="fa fa-arrow-circle-o-right"></i> Home & Kitchen
+														<ul class="filters_left" id="home_fil_hide" style="display:none;">
+															<li><i class="fa fa-angle-right"></i> <a href="kitchen_essentials_view">Kitchen Essentials</a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="home_essentials_view">Home Essentials </a></li>
+															<li><i class="fa fa-angle-right"></i> <a href="decor_view">Decor </a></li>
+														</ul>
+													</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="pets_view">Pets</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="job_view">Jobs</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed">Location</h4>
+
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div id="limit_scrol">
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Madhapur
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Banjara Hills
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> madhapur
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Secunderabad 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Kachiguda 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> JNTU 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> KPHP 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Jubilee Hills 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Lakdikapul
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Khairatabad
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Dilsukhnagar
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Others
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget">Search Only</h4>
+
+										<div class="cd-filter-content">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Urgent Deals 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Feature Deals
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Deals With Pictures
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Others
+												</label>
+											</div>
+										</div> <!-- cd-filter-content -->
+									</div> <!-- cd-filter-block -->
+								</div>
+								<div class="row top_20">
+									<div class="col-sm-12">
+										<iframe id="google_ad_92003487801" sandbox="allow-scripts" src="https://tpc.googlesyndication.com/sadbundle/11713703021028404835/300x250/300x250_RI.html#t=2984758803809756206&amp;p=https%3A%2F%2Fgoogleads.g.doubleclick.net" scrolling="no" style="border:0;overflow:hidden;" frameborder="0" height="250" width="260"></iframe>
+									</div>
+								</div>
+								<div class="row top_20">
+									<div class="col-sm-12">
+										<iframe id="google_ad_92003487801" sandbox="allow-scripts" src="https://tpc.googlesyndication.com/sadbundle/11713703021028404835/300x250/300x250_RI.html#t=2984758803809756206&amp;p=https%3A%2F%2Fgoogleads.g.doubleclick.net" scrolling="no" style="border:0;overflow:hidden;" frameborder="0" height="250" width="260"></iframe>
+									</div>
+								</div>
+							</div>
 								<!-- Item Table-->
-								<div class="col-sm-3">
+								<div class="col-sm-3" style="display: none;">
 									<div class="container-by-widget-filter bg-dark color-white">
 										<!-- Widget Filter -->
 										<h3 class="title-widget">Cars Filter</h3>
@@ -438,12 +600,12 @@
 											<div class="col-md-3">
 												<ul class="style-view">
 													<li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-														<a href="deals_administrator_box">
+														<a href="deal_page_box">
 															<i class="fa fa-th-large"></i>
 														</a>
 													</li>
 													<li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-														<a href="deals_administrator">
+														<a href="deal_page">
 															<i class="fa fa-list"></i>
 														</a>
 													</li> 

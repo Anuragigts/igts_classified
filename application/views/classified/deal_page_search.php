@@ -75,7 +75,7 @@
 															<?php if ($rs->ad_type != 'consumer') {
 																if ($rs->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
@@ -187,7 +187,7 @@
 															<?php if ($rs->ad_type != 'consumer') {
 																if ($rs->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="ad_images/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
