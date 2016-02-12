@@ -300,12 +300,13 @@
 										<?php
 											$i=1;
 											 foreach ($sig_ads as $sig_val) {
-												if ($sig_val->currency == 'pound') {
-													$currency = '£';
-												}
-												else if ($sig_val->currency == 'euro') {
-													$currency = '€';
-												}
+											 	/*currency symbol*/ 
+		                                    	if ($sig_val->currency == 'pound') {
+		                                    		$currency = '£';
+		                                    	}
+		                                    	else if ($sig_val->currency == 'euro') {
+		                                    		$currency = '€';
+		                                    	}
 											  if ($sig_val->ad_type == 'business') { 
 											  	$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$sig_val->ad_id'"), 0, 'contact_person');
 											  	$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$sig_val->ad_id'"), 0, 'mobile');
@@ -450,7 +451,9 @@
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
+								<?php if ($val->category_id != 'jobs') { ?>
 								<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
+								<?php } ?>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -461,13 +464,7 @@
 						<!-- showall in most valued ads ends-->
 						<!-- most valued ads for jobs -->
 						<?php foreach ($most_ads as $m_ads){
-									/*currency symbol*/ 
-                                    	if ($m_ads->currency == 'pound') {
-                                    		$currency = '£';
-                                    	}
-                                    	else if ($m_ads->currency == 'euro') {
-                                    		$currency = '€';
-                                    	}
+									
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 jobs">
 							<?php if ($m_ads->urgent_package != '') { ?>
@@ -484,7 +481,7 @@
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.number_format($m_ads->price); ?></h3>
+								
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
