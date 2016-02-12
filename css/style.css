@@ -5478,7 +5478,63 @@ tbody tr th{
 }
 .home_price{
 	font-size: 30px !important;
+	color: #E95413 !important;
 }
 .active_filter{
 	color:#E95413 !important;
+}
+
+
+
+
+
+
+/*The Range Bar*/
+input[type="range"]{
+  -webkit-appearance:none;
+  width:100%;
+  padding:0px;
+  margin-top:12px;
+  /* box-shadow: inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3); */
+  background: #ffffff;
+  overflow:hidden;
+  outline:none;
+  /* border:1px solid rgba(0,0,0,0.7); */
+}
+
+/*The Range Dial*/
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:20px;
+  height:20px;
+	background:#333;
+  position:relative;
+  z-index:3;
+  box-shadow: inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3); 
+}
+
+input[type="range"]::-webkit-slider-thumb:hover{
+  cursor:pointer;
+}
+
+input[name="range"]::-webkit-slider-thumb:after{
+  content:" ";
+  width:1000px;
+  height:100%;
+  position:absolute;
+  z-index:1;
+  right:22px;
+  top:0px;
+background: rgb(116,252,250); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(116,252,250,1) 0%, rgba(89,205,247,1) 50%, rgba(54,200,237,1) 52%, rgba(34,244,230,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(116,252,250,1)), color-stop(50%,rgba(89,205,247,1)), color-stop(52%,rgba(54,200,237,1)), color-stop(100%,rgba(34,244,230,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(116,252,250,1) 0%,rgba(89,205,247,1) 50%,rgba(54,200,237,1) 52%,rgba(34,244,230,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(116,252,250,1) 0%,rgba(89,205,247,1) 50%,rgba(54,200,237,1) 52%,rgba(34,244,230,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(116,252,250,1) 0%,rgba(89,205,247,1) 50%,rgba(54,200,237,1) 52%,rgba(34,244,230,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(116,252,250,1) 0%,rgba(89,205,247,1) 50%,rgba(54,200,237,1) 52%,rgba(34,244,230,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', endColorstr='#22f4e6',GradientType=0 ); /* IE6-9 */ 
+}
+
+.range1 .label,.price_output{
+	color:#E95413;
 }
