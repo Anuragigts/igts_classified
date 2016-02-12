@@ -196,7 +196,7 @@
 						</div>
 						<div class="col-md-4">
 							<div class="titles">
-								<h2><span>SIGNIFICANT </span>DEALS</h2>
+								<h2><span>HOT </span>DEALS</h2>
 								<hr class="tall">
 							</div>
 						</div>
@@ -407,7 +407,7 @@
 			<div class="paddings-mini">
 				<div class="container">
 					<div class="titles recen_ad">
-						<h2>MOST <span>VALUE </span>DEALS</h2>
+						<h2>SIGNIFICANT <span> DEALS</span></h2>
 					</div>
 					<!-- Nav Filters -->
 					<div class="portfolioFilter">

@@ -312,7 +312,7 @@
 												</a>
 											</div>
 											<div class="pull-right">
-												<i class="fa fa-thumbs-o-up fa-2x bg_clr1" ></i>
+												<i class="fa fa-thumbs-o-up fa-2x bg_clr1" title="Like Ad" ></i>
 											</div>
 										</div>
 										<!-- Post Header-->

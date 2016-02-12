@@ -131,7 +131,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where("ad.package_type", "gold");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
-		$this->db->limit(8);
+		$this->db->limit(12);
 
 		$m_res = $this->db->get();
 
