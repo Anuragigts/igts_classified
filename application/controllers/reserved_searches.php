@@ -14,9 +14,13 @@ class Reserved_searches extends CI_Controller{
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
+				
+				$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+				
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "reserved_searches"
+                        "content"   =>  "reserved_searches",
+                        'log_name'=>$log_name
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);

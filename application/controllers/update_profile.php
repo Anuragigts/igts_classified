@@ -15,6 +15,8 @@ class Update_profile extends CI_Controller{
                 if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
+				
+				$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
 
                 if ($this->session->userdata("postad_time") != '') {
                     $new_time = time() - $this->session->userdata("postad_time");
@@ -30,7 +32,8 @@ class Update_profile extends CI_Controller{
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "update_profile",
-                        'prof_data' =>  $this->profile_model->prof_data()
+                        'prof_data' =>  $this->profile_model->prof_data(),
+                        'log_name'=>$log_name
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
