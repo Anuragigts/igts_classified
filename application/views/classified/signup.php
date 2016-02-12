@@ -9,10 +9,9 @@
 					overflow: hidden;
 				}
 			</style>
-		<link rel="stylesheet" type="text/css" media="all" href="signreg.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/signreg.css">
 		<link rel="stylesheet" href="j-folder/css/j-forms.css">
-		<script type="text/javascript" src="switchery.min.js"></script>
-        <script type="text/javascript">
+		<script type="text/javascript">
         /*accept number only*/
     function isNumber(evt) {
             evt = (evt) ? evt : window.event;
