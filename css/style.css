@@ -3959,7 +3959,7 @@ address strong{
 .view_price{
 	color:white;
 	padding-left:0px;
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: bold;
 	margin-top: 9px;
 }
@@ -5401,7 +5401,7 @@ tbody th,td{
 }
 .view_price_1{
 	color:white;
-	padding: 23px 37px 27px 38px;
+	padding: 22px 37px 27px 35px;
 	margin-right: 76px !important;
 	font-size: 18px;
 }
