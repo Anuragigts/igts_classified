@@ -300,6 +300,12 @@
 										<?php
 											$i=1;
 											 foreach ($sig_ads as $sig_val) {
+												if ($sig_val->currency == 'pound') {
+													$currency = '£';
+												}
+												else if ($sig_val->currency == 'euro') {
+													$currency = '€';
+												}
 											  if ($sig_val->ad_type == 'business') { 
 											  	$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$sig_val->ad_id'"), 0, 'contact_person');
 											  	$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$sig_val->ad_id'"), 0, 'mobile');
@@ -361,7 +367,7 @@
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
-												<h3 class="home_price">£435</h3>
+												<h3 class="home_price"><?php echo $currency.number_format($sig_val->price); ?></h3>
 												<a href="#" data-toggle="modal" data-target="#sendnow"  class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 												<?php  if ($sig_val->ad_type == 'business') {
 														if ($sig_val->bus_logo != '') {
@@ -444,7 +450,7 @@
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$val->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -478,7 +484,7 @@
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$m_ads->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($m_ads->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -511,7 +517,7 @@
 								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$m_ads_services->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($m_ads_services->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -545,7 +551,7 @@
 								<h3><?php echo substr($motor_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($motor_val->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$motor_val->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($motor_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -579,7 +585,7 @@
 								<h3><?php echo substr($cloth_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($cloth_val->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$cloth_val->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($cloth_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -613,7 +619,7 @@
 								<h3><?php echo substr($prop_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($prop_val->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$prop_val->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($prop_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -647,7 +653,7 @@
 								<h3><?php echo substr($khome_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($khome_val->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$khome_val->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($khome_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -681,7 +687,7 @@
 								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$m_ads_pets->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($m_ads_pets->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -715,7 +721,7 @@
 								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"><?php echo $currency.$m_ads_ezone->price; ?></h3>
+								<h3 class="home_price"><?php echo $currency.number_format($m_ads_ezone->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
 									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -784,7 +790,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<h3 class="home_price"><?php echo $currency.$b_ads->price; ?></h3>
+										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -805,7 +811,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<h3 class="home_price"><?php echo $currency.$b_ads->price; ?></h3>
+										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -859,7 +865,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
-										<h3 class="home_price"><?php echo $currency.$free_val->price; ?></h3>
+										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
@@ -875,7 +881,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
-										<h3 class="home_price"><?php echo $currency.$free_val->price; ?></h3>
+										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>

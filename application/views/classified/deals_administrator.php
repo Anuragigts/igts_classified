@@ -317,7 +317,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
+																	<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -336,7 +336,6 @@
 														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -445,7 +444,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
+																	<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -464,7 +463,6 @@
 														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -553,7 +551,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
+																	<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -572,7 +570,6 @@
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -663,7 +660,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
+																	<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -682,7 +679,6 @@
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -764,7 +760,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?></h3>
+																	<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -783,7 +779,6 @@
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
@@ -868,7 +863,7 @@
 														<div class="col-xs-4">
 															<div class="row">
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.$m_details->price; ?>	</h3>
+																	<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?>	</h3>
 																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
@@ -887,7 +882,6 @@
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 														<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
 														<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 														<li><i class="fa fa-edit"></i></li>
 														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>

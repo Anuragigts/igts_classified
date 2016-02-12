@@ -157,7 +157,7 @@
 				}
 				$posted_on = date("M d, Y H:i:s", strtotime($ads_desc_val->created_on));
 				$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
-				$price = $currency.$ads_desc_val->price;
+				$price = $currency.number_format($ads_desc_val->price);
 
 				/*weblink*/
 			if ($ads_desc_val->web_link != '') {
@@ -238,11 +238,6 @@
 															</li>
 
 															<li>
-																<i class="fa fa-eye"></i>
-																<span>234 Views</span>
-															</li>
-															
-															<li>
 																<span>Deal ID : <?php echo $dealid; ?></span>
 															</li>
 														</ul>                      
@@ -282,6 +277,7 @@
 													<li>Description</li>
 													<li>Reviews</li>
 													<li>Map View</li>
+													<li>Report</li>
 												</ul>
 												<div class="resp-tabs-container hor_1">
 													<div>
@@ -346,6 +342,38 @@
 														 <iframe src = "https://maps.google.com/maps?q=<?php echo $ads_loc_val->latt; ?>,<?php echo $ads_loc_val->longg; ?>&hl=es;z=5&amp;output=embed" width="500px" height="500px"></iframe>
 														 <?php } ?>
 														</p>
+													</div>
+													<div>
+														<form action="#" method="post" class="j-forms tooltip-hover">
+															<aside class="widget view_sidebar">
+																<div class="j-row">
+																	<label class="radio">
+																		<input type="radio" name="report_view" value="" checked="">
+																		<i></i> This is illegal/fraudulent
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="report_view" value="">
+																		<i></i> This deal is spam
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="report_view" value="">
+																		<i></i> This deal is a duplicate
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="report_view" value="">
+																		<i></i> This deal is in the wrong category
+																	</label>
+																	<div class="unit">
+																		<div class="input">
+																			<textarea type="text" id="" name="" placeholder="Please Provide more Information"></textarea>
+																		</div>
+																	</div>
+																	<div class="unit">													
+																		<button class="btn btn-primary " id='change_pwd'>Send Report</button>
+																	</div>
+																</div>
+															</aside>
+														</form>
 													</div>
 												</div>
 											</div>
@@ -561,9 +589,8 @@
 										</div>
 									</div>
 								</aside>
-								<div class="">
+								<div class="text_center">
 									<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
-									<a class="report_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Report</span></a>
 								</div>
 								<form action="#" method="post" class="j-forms tooltip-hover">
 									<aside class="widget view_sidebar send_now_hide" style="display:none;">
@@ -623,36 +650,7 @@
 										</div>
 									</aside>
 								</form>
-								<form action="#" method="post" class="j-forms tooltip-hover">
-									<aside class="widget view_sidebar report_hide" style="display:none;">
-										<div class="j-row">
-											<label class="radio">
-												<input type="radio" name="report_view" value="" checked="">
-												<i></i> This is illegal/fraudulent
-											</label>
-											<label class="radio">
-												<input type="radio" name="report_view" value="">
-												<i></i> This deal is spam
-											</label>
-											<label class="radio">
-												<input type="radio" name="report_view" value="">
-												<i></i> This deal is a duplicate
-											</label>
-											<label class="radio">
-												<input type="radio" name="report_view" value="">
-												<i></i> This deal is in the wrong category
-											</label>
-											<div class="unit">
-												<div class="input">
-													<textarea type="text" id="" name="" placeholder="Please Provide more Information"></textarea>
-												</div>
-											</div>
-											<div class="unit">													
-												<button class="btn btn-primary " id='change_pwd'>Send Report</button>
-											</div>
-										</div>
-									</aside>
-								</form>
+								
 								<aside class="widget view_sidebar1">
 									<h3 class="imp_tant1">Important Safety Tips</h3>
 									<ul class="list-styles">
