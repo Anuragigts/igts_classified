@@ -787,7 +787,9 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -808,7 +810,9 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -862,7 +866,9 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
+										<?php if ($free_val->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
@@ -878,7 +884,9 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
+										<?php if ($free_val->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>

@@ -42,6 +42,7 @@
 		else{
 			$(".favourite_label1").removeClass('active');
 		}
+		
 		$(".favourite_label").click(function(){
 			var log = $("#login_status").val();
 			if (log == 'no') {
@@ -79,10 +80,59 @@
 				$(".favourite_label1").removeClass('active');
 			}
 		});
-		
+		function rgb2hex(rgb){
+		 rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+		 return (rgb && rgb.length === 4) ? "#" +
+		  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+		  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+		  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+		}
 		$('.bg_clr1').click( function() {
-			$(this).css('color', '#E24A14')
+			var log = $("#login_status").val();
+			if (log == 'no') {
+				window.location.href = "<?php echo base_url(); ?>login";
+			}
+			if (rgb2hex($(this).css('color')) == '#727272') {
+				$(this).css('color', '#E24A14');
+				$.ajax({
+				type: "POST",
+				url: "<?php echo base_url();?>description_view/add_likes",
+				data: {
+					ad_id: $("#ad_id").val(), 
+					login_id: $("#login_id").val()
+				},
+				// dataType: "json",
+				success: function (data) {}
+			})
+			}
+			else{
+				$.ajax({
+				type: "POST",
+				url: "<?php echo base_url();?>description_view/remove_likes",
+				data: {
+					ad_id: $("#ad_id").val(), 
+					login_id: $("#login_id").val()
+				},
+				// dataType: "json",
+				success: function (data) {}
+			})
+				$(this).css('color', '#727272');
+			}
+			
 		});
+	});
+	</script>
+
+	<script type="text/javascript">
+	$(function(){
+		/*likes display*/
+		var ads_likes = <?php echo count($ads_likes); ?>;
+		if (ads_likes > 0) {
+			$('.bg_clr1').css('color', '#E24A14');
+		}
+		else{
+			$('.bg_clr1').css('color', '#727272');
+		}
 	});
 	</script>
 	
@@ -258,7 +308,7 @@
 												</a>
 											</div>
 											<div class="pull-right">
-												<i class="fa fa-thumbs-o-up fa-2x bg_clr1"></i>
+												<i class="fa fa-thumbs-o-up fa-2x bg_clr1" ></i>
 											</div>
 										</div>
 										<!-- Post Header-->

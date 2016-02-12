@@ -250,7 +250,7 @@
 									</div>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deals posted in</h4>
+										<h4 class="title-widget closed">Deals posted</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div id="limit_scrol">
