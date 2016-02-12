@@ -27,7 +27,7 @@
 						data-start="1000"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Find Your Category
+						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
 					</div>
 
 					<!-- LAYER NR. 3 -->
@@ -38,7 +38,7 @@
 						data-start="1200"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+						data-easing="easeOutExpo">Get Someone to Get Dirty ...For You
 					</div>
 				</li>
 
@@ -54,7 +54,7 @@
 						data-start="1000"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Find Your Category
+						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
 					</div>
 
 					<!-- LAYER NR. 3 -->
@@ -65,7 +65,7 @@
 						data-start="1200"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+						data-easing="easeOutExpo">More Tech for Less Buck
 					</div>
 				</li>
 
@@ -81,7 +81,7 @@
 						data-start="1000"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Find Your Category
+						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
 					</div>
 
 					<!-- LAYER NR. 3 -->
@@ -92,14 +92,14 @@
 						data-start="1200"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+						data-easing="easeOutExpo">The Look You Deserve
 					</div>
 				</li>
 				
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical" >
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/4.jpg"  alt="Slider3" title="Slider3">
+					<img src="img/slide/5.jpg"  alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -108,7 +108,7 @@
 						data-start="1000"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Find Your Category
+						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
 					</div>
 
 					<!-- LAYER NR. 3 -->
@@ -119,7 +119,7 @@
 						data-start="1200"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+						data-easing="easeOutExpo">Not Just About Property, Its Selling a Lifestyle / Helping You Find the Property of Your Dream
 					</div>
 				</li>
 			</ul> 
@@ -142,7 +142,7 @@
 					</div>
 					<input type="text" required="required" placeholder="Location" class="input-large">
 					<i class="fa fa-map-marker fa-2x loca_pad"></i>
-					<input class="date-input" id="slider-range" type="text"  value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="20" /> 
+					<input id="slider-range" type="text" class="span2"  data-slider-min="1" data-slider-max="20" data-slider-step="2" /> 
 					<input type="submit" class="pull-right" value="Search">
 				</form>
 			</div>

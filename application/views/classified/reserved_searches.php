@@ -58,9 +58,8 @@
 						<div class="col-sm-3">
 							<div class="item-table">
 								<div class="header-table color-red">
-									<img src="img/icons/people.png" alt="people" title="people image">
-									<h2>User Name</h2>
-									<!--<span>$ 99 / per month</span> -->
+									<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="Profile" class="img-responsive pvt-no-img">
+									<h2><?php echo @$log_name; ?></h2> 
 								</div>
 								<ul class="dashboard_tag">
 									<li><img src="img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>

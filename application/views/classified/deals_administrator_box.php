@@ -239,7 +239,7 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
-												<h3 class="home_price"><?php echo $currency.$m_details->price; ?></h3>
+												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
 													<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b> 
@@ -289,7 +289,8 @@
 												</ul>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
-													<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b><?php echo $currency.$m_details->price; ?>
+													<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
+													<?php echo $currency.number_format($m_details->price); ?>
 												</div>
 											</div>
 										</div>
@@ -323,7 +324,8 @@
 												</ul>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
-													<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b><?php echo $currency.$m_details->price; ?>
+													<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+													<?php echo $currency.number_format($m_details->price); ?>
 												</div>
 											</div>
 										</div>
@@ -354,7 +356,8 @@
 												</ul>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
-													<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b><?php echo $currency.$m_details->price; ?>
+													<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+													<?php echo $currency.number_format($m_details->price); ?>
 												</div>
 											</div>
 										</div>
@@ -388,7 +391,7 @@
 												</ul>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
-													<b></b><?php echo $currency.$m_details->price; ?>
+													<b></b><?php echo $currency.number_format($m_details->price); ?>
 												</div>
 											</div>
 										</div>
@@ -419,7 +422,7 @@
 												</ul>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
-													<b></b><?php echo $currency.$m_details->price; ?>
+													<b></b><?php echo $currency.number_format($m_details->price); ?>
 												</div>
 											</div>
 										</div>

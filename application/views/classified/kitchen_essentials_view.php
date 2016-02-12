@@ -109,6 +109,13 @@
 		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
+					<div class="container pad_bott_50">
+						<div class="row">
+							<div class="col-md-10 col-sm-8 col-md-offset-1">
+								<img src="<?php echo base_url(); ?>img/slide/ban5.jpg" alt="add" title="Adds">
+							</div>
+						</div>
+					</div>
 					<div class="container">
 						<div class="row">
 							<!-- Item Table-->
@@ -423,6 +430,17 @@
 												</label>
 											</div>
 										</div> 
+									</div>
+									
+									<div class="row top_20">
+										<div class="col-sm-12">
+											<img src="<?php echo base_url(); ?>img/slide/right_ad.jpg" alt="add" title="Adds">
+										</div>
+									</div>
+									<div class="row top_20">
+										<div class="col-sm-12">
+											<img src="<?php echo base_url(); ?>img/slide/right_ad.jpg" alt="add" title="Adds">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1000,6 +1018,12 @@
 										</div><hr class="separator">	
 									</div>
 									<!-- free+urgent package ends -->
+									
+									<!-- free Add Start -->
+									<div class="col-md-8 col-md-col-2" style="height: 110px;">
+										<img src="<?php echo base_url(); ?>img/slide/adds.jpg" alt="add" title="Adds">
+									</div>
+									<!-- free Add ends -->
 									
 									<!-- free package starts -->
 									<div class="col-md-12">
