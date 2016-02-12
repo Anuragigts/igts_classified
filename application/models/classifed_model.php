@@ -575,6 +575,16 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
+	/*display likes ad or not(icon symbol)*/
+	public function ads_likes(){
+		$this->db->select("*");
+		$this->db->from("likes_deals");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$this->db->where('login_id', $this->session->userdata('login_id'));
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 	/*display in pickup deals*/
 	public function pickup_deals(){
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
@@ -611,6 +621,35 @@ Class Classifed_model extends CI_model{
 			'login_id'	=> $this->input->post('login_id')
 			);
 			$this->db->delete("favourite_deals", $wr);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	/*add_likes to logged user*/
+	public function add_likes(){
+		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'login_id'	=> $this->input->post('login_id')
+			);
+			$this->db->insert("likes_deals", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	/*remove_likes to logged user*/
+	public function remove_likes(){
+			$wr = array(
+			'ad_id'=> $this->input->post('ad_id'),
+			'login_id'	=> $this->input->post('login_id')
+			);
+			$this->db->delete("likes_deals", $wr);
 			if ($this->db->affected_rows() > 0) {
 				return 1;
 			}
