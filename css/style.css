@@ -970,7 +970,7 @@ hr.tall{
 }
 
 .filter-header input[type="submit"]{
-	width: 16%;
+	width: 18%;
 	border: 0;
 	color: #fff;
 	background: #EF530D  none repeat scroll 0% 0% !important;
@@ -4931,11 +4931,18 @@ p a{
 h4 a:hover{
 	color:white !important;
 }
+.pvt-no-img1 {
+    width: 107px;
+    height: 107px;
+    border-radius: 50%;
+	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);	
+}
 .pvt-no-img {
     width: 107px;
     height: 107px;
-     border-radius: 50%;
-	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);	
+    border-radius: 50%;
+	box-shadow: 0px 0px 1px 0px #fff;
+	border: 1px solid #fff;
 }
 .loc_view{
 	font-family: "Open Sans",sans-serif;
