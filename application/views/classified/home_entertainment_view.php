@@ -161,6 +161,83 @@
 									</div>
 									
 									<div class="cd-filter-block">
+										<h4 class="title-widget closed">Brand</h4>
+
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div id="limit_scrol">
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Sony 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Philips 
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Yamaha
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Mitashi
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Frontech
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> JBL
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Denon
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Mltashi
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Brass
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Tecnia
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Lenovo
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Vsure
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Proex
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> Organic
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="" value="" >
+													<i></i> BIPL
+												</label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed"> Price Range</h4>
+										<div class="range1">
+											<input type="range" name="range" min="0" max="25000" step="50" value="5000">
+											<output for="range" class="price_output"></output>
+										</div>
+									</div>
+									
+									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Seller Type</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">

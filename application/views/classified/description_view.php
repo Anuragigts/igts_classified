@@ -213,22 +213,16 @@
 											<div class="post-header">
 												<?php if ($package_type == 'platinum') { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
-														<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Crown Icon">
+														<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Best Deal">
 													</div>
 												<?php	} ?>
 
 												<?php if ($package_type == 'gold') { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
-														<img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Thumb Icon">
+														<img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal">
 													</div>
 												<?php	} ?>
 
-												<?php if ($package_type == 'free') { ?>
-													<div class="hidden-xs post-format-icon post-format-standard">
-														<img src="<?php echo base_url(); ?>img/icons/fire.png" alt="Fire" title="Fire Icon">
-													</div>
-												<?php	} ?>
-												
 												<div class="post-info-wrap">
 													<h2 class="post-title"><a href="#"><?php echo $tag; ?></a></h2>
 													<div class="post-meta" style="padding-top: 8px;">

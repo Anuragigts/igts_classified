@@ -157,38 +157,14 @@
 													<i></i> Others
 												</label>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div> 
+									</div> 
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed"> Price Range</h4>
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 50000 & Below
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 50000 - Rs. 2,00,000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 2,00,000 - Rs. 4,00,000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 4,00,000 - Rs. 6,00,000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 6,00,000 - Rs. 8,00,000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 10,00,000 & Above
-												</label>
-											</div>
+										<div class="range1">
+											<input type="range" name="range" min="0" max="25000" step="50" value="5000">
+											<output for="range" class="price_output"></output>
 										</div>
 									</div>
 

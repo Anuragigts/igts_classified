@@ -242,8 +242,10 @@
 													<i></i> Others
 												</label>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div>
+									</div> 
+									
+									
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget">Search Only</h4>
@@ -267,8 +269,8 @@
 													<i></i> Others
 												</label>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+										</div>
+									</div> 
 								</div>
 								<div class="row top_20">
 									<div class="col-sm-12">

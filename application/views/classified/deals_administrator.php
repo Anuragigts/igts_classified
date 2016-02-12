@@ -256,7 +256,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 														</div>
 													</div>
 												</div>
@@ -384,7 +384,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 														</div>
 													</div>
 												</div>
@@ -492,7 +492,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 														</div>
 													</div>
 												</div>
@@ -602,7 +602,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 														</div>
 													</div>
 												</div>
@@ -613,11 +613,6 @@
 																<div class="col-xs-12">
 																	<h3 class="list_title"><?php echo $m_details->deal_tag; ?></h3>
 																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="gold_icon"></span>
-																	</div>
-																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -710,12 +705,6 @@
 													<div class="img-hover view_img">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
-														</div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -820,12 +809,6 @@
 													<div class="img-hover view_img">
 														<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 														<div class="overlay"><a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
-														</div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">

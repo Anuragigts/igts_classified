@@ -378,7 +378,7 @@
 															} ?>
 												<div class="price11">
 													<span></span><b>
-													<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+													<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 												</div>
 											</div>
 										</figure>
@@ -440,14 +440,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$val->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -474,14 +474,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$m_ads->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -507,14 +507,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$m_ads_services->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -541,14 +541,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($motor_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($motor_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$motor_val->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -575,14 +575,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($cloth_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($cloth_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$cloth_val->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -609,14 +609,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($prop_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($prop_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$prop_val->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -643,14 +643,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($khome_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($khome_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$khome_val->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -677,14 +677,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$m_ads_pets->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -711,14 +711,14 @@
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
-							<div class="info-gallery gold_bgcolor">
+							<div class="info-gallery">
 								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.$m_ads_ezone->price; ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Thumb Icon"></b>
+									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -767,7 +767,7 @@
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<?php if ($b_ads->package_type == 'gold') { ?>
-									<div class="info-gallery gold_bgcolor">
+									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
@@ -780,7 +780,7 @@
 										<?php if ($b_ads->package_type == 'gold') { ?>
 										 	<div class="business_crown">
 											<span></span><b>
-											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Thumb Icon"></b>
+											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
@@ -801,13 +801,7 @@
 										 <?php if ($b_ads->package_type == 'platinum') { ?>
 										 	<div class="business_crown">
 											<span></span><b>
-											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-											</div>
-										<?php	 } ?>
-										<?php if ($b_ads->package_type == 'free') { ?>
-										 	<div class="business_crown">
-											<span></span><b>
-											<img src="img/icons/fire.png" class="pull-right" alt="fire" title="Fire Icon"></b>
+											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
@@ -861,7 +855,7 @@
 									</div>
 									
 									<?php if ($free_val->package_type == 'gold') { ?>
-									<div class="info-gallery gold_bgcolor">
+									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
@@ -869,13 +863,10 @@
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
-											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>
+											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
 											<?php	} ?>
 											<?php if ($free_val->package_type == 'gold') { ?>
-											<span></span><b><img src="img/icons/thumb.png" alt="thumb" title="Thumb Icon"></b>
-											<?php	} ?>
-											<?php if ($free_val->package_type == 'free') { ?>
-											<span></span><b><img src="img/icons/fire.png" alt="fire" title="Fire Icon"></b>
+											<span></span><b><img src="img/icons/thumb.png" alt="thumb" title="Right Deal"></b>
 											<?php	} ?>
 										</div>
 									</div>
@@ -888,10 +879,7 @@
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
-											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Crown Icon"></b>
-											<?php	} ?>
-											<?php if ($free_val->package_type == 'free') { ?>
-											<span></span><b><img src="img/icons/fire.png" alt="fire" title="Fire Icon"></b>
+											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
 											<?php	} ?>
 										</div>
 									</div>

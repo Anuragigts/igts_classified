@@ -184,6 +184,14 @@
 											</div>
 										</div> 
 									</div> 
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed"> Price Range</h4>
+										<div class="range1">
+											<input type="range" name="range" min="0" max="25000" step="50" value="5000">
+											<output for="range" class="price_output"></output>
+										</div>
+									</div>
 
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Fuel type</h4>
