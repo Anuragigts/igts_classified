@@ -186,6 +186,7 @@
 		/*ad_ description details*/
 		foreach ($ads_desc as $ads_desc_val) {
 			/*ad id*/
+			$catid = $ads_desc_val->category_id;
 			$ad_id_no = $ads_desc_val->ad_id;
 			/*login_id*/
 			//$login_id = $ads_desc_val->login_id;
@@ -211,7 +212,10 @@
 				}
 				$posted_on = date("M d, Y H:i:s", strtotime($ads_desc_val->created_on));
 				$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
+				if ($catid !='jobs') {
 				$price = $currency.number_format($ads_desc_val->price);
+				}
+				
 
 				/*weblink*/
 			if ($ads_desc_val->web_link != '') {
@@ -641,7 +645,9 @@
 									</ul>
 									<div class="top_5">
 										<div class="amt_bg">
+											<?php if ($catid != 'jobs') { ?>
 											<h3 class="view_price_1"><?php echo $price; ?></h3>
+											<?php } ?>
 										</div>
 									</div>
 								</aside>
