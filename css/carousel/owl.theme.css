@@ -113,9 +113,11 @@
 #slide-features .owl-next,
 #boxes-carousel  .owl-prev,
 #boxes-carousel1  .owl-prev,
+#boxes-carousel2  .owl-prev,
 #boxes-carousel112  .owl-prev,
 #boxes-carousel  .owl-next,
 #boxes-carousel1  .owl-next,
+#boxes-carousel2  .owl-next,
 #boxes-carousel112  .owl-next,
 #team-carousel  .owl-prev,
 #team-carousel  .owl-next,
@@ -143,9 +145,11 @@
 #slide-features  .owl-prev i,
 #slide-features .owl-next i,
 #boxes-carousel1  .owl-prev i,
+#boxes-carousel2  .owl-prev i,
 #boxes-carousel112  .owl-prev i,
 #boxes-carousel  .owl-prev i,
 #boxes-carousel1  .owl-next i,
+#boxes-carousel2  .owl-next i,
 #boxes-carousel112  .owl-next i,
 #boxes-carousel  .owl-next i,
 #team-carousel .owl-prev i,
@@ -162,6 +166,7 @@
 #slide-features .owl-prev,
 #boxes-carousel  .owl-prev,
 #boxes-carousel1  .owl-prev,
+#boxes-carousel2  .owl-prev,
 #boxes-carousel112  .owl-prev,
 #team-carousel .owl-prev,
 #services-carousel  .owl-prev,
@@ -179,6 +184,7 @@
 #slide-features  .owl-next,
 #boxes-carousel  .owl-next,
 #boxes-carousel1  .owl-next,
+#boxes-carousel2  .owl-next,
 #boxes-carousel112  .owl-next,
 #team-carousel .owl-next,
 #services-carousel  .owl-next,
@@ -192,6 +198,7 @@
 #slide-features .owl-pagination,
 #boxes-carousel  .owl-pagination,
 #boxes-carousel1  .owl-pagination,
+#boxes-carousel2  .owl-pagination,
 #boxes-carousel112  .owl-pagination,
 #team-carousel .owl-pagination{
 	background-color: #fff;
@@ -208,6 +215,11 @@
 	margin-bottom: -1px;
 }
 #boxes-carousel1 .owl-controls{
+	margin-top: 30px;
+	text-align: center;
+	margin-bottom: -1px;
+}
+#boxes-carousel2.owl-controls{
 	margin-top: 30px;
 	text-align: center;
 	margin-bottom: -1px;
