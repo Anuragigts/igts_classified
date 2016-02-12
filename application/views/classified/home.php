@@ -119,7 +119,7 @@
 						data-start="1200"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">Not Just About Property, Its Selling a Lifestyle / Helping You Find the Property of Your Dream
+						data-easing="easeOutExpo">Helping You Find the Property of Your Dream
 					</div>
 				</li>
 			</ul> 
@@ -735,6 +735,96 @@
 		<section class="content_info">
 			<!-- Info Resalt-->
 			<div class="padding-bottom">
+				<!-- End boxes-carousel-->
+				<div class="container">
+					<div class="titles recen_ad">
+						<h2>MOST<span> VALUED </span>DEALS</h2>
+					</div>
+				</div>
+				<!-- End Title-->
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="recentad_heig img-responsive">
+						</div>
+						<div class="col-sm-9">
+							<div id="boxes-carousel2">
+								<!-- Item carousel Boxed-->
+								<?php foreach ($business_ads as $b_ads) {
+									/*currency symbol*/ 
+                                    	if ($b_ads->currency == 'pound') {
+                                    		$currency = '£';
+                                    	}
+                                    	else if ($b_ads->currency == 'euro') {
+                                    		$currency = '€';
+                                    	}	
+								 ?>
+								<div>
+									<?php if ($b_ads->urgent_package != '') { ?>
+									<div class="bus_rec_badge">
+										<span>Urgent</span>
+									</div>
+									<?php } ?>
+									<div class="img-hover">
+										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+									</div>
+									<?php if ($b_ads->package_type == 'gold') { ?>
+									<div class="info-gallery">
+										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+										<hr class="separator">
+										<?php if ($b_ads->bus_logo != '') { ?>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+										<?php	}
+										else{ ?>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+									<?php	}
+										 ?>
+										<?php if ($b_ads->package_type == 'gold') { ?>
+										 	<div class="business_crown">
+											<span></span><b>
+											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
+											</div>
+										<?php	 } ?>
+										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+										<?php if ($b_ads->category_id != 'jobs') { ?>
+										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+										<?php } ?>
+										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									</div>
+									<?php }else{ ?>
+									<div class="info-gallery">
+										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+										<hr class="separator">
+										<?php if ($b_ads->bus_logo != '') { ?>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+										<?php	}
+										else{ ?>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+									<?php	}
+										 ?>
+										 <?php if ($b_ads->package_type == 'platinum') { ?>
+										 	<div class="business_crown">
+											<span></span><b>
+											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+											</div>
+										<?php	 } ?>
+										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+										<?php if ($b_ads->category_id != 'jobs') { ?>
+										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+										<?php } ?>
+										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									</div>
+									<?php	} ?>
+									
+								</div>
+								<?php	} ?>
+								<!-- End Item carousel Boxed-->
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<!-- End boxes-carousel-->
 				<div class="container">
 					<div class="titles recen_ad">
