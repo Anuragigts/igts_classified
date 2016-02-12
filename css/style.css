@@ -339,6 +339,10 @@ hr.tall {
 	font-size: 16px;
 	color:#777;
 }
+.filters_categories .list-styles li .cat_color_filter{
+	font-size: 16px;
+	color:#777 !important;
+}
 .filters_categories .list-styles li i{
 	border-radius: 50%;
 	color: #E95413; 
@@ -5544,4 +5548,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 
 .range1 .label,.price_output{
 	color:#E95413;
+}
+
+/*like pointer*/
+.bg_clr1{
+	cursor: pointer;
 }
