@@ -362,6 +362,9 @@ class Description_view extends CI_Controller{
                 $ads_review = $this->classifed_model->ads_review();
                 /*favourite ad or not*/
                 $ads_favourite = $this->classifed_model->ads_favourite();
+                /*ads likes ad or not*/
+                $ads_likes = $this->classifed_model->ads_likes();
+
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "description_view",
@@ -371,6 +374,7 @@ class Description_view extends CI_Controller{
                         "body_content"=>$body_content,
                         "ads_review"=>$ads_review,
                         "ads_favourite"=>$ads_favourite,
+                        "ads_likes"=>$ads_likes,
                         "login_status"=>$login_status,
                         "login"=>$login,
                         'req_url'=> base_url()."description_view/details/".$id
@@ -399,6 +403,7 @@ class Description_view extends CI_Controller{
         }
 
         /*favourite ads*/
+        /*add favourite*/
         public function add_favourite(){
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
@@ -418,6 +423,34 @@ class Description_view extends CI_Controller{
                    redirect('login');
                 }
             $fav = $this->classifed_model->remove_favourite();
+            if ($fav == 1) {
+                echo '1';
+            }
+            else{
+                echo '0';
+            }
+        }
+
+        /*add likes*/
+        public function add_likes(){
+            if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
+            $fav = $this->classifed_model->add_likes();
+            if ($fav == 1) {
+                echo '1';
+            }
+            else{
+                echo '0';
+            }
+        }
+
+        /*remove likes*/
+        public function remove_likes(){
+            if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
+            $fav = $this->classifed_model->remove_likes();
             if ($fav == 1) {
                 echo '1';
             }
