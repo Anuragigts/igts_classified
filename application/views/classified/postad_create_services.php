@@ -6,7 +6,6 @@
 	<link rel='stylesheet' type='text/css' href='imgupload/platinum.css' />
 	<!-- <link rel='stylesheet' type='text/css' href='imgupload/jquery.fancybox.min.css' /> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-	<script src="https://dl.dropboxusercontent.com/u/2241077/jquery.dragbetter.js"></script>
 	<script src="imgupload/imageupload.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 	<script type="text/javascript">
@@ -510,6 +509,7 @@
 		});
 		
 	</script>
+	
 	<script type='text/javascript'>
 		jQuery(document).ready(function($) {
 		
@@ -1282,16 +1282,6 @@
 												</div>
 											</div>
 											<div class="span12 unit">
-												<label class="label">Video Link 
-												<sup data-toggle="tooltip" title="" data-original-title="Video Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-												</label>
-												<div class="unit">
-													<input type="file" name="file_video_free" id='file_video_free' >
-												</div>
-											</div>
-											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
 												<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -1379,16 +1369,6 @@
 														</div>
 														<div style="clear:both;"></div>
 													</div>
-												</div>
-											</div>
-											<div class="span12 unit">
-												<label class="label">Video Link 
-												<sup data-toggle="tooltip" title="" data-original-title="Video Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-												</label>
-												<div class="unit">
-													<input type="file" name="goldurgent_video" id='goldurgent_video' />
 												</div>
 											</div>
 											<div class="span12 unit">

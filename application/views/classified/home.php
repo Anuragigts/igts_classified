@@ -745,7 +745,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="recentad_heig img-responsive">
+							<img src="img/most_value.jpg" alt="most_value" title="Most Value Deals" class="recentad_heig img-responsive">
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel2">
@@ -828,14 +828,14 @@
 				<!-- End boxes-carousel-->
 				<div class="container">
 					<div class="titles recen_ad">
-						<h2><span>Business </span>DEALS</h2>
+						<h2><span>BUSINESS </span>DEALS</h2>
 					</div>
 				</div>
 				<!-- End Title-->
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/business_deals.jpg" alt="business_deals" title="business-deals" class="recentad_heig img-responsive">
+							<img src="img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel">
@@ -924,7 +924,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/recentad.jpg" alt="recentad" title="recentad-image" class="recentad_heig img-responsive">
+							<img src="img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel1">
