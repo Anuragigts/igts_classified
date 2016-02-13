@@ -335,16 +335,6 @@
 										</div> <!-- cd-filter-content -->
 									</div> <!-- cd-filter-block -->
 								</div>
-								<div class="row top_20">
-									<div class="col-sm-12">
-										<iframe id="google_ad_92003487801" sandbox="allow-scripts" src="https://tpc.googlesyndication.com/sadbundle/11713703021028404835/300x250/300x250_RI.html#t=2984758803809756206&amp;p=https%3A%2F%2Fgoogleads.g.doubleclick.net" scrolling="no" style="border:0;overflow:hidden;" frameborder="0" height="250" width="260"></iframe>
-									</div>
-								</div>
-								<div class="row top_20">
-									<div class="col-sm-12">
-										<iframe id="google_ad_92003487801" sandbox="allow-scripts" src="https://tpc.googlesyndication.com/sadbundle/11713703021028404835/300x250/300x250_RI.html#t=2984758803809756206&amp;p=https%3A%2F%2Fgoogleads.g.doubleclick.net" scrolling="no" style="border:0;overflow:hidden;" frameborder="0" height="250" width="260"></iframe>
-									</div>
-								</div>
 							</div>
 								<!-- Item Table-->
 								<div class="col-md-9">
