@@ -69,40 +69,8 @@
 					}
 				})
         	});
-
-        	/*search filters*/
-        	$(".searchdealpostad").click(function(){
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		if ($("input:radio[name=business_type]").is(":checked")) {
-        			var bustype = $("input[name=business_type]:checked").val();
-        		}else{
-        			var bustype = 0;
-        		}
-        		var cat = $("#category_name").val();
-        		/*deal last postad */
-        		var postadtime_list = [];
-        		$("input[name='last_dealpostad[]']:checked").each( function () {
-					 var postad = $(this).val();
-				     postadtime_list.push(postad); 
-				});
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/search_filters",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						postadtime_list: postadtime_list
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-
-			$(".dealurgent").click(function(){
+        	/*searches for urgent or platinum*/
+        	$(".dealurgent").click(function(){
         		var latt = $("#latt").val();
         		var longg = $("#longg").val();
         		if ($("input:radio[name=business_type]").is(":checked")) {
@@ -123,6 +91,16 @@
 					 var location = $(this).val();
 				     location_list.push(location); 
 				});
+
+				
+				/*deal title sort*/
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+
+				/*deal title sort*/
+				var priceval = $(".price_sort option:selected").val(); 
+				/*recent days sort*/
+				var recentdays = $(".recentdays_sort option:selected").val(); 
+
 				$.ajax({
 					type: "POST",
 					url: "<?php echo base_url();?>deal_page/search_filters",
@@ -131,6 +109,9 @@
 						latt: latt,
 						longg: longg,
 						bustype: bustype,
+						dealtitle: dealtitle,
+						priceval: priceval,
+						recentdays: recentdays,
 						urgenttime_list: urgenttime_list,
 						location_list: location_list
 					},
@@ -163,6 +144,15 @@
 					 var urgent = $(this).val();
 				     urgenttime_list.push(urgent); 
 				});
+				
+				/*deal title sort*/
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+
+				/*deal title sort*/
+				var priceval = $(".price_sort option:selected").val(); 
+				/*recent days sort*/
+				var recentdays = $(".recentdays_sort option:selected").val(); 
+
 				$.ajax({
 					type: "POST",
 					url: "<?php echo base_url();?>deal_page/search_filters",
@@ -171,6 +161,165 @@
 						latt: latt,
 						longg: longg,
 						bustype: bustype,
+						dealtitle: dealtitle,
+						priceval: priceval,
+						recentdays: recentdays,
+						location_list: location_list,
+						urgenttime_list: urgenttime_list
+					},
+					success: function (data) {
+						$(".search_result").html(data);
+					}
+				})
+        	});
+
+		/*deal title ascending order*/
+		$(".dealtitle_sort").change(function(){
+
+        		var latt = $("#latt").val();
+        		var longg = $("#longg").val();
+        		if ($("input:radio[name=business_type]").is(":checked")) {
+        			var bustype = $("input[name=business_type]:checked").val();
+        		}else{
+        			var bustype = 0;
+        		}
+        		var cat = $("#category_name").val();
+        		/*deal location search */
+        		var location_list = [];
+        		$("input[name='loc_search[]']:checked").each( function () {
+					 var location = $(this).val();
+				     location_list.push(location); 
+				});
+
+				/*deal urgent */
+        		var urgenttime_list = [];
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var urgent = $(this).val();
+				     urgenttime_list.push(urgent); 
+				});
+				
+				/*deal title sort*/
+				var priceval = $(".price_sort option:selected").val();
+				/*recent days sort*/
+				var recentdays = $(".recentdays_sort option:selected").val(); 
+
+				/*deal title sort*/
+				var dealtitle = $(".dealtitle_sort option:selected").val(); 
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>deal_page/search_filters",
+					data: {
+						cat: cat,
+						latt: latt,
+						longg: longg,
+						bustype: bustype,
+						dealtitle: dealtitle,
+						priceval: priceval,
+						recentdays: recentdays,
+						location_list: location_list,
+						urgenttime_list: urgenttime_list
+					},
+					success: function (data) {
+						$(".search_result").html(data);
+					}
+				})
+        	});
+
+	/*deal title descending order*/
+		$(".price_sort").change(function(){
+
+        		var latt = $("#latt").val();
+        		var longg = $("#longg").val();
+        		if ($("input:radio[name=business_type]").is(":checked")) {
+        			var bustype = $("input[name=business_type]:checked").val();
+        		}else{
+        			var bustype = 0;
+        		}
+        		var cat = $("#category_name").val();
+        		/*deal location search */
+        		var location_list = [];
+        		$("input[name='loc_search[]']:checked").each( function () {
+					 var location = $(this).val();
+				     location_list.push(location); 
+				});
+
+				/*deal urgent */
+        		var urgenttime_list = [];
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var urgent = $(this).val();
+				     urgenttime_list.push(urgent); 
+				});
+				
+				/*deal title sort*/
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+
+				/*deal title sort*/
+				var priceval = $(".price_sort option:selected").val(); 
+				/*recent days sort*/
+				var recentdays = $(".recentdays_sort option:selected").val(); 
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>deal_page/search_filters",
+					data: {
+						cat: cat,
+						latt: latt,
+						longg: longg,
+						bustype: bustype,
+						dealtitle: dealtitle,
+						priceval: priceval,
+						recentdays: recentdays,
+						location_list: location_list,
+						urgenttime_list: urgenttime_list
+					},
+					success: function (data) {
+						$(".search_result").html(data);
+					}
+				})
+        	});
+
+	/*recent days sort order*/
+		$(".recentdays_sort").change(function(){
+
+        		var latt = $("#latt").val();
+        		var longg = $("#longg").val();
+        		if ($("input:radio[name=business_type]").is(":checked")) {
+        			var bustype = $("input[name=business_type]:checked").val();
+        		}else{
+        			var bustype = 0;
+        		}
+        		var cat = $("#category_name").val();
+        		/*deal location search */
+        		var location_list = [];
+        		$("input[name='loc_search[]']:checked").each( function () {
+					 var location = $(this).val();
+				     location_list.push(location); 
+				});
+
+				/*deal urgent */
+        		var urgenttime_list = [];
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var urgent = $(this).val();
+				     urgenttime_list.push(urgent); 
+				});
+				
+				/*deal title sort*/
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+
+				/*recent days sort*/
+				var recentdays = $(".recentdays_sort option:selected").val(); 
+				/*price sort*/
+				var priceval = $(".price_sort option:selected").val(); 
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>deal_page/search_filters",
+					data: {
+						cat: cat,
+						latt: latt,
+						longg: longg,
+						bustype: bustype,
+						dealtitle: dealtitle,
+						priceval: priceval,
+						recentdays: recentdays,
 						location_list: location_list,
 						urgenttime_list: urgenttime_list
 					},
@@ -273,38 +422,9 @@
 									<!-- Widget Filter -->
 									<h3 class="title-widget">Filters</h3>
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deals posted</h4>
+										<h4 class="title-widget">Location</h4>
 
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="last_dealpostad[]" class='searchdealpostad' value="last24hours" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="last_dealpostad[]" class='searchdealpostad' value="last3days" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="last_dealpostad[]" class='searchdealpostad' value="last7days" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="last_dealpostad[]" class='searchdealpostad' value="last14days" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="last_dealpostad[]" class='searchdealpostad' value="1month" >
-													<i></i> Last 1 Month
-												</label>
-											</div>
-										</div>
-									</div>
-
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Location</h4>
-
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+										<div class="cd-filter-content">
 											<div id="limit_scrol">
 												<?php foreach ($loc_list as $loc_val) {
 													$loc_name = explode(",", $loc_val->loc_name);
@@ -340,7 +460,7 @@
 								<div class="col-md-9">
 									<div class="sort-by-container tooltip-hover">
 										<div class="row">
-											<div class="col-md-9">
+											<div class="col-md-12">
 												<strong>Sort by:</strong>
 												<ul>                            
 													<li>
@@ -361,10 +481,10 @@
 													<li>
 														<div class="top_bar_top">
 															<label class="input select">
-																<select name="star">
-																	<option value="none" selected disabled="">Select Name</option>
-																	<option value="5">A to Z</option>
-																	<option value="4">Z to A</option>
+																<select name="dealtitle_sort" class="dealtitle_sort">
+																	<option value="Any">Any</option>
+																	<option value="atoz">A to Z</option>
+																	<option value="ztoa">Z to A</option>
 																</select>
 																<i></i>
 															</label>
@@ -373,10 +493,25 @@
 													<li>
 														<div class="top_bar_top">
 															<label class="input select">
-																<select name="star">
-																	<option value="none" selected disabled="">Select Price</option>
-																	<option value="5">Sort Ascending</option>
-																	<option value="4">Sort Descending</option>
+																<select name="price_sort" class="price_sort">
+																	<option value="Any">Any</option>
+																	<option value="lowtohigh">Low to High</option>
+																	<option value="hightolow">High to Low</option>
+																</select>
+																<i></i>
+															</label>
+														</div>
+													</li>
+													<li>
+														<div class="top_bar_top">
+															<label class="input select">
+																<select name="recentdays_sort" class="recentdays_sort">
+																	<option value="Any">Any</option>
+																	<option value="last24hours">Last 24 Hours</option>
+																	<option value="last3days">Last 3 Days</option>
+																	<option value="last7days">Last 7 Days</option>
+																	<option value="last14days">Last 14 Days</option>
+																	<option value="last1month">Last 1 month</option>
 																</select>
 																<i></i>
 															</label>
@@ -384,20 +519,7 @@
 													</li>
 												</ul>
 											</div>
-											<div class="col-md-3">
-												<ul class="style-view">
-													<li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-														<a href="deal_page_box">
-															<i class="fa fa-th-large"></i>
-														</a>
-													</li>
-													<li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-														<a href="deal_page">
-															<i class="fa fa-list"></i>
-														</a>
-													</li> 
-												</ul>
-											</div>
+											
 										</div>
 									</div>
 									<!-- sort-by-container-->

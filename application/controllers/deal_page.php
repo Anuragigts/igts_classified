@@ -56,7 +56,7 @@ class Deal_page extends CI_Controller{
 
         public function search_filters(){
             $rs['result'] = $this->hotdealsearch_model->search_filters();
-            // echo "<pre>"; print_r($this);
+              // echo "<pre>"; print_r($this);
            echo $this->load->view("classified/deal_page_search", $rs);
         }
 }

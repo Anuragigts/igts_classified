@@ -156,29 +156,42 @@ class hotdealsearch_model extends CI_Model{
 					$this->db->where_in('loc.longg', explode(",",ltrim($tot_longg,',')));
 				}
 
-				/*search for last 24 hours*/
-				$lastpostad = $this->input->post('postadtime_list');
-				if (!empty($lastpostad)) {
-					foreach ($lastpostad as $lpostad) {
-						if ($lpostad == 'last24hours') {
-							$this->db->or_where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
-						}
-						if ($lpostad == 'last3days') {
-							$this->db->or_where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
-						}
-						if ($lpostad == 'last7days') {
-							$this->db->or_where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
-						}
-						if ($lpostad == 'last14days') {
-							$this->db->or_where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
-						}
-						if ($lpostad == '1month') {
-							$this->db->or_where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
-						}
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($this->input->post("recentdays") == 'last24hours'){
+						$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 					}
-				}
+					else if ($this->input->post("recentdays") == 'last3days'){
+						$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+					}
+					else if ($this->input->post("recentdays") == 'last7days'){
+						$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+					}
+					else if ($this->input->post("recentdays") == 'last14days'){
+						$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+					}	
+					else if ($this->input->post("recentdays") == 'last1month'){
+						$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+					}
+
 				$this->db->group_by("img.ad_id");
-				$this->db->order_by("ad.ad_id", "DESC");
+				/*deal title ascending or descending*/
+					if ($this->input->post("dealtitle") == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($this->input->post("dealtitle") == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					else if ($this->input->post("priceval") == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($this->input->post("priceval") == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by("ad.ad_id", "DESC");
+					}
+				
 				$res = $this->db->get();
 				return $res->result();
 			

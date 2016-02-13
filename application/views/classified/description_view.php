@@ -198,6 +198,9 @@
 			if ($ad_video->video_name != '') {
 		$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
 		}
+		else{
+			$video_name = 	'';
+		}
 		};
 		
 		
@@ -348,7 +351,7 @@
 													 src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" class="img-responsive" title="<?php echo $ads_pics_val->img_name; ?>"
 													 data-image="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>">
 												<?php }
-													if($package_type == 'platinum'){
+													if($package_type == 'platinum' && $ad_video->video_name != ''){
 														?>
 													<img alt="Youtube Video"
 														 data-type="youtube"
