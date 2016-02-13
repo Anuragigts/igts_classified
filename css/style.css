@@ -5567,3 +5567,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 .bg_clr1{
 	cursor: pointer;
 }
+/*hot deal min hiehgt*/
+.hotdeal_minheight{
+	min-height: 600px;
+}
