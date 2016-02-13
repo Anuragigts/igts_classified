@@ -299,27 +299,27 @@
 									<div id="box">
 										<?php
 											$i=1;
-											 foreach ($sig_ads as $sig_val) {
+											 foreach ($hot_deals as $hot_deals_val) {
 											 	/*currency symbol*/ 
-		                                    	if ($sig_val->currency == 'pound') {
+		                                    	if ($hot_deals_val->currency == 'pound') {
 		                                    		$currency = '£';
 		                                    	}
-		                                    	else if ($sig_val->currency == 'euro') {
+		                                    	else if ($hot_deals_val->currency == 'euro') {
 		                                    		$currency = '€';
 		                                    	}
-											  if ($sig_val->ad_type == 'business') { 
-											  	$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$sig_val->ad_id'"), 0, 'contact_person');
-											  	$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$sig_val->ad_id'"), 0, 'mobile');
+											  if ($hot_deals_val->ad_type == 'business') { 
+											  	$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_person');
+											  	$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
 											  }
-											  else if ($sig_val->ad_type == 'consumer') { 
-											  	$person = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id= '$sig_val->ad_id'"), 0, 'contact_name');
-											  	$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id= '$sig_val->ad_id'"), 0, 'mobile');
+											  else if ($hot_deals_val->ad_type == 'consumer') { 
+											  	$person = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_name');
+											  	$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
 											  }
 
 											  ?>
 										<figure class="slide jbs-current">
-											<?php if($sig_val->img_name == ''){
-												if ($sig_val->urgent_package != '') { ?>
+											<?php if($hot_deals_val->img_name == ''){
+												if ($hot_deals_val->urgent_package != '') { ?>
 													<div class="significant_badge">
 													<span>Urgent</span>
 												</div>
@@ -331,7 +331,7 @@
 											</div>
 											<?php
 												}else{
-												if ($sig_val->urgent_package != '') {
+												if ($hot_deals_val->urgent_package != '') {
 													?>
 													<div class="significant_badge">
 													<span>Urgent</span>
@@ -339,12 +339,12 @@
 													<?php }
 													?>
 											<div class="img-hover significant_ad">
-												<img src="ad_images/<?php echo $sig_val->img_name; ?>" alt="<?php echo $sig_val->img_name; ?>" title="significant" class="img-responsive">
-												<div class="overlay"><a href="description_view/details/<?php echo $sig_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+												<img src="ad_images/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
+												<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php	} ?>
 											<div class="info-gallery slider_bg">
-												<h3><?php echo substr($sig_val->deal_tag, 0, 20); ?></h3>
+												<h3><?php echo substr($hot_deals_val->deal_tag, 0, 20); ?></h3>
 												<hr class="separator">
 												<ul class="nav nav-tabs">
 													<li class="active">
@@ -358,7 +358,7 @@
 												<div class="tab-content">
 													<!-- Tab One - DESCRIPTION -->
 													<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">
-														<p><?php echo substr(strip_tags($sig_val->deal_desc), 0, 40); ?> </p>
+														<p><?php echo substr(strip_tags($hot_deals_val->deal_desc), 0, 40); ?> </p>
 													</div>
 													<!-- end Tab One - DESCRIPTION -->
 													<!-- Tab Two - contact -->
@@ -368,13 +368,13 @@
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
-												<h3 class="home_price"><?php echo $currency.number_format($sig_val->price); ?></h3>
+												<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
 												<a href="#" data-toggle="modal" data-target="#sendnow"  class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
-												<?php  if ($sig_val->ad_type == 'business') {
-														if ($sig_val->bus_logo != '') {
+												<?php  if ($hot_deals_val->ad_type == 'business') {
+														if ($hot_deals_val->bus_logo != '') {
 													 ?>
 													<div class="bus_logo">
-													<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $sig_val->bus_logo; ?>" /></b>
+													<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $hot_deals_val->bus_logo; ?>" /></b>
 													</div>
 														<?php }
 																else{ ?>
@@ -426,7 +426,7 @@
 					<!-- Items Gallery filters-->
 					<div class="portfolioContainer">
 						<!-- showall in most valued ads starts-->
-						<?php foreach ($mostvalue_show_all as $val){
+						<?php foreach ($sig_show_all as $val){
 									/*currency symbol*/ 
                                     	if ($val->currency == 'pound') {
                                     		$currency = '£';
@@ -455,15 +455,30 @@
 								<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
 								<?php } ?>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($val->ad_type == 'business'){
+								 if ($val->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $val->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 						<!-- showall in most valued ads ends-->
 						<!-- most valued ads for jobs -->
-						<?php foreach ($most_ads as $m_ads){
+						<?php foreach ($sig_ads_jobs as $m_ads){
 									
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 jobs">
@@ -483,14 +498,29 @@
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
 								
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($m_ads->ad_type == 'business'){
+								 if ($m_ads->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 						<!-- most valued ads for services -->
-						<?php foreach ($most_ads_services as $m_ads_services){
+						<?php foreach ($sig_ads_services as $m_ads_services){
 										/*currency symbol*/ 
                                     	if ($m_ads_services->currency == 'pound') {
                                     		$currency = '£';
@@ -516,15 +546,30 @@
 								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_services->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($m_ads_services->ad_type == 'business'){
+								 if ($m_ads_services->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads_services->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 
 						<!-- most valued ads for motor point -->
-						<?php foreach ($most_ads_motor as $motor_val){
+						<?php foreach ($sig_ads_motor as $motor_val){
 										/*currency symbol*/ 
                                     	if ($motor_val->currency == 'pound') {
                                     		$currency = '£';
@@ -550,15 +595,30 @@
 								<p><?php echo substr(strip_tags($motor_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($motor_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($motor_val->ad_type == 'business'){
+								 if ($motor_val->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $motor_val->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 
 						<!-- most valued ads for cloths and lifestyles -->
-						<?php foreach ($most_ads_cloths as $cloth_val){
+						<?php foreach ($sig_ads_cloths as $cloth_val){
 										/*currency symbol*/ 
                                     	if ($cloth_val->currency == 'pound') {
                                     		$currency = '£';
@@ -584,15 +644,30 @@
 								<p><?php echo substr(strip_tags($cloth_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($cloth_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($cloth_val->ad_type == 'business'){
+								 if ($cloth_val->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $cloth_val->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 
 						<!-- most valued ads for find a property -->
-						<?php foreach ($most_ads_property as $prop_val){
+						<?php foreach ($sig_ads_property as $prop_val){
 										/*currency symbol*/ 
                                     	if ($prop_val->currency == 'pound') {
                                     		$currency = '£';
@@ -618,15 +693,30 @@
 								<p><?php echo substr(strip_tags($prop_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($prop_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($prop_val->ad_type == 'business'){
+								 if ($prop_val->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $prop_val->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 
 						<!-- most valued ads for home and kitchen -->
-						<?php foreach ($most_ads_khome as $khome_val){
+						<?php foreach ($sig_ads_khome as $khome_val){
 										/*currency symbol*/ 
                                     	if ($khome_val->currency == 'pound') {
                                     		$currency = '£';
@@ -652,15 +742,30 @@
 								<p><?php echo substr(strip_tags($khome_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($khome_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($khome_val->ad_type == 'business'){
+								 if ($khome_val->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $khome_val->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 
 						<!-- most valued ads for pets -->
-						<?php foreach ($most_ads_pets as $m_ads_pets){
+						<?php foreach ($sig_ads_pets as $m_ads_pets){
 									/*currency symbol*/ 
                                     	if ($m_ads_pets->currency == 'pound') {
                                     		$currency = '£';
@@ -686,15 +791,30 @@
 								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_pets->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($m_ads_pets->ad_type == 'business'){
+								 if ($m_ads_pets->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
 						<?php } ?>
 						
 						<!-- most valued ads for ezone -->
-						<?php foreach ($most_ads_ezone as $m_ads_ezone){
+						<?php foreach ($sig_ads_ezone as $m_ads_ezone){
 									/*currency symbol*/ 
                                     	if ($m_ads_ezone->currency == 'pound') {
                                     		$currency = '£';
@@ -720,8 +840,23 @@
 								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_ezone->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-								<div class="price">
-									<span></span><b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+								<?php
+								if($m_ads_ezone->ad_type == 'business'){
+								 if ($m_ads_ezone->bus_logo != '') { ?>
+									<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" /></b>
+									</div>
+								<?php }
+								else{ ?>
+								<div class="bus_logo">
+									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									</div>
+								<?php } 
+									}
+								?>
+								<div class="sig_price">
+									<span></span><b>
+									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>

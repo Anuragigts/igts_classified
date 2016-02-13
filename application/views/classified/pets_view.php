@@ -161,6 +161,20 @@
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed"> Price Range</h4>
+										<div class="unit">
+											<div class="unit check logic-block-radio">
+												<div class="inline-group">
+													<label class="radio">
+													<input type="radio" name="currency" id="next-step-radio" class='currency' value="pound">
+													<i></i> £  
+													</label>
+													<label class="radio">
+													<input type="radio" name="currency" class='currency'  value="euro">
+													<i></i> €
+													</label>
+												</div>
+											</div>
+										</div>
 										<div class="range1">
 											<input type="range" name="range" min="0" max="25000" step="50" value="5000">
 											<output for="range" class="price_output"></output>

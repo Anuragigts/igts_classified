@@ -30,59 +30,34 @@ class Classified extends CI_Controller{
                                 $data['news'] = $news;
                                 $data['show_all'] = $this->classifed_model->show_all();
 
-                                /*most value show all ads*/
-                                $data['mostvalue_show_all'] = $this->classifed_model->mostvalue_show_all();
-                                /*most value for motor point*/
-                                $data['most_ads_motor'] = $this->classifed_model->most_ads_motor();
-                                /*most value for cloths and lifestyles*/
-                                $data['most_ads_cloths'] = $this->classifed_model->most_ads_cloths();
-                                /*most value for find a property*/
-                                $data['most_ads_property'] = $this->classifed_model->most_ads_property();
-                                /*most value for home and kitchen*/
-                                $data['most_ads_khome'] = $this->classifed_model->most_ads_khome();
-                                                     
-                if($lid != ''){
-                 /*over all ads for most value ads(displayed for jobs only)*/
-                 $data['most_ads'] = $this->classifed_model->most_ads();
-                    /*dammy for most value ads for services */
-                    $data['most_ads_services'] = $this->classifed_model->most_ads_services();
-                    /*dammy for most value ads for pets */
-                    $data['most_ads_pets'] = $this->classifed_model->most_ads_pets();
-                    /*dammy for most value ads for deals */
-                    // $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
-                    /*dammy for most value ads for ezone */
-                    $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
-                    /*platinum ads*/
-                    $data['sig_ads'] = $this->classifed_model->sig_ads();
-                   
-                    $data['free_ads'] = $this->classifed_model->free_ads();  
+                                /*sig value show all ads*/
+                                $data['sig_show_all'] = $this->classifed_model->sig_show_all();
+                                /*sig value for motor point*/
+                                $data['sig_ads_motor'] = $this->classifed_model->sig_ads_motor();
+                                /*sig value for cloths and lifestyles*/
+                                $data['sig_ads_cloths'] = $this->classifed_model->sig_ads_cloths();
+                                /*sig value for find a property*/
+                                $data['sig_ads_property'] = $this->classifed_model->sig_ads_property();
+                                /*sig value for home and kitchen*/
+                                $data['sig_ads_khome'] = $this->classifed_model->sig_ads_khome();
+                                /*over all ads for sig value ads(displayed for jobs only)*/
+                                 $data['sig_ads_jobs'] = $this->classifed_model->sig_ads_jobs();
+                                /*sig value ads for services */
+                                $data['sig_ads_services'] = $this->classifed_model->sig_ads_services();
+                                /*sig value ads for pets */
+                                $data['sig_ads_pets'] = $this->classifed_model->sig_ads_pets();
+                                /*sig value ads for ezone */
+                               $data['sig_ads_ezone'] = $this->classifed_model->sig_ads_ezone();
+                                /*platinum ads*/
+                                $data['hot_deals'] = $this->classifed_model->hot_deals();
+                                 /*mostvalued ads in home*/  
+                                $data['mostvalued_ads'] = $this->classifed_model->mostvalued_ads(); 
+                               /*free ads*/
+                                $data['free_ads'] = $this->classifed_model->free_ads();  
+                                /*business ads in home*/  
+                                $data['business_ads'] = $this->classifed_model->business_ads();  
 
-                    /*business ads in home*/  
-                    $data['business_ads'] = $this->classifed_model->business_ads();  
-
-                }
-                else{
-                    /*over all ads for most value ads(displayed for jobs only)*/
-                	$data['most_ads'] = $this->classifed_model->most_ads();
-                    
-                     /*dammy for most value ads for services */
-                    $data['most_ads_services'] = $this->classifed_model->most_ads_services();
-                    /*dammy for most value ads for pets */
-                    $data['most_ads_pets'] = $this->classifed_model->most_ads_pets();
-                    /*dammy for most value ads for deals */
-                    // $data['most_ads_deals'] = $this->classifed_model->most_ads_deals();
-                    /*dammy for most value ads for ezone */
-                    $data['most_ads_ezone'] = $this->classifed_model->most_ads_ezone();
-                    /*platinum ads*/
-                    $data['sig_ads'] = $this->classifed_model->sig_ads();
-                    $data['free_ads'] = $this->classifed_model->free_ads();
-
-                    /*business ads in home*/ 
-                    $data['business_ads'] = $this->classifed_model->business_ads();             
-
-                }
-
-                // echo "<pre>"; print_r($this);
+                                // echo "<pre>"; print_r($this);
 
                 $this->load->view("classified_layout/inner_template",$data);
         }

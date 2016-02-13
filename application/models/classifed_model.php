@@ -124,11 +124,11 @@ Class Classifed_model extends CI_model{
 
 
 	/*most value ads for show all in home page*/
-	public function mostvalue_show_all(){
+	public function sig_show_all(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -142,12 +142,12 @@ Class Classifed_model extends CI_model{
 			return array();
 		}
 	}
-	/*over all ads for most value ads(displayed for jobs only)*/
-	public function most_ads(){
+	/*over all ads for significant ads(displayed for jobs only)*/
+	public function sig_ads_jobs(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "jobs");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -162,12 +162,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-/*dammy for most value ads for services */
-	public function most_ads_services(){
+/*significant ads for services */
+	public function sig_ads_services(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "services");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -182,12 +182,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-	/*dammy for most value ads for motorpoint */
-	public function most_ads_motor(){
+	/*significant ads for motorpoint */
+	public function sig_ads_motor(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "motorpoint");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -202,12 +202,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-	/*dammy for most value ads for cloths and lifestyles */
-	public function most_ads_cloths(){
+	/*significant ads for cloths and lifestyles */
+	public function sig_ads_cloths(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "clothing_&_lifestyles");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -222,12 +222,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-	/*dammy for most value ads for find a property*/
-	public function most_ads_property(){
+	/*significant ads for find a property*/
+	public function sig_ads_property(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "findaproperty");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -242,12 +242,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-	/*dammy for most value ads for home and kitchen*/
-	public function most_ads_khome(){
+	/*significant ads for home and kitchen*/
+	public function sig_ads_khome(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "kitchenhome");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -262,12 +262,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-	/*dammy for most value ads for pets */
-	public function most_ads_pets(){
+	/*significant ads for pets */
+	public function sig_ads_pets(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "pets");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -284,12 +284,12 @@ Class Classifed_model extends CI_model{
 
 
 
-/*dammy for most value ads for ezone */
-	public function most_ads_ezone(){
+/*significant ads for ezone */
+	public function sig_ads_ezone(){
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "gold");
+		$this->db->where("ad.package_type", "platinum");
 		$this->db->where("ad.category_id", "ezone");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -304,14 +304,34 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
-
-	public function sig_ads(){
+	/*hot_deals in home page 3D */
+	public function hot_deals(){
 		$this->db->select("ads.*, img.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.package_type', 'platinum');
+		$this->db->group_by('img.ad_id');
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	/*most valued ads in home page*/
+	public function mostvalued_ads(){
+		$this->db->select("ads.*, img.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ads");
+		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		$this->db->where('ads.package_type', 'gold');
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
