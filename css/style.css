@@ -207,6 +207,9 @@ p{
 	line-height: 1.2rem;
 	word-wrap: break-word !important;
 }
+div{
+	word-wrap: break-word !important;
+}
 footer ul,
 .sitemap,
 .sitemap ul,
