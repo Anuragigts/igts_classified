@@ -194,7 +194,14 @@
 		</div>
 		<?php 
 		/* ad video details */
+		if (isset($ad_video->video_name)) {
+			if ($ad_video->video_name != '') {
 		$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
+		}
+		};
+		
+		
+		
 		/*ad_ description details*/
 		foreach ($ads_desc as $ads_desc_val) {
 			/*ad id*/
