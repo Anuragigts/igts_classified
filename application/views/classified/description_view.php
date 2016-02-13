@@ -334,10 +334,7 @@
 										<!-- Post Media-->
 										<div class="col-sm-12 col-xs-12">
 											<div id="gallery" style="display:none;">
-												<?php
-												foreach ($ads_pics as $ads_pics_val) {
-													?>
-												<?php foreach ($ads_pics as $ads_pics_val) {
+											<?php foreach ($ads_pics as $ads_pics_val) {
 													$busimg = $ads_pics_val->bus_logo;
 												 ?>
 													<img alt="Preview Image 1"
@@ -395,6 +392,12 @@
 																<?php foreach ($ads_review as $r_val) { ?>
 																	<li>
 																	<div class="comment-main-level">
+																		<!-- Avatar 
+																			<tr><th>Weblink</th>
+																			<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
+																		</tr>-->
+																		<!-- <div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div> -->
+																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
 																				<h6 class="comment-name"><a href=""><?php echo $r_val->review_title; ?></a></h6>
