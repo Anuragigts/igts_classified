@@ -2659,6 +2659,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-weight: normal;
 	color: #fff;
 }
+.info-gallery .sig_price{
+	float: right;
+	position: absolute;
+	top: -40px;
+	left: 215px;
+	text-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+	font-size: 2.5rem;
+	line-height: 2rem;
+	font-weight: normal;
+	color: #fff;
+}
 .info-gallery .price11 b{
 	font-size: 12px;
 	line-height: 1rem;
@@ -5508,7 +5519,6 @@ input[type="range"]{
   -webkit-appearance:none;
   width:100%;
   padding:0px;
-  margin-top:12px;
   /* box-shadow: inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3); */
   background: #ffffff;
   overflow:hidden;
