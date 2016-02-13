@@ -1517,16 +1517,6 @@
 												</div>
 											</div>
 											<div class="span12 unit">
-												<label class="label">Video Link 
-												<sup data-toggle="tooltip" title="" data-original-title="Video Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-												</label>
-												<div class="unit">
-													<input type="file" name="goldurgent_video" id='goldurgent_video' />
-												</div>
-											</div>
-											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
 												<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -1571,23 +1561,21 @@
 													</div>
 												</div>
 											</div>
+											
 											<div class="span12 unit">
-												<label class="label">Video Upload 
-												<sup data-toggle="tooltip" title="" data-original-title="Video upload">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
+												<label class="label">YouTube Video Link
+													<sup data-toggle="tooltip" title="" data-original-title="YouTube Video Link">
+														<img src="img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<div class="unit">
-													<label class="input append-big-btn">
-														<input type="file" name="file_video_platinum" id='file_video_platinum' />
-														<video controls width="200px" id="vid" style="display:block"></video>
-														<span class="hint">Only: MP4  Allow upto 30-Seconds video</span>
+												<div class="input">
+													<label class="icon-right" for="Video">
+													<i class="fa fa-video-camera"></i>
 													</label>
-												</div>
-												<div class="alert alert-danger platinum_video_error" style='display:none'; >
-													<strong>Error!</strong> Please upload upto 30-Seconds video(mp4 format)
+													<input type="text" id="file_video_platinum" name="file_video_platinum" placeholder="Enter YouTube Video Link">
 												</div>
 											</div>
+											
 											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
@@ -1609,7 +1597,7 @@
 												</label>
 												<div class="input">
 													<label class="icon-right" for="Video">
-													<i class="fa fa-briefcase"></i>
+														<i class="fa fa-external-link"></i>
 													</label>
 													<input type="text" id="marquee_title" name="marquee_title" placeholder="">
 												</div>
@@ -1730,8 +1718,8 @@
 													</div>
 												</div>
 											</div>
-											<div class="j-row">
-												<div class="span6 unit">
+											<div class="span6">
+												<div class="unit">
 													<label class="label">Terms & Conditions 
 													<sup data-toggle="tooltip" title="" data-original-title="Terms & Conditions">
 													<img src="img/icons/i.png" alt="Help" title="Help Label">

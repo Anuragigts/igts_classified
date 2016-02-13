@@ -356,6 +356,8 @@ class Description_view extends CI_Controller{
                 $ads_description_details = $this->classifed_model->ads_description_details();
                 /*images for ad*/
                 $ads_description_pics = $this->classifed_model->ads_description_pics();
+				/*videos for ad*/
+                $ads_description_videos = $this->classifed_model->ads_description_videos();
                 /*location for ad*/
                 $ads_description_loc = $this->classifed_model->ads_description_loc();
                 /*review and rating*/
@@ -364,12 +366,13 @@ class Description_view extends CI_Controller{
                 $ads_favourite = $this->classifed_model->ads_favourite();
                 /*ads likes ad or not*/
                 $ads_likes = $this->classifed_model->ads_likes();
-
+				//echo "<pre>"; print_r($this);
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "description_view",
                         "ads_desc"=> $ads_description_details,
                         "ads_pics"=> $ads_description_pics,
+						"ad_video"=>$ads_description_videos,
                         "ads_loc"=> $ads_description_loc,
                         "body_content"=>$body_content,
                         "ads_review"=>$ads_review,

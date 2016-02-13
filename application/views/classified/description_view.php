@@ -30,6 +30,16 @@
 			display: block;
 			cursor: pointer !important;
 		}
+		.ug-item-wrapper img{
+			display: block;
+			margin: 0px;
+			height: 402px;
+			opacity: 1;
+			width: 536px !important;
+			top: 0px;
+			left: 157px !important;
+			position: absolute;
+		}
 	</style>
 	
 	<script type="text/javascript">
@@ -183,6 +193,8 @@
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<?php 
+		/* ad video details */
+		$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
 		/*ad_ description details*/
 		foreach ($ads_desc as $ads_desc_val) {
 			/*ad id*/
@@ -322,13 +334,22 @@
 										<!-- Post Media-->
 										<div class="col-sm-12 col-xs-12">
 											<div id="gallery" style="display:none;">
+												<?php
+												foreach ($ads_pics as $ads_pics_val) {
+													?>
 												<?php foreach ($ads_pics as $ads_pics_val) {
 													$busimg = $ads_pics_val->bus_logo;
 												 ?>
 													<img alt="Preview Image 1"
 													 src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" class="img-responsive" title="<?php echo $ads_pics_val->img_name; ?>"
 													 data-image="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>">
-												<?php } ?>
+												<?php }
+													if($package_type == 'platinum'){
+														?>
+													<img alt="Youtube Video"
+														 data-type="youtube"
+														 data-videoid="<?php echo $video_name[1]; ?>">
+													<?php } ?>
 											</div>
 										</div>	
 										<!-- Post Media-->
@@ -374,12 +395,6 @@
 																<?php foreach ($ads_review as $r_val) { ?>
 																	<li>
 																	<div class="comment-main-level">
-																		<!-- Avatar 
-																			<tr><th>Weblink</th>
-																			<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
-																		</tr>-->
-																		<!-- <div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div> -->
-																		<!-- Contenedor del Comentario -->
 																		<div class="comment-box">
 																			<div class="comment-head">
 																				<h6 class="comment-name"><a href=""><?php echo $r_val->review_title; ?></a></h6>

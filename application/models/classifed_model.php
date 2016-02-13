@@ -395,6 +395,14 @@ Class Classifed_model extends CI_model{
 		$res = $this->db->get();
 		return $res->result();
 	}
+	/*ad description view video*/
+	public function ads_description_videos(){
+		$this->db->select("video_name");
+		$this->db->from("videos");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->row();
+	}
 
 	/*ad description view location*/
 	public function ads_description_loc(){

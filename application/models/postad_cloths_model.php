@@ -170,66 +170,14 @@ class Postad_cloths_model extends CI_Model{
                             $i++;
                        }
 
-                       /*video upload free+urgent*/
-                       if($_FILES['file_video_free']['name'] != ''){
-                       $target_dir = "./ad_videos/";
-                        
-                    $target_file = $target_dir . basename($_FILES["file_video_free"]["name"]);
-                    // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                    $new_name = explode(".", $_FILES["file_video_free"]["name"]);
-                    move_uploaded_file($_FILES["file_video_free"]["tmp_name"],$target_dir.time().".".end($new_name));
-                    $plat_video = array('ad_id' => $insert_id,
-                                    'video_name' => time().".".end($new_name),
+                        /*video upload platinum*/
+                       if($this->input->post('file_video_platinum')){
+                   $plat_video = array('ad_id' => $insert_id,
+                                    'video_name' => $this->input->post('file_video_platinum'),
                                     'uploaded_time' => date('d-m-Y H:i:s')
                                 );
                     $this->db->insert("videos", $plat_video);
                                 }
-
-                    /*video upload gold*/
-                       if($_FILES['file_video_gold']['name'] != ''){
-                       $target_dir = "./ad_videos/";
-                        
-                    $target_file = $target_dir . basename($_FILES["file_video_gold"]["name"]);
-                    // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                    $new_name = explode(".", $_FILES["file_video_gold"]["name"]);
-                    move_uploaded_file($_FILES["file_video_gold"]["tmp_name"],$target_dir.time().".".end($new_name));
-                    $plat_video = array('ad_id' => $insert_id,
-                                    'video_name' => time().".".end($new_name),
-                                    'uploaded_time' => date('d-m-Y H:i:s')
-                                );
-                    $this->db->insert("videos", $plat_video);
-                                }
-
-                    /*video upload gold+urgent*/
-                       if($_FILES['goldurgent_video']['name'] != ''){
-                       $target_dir = "./ad_videos/";
-                        
-                    $target_file = $target_dir . basename($_FILES["goldurgent_video"]["name"]);
-                    // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                    $new_name = explode(".", $_FILES["goldurgent_video"]["name"]);
-                    move_uploaded_file($_FILES["goldurgent_video"]["tmp_name"],$target_dir.time().".".end($new_name));
-                    $plat_video = array('ad_id' => $insert_id,
-                                    'video_name' => time().".".end($new_name),
-                                    'uploaded_time' => date('d-m-Y H:i:s')
-                                );
-                    $this->db->insert("videos", $plat_video);
-                                }
-
-                       /*video upload platinum*/
-                       if($_FILES['file_video_platinum']['name'] != ''){
-                       $target_dir = "./ad_videos/";
-                        
-                    $target_file = $target_dir . basename($_FILES["file_video_platinum"]["name"]);
-                    // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                    $new_name = explode(".", $_FILES["file_video_platinum"]["name"]);
-                    move_uploaded_file($_FILES["file_video_platinum"]["tmp_name"],$target_dir.time().".".end($new_name));
-                    $plat_video = array('ad_id' => $insert_id,
-                                    'video_name' => time().".".end($new_name),
-                                    'uploaded_time' => date('d-m-Y H:i:s')
-                                );
-                    $this->db->insert("videos", $plat_video);
-                                }
-                           
 
                 
                     

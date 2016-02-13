@@ -2000,16 +2000,6 @@ jQuery(document).ready(function($) {
 													</div>
 												</div>
 												<div class="span12 unit">
-													<label class="label">Video Link 
-														<sup data-toggle="tooltip" title="" data-original-title="Video Link">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="unit">
-														<input type="file" name="goldurgent_video" id='goldurgent_video' />
-													</div>
-												</div>
-												<div class="span12 unit">
 													<label class="label">Website Link 
 														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -2052,23 +2042,21 @@ jQuery(document).ready(function($) {
 														</div>
 													</div>
 												</div>
+												
 												<div class="span12 unit">
-													<label class="label">Video Upload 
-														<sup data-toggle="tooltip" title="" data-original-title="Video upload">
+													<label class="label">YouTube Video Link
+														<sup data-toggle="tooltip" title="" data-original-title="YouTube Video Link">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
-													<div class="unit">
-														<label class="input append-big-btn">
-															<input type="file" name="file_video_platinum" id='file_video_platinum' />
-															<video controls width="200px" id="vid" style="display:block"></video> 
-															<span class="hint">Only: MP4  Allow upto 30-Seconds video</span>
+													<div class="input">
+														<label class="icon-right" for="Video">
+														<i class="fa fa-video-camera"></i>
 														</label>
+														<input type="text" id="file_video_platinum" name="file_video_platinum" placeholder="Enter YouTube Video Link">
 													</div>
-													<div class="alert alert-danger platinum_video_error" style='display:none'; >
-												    <strong>Error!</strong> Please upload upto 30-Seconds video(mp4 format)
-												  	</div>
 												</div>
+												
 												<div class="span12 unit">
 													<label class="label">Website Link 
 														<sup data-toggle="tooltip" title="" data-original-title="Website Link">
@@ -2077,7 +2065,7 @@ jQuery(document).ready(function($) {
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Video">
-															<i class="fa fa-briefcase"></i>
+															<i class="fa fa-external-link"></i>
 														</label>
 														<input type="text" id="platinum_weblink" name="platinum_weblink" placeholder="">
 													</div>
@@ -2214,20 +2202,18 @@ jQuery(document).ready(function($) {
 														</div>
 													</div>
 												</div>
-												<div class="span12">
-													<div class="j-row">
-														<div class="span6 unit">
-															<label class="label">Terms & Conditions 
-																<sup data-toggle="tooltip" title="" data-original-title="Terms & Conditions">
-																	<img src="img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<label class="checkbox">
-																<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
-																<i></i>
-																I accept Terms & Conditions 
-															</label>
-														</div>
+												<div class="span6">
+													<div class="unit">
+														<label class="label">Terms & Conditions 
+															<sup data-toggle="tooltip" title="" data-original-title="Terms & Conditions">
+																<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
+															<i></i>
+															I accept Terms & Conditions 
+														</label>
 													</div>
 												</div>
 											</div>
