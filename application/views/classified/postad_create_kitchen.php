@@ -935,16 +935,16 @@
 										
 										<div class="j-row">
 											<div class="span6 unit">
-												<label class="label">Color 
-													<sup data-toggle="tooltip" title="" data-original-title="Color">
+												<label class="label">Colour 
+													<sup data-toggle="tooltip" title="" data-original-title="Colour">
 														<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="Color">
-														<img src="j-folder/img/color.png" alt="Color" title="Color Icon" class="img-responsive">
+													<label class="icon-right" for="Colour">
+														<img src="j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
 													</label>
-													<input type="text" id="color" name="color" placeholder="Enter Color">
+													<input type="text" id="color" name="color" placeholder="Enter Colour">
 												</div>
 											</div>
 											<div class="span6 unit">
