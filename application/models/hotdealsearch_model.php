@@ -181,8 +181,11 @@ class hotdealsearch_model extends CI_Model{
 					else if ($this->input->post("dealtitle") == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
+					else{
+						$this->db->order_by("ad.ad_id", "DESC");
+					}
 					/*deal price ascending or descending*/
-					else if ($this->input->post("priceval") == 'lowtohigh'){
+					if ($this->input->post("priceval") == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
 					else if ($this->input->post("priceval") == 'hightolow'){
