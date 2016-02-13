@@ -9,9 +9,7 @@
 		overflow: hidden;
 		}
 	</style>
-	<link rel="stylesheet" type="text/css" media="all" href="logreg.css">
-	<link rel="stylesheet" type="text/css" media="all" href="switchery.min.css">
-	<script type="text/javascript" src="switchery.min.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="css/logreg.css">
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
