@@ -238,7 +238,9 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+												<?php if ($m_details->category_id != 'jobs') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
+												<?php } ?>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
 													<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b> 
@@ -279,7 +281,9 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+												<?php if ($m_details->category_id != 'jobs') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
+												<?php } ?>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
 													<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
@@ -298,7 +302,7 @@
 												<span>Urgent</span>
 											</div>
 											<div class="img-hover box_img">
-												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 												</div>
@@ -307,7 +311,9 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+												<?php if ($m_details->category_id != 'jobs') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
+												<?php } ?>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
 													<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -323,7 +329,7 @@
 									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="img-hover box_img">
-												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 												</div>
@@ -332,7 +338,9 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+												<?php if ($m_details->category_id != 'jobs') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
+												<?php } ?>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">
 													<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
@@ -351,7 +359,7 @@
 												<span>Urgent</span>
 											</div>
 											<div class="img-hover box_img">
-												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 												</div>
@@ -360,7 +368,9 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+												<?php if ($m_details->category_id != 'jobs') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
+												<?php } ?>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
 										</div>
@@ -373,7 +383,7 @@
 									 ?>
 										<div class="col-xs-12 col-sm-6 col-md-4">
 											<div class="img-hover box_img">
-												<img src="img/hotel-img/1.jpg" alt="" class="img-responsive">
+												<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 												<div class="overlay">
 													<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 												</div>
@@ -382,7 +392,9 @@
 												<h3><?php echo $m_details->deal_tag; ?></h3>
 												<hr class="separator">
 												<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+												<?php if ($m_details->category_id != 'jobs') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
+												<?php } ?>
 												<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
 										</div>
