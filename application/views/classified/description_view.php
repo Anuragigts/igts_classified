@@ -307,7 +307,7 @@
 
 												<div class="post-info-wrap">
 													<h2 class="post-title"><a href="#"><?php echo $tag; ?></a></h2>
-													<div class="post-meta" style="padding-top: 8px;">
+													<div class="post-meta top_10">
 														<ul>
 															<li>
 																<i class="fa fa-user"></i>

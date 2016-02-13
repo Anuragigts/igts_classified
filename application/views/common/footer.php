@@ -24,6 +24,7 @@
 							<li><i class="fa fa-check"></i> <a href="#">Terms & Conditions</a></li>
 							<li><i class="fa fa-check"></i> <a href="#">Privacy Policy</a></li>
 							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
+							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 						</ul>
 					</div>
 					<!-- End Social Us-->
