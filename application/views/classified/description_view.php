@@ -666,7 +666,7 @@
 								<aside class="widget view_sidebar text_center">
 									<?php if ($isbustype == 'business') { 
 										if ($busimg != '') { ?>
-											<img src="ad_images/business_logos/<?php echo $busimg; ?>" alt="" class="img-responsive"><hr>
+											<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $busimg; ?>" alt="" class="img-responsive"><hr>
 										<?php }
 										else{ ?>
 											<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="" class="img-responsive"><hr>
