@@ -249,7 +249,7 @@
 										<img class="img-responsive" src="img/featured/services.jpg" alt="services" title="services Category">
 										<div class="overlay">
 											<h2>Services</h2>
-											<a class="info" href="professional_view">View Details</a>
+											<a class="info" href="services_view">View Details</a>
 										</div>
 									</div>
 								</div>
