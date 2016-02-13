@@ -204,7 +204,7 @@ p{
 	margin: 0px 0px 20px;
 	color: #777;
 	font-size: 0.875rem;
-	line-height: 1.2rem;
+	line-height: 1.5rem;
 	word-wrap: break-word !important;
 }
 div{
@@ -5567,7 +5567,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 .bg_clr1{
 	cursor: pointer;
 }
+.widget .list-styles a{
+	color:#777;
+}
 /*hot deal min hiehgt*/
 .hotdeal_minheight{
 	min-height: 600px;
-}
