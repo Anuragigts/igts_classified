@@ -118,7 +118,7 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<h2>Deals Administrator</h2>
-										<label>Hi User Name, you have 0 Pick-up deals</label>
+										<label>Hi <?php echo @$log_name; ?></label>
 										<hr>
 									</div>
 								</div>

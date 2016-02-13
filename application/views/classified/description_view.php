@@ -188,6 +188,8 @@
 			/*ad id*/
 			$catid = $ads_desc_val->category_id;
 			$ad_id_no = $ads_desc_val->ad_id;
+			$isbustype = $ads_desc_val->ad_type;
+			
 			/*login_id*/
 			//$login_id = $ads_desc_val->login_id;
 			/*package type and urgent*/
@@ -321,7 +323,7 @@
 										<div class="col-sm-12 col-xs-12">
 											<div id="gallery" style="display:none;">
 												<?php foreach ($ads_pics as $ads_pics_val) {
-
+													$busimg = $ads_pics_val->bus_logo;
 												 ?>
 													<img alt="Preview Image 1"
 													 src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" class="img-responsive" title="<?php echo $ads_pics_val->img_name; ?>"
@@ -634,6 +636,17 @@
 							
 							<div class="col-md-3 col-sm-4 col-xs-12">
 								<aside class="widget view_sidebar text_center">
+									<?php if ($isbustype == 'business') { 
+										if ($busimg != '') { ?>
+											<img src="ad_images/business_logos/<?php echo $busimg; ?>" alt="" class="img-responsive"><hr>
+										<?php }
+										else{ ?>
+											<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="" class="img-responsive"><hr>
+										<?php }
+										 ?>
+									
+									<?php } ?>
+									
 									<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img1">
 									<h3> <?php echo $name; ?></h3><hr>
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php foreach ($ads_loc as $ads_loc_val) {
