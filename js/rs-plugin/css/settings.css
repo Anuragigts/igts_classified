@@ -837,6 +837,7 @@ background-color:transparent;
 border-width:0px;
 border-color:rgb(255, 214, 88);
 border-style:none;
+top: 200.649px !important;
 }
 
 .tp-caption.medium_light_white {
@@ -949,7 +950,7 @@ padding:0px;
 border-width:0px;
 border-color:rgb(255, 214, 88);
 border-style:none;
-padding-top: 20px !important;
+padding-top: 50px !important;
 }
 
 .tp-caption.roundedimage {
