@@ -15,8 +15,31 @@ class Admin_model extends CI_Model{
                 $uq     =     $this->db->get();
                 //echo $this->db->last_query();exit;
                 if($this->db->affected_rows() > 0){
-                        $this->session->set_userdata($uq->row_array());
-                        return 1;                        
+					$this->db->select('');
+					$this->db->from('postad');
+					$post_add_details = $this->db->get()->result();
+					foreach($post_add_details as $add){
+						if($add->ad_status == 1)
+							$ad_active++;
+						else if($add->ad_status == 2)
+							$ad_hold++;
+						else if($add->ad_status == 3)
+							$ad_pending++;
+						else if($add->ad_status == 4)
+							$ad_reject++;
+						else if($add->ad_status == 0)
+							$new++;
+					}
+					$ad_session =array(
+								'active_ad'		=>	$ad_active,
+								'ad_hold'		=>	$ad_hold,
+								'ad_pending'	=>	$ad_pending,
+								'ad_reject'		=>	$ad_reject,
+								'new'			=>	$new,
+								);
+					$this->session->set_userdata($ad_session);
+					$this->session->set_userdata($uq->row_array());
+					return 1;                        
                 }
                 else{
                         return 0;

@@ -308,6 +308,114 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 69");
             return $rs->result_array();
         }
-
+		public function get_packages_details(){
+			//echo '312';
+            $rs = $this->db->query("SELECT * FROM pkg_duration_list");
+			//echo $this->db->last_query();
+			//print_r($rs->result_array());
+            return $rs->result();
+        }
+		public function get_pkg($pkg_id){
+            $rs = $this->db->query("SELECT * FROM pkg_duration_list where pkg_dur_id = '".$pkg_id."'");
+            return $rs->row();
+        }
+		public function insert_new_pkg_details(){
+			if($this->input->post('is_top_cat')==1)
+				$is_cat = 1;
+			else
+				$is_cat = 0;
+			
+			$info=array(
+					'pkg_dur_name'		=>	$this->input->post('pkg_name'),
+					'dur_days'			=>	$this->input->post('pkg_dur'),
+					'img_count'			=>	$this->input->post('img_count'),
+					'bump_home'			=>	$this->input->post('bump_home'),
+					'bump_search'		=>	$this->input->post('bump_search'),
+					'cost_euro'			=>	$this->input->post('euro_price'),
+					'cost_pound'		=>	$this->input->post('pound_price'),
+					'is_top'			=>	$is_cat,
+					'added_by'			=>	$this->session->userdata('login_id'),
+					'created_on'		=>	date("Y-m-d H:i:s"),
+					'status'			=>	1
+					);
+					//echo "<pre>";print_r($info );echo "</pre>";
+			$ins_status = $this->db->insert('pkg_duration_list',$info);
+			//echo $this->db->last_query();exit;
+			return $ins_status;
+        }
+		public function update_pkg_details(){
+			if($this->input->post('is_top_cat')==1)
+				$is_cat = 1;
+			else
+				$is_cat = 0;
+			
+			$info=array(
+					'pkg_dur_name'		=>	$this->input->post('pkg_name'),
+					'dur_days'			=>	$this->input->post('pkg_dur'),
+					'img_count'			=>	$this->input->post('img_count'),
+					'bump_home'			=>	$this->input->post('bump_home'),
+					'bump_search'		=>	$this->input->post('bump_search'),
+					'cost_euro'			=>	$this->input->post('euro_price'),
+					'cost_pound'		=>	$this->input->post('pound_price'),
+					'likes_count'		=>	$this->input->post('like_count'),
+					'is_top'			=>	$is_cat,
+					'added_by'			=>	$this->session->userdata('login_id'),
+					'last_update_on'	=>	date("Y-m-d H:i:s"),
+					'status'			=>	$this->input->post('pkg_status')
+			);
+					$this->db->where('pkg_dur_id',$this->input->post('pkg_dur_id'));
+				$update_status = $this->db->update('pkg_duration_list',$info);
+			//echo $this->db->last_query();exit;
+			return $update_status;
+        }
+		public function get_urg_label(){
+            $rs = $this->db->query("SELECT * FROM urgent_pkg_label");
+            return $rs->result();
+        }
+		public function insert_urg_label_details(){
+			if($this->input->post('is_top_cat')==1)
+				$is_top = 1;
+			else
+				$is_top = 0;
+			
+			$info=array(
+					'u_pkg_name'		=>	$this->input->post('urg_name'),
+					'u_pkg_days'			=>	$this->input->post('urg_dur'),
+					'u_pkg_euro_cost'			=>	$this->input->post('euro_price'),
+					'u_pkg__pound_cost'		=>	$this->input->post('pound_price'),
+					'is_top_cat'			=>	$is_top,
+					'added_by'			=>	$this->session->userdata('login_id'),
+					'added_on'			=>	date("Y-m-d H:i:s"),
+					'status'			=>	1
+					);
+			$ins_status = $this->db->insert('urgent_pkg_label',$info);
+			return $ins_status;
+        }
+		public function get_urgLabel($urg_id){
+            $rs = $this->db->query("SELECT * FROM urgent_pkg_label where u_pkg_id = '".$urg_id."'");
+            return $rs->row();
+        }
+		
+		public function update_urg_label_details(){
+			if($this->input->post('is_top_cat')==1)
+				$is_top = 1;
+			else
+				$is_top = 0;
+			
+			$info=array(
+					'u_pkg_name'			=>	$this->input->post('urg_name'),
+					'u_pkg_days'			=>	$this->input->post('urg_dur'),
+					'u_pkg_euro_cost'		=>	$this->input->post('euro_price'),
+					'u_pkg__pound_cost'		=>	$this->input->post('pound_price'),
+					'is_top_cat'			=>	$is_top,
+					'updated_by'			=>	$this->session->userdata('login_id'),
+					'updated_on'			=>	date("Y-m-d H:i:s"),
+					'status'				=>	$this->input->post('pkg_status')
+			);
+			$this->db->where('u_pkg_id',$this->input->post('u_pkg_id'));
+			$update_status = $this->db->update('urgent_pkg_label',$info);
+			//echo $this->db->last_query();exit;
+			return $update_status;
+        }
 }
 ?>

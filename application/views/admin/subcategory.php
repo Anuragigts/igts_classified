@@ -1,5 +1,69 @@
 <!-- begin PAGE TITLE AREA -->
 <!-- Use this section for each page's title and breadcrumb layout. In this example a date range picker is included within the breadcrumb. -->
+
+<div id="content" class="span9">
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home"></i>
+			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
+			<i class="icon-angle-right"></i>
+		</li>
+		<li><a href="">Ads List</a></li>
+	</ul>
+		<div class="row-fluid sortable">		
+				<div class="box span12">
+					<div class="box-header" data-original-title>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Adds</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<table class="table table-striped table-bordered bootstrap-datatable datatable">
+                        <thead>
+                            <tr>
+                               <th>S.No.</th>
+                                <th>Category Name</th>
+                                <th>Sub Category Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php  $i = 1; foreach($sview as $vw){?>
+                                    <tr>
+                                        <td><?php echo $i++;?></td>
+                                        <td><?php  
+                                        $vasl = ucfirst($vw->category_name);
+                                        echo $vasl;?></td>
+                                        <td><?php  
+                                        $val = ucfirst($vw->sub_category_name);
+                                        echo $val;?></td>
+										
+									
+								
+								
+                                        <td>
+                                            <a href="javascript:void(0);" category="<?php echo $vw->sub_category_id;?>" cat="<?php echo $vw->category_id;?>" class="edcategory" data-toggle="modal" data-target="#flexModal" title="Edit Sub Category"><i class="halflings-icon edit"></i></a>
+                                            <?php if($vw->sub_category_status == 0){ ?>
+                                                <a href="javascript:void(0);" class="cactivate" title="Activate" cname="<?php echo $val;?>" category="<?php echo $vw->sub_category_id;?>"><i class='icon-ok-circle text-green'></i></a>
+                                            <?php } else { ?>
+                                                <a href="javascript:void(0);" class="cdeactivate" title="Deactivate" cname="<?php echo $val;?>" category="<?php echo $vw->sub_category_id;?>"><i class=' icon-remove-circle text-red'></i></a>
+                                            <?php } ?>
+                                            <a href="<?php echo base_url();?>subcategory/delete/<?php echo $vw->sub_category_id;?>" title="Delete  Sub Category"><i class="icon-trash" style='width:10px; height:12px'></i> </a>
+                                        </td>
+                                    </tr>
+                                <?php }?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+		
+		
+	</div>	
+		
 <div class="row">
     <div class="col-lg-12">
         <div class="page-title">

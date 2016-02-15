@@ -1,96 +1,73 @@
-<nav class="navbar-side" role="navigation">
-    <div class="navbar-collapse sidebar-collapse collapse">
-        <ul id="side" class="nav navbar-nav side-nav">
-            <!-- begin SIDE NAV USER PANEL -->
-            <li class="side-user hidden-xs">
-                <img class="img-circle" src="<?php echo base_url();?>profiles/<?php echo $this->session->userdata("profile_img");?>" alt="">
-                <p class="welcome">
-                    <i class="fa fa-key"></i> Logged in as
-                </p>
-                <p class="name tooltip-sidebar-logout">
-                    <?php echo $this->session->userdata("first_name");?>
-                    <span class="last-name"><?php echo $this->session->userdata("last_name");?></span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
-                </p>
-                <div class="clearfix"></div>
-            </li>
-
-            <li>
-                <a class="admin_dashboard" href="<?php echo base_url();?>admin_dashboard">
-                    <i class="fa fa-dashboard"></i> Dashboard
-                </a>
-            </li>
-            <li>
-                <a  href="<?php echo base_url();?>users" class="users">
-                    <i class="fa fa-user"></i> Users
-                </a>
-            </li>
-             <li>
-                <a  href="<?php echo base_url();?>ads" class="ads">
-                    <i class="fa fa-bullhorn"></i> Advertisements
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo base_url();?>customercare" class="customercare">
-                    <i class="fa fa-users"></i> Customer Care
-                </a>
-            </li>
-            <!-- end CALENDAR LINK -->
-            <!-- begin TABLES DROPDOWN -->
-            <li class="panel">
-                <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle category" data-target="#settings">
-                    <i class="fa fa-cog"></i> Settings <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="collapse nav navcategory navsubcategory navsubsubcategory navadmin navsettings navad_validity navreport_category" id="settings">
-                    <li>
-                        <a href="<?php echo base_url();?>category">
-                            <i class="fa fa-angle-double-right"></i> Category
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url();?>subcategory">
-                            <i class="fa fa-angle-double-right"></i> Sub Category
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url();?>subsubcategory">
-                            <i class="fa fa-angle-double-right"></i> Sub Sub Category
-                        </a>
-                    </li>
-					<li>
-                        <a href="<?php echo base_url();?>subsubsubcategory">
-                            <i class="fa fa-angle-double-right"></i> Sub Sub Sub Category
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url();?>admin/banner">
-                            <i class="fa fa-angle-double-right"></i> Banner
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url();?>settings/profile">
-                            <i class="fa fa-angle-double-right"></i> Update Profile
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url();?>settings/change_password">
-                            <i class="fa fa-angle-double-right"></i> Change Password
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url();?>ad_validity">
-                            <i class="fa fa-angle-double-right"></i> Ad Validity  & Price
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url();?>report_category">
-                            <i class="fa fa-angle-double-right"></i> Report Category
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- end TABLES DROPDOWN -->
-        </ul>
-        <!-- /.side-nav -->
-    </div>
-    <!-- /.navbar-collapse -->
-</nav>
+		<div class="container-fluid-full">
+		<div class="row-fluid">
+				
+			<!-- start: Main Menu -->
+			<div id="sidebar-left" class="span3">
+				<div class="nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu">
+					 <li class="side-user hidden-xs text-center">
+							<img class="img-circle" src="<?php echo base_url();?>profiles/<?php echo $this->session->userdata("profile_img");?>" alt="">
+							<p class="welcome text-center">
+								<i class="icon-key"></i> Logged in as
+							</p>
+							<p class="name tooltip-sidebar-logout text-center">
+								<?php echo $this->session->userdata("first_name");?>
+								<span class="last-name"><?php echo $this->session->userdata("last_name");?></span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
+							</p>
+							<div class="clearfix"></div>
+						</li>
+						<li><a href="<?php echo base_url();?>admin_dashboard"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+						<li><a href="<?php echo base_url();?>users/"><i class="icon-user"></i><span class="hidden-tablet"> User</span></a></li>
+						<!--<li><a href="<?php echo base_url();?>ads/"><i class="icon-bullhorn"></i><span class="hidden-tablet"> Advertisements </span></a></li>-->
+						<li><a href="<?php echo base_url();?>customercare"><i class="icon-headphones"></i><span class="hidden-tablet"> Customer Care </span></a></li>
+						<li><a href="widgets.html"><i class="icon-headphones"></i><span class="hidden-tablet"> Widgets</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Advertisements &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<ul>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>ads/aprovals">
+										<i class="fa fa-angle-double-right"></i> Ad-Approvals
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>subcategory">
+										<i class="fa fa-angle-double-right"></i> Sub Category
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>category/listPackages">
+										<i class="fa fa-angle-double-right"></i> Package List
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>category/urgLabel">
+										<i class="fa fa-angle-double-right"></i> Urgent Label
+									</a>
+								</li>
+								 <li>
+									<a class="submenu" href="<?php echo base_url();?>subsubcategory">
+										<i class="fa fa-angle-double-right"></i> Hot-Deals Likes
+									</a>
+								</li>
+							</ul>	
+						</li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> User Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<ul>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>users/get_users/business">
+										<i class="fa fa-angle-double-right"></i> Business
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>users/get_users/consumer">
+										<i class="fa fa-angle-double-right"></i> Consumers
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="login.html"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
+					</ul>
+				</div>
+			</div>
+		

@@ -1,196 +1,360 @@
-<nav class="navbar-top" role="navigation">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>99 Right Deals :: Admin</title>
+	<meta name="description" content="Bootstrap Metro Dashboard">
+	<meta name="author" content="Dennis Ji">
+	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<!-- end: Meta -->
+	
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- end: Mobile Specific -->
+	
+	<!-- start: CSS -->
+	<link id="bootstrap-style" href="<?php echo base_url();?>admin_template_files/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?php echo base_url();?>admin_template_files/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link id="base-style" href="<?php echo base_url();?>admin_template_files/css/style.css" rel="stylesheet">
+	<link id="base-style-responsive" href="<?php echo base_url();?>admin_template_files/css/style-responsive.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+	<!-- end: CSS -->
+	
+	<link rel="shortcut icon" href="<?php echo base_url();?>admin_template_files/img/favicon.ico">
+<style>
+//.name,.welcome {align:center;color:#ffffff;}
+.name,.side-user .welcome {
+    color: #ffffff;
+    font-style: italic;
+    margin: 0;
+}
+.navbar-side .side-user .name .last-name {
+    color: #fff;
+    font-weight: 400;
+}
+.side-user img{
+	max-width:70%;
+}
+.container-fluid-full,.row-fluid .span10 {
+    min-height: 1200px;
+}
+.row-fluid #content {
+    width: 85.578%;
+    padding: 28px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 19.422% !important
+}
 
-    <!-- begin BRAND HEADING -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".sidebar-collapse">
-            <i class="fa fa-bars"></i> Menu
-        </button>
-        <div class="navbar-brand">
-            <a href="<?php echo base_url(); ?>admin_dashboard">
-                <img src="<?php echo $this->config->item('admin_assets_url');?>img/flex-admin-logo.png" data-1x="<?php echo $this->config->item('admin_assets_url');?>img/flex-admin-logo.png" data-2x="img/flex-admin-logo.png" class="hisrc img-responsive" alt="">
-            </a>
-        </div>
-    </div>
-    <!-- end BRAND HEADING -->
+.row-fluid .span3 {
+    width: 19.077%;
+}
+.row-fluid #content {
+    margin-bottom: 0;
+    margin-left: 19.422% !important;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 28px;
+    width: 81.578%;
+}
+td a.btn{
+	padding:0px 0px 1px 1px;!important;
+}
+.halflings-icon{
+	width:12px !important;
+	height:14px !important;
+	margin-top:0px;
+}
+.btn i{margin:0px;}
+td a.btn{line-height:15px;}
+</style>	
+		
+</head>
 
-    <div class="nav-top">
-
-        <!-- begin LEFT SIDE WIDGETS -->
-        <ul class="nav navbar-left">
-            <li class="tooltip-sidebar-toggle">
-                <a href="#" id="sidebar-toggle" data-toggle="tooltip" data-placement="right" title="Sidebar Toggle">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </li>
-            <!-- You may add more widgets here using <li> -->
-        </ul>
-        <!-- end LEFT SIDE WIDGETS -->
-
-        <!-- begin MESSAGES/ALERTS/TASKS/USER ACTIONS DROPDOWNS -->
-        <ul class="nav navbar-right">
-
-            <!-- begin ALERTS DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="alerts-link dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bell"></i> 
-                    <span class="number">9</span><i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-scroll dropdown-alerts">
-
-                    <!-- Alerts Dropdown Heading -->
-                    <li class="dropdown-header">
-                        <i class="fa fa-bell"></i> 9 New Alerts
-                    </li>
-
-                    <!-- Alerts Dropdown Body - This is contained within a SlimScroll fixed height box. You can change the height using the SlimScroll jQuery features. -->
-                    <li id="alertScroll">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon green pull-left">
-                                        <i class="fa fa-money"></i>
-                                    </div>
-                                    Order #2931 Received
-                                    <span class="small pull-right">
-                                        <strong>
-                                            <em>3 minutes ago</em>
-                                        </strong>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon blue pull-left">
-                                        <i class="fa fa-comment"></i>
-                                    </div>
-                                    New Comments
-                                    <span class="badge blue pull-right">15</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon orange pull-left">
-                                        <i class="fa fa-wrench"></i>
-                                    </div>
-                                    Crawl Errors Detected
-                                    <span class="badge orange pull-right">3</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon yellow pull-left">
-                                        <i class="fa fa-question-circle"></i>
-                                    </div>
-                                    Server #2 Not Responding
-                                    <span class="small pull-right">
-                                        <strong>
-                                            <em>5:25 PM</em>
-                                        </strong>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon red pull-left">
-                                        <i class="fa fa-bolt"></i>
-                                    </div>
-                                    Server #4 Crashed
-                                    <span class="small pull-right">
-                                        <strong>
-                                            <em>3:34 PM</em>
-                                        </strong>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon green pull-left">
-                                        <i class="fa fa-plus-circle"></i>
-                                    </div>
-                                    New Users
-                                    <span class="badge green pull-right">5</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon orange pull-left">
-                                        <i class="fa fa-download"></i>
-                                    </div>
-                                    Downloads
-                                    <span class="badge orange pull-right">16</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon purple pull-left">
-                                        <i class="fa fa-cloud-upload"></i>
-                                    </div>
-                                    Server #8 Rebooted
-                                    <span class="small pull-right">
-                                        <strong>
-                                            <em>12 hours ago</em>
-                                        </strong>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="alert-icon red pull-left">
-                                        <i class="fa fa-bolt"></i>
-                                    </div>
-                                    Server #8 Crashed
-                                    <span class="small pull-right">
-                                        <strong>
-                                            <em>12 hours ago</em>
-                                        </strong>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Alerts Dropdown Footer -->
-                    <li class="dropdown-footer">
-                        <a href="#">View All Alerts</a>
-                    </li>
-
-                </ul>
-                <!-- /.dropdown-menu -->
-            </li>
-
-            <!-- begin USER ACTIONS DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-user"></i>  <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li>
-                        <a href="<?php echo base_url();?>settings/profile">
-                            <i class="fa fa-user"></i> My Profile
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="<?php echo base_url();?>settings/change_password">
-                            <i class="fa fa-gear"></i> Settings
-                        </a>
-                    </li>
-                    <li>
-                        <a class="logout_open" href="#logout">
-                            <i class="fa fa-sign-out"></i> Logout
-                            <strong><?php echo $this->session->userdata("first_name")." ".$this->session->userdata("last_name");?></strong>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-menu -->
-            </li>
-            <!-- /.dropdown -->
-            <!-- end USER ACTIONS DROPDOWN -->
-
-        </ul>
-        <!-- /.nav -->
-        <!-- end MESSAGES/ALERTS/TASKS/USER ACTIONS DROPDOWNS -->
-
-    </div>
-    <!-- /.nav-top -->
-</nav>
+<body>
+		<!-- start: Header -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"><span>99RightDeals</span></a>
+								
+				<!-- start: Header Menu -->
+				<div class="nav-no-collapse header-nav">
+					<ul class="nav pull-right">
+						<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="icon-bell"></i>
+								<span class="badge red">
+								<?php echo $this->session->userdata('new');?> </span>
+							</a>
+							<ul class="dropdown-menu notifications">
+								<!--<li class="dropdown-menu-title">
+ 									<span>You have 11 notifications</span>
+									<a href="#refresh"><i class="icon-repeat"></i></a>
+								</li>	-->
+                            	<li>
+                                    <a href="<?php echo base_url()?>ads/listAds/0/">
+										<span class="icon blue"><i class="icon-user"></i></span>
+										<span class="message">New Ads</span>
+										<span class="time"><?php echo $this->session->userdata('new');?></span> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>ads/listAds/3/" >
+										<span class="icon green"><i class="icon-comment-alt"></i></span>
+										<span class="message">Pending Ads</span>
+										<span class="time"><?php echo $this->session->userdata('ad_pending');?></span> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>ads/listAds/4/">
+										<span class="icon green"><i class="icon-comment-alt"></i></span>
+										<span class="message">Rejected Ads</span>
+										<span class="time"><?php echo $this->session->userdata('ad_reject');?></span> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>ads/listAds/2/">
+										<span class="icon green"><i class="icon-comment-alt"></i></span>
+										<span class="message">On Hold Ads</span>
+										<span class="time"><?php echo $this->session->userdata('ad_hold');?></span> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>ads/listAds/1/">
+										<span class="icon blue"><i class="icon-user"></i></span>
+										<span class="message">Active Ads</span>
+										<span class="time"><?php echo $this->session->userdata('active_ad');?></span> 
+                                    </a>
+                                </li>
+								<!--<li>
+                                    <a href="#">
+										<span class="icon yellow"><i class="icon-shopping-cart"></i></span>
+										<span class="message">2 items sold</span>
+										<span class="time">1 hour</span> 
+                                    </a>
+                                </li>
+								<li class="warning">
+                                    <a href="#">
+										<span class="icon red"><i class="icon-user"></i></span>
+										<span class="message">User deleted account</span>
+										<span class="time">2 hour</span> 
+                                    </a>
+                                </li>
+								<li class="warning">
+                                    <a href="#">
+										<span class="icon red"><i class="icon-shopping-cart"></i></span>
+										<span class="message">New comment</span>
+										<span class="time">6 hour</span> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="#">
+										<span class="icon green"><i class="icon-comment-alt"></i></span>
+										<span class="message">New comment</span>
+										<span class="time">yesterday</span> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="#">
+										<span class="icon blue"><i class="icon-user"></i></span>
+										<span class="message">New user registration</span>
+										<span class="time">yesterday</span> 
+                                    </a>
+                                </li>
+                                <li class="dropdown-menu-sub-footer">
+                            		<a>View all notifications</a>
+								</li>	-->
+							</ul>
+						</li>
+						<!-- start: Notifications Dropdown -->
+						<!--<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="icon-calendar"></i>
+								<span class="badge red">
+								5 </span>
+							</a>
+							<ul class="dropdown-menu tasks">
+								<li class="dropdown-menu-title">
+ 									<span>You have 17 tasks in progress</span>
+									<a href="#refresh"><i class="icon-repeat"></i></a>
+								</li>
+								<li>
+                                    <a href="#">
+										<span class="header">
+											<span class="title">iOS Development</span>
+											<span class="percent"></span>
+										</span>
+                                        <div class="taskProgress progressSlim red">80</div> 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+										<span class="header">
+											<span class="title">Android Development</span>
+											<span class="percent"></span>
+										</span>
+                                        <div class="taskProgress progressSlim green">47</div> 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+										<span class="header">
+											<span class="title">ARM Development</span>
+											<span class="percent"></span>
+										</span>
+                                        <div class="taskProgress progressSlim yellow">32</div> 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="#">
+										<span class="header">
+											<span class="title">ARM Development</span>
+											<span class="percent"></span>
+										</span>
+                                        <div class="taskProgress progressSlim greenLight">63</div> 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+										<span class="header">
+											<span class="title">ARM Development</span>
+											<span class="percent"></span>
+										</span>
+                                        <div class="taskProgress progressSlim orange">80</div> 
+                                    </a>
+                                </li>
+								<li>
+                            		<a class="dropdown-menu-sub-footer">View all tasks</a>
+								</li>	
+							</ul>
+						</li>-->
+						<!-- end: Notifications Dropdown -->
+						<!-- start: Message Dropdown -->
+						<!--<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="icon-envelope"></i>
+								<span class="badge red">
+								4 </span>
+							</a>
+							<ul class="dropdown-menu messages">
+								<li class="dropdown-menu-title">
+ 									<span>You have 9 messages</span>
+									<a href="#refresh"><i class="icon-repeat"></i></a>
+								</li>	
+                            	<li>
+                                    <a href="#">
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
+										<span class="header">
+											<span class="from">
+										    	Dennis Ji
+										     </span>
+											<span class="time">
+										    	6 min
+										    </span>
+										</span>
+                                        <span class="message">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                        </span>  
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
+										<span class="header">
+											<span class="from">
+										    	Dennis Ji
+										     </span>
+											<span class="time">
+										    	56 min
+										    </span>
+										</span>
+                                        <span class="message">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                        </span>  
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
+										<span class="header">
+											<span class="from">
+										    	Dennis Ji
+										     </span>
+											<span class="time">
+										    	3 hours
+										    </span>
+										</span>
+                                        <span class="message">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                        </span>  
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="#">
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
+										<span class="header">
+											<span class="from">
+										    	Dennis Ji
+										     </span>
+											<span class="time">
+										    	yesterday
+										    </span>
+										</span>
+                                        <span class="message">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                        </span>  
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
+										<span class="header">
+											<span class="from">
+										    	Dennis Ji
+										     </span>
+											<span class="time">
+										    	Jul 25, 2012
+										    </span>
+										</span>
+                                        <span class="message">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                        </span>  
+                                    </a>
+                                </li>
+								<li>
+                            		<a class="dropdown-menu-sub-footer">View all messages</a>
+								</li>	
+							</ul>
+						</li>-->
+						
+						<!-- start: User Dropdown -->
+						<li class="dropdown">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="halflings-icon white user"></i> <?php echo $this->session->userdata("first_name");?>
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title">
+ 									<span>Account Settings</span>
+								</li>
+								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="<?php echo base_url()?>admin/logout"><i class="halflings-icon off"></i> Logout</a></li>
+							</ul>
+						</li>
+						<!-- end: User Dropdown -->
+					</ul>
+				</div>
+				<!-- end: Header Menu -->
+				
+			</div>
+		</div>
+	</div>

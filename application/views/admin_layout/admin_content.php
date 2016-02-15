@@ -1,4 +1,4 @@
-		<div id="content" class="span9">
+<div id="content" class="span10">
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
@@ -45,5 +45,5 @@
 			</div>		
 		
 		</div>
-	</div>
+</div>
 </div>
