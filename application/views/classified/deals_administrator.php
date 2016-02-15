@@ -13,7 +13,7 @@
 	
 	<link rel="stylesheet" href="libs/slider.css">
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
-	<!-- use jssor.slider.debug.js instead for debug -->
+	
 	<script>
 		jssor_1_slider_init = function() {
 			
@@ -90,16 +90,11 @@
 
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
-	<!-- Section Title-->    
 	<div class="section-title-01">
-		<!-- Parallax Background -->
 		<div class="bg_parallax image_01_parallax"></div>
 	</div>   
-	<!-- End Section Title-->
 	
-	<!--Content Central -->
 	<section class="content-central">
-		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
@@ -108,7 +103,6 @@
 			<div class="paddings">
 				<div class="container">
 					<div class="row">
-						<!-- Item Table-->
 						<div class="col-sm-3">
 							<div class="item-table">
 								<div class="header-table color-red">
@@ -142,7 +136,7 @@
                                         <div class="col-md-9">
                                             <strong>Sort by:</strong>
                                             <ul>                            
-                                                <li>
+                                                <li class="leng_h">
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
@@ -157,7 +151,7 @@
 														</label>
 													</div>
                                                 </li>
-												<li>
+												<li class="leng_h">
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
@@ -169,7 +163,7 @@
 														</label>
 													</div>
                                                 </li>
-												<li>
+												<li class="leng_h">
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
@@ -971,35 +965,33 @@
 
 	</script>	
 
-	<script
-src="http://maps.googleapis.com/maps/api/js">
-</script>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
 
-<script>
-var myCenter=new google.maps.LatLng(55.9058347,-3.3274721000000227);
+	<script>
+		var myCenter=new google.maps.LatLng(55.9058347,-3.3274721000000227);
 
-function initialize()
-{
-var mapProp = {
-  center: myCenter,
-  zoom:5,
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+		function initialize()
+		{
+		var mapProp = {
+		  center: myCenter,
+		  zoom:5,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
 
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-var marker = new google.maps.Marker({
-  position: myCenter,
-  title:'Click to zoom'
-  });
+		var marker = new google.maps.Marker({
+		  position: myCenter,
+		  title:'Click to zoom'
+		  });
 
-marker.setMap(map);
+		marker.setMap(map);
 
-// Zoom to 9 when clicking on marker
-google.maps.event.addListener(marker,'click',function() {
-  map.setZoom(9);
-  map.setCenter(marker.getPosition());
-  });
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+		// Zoom to 9 when clicking on marker
+		google.maps.event.addListener(marker,'click',function() {
+		  map.setZoom(9);
+		  map.setCenter(marker.getPosition());
+		  });
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>

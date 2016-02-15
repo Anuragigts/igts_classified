@@ -81,7 +81,7 @@ class Signup_model extends CI_Model{
 										<h3>Hi ".$this->input->post('con_fname').",</h3>
 										<p>Welcome to 99Rightdeals.com</p>
 										<p> To complete your registration please confirm that you have received this email by clicking below</p>
-										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#9FC955;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Activate your Account</a>
+										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#fff;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Activate your Account</a>
 										<div style='margin-top:20px'></div>
 										<p>Here are all the details you'll need to log on and start find your perfect deal.</p>
 										<p>Best Wishes,</p>

@@ -212,7 +212,7 @@
 									</div>
 								</div>
 								
-								<div class="col-md-4">
+								<div class="col-md-4 blog_right">
 									
 									<aside class="widget">
 										<h4>Text</h4>
@@ -228,6 +228,51 @@
 											<li><i class="fa fa-check"></i> <a href="#">Inclusive Packages</a></li>
 										</ul>
 									</aside>
+									
+									<aside class="widget">
+                                        <h4>Archive</h4>
+                                        <ul class="list-styles">
+                                            <li><i class="fa fa-check"></i> <a href="#">February 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">March 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">April 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">May 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">June 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">July 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">August 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">September 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">October 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">November 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">December 2015</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">January 2016</a></li>
+                                            <li><i class="fa fa-check"></i> <a href="#">February 2016</a></li>
+                                        </ul>
+                                    </aside>
+                                    
+									<aside class="widget">
+                                        <h4>About Us</h4>
+                                        <div class="accrodation">
+                                           <span class="acc-trigger"><a href="#">Mision</a></span>
+                                            <div class="acc-container">
+                                                <div class="content">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+                                                </div>
+                                            </div>
+                                          
+                                            <span class="acc-trigger"><a href="#">Vision</a></span>
+                                            <div class="acc-container">
+                                                <div class="content">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+                                                </div>
+                                            </div>
+                                       
+                                            <span class="acc-trigger active"><a href="#">Our services</a></span>
+                                            <div class="acc-container">
+                                                <div class="content">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </aside>
 								</div>
 							</div>
 						</div>

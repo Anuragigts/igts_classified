@@ -394,7 +394,7 @@
                                     </ul>
                                 </div>
                                 
-                                <div class="col-md-3">
+                                <div class="col-md-3 blog_right">
                                     <aside class="widget">
                                         <h4>Widget Search</h4>
                                         <form action="#">

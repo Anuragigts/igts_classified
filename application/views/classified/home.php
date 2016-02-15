@@ -10,6 +10,7 @@
 			border-right: 1px solid #f4f4f4;
 		}
 	</style>
+	
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
 		<div class="tp-banner" >
@@ -1233,4 +1234,74 @@
 	<script>$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>
 	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	
+	<script src="js/box-slider-all.jquery.min.js"></script>
+	<script>
+         $(function () {
+             // This function runs before the slide transition starts
+             var switchIndicator = function ($c, $n, currIndex, nextIndex) {
+               // kills the timeline by setting it's width to zero
+               $timeIndicator.stop().css('width', 0);
+               // Highlights the next slide pagination control
+               $indicators.removeClass('current').eq(nextIndex).addClass('current');
+             };
+         
+             // This function runs after the slide transition finishes
+             var startTimeIndicator = function () {
+               // start the timeline animation
+               $timeIndicator.animate({width: '100%'}, slideInterval);
+             };
+         
+             var $box = $('#box')
+               , $indicators = $('.goto-slide')
+               , $effects = $('.effect')
+               , $timeIndicator = $('#time-indicator')
+               , slideInterval = 5000
+               , defaultOptions = {
+                     speed: 1200
+                   , autoScroll: true
+                   , timeout: slideInterval
+                   , next: '#next'
+                   , prev: '#prev'
+                   , pause: '#pause'
+                   , onbefore: switchIndicator
+                   , onafter: startTimeIndicator
+                 }
+               , effectOptions = {
+                   'blindLeft': {blindCount: 15}
+                 , 'blindDown': {blindCount: 15}
+                 , 'tile3d': {tileRows: 6, rowOffset: 80}
+                 , 'tile': {tileRows: 6, rowOffset: 80}
+               };
+         
+             // initialize the plugin with the desired settings
+             $box.boxSlider(defaultOptions);
+             // start the time line for the first slide
+             startTimeIndicator();
+         
+             // Paginate the slides using the indicator controls
+             $('#controls').on('click', '.goto-slide', function (ev) {
+               $box.boxSlider('showSlide', $(this).data('slideindex'));
+               ev.preventDefault();
+             });
+         
+             // This is for demo purposes only, kills the plugin and resets it with
+             // the newly selected effect
+             $('#effect-list').on('click', '.effect', function (ev) {
+               var $effect = $(this)
+                 , fx = $effect.data('fx')
+                 , extraOptions = effectOptions[fx];
+         
+               $effects.removeClass('current');
+               $effect.addClass('current');
+               switchIndicator(null, null, 0, 0);
+               $box
+                 .boxSlider('destroy')
+                 .boxSlider($.extend({effect: fx}, defaultOptions, extraOptions));
+               startTimeIndicator();
+         
+               ev.preventDefault();
+             });
+         });
+      </script>
 	

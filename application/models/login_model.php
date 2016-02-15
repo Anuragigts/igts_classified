@@ -120,7 +120,7 @@ class Login_model extends CI_Model{
 										<h2>Forget Password</h2>
 										<p>Hi, We've received a request to reset your 99rightdeal password.</p>
 										<p> To initiate the process, please click the following link</p>
-										<a href='".base_url()."common/forgot/".$random_code."' style='color:#9FC955;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Reset Your Password</a>
+										<a href='".base_url()."common/forgot/".$random_code."' style='color:#fff;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Reset Your Password</a>
 										<div style='margin-top:20px'></div>
 										<p>If clicking the link above does not work, copy and paste the URL in a new browser window. The URL will expire in 24 hours for security reasons. If you did not make this request, simply ignore this message.</p>
 										<p>Best Wishes,</p>
