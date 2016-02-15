@@ -784,7 +784,7 @@
 														<label class="icon-right" for="postalcode">
 														<i class="fa fa-bookmark-o"></i>
 														</label>
-														<input type="text" id="postalcode" name="postalcode" placeholder="(e.g. EH14 4AB)" >
+														<input type="text" id="postalcode" name="postalcode" placeholder="" >
 													</div>
 												</div>
 												<div class="span6 unit">

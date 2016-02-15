@@ -18,9 +18,7 @@
 						</li>
 						<li><a href="<?php echo base_url();?>admin_dashboard"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<li><a href="<?php echo base_url();?>users/"><i class="icon-user"></i><span class="hidden-tablet"> User</span></a></li>
-						<!--<li><a href="<?php echo base_url();?>ads/"><i class="icon-bullhorn"></i><span class="hidden-tablet"> Advertisements </span></a></li>-->
 						<li><a href="<?php echo base_url();?>customercare"><i class="icon-headphones"></i><span class="hidden-tablet"> Customer Care </span></a></li>
-						<li><a href="widgets.html"><i class="icon-headphones"></i><span class="hidden-tablet"> Widgets</span></a></li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Advertisements &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul>
@@ -66,7 +64,7 @@
 								</li>
 							</ul>
 						</li>
-						<li><a href="login.html"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
+						<li><a href="#"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
 					</ul>
 				</div>
 			</div>
