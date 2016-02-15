@@ -3710,6 +3710,12 @@ address strong{
 	margin-right: 15px;
 	display: inline-block;
 }
+.sort-by-container ul .leng_h{
+	padding: 0;
+	width: 25%;
+	margin-right: 15px;
+	display: inline-block;
+}
 .sort-by-container ul li:last-child{
 	margin-right: 0;
 }
@@ -5090,9 +5096,7 @@ h4 a:hover{
 .slide_j1{
 	filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;
 }
-.slide_j2{
-	position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;
-}
+
 .slide_j3{
 	cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;
 }
@@ -5427,7 +5431,7 @@ tbody th,td{
 .view_price_1{
 	color:white;
 	padding: 22px 37px 27px 35px;
-	margin-right: 76px !important;
+	margin-right: 55px !important;
 	font-size: 18px;
 }
 .box_img img{
@@ -5567,9 +5571,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 .bg_clr1{
 	cursor: pointer;
 }
-.widget .list-styles a{
-	color:#777;
-}
+
 /*hot deal min hiehgt*/
 .hotdeal_minheight{
 	min-height: 600px;
+}
+.blog_right	li a{
+	color:#777;
+}
