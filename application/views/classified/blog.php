@@ -395,21 +395,6 @@
                                 </div>
                                 
                                 <div class="col-md-3 blog_right">
-                                    <aside class="widget">
-                                        <h4>Widget Search</h4>
-                                        <form action="#">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-envelope"></i>
-                                                </span>
-                                                <input class="form-control" placeholder="Search" name="search" type="text" required="required">
-                                                <span class="input-group-addon btn-search">
-                                                    <input value="Search" type="submit">
-                                                </span>
-                                            </div>
-                                         </form>
-                                    </aside>
-                                   
 									<aside class="widget">
                                         <h4>List of Categories</h4>
                                         <ul class="list-styles">
