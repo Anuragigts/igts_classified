@@ -153,6 +153,9 @@ a:hover{
     outline: medium none;
 	color: #88C425;
 }
+a{
+	color:#777;
+}
 a:hover{
 	color:#88C425 !important;
 }
@@ -477,6 +480,7 @@ hr.tall{
   -o-transition: 0.3s all ease;
   -ms-transition: 0.3s all ease;
   transition: 0.3s all ease;
+  width: 100%;
 }
 .img-hover .overlay{
   position: absolute;
@@ -4935,6 +4939,7 @@ aside label .checkbox{
 	height: 219px;
 	border-top: 1px solid #f4f4f4;
 	border-left: 1px solid #f4f4f4;
+	width: 100%;
 	border-right: 1px solid #f4f4f4;
 }
 .sign_bg{
