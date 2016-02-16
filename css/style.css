@@ -5580,6 +5580,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 /*hot deal min hiehgt*/
 .hotdeal_minheight{
 	min-height: 600px;
+<<<<<<< .mine
+}
+
+
+/*middle ad in search view*/
+.middle_ad{
+	min-height: 110px;
+}
+.find_location{
+	margin-top: 5px;
+}
+
+.cd-filter-content label{
+	font-size: 13px !important;
+}
 }
 .blog_right	li a{
 	color:#777;
