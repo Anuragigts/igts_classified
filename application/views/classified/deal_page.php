@@ -494,7 +494,7 @@
 														<div class="top_bar_top">
 															<label class="input select">
 																<select name="price_sort" class="price_sort">
-																	<option value="Any">Any</option>
+																	<option value="Any">Any(Pricing)</option>
 																	<option value="lowtohigh">Low to High</option>
 																	<option value="hightolow">High to Low</option>
 																</select>
@@ -506,7 +506,7 @@
 														<div class="top_bar_top">
 															<label class="input select">
 																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any">Any</option>
+																	<option value="Any">Any(posted on)</option>
 																	<option value="last24hours">Last 24 Hours</option>
 																	<option value="last3days">Last 3 Days</option>
 																	<option value="last7days">Last 7 Days</option>

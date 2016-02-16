@@ -688,11 +688,12 @@ Class Classifed_model extends CI_model{
 
 	/*ads for services in services search */
 	public function services_view(){
-		$this->db->select("ad.*, img.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "services");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
@@ -704,6 +705,35 @@ Class Classifed_model extends CI_model{
 		else{
 			return array();
 		}
+	}
+
+		/*ads for jobs in jobs search */
+	public function jobs_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "jobs");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	/*public ads for services search */
+	public function publicads(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$m_res = $this->db->get();
+			return $m_res->result();
 	}
 
 

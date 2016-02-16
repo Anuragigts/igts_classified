@@ -203,6 +203,7 @@ class Postad_job_model extends CI_Model{
 
                     /*job details*/
                     $job_details = array('ad_id' => $insert_id,
+                                    'jobtype_title' => $this->input->post('jobtype_title'),
                                     'jobtype' => $this->input->post('typeofjob'),
                                     'companyname' => $this->input->post('companyname'),
                                     'salarymin' => $this->input->post('salarymin'),

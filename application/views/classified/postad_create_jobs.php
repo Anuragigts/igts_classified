@@ -845,6 +845,35 @@
 										<!-- end Business Logo -->
 										<div class="post_deal_bor top_10" style='margin-top: 20px;'>
 											<div class="j-row">
+												<div class="span12 unit">
+													<div class="unit check logic-block-radio">
+														<div class="inline-group">
+															<label class="radio">
+															<input type="radio" name="jobtype_title" id="next-step-radio" value="Company">
+															<i></i>Company 
+															<sup data-toggle="tooltip" title="" data-original-title="Company">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+															</label>
+															<label class="radio">
+															<input type="radio" name="jobtype_title" value="agency">
+															<i></i>Agency 
+															<sup data-toggle="tooltip" title="" data-original-title="Agency">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+															</label>
+															<label class="radio">
+															<input type="radio" name="jobtype_title" value="other">
+															<i></i>Other 
+															<sup data-toggle="tooltip" title="" data-original-title="Other">
+															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="j-row">
 												<div class="span6 unit">
 													<label class="label">Job Tag / Caption 
 														<sup data-toggle="tooltip" title="" data-original-title="Job tag">
