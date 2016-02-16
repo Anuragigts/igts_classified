@@ -149,7 +149,7 @@
 								
 								<div class="sort-by-container tooltip-hover">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-12">
                                             <strong>Sort by:</strong>
                                             <ul>                            
                                                 <li>
@@ -167,7 +167,7 @@
 														</label>
 													</div>
                                                 </li>
-												<li>
+												<li >
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
@@ -179,7 +179,7 @@
 														</label>
 													</div>
                                                 </li>
-												<li>
+												<li >
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
@@ -192,20 +192,6 @@
 													</div>
                                                 </li>
 											</ul>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <ul class="style-view">
-                                                <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-                                                    <a href="deals_administrator_box">
-                                                        <i class="fa fa-th-large"></i>
-                                                    </a>
-                                                </li>
-                                                <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-                                                    <a href="deals_administrator">
-                                                        <i class="fa fa-list"></i>
-                                                    </a>
-                                                </li> 
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
