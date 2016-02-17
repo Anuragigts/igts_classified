@@ -522,7 +522,18 @@
 		});
 		</script>
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
-	
+	 <?php foreach ($busconcount as $countval) {
+	  	$allbustype = $countval->allbustype;
+	  	$business = $countval->business;
+	  	$consumer = $countval->consumer;
+	  }
+	  foreach ($deals_pck as $pckval) {
+	  	$urgentcnt = $pckval->urgentcount;
+	  	$platinumcnt = $pckval->platinumcount;
+	  	$goldcnt = $pckval->goldcount;
+	  	$freecnt = $pckval->freecount;
+	  }
+	   ?>
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
@@ -588,15 +599,15 @@
 											<div>
 												<label class="radio">
 													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
-													<i></i> All 
+													<i></i> All (<?php echo $allbustype; ?>)
 												</label>
 												<label class="radio">
 													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
-													<i></i> Business
+													<i></i> Business (<?php echo $business; ?>)
 												</label>
 												<label class="radio">
 													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
-													<i></i> Consumer
+													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
 										</div>
@@ -622,19 +633,19 @@
 											<div>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
-													<i></i> Urgent Deals 
+													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
-													<i></i> Platinum Deals
+													<i></i> Platinum Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
-													<i></i> Gold Deals
+													<i></i> Gold Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
-													<i></i> free Deals
+													<i></i> free Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
 										</div>
@@ -643,11 +654,6 @@
 								<div class="row top_20">
 									<div class="col-sm-12 left_ad1">
 										<?php echo $left_ad1; ?>
-									</div>
-								</div>
-								<div class="row top_20">
-									<div class="col-sm-12 left_ad2">
-										<?php echo $left_ad2; ?>
 									</div>
 								</div>
 							</div>

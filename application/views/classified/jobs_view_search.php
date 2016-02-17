@@ -1,62 +1,7 @@
-		<script type="text/javascript">
-		$(function(){
-				$(".favourite_label").click(function(){
-					var adid = $(this).attr('id');
-				var log = $("#login_status").val();
-				if (log == 'no') {
-					window.location.href = "<?php echo base_url(); ?>login";
-				}
-				var val = $(".favourite_label1").hasClass('active');
-				/*adding to favourite*/
-				if (val == false) {
-					$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>description_view/add_favourite",
-					data: {
-						ad_id: adid, 
-						login_id: $("#login_id").val()
-					},
-					// dataType: "json",
-					success: function (data) {
-					}
-				})
-					$(".favourite_label1").addClass('active');
-				}
-				else{
-					/*deleting from favourite*/
-					$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>description_view/remove_favourite",
-					data: {
-						ad_id: adid, 
-						login_id: $("#login_id").val()
-					},
-					// dataType: "json",
-					success: function (data) {
-					}
-				})
-					$(".favourite_label1").removeClass('active');
-				}
-			});
-		});
-		</script>
-		<?php
-		$fav_list = [];
-		if (!empty($favourite_list)) {
-			foreach ($favourite_list as $favourite_list1) {
-				array_push($fav_list, $favourite_list1->ad_id);
-			}
-		}
-		// else{
-		// 	array_push($fav_list, '');
-		// }
-		print_r($fav_list);
-		
-		 ?>
 		<!-- platinum+urgent package start -->
                                     <?php
-                                    $service_result1 = array_chunk($service_result, 10);
-                                     foreach ($service_result1 as $sval1) {
+                                    $jobs_result1 = array_chunk($jobs_result, 10);
+                                     foreach ($jobs_result1 as $sval1) {
                                      foreach ($sval1 as $sval) {
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
@@ -109,27 +54,11 @@
 																<div class="col-xs-8">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
-																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
+																<div class="col-xs-4">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="compared-hotel" title="Add this hotel to shortlist"></span>
 																	</div>
 																</div>
-																<?php }else{ ?>
-																		<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php } ?>
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -179,9 +108,6 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
-																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -248,30 +174,9 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
-																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php }else{ ?>
-																		<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php } ?>
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -321,9 +226,6 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
-																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -374,30 +276,14 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
-																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
+																<!--div class="col-xs-4 ">
+																	<div class="add-to-compare-list pull-right">
+																		<span class="gold_icon"></span>
 																	</div>
-																</div>
-																<?php }else{ ?>
-																		<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php } ?>
+																</div-->
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -447,9 +333,6 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
-																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -497,30 +380,9 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
-																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php }else{ ?>
-																		<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php } ?>
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -570,9 +432,6 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
-																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -617,30 +476,9 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
-																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php }else{ ?>
-																		<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php } ?>
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -690,9 +528,6 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
-																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -734,31 +569,9 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-12">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
-																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1 active" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php }else{ ?>
-																		<div class="col-xs-4">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="favourite_label1" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
-																	</div>
-																</div>
-																<?php } ?>
-																
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -808,9 +621,6 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
-																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>

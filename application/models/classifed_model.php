@@ -603,6 +603,16 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
+	/*favourite_list()*/
+	public function favourite_list(){
+		$this->db->select("ad_id");
+		$this->db->from("favourite_deals");
+		$this->db->where('login_id', $this->session->userdata('login_id'));
+		$this->db->where('status', 1);
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 	/*display likes ad or not(icon symbol)*/
 	public function ads_likes(){
 		$this->db->select("*");

@@ -124,6 +124,18 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 
+			/* pets sub category*/
+			public function pets_sub_search(){
+				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+				$this->db->from('sub_category');
+				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id", "left");
+				$this->db->where("sub_category.category_id", '5');
+				$this->db->group_by("sub_category.sub_category_id");
+				$rs = $this->db->get();
+				 // echo $this->db->last_query(); exit;
+				return $rs->result();
+			}
+
 		
 
         public function hotdeal_search(){
@@ -317,26 +329,144 @@ class hotdealsearch_model extends CI_Model{
         /*jobs search fo  sub category*/
         public function jobs_search(){
         	$jobslist = $this->input->post('jobs_list');
-        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*");
+        	$jobs_pos = $this->input->post('jobs_pos');
+        	$pck = $this->input->post('pckg_list');
+        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "jobs");
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
+			if (!empty($jobs_pos)) {
+				$this->db->where_in('jd.positionfor', $jobs_pos);
+			}
+			/*package search*/
+			if (!empty($pck)) {
+				$this->db->where_in('ad.package_type', $pck);
+			}
+			/*urgent label*/
+			if ($this->input->post("urgent")) {
+				$this->db->where('ad.urgent_package !=', '');
+			}
+			if ($this->input->post('bustype')) {
+				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
+					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+				}
+			}
+
+			/*location search*/
+			if ($this->input->post("latt")) {
+				$this->db->where("loc.latt", $this->input->post("latt"));
+				$this->db->where("loc.longg", $this->input->post("longg"));
+			}
+
+			
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($this->input->post("recentdays") == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($this->input->post("recentdays") == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($this->input->post("recentdays") == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
 			$this->db->group_by(" img.ad_id");
+			/*deal title ascending or descending*/
+					if ($this->input->post("dealtitle") == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($this->input->post("dealtitle") == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get();
-			  // echo $this->db->last_query(); exit;
+			   // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
 			else{
 				return array();
 			}
+        }
+
+        /*business and consumer count in services*/
+        public function busconcount_services(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND ad_type = 'consumer') AS consumer");
+        	$this->db->from("postad");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*jobs count business or consumer*/
+        public function busconcount_jobs(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*pets count business or consumer*/
+        public function busconcount_pets(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*packages count for services*/
+        public function deals_pck_services(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'free') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*packages count for jobs*/
+        public function deals_pck_jobs(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND package_type = 'free') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+         /*packages count for pets*/
+        public function deals_pck_pets(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'free') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*job positon count*/
+        public function jobpositioncnt(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, job_details AS jd WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Fresher')AS freshers,
+(SELECT COUNT(*) FROM postad AS ad, job_details AS jd WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Experience')AS experience,
+(SELECT COUNT(*) FROM postad AS ad, job_details AS jd WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Internship')AS internship,
+(SELECT COUNT(*) FROM postad AS ad, job_details AS jd WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Contract')AS contract");
+        	$rs = $this->db->get();
+        	return $rs->result();
         }
 
         
