@@ -5580,7 +5580,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 /*hot deal min hiehgt*/
 .hotdeal_minheight{
 	min-height: 600px;
-<<<<<<< .mine
 }
 
 
@@ -5588,7 +5587,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 .middle_ad{
 	min-height: 110px;
 }
-.find_location{
+.find_location, .clear_location{
 	margin-top: 5px;
 }
 
@@ -5601,4 +5600,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 }
 .post_ad_back{
 	color:#fff;
+}
+
+/*favourites for search filters*/
+.inactive_fav {
+	background: url(<?php echo base_url(); ?>img/icons/favinactive.png);
+	width: 31px;
+	height: 31px;
+	display: block;
+	cursor: pointer;
+}
+.active_fav {
+	background: url(<?php echo base_url(); ?>img/icons/favactive.png);
+	width: 31px;
+	height: 31px;
+	display: block;
+	cursor: pointer !important;
 }
