@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Residential View</title>
+	<title>Right Deals :: Residential View</title>
 	
 	<style>
 		.section-title-01{

@@ -1,4 +1,4 @@
-	<title>365 Deals :: Product View</title>
+	<title>Right Deals :: Product View</title>
 	
 	<style>
 		.section-title-01{

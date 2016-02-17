@@ -1,4 +1,4 @@
-	<title>365 Deals :: PostaDeal</title>
+	<title>Right Deals :: PostaDeal</title>
 	
 	<style>
 		.section-title-01{

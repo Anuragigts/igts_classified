@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Home</title>
+	<title>Right Deals :: Home</title>
 	<!-- Slide And Filter Section--> 
 	
 	<style>
@@ -16,33 +16,7 @@
 		<div class="tp-banner" >
 			<!-- SLIDES CONTENT-->
 			<ul> 
-				<!-- SLIDE  -->
-				<li data-transition="slidevertical">
-					<img src="img/slide/2.jpg" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
-					<!-- LAYERS -->
-					<!-- LAYER NR. 2 -->
-					<div class="tp-caption large_bold_white sft stb"
-						data-x="center"
-						data-y="260"
-						data-speed="300"
-						data-start="1000"
-						data-splitin="lines"
-						data-splitout="none"
-						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
-					</div>
-
-					<!-- LAYER NR. 3 -->
-					<div class="tp-caption small_light_white sfb stb"
-						data-x="center"
-						data-y="325"
-						data-speed="500"
-						data-start="1200"
-						data-splitin="lines"
-						data-splitout="none"
-						data-easing="easeOutExpo">Get Someone to Get Dirty ...For You
-					</div>
-				</li>
-
+				
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
@@ -66,7 +40,34 @@
 						data-start="1200"
 						data-splitin="lines"
 						data-splitout="none"
-						data-easing="easeOutExpo">More Tech for Less Buck
+						data-easing="easeOutExpo">For Everything Tech
+					</div>
+				</li>
+				
+				<!-- SLIDE  -->
+				<li data-transition="slidevertical">
+					<img src="img/slide/2.jpg" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
+					<!-- LAYERS -->
+					<!-- LAYER NR. 2 -->
+					<div class="tp-caption large_bold_white sft stb"
+						data-x="center"
+						data-y="260"
+						data-speed="300"
+						data-start="1000"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
+					</div>
+
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption small_light_white sfb stb"
+						data-x="center"
+						data-y="325"
+						data-speed="500"
+						data-start="1200"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Commendable Services at affordable Prices 
 					</div>
 				</li>
 
@@ -1250,7 +1251,8 @@
                // start the timeline animation
                $timeIndicator.animate({width: '100%'}, slideInterval);
              };
-         
+			
+				
              var $box = $('#box')
                , $indicators = $('.goto-slide')
                , $effects = $('.effect')

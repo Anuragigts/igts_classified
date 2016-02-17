@@ -1,4 +1,4 @@
-	<title>365 Deals :: Converse</title>
+	<title>Right Deals :: Converse</title>
 	<style>
 		.section-title-01{
 			height: 273px;

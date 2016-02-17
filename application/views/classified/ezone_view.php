@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: E-Zone View</title>
+	<title>Right Deals :: E-Zone View</title>
 	
 	<style>
 		.section-title-01{

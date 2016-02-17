@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Boys View</title>
+	<title>Right Deals :: Boys View</title>
 	
 	<style>
 		.section-title-01{

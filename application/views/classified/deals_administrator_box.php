@@ -1,4 +1,4 @@
-	<title>365 Deals :: Deals Administrator</title>
+	<title>Right Deals :: Deals Administrator</title>
 	<style>
 		.section-title-01{
 		height: 273px;

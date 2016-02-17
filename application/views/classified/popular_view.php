@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Popular Search</title>
+	<title>Right Deals :: Popular Search</title>
 	
 	<style>
 		.section-title-01{

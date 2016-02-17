@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Phones & Tablets View</title>
+	<title>Right Deals :: Phones & Tablets View</title>
 	
 	<style>
 		.section-title-01{

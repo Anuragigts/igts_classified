@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Home Essentials View</title>
+	<title>Right Deals :: Home Essentials View</title>
 	
 	<style>
 		.section-title-01{

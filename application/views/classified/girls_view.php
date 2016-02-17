@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Girls View</title>
+	<title>Right Deals :: Girls View</title>
 	
 	<style>
 		.section-title-01{

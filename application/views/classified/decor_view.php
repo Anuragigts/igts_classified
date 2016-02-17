@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Decor View</title>
+	<title>Right Deals :: Decor View</title>
 	
 	<style>
 		.section-title-01{

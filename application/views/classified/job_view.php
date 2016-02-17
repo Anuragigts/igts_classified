@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Jobs View</title>
+	<title>Right Deals :: Jobs View</title>
 	
 	<style>
 		.section-title-01{

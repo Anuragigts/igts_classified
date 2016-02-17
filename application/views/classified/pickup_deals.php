@@ -1,4 +1,4 @@
-	<title>99 Right Deals ::  Pickup deals</title>
+	<title>Right Deals ::  Pick-up deals</title>
 	<style>
 		.section-title-01{
 			height: 273px;

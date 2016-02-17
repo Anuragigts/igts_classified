@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Small Appliances View</title>
+	<title>Right Deals :: Small Appliances View</title>
 	
 	<style>
 		.section-title-01{

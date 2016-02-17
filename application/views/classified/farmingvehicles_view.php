@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Forming View</title>
+	<title>Right Deals :: Forming View</title>
 	
 	<style>
 		.section-title-01{

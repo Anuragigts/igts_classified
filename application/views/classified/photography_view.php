@@ -1,4 +1,4 @@
-	<title>99 Right Deals ::  Photography View</title>
+	<title>Right Deals ::  Photography View</title>
 	
 	<style>
 		.section-title-01{

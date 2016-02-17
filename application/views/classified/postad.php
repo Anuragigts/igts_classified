@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: PostaDeal</title>
+	<title>Right Deals :: PostaDeal</title>
 	<style>
 		.section-title-01{
 		height: 273px;

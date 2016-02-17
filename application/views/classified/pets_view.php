@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Pets View</title>
+	<title>Right Deals :: Pets View</title>
 	
 	<style>
 		.section-title-01{

@@ -1,4 +1,4 @@
-	<title>365 Deals :: Blog View</title>
+	<title>Right Deals :: Blog View</title>
 	<style>
 		.section-title-01{
 		height: 273px;

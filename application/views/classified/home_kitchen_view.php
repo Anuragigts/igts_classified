@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Home & Kitchen View</title>
+	<title>Right Deals :: Home & Kitchen View</title>
 	
 	<style>
 		.section-title-01{

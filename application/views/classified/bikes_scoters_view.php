@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Bike Scooters search</title>
+	<title>Right Deals :: Bike Scooters search</title>
 	
 	<style>
 		.section-title-01{

@@ -1,4 +1,4 @@
-	<title>365 Deals :: Forgot Password</title>
+	<title>Right Deals :: Forgot Password</title>
 	<style>
 		.section-title-01{
 		height: 315px;

@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Accessories View</title>
+	<title>Right Deals :: Accessories View</title>
 	
 	<style>
 		.section-title-01{

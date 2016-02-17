@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Laptop & Computers View</title>
+	<title>Right Deals :: Laptop & Computers View</title>
 	
 	<style>
 		.section-title-01{

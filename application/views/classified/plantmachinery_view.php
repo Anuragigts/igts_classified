@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Plant Machinery View</title>
+	<title>Right Deals :: Plant Machinery View</title>
 	
 	<style>
 		.section-title-01{

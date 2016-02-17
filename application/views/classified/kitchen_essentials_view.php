@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Kitchen Essentials View</title>
+	<title>Right Deals :: Kitchen Essentials View</title>
 	
 	<style>
 		.section-title-01{

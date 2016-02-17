@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Baby Boy View</title>
+	<title>Right Deals :: Baby Boy View</title>
 	
 	<style>
 		.section-title-01{

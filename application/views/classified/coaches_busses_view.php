@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Coaches & Buses View</title>
+	<title>Right Deals :: Coaches & Buses View</title>
 	
 	<style>
 		.section-title-01{

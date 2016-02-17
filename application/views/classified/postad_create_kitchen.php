@@ -1,12 +1,10 @@
-	<title>99 Right Deals :: PostaDeal</title>
+	<title>Right Deals :: PostaDeal</title>
 	<link rel='stylesheet' type='text/css' href='imgupload/free.css' />
 	<link rel='stylesheet' type='text/css' href='imgupload/freeurgent.css' />
 	<link rel='stylesheet' type='text/css' href='imgupload/gold.css' />
 	<link rel='stylesheet' type='text/css' href='imgupload/goldurgent.css' />
 	<link rel='stylesheet' type='text/css' href='imgupload/platinum.css' />
-	<!-- <link rel='stylesheet' type='text/css' href='imgupload/jquery.fancybox.min.css' /> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-	<script src="https://dl.dropboxusercontent.com/u/2241077/jquery.dragbetter.js"></script>
+	<script src="imgupload/jquery.fancybox.min.js"></script>
 	<script src="imgupload/imageupload.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 	<script type="text/javascript">
@@ -1743,50 +1741,53 @@
 		});
 	</script>
 	<!-- Modal -->
-						<div class="modal fade" id="Kitchen" role="dialog">
-										<div class="modal-dialog">
-											<!-- Modal content-->
-											<form method='post' id='edit_kitchen_form' action="<?php echo base_url(); ?>postad_create_kitchen">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Home & Kitchen Category
-														<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='kitchenhome' />
-														<input type='hidden' name='kitchen_sub' id='kitchen_sub' value='' />
-														<input type='hidden' name='kitchen_sub_sub' id='kitchen_sub_sub' value='' />
-													</h2>
-												</div>
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-4 clearfix">
-																	<h3>Kitchen Essentials</h3>
-																	<?php foreach ($kitchen_essentials as $kitchen_essentials_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_kitchen_detail" id="<?php echo  $kitchen_essentials_val['sub_category_id'].','.$kitchen_essentials_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_essentials_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Home Essentials</h3>
-																	<?php foreach ($kitchen_home as $kitchen_home_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_kitchen_detail" id="<?php echo  $kitchen_home_val['sub_category_id'].','.$kitchen_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_home_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Decor</h3>
-																	<?php foreach ($kitchen_decor as $kitchen_decor_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_kitchen_detail" id="<?php echo  $kitchen_decor_val['sub_category_id'].','.$kitchen_decor_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_decor_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</form>
-										</div>
-									</div>
+	<div class="modal fade" id="Kitchen" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<form method='post' id='edit_kitchen_form' action="<?php echo base_url(); ?>postad_create_kitchen">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2>Home & Kitchen Category
+						<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='kitchenhome' />
+						<input type='hidden' name='kitchen_sub' id='kitchen_sub' value='' />
+						<input type='hidden' name='kitchen_sub_sub' id='kitchen_sub_sub' value='' />
+					</h2>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 post_deal_bor">
+							<div class="row">
+								<div class="col-md-4 clearfix">
+									<h3>Kitchen Essentials</h3>
+									<?php foreach ($kitchen_essentials as $kitchen_essentials_val) { ?>
+									<h4><a href="javascript:void(0);" class="edit_kitchen_detail" id="<?php echo  $kitchen_essentials_val['sub_category_id'].','.$kitchen_essentials_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_essentials_val['sub_subcategory_name']; ?></a></h4>
+									<?php	} ?>
+								</div>
+								<div class="col-md-4 clearfix">
+									<h3>Home Essentials</h3>
+									<?php foreach ($kitchen_home as $kitchen_home_val) { ?>
+									<h4><a href="javascript:void(0);" class="edit_kitchen_detail" id="<?php echo  $kitchen_home_val['sub_category_id'].','.$kitchen_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_home_val['sub_subcategory_name']; ?></a></h4>
+									<?php	} ?>
+								</div>
+								<div class="col-md-4 clearfix">
+									<h3>Decor</h3>
+									<?php foreach ($kitchen_decor as $kitchen_decor_val) { ?>
+									<h4><a href="javascript:void(0);" class="edit_kitchen_detail" id="<?php echo  $kitchen_decor_val['sub_category_id'].','.$kitchen_decor_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_decor_val['sub_subcategory_name']; ?></a></h4>
+									<?php	} ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</form>
+		</div>
+	</div>
 	<!-- Services content End-->
+	
+	
+	

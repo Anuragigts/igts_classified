@@ -1,4 +1,4 @@
-	<title>365 Deals :: All Categories search</title>
+	<title>Right Deals :: All Categories search</title>
 	
 	<style>
 		.section-title-01{

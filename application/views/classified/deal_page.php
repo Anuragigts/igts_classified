@@ -1,4 +1,4 @@
-	<title>365 Deals :: Deal</title>
+	<title>Right Deals :: Deal</title>
 	<style>
 		.section-title-01{
 		height: 273px;

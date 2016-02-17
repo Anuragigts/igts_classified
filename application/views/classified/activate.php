@@ -1,4 +1,4 @@
-    <title>365 Deals :: Activate Account</title>
+    <title>Right Deals :: Activate Account</title>
     <style>
         .section-title-01{
             height: 273px;

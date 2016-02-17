@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Vans & Trunks search</title>
+	<title>Right Deals :: Vans & Trunks search</title>
 	
 	<style>
 		.section-title-01{

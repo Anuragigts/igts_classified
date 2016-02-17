@@ -1,4 +1,4 @@
-	<title>99 Right Deals :: Clothing & LifeStyles search</title>
+	<title>Right Deals :: Clothing & LifeStyles search</title>
 	
 	<style>
 		.section-title-01{
