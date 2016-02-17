@@ -11,9 +11,6 @@ class  Home_kitchen_view extends CI_Controller{
                 //$this->load->model("login_model");
         }
         public function index(){
-                if ($this->session->userdata('login_id') == '') {
-                   redirect('login');
-                }
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "home_kitchen_view"

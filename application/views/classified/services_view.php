@@ -519,6 +519,56 @@
 					}
 				})
         	});
+	/*clear search location */
+			$("#clear_location").click(function(){
+				$("#find_loc").val('');
+				var latt = '';
+				var longg = '';
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				/*deal search for popular category */
+        		var profpop_list = [];
+        		$("input[name='prof_service[]']:checked").each( function () {
+					 var prof = $(this).val();
+				     profpop_list.push(prof); 
+				});
+        		$("input[name='pop_service[]']:checked").each( function () {
+					 var pop = $(this).val();
+				     profpop_list.push(pop); 
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>services_view/search_filters",
+					data: {
+						profpop_list: profpop_list,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".search_result").html(data);
+					}
+				})
+        	});
 		});
 		</script>
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
@@ -622,6 +672,7 @@
 												<input type='hidden' name='latt' id='latt' value='' >
 												<input type='hidden' name='longg' id='longg' value='' >
 												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
+												<button class="btn btn-primary sm-btn pull-right clear_location" id='clear_location' >Clear</button>
 											</div>
 										</div>
 									</div> 

@@ -451,6 +451,56 @@
 					}
 				})
         	});
+	/*clear location*/
+	$("#clear_location").click(function(){
+				$("#find_loc").val('');
+				var latt = '';
+				var longg = '';
+				var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+        		var bustype = $("input[name=search_bustype]:checked").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var jobs_list = [];
+        		$("input[name='job_search[]']:checked").each( function () {
+					 var jobs = $(this).val();
+				     jobs_list.push(jobs); 
+				});
+				var jobs_pos = [];
+        		$("input[name='positionfor[]']:checked").each( function () {
+					 var pos = $(this).val();
+				     jobs_pos.push(pos); 
+				});
+				// alert(jobs_pos);
+				 var recentdays = $(".recentdays_sort option:selected").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>job_view/search_filters",
+					data: {
+						bustype: bustype,
+						jobs_pos: jobs_pos,
+						recentdays: recentdays,
+						dealtitle: dealtitle,
+						jobs_list: jobs_list,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".jobs_search_result").html(data);
+					}
+				})
+        	});
 		});
 		</script>
 	  <?php
@@ -578,6 +628,7 @@
 												<input type='hidden' name='latt' id='latt' value='' >
 												<input type='hidden' name='longg' id='longg' value='' >
 												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
+												<button class="btn btn-primary sm-btn pull-right clear_location" id='clear_location' >Clear</button>
 											</div>
 										</div>
 									</div> 

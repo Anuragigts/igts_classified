@@ -12,6 +12,16 @@ class  Job_view extends CI_Controller{
                 $this->load->model("classifed_model");
         }
         public function index(){
+             if ($this->session->userdata('login_id') == '') {
+                    $login_status = 'no';
+                    $login = '';
+                    $favourite_list = array();
+                }
+                else{
+                    $login_status = 'yes';
+                    $login = $this->session->userdata('login_id');
+                    $favourite_list = $this->classifed_model->favourite_list();
+                }
                 $jobs_view = $this->classifed_model->jobs_view();
             foreach ($jobs_view as $jview) {
                 $loginid = $jview->login_id;
@@ -23,7 +33,10 @@ class  Job_view extends CI_Controller{
                         "content"   =>  "job_view",
                         'log_name' => $log_name,
                         "jobs_result" => $jobs_view,
-                        "public_adview" => $public_adview
+                        "public_adview" => $public_adview,
+                        'login_status' =>$login_status,
+                        'login' =>$login,
+                        'favourite_list'=>$favourite_list
                 );
                 
                 $data['jobs_sub'] = $this->hotdealsearch_model->jobs_sub_search();
@@ -38,6 +51,16 @@ class  Job_view extends CI_Controller{
         }
 
         public function search_filters(){
+            if ($this->session->userdata('login_id') == '') {
+                    $login_status = 'no';
+                    $login = '';
+                    $favourite_list = array();
+                }
+                else{
+                    $login_status = 'yes';
+                    $login = $this->session->userdata('login_id');
+                    $favourite_list = $this->classifed_model->favourite_list();
+                }
             /*location list*/
             $res = $this->hotdealsearch_model->jobs_search();
             $result['jobs_result'] = $res;
@@ -51,6 +74,9 @@ class  Job_view extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
+            $result['login_status'] =$login_status;
+            $result['login'] = $login;
+            $result['favourite_list']=$favourite_list;
             echo $this->load->view("classified/jobs_view_search",$result);
         }
         
