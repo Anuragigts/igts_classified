@@ -43,8 +43,10 @@ class  Pets_view extends CI_Controller{
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
 
-                /*business and consumer count for services*/
+                /*business and consumer count for pets*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_pets();
+                 /*seller and needed count for pets*/
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_pets();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_pets();
                 $public_adview = $this->classifed_model->publicads();

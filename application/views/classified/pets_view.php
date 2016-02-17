@@ -124,6 +124,12 @@
 					 	 pets_sub.push(pets);
 					 
 				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
 				var latt = $("#latt").val();
 				var longg = $("#longg").val();
 				var recentdays = $(".recentdays_sort option:selected").val();
@@ -148,6 +154,61 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".pets_search_result").html(data);
+					}
+				})
+        	});
+	/*pets seller or needed deals*/
+		$(".seller_deals").change(function(){
+			var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+
+				var pets_sub = [];
+				$("input[name='pets_sub[]']:checked").each( function () {
+					 var pets = $(this).val();
+					 	 pets_sub.push(pets);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>pets_view/search_filters",
+					data: {
+						seller_deals: seller_deals,
+						pets_sub: pets_sub,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -168,6 +229,12 @@
 				$("input[name='pets_sub[]']:checked").each( function () {
 					 var pets = $(this).val();
 					 	 pets_sub.push(pets);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
 					 
 				});
         		var latt = $("#latt").val();
@@ -196,6 +263,7 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -216,6 +284,12 @@
 				$("input[name='pets_sub[]']:checked").each( function () {
 					 var pets = $(this).val();
 					 	 pets_sub.push(pets);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
 					 
 				});
         		var latt = $("#latt").val();
@@ -242,6 +316,7 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -265,6 +340,12 @@
 					 	 pets_sub.push(pets);
 					 
 				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
 				var latt = $("#latt").val();
 				var longg = $("#longg").val();
 				var recentdays = $(".recentdays_sort option:selected").val();
@@ -289,6 +370,7 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -311,6 +393,12 @@
 					 	 pets_sub.push(pets);
 					 
 				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
 				var latt = $("#latt").val();
 				var longg = $("#longg").val();
 				var recentdays = $(".recentdays_sort option:selected").val();
@@ -335,6 +423,7 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -357,50 +446,10 @@
 					 	 pets_sub.push(pets);
 					 
 				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-	/*search location */
-			$("#find_location").click(function(){
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
 					 
 				});
 				var latt = $("#latt").val();
@@ -427,6 +476,60 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".pets_search_result").html(data);
+					}
+				})
+        	});
+	/*search location */
+			$("#find_location").click(function(){
+				var pets_sub = [];
+				$("input[name='pets_sub[]']:checked").each( function () {
+					 var pets = $(this).val();
+					 	 pets_sub.push(pets);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>pets_view/search_filters",
+					data: {
+						pets_sub: pets_sub,
+						seller_deals: seller_deals,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -449,6 +552,12 @@
 				$("input[name='pets_sub[]']:checked").each( function () {
 					 var pets = $(this).val();
 					 	 pets_sub.push(pets);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
 					 
 				});
 				var latt = '';
@@ -475,6 +584,7 @@
 					url: "<?php echo base_url();?>pets_view/search_filters",
 					data: {
 						pets_sub: pets_sub,
+						seller_deals: seller_deals,
 						bustype: bustype,
 						pckg_list: pckg_list,
 						urgent: urgent,
@@ -507,6 +617,10 @@
 	  	$left_ad2 = $publicview->sidead_two;
 	  	$topad = $publicview->topad;
 	  	$mid_ad = $publicview->mid_ad;
+	  }
+	  foreach ($sellerneededcount as $sncnt) {
+	  	$seller = $sncnt->seller;
+	  	$needed = $sncnt->needed;
 	  }
 	   ?>
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
@@ -560,12 +674,12 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Offered Deals 
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" >
+													<i></i> Seller Deals (<?php echo $seller; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Needed Deals
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" >
+													<i></i> Needed Deals (<?php echo $needed; ?>)
 												</label>
 											</div>
 										</div> 

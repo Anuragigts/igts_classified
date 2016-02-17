@@ -406,6 +406,7 @@ class hotdealsearch_model extends CI_Model{
         public function pets_search(){
         	$pets_sub = $this->input->post('pets_sub');
         	$pck = $this->input->post('pckg_list');
+        	$seller = $this->input->post('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -415,6 +416,9 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "pets");
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('ad.services', $seller);
 			}
 			if ($this->input->post('bustype')) {
 				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
@@ -506,6 +510,14 @@ class hotdealsearch_model extends CI_Model{
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND ad_type = 'business') AS business,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*pets seller and needed count*/
+        public function sellerneeded_pets(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Seller') AS seller,
+(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Needed') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
