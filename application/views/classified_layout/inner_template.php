@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="shortcut icon" href="img/icons/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>img/icons/icon.png" type="image/x-icon">
 	
     <!-- xxx Head Content xxx -->
     <?php echo $this->load->view('common/head');?> 

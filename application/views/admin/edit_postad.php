@@ -29,7 +29,7 @@
                  </div>
              <br>
              <?php }?>
-<?php //echo '<pre>';print_r($ads_details);echo '</pre>';?>
+<?php echo '<pre>';print_r($ads_details);echo '</pre>';?>
 <?php //echo '<pre>';print_r($urgent_label);echo '</pre>';?>
 <?php //echo '<pre>';print_r($category_list[0]);echo '</pre>';?>
 			<div class="row-fluid sortable">
@@ -52,6 +52,7 @@
 								</div>
 							  </div>
 							  
+							<input type='hidden' name='ad_id' value='<?php echo $ads_details->ad_id; ?>'>
 							<input type='hidden' name='ad_id' value='<?php echo $ads_details->ad_id; ?>'>
 							   <div class="control-group">
 								<label class="control-label" for="cat_type">Category Type</label>
