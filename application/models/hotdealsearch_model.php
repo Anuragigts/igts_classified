@@ -136,6 +136,48 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 
+			/* kitchen sub category*/
+			public function kitchen_sub_search(){
+				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
+				$this->db->from('sub_subcategory');
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->where("sub_subcategory.sub_category_id", '67');
+				$this->db->group_by("sub_subcategory.sub_subcategory_id");
+				$rs = $this->db->get();
+				 // echo $this->db->last_query(); exit;
+				return $rs->result();
+			}
+			/* home sub category*/
+			public function home_sub_search(){
+				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
+				$this->db->from('sub_subcategory');
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->where("sub_subcategory.sub_category_id", '68');
+				$this->db->group_by("sub_subcategory.sub_subcategory_id");
+				$rs = $this->db->get();
+				 // echo $this->db->last_query(); exit;
+				return $rs->result();
+			}
+			/* decor sub category*/
+			public function decor_sub_search(){
+				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
+				$this->db->from('sub_subcategory');
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->where("sub_subcategory.sub_category_id", '69');
+				$this->db->group_by("sub_subcategory.sub_subcategory_id");
+				$rs = $this->db->get();
+				 // echo $this->db->last_query(); exit;
+				return $rs->result();
+			}
+
+			/* decor sub category*/
+			public function brand_kitchen(){
+				$this->db->select("*");
+				$this->db->from('kitchenhome_ads');
+				$rs = $this->db->get();
+				return $rs->result();
+			}
+
 		
 
         public function hotdeal_search(){
@@ -487,6 +529,91 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
 
+        /*kitchen home search*/
+       	public function kitchenhome_search(){
+        	$kitchen_sub = $this->input->post('kitchen_sub');
+        	$pck = $this->input->post('pckg_list');
+        	$seller = $this->input->post('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->where("ad.category_id", "kitchenhome");
+			if (!empty($kitchen_sub)) {
+				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('ad.services', $seller);
+			}
+			if ($this->input->post('bustype')) {
+				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
+					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+				}
+			}
+			/*package search*/
+			if (!empty($pck)) {
+				$this->db->where_in('ad.package_type', $pck);
+			}
+			/*urgent label*/
+			if ($this->input->post("urgent")) {
+				$this->db->where('ad.urgent_package !=', '');
+			}
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($this->input->post("recentdays") == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($this->input->post("recentdays") == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($this->input->post("recentdays") == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($this->input->post("latt")) {
+				$this->db->where("loc.latt", $this->input->post("latt"));
+				$this->db->where("loc.longg", $this->input->post("longg"));
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($this->input->post("dealtitle") == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($this->input->post("dealtitle") == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($this->input->post("dealprice") == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($this->input->post("dealprice") == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by("ad.ad_id", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			 // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+
         /*business and consumer count in services*/
         public function busconcount_services(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
@@ -514,10 +641,28 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
 
+        /*kitchenhome count business or consumer*/
+        public function busconcount_kitchen(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
         /*pets seller and needed count*/
         public function sellerneeded_pets(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Seller') AS seller,
-(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Needed') AS needed");
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Needed') AS needed");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*pets seller and needed count*/
+        public function sellerneeded_kitchen(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Charity') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -548,6 +693,16 @@ class hotdealsearch_model extends CI_Model{
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'platinum') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'gold') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'free') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+         /*packages count for pets*/
+        public function deals_pck_kitchen(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }

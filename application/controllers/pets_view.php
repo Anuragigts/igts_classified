@@ -49,7 +49,6 @@ class  Pets_view extends CI_Controller{
                 $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_pets();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_pets();
-                $public_adview = $this->classifed_model->publicads();
                 $data['public_adview'] = $public_adview;
                 $this->load->view("classified_layout/inner_template",$data);
         }

@@ -333,7 +333,7 @@
         	});
 
 		/*search ato z / A to Z*/
-			$(".dealtitle_sort").click(function(){
+			$(".dealtitle_sort").change(function(){
 				var pets_sub = [];
 				$("input[name='pets_sub[]']:checked").each( function () {
 					 var pets = $(this).val();
@@ -386,7 +386,7 @@
 				})
         	});
 		/*search price asc / desc*/
-			$(".price_sort").click(function(){
+			$(".price_sort").change(function(){
 				var pets_sub = [];
 				$("input[name='pets_sub[]']:checked").each( function () {
 					 var pets = $(this).val();
@@ -439,7 +439,7 @@
 				})
         	});
 		/*search price asc / desc*/
-			$(".recentdays_sort").click(function(){
+			$(".recentdays_sort").change(function(){
 				var pets_sub = [];
 				$("input[name='pets_sub[]']:checked").each( function () {
 					 var pets = $(this).val();

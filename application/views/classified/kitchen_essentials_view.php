@@ -124,177 +124,59 @@
 									<!-- Widget Filter -->
 									<h3 class="title-widget"> Filter</h3>
 									<div class="cd-filter-block">
-										<h4 class="title-widget">Home & Kitchen</h4>
-										<div class="cd-filter-content">
-											<div class="filters_categories">	
-												<ul class="list-styles">
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="kitchen_essentials_view" class="active_filter">Kitchen Essentials</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="home_essentials_view">Home Essentials </a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="decor_view">Decor </a></li>
-												</ul>
-											</div>
-										</div>
-									</div> 
-									
-									<div class="cd-filter-block">
 										<h4 class="title-widget">Kitchen Essentials</h4>
 										<div class="cd-filter-content">
 											<div id="limit_scrol">
+												<?php foreach ($kitchen_view as $kval) { ?>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Kitchen Tools 
+												<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $kval->sub_subcategory_id; ?>" >
+												<i></i>  <?php echo ucwords($kval->sub_subcategory_name)."(".$kval->no_ads.")"; ?> 
 												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Kitchen Storage
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Cookware
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Bake-ware
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Cook-tops & Burners
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Barbecue Furniture
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Table Linen
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>  Others
-												</label>
+												<?php } ?>
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed"> Price Range</h4>
-										<div class="range1">
-											<input type="range" name="range" min="0" max="25000" step="50" value="5000">
-											<output for="range" class="price_output"></output>
+										<h4 class="title-widget">Home Essentials</h4>
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div id="limit_scrol">
+												<?php foreach ($home_view as $hval) { ?>
+												<label class="checkbox">
+												<input type="checkbox" name="home_search[]" class="home_search" value="<?php echo $hval->sub_subcategory_id; ?>" >
+												<i></i>  <?php echo ucwords($hval->sub_subcategory_name)."(".$hval->no_ads.")"; ?> 
+												</label>
+												<?php } ?>
+											</div>
 										</div>
 									</div>
-									
+
 									<div class="cd-filter-block">
+										<h4 class="title-widget">Decor</h4>
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div id="limit_scrol">
+												<?php foreach ($decor_view as $dval) { ?>
+												<label class="checkbox">
+												<input type="checkbox" name="decor_search[]" class="decor_search" value="<?php echo $dval->sub_subcategory_id; ?>" >
+												<i></i>  <?php echo ucwords($dval->sub_subcategory_name)."(".$dval->no_ads.")"; ?> 
+												</label>
+												<?php } ?>
+											</div>
+										</div>
+									</div>
+									<!-- <div class="cd-filter-block">
 										<h4 class="title-widget closed"> Brand Name</h4>
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div id="limit_scrol">
+												<?php foreach ($brands as $bval) { ?>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Godrej
-												</label> 
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> LG 
+												<input type="checkbox" name="brand_search[]" class="brand_search" value="<?php echo $bval->brand_name; ?>" >
+												<i></i>  <?php echo ucwords($bval->brand_name); ?> 
 												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Samsung
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Videocon
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Whirlpool
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Bajaj
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Blue star
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Bosch
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Carrier
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Crompton
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Daikin
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Electrolux
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Haier
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> IFB
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Kelvinator
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Kenstar
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lloyd
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Onida
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Orient
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Panasonic
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Sharp
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Siemens
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Symphony
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Toshiba
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Usha
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Voltas
-												</label>
+												<?php } ?>
 											</div>
 										</div>
-									</div>
+									</div> -->
 
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Seller Type</h4>
@@ -316,40 +198,6 @@
 											</div>
 										</div>
 									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deals posted in</h4>
-
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 1 Month
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 2 Month
-												</label>
-											</div>
-										</div>
-									</div> 
-									
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Location</h4>
 
@@ -410,7 +258,7 @@
 									<div class="cd-filter-block">
 										<h4 class="title-widget">Search Only</h4>
 
-										<div class="cd-filter-content">
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
 													<input type="checkbox" name="" value="" >
@@ -450,7 +298,7 @@
 							<div class="col-md-9">
                                 <div class="sort-by-container tooltip-hover">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-12">
                                             <strong>Sort by:</strong>
                                             <ul>                            
                                                 <li>
@@ -471,10 +319,10 @@
 												<li>
 													<div class="top_bar_top">
 														<label class="input select">
-															<select name="star">
-																<option value="none" selected disabled="">Select Name</option>
-																<option value="5">A to Z</option>
-																<option value="4">Z to A</option>
+															<select name="dealtitle_sort" class="dealtitle_sort">
+																<option value="Any">Any</option>
+																<option value="atoz">A to Z</option>
+																<option value="ztoa">Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -483,30 +331,31 @@
 												<li>
 													<div class="top_bar_top">
 														<label class="input select">
-															<select name="star">
-																<option value="none" selected disabled="">Select Price</option>
-																<option value="5">Sort Ascending</option>
-																<option value="4">Sort Descending</option>
+															<select name="price_sort" class="price_sort">
+																<option value="Any">Any(Pricing)</option>
+																<option value="lowtohigh">Low to High</option>
+																<option value="hightolow">High to Low</option>
 															</select>
 															<i></i>
 														</label>
 													</div>
                                                 </li>
+                                                <li>
+													<div class="top_bar_top">
+														<label class="input select">
+																<select name="recentdays_sort" class="recentdays_sort">
+																	<option value="Any">Any(posted on)</option>
+																	<option value="last24hours">Last 24 Hours</option>
+																	<option value="last3days">Last 3 Days</option>
+																	<option value="last7days">Last 7 Days</option>
+																	<option value="last14days">Last 14 Days</option>
+																	<option value="last1month">Last 1 month</option>
+																</select>
+																<i></i>
+															</label>
+													</div>
+												</li>
 											</ul>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <ul class="style-view">
-                                                <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-                                                    <a href="">
-                                                        <i class="fa fa-th-large"></i>
-                                                    </a>
-                                                </li>
-                                                <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-                                                    <a href="kitchen_essentials_view">
-                                                        <i class="fa fa-list"></i>
-                                                    </a>
-                                                </li> 
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>

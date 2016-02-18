@@ -159,7 +159,7 @@
 				})
         	});
         	/*search ato z / A to Z*/
-			$(".dealtitle_sort").click(function(){
+			$(".dealtitle_sort").change(function(){
 				var latt = $("#latt").val();
 				var longg = $("#longg").val();
 				var bustype = $("input[name=search_bustype]:checked").val();
@@ -207,7 +207,7 @@
 				})
         	});
 		/*search price asc / desc*/
-			$(".recentdays_sort").click(function(){
+			$(".recentdays_sort").change(function(){
 				var latt = $("#latt").val();
 				var longg = $("#longg").val();
 				var bustype = $("input[name=search_bustype]:checked").val();

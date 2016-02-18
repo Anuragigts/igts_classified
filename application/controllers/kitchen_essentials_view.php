@@ -8,15 +8,21 @@
 class  Kitchen_essentials_view extends CI_Controller{
         public function __construct(){
                 parent::__construct();
-                //$this->load->model("login_model");
+                $this->load->model("classifed_model");
+                $this->load->model("hotdealsearch_model");
         }
         public function index(){
-                if ($this->session->userdata('login_id') == '') {
-                   redirect('login');
-                }
+                $kitchen_view = $this->hotdealsearch_model->kitchen_sub_search();
+                $home_view = $this->hotdealsearch_model->home_sub_search();
+                $decor_view = $this->hotdealsearch_model->decor_sub_search();
+                $brands = $this->hotdealsearch_model->brand_kitchen();
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "kitchen_essentials_view"
+                        "content"   =>  "kitchen_essentials_view",
+                        'kitchen_view' => $kitchen_view,
+                        'home_view' => $home_view,
+                        'decor_view' => $decor_view,
+                        'brands'=>$brands
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
