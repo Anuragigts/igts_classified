@@ -27,6 +27,24 @@ class  Deals_administrator_box extends CI_Controller{
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }
+
+         public function my_ads_search(){
+             if ($this->session->userdata('login_id') == '') {
+                   redirect('login');
+                }
+
+                $my_ads = $this->classifed_model->my_ads_search();
+                $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+                $result   =   array(
+                        "title"     =>  "Classifieds",
+                        "content"   =>  "deals_administrator",
+                        'my_ads_details'=> $my_ads,
+                        'log_name'=>$log_name
+                );
+
+                echo $this->load->view("classified/deals_administrator_box_search", $result);
+
+        }
         
 }
 

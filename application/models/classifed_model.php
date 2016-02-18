@@ -398,6 +398,38 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
+	public function my_ads_search(){
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ad");
+		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->group_by("img.ad_id");
+		/*deal title ascending or descending*/
+		if ($this->input->post("dealtitle") == 'atoz') {
+			$this->db->order_by("ad.deal_tag","ASC");
+		}
+		else if ($this->input->post("dealtitle") == 'ztoa'){
+			$this->db->order_by("ad.deal_tag", "DESC");
+		}
+
+		/*deal price ascending or descending*/
+		if ($this->input->post("dealprice") == 'lowtohigh'){
+			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+		}
+		else if ($this->input->post("dealprice") == 'hightolow'){
+			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+		}
+		else{
+			$this->db->order_by("ad.ad_id", "DESC");
+		}
+		$this->db->order_by('dtime', 'DESC');
+		$res = $this->db->get();
+		return $res->result();
+	}
+
 	/*ad description view details*/
 	public function ads_description_details(){
 		$this->db->select("*");
