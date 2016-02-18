@@ -35,6 +35,7 @@
 				$(".platinumurgent").attr('checked', false);
 				$(".goldurgent").attr('checked', false);
 				document.getElementById("package_urgent").value = '';
+				document.getElementById("image_count").value = '0';
 			}
 			if(ch == 'goldpackage'){
 				$(".free_pck").css("display", 'none');
@@ -45,6 +46,7 @@
 				$(".goldurgent").attr('checked', false);	
 				$(".platinumurgent").attr('checked', false);
 				document.getElementById("package_urgent").value = '';
+				document.getElementById("image_count").value = '0';
 			}
 			if(ch == 'platinumpackage'){
 				$(".free_pck").css("display", 'none');
@@ -54,7 +56,8 @@
 				$(".freeurgent").attr('checked', false);
 				$(".goldurgent").attr('checked', false);
 				$(".platinumurgent").attr('checked', false);	
-				document.getElementById("package_urgent").value = '';			
+				document.getElementById("package_urgent").value = '';
+				document.getElementById("image_count").value = '0';			
 			}
 		});
 
