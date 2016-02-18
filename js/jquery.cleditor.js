@@ -859,7 +859,7 @@
             options.docType +
             '<html>' +
             ((options.docCSSFile === '') ? '' : '<head><link rel="stylesheet" type="text/css" href="' + options.docCSSFile + '" /></head>') +
-            '<body id="content" class="cut_paste" style="' + options.bodyStyle + '"></body></html>'
+            '<body id="content" class="cut_paste" style="' + options.bodyStyle + '; word-wrap: break-word;"></body></html>'
         );
         doc.close();
 
