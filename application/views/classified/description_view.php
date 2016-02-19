@@ -30,21 +30,15 @@
 			display: block;
 			cursor: pointer !important;
 		}
-		.ug-item-wrapper img{
-			display: block;
-			margin: 0px;
-			height: 402px;
-			opacity: 1;
-			width: 536px !important;
-			top: 0px;
-			left: 157px !important;
-			position: absolute;
+		.jgallery[data-jgallery-id="1"] .jgallery-thumbnails a {
+			width: 100px !important;
+			height:60px;
 		}
 	</style>
 	
 	<script type="text/javascript">
 	$(function(){
-		/*favourite ad display*/
+		/*favourite ad display */
 		var fav_count = <?php echo count($ads_favourite); ?>;
 		if (fav_count != 0) {
 			$(".favourite_label1").addClass('active');
@@ -146,32 +140,9 @@
 	});
 	</script>
 	
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-common-libraries.js"></script>	
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-functions.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-thumbsgeneral.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-thumbsstrip.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-touchthumbs.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-panelsbase.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-strippanel.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-gridpanel.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-thumbsgrid.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-tiles.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-tiledesign.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-avia.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-slider.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-sliderassets.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-touchslider.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-zoomslider.js"></script>	
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-video.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-gallery.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-lightbox.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-carousel.js"></script>
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/js/ug-api.js"></script>
-
-	<link rel='stylesheet' href="<?php echo base_url(); ?>unitegallery/css/unite-gallery.css" type='text/css' />
-	
-	<script type='text/javascript' src="<?php echo base_url(); ?>unitegallery/themes/default/ug-theme-default.js"></script>
-	<link rel='stylesheet' 		  href="<?php echo base_url(); ?>unitegallery/themes/default/ug-theme-default.css" type='text/css' />
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>unitegallery/jgallery.min.css" />
+    <script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/jgallery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/touchswipe.min.js"></script>
 	
 	<link href="<?php echo base_url(); ?>src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 	
@@ -343,20 +314,20 @@
 
 										<!-- Post Media-->
 										<div class="col-sm-12 col-xs-12">
-											<div id="gallery" style="display:none;">
-											<?php foreach ($ads_pics as $ads_pics_val) {
+											<script type="text/javascript">
+												$( function() {
+													$( '#gallery' ).jGallery();
+												} );
+											</script>
+											<div id="gallery">
+												<div class="album" data-jgallery-album-title="Album 1">
+												<?php foreach ($ads_pics as $ads_pics_val) {
 													$busimg = $ads_pics_val->bus_logo;
 												 ?>
-													<img alt="Preview Image 1"
-													 src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" class="img-responsive" title="<?php echo $ads_pics_val->img_name; ?>"
-													 data-image="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>">
-												<?php }
-													if($package_type == 'platinum' && $ad_video->video_name != ''){
-														?>
-													<img alt="Youtube Video"
-														 data-type="youtube"
-														 data-videoid="<?php echo $video_name[1]; ?>">
-													<?php } ?>
+													<a href="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>"><img src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" alt="Photo 1" /></a>
+											
+												<?php }	 ?>
+												</div>
 											</div>
 										</div>	
 										<!-- Post Media-->
@@ -369,6 +340,10 @@
 													<li>Reviews</li>
 													<li>Map View</li>
 													<li>Report</li>
+													<?php  if($package_type == 'platinum' && $ad_video->video_name != ''){
+														?>
+													<li>Video</li>
+													<?php } ?>
 												</ul>
 												<div class="resp-tabs-container hor_1">
 													<div>
@@ -465,6 +440,14 @@
 																</div>
 															</aside>
 														</form>
+													</div>
+													<div>
+														<p>
+														<?php  if($package_type == 'platinum' && $ad_video->video_name != ''){
+														?>
+															<iframe width="560" height="215" src="https://www.youtube.com/embed/<?php echo $video_name[1]; ?>" frameborder="0" allowfullscreen></iframe>
+														<?php } ?>
+														</p>
 													</div>
 												</div>
 											</div>
@@ -754,6 +737,15 @@
 									</aside>
 								</form>
 								
+								<aside class="widget top_20">
+									<p>
+										<?php  if($package_type == 'platinum' && $ad_video->video_name != ''){
+										?>
+											<iframe height="215" src="https://www.youtube.com/embed/<?php echo $video_name[1]; ?>" frameborder="0" allowfullscreen></iframe>
+										<?php } ?>
+									</p>
+								</aside>
+								
 								<aside class="widget view_sidebar1">
 									<h3 class="imp_tant1">Important Safety Tips</h3>
 									<ul class="list-styles">
@@ -769,7 +761,7 @@
 					</div>
 					
 					<!-- Title -->
-					<div class="container">
+					<div class="container top_20">
 						<div class="titles recen_ad">
 							<h2><span>RECOMMENDED </span>DEALS</h2>
 						</div>
@@ -967,15 +959,6 @@
 		});
 	</script>
 	
-	<script type="text/javascript">
-
-		jQuery(document).ready(function(){
-
-			jQuery("#gallery").unitegallery();
-
-		});
-		
-	</script>
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();

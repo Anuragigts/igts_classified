@@ -44,7 +44,7 @@ class Login extends CI_Controller{
                                     if($ins>0){
                                             redirect("postad");
                                     }else{
-                                            $this->session->set_flashdata("err","Login Failed : Please Check your Email Id and Password");
+                                            $this->session->set_flashdata("err","Login Failed : Please Check your Email Id or Password");
                                             redirect("login");                                        
                                     }
                         }

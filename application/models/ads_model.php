@@ -39,7 +39,7 @@ class Ads_model extends CI_Model{
 		$prev_ad_details = $this->get_postad($this->input->post('ad_id'));
 		$prev_ad_status = $prev_ad_details->ad_status;
 		//echo $prev_ad_status.'----'.$this->input->post('ad_id').'----'.$this->input->post('ad_status');
-		
+		/*
 		$active_ad = $this->session->userdata('active_ad');
 		$new = $this->session->userdata('new');
 		$ad_hold = $this->session->userdata('ad_hold');
@@ -94,7 +94,7 @@ class Ads_model extends CI_Model{
 			$new = $new++;
 			$this->session->unset_userdata('new');
 			$this->session->set_userdata('new',$new);
-		}
+		}*/
 		//exit;
 		$this->db->select();
 			$this->db->where('u_pkg_id',$this->input->post('urg_type'));
@@ -110,10 +110,14 @@ class Ads_model extends CI_Model{
 						'no_ofdays'		=>	$urg_pkg_details->u_pkg_days,
 						'status'		=>	1,
 					);
-			
+			echo '<pre>';print_r($urg_type);echo '</pre>';
 			$this->db->insert('urgent_details',$urg_type);
 		}
-			
+		$this->db->select();
+		$this->db->where('',$this->input->post('add_type'));
+		$this->db->from();
+		$this->db->get()->row();
+			echo '<pre>';print_r($this->input->post());echo '</pre>';
 		$data=array(
 			'approved_by'		=>	$this->session->userdata('login_id'),
 			'approved_on'		=>	$date,
@@ -124,8 +128,9 @@ class Ads_model extends CI_Model{
 		);
 		$this->db->where('ad_id', $this->input->post('ad_id'));
 		$update_status = $this->db->update('postad', $data);
-		//$this->db->last_query();
-		//exit;
+		$this->db->last_query();
+		echo '<pre>';print_r($data);echo '</pre>';
+		exit;
 		return $update_status;
 	}
 	function get_ListAds($ads_type){

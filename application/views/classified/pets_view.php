@@ -662,7 +662,7 @@
 												<?php foreach ($pets_sub as $petval) { ?>
 													<label class="checkbox">
 													<input type="checkbox" name="pets_sub[]" class='pets_sub' value="<?php echo $petval->sub_category_id; ?>" >
-													<i></i> <?php echo ucwords($petval->sub_category_name)."(".$petval->no_ads.")"; ?>  
+													<i></i>  <?php echo ucwords($petval->sub_category_name)." (".$petval->no_ads.")"; ?>  
 													</label>
 												<?php } ?>
 											</div>

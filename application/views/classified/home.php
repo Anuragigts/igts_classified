@@ -20,6 +20,33 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
+					<img src="img/slide/all.jpg"  alt="Slider1" title="Slider1">
+					<!-- LAYERS -->
+					<div class="tp-caption large_bold_white sft stb"
+						data-x="center"
+						data-y="260"
+						data-speed="300"
+						data-start="1000"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">Goods & Services. Ever Trusted Listings
+					</div>
+
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption small_light_white sfb stb"
+						data-x="center"
+						data-y="325"
+						data-speed="500"
+						data-start="1200"
+						data-splitin="lines"
+						data-splitout="none"
+						data-easing="easeOutExpo">
+					</div>
+				</li>
+				
+				<!-- SLIDE  -->
+				<li data-transition="slidevertical">
+					<!-- MAIN IMAGE -->
 					<img src="img/slide/1.jpg"  alt="Slider2" title="Slider2">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
@@ -370,7 +397,14 @@
 													</div>
 													<!-- end Tab Two - contact -->
 												</div>
-												<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
+												
+												<?php if ($hot_deals_val->category_id != 'jobs') { ?>
+													<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
+													<?php }
+														else{ ?>
+														<h3 class="home_price"></h3>		
+													<?php	}
+													?>
 												<a href="#" data-toggle="modal" data-target="#sendnow"  class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 												<?php  if ($hot_deals_val->ad_type == 'business') {
 														if ($hot_deals_val->bus_logo != '') {
@@ -455,7 +489,11 @@
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
 								<?php if ($val->category_id != 'jobs') { ?>
 								<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
-								<?php } ?>
+								<?php } 
+								else{ ?>
+									<h3 class="home_price"></h3>		
+								<?php	}
+								?>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
 								if($val->ad_type == 'business'){
@@ -498,7 +536,7 @@
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
-								
+								<h3 class="home_price"></h3>	
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
 								if($m_ads->ad_type == 'business'){
@@ -926,7 +964,11 @@
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php } ?>
+										<?php }
+											else{ ?>
+											<h3 class="home_price"></h3>		
+										<?php	}
+										?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -949,7 +991,11 @@
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php } ?>
+										<?php }
+										else{ ?>
+											<h3 class="home_price"></h3>		
+										<?php	}
+										?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -1016,7 +1062,11 @@
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php } ?>
+										<?php }
+										else{ ?>
+											<h3 class="home_price"></h3>		
+										<?php	}
+										?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -1039,7 +1089,11 @@
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php } ?>
+										<?php }
+										else{ ?>
+											<h3 class="home_price"></h3>		
+										<?php	}
+										?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -1095,7 +1149,11 @@
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
 										<?php if ($free_val->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
-										<?php } ?>
+										<?php }
+										else{ ?>
+											<h3 class="home_price"></h3>		
+										<?php	}
+										?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
@@ -1113,7 +1171,11 @@
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
 										<?php if ($free_val->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
-										<?php } ?>
+										<?php }
+										else{ ?>
+											<h3 class="home_price"></h3>		
+										<?php	}
+										?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
