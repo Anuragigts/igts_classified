@@ -3984,6 +3984,9 @@ address strong{
 .top_4{
 	margin-top:10px ;
 }
+.top_31{
+	margin-top:30px !important;
+}
 .view_price{
 	color:white;
 	padding-left:0px;
@@ -5435,7 +5438,7 @@ tbody th,td{
 }
 .view_price_1{
 	color:white;
-	padding: 22px 37px 27px 35px;
+	padding: 22px 20px 29px 27px;
 	margin-right: 55px !important;
 	font-size: 18px;
 }
@@ -5513,6 +5516,7 @@ tbody tr th{
 .home_price{
 	font-size: 30px !important;
 	color: #E95413 !important;
+	min-height:53px;
 }
 .active_filter{
 	color:#E95413 !important;
@@ -5616,4 +5620,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 	height: 31px;
 	display: block;
 	cursor: pointer !important;
+}
+.fa-expand{
+	display:none !important;
 }
