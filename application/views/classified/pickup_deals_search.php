@@ -51,10 +51,10 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
-																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																<div class="col-xs-10">
+																	<h3 class="list_title"><?php echo substr($pvalue->deal_tag, 0,20); ?></h3>
 																</div>
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active" title="Add to favourite"></span>
@@ -63,7 +63,7 @@
 																</div>
 															</div>
 															<div class="row">
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<ul class="starts">
 																		<li><a href="#"><i class="fa fa-star"></i></a></li>
 																		<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -180,10 +180,10 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
-																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																<div class="col-xs-10">
+																	<h3 class="list_title"><?php echo substr($pvalue->deal_tag, 0,20); ?></h3>
 																</div>
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active"  title="Add to favourite"></span>
@@ -297,10 +297,10 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
-																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																<div class="col-xs-10">
+																	<h3 class="list_title"><?php echo substr($pvalue->deal_tag, 0,20); ?></h3>
 																</div>
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active"  title="Add to favourite"></span>
@@ -409,10 +409,10 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
-																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																<div class="col-xs-10">
+																	<h3 class="list_title"><?php echo substr($pvalue->deal_tag, 0,20); ?></h3>
 																</div>
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active"  title="Add to favourite"></span>
@@ -520,10 +520,10 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
-																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																<div class="col-xs-10">
+																	<h3 class="list_title"><?php echo substr($pvalue->deal_tag, 0,20); ?></h3>
 																</div>
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active"  title="Add to favourite"></span>
@@ -626,10 +626,10 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
-																	<h3 class="list_title"><?php echo $pvalue->deal_tag; ?></h3>
+																<div class="col-xs-10">
+																	<h3 class="list_title"><?php echo substr($pvalue->deal_tag, 0,20); ?></h3>
 																</div>
-																<div class="col-xs-4">
+																<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
 																		<span class="favourite_label1 active"  title="Add to favourite"></span>
