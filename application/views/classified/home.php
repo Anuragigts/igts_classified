@@ -925,7 +925,7 @@
 						<div class="col-sm-9">
 							<div id="boxes-carousel2">
 								<!-- Item carousel Boxed-->
-								<?php foreach ($business_ads as $b_ads) {
+								<?php foreach ($mostvalued_ads as $b_ads) {
 									/*currency symbol*/ 
                                     	if ($b_ads->currency == 'pound') {
                                     		$currency = '£';
@@ -948,12 +948,14 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<?php if ($b_ads->bus_logo != '') { ?>
+										<?php
+										 if ($b_ads->ad_type != 'consumer') { 
+										 if ($b_ads->bus_logo != '') { ?>
 											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
 										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
-									<?php	}
+									<?php	} 	}
 										 ?>
 										<?php if ($b_ads->package_type == 'gold') { ?>
 										 	<div class="business_crown">
@@ -975,12 +977,13 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<?php if ($b_ads->bus_logo != '') { ?>
+										<?php if ($b_ads->ad_type != 'consumer') { 
+										 if ($b_ads->bus_logo != '') { ?>
 											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
 										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
-									<?php	}
+									<?php	}	}
 										 ?>
 										 <?php if ($b_ads->package_type == 'platinum') { ?>
 										 	<div class="business_crown">
@@ -1059,7 +1062,7 @@
 											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
 										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<?php }
@@ -1086,7 +1089,7 @@
 											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
 										<?php if ($b_ads->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<?php }
@@ -1146,7 +1149,7 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
+										<p><?php echo substr(strip_tags($free_val->deal_desc),0,44); ?> </p>
 										<?php if ($free_val->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 										<?php }
@@ -1168,7 +1171,7 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr(strip_tags($free_val->deal_desc),0,47); ?> </p>
+										<p><?php echo substr(strip_tags($free_val->deal_desc),0,44); ?> </p>
 										<?php if ($free_val->category_id != 'jobs') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 										<?php }

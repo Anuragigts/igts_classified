@@ -16,22 +16,23 @@ class Postad_create_motors extends CI_Controller{
             if($this->input->post('post_create_ad_motors')){
                 $this->postad_motor_model->postad_creat();
             }
+             
         	 $data = array(
 		                    "cars_fst"     =>  $this->category_model->cars_sub_cat_fst(),
 		                    "cars_sec"     =>  $this->category_model->cars_sub_cat_sec(),
-    			        	 	"bikes_fst"     =>  $this->category_model->bikes_sub_cat_fst(),
+                       "bikes_fst"     =>  $this->category_model->bikes_sub_cat_fst(),
     			        	 	"bikes_sec"     =>  $this->category_model->bikes_sub_cat_sec(),
-                            "caravans_fst" => $this->category_model->caravans_sub_cat_fst(),
-                            "vans_sub_cat_fst" => $this->category_model->vans_sub_cat_fst(),
-                            "coach_sub_cat_fst" => $this->category_model->coach_sub_cat_fst(),
-                            "tractor_sub_cat_fst" => $this->category_model->tractor_sub_cat_fst(),
-                            "rigid_sub_cat_fst" => $this->category_model->rigid_sub_cat_fst(),
-                            "trailer_sub_cat_fst" => $this->category_model->trailer_sub_cat_fst(),
-                            "equip_sub_cat_fst" => $this->category_model->equip_sub_cat_fst(),
-                            "farm_sub_cat_fst" => $this->category_model->farm_sub_cat_fst(),
-                            "boat_sub_cat_fst" => $this->category_model->boat_sub_cat_fst(),
-                                "title"     =>  "Classifieds",
-                                "content"   =>  "postad_create_motors"
+                      "caravans_fst" => $this->category_model->caravans_sub_cat_fst(),
+                      "vans_sub_cat_fst" => $this->category_model->vans_sub_cat_fst(),
+                      "coach_sub_cat_fst" => $this->category_model->coach_sub_cat_fst(),
+                      "tractor_sub_cat_fst" => $this->category_model->tractor_sub_cat_fst(),
+                      "rigid_sub_cat_fst" => $this->category_model->rigid_sub_cat_fst(),
+                      "trailer_sub_cat_fst" => $this->category_model->trailer_sub_cat_fst(),
+                      "equip_sub_cat_fst" => $this->category_model->equip_sub_cat_fst(),
+                      "farm_sub_cat_fst" => $this->category_model->farm_sub_cat_fst(),
+                      "boat_sub_cat_fst" => $this->category_model->boat_sub_cat_fst(),
+                          "title"     =>  "Classifieds",
+                          "content"   =>  "postad_create_motors"
                         );
 
              $cat = $this->input->post('motor_cat');
@@ -69,6 +70,10 @@ class Postad_create_motors extends CI_Controller{
              $data['sub_sub_sub_id'] = $sub_sub_sub_cat;
              $data['package_name'] = $this->category_model->package_name();
              $data['login_id'] = $this->session->userdata("login_id");
+
+              $data["cars_list"] = $this->category_model->cars_sub_cat_list();
+
+              $data["bikes_list"] =  $this->category_model->bikes_sub_cat_list();
 
 	            $this->load->view("classified_layout/inner_template",$data);
         }

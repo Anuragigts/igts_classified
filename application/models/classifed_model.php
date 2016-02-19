@@ -561,8 +561,11 @@ Class Classifed_model extends CI_model{
 
 	/*motor boats*/
 	public function ads_detailed_boats(){
-		$this->db->select("*");
-		$this->db->from("motor_boats");
+		$this->db->select("(SELECT sub_subcategory_name FROM sub_subcategory sscat WHERE sscat.sub_subcategory_id = mb.manufacture) AS manufacture,
+year,
+(SELECT car_model FROM car_model AS cm WHERE cm.id = mb.model) AS model,
+color,fueltype,condition");
+		$this->db->from("motor_boats AS mb");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();
@@ -665,6 +668,39 @@ Class Classifed_model extends CI_model{
 		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("fav.id", "DESC");
+		$res = $this->db->get();
+		return $res->result();
+	}
+
+	public function pickup_deals_search(){
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ad");
+		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
+		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->group_by("img.ad_id");
+		/*deal title ascending or descending*/
+		if ($this->input->post("dealtitle") == 'atoz') {
+			$this->db->order_by("ad.deal_tag","ASC");
+		}
+		else if ($this->input->post("dealtitle") == 'ztoa'){
+			$this->db->order_by("ad.deal_tag", "DESC");
+		}
+
+		/*deal price ascending or descending*/
+		if ($this->input->post("dealprice") == 'lowtohigh'){
+			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+		}
+		else if ($this->input->post("dealprice") == 'hightolow'){
+			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+		}
+		else{
+			$this->db->order_by("ad.ad_id", "DESC");
+		}
+		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get();
 		return $res->result();
 	}

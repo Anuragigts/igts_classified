@@ -140,6 +140,11 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 
+        public function cars_sub_cat_list(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = '".$this->input->post('motor_sub')."'");
+            return $rs->result_array();
+        }
+
         /*motor point for bikes & scooters sub-category*/
          public function bikes_sub_cat_fst(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13 LIMIT 60");
@@ -148,6 +153,11 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
 
          public function bikes_sub_cat_sec(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13 LIMIT 60, 94");
+            return $rs->result_array();
+        }
+
+        public function bikes_sub_cat_list(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13");
             return $rs->result_array();
         }
 

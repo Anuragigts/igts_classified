@@ -1,5 +1,13 @@
-	<title>Right Deals :: PostaDeal</title>
 	
+	<title>Right Deals :: PostaDeal</title>
+	<style type="text/css">
+	.nav-tabs li a {
+		border: 0px none;
+		padding: 12px 13px;
+		background: #3A4749 none repeat scroll 0% 0%;
+		color: #FFF;
+		}
+	</style>
 	
 <link rel='stylesheet' type='text/css' href='imgupload/free.css' />
 <link rel='stylesheet' type='text/css' href='imgupload/freeurgent.css' />
@@ -28,6 +36,7 @@
 				$(".platinumurgent").attr('checked', false);
 				$(".goldurgent").attr('checked', false);
 				document.getElementById("package_urgent").value = '';
+				document.getElementById("image_count").value = '0';
 			}
 			if(ch == 'goldpackage'){
 				$(".free_pck").css("display", 'none');
@@ -38,6 +47,7 @@
 				$(".goldurgent").removeAttr('disabled');	
 				$(".platinumurgent").attr('checked', false);
 				document.getElementById("package_urgent").value = '';
+				document.getElementById("image_count").value = '0';
 			}
 			if(ch == 'platinumpackage'){
 				$(".free_pck").css("display", 'none');
@@ -47,7 +57,8 @@
 				$(".freeurgent").attr('checked', false);
 				$(".goldurgent").attr('checked', false);
 				$(".platinumurgent").removeAttr('disabled');	
-				document.getElementById("package_urgent").value = '';			
+				document.getElementById("package_urgent").value = '';	
+				document.getElementById("image_count").value = '0';		
 			}
 		});
 
@@ -62,14 +73,16 @@
 
 	/*onload bike model dropdown*/
 	$(function(){
+		$(".bike_manufacture").change(function(){
 		var bikeid = <?php echo @$sub_id ?>;
-		if (bikeid == '13') {
-		var id = <?php echo @$sub_sub_id; ?>;
-		$.post( "<?php echo base_url();?>postad_create_motors/get_bike_types",{id:id},function( data ) {
-			$(".bike_type").html(data);
-                        
-            });
-		}
+			if (bikeid == '13') {
+			var id = $(".bike_manufacture").val();
+			$.post( "<?php echo base_url();?>postad_create_motors/get_bike_types",{id:id},function( data ) {
+				$(".bike_type").html(data);
+	                        
+	            });
+			}
+		});
 	});
 
 	$(function(){
@@ -85,14 +98,12 @@
 
 	/*onload car and vans, trucks, coachs, buses, boats dropdown*/
 	$(function(){
-		var carid = <?php echo @$sub_id ?>;
-		if (carid == '12' || carid == '14' || carid == '15' || carid == '16' || carid == '19') {
-		var id = <?php echo @$sub_sub_id; ?>;
+		$(".manufacture").change(function(){
+		var id = $(".manufacture option:selected").val();
 		$.post( "<?php echo base_url();?>postad_create_motors/get_car_models",{id:id},function( data ) {
 			$(".car_model").html(data);
-                        
-            });
-		}
+                });
+		});
 	});
 
 	$(function(){
@@ -774,7 +785,7 @@ jQuery(document).ready(function($) {
 														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
 														<input type='hidden' name='sub_sub_sub_id' id='sub_sub_sub_id' value="<?php echo @$sub_sub_sub_id; ?>" />
 														 /</li>
-													<li><b><?php echo ucfirst(@$sub_name); ?></b>  /</li>
+													<li><b><?php echo ucfirst(@$sub_name); ?></b>  <?php if ($sub_sub_name != '') { ?> /<?php	} ?></li>
 													<li><b><?php echo ucfirst(@$sub_sub_name); ?></b> <?php if ($sub_sub_sub_name != '') { ?>  /<?php	} ?></li>
 													<li><b><?php echo ucfirst(@$sub_sub_sub_name); ?></b></li>
 												</ul>                 
@@ -999,10 +1010,15 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="manufacture">
-														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													<label class="input select">
+														<select name="manufacture" class='manufacture'>
+															<option value="none" selected disabled="">Select manufacture</option>
+															<?php foreach ($cars_list as $carval) { ?>
+															<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
+															<?php } ?>
+														</select>
+														<i></i>
 													</label>
-													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly>
 												</div>
 											</div>
 										</div>
@@ -1164,10 +1180,15 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="manufacture">
-														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
-													</label>
-													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly >
+													<label class="input select">
+													<select name="manufacture" class='manufacture'>
+														<option value="none" selected disabled="">Select manufacture</option>
+														<?php foreach ($cars_list as $carval) { ?>
+														<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
+														<?php } ?>
+													</select>
+													<i></i>
+												</label>
 												</div>
 											</div>
 										</div>
@@ -1358,10 +1379,15 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="manufacture">
-														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
-													</label>
-													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly>
+													<label class="input select">
+													<select name="manufacture" class='manufacture'>
+														<option value="none" selected disabled="">Select manufacture</option>
+														<?php foreach ($cars_list as $carval) { ?>
+														<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
+														<?php } ?>
+													</select>
+													<i></i>
+												</label>
 												</div>
 											</div>
 											<div class="span6 unit">
@@ -1487,10 +1513,14 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<div class="input">
-													<label class="icon-right" for="manufacture">
-														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
-													</label>
-													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_name); ?>' readonly >
+													<label class="input select">
+													<select name="manufacture" class='manufacture'>
+														<option value="none" selected disabled="">Select manufacture</option>
+														<?php foreach ($cars_list as $carval) { ?>
+														<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
+														<?php } ?>
+													</select><i></i>
+												</label>
 												</div>
 											</div>
 										</div>
@@ -2565,111 +2595,37 @@ jQuery(document).ready(function($) {
 							<div class="tab-content">
 								<!--Tab1 Cars-->
 								<div class="tab-pane active" id="cars">
-									<div class="col-md-12 post_deal_bor">
-										<div class="row">
-											<?php $cars_fst1 = array_chunk(@$cars_fst, 6);
-												foreach ($cars_fst1 as $car_val) {
-													foreach ($car_val as $c_val) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_cars_cars' id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
-										</div>
-										<div class="row col-md-12" >
-											<button type="button" id='car_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
-										</div>
-										<div class="row" id='car_sec_part' style='display:none;'>
-											<?php $cars_sec1 = array_chunk(@$cars_sec, 6);
-												foreach ($cars_sec1 as $car_sec) {
-													foreach ($car_sec as $c_sec) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_cars_cars' id="<?php echo  $c_sec['sub_category_id'].','.$c_sec['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $c_sec['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
-										</div>
-										<div class="row col-md-12" >
-											<button type="button" id='car_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
+									<div class="col-md-12">
+										<div class="row col-md-4 col-md-offset-5" >
+											<a href="javascript:void(0);" id="12,0,0" class="btn_v btn-4 btn-4a edit_cars_cars">Click Here</a>
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane" id="bike_scooter">
-									<div class="col-md-12 post_deal_bor">
-										<div class="row">
-											<?php $bikes_fst1 = array_chunk(@$bikes_fst, 6);
-												foreach ($bikes_fst1 as $bike_val) {
-													foreach ($bike_val as $b_val) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_bike_scooters' id="<?php echo  $b_val['sub_category_id'].','.$b_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $b_val['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
-										</div>
-										<div class="row col-md-12" >
-											<button type="button" id='bike_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
-										</div>
-										<div class="row" id='bike_sec_part' style='display:none;'>
-											<?php $bikes_sec1 = array_chunk(@$bikes_sec, 6);
-												foreach ($bikes_sec1 as $bike_sec) {
-													foreach ($bike_sec as $b_sec) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_bike_scooters' id="<?php echo  $b_sec['sub_category_id'].','.$b_sec['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $b_sec['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
-										</div>
-										<div class="row col-md-12" >
-											<button type="button" id='bike_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
+									<div class="col-md-12">
+										<div class="row col-md-4 col-md-offset-5" >
+											<a href="javascript:void(0);" id="13,0,0" class="btn_v btn-4 btn-4a edit_bike_scooters">Click Here</a>
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane" id="Motorhomes_Caravans">
-									<div class="col-md-12 post_deal_bor">
-										<div class="row">
-											<?php $caravans_fst1 = array_chunk(@$caravans_fst, 6);
-												foreach ($caravans_fst1 as $caravans_val) {
-													foreach ($caravans_val as $cara_val) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_motor_caravans' id="<?php echo  $cara_val['sub_category_id'].','.$cara_val['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $cara_val['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
+									<div class="col-md-12">
+										<div class="row col-md-4 col-md-offset-5" >
+											<a href="javascript:void(0);" id="14,0,0" class="btn_v btn-4 btn-4a edit_motor_caravans">Click Here</a>
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane" id="Vans_Trucks">
-									<div class="col-md-12 post_deal_bor">
-										<div class="row">
-											<?php $vans_sub_cat_fst1 = array_chunk(@$vans_sub_cat_fst, 6);
-												foreach ($vans_sub_cat_fst1 as $vans_val) {
-													foreach ($vans_val as $vans_val1) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_motor_vans_trucks' id="<?php echo  $vans_val1['sub_category_id'].','.$vans_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $vans_val1['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
+									<div class="col-md-12">
+										<div class="row col-md-4 col-md-offset-5" >
+											<a href="javascript:void(0);" id="15,0,0" class="btn_v btn-4 btn-4a edit_motor_vans_trucks">Click Here</a>
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane" id="coaches_bus">
-									<div class="col-md-12 post_deal_bor">
-										<div class="row">
-											<?php $coach_sub_cat_fst1 = array_chunk(@$coach_sub_cat_fst, 6);
-												foreach ($coach_sub_cat_fst1 as $coach_val) {
-													foreach ($coach_val as $coach_val1) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_motor_coach_bus' id="<?php echo  $coach_val1['sub_category_id'].','.$coach_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $coach_val1['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
+									<div class="col-md-12">
+										<div class="row col-md-4 col-md-offset-5" >
+											<a href="javascript:void(0);" id="16,0,0" class="btn_v btn-4 btn-4a edit_motor_coach_bus">Click Here</a>
 										</div>
 									</div>
 								</div>
@@ -2719,17 +2675,9 @@ jQuery(document).ready(function($) {
 									</div>
 								</div>
 								<div class="tab-pane" id="Boats">
-									<div class='col-md-12 post_deal_bor'>
-										<div class="row">
-											<?php $boat_sub_cat_fst1 = array_chunk(@$boat_sub_cat_fst, 6);
-												foreach ($boat_sub_cat_fst1 as $boat_val) {
-													foreach ($boat_val as $boat_val1) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_motor_boats' id="<?php echo  $boat_val1['sub_category_id'].','.$boat_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $boat_val1['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
+									<div class='col-md-12'>
+										<div class="row col-md-4 col-md-offset-5" >
+											<a href="javascript:void(0);" id="19,0,0" class="btn_v btn-4 btn-4a edit_motor_boats">Click Here</a>
 										</div>
 									</div>
 								</div>

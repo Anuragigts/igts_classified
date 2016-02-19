@@ -54,6 +54,8 @@ class Postad extends CI_Controller{
                 $data['cars_fst'] = $this->category_model->cars_sub_cat_fst();
                 $data['cars_sec'] = $this->category_model->cars_sub_cat_sec();
 
+               
+
                  /*motor point for bikes & scooters*/
                 $data['bikes_fst'] = $this->category_model->bikes_sub_cat_fst();
                 $data['bikes_sec'] = $this->category_model->bikes_sub_cat_sec();
