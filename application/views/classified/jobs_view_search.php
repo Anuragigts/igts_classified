@@ -124,11 +124,11 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-10">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
+																	<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
@@ -138,7 +138,7 @@
 																	</div>
 																</div>
 																<?php }else{ ?>
-																		<div class="col-xs-4">
+																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
@@ -263,11 +263,11 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-10">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
+																	<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
@@ -277,7 +277,7 @@
 																	</div>
 																</div>
 																<?php }else{ ?>
-																		<div class="col-xs-4">
+																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
@@ -386,11 +386,11 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-12">
+																<div class="col-xs-10">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
+																	<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
@@ -400,7 +400,7 @@
 																	</div>
 																</div>
 																<?php }else{ ?>
-																		<div class="col-xs-4">
+																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
@@ -506,11 +506,11 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-10">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
+																	<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
@@ -520,7 +520,7 @@
 																	</div>
 																</div>
 																<?php }else{ ?>
-																		<div class="col-xs-4">
+																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
@@ -623,11 +623,11 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-10">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
+																	<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
@@ -637,7 +637,7 @@
 																	</div>
 																</div>
 																<?php }else{ ?>
-																		<div class="col-xs-4">
+																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
@@ -737,11 +737,11 @@
 													<div class="row">
 														<div class="col-sm-8">
 															<div class="row">
-																<div class="col-xs-8">
+																<div class="col-xs-10">
 																	<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
-																	<div class="col-xs-4">
+																	<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
@@ -751,7 +751,7 @@
 																	</div>
 																</div>
 																<?php }else{ ?>
-																		<div class="col-xs-4">
+																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
 																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
 																		<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
