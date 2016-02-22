@@ -334,6 +334,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where('ads.package_type', 'gold');
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
+		$this->db->limit(10);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -353,6 +354,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where('ads.ad_type', 'consumer');
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
+		$this->db->limit(10);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -374,6 +376,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where('ads.ad_type', 'business');
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
+		$this->db->limit(10);
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
