@@ -5461,7 +5461,7 @@ tbody tr td{
 	float: right;
 }
 tbody tr {
-	border-bottom: 1px solid #ddd;
+	/* border-bottom: 1px solid #ddd; */
 }
 tbody tr th{
 	float: left;

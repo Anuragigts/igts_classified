@@ -325,4 +325,10 @@
 		height: 50px;
 		width: 284px;
 	}
+	.btn-4 {
+		padding: 2px 21px 0px 20px;
+	}
+	.view_price {
+		font-size: 10px;
+	}
 }
