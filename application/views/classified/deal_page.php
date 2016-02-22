@@ -449,7 +449,7 @@
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
-													<i></i> Platinum Deals
+													<i></i> Significant Deals
 												</label>
 											</div>
 										</div> <!-- cd-filter-content -->

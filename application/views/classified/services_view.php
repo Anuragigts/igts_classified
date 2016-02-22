@@ -688,15 +688,15 @@
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
-													<i></i> Platinum Deals (<?php echo $platinumcnt; ?>)
+													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
-													<i></i> Gold Deals (<?php echo $goldcnt; ?>)
+													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
-													<i></i> free Deals (<?php echo $freecnt; ?>)
+													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
 										</div>

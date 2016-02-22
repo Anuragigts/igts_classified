@@ -340,10 +340,6 @@
 													<li>Reviews</li>
 													<li>Map View</li>
 													<li>Report</li>
-													<?php  if($package_type == 'platinum' && $ad_video->video_name != ''){
-														?>
-													<li>Video</li>
-													<?php } ?>
 												</ul>
 												<div class="resp-tabs-container hor_1">
 													<div>
@@ -376,28 +372,24 @@
 															<ul id="comments-list" class="comments-list">
 																<?php foreach ($ads_review as $r_val) { ?>
 																	<li>
-																	<div class="comment-main-level">
-																		<!-- Avatar 
-																			<tr><th>Weblink</th>
-																			<td><a href="http://365deals.igravitas.in/" target="_blank">99 Deals</a></td>
-																		</tr>-->
-																		<!-- <div class="comment-avatar"><img src="<?php echo base_url(); ?>img/icons/man.png" alt="man" title="man"></div> -->
-																		<!-- Contenedor del Comentario -->
-																		<div class="comment-box">
-																			<div class="comment-head">
-																				<h6 class="comment-name"><a href=""><?php echo $r_val->review_title; ?></a></h6>
-																				<span><?php echo date("M d, Y", strtotime($r_val->review_time)); ?></span>
-																				<p class="reting_view">
-																					<?php echo $r_val->rating; ?> Ratings
-																				</p>
+																		<div class="comment-main-level">
+																			<div class="comment-avatar">
+																				<i class="fa fa-user fa-3x"></i>
 																			</div>
-																			<div class="comment-content">
-																				<?php echo $r_val->review_msg; ?>
+																			<div class="comment-box">
+																				<div class="comment-head">
+																					<h6 class="comment-name"><a href=""><?php echo $r_val->review_title; ?></a></h6>
+																					<span><?php echo date("M d, Y", strtotime($r_val->review_time)); ?></span>
+																					<p class="reting_view">
+																						<?php echo $r_val->rating; ?> Ratings
+																					</p>
+																				</div>
+																				<div class="comment-content">
+																					<?php echo $r_val->review_msg; ?>
+																				</div>
 																			</div>
 																		</div>
-																	</div>
-																	<!-- Respuestas de los comentarios -->
-																</li>
+																	</li>
 																<?php	} ?>
 															</ul>
 														</div>
@@ -440,14 +432,6 @@
 																</div>
 															</aside>
 														</form>
-													</div>
-													<div>
-														<p>
-														<?php  if($package_type == 'platinum' && $ad_video->video_name != ''){
-														?>
-															<iframe width="560" height="215" src="https://www.youtube.com/embed/<?php echo $video_name[1]; ?>" frameborder="0" allowfullscreen></iframe>
-														<?php } ?>
-														</p>
 													</div>
 												</div>
 											</div>
@@ -900,17 +884,17 @@
 							</div>
 						</div>
 					</div>
-				   <!-- End boxes-carousel-->
+					<!-- End boxes-carousel-->
 
 				    <!-- Free Google Ads Start-->
-				   <div class="container">
+					<div class="container">
 						<div class="row">
 							<div class="col-md-10 col-sm-10 col-md-offset-1">
 								<img src="<?php echo base_url(); ?>img/slide/adds.jpg" alt="add" title="Adds">
 							</div>
 						</div>
 					</div>
-					 <!-- Free Google Ads End-->
+					<!-- Free Google Ads End-->
 
 				</div>
 			</div>

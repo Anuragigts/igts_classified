@@ -63,7 +63,7 @@
 																</div>
 															</div>
 															<div class="row">
-																<div class="col-xs-2">
+																<div class="col-xs-4">
 																	<ul class="starts">
 																		<li><a href="#"><i class="fa fa-star"></i></a></li>
 																		<li><a href="#"><i class="fa fa-star"></i></a></li>
