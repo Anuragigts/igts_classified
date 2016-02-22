@@ -822,7 +822,7 @@
 								<?php	} ?>
 							<div class="img-hover">
 								<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
-								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
 							<div class="info-gallery">
@@ -830,7 +830,7 @@
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_pets->price); ?></h3>
-								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
 								if($m_ads_pets->ad_type == 'business'){
 								 if ($m_ads_pets->bus_logo != '') { ?>
