@@ -20,7 +20,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/all.jpg"  alt="Slider1" title="Slider1">
+					<img src="img/slide/all.jpg" class="img-responsive" alt="Slider1" title="Slider1">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -47,7 +47,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/1.jpg"  alt="Slider2" title="Slider2">
+					<img src="img/slide/1.jpg" class="img-responsive" alt="Slider2" title="Slider2">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -73,7 +73,7 @@
 				
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
-					<img src="img/slide/2.jpg" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
+					<img src="img/slide/2.jpg" class="img-responsive" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
 					<!-- LAYERS -->
 					<!-- LAYER NR. 2 -->
 					<div class="tp-caption large_bold_white sft stb"
@@ -101,7 +101,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical" >
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/3.jpg"  alt="Slider3" title="Slider3">
+					<img src="img/slide/3.jpg" class="img-responsive" alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -128,7 +128,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical" >
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/5.jpg"  alt="Slider3" title="Slider3">
+					<img src="img/slide/5.jpg" class="img-responsive" alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -902,7 +902,10 @@
 						</div>
 						<?php } ?>
 					</div>
-					<!-- End Items Gallery filters-->       
+					<!-- End Items Gallery filters--> 
+					<div class="row text_center">
+						<a href="significant_deals_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>VIEW ALL SIGNIFICANT DEALS</span></a>
+					</div>					
 				</div>
 			</div>
 		</div>
@@ -920,7 +923,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/most_value.jpg" alt="most_value" title="Most Value Deals" class="recentad_heig img-responsive">
+							<a href="mostvalued_deals_view">
+								<img src="img/most_value.jpg" alt="most_value" title="Most Value Deals" class="recentad_heig img-responsive">
+							</a>
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel2">
@@ -1021,7 +1026,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
+						<a href="business_deals_view">
 							<img src="img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
+						</a>
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel">
@@ -1118,7 +1125,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
+							<a href="recent_deals_view">
+								<img src="img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
+							</a>
 						</div>
 						<div class="col-sm-9">
 							<div id="boxes-carousel1">
