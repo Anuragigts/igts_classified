@@ -42,6 +42,8 @@ class  Job_view extends CI_Controller{
                 $data['jobs_sub'] = $this->hotdealsearch_model->jobs_sub_search();
                  /*business and consumer count for jobs*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_jobs();
+                 /*seller and needed count for jobs*/
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_jobs();
                 /*packages count jobs*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_jobs();
                  /*packages count jobs*/

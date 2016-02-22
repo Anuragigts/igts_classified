@@ -291,6 +291,7 @@ class hotdealsearch_model extends CI_Model{
         public function servicesprof_search(){
         	$profpop = $this->input->post('profpop_list');
         	$pck = $this->input->post('pckg_list');
+        	$seller = $this->input->post('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -313,6 +314,11 @@ class hotdealsearch_model extends CI_Model{
 			/*urgent label*/
 			if ($this->input->post("urgent")) {
 				$this->db->where('ad.urgent_package !=', '');
+			}
+
+			/*seller search*/
+			if (!empty($seller)) {
+				$this->db->where_in('ad.services', $seller);
 			}
 
 			/*deal posted days 24hr/3day/7day/14day/1month */
@@ -370,6 +376,7 @@ class hotdealsearch_model extends CI_Model{
 
         /*jobs search fo  sub category*/
         public function jobs_search(){
+        	$seller = $this->input->post('seller_deals');
         	$jobslist = $this->input->post('jobs_list');
         	$jobs_pos = $this->input->post('jobs_pos');
         	$pck = $this->input->post('pckg_list');
@@ -386,6 +393,9 @@ class hotdealsearch_model extends CI_Model{
 			}
 			if (!empty($jobs_pos)) {
 				$this->db->where_in('jd.positionfor', $jobs_pos);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('jd.jobtype_title', $seller);
 			}
 			/*package search*/
 			if (!empty($pck)) {
@@ -654,6 +664,22 @@ class hotdealsearch_model extends CI_Model{
         public function sellerneeded_pets(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Seller') AS seller,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Needed') AS needed");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*services seller and needed count*/
+        public function sellerneeded_services(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND services = 'service_provider') AS provider,
+	(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND services = 'service_needed') AS needed");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function sellerneeded_jobs(){
+        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company') AS company,
+(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency') AS agency,
+(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other') AS other");
         	$rs = $this->db->get();
         	return $rs->result();
         }

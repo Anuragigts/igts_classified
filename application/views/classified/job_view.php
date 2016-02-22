@@ -501,6 +501,64 @@
 					}
 				})
         	});
+
+		/*seller for jobs*/
+		$(".seller_deals").click(function(){
+			var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+        		var bustype = $("input[name=search_bustype]:checked").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var jobs_list = [];
+        		$("input[name='job_search[]']:checked").each( function () {
+					 var jobs = $(this).val();
+				     jobs_list.push(jobs); 
+				});
+				var jobs_pos = [];
+        		$("input[name='positionfor[]']:checked").each( function () {
+					 var pos = $(this).val();
+				     jobs_pos.push(pos); 
+				});
+				// alert(jobs_pos);
+				 var recentdays = $(".recentdays_sort option:selected").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>job_view/search_filters",
+					data: {
+						seller_deals: seller_deals,
+						bustype: bustype,
+						jobs_pos: jobs_pos,
+						recentdays: recentdays,
+						dealtitle: dealtitle,
+						jobs_list: jobs_list,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".jobs_search_result").html(data);
+					}
+				})
+        	});
+
 		});
 		</script>
 	  <?php
@@ -526,6 +584,11 @@
 	  	$experience = $posval->experience;
 	  	$internship = $posval->internship;
 	  	$contract = $posval->contract;
+	  }
+	   foreach ($sellerneededcount as $sncnt) {
+	  	$company = $sncnt->company;
+	  	$agency = $sncnt->agency;
+	  	$other = $sncnt->other;
 	  }
 	   ?>
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
@@ -599,7 +662,7 @@
 									</div>
 
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Seller Type</h4>
+										<h4 class="title-widget closed">Deal Type</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
@@ -617,6 +680,27 @@
 												</label>
 											</div>
 										</div>
+									</div>
+
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed">Seller Type</h4>
+
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Company" >
+													<i></i> Company Deals (<?php echo $company; ?>)
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Agency" >
+													<i></i> Agency Deals (<?php echo $agency; ?>)
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Other" >
+													<i></i> Other Deals (<?php echo $other; ?>)
+												</label>
+											</div>
+										</div> 
 									</div>
 									
 									<div class="cd-filter-block">

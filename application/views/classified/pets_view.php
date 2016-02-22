@@ -669,7 +669,7 @@
 										</div>
 									</div>
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deal Type</h4>
+										<h4 class="title-widget closed">Seller Type</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
@@ -686,7 +686,7 @@
 									</div>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Seller Type</h4>
+										<h4 class="title-widget closed">Deal Type</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>

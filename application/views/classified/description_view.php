@@ -209,6 +209,7 @@
 				$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
 				if ($catid !='jobs') {
 				$price = $currency.number_format($ads_desc_val->price);
+				$ptype = $ads_desc_val->price_type;
 				}
 				
 
@@ -478,7 +479,7 @@
 													</li>
 
 													<li>
-														<a href="<?php echo $web_url; ?>" target="_blank" class="social-globe">
+														<a href="<?php echo "http://".$web_url; ?>" target="_blank" class="social-globe">
 															<i class="">Weblink</i>
 															<i class="whit_e"> Weblink</i>
 														</a>
@@ -645,7 +646,7 @@
 									<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img1">
 									<h3> <?php echo $name; ?></h3><hr>
 									<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php foreach ($ads_loc as $ads_loc_val) {
-										echo $ads_loc_val->loc_name;
+										echo implode(",", array_slice(explode(",", $ads_loc_val->loc_name),0,2));
 									} ?></i></h4>
 									<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 									<ul class="list-styles contact_now_hide" style="display:none;">
@@ -657,6 +658,11 @@
 											<h3 class="view_price_1"><?php echo $price; ?></h3>
 											<?php } ?>
 										</div>
+										<?php if ($catid != 'jobs') { ?>
+										<div>
+											<h4><?php echo $ptype; ?></h4>
+										</div>
+										<?php } ?>
 									</div>
 								</aside>
 								<div class="text_center">

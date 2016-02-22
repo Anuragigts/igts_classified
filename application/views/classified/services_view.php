@@ -569,6 +569,64 @@
 					}
 				})
         	});
+
+	/*seller or needed for services*/
+	$(".seller_deals").change(function(){
+			var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+					});
+			var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				/*deal search for popular category */
+        		var profpop_list = [];
+        		$("input[name='prof_service[]']:checked").each( function () {
+					 var prof = $(this).val();
+				     profpop_list.push(prof); 
+				});
+        		$("input[name='pop_service[]']:checked").each( function () {
+					 var pop = $(this).val();
+				     profpop_list.push(pop); 
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>services_view/search_filters",
+					data: {
+						seller_deals: seller_deals,
+						profpop_list: profpop_list,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".search_result").html(data);
+					}
+				})
+			});
+
 		});
 		</script>
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
@@ -582,6 +640,10 @@
 	  	$platinumcnt = $pckval->platinumcount;
 	  	$goldcnt = $pckval->goldcount;
 	  	$freecnt = $pckval->freecount;
+	  }
+	  foreach ($sellerneededcount as $sncnt) {
+	  	$seller = $sncnt->provider;
+	  	$needed = $sncnt->needed;
 	  }
 	   ?>
 	<!-- Section Title-->    
@@ -641,9 +703,24 @@
 											</div>
 										</div>
 									</div>
-									
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Seller Type</h4>
+
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div>
+												<label class="checkbox">
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="service_provider" >
+													<i></i> Service provider (<?php echo $seller; ?>)
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="service_needed" >
+													<i></i> Service Needed (<?php echo $needed; ?>)
+												</label>
+											</div>
+										</div> 
+									</div>
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed">Deal Type</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>

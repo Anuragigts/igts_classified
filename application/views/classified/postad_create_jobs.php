@@ -859,14 +859,14 @@
 															</sup>
 															</label>
 															<label class="radio">
-															<input type="radio" name="jobtype_title" value="agency">
+															<input type="radio" name="jobtype_title" value="Agency">
 															<i></i>Agency 
 															<sup data-toggle="tooltip" title="" data-original-title="Agency">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
 															<label class="radio">
-															<input type="radio" name="jobtype_title" value="other">
+															<input type="radio" name="jobtype_title" value="Other">
 															<i></i>Other 
 															<sup data-toggle="tooltip" title="" data-original-title="Other">
 															<img src="img/icons/i.png" alt="Help" title="Help Label">
@@ -912,12 +912,15 @@
 													<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
-													<label class="input">
-													<label class="icon-right" for="typeofjob">
-													<img src="j-folder/img/work.png" alt="work" title="work">
-													</label>
-													<input type="text" id="typeofjob" name="typeofjob" value='<?php echo ucfirst(@$sub_name); ?>' readonly>
-													<i></i>
+													<label class="input select">
+														<select name="typeofjob">
+															<option value="none" selected disabled="">Select Job type</option>
+															<option value="Contract">Contract</option>
+															<option value="Full Time">Full Time</option>
+															<option value="Apprentice">Apprentice</option>
+															<option value="Permanent">Permanent</option>
+														</select>
+														<i></i>
 													</label>
 												</div>
 												<div class="span6 unit">
@@ -972,10 +975,12 @@
 													<label class="input select">
 														<select name="salarytype">
 															<option value="none" selected disabled="">Select Salary type</option>
-															<option value="Yearly">Yearly</option>
+															<option value="Annual">Annual</option>
+															<option value="Hourly base">Hourly base</option>
+															<option value="Per week">Per week</option>
 															<option value="Monthly">Monthly</option>
-															<option value="Hourly">Hourly</option>
-															<option value="Weekly">Weekly</option>
+															<option value="Per Day">Per Day</option>
+															<option value="Fortnight">Fortnight</option>
 														</select>
 														<i></i>
 													</label>
@@ -996,18 +1001,19 @@
 											</div>
 											<div class="j-row">
 												<div class="span6 unit">
-													<label class="label">Position  for
-													<sup data-toggle="tooltip" title="" data-original-title="Position  for">
+													<label class="label">Position Type
+													<sup data-toggle="tooltip" title="" data-original-title="Position for">
 													<img src="img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<label class="input select">
 														<select name="positionfor">
-															<option value="none" selected disabled="">Select Position for</option>
-															<option value="Fresher">Fresher</option>
-															<option value="Experience">Experience</option>
-															<option value="Internship">Internship</option>
-															<option value="Contract">Contract</option>
+															<option value="none" selected disabled="">Select Position Type</option>
+															<option value="Student(higher education graduate)">Student(higher education graduate)</option>
+															<option value="Entry-level">Entry-level</option>
+															<option value="Expirenced(Non-Manager)">Expirenced(Non-Manager)</option>
+															<option value="Manager(Managing the staff)">Manager(Managing the staff)</option>
+															<option value="Executive(Director Dept.Head)">Executive(Director Dept.Head)</option>
 														</select>
 														<i></i>
 													</label>
