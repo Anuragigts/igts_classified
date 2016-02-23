@@ -3711,7 +3711,13 @@ address strong{
 }
 .sort-by-container ul li{
 	padding: 0;
-	width: 26%;
+	width: 19%;
+	margin-right: 15px;
+	display: inline-block;
+}
+.sort-by-container ul .deal_admin_top{
+	padding: 0;
+	width: 26% !important;
 	margin-right: 15px;
 	display: inline-block;
 }
@@ -5626,3 +5632,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74fcfa', end
 .fa-expand{
 	display:none !important;
 }
+::-moz-selection {
+    text-shadow: none;
+    background: #46B38C;
+}
+
+::selection {
+    text-shadow: none;
+    background: #46B38C;
+}
+
+img::selection {
+    background: 0 0;
+}
+
+img::-moz-selection {
+    background: 0 0;
+}
+
