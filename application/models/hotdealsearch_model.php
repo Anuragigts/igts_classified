@@ -610,9 +610,6 @@ class hotdealsearch_model extends CI_Model{
 					else if ($this->input->post("dealprice") == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-					else{
-						$this->db->order_by("ad.ad_id", "DESC");
-					}
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
@@ -658,17 +655,42 @@ class hotdealsearch_model extends CI_Model{
 
 			/*bedrooms search*/
 			if (!empty($bedrooms)) {
-			if (in_array("4", $bedrooms)) {
-				$this->db->where('prc.bed_rooms >', 4);
+				$bed_where = '';
+				foreach ($bedrooms as $bedroomval) {
+					if ($bedroomval == '1') {
+						$bed_where .= '(prc.bed_rooms = 1)';
+					}
+					else if ($bedroomval == '2') {
+						$bed_where .= 'OR (prc.bed_rooms = 2)';
+					}
+					else if ($bedroomval == '3') {
+						$bed_where .= 'OR (prc.bed_rooms = 3)';
+					}
+					else if ($bedroomval == '4') {
+						$bed_where .= 'OR (prc.bed_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bed_where,"OR "));
 			}
-			else{
-				$this->db->where_in('prc.bed_rooms', $bedrooms);	
-			}
-		}
 
-			/*bedrooms search*/
+			/*bathroom search*/
 			if (!empty($bathroom)) {
-				$this->db->where_in('prc.bath_rooms', $bathroom);
+				$bath_where = '';
+				foreach ($bathroom as $bathroomval) {
+					if ($bathroomval == '1') {
+						$bath_where .= '(prc.bath_rooms = 1)';
+					}
+					else if ($bathroomval == '2') {
+						$bath_where .= 'OR (prc.bath_rooms = 2)';
+					}
+					else if ($bathroomval == '3') {
+						$bath_where .= 'OR (prc.bath_rooms = 3)';
+					}
+					else if ($bathroomval == '4') {
+						$bath_where .= 'OR (prc.bath_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bath_where,"OR "));
 			}
 
 			/*area square*/

@@ -537,17 +537,22 @@ Class Classifed_model extends CI_model{
 	/*motor point*/
 	/*bikes*/
 	public function ads_detailed_bikes(){
-		$this->db->select("*");
-		$this->db->from("motor_bike_ads");
+		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, bike_type.b_type as btype, bike_model.bike_model as bmodel");
+		$this->db->from("motor_bike_ads, sub_subcategory, bike_type, bike_model");
 		$this->db->where('ad_id', $this->uri->segment(3));
+		$this->db->where('sub_subcategory.sub_subcategory_id = motor_bike_ads.manufacture');
+		$this->db->where('bike_type.id = motor_bike_ads.bike_type');
+		$this->db->where('bike_model.id = motor_bike_ads.model');
 		$res = $this->db->get();
 		return $res->result();
 	}
 
 	/*cars, vans, buses*/
 	public function ads_detailed_cars(){
-		$this->db->select("*");
-		$this->db->from("motor_car_van_bus_ads");
+		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, car_model.car_model as cmodel");
+		$this->db->from("motor_car_van_bus_ads, sub_subcategory, car_model");
+		$this->db->where('sub_subcategory.sub_subcategory_id = motor_car_van_bus_ads.manufacture');
+		$this->db->where('car_model.id = motor_car_van_bus_ads.model');
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();
@@ -565,9 +570,9 @@ Class Classifed_model extends CI_model{
 	/*motor boats*/
 	public function ads_detailed_boats(){
 		$this->db->select("(SELECT sub_subcategory_name FROM sub_subcategory sscat WHERE sscat.sub_subcategory_id = mb.manufacture) AS manufacture,
-year,
-(SELECT car_model FROM car_model AS cm WHERE cm.id = mb.model) AS model,
-color,fueltype,condition");
+		year,
+		(SELECT car_model FROM car_model AS cm WHERE cm.id = mb.model) AS model,
+		color,fueltype,condition");
 		$this->db->from("motor_boats AS mb");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();

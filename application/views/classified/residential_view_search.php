@@ -64,7 +64,7 @@
 		</script>
 		<?php
 		$fav_list = [];
-		if (!empty($favourite_list )) {
+		if (!empty($favourite_list)) {
 			foreach ($favourite_list as $favourite_list1) {
 				array_push($fav_list, $favourite_list1->ad_id);
 			}
@@ -73,8 +73,8 @@
 		 ?>
 		<!-- platinum+urgent package start -->
                                     <?php
-                                    $service_result1 = array_chunk($service_result, 10);
-                                     foreach ($service_result1 as $sval1) {
+                                    $residential_result1 = array_chunk($residential_result, 10);
+                                     foreach ($residential_result1 as $sval1) {
                                      foreach ($sval1 as $sval) {
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
@@ -865,5 +865,3 @@
 									<!-- free Add ends -->
 									<?php } ?>
 									<!-- free package ends -->
-
-				

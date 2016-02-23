@@ -115,7 +115,7 @@
 				<div class="info-gallery">
 					<h3><?php echo $m_details->deal_tag; ?></h3>
 					<hr class="separator">
-					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 					<?php if ($m_details->category_id != 'jobs') { ?>
 					<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 					<?php }
@@ -162,7 +162,7 @@
 				<div class="info-gallery">
 					<h3><?php echo $m_details->deal_tag; ?></h3>
 					<hr class="separator">
-					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 					<?php if ($m_details->category_id != 'jobs') { ?>
 					<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 					<?php }
@@ -196,7 +196,7 @@
 				<div class="info-gallery gold_bgcolor">
 					<h3><?php echo $m_details->deal_tag; ?></h3>
 					<hr class="separator">
-					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 					<?php if ($m_details->category_id != 'jobs') { ?>
 					<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 					<?php }
@@ -227,7 +227,7 @@
 				<div class="info-gallery gold_bgcolor">
 					<h3><?php echo $m_details->deal_tag; ?></h3>
 					<hr class="separator">
-					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 					<?php if ($m_details->category_id != 'jobs') { ?>
 					<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 					<?php }
@@ -261,7 +261,7 @@
 				<div class="info-gallery">
 					<h3><?php echo $m_details->deal_tag; ?></h3>
 					<hr class="separator">
-					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 					<?php if ($m_details->category_id != 'jobs') { ?>
 					<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 					<?php }
@@ -289,7 +289,7 @@
 				<div class="info-gallery">
 					<h3><?php echo $m_details->deal_tag; ?></h3>
 					<hr class="separator">
-					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 43); ?></p>
+					<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 					<?php if ($m_details->category_id != 'jobs') { ?>
 					<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 					<?php }

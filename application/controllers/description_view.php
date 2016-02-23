@@ -209,9 +209,9 @@ class Description_view extends CI_Controller{
                  $detailed_bikes = $this->classifed_model->ads_detailed_bikes();   
                  foreach ($detailed_bikes as $val) {
                     $body_content = array('Registration Number' => $val->reg_number,
-                                        'Manufacture'=>$val->manufacture,
-                                        'Bike Type'=> $val->bike_type,
-                                        'Model'=>$val->model,
+                                        'Manufacture'=>$val->manufacture1,
+                                        'Bike Type'=> $val->btype,
+                                        'Model'=>$val->bmodel,
                                         'Color'=>$val->color,
                                         'Reg year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fuel_type,
@@ -227,8 +227,8 @@ class Description_view extends CI_Controller{
                 $detailed_cars = $this->classifed_model->ads_detailed_cars();        
                 foreach ($detailed_cars as $val) {
                     $body_content = array('Registration Number' => $val->reg_number,
-                                        'Manufacture'=>$val->manufacture,
-                                        'Model'=>$val->model,
+                                        'Manufacture'=>$val->manufacture1,
+                                        'Model'=>$val->cmodel,
                                         'Color'=>$val->color,
                                         'Reg year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fueltype,

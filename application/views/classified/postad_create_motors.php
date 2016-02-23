@@ -1019,7 +1019,7 @@ jQuery(document).ready(function($) {
 												</label>
 												<div class="input">
 													<label class="input select">
-														<select name="manufacture" class='manufacture'>
+														<select name="manufacture" class='bike_manufacture'>
 															<option value="none" selected disabled="">Select manufacture</option>
 															<?php foreach ($cars_list as $carval) { ?>
 															<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
@@ -1768,9 +1768,6 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<label class="input">
-													<label class="icon-right" for="Model">
-														<img src="j-folder/img/manufacture.png" alt="Model" title="Model Icon" class="img-responsive">
-													</label>
 													<?php if (@$sub_id == '17') { ?>
 													<label class="input select">
 														<select name="plant_model" class='plant_model'>
@@ -2600,7 +2597,7 @@ jQuery(document).ready(function($) {
 									</div>
 									<div class="col-md-3 clearfix">
 										<h3>
-											<a href="javascript:void(0);" id="17,0,0" class="edit_motor_plant_machinery">
+											<a href="javascript:void(0);" id="17,0,0" class="edit_plant_machinery">
 												Plant Machinery</a></h3>
 									</div>
 									<div class="col-md-3 clearfix">
