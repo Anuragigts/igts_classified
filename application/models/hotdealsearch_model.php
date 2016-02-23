@@ -624,6 +624,131 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
 
+        /*find a property*/
+        public function residential_search(){
+        	$proptype = $this->input->post('proptype');
+        	$pck = $this->input->post('pckg_list');
+        	$seller = $this->input->post('seller_deals');
+        	$area = $this->input->post('area_square');
+        	$bedrooms = $this->input->post('bed_rooms');
+        	$bathroom = $this->input->post('bathroom');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->where("ad.category_id", "findaproperty");
+			if (!empty($proptype)) {
+				$this->db->where_in('ad.sub_cat_id', $proptype);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($this->input->post('bustype')) {
+				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
+					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+				}
+			}
+			/*package search*/
+			if (!empty($pck)) {
+				$this->db->where_in('ad.package_type', $pck);
+			}
+
+			/*bedrooms search*/
+			if (!empty($bedrooms)) {
+			if (in_array("4", $bedrooms)) {
+				$this->db->where('prc.bed_rooms >', 4);
+			}
+			else{
+				$this->db->where_in('prc.bed_rooms', $bedrooms);	
+			}
+		}
+
+			/*bedrooms search*/
+			if (!empty($bathroom)) {
+				$this->db->where_in('prc.bath_rooms', $bathroom);
+			}
+
+			/*area square*/
+			if (!empty($area)) {
+				$area_where = '';
+				foreach ($area as $aval) {
+					if ($aval == '<500') {
+						$area_where .= '(prc.build_area < 500)';
+					}
+					else if ($aval == '500-1000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 500 AND 1000)';
+					}
+					else if ($aval == '1000-1500') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1000 AND 1500)';
+					}
+					else if ($aval == '1500-2000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1500 AND 2000)';
+					}
+					else if ($aval == '>2000') {
+						$area_where .= 'OR (prc.build_area > 2000)';
+					}
+				}
+				$this->db->where(ltrim($area_where,"OR "));
+			}
+
+			/*urgent label*/
+			if ($this->input->post("urgent")) {
+				$this->db->where('ad.urgent_package !=', '');
+			}
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($this->input->post("recentdays") == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($this->input->post("recentdays") == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($this->input->post("recentdays") == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($this->input->post("latt")) {
+				$this->db->where("loc.latt", $this->input->post("latt"));
+				$this->db->where("loc.longg", $this->input->post("longg"));
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($this->input->post("dealtitle") == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($this->input->post("dealtitle") == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($this->input->post("dealprice") == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($this->input->post("dealprice") == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			  // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+
         /*business and consumer count in services*/
         public function busconcount_services(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
@@ -660,6 +785,15 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
 
+         /*findproperty count business or consumer*/
+        public function busconcount_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
         /*pets seller and needed count*/
         public function sellerneeded_pets(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Seller') AS seller,
@@ -691,6 +825,68 @@ class hotdealsearch_model extends CI_Model{
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Charity') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
+        }
+
+        /*findproperty seller and needed count*/
+        public function sellerneeded_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND prc.offered_type = 'Offered') AS offered,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND prc.offered_type = 'Wanted') AS wanted");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*findproperty area count*/
+        public function areacount_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND prc.`build_area` < 500) AS less500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = 'findaproperty' AND prc.build_area > 2000) AS plus2000");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+
+        /*findproperty bedrooms count*/
+        public function bedroomcount_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bed_rooms = 1) AS one1,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bed_rooms = 2) AS secon2,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bed_rooms = 3) AS third3,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bed_rooms >= 4) AS four4");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+
+         /*findproperty bathroomcount_property count*/
+        public function bathroomcount_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bath_rooms = 1) AS one1,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bath_rooms = 2) AS secon2,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bath_rooms = 3) AS third3,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = 'findaproperty' AND prc.bath_rooms >= 4) AS four4");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+
+        /*findproperty resi_comm_count_property count*/
+        public function resi_comm_count_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = 'findaproperty' AND ad.sub_cat_id = 11) AS residential,
+(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = 'findaproperty' AND ad.sub_cat_id = 26) AS commercial");
+        	$rs = $this->db->get();
+        	return $rs->row();
         }
 
         /*packages count for services*/
@@ -729,6 +925,16 @@ class hotdealsearch_model extends CI_Model{
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'platinum') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'gold') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'free') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*packages count for findproperty*/
+        public function deals_pck_property(){
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND urgent_package != '') AS urgentcount,
+(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND package_type = 'platinum') AS platinumcount,
+(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND package_type = 'gold') AS goldcount,
+(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
