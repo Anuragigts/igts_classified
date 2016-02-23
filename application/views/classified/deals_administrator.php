@@ -171,7 +171,7 @@
                                         <div class="col-md-9">
                                             <strong>Sort by:</strong>
                                             <ul>                            
-                                                <li>
+                                                <li class="deal_admin_top">
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
@@ -186,7 +186,7 @@
 														</label>
 													</div>
                                                 </li>
-												<li>
+												<li class="deal_admin_top">
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="dealtitle_sort" class="dealtitle_sort">
@@ -198,7 +198,7 @@
 														</label>
 													</div>
                                                 </li>
-												<li>
+												<li class="deal_admin_top">
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="price_sort" class="price_sort">
