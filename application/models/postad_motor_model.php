@@ -18,10 +18,19 @@ class Postad_motor_model extends CI_Model{
     return $this->db->get_where("car_model",array("brand_id" => $cv))->result();
     }
 
-    /*get_plant_models*/
-    public function get_plant_models(){
+    public function get_plant_manis(){
         $cv     =   $this->input->post("id");
-    return $this->db->get_where("car_model",array("brand_id" => $cv))->result();
+    return $this->db->get_where("sub_sub_subcategory",array("sub_subcategory_id" => $cv))->result();
+    }
+
+    /*get_farming_models*/
+    public function get_farming_models(){
+    return $this->db->get_where("sub_subcategory",array("sub_category_id" => 18))->result();
+    }
+
+     /*get_plants_models*/
+    public function get_plants_models(){
+    return $this->db->get_where("sub_subcategory",array("sub_category_id" => 17))->result();
     }
 
 

@@ -75,6 +75,11 @@ class Postad_create_motors extends CI_Controller{
 
               $data["bikes_list"] =  $this->category_model->bikes_sub_cat_list();
 
+              /*farming vehicles*/
+              $data['farming'] = $this->postad_motor_model->get_farming_models();
+              /*plants vehicles*/
+              $data['plants'] = $this->postad_motor_model->get_plants_models();
+
 	            $this->load->view("classified_layout/inner_template",$data);
         }
 
@@ -114,9 +119,9 @@ class Postad_create_motors extends CI_Controller{
         /*car model*/
         public function get_plant_models(){
             $cst     =   '<option value="none" selected disabled="">Select car model</option>';
-               $va      =   $this->postad_motor_model->get_plant_models();
+               $va      =   $this->postad_motor_model->get_plant_manis();
                foreach ($va as $st){
-                        $cst    .=   '<option value='.$st->id.'>'.$st->car_model.'</option>';
+                        $cst    .=   '<option value='.$st->sub_subcategory_id.'>'.$st->sub_sub_subcategory_name.'</option>';
                }
                echo $cst;
         }

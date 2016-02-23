@@ -104,6 +104,14 @@
 			$(".car_model").html(data);
                 });
 		});
+
+		/*plant machinery*/
+		$(".plant_manufacture").change(function(){
+		var id = $(".plant_manufacture option:selected").val();
+		$.post( "<?php echo base_url();?>postad_create_motors/get_plant_models",{id:id},function( data ) {
+			$(".plant_model").html(data);
+                });
+		});
 	});
 
 	$(function(){
@@ -1712,19 +1720,27 @@ jQuery(document).ready(function($) {
 													</sup>
 												</label>
 												<?php if (@$sub_id == '17') { ?>
-												<div class="input">
-													<label class="icon-right" for="manufacture">
-														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
-													</label>
-													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='<?php echo ucfirst(@$sub_sub_sub_name); ?>' readonly>
+												<div class="input select">
+													<select name="manufacture" class='plant_manufacture'>
+															<option value="none" selected disabled="">Select manufacture</option>
+															<?php foreach ($plants as $plantsval) { ?>
+																<option value="<?php echo $plantsval->sub_subcategory_id; ?>"><?php echo $plantsval->sub_subcategory_name; ?></option>
+															<?php } ?>
+														</select>
+														<i></i>
 												</div>
 												<?php }
 												else{ ?>
 												<div class="input">
-													<label class="icon-right" for="manufacture">
-														<img src="j-folder/img/manufacture.png" alt="manufacture" title="manufacture Icon" class="img-responsive">
+													<label class="input select">
+														<select name="manufacture">
+															<option value="none" selected disabled="">Select manufacture</option>
+															<?php foreach ($farming as $farmval) { ?>
+																<option value="<?php echo $farmval->sub_subcategory_id; ?>"><?php echo $farmval->sub_subcategory_name; ?></option>
+															<?php } ?>
+														</select>
+														<i></i>
 													</label>
-													<input type="text" id="manufacture" name="manufacture" placeholder="Enter Manufacture" value='' >
 												</div>
 												<?php } ?>
 												
@@ -1755,7 +1771,19 @@ jQuery(document).ready(function($) {
 													<label class="icon-right" for="Model">
 														<img src="j-folder/img/manufacture.png" alt="Model" title="Model Icon" class="img-responsive">
 													</label>
+													<?php if (@$sub_id == '17') { ?>
+													<label class="input select">
+														<select name="plant_model" class='plant_model'>
+															<option value="none" selected disabled="">Select Model</option>
+															<option value="">Sample</option>
+														</select>
+														<i></i>
+													</label>
+													<?php }
+													else{ ?>
 													<input type="text" id="Model" name="plant_model" placeholder="Enter Model">
+												<?php	} ?>
+													
 													<!-- <select name="Model" class='car_model'>
 														<option value="none" selected disabled="">Select Age</option>
 														<option value="3months">Sample</option>
@@ -2554,135 +2582,50 @@ jQuery(document).ready(function($) {
 						<h2>Motor Point <span>Category </span></h2>
 					</div>
 					<div class="modal-body tabs-detailed">
-						<div class="row ezone_h3 mod_pad">
-							<div class="row">
-								<div class="col-sm-12">
-									<ul class="nav nav-tabs" id="myTab">
-										<li class="active">
-											<a href="#cars" data-toggle="tab"> Cars
-												<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
-											<input type='hidden' name='motor_sub' id='motor_sub' value='' />
-											<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
-											<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
-											</a>
-										</li>
-										<li>
-											<a href="#bike_scooter"  data-toggle="tab"> Bikes & Scooters</a>
-										</li>
-										<li>
-											<a href="#Motorhomes_Caravans"  data-toggle="tab"> Motorhomes & Caravans</a>
-										</li>
-										<li>
-											<a href="#Vans_Trucks"  data-toggle="tab">Vans, Trucks & SUV's</a>
-										</li>
-										<li>
-											<a href="#coaches_bus"  data-toggle="tab">Coaches & Busses</a>
-										</li>
-										<li>
-											<a href="#plant_mach"  data-toggle="tab">Plant Machinery</a>
-										</li>
-										<li>
-											<a href="#farming_veh"  data-toggle="tab">Farming Vehicles</a>
-										</li>
-										<li>
-											<a href="#Boats"  data-toggle="tab">Boats</a>
-										</li>
-									</ul>
-									<!-- End Nav Tabs-->
-								</div>
-							</div>
-							<!--All Tabs-->
-							<div class="tab-content">
-								<!--Tab1 Cars-->
-								<div class="tab-pane active" id="cars">
-									<div class="col-md-12">
-										<div class="row col-md-4 col-md-offset-5" >
-											<a href="javascript:void(0);" id="12,0,0" class="btn_v btn-4 btn-4a edit_cars_cars">Click Here</a>
-										</div>
+						<div class="row ezone_h3 ">
+							<div class='col-md-12 post_deal_bor'>
+								<div class="row">
+									<div class="col-md-3 clearfix">
+										<h3>
+								<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
+								<input type='hidden' name='motor_sub' id='motor_sub' value='' />
+								<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
+								<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
+								<a href="javascript:void(0);" id="12,0,0" class="edit_cars_cars">Cars</a>
+											</h3>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3><a href="javascript:void(0);" id="13,0,0" class="edit_bike_scooters">
+											Bikes & Scooters</a></h3>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3>
+											<a href="javascript:void(0);" id="17,0,0" class="edit_motor_plant_machinery">
+												Plant Machinery</a></h3>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3><a href="javascript:void(0);" id="15,0,0" class="edit_motor_vans_trucks">Vans, Trucks & SUV's</a></h3>
 									</div>
 								</div>
-								<div class="tab-pane" id="bike_scooter">
-									<div class="col-md-12">
-										<div class="row col-md-4 col-md-offset-5" >
-											<a href="javascript:void(0);" id="13,0,0" class="btn_v btn-4 btn-4a edit_bike_scooters">Click Here</a>
-										</div>
+								<div class="row">
+									<div class="col-md-3 clearfix">
+										<h3><a href="javascript:void(0);" id="16,0,0" class="edit_motor_coach_bus">Coaches & Busses</a></h3>
 									</div>
-								</div>
-								<div class="tab-pane" id="Motorhomes_Caravans">
-									<div class="col-md-12">
-										<div class="row col-md-4 col-md-offset-5" >
-											<a href="javascript:void(0);" id="14,0,0" class="btn_v btn-4 btn-4a edit_motor_caravans">Click Here</a>
-										</div>
+									<div class="col-md-3 clearfix">
+										<h3><a href="javascript:void(0);" id="14,0,0" class="edit_motor_caravans">Motorhomes & Caravans</a></h3>
 									</div>
-								</div>
-								<div class="tab-pane" id="Vans_Trucks">
-									<div class="col-md-12">
-										<div class="row col-md-4 col-md-offset-5" >
-											<a href="javascript:void(0);" id="15,0,0" class="btn_v btn-4 btn-4a edit_motor_vans_trucks">Click Here</a>
-										</div>
+									<div class="col-md-3 clearfix">
+										<h3><a href="javascript:void(0);" id="18,0,0" class="edit_motor_farming">Farming Vehicles</a></h3>
 									</div>
-								</div>
-								<div class="tab-pane" id="coaches_bus">
-									<div class="col-md-12">
-										<div class="row col-md-4 col-md-offset-5" >
-											<a href="javascript:void(0);" id="16,0,0" class="btn_v btn-4 btn-4a edit_motor_coach_bus">Click Here</a>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane" id="plant_mach">
-									<div class='col-md-12 post_deal_bor'>
-										<div class="row">
-											<div class="col-md-3 clearfix">
-												<h3>Tractor Unit</h3>
-												<?php foreach ($tractor_sub_cat_fst as $tractor_sub_cat_fst1) { ?>
-												<h4><a class='edit_plant_machinery' id="<?php echo  $tractor_sub_cat_fst1['sub_category_id'].','.$tractor_sub_cat_fst1['sub_subcategory_id'].','.$tractor_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($tractor_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
-												<?php	} ?>
-											</div>
-											<div class="col-md-3 clearfix">
-												<h3>Rigid Trucks</h3>
-												<?php foreach ($rigid_sub_cat_fst as $rigid_sub_cat_fst1) { ?>
-												<h4><a class='edit_plant_machinery' id="<?php echo  $rigid_sub_cat_fst1['sub_category_id'].','.$rigid_sub_cat_fst1['sub_subcategory_id'].','.$rigid_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($rigid_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
-												<?php	} ?>
-											</div>
-											<div class="col-md-3 clearfix">
-												<h3>Trailers</h3>
-												<?php foreach ($trailer_sub_cat_fst as $trailer_sub_cat_fst1) { ?>
-												<h4><a class='edit_plant_machinery' id="<?php echo  $trailer_sub_cat_fst1['sub_category_id'].','.$trailer_sub_cat_fst1['sub_subcategory_id'].','.$trailer_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($trailer_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
-												<?php	} ?>
-											</div>
-											<div class="col-md-3 clearfix">
-												<h3>Plant Equipment</h3>
-												<?php foreach ($equip_sub_cat_fst as $equip_sub_cat_fst1) { ?>
-												<h4><a class='edit_plant_machinery' id="<?php echo  $equip_sub_cat_fst1['sub_category_id'].','.$equip_sub_cat_fst1['sub_subcategory_id'].','.$equip_sub_cat_fst1['sub_sub_subcategory_id']; ?>" href="javascript:void(0)" ><?php echo ucfirst($equip_sub_cat_fst1['sub_sub_subcategory_name']); ?></a></h4>
-												<?php	} ?>																				
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane" id="farming_veh">
-									<div class='col-md-12 post_deal_bor'>
-										<div class="row">
-											<?php $farm_sub_cat_fst1 = array_chunk(@$farm_sub_cat_fst, 6);
-												foreach ($farm_sub_cat_fst1 as $farm_val) {
-													foreach ($farm_val as $farm_val1) { ?>
-											<div class="col-md-2 clearfix">
-												<h4><a class='edit_motor_farming' id="<?php echo  $farm_val1['sub_category_id'].','.$farm_val1['sub_subcategory_id'].',0'; ?>" href="javascript:void(0);"><?php echo $farm_val1['sub_subcategory_name']; ?></a></h4>
-											</div>
-											<?php	 	}
-												}
-												?>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane" id="Boats">
-									<div class='col-md-12'>
-										<div class="row col-md-4 col-md-offset-5" >
-											<a href="javascript:void(0);" id="19,0,0" class="btn_v btn-4 btn-4a edit_motor_boats">Click Here</a>
-										</div>
+									<div class="col-md-3 clearfix">
+										<h3><a href="javascript:void(0);" id="19,0,0" class="edit_motor_boats">Boats</a></h3>
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
