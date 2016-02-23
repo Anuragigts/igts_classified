@@ -372,7 +372,7 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover view_img">
-														<li><img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>"></li>
+														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -492,7 +492,7 @@
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
-														<li><img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>"></li>
+														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -615,7 +615,7 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover">
-														<li><img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>"></li>
+														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -729,7 +729,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<li><img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>"></li>
+														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
