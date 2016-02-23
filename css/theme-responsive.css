@@ -331,4 +331,12 @@
 	.view_price {
 		font-size: 10px;
 	}
+	.tp-caption.large_bold_white {
+		font-size: 16px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 12px !important;
+		top: 152.649px !important;
+	}
 }
