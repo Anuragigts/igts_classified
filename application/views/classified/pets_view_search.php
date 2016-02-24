@@ -191,7 +191,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -333,7 +333,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -379,7 +379,7 @@
 													</div>
 													<div class="img-hover view_img">
 														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
@@ -459,7 +459,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -502,7 +502,7 @@
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
 														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
@@ -582,7 +582,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -628,7 +628,7 @@
 													</div>
 													<div class="img-hover">
 														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -702,7 +702,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -745,7 +745,7 @@
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
 														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -820,7 +820,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>

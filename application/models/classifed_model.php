@@ -868,19 +868,13 @@ Class Classifed_model extends CI_model{
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
 
-		if($m_res->num_rows() > 0){
-			return $m_res->result();
-		}
-		else{
-			return array();
-		}
+		return $m_res->result();
 	}
 
 	public function pets_view($data){
 		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-		// $this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "pets");

@@ -24,8 +24,8 @@
 		});
 	</script>
 	
-	<link rel="stylesheet" href="libs/slider.css">
-	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
 		jssor_1_slider_init = function() {
@@ -622,7 +622,7 @@
 	  	$needed = $sncnt->needed;
 	  }
 	   ?>
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
 	<div class="section-title-01">
@@ -854,18 +854,18 @@
 	<!-- End Shadow Semiboxed -->
 	<script src="js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 	<script>
 		$('.xuSlider').xuSlider();
 	</script>
 	
-	<script src="js/jquery.nicescroll.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-	<script src="libs/jquery.mixitup.min.js"></script>
-	<script src="libs/main.js"></script>	
+	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+	<script src="<?php echo base_url(); ?>libs/main.js"></script>	
