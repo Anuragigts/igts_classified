@@ -121,7 +121,7 @@ class Postad_create_motors extends CI_Controller{
             $cst     =   '<option value="none" selected disabled="">Select car model</option>';
                $va      =   $this->postad_motor_model->get_plant_manis();
                foreach ($va as $st){
-                        $cst    .=   '<option value='.$st->sub_subcategory_id.'>'.$st->sub_sub_subcategory_name.'</option>';
+                        $cst    .=   '<option value='.$st->sub_sub_subcategory_id.'>'.$st->sub_sub_subcategory_name.'</option>';
                }
                echo $cst;
         }
