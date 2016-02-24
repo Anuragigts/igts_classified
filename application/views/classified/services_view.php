@@ -9,20 +9,6 @@
 			width: 100%;
 			overflow: hidden;
 		}
-		#pagination  a,#pagination  strong {
-    background: #fbfbfb;
-    border: 1px solid #e3e3e3;
-    color: #a8a8a8;
-    font-size: 16px;
-    min-width: 40px;
-    padding: 0 4px;
-    height: 40px;
-    line-height: 38px;
-    border-radius: 0;
-    display: inline-block;
-    text-align: center;
-    margin-left: -1px;
-}
 	</style>
 	
 	<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
@@ -685,10 +671,6 @@
 								<div>
 									<?php echo $topad; ?>
 								</div>
-								<div class='text_center col-md-12'>
-								<?php echo $paging_links; ?>
-								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -878,11 +860,11 @@
                                 <!-- sort-by-container-->
 								
 								<div class="row search_result">
-                                 <?php echo $this->load->view("classified/services_view_search"); ?> 
+                               	  <?php echo $this->load->view("classified/services_view_search"); ?> 
+                               		 <div class='col-md-12'>
+										<?php echo $paging_links; ?>
+									</div>
                                 </div>
-							</div>
-							<div class='text_center col-md-12'>
-								<?php echo $paging_links; ?>
 							</div>
 						</div>
 					</div>

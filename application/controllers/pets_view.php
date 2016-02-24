@@ -10,8 +10,25 @@ class  Pets_view extends CI_Controller{
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
+                $this->load->library('pagination');
         }
         public function index(){
+            $config = array();
+            $config['base_url'] = base_url().'pets_view/index';
+            $config['total_rows'] = count($this->classifed_model->count_pets_view());
+            $config['per_page'] = 30;
+             $config['next_link'] = 'Next';
+              $config['prev_link'] = 'Previous';
+            $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
+            $config['full_tag_close'] ='</div>';
+            $this->pagination->initialize($config);
+            $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $search_option = array(
+                'limit' =>$config['per_page'],
+                'start' =>$page
+                );
+
+
                 if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
@@ -22,7 +39,7 @@ class  Pets_view extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $pets_view = $this->classifed_model->pets_view();
+                $pets_view = $this->classifed_model->pets_view($search_option);
             foreach ($pets_view as $pview) {
                 $loginid = $pview->login_id;
             }
@@ -34,7 +51,8 @@ class  Pets_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "pets_view",
                          "pets_result" => $pets_view,
-                         'log_name' => $log_name
+                         'log_name' => $log_name,
+                         'paging_links' =>$this->pagination->create_links()
                 );
                 
                 /*pets*/
