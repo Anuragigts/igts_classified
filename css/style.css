@@ -1825,26 +1825,26 @@ hr.separator:before {
 
 /* Parallax Secion --------------------------*/
 .image_01_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 }
 .image_02_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 	opacity:2.5;
 }
 .image_03_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 }
 .image_04_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 }
 .image_05_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 }
 .image_06_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 }
 .image_07_parallax{
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background: url("../img/slide/pagebanner.png") no-repeat;
 }
 .bg_parallax{
   margin: 0 auto;
