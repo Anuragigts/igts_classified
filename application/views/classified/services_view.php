@@ -9,9 +9,23 @@
 			width: 100%;
 			overflow: hidden;
 		}
+		#pagination  a,#pagination  strong {
+    background: #fbfbfb;
+    border: 1px solid #e3e3e3;
+    color: #a8a8a8;
+    font-size: 16px;
+    min-width: 40px;
+    padding: 0 4px;
+    height: 40px;
+    line-height: 38px;
+    border-radius: 0;
+    display: inline-block;
+    text-align: center;
+    margin-left: -1px;
+}
 	</style>
 	
-	<link rel="stylesheet" href="js/filter.css"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('.cd-filter-content').niceScroll({
@@ -24,9 +38,9 @@
 		});
 	</script>
 	
-	<link rel="stylesheet" href="libs/slider.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 	
-	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
 		jssor_1_slider_init = function() {
@@ -151,6 +165,8 @@
 					 var pop = $(this).val();
 				     profpop_list.push(pop); 
 				});
+				var curr_url = $(".curr_url").val();
+				// alert(curr_url);
 				var dealtitle = $(".dealtitle_sort option:selected").val();
 				var dealprice = $(".price_sort option:selected").val();
 				var bustype = $("input[name=search_bustype]:checked").val();
@@ -158,6 +174,7 @@
 					type: "POST",
 					url: "<?php echo base_url();?>services_view/search_filters",
 					data: {
+						curr_url: curr_url,
 						profpop_list: profpop_list,
 						bustype: bustype,
 						pckg_list: pckg_list,
@@ -628,7 +645,7 @@
 
 		});
 		</script>
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	 <?php foreach ($busconcount as $countval) {
 	  	$allbustype = $countval->allbustype;
 	  	$business = $countval->business;
@@ -656,15 +673,22 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<form id="j-forms" action="#" class="j-forms" style="background-color: rgb(255, 255, 255) !important;">
+			<input type='hidden' class='curr_url' value='<?php echo current_url();?>'>
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
 							<div class="col-md-10 col-sm-8 col-md-offset-1 top_ad">
-								<?php echo $topad; ?>
+								<div style='width: 800px !important;'>
+									<?php echo $topad; ?>
+								</div>
+								<div class='text_center col-md-12'>
+								<?php echo $paging_links; ?>
+								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -857,6 +881,9 @@
                                  <?php echo $this->load->view("classified/services_view_search"); ?> 
                                 </div>
 							</div>
+							<div class='text_center col-md-12'>
+								<?php echo $paging_links; ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -883,20 +910,20 @@
 	</div>
 	
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 	<script>
 		$('.xuSlider').xuSlider();
 	</script>
 	
-	<script src="js/jquery.nicescroll.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-	<script src="libs/jquery.mixitup.min.js"></script>
-	<script src="libs/main.js"></script>	
+	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+	<script src="<?php echo base_url(); ?>libs/main.js"></script>	

@@ -96,7 +96,7 @@
 															<?php 
 															$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->ad_id'");
 															while ($res = mysql_fetch_object($pic)) { ?>
-															<li><img src="ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 															<?php	
 																}
 															 ?>
@@ -116,7 +116,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -172,12 +172,12 @@
 														if ($sval->ad_type == 'business') {
 															if ($sval->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
 															<?php }
 															else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 																</div>
 														<?php	}
 															}
@@ -191,7 +191,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -238,7 +238,7 @@
 															<?php 
 															$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->ad_id'");
 															while ($res = mysql_fetch_object($pic)) { ?>
-															<li><img src="ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 															<?php	
 																}
 															 ?>
@@ -258,7 +258,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -314,12 +314,12 @@
 														if ($sval->ad_type == 'business') {
 															if ($sval->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
 															<?php }
 															else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 																</div>
 														<?php	}
 															}
@@ -333,7 +333,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -378,13 +378,13 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover view_img">
-														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -440,12 +440,12 @@
 														if ($sval->ad_type == 'business') {
 															if ($sval->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
 															<?php }
 															else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 																</div>
 														<?php	}
 															}
@@ -459,7 +459,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -501,13 +501,13 @@
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
-														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -563,12 +563,12 @@
 														if ($sval->ad_type == 'business') {
 															if ($sval->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
 															<?php }
 															else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 																</div>
 														<?php	}
 															}
@@ -582,7 +582,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -627,8 +627,8 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover">
-														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -683,12 +683,12 @@
 														if ($sval->ad_type == 'business') {
 															if ($sval->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
 															<?php }
 															else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 																</div>
 														<?php	}
 															}
@@ -702,7 +702,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
@@ -744,8 +744,8 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
-														<div class="overlay"><a href="description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
 												<div class="col-sm-8 middle_text">
@@ -801,12 +801,12 @@
 														if ($sval->ad_type == 'business') {
 															if ($sval->bus_logo != '') { ?>
 															<div class="col-xs-4 serch_bus_logo">
-															<img src="ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $sval->bus_logo; ?>" alt="<?php echo $sval->bus_logo; ?>" title="busniess logo" class="img-responsive">
 															</div>
 															<?php }
 															else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 																</div>
 														<?php	}
 															}
@@ -820,7 +820,7 @@
 																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?> </p>
 																</div>
 																<div class="col-xs-12">
-																	<a href="description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 																</div>
 															</div>
 														</div>
