@@ -72,6 +72,21 @@ class  Pets_view extends CI_Controller{
         }
 
         public function search_filters(){
+            $config = array();
+            $config['base_url'] = base_url().'pets_view/index';
+            $config['total_rows'] = count($this->hotdealsearch_model->count_pets_search());
+            $config['per_page'] = 10;
+             $config['next_link'] = 'Next';
+              $config['prev_link'] = 'Previous';
+            $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
+            $config['full_tag_close'] ='</div>';
+            $this->pagination->initialize($config);
+            $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $search_option = array(
+                'limit' =>$config['per_page'],
+                'start' =>$page
+                );
+            
             if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
@@ -84,7 +99,7 @@ class  Pets_view extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->pets_search();
+             $rs = $this->hotdealsearch_model->pets_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
