@@ -821,7 +821,9 @@
 
                                 <div class="row list_view_searches pets_search_result">
                                 	<?php echo $this->load->view("classified/pets_view_search"); ?>
-                                	<div class='col-md-12'>
+                                </div>
+								<div class='row'>
+									<div class='col-md-12'>
 										<?php echo $paging_links; ?>
 									</div>
 								</div>
