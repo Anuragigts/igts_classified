@@ -5650,3 +5650,17 @@ img::-moz-selection {
     background: 0 0;
 }
 
+#pagination  a,#pagination  strong {
+background: #fbfbfb;
+border: 1px solid #e3e3e3;
+color: #a8a8a8;
+font-size: 16px;
+min-width: 40px;
+padding: 0 4px;
+height: 40px;
+line-height: 38px;
+border-radius: 0;
+display: inline-block;
+text-align: center;
+margin-left: -1px;
+}
