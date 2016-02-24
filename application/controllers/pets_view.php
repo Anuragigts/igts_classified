@@ -86,7 +86,7 @@ class  Pets_view extends CI_Controller{
                 'limit' =>$config['per_page'],
                 'start' =>$page
                 );
-            
+
             if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
@@ -114,6 +114,7 @@ class  Pets_view extends CI_Controller{
             $result['login_status'] =$login_status;
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
+            $result['paging_links'] = $this->pagination->create_links();
             echo $this->load->view("classified/pets_view_search",$result);
         }
         
