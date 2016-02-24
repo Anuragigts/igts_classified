@@ -976,10 +976,10 @@
 														<select name="salarytype">
 															<option value="none" selected disabled="">Select Salary type</option>
 															<option value="Annual">Annual</option>
-															<option value="Hourly base">Hourly base</option>
-															<option value="Per week">Per week</option>
 															<option value="Monthly">Monthly</option>
+															<option value="Per week">Per week</option>
 															<option value="Per Day">Per Day</option>
+															<option value="Hourly base">Hourly base</option>
 															<option value="Fortnight">Fortnight</option>
 														</select>
 														<i></i>
