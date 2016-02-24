@@ -79,7 +79,7 @@
 /* Header
 =============================== */
 .j-forms .header {
-	background: transparent linear-gradient(135deg, #63C986 20%, #6EB5F3 80%) repeat scroll 0% 0%;
+	background:  url("../img/adds.jpg") no-repeat;
 	-webkit-border-radius:3px 3px 0 0;
 	-moz-border-radius:3px 3px 0 0;
 	-o-border-radius:3px 3px 0 0;
