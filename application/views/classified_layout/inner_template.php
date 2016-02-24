@@ -18,7 +18,7 @@
 	<!--Preloader-->
 	<div class="preloader">
 		<div class="status">&nbsp;</div>
-	</div>
+	</div> 
 	   
 	   
 	<!-- layout-->
