@@ -389,7 +389,7 @@ Class Classifed_model extends CI_model{
 
 
 	/*my ads in deals administrator*/
-	public function my_ads(){
+	public function count_my_ads(){
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
@@ -398,6 +398,18 @@ Class Classifed_model extends CI_model{
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
+		return $res->result();
+	}
+
+	public function my_ads($data){
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		// $this->db->from("postad as ad");
+		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->group_by("img.ad_id");
+		$this->db->order_by("ad.ad_id", "DESC");
+		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
 		return $res->result();
 	}
 

@@ -682,7 +682,7 @@
 					<div class="container pad_bott_50">
 						<div class="row">
 							<div class="col-md-10 col-sm-8 col-md-offset-1 top_ad">
-								<div style='width: 800px !important;'>
+								<div>
 									<?php echo $topad; ?>
 								</div>
 								<div class='text_center col-md-12'>

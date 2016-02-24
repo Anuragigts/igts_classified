@@ -9,10 +9,24 @@
 			width: 100%;
 			overflow: hidden;
 		}
+		#pagination  a,#pagination  strong {
+		    background: #fbfbfb;
+		    border: 1px solid #e3e3e3;
+		    color: #a8a8a8;
+		    font-size: 16px;
+		    min-width: 40px;
+		    padding: 0 4px;
+		    height: 40px;
+		    line-height: 38px;
+		    border-radius: 0;
+		    display: inline-block;
+		    text-align: center;
+		    margin-left: -1px;
+		}
 	</style>
 	
-	<link rel="stylesheet" href="libs/slider.css">
-	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	
 	<script>
 		jssor_1_slider_init = function() {
@@ -123,7 +137,7 @@
         	});
 	});
 	</script>
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<div class="section-title-01">
 		<div class="bg_parallax image_01_parallax"></div>
@@ -232,6 +246,9 @@
                                 <div class="row list_view_searches deals_search_result">
                                     <?php echo $this->load->view('classified/deals_administrator_search'); ?>
 								</div>
+								<div class='text_center col-md-12'>
+								<?php echo $paging_links; ?>
+								</div>
 						</form>
 					</div>
 				</div>
@@ -258,15 +275,15 @@
 	</div>
 	
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>   
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>   
 
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 	<script>
 		$('.xuSlider').xuSlider();
 	</script>

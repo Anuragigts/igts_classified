@@ -363,7 +363,7 @@ class hotdealsearch_model extends CI_Model{
 					else{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			// $this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
