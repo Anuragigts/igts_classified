@@ -560,8 +560,10 @@ Class Classifed_model extends CI_model{
 
 	/*motor home caravans*/
 	public function ads_detailed_motorhomes(){
-		$this->db->select("*");
-		$this->db->from("motor_home_ads");
+		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, car_model.car_model as cmodel");
+		$this->db->from("motor_home_ads, sub_subcategory, car_model");
+		$this->db->where('sub_subcategory.sub_subcategory_id = motor_home_ads.manufacture');
+		$this->db->where('car_model.id = motor_home_ads.model');
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();
@@ -579,10 +581,21 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 
-	/*plant machinery and farming vehicles*/
-	public function ads_detailed_plantfarms(){
-		$this->db->select("*");
-		$this->db->from("motor_plant_farming");
+	/*plant machinery*/
+	public function ads_detailed_plants(){
+		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, sub_sub_subcategory.sub_sub_subcategory_name as cmodel");
+		$this->db->from("motor_plant_farming, sub_subcategory, sub_sub_subcategory");
+		$this->db->where('sub_subcategory.sub_subcategory_id = motor_plant_farming.manufacture');
+		$this->db->where('sub_sub_subcategory.sub_sub_subcategory_id = motor_plant_farming.model');
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();
+	}
+	/*farming vehicles*/
+	public function ads_detailed_farms(){
+		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1");
+		$this->db->from("motor_plant_farming, sub_subcategory");
+		$this->db->where('sub_subcategory.sub_subcategory_id = motor_plant_farming.manufacture');
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();

@@ -248,8 +248,8 @@ class Description_view extends CI_Controller{
                  foreach ($detailed_motorhomes as $val) {
                     $body_content = array('Type of motors' => $val->typeofmotorhome,
                                         'Registration Number' => $val->reg_number,
-                                        'Manufacture'=>$val->manufacture,
-                                        'Model'=>$val->model,
+                                        'Manufacture'=>$val->manufacture1,
+                                        'Model'=>$val->cmodel,
                                         'Color'=>$val->color,
                                         'Reg year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fueltype,
@@ -277,17 +277,29 @@ class Description_view extends CI_Controller{
                                     }       
                     }
 
-                    /*plant machinery and farming vehicles*/
-                    if ($value->sub_cat_id == '17' || $value->sub_cat_id == '18') {
-                $detailed_plant = $this->classifed_model->ads_detailed_plantfarms();  
+                    /*plant machinery*/
+                    if ($value->sub_cat_id == '17') {
+                $detailed_plant = $this->classifed_model->ads_detailed_plants();  
                     foreach ($detailed_plant as $val) {
-                    $body_content = array('Manufacture'=>$val->manufacture,
+                    $body_content = array('Manufacture'=>$val->manufacture1,
                                         'Year'=>$val->reg_year,
-                                        'Model'=>$val->model,
+                                        'Model'=>$val->cmodel,
                                         'Color'=>$val->color,
                                         'Condition'=>$val->condition
                                         );
                                     }       
+                    }
+                    /*farming vehicles*/
+                    if ($value->sub_cat_id == '18') {
+                        $detailed_plant = $this->classifed_model->ads_detailed_farms();  
+                        foreach ($detailed_plant as $val) {
+                        $body_content = array('Manufacture'=>$val->manufacture1,
+                                            'Year'=>$val->reg_year,
+                                            'Model'=>$val->model,
+                                            'Color'=>$val->color,
+                                            'Condition'=>$val->condition
+                                            );
+                                        }  
                     }
                 }
 

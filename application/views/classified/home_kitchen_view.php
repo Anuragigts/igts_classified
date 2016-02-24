@@ -613,7 +613,6 @@
 		  }
 		  foreach ($public_adview as $publicview) {
 		  	$left_ad1 = $publicview->sidead_one;
-		  	$left_ad2 = $publicview->sidead_two;
 		  	$topad = $publicview->topad;
 		  	$mid_ad = $publicview->mid_ad;
 		  }
