@@ -452,12 +452,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?><?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?><?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
