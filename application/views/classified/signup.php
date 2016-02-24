@@ -148,7 +148,7 @@
             <section class="content-central">
                 <!-- Shadow Semiboxed -->
                 <div class="semiboxshadow text-center">
-                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                    <img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="">
                 </div>
                 <!-- End Shadow Semiboxed -->
 

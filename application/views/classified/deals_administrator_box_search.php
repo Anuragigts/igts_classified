@@ -95,7 +95,7 @@
 						<?php 
 							$pic = mysql_query("select * from ad_img WHERE ad_id = '$m_details->ad_id'");
 							while ($res = mysql_fetch_object($pic)) { ?>
-							<li><img src="ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+							<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
 								}
 							 ?>
@@ -125,7 +125,7 @@
 					?>
 					<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 					<div class="price">
-						<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b> 
+						<b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b> 
 					</div>
 				</div>
 			</div>
@@ -142,7 +142,7 @@
 						<?php 
 						$pic = mysql_query("select * from ad_img WHERE ad_id = '$m_details->ad_id'");
 						while ($res = mysql_fetch_object($pic)) { ?>
-						<li><img src="ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+						<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 						<?php	
 							}
 						 ?>
@@ -172,7 +172,7 @@
 					?>
 					<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 					<div class="price">
-						<b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
+						<b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
 					</div>
 				</div>
 			</div>
@@ -188,7 +188,7 @@
 					<span>Urgent</span>
 				</div>
 				<div class="img-hover box_img">
-					<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
+					<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 					<div class="overlay">
 						<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 					</div>
@@ -206,7 +206,7 @@
 					?>
 					<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 					<div class="price">
-						<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+						<b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 					</div>
 				</div>
 			</div>
@@ -219,7 +219,7 @@
 		 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="img-hover box_img">
-					<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
+					<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 					<div class="overlay">
 						<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 					</div>
@@ -237,7 +237,7 @@
 					?>
 					<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 					<div class="price">
-						<b><img src="img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
+						<b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 					</div>
 				</div>
 			</div>
@@ -253,7 +253,7 @@
 					<span>Urgent</span>
 				</div>
 				<div class="img-hover box_img">
-					<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
+					<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 					<div class="overlay">
 						<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 					</div>
@@ -281,7 +281,7 @@
 		 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="img-hover box_img">
-					<img src="ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
+					<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 					<div class="overlay">
 						<a href="description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a>
 					</div>

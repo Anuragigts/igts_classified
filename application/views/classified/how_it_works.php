@@ -24,7 +24,7 @@
 	
 	<section class="content-central">
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<div class="content_info">
@@ -39,7 +39,7 @@
 							<ul class="timeline">
 								<li>
 									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="img/howitworks/how_plat_urgent.png" alt="Platinum" title="Platinum Urgent">
+										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_plat_urgent.png" alt="Platinum" title="Platinum Urgent">
 									</div>
 									<div class="timeline-panel">
 										<div class="timeline-heading">
@@ -56,7 +56,7 @@
 								</li>
 								<li class="timeline-inverted">
 									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="img/howitworks/how_platinum.png" alt="Platinum" title="Platinum">
+										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_platinum.png" alt="Platinum" title="Platinum">
 									</div>
 									<div class="timeline-panel">
 										<div class="timeline-heading">
@@ -73,7 +73,7 @@
 								</li>
 								<li>
 									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="img/howitworks/how_gold_urgent.png" alt="Gold" title="Gold Urgent">
+										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_gold_urgent.png" alt="Gold" title="Gold Urgent">
 									</div>
 									<div class="timeline-panel">
 										<div class="timeline-heading">
@@ -90,7 +90,7 @@
 								</li>
 								<li class="timeline-inverted">
 									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="img/howitworks/how_gold.png" alt="Gold" title="Gold">
+										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_gold.png" alt="Gold" title="Gold">
 									</div>
 									<div class="timeline-panel">
 										<div class="timeline-heading">
@@ -107,7 +107,7 @@
 								</li>
 								<li>
 									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="img/howitworks/how_free_urgent.png" alt="Free" title="Free">
+										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_free_urgent.png" alt="Free" title="Free">
 									</div>
 									<div class="timeline-panel">
 										<div class="timeline-heading">
@@ -124,7 +124,7 @@
 								</li>
 								<li class="timeline-inverted">
 									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="img/howitworks/how_free.png" alt="Free" title="Free">
+										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_free.png" alt="Free" title="Free">
 									</div>
 									<div class="timeline-panel">
 										<div class="timeline-heading">

@@ -45,7 +45,7 @@ $uri5 = $this->uri->segment(5);
             </ul>
         </div>
         <?php } else{ ?>
-         <div class="categories-list  list-filter">
+        <div class="categories-list  list-filter">
             <h5 class="list-title"><strong><a href="<?php echo base_url();?>view_ads"><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> All Categories</a></strong></h5>
             <ul class=" list-unstyled">
                 <li><a href="<?php echo base_url();?>view_ads/index/<?php echo $uri3;?>"><span class="title"><strong><?php echo ucfirst($cat['category_name']);?></strong></span><span class="count">&nbsp;<?php  echo $cat["coun_ant"];?></span></a>

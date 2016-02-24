@@ -780,14 +780,14 @@
 															<input type="radio" name="checkbox_toggle" id="next-step-radio" class='bus_consumer' value="Yes">
 															<i></i>Business 
 															<sup data-toggle="tooltip" title="" data-original-title="Business">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
 															<label class="radio">
 															<input type="radio" name="checkbox_toggle" class='bus_consumer'  value="No">
 															<i></i>Consumer 
 															<sup data-toggle="tooltip" title="" data-original-title="Consumer">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
 														</div>
@@ -799,7 +799,7 @@
 												<div class="span6 unit">
 													<label class="label">Postal Code 
 													<sup data-toggle="tooltip" title="" data-original-title="Postal Code">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
@@ -812,7 +812,7 @@
 												<div class="span6 unit">
 													<label class="label">Location 
 													<sup data-toggle="tooltip" title="" data-original-title="Location">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
@@ -841,7 +841,7 @@
 												<div class="span6 unit">
 													<label class="label">Business Logo 
 													<sup data-toggle="tooltip" title="" data-original-title="Business Logo ">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="unit">
@@ -860,7 +860,7 @@
 												</div>
 												<div class="span2 unit" class='del_img'>
 													<a href='javascript:void(0);' id="del_img" style='display:none;'>
-													<img src="ad_images/delete.png" alt='delete' title="Delete"/></a>
+													<img src="<?php echo base_url(); ?>ad_images/delete.png" alt='delete' title="Delete"/></a>
 												</div>
 											</div>
 										</div>
@@ -874,14 +874,14 @@
 															<input type="radio" name="offered_type" value="Offered">
 															<i></i>Offered 
 															<sup data-toggle="tooltip" title="" data-original-title="Offered">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
 															<label class="radio">
 															<input type="radio" name="offered_type" value="Wanted">
 															<i></i>Wanted 
 															<sup data-toggle="tooltip" title="" data-original-title="Wanted">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
 														</div>
@@ -892,12 +892,12 @@
 												<div class="span6 unit">
 													<label class="label">Deal Tag / Caption 
 													<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="dealtag">
-														<img src="j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
+														<img src="<?php echo base_url(); ?>j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
 														</label>
 														<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 													</div>
@@ -907,7 +907,7 @@
 												<div class="span12 unit">
 													<label class="label">Deal Description 
 													<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
@@ -922,7 +922,7 @@
 												<div class="span6 unit">
 													<label class="label">Property For
 													<sup data-toggle="tooltip" title="" data-original-title="Property For">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<label class="input select">
@@ -935,7 +935,7 @@
 												<div class="span6 unit">
 													<label class="label">Property Type
 													<sup data-toggle="tooltip" title="" data-original-title="Property Type">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<label class="input select">
@@ -950,12 +950,12 @@
 												<div class="span6 unit">
 													<label class="label">Bed Room
 													<sup data-toggle="tooltip" title="" data-original-title="Bedrooms">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Bedrooms">
-														<img src="j-folder/img/bed.png" alt="bed room" title="Bed room">
+														<img src="<?php echo base_url(); ?>j-folder/img/bed.png" alt="bed room" title="Bed room">
 														</label>
 														<input type="text" id="Bedrooms" name="Bedrooms" placeholder="Enter Bed room" onkeypress="return isNumber(event)">
 													</div>
@@ -963,12 +963,12 @@
 												<div class="span6 unit">
 													<label class="label">Bath Room
 													<sup data-toggle="tooltip" title="" data-original-title="BathRoom">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="BathRoom">
-														<img src="j-folder/img/bath.png" alt="bed room" title="Bed room">
+														<img src="<?php echo base_url(); ?>j-folder/img/bath.png" alt="bed room" title="Bed room">
 														</label>
 														<input type="text" id="Bathrooms" name="Bathrooms" placeholder="Enter bath room" onkeypress="return isNumber(event)">
 													</div>
@@ -978,12 +978,12 @@
 												<div class="span6 unit">
 													<label class="label">Super built-up area
 													<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="area">
-														<img src="j-folder/img/area.png" alt="Area" title="area">
+														<img src="<?php echo base_url(); ?>j-folder/img/area.png" alt="Area" title="area">
 														</label>
 														<input type="text" id="area" name="area" placeholder="Enter Super built-up area" onkeypress="return isNumber(event)">
 													</div>
@@ -991,12 +991,12 @@
 												<div class="span6 unit">
 													<label class="label">Position
 													<sup data-toggle="tooltip" title="" data-original-title="Position">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Position">
-														<img src="j-folder/img/position.png" alt="Position" title="Position">
+														<img src="<?php echo base_url(); ?>j-folder/img/position.png" alt="Position" title="Position">
 														</label>
 														<input type="text" id="Position" name="Position" placeholder="Enter Position">
 													</div>
@@ -1006,12 +1006,12 @@
 												<div class="span6 unit">
 													<label class="label">Property Age
 													<sup data-toggle="tooltip" title="" data-original-title="Property Age">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="propertyage">
-														<img src="j-folder/img/bed.png" alt="Property Age" title="Property Age">
+														<img src="<?php echo base_url(); ?>j-folder/img/bed.png" alt="Property Age" title="Property Age">
 														</label>
 														<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" onkeypress="return isNumber(event)">
 													</div>
@@ -1019,12 +1019,12 @@
 												<div class="span6 unit">
 													<label class="label">Property Ownership 
 													<sup data-toggle="tooltip" title="" data-original-title="Property Ownership">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Ownership">
-														<img src="j-folder/img/property.png" alt="Property" title="Property Icon">
+														<img src="<?php echo base_url(); ?>j-folder/img/property.png" alt="Property" title="Property Icon">
 														</label>
 														<input type="text" id="Ownership" name="Ownership" placeholder="Enter Property Ownership">
 													</div>
@@ -1034,12 +1034,12 @@
 												<div class="span6 unit">
 													<label class="label">Floor number 
 													<sup data-toggle="tooltip" title="" data-original-title="Floor number">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="floor_number">
-														<img src="j-folder/img/property.png" alt="Floor number" title="Floor number">
+														<img src="<?php echo base_url(); ?>j-folder/img/property.png" alt="Floor number" title="Floor number">
 														</label>
 													<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number" onkeypress="return isNumber(event)">
 													</div>
@@ -1051,7 +1051,7 @@
 												<div class="span6 unit">
 													<label class="label">Property For
 													<sup data-toggle="tooltip" title="" data-original-title="Property For">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<label class="input select">
@@ -1064,7 +1064,7 @@
 												<div class="span6 unit">
 													<label class="label">Property Type
 													<sup data-toggle="tooltip" title="" data-original-title="Property Type">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<label class="input select">
@@ -1079,12 +1079,12 @@
 												<div class="span6 unit">
 													<label class="label">No of Bath Rooms
 													<sup data-toggle="tooltip" title="" data-original-title="No of Bath Rooms">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Bathrooms">
-														<img src="j-folder/img/bath.png" alt="bed room" title="Bed room">
+														<img src="<?php echo base_url(); ?>j-folder/img/bath.png" alt="bed room" title="Bed room">
 														</label>
 														<input type="text" id="Bathrooms" name="Bathrooms" placeholder="Enter bath room" onkeypress="return isNumber(event)">
 													</div>
@@ -1092,12 +1092,12 @@
 												<div class="span6 unit">
 													<label class="label">Super built-up area
 													<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="area">
-														<img src="j-folder/img/area.png" alt="Area" title="area">
+														<img src="<?php echo base_url(); ?>j-folder/img/area.png" alt="Area" title="area">
 														</label>
 														<input type="text" id="area" name="area" placeholder="Enter Super built-up area" onkeypress="return isNumber(event)">
 													</div>
@@ -1107,12 +1107,12 @@
 												<div class="span6 unit">
 													<label class="label">Position
 													<sup data-toggle="tooltip" title="" data-original-title="Position">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Position">
-														<img src="j-folder/img/position.png" alt="Position" title="Position">
+														<img src="<?php echo base_url(); ?>j-folder/img/position.png" alt="Position" title="Position">
 														</label>
 														<input type="text" id="Position" name="Position" placeholder="Enter Position">
 													</div>
@@ -1120,12 +1120,12 @@
 												<div class="span6 unit">
 													<label class="label">Property Age
 													<sup data-toggle="tooltip" title="" data-original-title="Property Age">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="propertyage">
-														<img src="j-folder/img/bed.png" alt="Property Age" title="Property Age">
+														<img src="<?php echo base_url(); ?>j-folder/img/bed.png" alt="Property Age" title="Property Age">
 														</label>
 														<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" onkeypress="return isNumber(event)">
 													</div>
@@ -1135,12 +1135,12 @@
 												<div class="span6 unit">
 													<label class="label">Property Ownership 
 													<sup data-toggle="tooltip" title="" data-original-title="Property Ownership">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="Ownership">
-														<img src="j-folder/img/property.png" alt="Property" title="Property Icon">
+														<img src="<?php echo base_url(); ?>j-folder/img/property.png" alt="Property" title="Property Icon">
 														</label>
 														<input type="text" id="Ownership" name="Ownership" placeholder="Enter Property Ownership">
 													</div>
@@ -1148,12 +1148,12 @@
 												<div class="span6 unit">
 													<label class="label">Floor number 
 													<sup data-toggle="tooltip" title="" data-original-title="Floor number">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="input">
 														<label class="icon-right" for="floor_number">
-														<img src="j-folder/img/property.png" alt="Floor number" title="Floor number">
+														<img src="<?php echo base_url(); ?>j-folder/img/property.png" alt="Floor number" title="Floor number">
 													</label>
 													<input type="text" id="floor_number" name="floor_number" placeholder="Enter Floor number" onkeypress="return isNumber(event)">
 													</div>
@@ -1164,7 +1164,7 @@
 												<div class="span6 unit">
 													<label class="label">Price 
 													<sup data-toggle="tooltip" title="" data-original-title="Price">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<div class="unit check logic-block-radio">
@@ -1185,7 +1185,7 @@
 														<div class="span6 unit top_20">
 															<div class="input">
 																<label class="icon-right" for="price">
-																<img src="j-folder/img/price.png" alt="price" title="Price">
+																<img src="<?php echo base_url(); ?>j-folder/img/price.png" alt="price" title="Price">
 																</label>
 																<input type="text" id="priceamount" name="priceamount" placeholder="Enter Amount" onkeypress="return isNumber(event)">
 															</div>
@@ -1193,7 +1193,7 @@
 														<div class="span6 unit">
 															<label class="label">Price Type 
 															<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
-															<img src="img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
 															<label class="input select">
@@ -1534,7 +1534,7 @@
 											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 												</sup>
 												</label>
 												<div class="input">
@@ -1579,7 +1579,7 @@
 											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 												</sup>
 												</label>
 												<div class="input">
@@ -1624,7 +1624,7 @@
 											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 												</sup>
 												</label>
 												<div class="input">
@@ -1670,7 +1670,7 @@
 											<div class="span12 unit">
 												<label class="label">YouTube Video Link
 													<sup data-toggle="tooltip" title="" data-original-title="YouTube Video Link">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 												</label>
 												<div class="input">
@@ -1684,7 +1684,7 @@
 											<div class="span12 unit">
 												<label class="label">Website Link 
 												<sup data-toggle="tooltip" title="" data-original-title="Website Link">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 												</sup>
 												</label>
 												<div class="input">
@@ -1697,7 +1697,7 @@
 											<div class="span12 unit">
 												<label class="label">Marquee Title 
 												<sup data-toggle="tooltip" title="" data-original-title="Marquee Title">
-												<img src="img/icons/i.png" alt="Help" title="Help Label">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 												</sup>
 												</label>
 												<div class="input">
@@ -1725,7 +1725,7 @@
 													<div class="span6 unit">
 														<label class="label">Business Name 
 														<sup data-toggle="tooltip" title="" data-original-title="Business Name">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1738,7 +1738,7 @@
 													<div class="span6 unit">
 														<label class="label">Contact Person Name 
 														<sup data-toggle="tooltip" title="" data-original-title="Contact Person Name ">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1753,7 +1753,7 @@
 													<div class="span6 unit">
 														<label class="label">Mobile Number 
 														<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1766,7 +1766,7 @@
 													<div class="span6 unit">
 														<label class="label">Email 
 														<sup data-toggle="tooltip" title="" data-original-title="Email">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1783,7 +1783,7 @@
 													<div class="span6 unit">
 														<label class="label">Contact Name 
 														<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1796,7 +1796,7 @@
 													<div class="span6 unit">
 														<label class="label">Mobile Number 
 														<sup data-toggle="tooltip" title="" data-original-title="Mobile Number ">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1811,7 +1811,7 @@
 													<div class="span6 unit">
 														<label class="label">Email 
 														<sup data-toggle="tooltip" title="" data-original-title="Email">
-														<img src="img/icons/i.png" alt="Help" title="Help Label">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
 														<div class="input">
@@ -1827,7 +1827,7 @@
 												<div class="unit">
 													<label class="label">Terms & Conditions 
 													<sup data-toggle="tooltip" title="" data-original-title="Terms & Conditions">
-													<img src="img/icons/i.png" alt="Help" title="Help Label">
+													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 													</sup>
 													</label>
 													<label class="checkbox">

@@ -47,7 +47,7 @@
 					<div class="">
 						<div class="price11">
 							<span></span><b>
-							<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+							<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 						</div>
 					</div>
 				</div>
@@ -138,7 +138,7 @@
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 						<li><i class="fa fa-edit"></i></li>
-						<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>                      
 				</div>
 			</div>
@@ -183,7 +183,7 @@
 					<div class="">
 						<div class="price11">
 							<span></span><b>
-							<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+							<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 						</div>
 					</div>
 				</div>
@@ -274,7 +274,7 @@
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 						<li><i class="fa fa-edit"></i></li>
-						<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>                      
 				</div>
 			</div>
@@ -299,7 +299,7 @@
 					<div class="">
 						<div class="price11">
 							<span></span><b>
-							<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
+							<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 						</div>
 					</div>
 				</div>
@@ -390,7 +390,7 @@
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 						<li><i class="fa fa-edit"></i></li>
-						<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>                      
 				</div>
 			</div>
@@ -417,7 +417,7 @@
 					<div class="">
 						<div class="price11">
 							<span></span><b>
-							<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
+							<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 						</div>
 					</div>
 				</div>
@@ -508,7 +508,7 @@
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 						<li><i class="fa fa-edit"></i></li>
-						<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>                      
 				</div>
 			</div>
@@ -617,7 +617,7 @@
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 						<li><i class="fa fa-edit"></i></li>
-						<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>                      
 				</div>
 			</div>
@@ -729,7 +729,7 @@
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
 						<li><i class="fa fa-edit"></i></li>
-						<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>                      
 				</div>
 			</div>

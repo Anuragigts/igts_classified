@@ -6,11 +6,10 @@
 			<div class="col-sm-5">
 				<div class="title-footer">
 					<h2>Save on your plans!
-					<br> <span>Select 99 Deals Ad</span>
-					<br> our discounts by e-mail.</h2>
+					<br> <span>Select 99 Deals Ad</span></h2>
 				</div>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 			</div>
 			<!-- End Title Footer-->
 
@@ -18,11 +17,11 @@
 				<div class="row">                             
 					<!-- Social Us-->
 					<div class="col-sm-4">
-						<h3>LINKS</h3>
+						<h3>QUICK LINKS</h3>
 						<ul class="social">
 							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
-							<li><i class="fa fa-check"></i> <a href="#">Terms & Conditions</a></li>
-							<li><i class="fa fa-check"></i> <a href="#">Privacy Policy</a></li>
+							<!--<li><i class="fa fa-check"></i> <a href="#">Terms & Conditions</a></li>
+							<li><i class="fa fa-check"></i> <a href="#">Privacy Policy</a></li>-->
 							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
 							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 						</ul>

@@ -152,7 +152,7 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<div class="content_info">
 			<div class="paddings">
@@ -166,10 +166,10 @@
 									<h2><?php echo @$log_name; ?></h2> 
 								</div>
 								<ul class="dashboard_tag">
-									<li><img src="img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
-									<li><img src="img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
-									<li><img src="img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>Reserved Searches</a></li>
-									<li><img src="img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>Reserved Searches</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
 								</ul>
 								<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 							</div>
@@ -193,7 +193,7 @@
 												<h3>Update Profile</h3>
 												<label class="label">First Name 
 												<sup data-toggle="tooltip" title="" data-original-title="First Name">
-												<img src="img/icons/i.png" alt="I Error" title="Error view">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
 												</sup>
 												</label>
 												<div class="input">
@@ -207,7 +207,7 @@
 											<div class="col-sm-12 unit">
 												<label class="label">Last Name 
 												<sup data-toggle="tooltip" title="" data-original-title="Last Name">
-												<img src="img/icons/i.png" alt="I Error" title="Error view">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
 												</sup>
 												</label>
 												<div class="input">
@@ -220,7 +220,7 @@
 											<div class="col-sm-12 unit">
 												<label class="label">Contact Number 
 												<sup data-toggle="tooltip" title="" data-original-title="Contact Number">
-												<img src="img/icons/i.png" alt="I Error" title="Error view">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
 												</sup>
 												</label>
 												<div class="input">
@@ -242,7 +242,7 @@
 												<h3>Change password</h3>
 												<label class="label">Current Password 
 												<sup data-toggle="tooltip" title="" data-original-title="Current Password ">
-												<img src="img/icons/i.png" alt="I Error" title="Error view">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
 												</sup>
 												</label>
 												<div class="input">
@@ -256,7 +256,7 @@
 											<div class="col-sm-12 unit">
 												<label class="label">New password 
 												<sup data-toggle="tooltip" title="" data-original-title="Atleast 8 characters, one uppercase, one lowercase and one special character">
-												<img src="img/icons/i.png" alt="I Error" title="Error view">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
 												</sup>
 												</label>
 												<div class="input">
@@ -270,7 +270,7 @@
 											<div class="col-sm-12 unit">
 												<label class="label">Confirm password 
 												<sup data-toggle="tooltip" title="" data-original-title="Should match with new password">
-												<img src="img/icons/i.png" alt="I Error" title="Error view">
+												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
 												</sup>
 												</label>
 												<div class="input">

@@ -29,7 +29,7 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<!-- End Shadow Semiboxed -->
 		<!-- End content info - page Fill with -->
@@ -47,7 +47,7 @@
 								<div class="row">
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
 											<div class="overlay">
 												<h2>Hot Deals</h2>
 												<a class="info" href="deal_page">View Details</a>
@@ -56,7 +56,7 @@
 									</div>
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 											<div class="overlay">
 												<h2>E-Zone</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#Zone">View Details</a>
@@ -152,7 +152,7 @@
 									<!-- E-Zone content End-->
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
 											<div class="overlay">
 												<h2>Motor Point</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#Motor">View Details</a>
@@ -224,7 +224,7 @@
 								<div class="row top_13">
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/clothing.jpg" alt="clothing" title="clothing Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing.jpg" alt="clothing" title="clothing Category">
 											<div class="overlay">
 												<h2>Clothing & LifeStyles</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#LifeStyles">View Details</a>
@@ -300,7 +300,7 @@
 									<!-- Clothing & LifeStyles content End-->
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/services.jpg" alt="services" title="services Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="services" title="services Category">
 											<div class="overlay">
 												<h2>Services</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#Services" >View Details</a>
@@ -351,7 +351,7 @@
 									<!-- Services content End-->
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/property.jpg" alt="property" title="property Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="property" title="property Category">
 											<div class="overlay">
 												<h2>Find a Property</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#Property">View Details</a>
@@ -400,7 +400,7 @@
 								<div class="row top_13">
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
 											<div class="overlay">
 												<h2>Home & Kitchen</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#Kitchen">View Details</a>
@@ -457,7 +457,7 @@
 									<!-- Home & Kitchen content End-->
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/pets.jpg" alt="pets" title="pets Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets Category">
 											<div class="overlay">
 												<h2>Pets</h2>
 												<a class="info" href="#" data-toggle="modal" data-target="#Pets">View Details</a>
@@ -518,7 +518,7 @@
 									<!-- Pets content End-->
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive" src="img/featured/jobs.jpg" alt="jobs" title="jobs Category">
+											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg" alt="jobs" title="jobs Category">
 											<div class="overlay">
 												<h2>Jobs</h2>
 												<div><a class="info" href="#" data-toggle="modal" data-target="#Jobs">View Details</a></div>

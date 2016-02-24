@@ -19,7 +19,7 @@
 	
 	<section class="content-central">
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<div class="content_info">
@@ -27,7 +27,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/slide/side_view.jpg" class="img-responsive" alt="side_view" title="Side Ad">
+							<img src="<?php echo base_url(); ?>img/slide/side_view.jpg" class="img-responsive" alt="side_view" title="Side Ad">
 						</div>
 						
 						<form id="j-forms" action="#" class="j-forms" method="post">

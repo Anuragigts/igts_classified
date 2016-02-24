@@ -21,7 +21,7 @@
 	<!--Content Central -->
 	<section class="content-central">
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<div class="content_info">
 			<form action="" id="" method="post" class="j-forms tooltip-hover" style="background-color:#ffffff !important;">
@@ -51,18 +51,18 @@
 											<div class="col-md-12">
 												<div id="single-carousel">
 													<div class="img-hover">
-														<div class="overlay"> <a href="img/slide/1.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
-														<img src="img/slide/1.jpg" alt="blog" title="Blog1" class="img-responsive">
+														<div class="overlay"> <a href="<?php echo base_url(); ?>img/slide/1.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
+														<img src="<?php echo base_url(); ?>img/slide/1.jpg" alt="blog" title="Blog1" class="img-responsive">
 													</div>
 
 													<div class="img-hover">
-														<div class="overlay"> <a href="img/slide/2.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
-														<img src="img/slide/2.jpg" alt="blog" title="Blog1" class="img-responsive">
+														<div class="overlay"> <a href="<?php echo base_url(); ?>img/slide/2.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
+														<img src="<?php echo base_url(); ?>img/slide/2.jpg" alt="blog" title="Blog1" class="img-responsive">
 													</div>
 
 													<div class="img-hover">
-														<div class="overlay"> <a href="img/slide/3.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
-														<img src="img/slide/3.jpg" alt="blog" title="Blog1" class="img-responsive">
+														<div class="overlay"> <a href="<?php echo base_url(); ?>img/slide/3.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
+														<img src="<?php echo base_url(); ?>img/slide/3.jpg" alt="blog" title="Blog1" class="img-responsive">
 													</div>
 												</div>
 											</div>

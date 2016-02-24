@@ -548,11 +548,11 @@
 													</div>
 													<div class="xuSlider">
 														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
 														</ul>
 														<div class="direction-nav">
 															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -569,7 +569,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -606,7 +606,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">
@@ -647,7 +647,7 @@
 														<li><span>Deal ID : 112457856</span></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
 												</div>
 											</div>
@@ -663,11 +663,11 @@
 												<div class="col-sm-4">
 													<div class="xuSlider">
 														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
+															<li><img src="<?php echo base_url(); ?>img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
 														</ul>
 														<div class="direction-nav">
 															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
@@ -684,7 +684,7 @@
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -716,7 +716,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">
@@ -757,7 +757,7 @@
 														<li><span>Deal ID : 112457856</span></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
 												</div>
 											</div>
@@ -774,13 +774,13 @@
 														<span>Urgent</span>
 													</div>
 													<div class="img-hover view_img">
-														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="<?php echo base_url(); ?>img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
 														<div class="price11">
 															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
+															<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
 														</div>
 													</div>
 												</div>
@@ -817,7 +817,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">
@@ -858,7 +858,7 @@
 														<li><span>Deal ID : 112457856</span></li>
 														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
 														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
+														<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 													</ul>                      
 												</div>
 											</div>
@@ -872,7 +872,7 @@
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
-														<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
+														<img src="<?php echo base_url(); ?>ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -1055,7 +1055,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="<?php echo base_url(); ?>img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -1087,7 +1087,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">
@@ -1148,7 +1148,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
+														<img src="<?php echo base_url(); ?>img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -1180,7 +1180,7 @@
 														</div>
 														
 														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
+															<img src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
 														</div>
 													</div>
 													<hr class="separator">

@@ -20,7 +20,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/all.jpg" class="img-responsive" alt="Slider1" title="Slider1">
+					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img-responsive" alt="Slider1" title="Slider1">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -47,7 +47,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/1.jpg" class="img-responsive" alt="Slider2" title="Slider2">
+					<img src="<?php echo base_url(); ?>img/slide/1.jpg" class="img-responsive" alt="Slider2" title="Slider2">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -73,7 +73,7 @@
 				
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical">
-					<img src="img/slide/2.jpg" class="img-responsive" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
+					<img src="<?php echo base_url(); ?>img/slide/2.jpg" class="img-responsive" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
 					<!-- LAYERS -->
 					<!-- LAYER NR. 2 -->
 					<div class="tp-caption large_bold_white sft stb"
@@ -101,7 +101,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical" >
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/3.jpg" class="img-responsive" alt="Slider3" title="Slider3">
+					<img src="<?php echo base_url(); ?>img/slide/3.jpg" class="img-responsive" alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -128,7 +128,7 @@
 				<!-- SLIDE  -->
 				<li data-transition="slidevertical" >
 					<!-- MAIN IMAGE -->
-					<img src="img/slide/5.jpg" class="img-responsive" alt="Slider3" title="Slider3">
+					<img src="<?php echo base_url(); ?>img/slide/5.jpg" class="img-responsive" alt="Slider3" title="Slider3">
 					<!-- LAYERS -->
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
@@ -184,7 +184,7 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed Layout -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<!-- End Shadow Semiboxed Layout -->
 		<section class="content_info">
@@ -192,7 +192,7 @@
 			<div class="">
 				<div class="row marque_sty">
 					<div class="col-md-3">
-						<img src="img/marquee.png" class="fa fa-plane img-responsive" alt="Hot deals" title="Hot deals Heading">
+						<img src="<?php echo base_url(); ?>img/marquee.png" class="fa fa-plane img-responsive" alt="Hot deals" title="Hot deals Heading">
 					</div>
 					<div class="col-md-9 marque_text">
 						<div class="ticker3 modern-ticker mt-round">
@@ -237,7 +237,7 @@
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/deals.jpg" alt="deals" title="deals Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
 										<div class="overlay">
 											<h2>Hot Deals</h2>
 											<a class="info" href="deal_page">View Details</a>
@@ -246,7 +246,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/ezone.jpg" alt="ezone" title="ezone Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 										<div class="overlay">
 											<h2>E-Zone</h2>
 											<a class="info" href="ezone_view">View Details</a>
@@ -255,7 +255,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/cars.jpg" alt="cars" title="cars Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
 										<div class="overlay">
 											<h2>Motor Point</h2>
 											<a class="info" href="motor_view">View Details</a>
@@ -266,7 +266,7 @@
 							<div class="row top_13">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/clothing.jpg" alt="clothing" title="clothing Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing.jpg" alt="clothing" title="clothing Category">
 										<div class="overlay">
 											<h2>Clothing & LifeStyles</h2>
 											<a class="info" href="clothing_lifestyles_view">View Details</a>
@@ -275,7 +275,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/services.jpg" alt="services" title="services Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="services" title="services Category">
 										<div class="overlay">
 											<h2>Services</h2>
 											<a class="info" href="services_view">View Details</a>
@@ -284,7 +284,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/property.jpg" alt="property" title="property Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="property" title="property Category">
 										<div class="overlay">
 											<h2>Find a Property</h2>
 											<a class="info" href="residential_view">View Details</a>
@@ -295,7 +295,7 @@
 							<div class="row top_13">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
 										<div class="overlay">
 											<h2>Home & Kitchen</h2>
 											<a class="info" href="home_kitchen_view">View Details</a>
@@ -304,7 +304,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/pets.jpg" alt="pets" title="pets Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets Category">
 										<div class="overlay">
 											<h2>Pets</h2>
 											<a class="info" href="pets_view">View Details</a>
@@ -313,7 +313,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
 										<div class="overlay">
 											<h2>Jobs</h2>
 											<div><a class="info" href="job_view">View Details</a></div>
@@ -355,8 +355,8 @@
 												<?php }
 												?>
 											<div class="img-hover significant_ad">
-												<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-												<div class="overlay"><a href="ad_images/no_image.png" ><i class="fa fa-link"></i></a></div>
+												<img src="<?php echo base_url(); ?>ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
+												<div class="overlay"><a href="<?php echo base_url(); ?>ad_images/no_image.png" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php
 												}else{
@@ -368,7 +368,7 @@
 													<?php }
 													?>
 											<div class="img-hover significant_ad">
-												<img src="ad_images/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
+												<img src="<?php echo base_url(); ?>ad_images/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
 												<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php	} ?>
@@ -410,18 +410,18 @@
 														if ($hot_deals_val->bus_logo != '') {
 													 ?>
 													<div class="bus_logo">
-													<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $hot_deals_val->bus_logo; ?>" /></b>
+													<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $hot_deals_val->bus_logo; ?>" /></b>
 													</div>
 														<?php }
 																else{ ?>
 														<div class="bus_logo">
-														<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 														</div>
 													<?php			}
 															} ?>
 												<div class="price11">
 													<span></span><b>
-													<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+													<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 												</div>
 											</div>
 										</figure>
@@ -479,7 +479,7 @@
 								<?php	}
 								 ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -499,19 +499,19 @@
 								if($val->ad_type == 'business'){
 								 if ($val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -528,7 +528,7 @@
 									</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -542,19 +542,19 @@
 								if($m_ads->ad_type == 'business'){
 								 if ($m_ads->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -576,7 +576,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -590,19 +590,19 @@
 								if($m_ads_services->ad_type == 'business'){
 								 if ($m_ads_services->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads_services->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads_services->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -625,7 +625,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $motor_val->img_name; ?>" alt="<?php echo $motor_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $motor_val->img_name; ?>" alt="<?php echo $motor_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -639,19 +639,19 @@
 								if($motor_val->ad_type == 'business'){
 								 if ($motor_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $motor_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $motor_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -674,7 +674,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $cloth_val->img_name; ?>" alt="<?php echo $cloth_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $cloth_val->img_name; ?>" alt="<?php echo $cloth_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -688,19 +688,19 @@
 								if($cloth_val->ad_type == 'business'){
 								 if ($cloth_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $cloth_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $cloth_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -723,7 +723,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $prop_val->img_name; ?>" alt="<?php echo $prop_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $prop_val->img_name; ?>" alt="<?php echo $prop_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -737,19 +737,19 @@
 								if($prop_val->ad_type == 'business'){
 								 if ($prop_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $prop_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $prop_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -772,7 +772,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $khome_val->img_name; ?>" alt="<?php echo $khome_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $khome_val->img_name; ?>" alt="<?php echo $khome_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -786,19 +786,19 @@
 								if($khome_val->ad_type == 'business'){
 								 if ($khome_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $khome_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $khome_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -821,7 +821,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -835,19 +835,19 @@
 								if($m_ads_pets->ad_type == 'business'){
 								 if ($m_ads_pets->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -870,7 +870,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
+								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -884,19 +884,19 @@
 								if($m_ads_ezone->ad_type == 'business'){
 								 if ($m_ads_ezone->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
 								?>
 								<div class="sig_price">
 									<span></span><b>
-									<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+									<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 								</div>
 							</div>
 						</div>
@@ -924,7 +924,7 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<a href="mostvalued_deals_view">
-								<img src="img/most_value.jpg" alt="most_value" title="Most Value Deals" class="recentad_heig img-responsive">
+								<img src="<?php echo base_url(); ?>img/most_value.jpg" alt="most_value" title="Most Value Deals" class="recentad_heig img-responsive">
 							</a>
 						</div>
 						<div class="col-sm-9">
@@ -946,7 +946,7 @@
 									</div>
 									<?php } ?>
 									<div class="img-hover">
-										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+										<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<?php if ($b_ads->package_type == 'gold') { ?>
@@ -956,16 +956,16 @@
 										<?php
 										 if ($b_ads->ad_type != 'consumer') { 
 										 if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	} 	}
 										 ?>
 										<?php if ($b_ads->package_type == 'gold') { ?>
 										 	<div class="business_crown">
 											<span></span><b>
-											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
+											<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
@@ -984,16 +984,16 @@
 										<hr class="separator">
 										<?php if ($b_ads->ad_type != 'consumer') { 
 										 if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}	}
 										 ?>
 										 <?php if ($b_ads->package_type == 'platinum') { ?>
 										 	<div class="business_crown">
 											<span></span><b>
-											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+											<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
@@ -1027,7 +1027,7 @@
 					<div class="row">
 						<div class="col-sm-3">
 						<a href="business_deals_view">
-							<img src="img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
+							<img src="<?php echo base_url(); ?>img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
 						</a>
 						</div>
 						<div class="col-sm-9">
@@ -1049,7 +1049,7 @@
 									</div>
 									<?php } ?>
 									<div class="img-hover">
-										<img src="ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+										<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<?php if ($b_ads->package_type == 'gold') { ?>
@@ -1057,16 +1057,16 @@
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
 										<?php if ($b_ads->package_type == 'gold') { ?>
 										 	<div class="business_crown">
 											<span></span><b>
-											<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
+											<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
@@ -1084,16 +1084,16 @@
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
 										 <?php if ($b_ads->package_type == 'platinum') { ?>
 										 	<div class="business_crown">
 											<span></span><b>
-											<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+											<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
@@ -1126,7 +1126,7 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<a href="recent_deals_view">
-								<img src="img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
+								<img src="<?php echo base_url(); ?>img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
 							</a>
 						</div>
 						<div class="col-sm-9">
@@ -1150,7 +1150,7 @@
 											</div>
 										<?php } ?>
 									<div class="img-hover">
-										<img src="ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
+										<img src="<?php echo base_url(); ?>ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									
@@ -1169,10 +1169,10 @@
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
-											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
+											<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
 											<?php	} ?>
 											<?php if ($free_val->package_type == 'gold') { ?>
-											<span></span><b><img src="img/icons/thumb.png" alt="thumb" title="Right Deal"></b>
+											<span></span><b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="thumb" title="Right Deal"></b>
 											<?php	} ?>
 										</div>
 									</div>
@@ -1191,7 +1191,7 @@
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 'platinum') { ?>
-											<span></span><b><img src="img/icons/crown.png" alt="crown" title="Best Deal"></b>
+											<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
 											<?php	} ?>
 										</div>
 									</div>
@@ -1217,46 +1217,46 @@
 							</div>
 							<div data-u="slides" class="slide_j3">
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/acer.png" alt="acer" title="Acer"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/acer.png" alt="acer" title="Acer"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/canon.png" alt="canon" title="Canon"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/canon.png" alt="canon" title="Canon"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/casio.png" alt="casio" title="Casio"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/casio.png" alt="casio" title="Casio"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/dell.png" alt="dell" title="Dell"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/dell.png" alt="dell" title="Dell"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/htc.png" alt="htc" title="HTC"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/htc.png" alt="htc" title="HTC"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/intel.png" alt="intel" title="Intel" />
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="Intel" />
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/iPhone.png" alt="iPhone" title="iPhone"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/iPhone.png" alt="iPhone" title="iPhone"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/lenevo.png" alt="lenevo" title="Lenovo"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/lenevo.png" alt="lenevo" title="Lenovo"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/lg.png" alt="lg" title="LG"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/lg.png" alt="lg" title="LG"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/nexus.png" alt="nexus" title="Nexus"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/nexus.png" alt="nexus" title="Nexus"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/nokia.png" alt="nokia" title="Nokia"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/nokia.png" alt="nokia" title="Nokia"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/ricoh.png" alt="ricoh" title="Ricoh"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/ricoh.png" alt="ricoh" title="Ricoh"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/samsung.png" alt="samsung" title="Samsung"/>
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/samsung.png" alt="samsung" title="Samsung"/>
 								</div>
 								<div style="display: none;">
-									<img data-u="image" src="img/brand/Windows.png" alt="Windows" title="Windows" />
+									<img data-u="image" src="<?php echo base_url(); ?>img/brand/Windows.png" alt="Windows" title="Windows" />
 								</div>
 							</div>
 						</div>
