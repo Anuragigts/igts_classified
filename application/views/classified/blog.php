@@ -28,442 +28,206 @@
 				<div class="content_info">
                     <div class="paddings-mini">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="post-item">
-                                        <div class="row">
-                                           <div class="col-md-12">
-                                                <div class="post-header">
-                                                    <div class="post-info-wrap">
-                                                        <h2 class="post-title"><a href="#" title="Post Format: Standard" rel="bookmark">
-														Sample Blog One Link</a></h2>
-                                                        <div class="post-meta top_10">
-                                                            <ul>
-                                                                <li><i class="fa fa-user"></i><a href="#">Name</a></li>
-																<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-																<li><i class="fa fa-eye"></i><span>Views</span></li>
-															</ul>                      
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="img-hover">
-                                                    <img src="<?php echo base_url(); ?>img/slide/3.jpg" alt="blog" title="Blog1" class="img-responsive">
-                                                    <div class="overlay"><a href="blog_view"><i class="fa fa-link"></i></a></div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-												</div>                                          
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-footer">
-                                                    <ul class="post-social tooltip-hover">
-														<li>
-															<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
-																<i class="fa fa-facebook"></i>
-																<i class="fa fa-facebook facebook"></i>
-															</a>
-														</li>
+							<div class="blog row">
+								<div class="col-md-8">
+									<div class="blog-item">
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 text-center">
+												<div class="entry-meta">
+													<span id="publish_date">07  NOV</span>
+													<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
+													<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
+													<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+												</div>
+											</div>
+												
+											<div class="col-xs-12 col-sm-10 ">
+												<a href="#">
+													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+												</a>
+												<h3 class="post-title">
+													<a href="#" class="title">Sample Blog One Link</a>
+												</h3>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+												<div class="read-more">
+												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
+												</div>
+											</div>
+										</div>    
+									</div>
+									
+									<div class="blog-item">
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 text-center">
+												<div class="entry-meta">
+													<span id="publish_date">07  NOV</span>
+													<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
+													<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
+													<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+												</div>
+											</div>
+												
+											<div class="col-xs-12 col-sm-10 ">
+												<a href="#">
+													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+												</a>
+												<h3 class="post-title">
+													<a href="#" class="title">Sample Blog One Link</a>
+												</h3>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+												<div class="read-more">
+												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
+												</div>
+											</div>
+										</div>    
+									</div>
+									
+									<div class="blog-item">
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 text-center">
+												<div class="entry-meta">
+													<span id="publish_date">07  NOV</span>
+													<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
+													<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
+													<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+												</div>
+											</div>
+												
+											<div class="col-xs-12 col-sm-10 ">
+												<a href="#">
+													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+												</a>
+												<h3 class="post-title">
+													<a href="#" class="title">Sample Blog One Link</a>
+												</h3>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+												<div class="read-more">
+												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
+												</div>
+											</div>
+										</div>    
+									</div>
+								</div>
 
-														<li>
-															<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
-																<i class="fa fa-twitter"></i>
-																<i class="fa fa-twitter twitter"></i>
-															</a>
-														</li>
+								<aside class="col-md-4">
+									<div class="widget categories">
+										<h3>Recent Comments</h3>
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="single_comments">
+													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+													<div class="entry-meta small muted">
+														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
+													</div>
+												</div>
+												<div class="single_comments">
+													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+													<div class="entry-meta small muted">
+														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
+													</div>
+												</div>
+												<div class="single_comments">
+													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+													<div class="entry-meta small muted">
+														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
+													</div>
+												</div>
+												
+											</div>
+										</div>                     
+									</div><!--/.recent comments-->
+									 
 
-														<li>
-															<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
-																<i class="fa fa-google-plus"></i>
-																<i class="fa fa-google-plus google-plus"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
-																<i class="fa fa-pinterest"></i>
-																<i class="fa fa-pinterest pinterest"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
-																<i class="fa fa-linkedin"></i>
-																<i class="fa fa-linkedin linkedin"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="" class="social-envelope" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-																<i class="fa fa-envelope"></i>
-																<i class="fa fa-envelope envelope"></i>
-															</a>
-														</li>
-													</ul>
-                                                </div>
-                                            </div>
-                                       </div>
-                                    </div>
-                                    
-                                    <div class="post-item">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="post-header">
-                                                    <div class="post-info-wrap">
-                                                        <h2 class="post-title"><a href="#" title="Post Format: Standard" rel="bookmark">
-														Sample Blog Two Video</a></h2>
-                                                        <div class="post-meta top_10">
-                                                            <ul>
-                                                                <li><i class="fa fa-user"></i><a href="#">Name</a></li>
-																<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-																<li><i class="fa fa-eye"></i><span>Views</span></li>
-															</ul>                      
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <iframe src="https://www.youtube.com/embed/wJF5NXygL4k"></iframe>
-                                            </div>
-                                            
-											<div class="col-md-12">
-                                                <div class="post-content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus […]</p>
-                                                    <div class="read-more">
-                                                       <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
-                                                    </div>
-                                                </div>                                          
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-footer">
-													<ul class="post-social tooltip-hover">
-														<li>
-															<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
-																<i class="fa fa-facebook"></i>
-																<i class="fa fa-facebook facebook"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
-																<i class="fa fa-twitter"></i>
-																<i class="fa fa-twitter twitter"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
-																<i class="fa fa-google-plus"></i>
-																<i class="fa fa-google-plus google-plus"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
-																<i class="fa fa-pinterest"></i>
-																<i class="fa fa-pinterest pinterest"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
-																<i class="fa fa-linkedin"></i>
-																<i class="fa fa-linkedin linkedin"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="" class="social-envelope" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-																<i class="fa fa-envelope"></i>
-																<i class="fa fa-envelope envelope"></i>
-															</a>
-														</li>
-													</ul>
-                                                </div>
-                                            </div>
-                                       </div>
-                                    </div>
-                                    
-                                    <div class="post-item">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="post-header">
-                                                    <div class="post-info-wrap">
-                                                        <h2 class="post-title"><a href="#" title="Post Format: Standard" rel="bookmark">
-														Sample Blog Three GALLERY</a></h2>
-                                                        <div class="post-meta top_10">
-                                                            <ul>
-                                                                <li><i class="fa fa-user"></i><a href="#">Name</a></li>
-																<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-																<li><i class="fa fa-eye"></i><span>Views</span></li>
-															</ul>                      
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div id="single-carousel">
-                                                    <div class="img-hover">
-                                                        <div class="overlay"> <a href="<?php echo base_url(); ?>img/slide/1.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
-                                                        <img src="<?php echo base_url(); ?>img/slide/1.jpg" alt="blog" title="Blog1" class="img-responsive">
-                                                    </div>
-
-                                                    <div class="img-hover">
-                                                        <div class="overlay"> <a href="<?php echo base_url(); ?>img/slide/2.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
-                                                        <img src="<?php echo base_url(); ?>img/slide/2.jpg" alt="blog" title="Blog1" class="img-responsive">
-                                                    </div>
-
-                                                    <div class="img-hover">
-                                                        <div class="overlay"> <a href="<?php echo base_url(); ?>img/slide/3.jpg" class="fancybox"><i class="fa fa-search"></i></a></div>
-                                                        <img src="<?php echo base_url(); ?>img/slide/3.jpg" alt="blog" title="Blog1" class="img-responsive">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus […]</p>
-                                                    <div class="read-more">
-                                                        <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
-                                                    </div>
-                                                </div>                                          
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-footer">
-                                                    <ul class="post-social tooltip-hover">
-														<li>
-															<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
-																<i class="fa fa-facebook"></i>
-																<i class="fa fa-facebook facebook"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
-																<i class="fa fa-twitter"></i>
-																<i class="fa fa-twitter twitter"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
-																<i class="fa fa-google-plus"></i>
-																<i class="fa fa-google-plus google-plus"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
-																<i class="fa fa-pinterest"></i>
-																<i class="fa fa-pinterest pinterest"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
-																<i class="fa fa-linkedin"></i>
-																<i class="fa fa-linkedin linkedin"></i>
-															</a>
-														</li>
-
-														<li>
-															<a href="" class="social-envelope" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-																<i class="fa fa-envelope"></i>
-																<i class="fa fa-envelope envelope"></i>
-															</a>
-														</li>
-													</ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="post-item">
-                                        <div class="row">
-											<div class="col-md-12">
-                                                <div class="post-media">
-                                                    <div class="post-quote-wrapper">
-                                                        <div class="post-quote-overlay"></div>
-                                                        <div class="post-quote-content">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-                                                            <div class="post-quote-author">
-                                                                <a href="#">99 Right Deals</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-										</div>
-                                    </div>
-                                    
-                                    <div class="post-item">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="post-header">
-                                                    <div class="post-info-wrap">
-                                                        <h2 class="post-title"><a href="#" title="Post Format: Standard" rel="bookmark">
-														Sample Blog Four (Without Image)</a></h2>
-                                                        <div class="post-meta top_10">
-                                                            <ul>
-                                                                <li><i class="fa fa-user"></i><a href="#">Name</a></li>
-																<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-																<li><i class="fa fa-eye"></i><span>Views</span></li>
-															</ul>                      
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-content">
-                                                    <p>Maecenas varius finibus orci vel dignissim. Nam posuere, magna pellentesque accumsan tincidunt, libero lorem convallis lectus, tincidunt accumsan enim ex ut sem. Ut in augue congue, tempus urna sit amet, condimentum lorem. Pellentesque est sem, semper sit amet velit et, commodo fringilla turpis. Aenean quam erat, eleifend quis congue vitae, interdum vitae risus. Lorem ipsum […]</p>
-                                                    <div class="read-more">
-														<a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
-                                                    </div>
-                                                </div>                                          
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <div class="post-footer">
-                                                   <ul class="post-social tooltip-hover">
-                                                        <li>
-                                                            <a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
-                                                                <i class="fa fa-facebook"></i>
-                                                                <i class="fa fa-facebook"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
-                                                                <i class="fa fa-twitter"></i>
-                                                                <i class="fa fa-twitter"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
-                                                                <i class="fa fa-google-plus"></i>
-                                                                <i class="fa fa-google-plus"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
-                                                                <i class="fa fa-pinterest"></i>
-                                                                <i class="fa fa-pinterest"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
-                                                                <i class="fa fa-linkedin"></i>
-                                                                <i class="fa fa-linkedin"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="social-email" data-toggle="tooltip" title="" data-original-title="Share on envelope">
-                                                                <i class="fa fa-envelope-o"></i>
-                                                                <i class="fa fa-envelope-o"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                 </div>
-                                            </div>
-                                       </div>
-                                    </div>
-                                    
-                                    <ul class="pagination">
-                                        <li><a href="#">«</a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">»</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="col-md-3 blog_right">
-									<aside class="widget">
-                                        <h4>List of Categories</h4>
-                                        <ul class="list-styles">
-                                            <li><i class="fa fa-check"></i> <a href="#">All About Cars</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">General</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Locations</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Site Changes</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">News</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Pug Puppies</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Used Furniture</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Jobs in Eastbourne</a></li>
-                                        </ul>
-                                    </aside>
-                                   
-                                    <aside class="widget">
-                                        <h4>Recent Post</h4>
-                                        <ul class="list-styles">
-                                            <li><i class="fa fa-check"></i> <a href="#">World</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">First</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Accommodations</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">Inclusive</a></li>
-                                        </ul>
-                                    </aside>
-									<aside class="widget">
-                                        <h4>Archive</h4>
-                                        <ul class="list-styles">
-                                            <li><i class="fa fa-check"></i> <a href="#">February 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">March 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">April 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">May 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">June 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">July 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">August 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">September 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">October 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">November 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">December 2015</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">January 2016</a></li>
-                                            <li><i class="fa fa-check"></i> <a href="#">February 2016</a></li>
-                                        </ul>
-                                    </aside>
-                                    
-									<aside class="widget">
-                                        <h4>About Us</h4>
-                                        <div class="accrodation">
-                                           <span class="acc-trigger"><a href="#">Mision</a></span>
-                                            <div class="acc-container">
-                                                <div class="content">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
-                                                </div>
-                                            </div>
-                                          
-                                            <span class="acc-trigger"><a href="#">Vision</a></span>
-                                            <div class="acc-container">
-                                                <div class="content">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
-                                                </div>
-                                            </div>
-                                       
-                                            <span class="acc-trigger active"><a href="#">Our services</a></span>
-                                            <div class="acc-container">
-                                                <div class="content">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
-                                                </div>
-                                            </div>
-                                        </div> 
-                                    </aside>
-                                </div>
-                            </div>
+									<div class="widget categories">
+										<h3>Categories</h3>
+										<div class="row">
+											<div class="col-sm-6">
+												<ul class="blog_category">
+													<li><a href="#">Computers <span class="badge">04</span></a></li>
+													<li><a href="#">Smartphone <span class="badge">10</span></a></li>
+													<li><a href="#">Gedgets <span class="badge">06</span></a></li>
+													<li><a href="#">Technology <span class="badge">25</span></a></li>
+												</ul>
+											</div>
+										</div>                     
+									</div><!--/.categories-->
+									
+									<div class="widget archieve">
+										<h3>Archieve</h3>
+										<div class="row">
+											<div class="col-sm-12">
+												<ul class="blog_archieve">
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+												</ul>
+											</div>
+										</div>                     
+									</div>
+									
+									<div class="widget tags">
+										<h3>Tag Cloud</h3>
+										<ul class="tag-cloud">
+											<li><a class="bor_log btn" href="#">Apple</a></li>
+											<li><a class="bor_log btn" href="#">Barcelona</a></li>
+											<li><a class="bor_log btn" href="#">Office</a></li>
+											<li><a class="bor_log btn" href="#">Ipod</a></li>
+											<li><a class="bor_log btn" href="#">Stock</a></li>
+											<li><a class="bor_log btn" href="#">Race</a></li>
+											<li><a class="bor_log btn" href="#">London</a></li>
+											<li><a class="bor_log btn" href="#">Football</a></li>
+											<li><a class="bor_log btn" href="#">Porche</a></li>
+											<li><a class="bor_log btn" href="#">Gadgets</a></li>
+										</ul>
+									</div>
+									
+									<div class="widget blog_aboutus">
+										<h3>About Us</h3>
+										<div class="accrodation">
+										   <span class="acc-trigger"><a href="#">Mision</a></span>
+											<div class="acc-container">
+												<div class="content">
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+												</div>
+											</div>
+										  
+											<span class="acc-trigger"><a href="#">Vision</a></span>
+											<div class="acc-container">
+												<div class="content">
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+												</div>
+											</div>
+									   
+											<span class="acc-trigger active"><a href="#">Our services</a></span>
+											<div class="acc-container">
+												<div class="content">
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
+												</div>
+											</div>
+										</div> 
+									</div>
+									
+									<div class="widget blog_gallery">
+										<h3>Our Gallery</h3>
+										<ul class="sidebar-gallery">
+											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery1.png" alt="" /></a></li>
+											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery2.png" alt="" /></a></li>
+											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery3.png" alt="" /></a></li>
+											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery4.png" alt="" /></a></li>
+											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery5.png" alt="" /></a></li>
+											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery6.png" alt="" /></a></li>
+										</ul>
+									</div>
+								</aside>  
+							</div>
                         </div>
                     </div>
                 </div>  

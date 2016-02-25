@@ -8,6 +8,12 @@
 		width: 100%;
 		overflow: hidden;
 		}
+		#scroll_area1 {
+		  height: 200px;
+		}
+		#scroll_area2{
+		  height: 200px;
+		}
 	</style>
 	
 	<link rel="stylesheet" href="js/filter.css"> 
@@ -22,17 +28,7 @@
 		  });
 		});
 	</script>
-	<style type="text/css">
-		#scroll_area1 {
-		  height: 200px;
-		}
-		#scroll_area2{
-		  height: 200px;
-		}
-	</style>
 	
-	
-
 	 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script type="text/javascript">
         google.maps.event.addDomListener(window, 'load', function () {
@@ -351,7 +347,7 @@
 				<div class="paddings">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-12 tabs-detailed">
+							<div class="col-md-12 tabs-detailed deal_border">
 								<!-- Nav Tabs-->
 								<div class="titles">
 									<h2>HOT DEALS <span>CATEGORIES </span></h2>

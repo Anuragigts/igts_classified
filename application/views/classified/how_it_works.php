@@ -31,34 +31,14 @@
 			<div class="paddings">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-12">
-							<div class="titles">
-								<h2>HOT DEALS<span> WORKS FLOW</span> </h2>
-								<hr class="tall">
-							</div>
-							<ul class="timeline">
-								<li>
-									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_plat_urgent.png" alt="Platinum" title="Platinum Urgent">
-									</div>
-									<div class="timeline-panel">
-										<div class="timeline-heading">
-											<h3>Platinum Urgent Deal</h3>
-										</div>
-										<div class="timeline-body">
-											<ul class="list-styles">
-												<li><i class="fa fa-check"></i> It will be display without having likes</li>
-												<li><i class="fa fa-check"></i> It should be maintain product quality</li>
-												<li><i class="fa fa-check"></i> Attractive Deal titles</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-								<li class="timeline-inverted">
-									<div class="timeline-image">
+						<div class="col-md-12 top_20">
+							<div class="row text_center">
+								<div class="col-sm-4 col-xs-4">
+									<span class="up_arrow">&#8595;</span>
+									<div class="timeline-image top_20">
 										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_platinum.png" alt="Platinum" title="Platinum">
 									</div>
-									<div class="timeline-panel">
+									<div class="timeline-panel top_20">
 										<div class="timeline-heading">
 											<h3>Platinum Deal</h3>
 										</div>
@@ -70,29 +50,14 @@
 											</ul>
 										</div>
 									</div>
-								</li>
-								<li>
-									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_gold_urgent.png" alt="Gold" title="Gold Urgent">
-									</div>
-									<div class="timeline-panel">
-										<div class="timeline-heading">
-											<h3>Gold Urgent Deal</h3>
-										</div>
-										<div class="timeline-body">
-											<ul class="list-styles">
-												<li><i class="fa fa-check"></i> It will be display without having likes</li>
-												<li><i class="fa fa-check"></i> It should be maintain product quality</li>
-												<li><i class="fa fa-check"></i> Attractive Deal titles</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-								<li class="timeline-inverted">
-									<div class="timeline-image">
+									<span class="down_arrow">&#8595;</span>
+								</div>
+								<div class="col-sm-4 col-xs-4">
+									<span class="up_arrow">&#8595;</span>
+									<div class="timeline-image top_20">
 										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_gold.png" alt="Gold" title="Gold">
 									</div>
-									<div class="timeline-panel">
+									<div class="timeline-panel top_20">
 										<div class="timeline-heading">
 											<h3>Gold Deal</h3>
 										</div>
@@ -104,29 +69,14 @@
 											</ul>
 										</div>
 									</div>
-								</li>
-								<li>
-									<div class="timeline-image">
-										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_free_urgent.png" alt="Free" title="Free">
-									</div>
-									<div class="timeline-panel">
-										<div class="timeline-heading">
-											<h3>Free Urgent Deal</h3>
-										</div>
-										<div class="timeline-body">
-											<ul class="list-styles">
-												<li><i class="fa fa-check"></i> It will be display ,if the Deal have 50 Likes</li>
-												<li><i class="fa fa-check"></i> It should be maintain product quality</li>
-												<li><i class="fa fa-check"></i> Attractive Deal titles</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-								<li class="timeline-inverted">
-									<div class="timeline-image">
+									<span class="down_arrow">&#8595;</span>
+								</div>
+								<div class="col-sm-4 col-xs-4">
+									<span class="up_arrow">&#8595;</span>
+									<div class="timeline-image top_20">
 										<img class="img-circle img-responsive" src="<?php echo base_url(); ?>img/howitworks/how_free.png" alt="Free" title="Free">
 									</div>
-									<div class="timeline-panel">
+									<div class="timeline-panel top_20">
 										<div class="timeline-heading">
 											<h3>Free Deal</h3>
 										</div>
@@ -138,8 +88,16 @@
 											</ul>
 										</div>
 									</div>
-								</li>
-							</ul>
+									<span class="down_arrow">&#8595;</span>
+								</div>
+							</div>
+							<div class="row text_center">
+								<div class="col-sm-10 col-sm-offset-1">
+									<div class="hot_deal_border">
+										<h3 class="white">HOT DEALS</h3>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
