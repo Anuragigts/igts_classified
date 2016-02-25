@@ -295,7 +295,6 @@ class hotdealsearch_model extends CI_Model{
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "services");
@@ -364,7 +363,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			// $this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+			// $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+					$m_res = $this->db->get('postad AS ad',$data['limit']);
+			// echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -455,7 +456,86 @@ class hotdealsearch_model extends CI_Model{
         }
 
         /*jobs search fo  sub category*/
-        public function jobs_search(){
+        public function jobs_search($data){
+        	$seller = $this->input->post('seller_deals');
+        	$jobslist = $this->input->post('jobs_list');
+        	$jobs_pos = $this->input->post('jobs_pos');
+        	$pck = $this->input->post('pckg_list');
+        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			// $this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+			$this->db->where("ad.category_id", "jobs");
+			if (!empty($jobslist)) {
+				$this->db->where_in('ad.sub_cat_id', $jobslist);
+			}
+			if (!empty($jobs_pos)) {
+				$this->db->where_in('jd.positionfor', $jobs_pos);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('jd.jobtype_title', $seller);
+			}
+			/*package search*/
+			if (!empty($pck)) {
+				$this->db->where_in('ad.package_type', $pck);
+			}
+			/*urgent label*/
+			if ($this->input->post("urgent")) {
+				$this->db->where('ad.urgent_package !=', '');
+			}
+			if ($this->input->post('bustype')) {
+				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
+					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+				}
+			}
+
+			/*location search*/
+			if ($this->input->post("latt")) {
+				$this->db->where("loc.latt", $this->input->post("latt"));
+				$this->db->where("loc.longg", $this->input->post("longg"));
+			}
+
+			
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($this->input->post("recentdays") == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($this->input->post("recentdays") == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($this->input->post("recentdays") == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($this->input->post("recentdays") == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+			$this->db->group_by(" img.ad_id");
+			/*deal title ascending or descending*/
+					if ($this->input->post("dealtitle") == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($this->input->post("dealtitle") == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			   // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+
+         public function count_jobs_search(){
         	$seller = $this->input->post('seller_deals');
         	$jobslist = $this->input->post('jobs_list');
         	$jobs_pos = $this->input->post('jobs_pos');
@@ -608,7 +688,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+			$m_res = $this->db->get('postad AS ad', $data['limit']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();

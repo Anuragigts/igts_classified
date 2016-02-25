@@ -807,6 +807,11 @@
                                 <div class="row list_view_searches jobs_search_result">
                                 	<?php echo $this->load->view("classified/jobs_view_search"); ?> 
 								</div>
+								<div class='row'>
+									<div class='col-md-12'>
+										<?php echo $paging_links; ?>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

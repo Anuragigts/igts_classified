@@ -85,7 +85,7 @@ class  Services_view extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'services_view/search_filters';
             $config['total_rows'] = count($services_view);
-            $config['per_page'] = 30;
+            $config['per_page'] = 10;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:black; font-weight: bold;">';
@@ -97,7 +97,6 @@ class  Services_view extends CI_Controller{
                 'limit' =>$config['per_page'],
                 'start' =>$cur_url
                 );
-
         // $services_view = $this->classifed_model->services_view($search_option);
 
 
@@ -129,6 +128,7 @@ class  Services_view extends CI_Controller{
             $result['login_status'] =$login_status;
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
+            $result['paging_links'] = $this->pagination->create_links();
             echo $this->load->view("classified/services_view_search",$result);
         }
         

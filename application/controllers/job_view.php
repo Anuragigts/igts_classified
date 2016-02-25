@@ -10,8 +10,25 @@ class  Job_view extends CI_Controller{
                 parent::__construct();
                 $this->load->model("hotdealsearch_model");
                 $this->load->model("classifed_model");
+                $this->load->library('pagination');
         }
         public function index(){
+             $config = array();
+            $config['base_url'] = base_url().'job_view/index';
+            $config['total_rows'] = count($this->classifed_model->count_jobs_view());
+            $config['per_page'] = 2;
+             $config['next_link'] = 'Next';
+              $config['prev_link'] = 'Previous';
+            $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
+            $config['full_tag_close'] ='</div>';
+            $this->pagination->initialize($config);
+            $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $search_option = array(
+                'limit' =>$config['per_page'],
+                'start' =>$page
+                );
+
+
              if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
@@ -22,7 +39,7 @@ class  Job_view extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $jobs_view = $this->classifed_model->jobs_view();
+                $jobs_view = $this->classifed_model->jobs_view($search_option);
             foreach ($jobs_view as $jview) {
                 $loginid = $jview->login_id;
             }
@@ -36,6 +53,7 @@ class  Job_view extends CI_Controller{
                         "public_adview" => $public_adview,
                         'login_status' =>$login_status,
                         'login' =>$login,
+                        'paging_links' =>$this->pagination->create_links(),
                         'favourite_list'=>$favourite_list
                 );
                 
@@ -53,6 +71,22 @@ class  Job_view extends CI_Controller{
         }
 
         public function search_filters(){
+             $config = array();
+            $config['base_url'] = base_url().'job_view/index';
+            $config['total_rows'] = count($this->hotdealsearch_model->count_jobs_search());
+            $config['per_page'] = 2;
+             $config['next_link'] = 'Next';
+              $config['prev_link'] = 'Previous';
+            $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
+            $config['full_tag_close'] ='</div>';
+            $this->pagination->initialize($config);
+            $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $search_option = array(
+                'limit' =>$config['per_page'],
+                'start' =>$page
+                );
+
+
             if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
@@ -64,7 +98,7 @@ class  Job_view extends CI_Controller{
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
             /*location list*/
-            $res = $this->hotdealsearch_model->jobs_search();
+            $res = $this->hotdealsearch_model->jobs_search($search_option);
             $result['jobs_result'] = $res;
             $public_adview = $this->classifed_model->publicads();
             if (!empty($res)) {
@@ -79,6 +113,7 @@ class  Job_view extends CI_Controller{
             $result['login_status'] =$login_status;
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
+            $result['paging_links'] = $this->pagination->create_links();
             echo $this->load->view("classified/jobs_view_search",$result);
         }
         
