@@ -5664,6 +5664,10 @@ display: inline-block;
 text-align: center;
 margin-left: -1px;
 }
+.bedge_right{
+	color: #777 !important;
+	float: right;
+}
 
 .deal_border{
 	border: 3px solid rgb(99, 201, 136);
@@ -5861,7 +5865,4 @@ ul.sidebar-gallery {
   border-radius: 4px;
   display: inline-block;
 }
-
-
-
 
