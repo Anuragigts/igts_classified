@@ -24,8 +24,8 @@
 		});
 	</script>
 	
-	<link rel="stylesheet" href="libs/slider.css">
-	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
 		jssor_1_slider_init = function() {
@@ -90,8 +90,507 @@
 			//responsive code end
 		};
 	</script>
+	<script type="text/javascript">
+	  $(function(){
+	  	/*a toz search*/
+	  	$(".dealtitle_sort").change(function(){
+	  		var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+	  			var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+		/*price asc / desc search*/
+	  	$(".price_sort").change(function(){
+	  		var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+	  			var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+		/*recent days*/
+		$(".recentdays_sort").change(function(){
+			var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+		/*bus/consumer search*/
+		$(".search_bustype").change(function(){
+			var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+			var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+		/*seller search*/
+		$(".seller_deals").change(function(){
+			var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+		/*deal urgent*/
+		$(".dealurgent").click(function(){
+			var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+			/*women list*/
+			$(".babyboy_list").click(function(){
+				var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+			/*search location */
+			$("#find_location").click(function(){
+				var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+				var latt = $("#latt").val();
+				var longg = $("#longg").val();
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+	/*clear search location */
+			$("#clear_location").click(function(){
+				var babyboy_list = [];
+				$("input[name='babyboy_list[]']:checked").each( function () {
+					 var babyboy = $(this).val();
+					 	 babyboy_list.push(babyboy);
+					 
+				});
+				$("#find_loc").val('');
+				var latt = '';
+				var longg = '';
+				var recentdays = $(".recentdays_sort option:selected").val();
+				var dealprice = $(".price_sort option:selected").val();
+				var dealtitle = $(".dealtitle_sort option:selected").val();
+        		var pckg_list = [];
+        		var urgent = '';
+        		$("input[name='dealurgent[]']:checked").each( function () {
+					 var pck = $(this).val();
+					 if (pck == 'urgent') {
+					 	urgent = pck;
+					 }
+					 else{
+					 	 pckg_list.push(pck);
+					 }
+				     
+				});
+				var seller_deals = [];
+				$("input[name='seller_deals[]']:checked").each( function () {
+					 var seller = $(this).val();
+					 	 seller_deals.push(seller);
+					 
+				});
+				var bustype = $("input[name=search_bustype]:checked").val();
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>baby_boy_view/search_filters",
+					data: {
+						babyboy_list: babyboy_list,
+						seller_deals: seller_deals,
+						bustype: bustype,
+						pckg_list: pckg_list,
+						urgent: urgent,
+						dealtitle: dealtitle,
+						dealprice: dealprice,
+						recentdays: recentdays,
+						latt: latt,
+						longg: longg
+					},
+					success: function (data) {
+						$(".babyboyresult").html(data);
+					}
+				})
+        	});
+	  });
+	  </script>
+	<?php foreach ($busconcount as $countval) {
+	  	$allbustype = $countval->allbustype;
+	  	$business = $countval->business;
+	  	$consumer = $countval->consumer;
+	  }
+	  foreach ($deals_pck as $pckval) {
+	  	$urgentcnt = $pckval->urgentcount;
+	  	$platinumcnt = $pckval->platinumcount;
+	  	$goldcnt = $pckval->goldcount;
+	  	$freecnt = $pckval->freecount;
+	  }
+	  foreach ($sellerneededcount as $sncnt) {
+	  	$offered = $sncnt->offered;
+	  	$needed = $sncnt->needed;
+	  	$charity = $sncnt->charity;
+	  }
+	  foreach ($public_adview as $publicview) {
+	  	$left_ad1 = $publicview->sidead_one;
+	  	$topad = $publicview->topad;
+	  	$mid_ad = $publicview->mid_ad;
+	  }
+	  foreach ($babyboy_list_count as $babyboy_list_countval) {
+	  	$cloths = $babyboy_list_countval->clothes;
+	  	$accessories = $babyboy_list_countval->accessories;
+	  }
+	  ?>
 	  
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
 	<div class="section-title-01">
@@ -112,7 +611,7 @@
 					<div class="container pad_bott_50">
 						<div class="row">
 							<div class="col-md-10 col-sm-8 col-md-offset-1">
-								<img src="<?php echo base_url(); ?>img/slide/ban5.jpg" alt="add" title="Adds">
+								<?php echo $topad; ?>
 							</div>
 						</div>
 					</div>
@@ -129,96 +628,12 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Clothing
+													<input type="checkbox" class='babyboy_list' name="babyboy_list[]" value="373" >
+													<i></i> Clothing (<?php echo $cloths; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Accessories
-												</label>
-											</div>
-										</div>
-									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed"> Price Range</h4>
-										<div class="range1">
-											<input type="range" name="range" min="0" max="25000" step="50" value="5000">
-											<output for="range" class="price_output"></output>
-										</div>
-									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Style</h4>
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Ethnic Wear 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Formal Wear
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Inner-wear
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Winter Wear
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Sports Wear
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
-												</label>
-											</div>
-										</div>
-									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Accessory Type</h4>
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Belts
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Purses
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Sunglasses
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Wallets
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Wristbands
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Bandana
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Caps
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Clutches
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Tote Bag
+													<input type="checkbox" class='babyboy_list' name="babyboy_list[]" value="374" >
+													<i></i> Accessories (<?php echo $accessories; ?>)
 												</label>
 											</div>
 										</div>
@@ -230,107 +645,51 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> All 
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Offered" >
+													<i></i> Offered (<?php echo $offered; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Trade
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" >
+													<i></i> Needed (<?php echo $needed; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Private
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Charity" >
+													<i></i> Charity (<?php echo $charity; ?>)
+												</label>
+											</div>
+										</div> 
+									</div>
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed">Deal Type</h4>
+
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div>
+												<label class="radio">
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
+													<i></i> All (<?php echo $allbustype; ?>)
+												</label>
+												<label class="radio">
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
+													<i></i> Business (<?php echo $business; ?>)
+												</label>
+												<label class="radio">
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
+													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
 										</div>
 									</div>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deals posted in</h4>
-
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 1 Month
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 2 Month
-												</label>
-											</div>
-										</div>
-									</div> 
-									
-									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Location</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Madhapur
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Banjara Hills
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> madhapur
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Secunderabad 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Kachiguda 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> JNTU 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> KPHP 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Jubilee Hills 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lakdikapul
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Khairatabad
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Dilsukhnagar
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
-												</label>
+											<div class="input">
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc">
+												<input type='hidden' name='latt' id='latt' value='' >
+												<input type='hidden' name='longg' id='longg' value='' >
+												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
+												<button class="btn btn-primary sm-btn pull-right clear_location" id='clear_location' >Clear</button>
 											</div>
 										</div>
 									</div> 
@@ -341,33 +700,28 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Urgent Deals 
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
+													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Feature Deals
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
+													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Deals With Pictures
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
+													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
+													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
-										</div> 
-									</div> 
-								</div>
-								<div class="row top_20">
-									<div class="col-sm-12">
-										<img src="<?php echo base_url(); ?>img/slide/right_ad.jpg" alt="add" title="Adds">
+										</div>
 									</div>
 								</div>
 								<div class="row top_20">
 									<div class="col-sm-12">
-										<img src="<?php echo base_url(); ?>img/slide/right_ad.jpg" alt="add" title="Adds">
+										<?php echo $left_ad1; ?>
 									</div>
 								</div>
 							</div>
@@ -377,7 +731,7 @@
 							<div class="col-md-9">
                                 <div class="sort-by-container tooltip-hover">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-12">
                                             <strong>Sort by:</strong>
                                             <ul>                            
                                                 <li>
@@ -398,10 +752,10 @@
 												<li>
 													<div class="top_bar_top">
 														<label class="input select">
-															<select name="star">
-																<option value="none" selected disabled="">Select Name</option>
-																<option value="5">A to Z</option>
-																<option value="4">Z to A</option>
+															<select name="dealtitle_sort" class="dealtitle_sort">
+																<option value="Any">Any</option>
+																<option value="atoz">A to Z</option>
+																<option value="ztoa">Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -410,721 +764,43 @@
 												<li>
 													<div class="top_bar_top">
 														<label class="input select">
-															<select name="star">
-																<option value="none" selected disabled="">Select Price</option>
-																<option value="5">Sort Ascending</option>
-																<option value="4">Sort Descending</option>
+															<select name="price_sort" class="price_sort">
+																<option value="Any">Any(Pricing)</option>
+																<option value="lowtohigh">Low to High</option>
+																<option value="hightolow">High to Low</option>
 															</select>
 															<i></i>
 														</label>
 													</div>
                                                 </li>
+                                                <li>
+													<div class="top_bar_top">
+														<label class="input select">
+																<select name="recentdays_sort" class="recentdays_sort">
+																	<option value="Any">Any(posted on)</option>
+																	<option value="last24hours">Last 24 Hours</option>
+																	<option value="last3days">Last 3 Days</option>
+																	<option value="last7days">Last 7 Days</option>
+																	<option value="last14days">Last 14 Days</option>
+																	<option value="last1month">Last 1 month</option>
+																</select>
+																<i></i>
+															</label>
+													</div>
+												</li>
 											</ul>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <ul class="style-view">
-                                                <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-                                                    <a href="">
-                                                        <i class="fa fa-th-large"></i>
-                                                    </a>
-                                                </li>
-                                                <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-                                                    <a href="baby_boy_view">
-                                                        <i class="fa fa-list"></i>
-                                                    </a>
-                                                </li> 
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- sort-by-container-->
 
-                                <div class="row list_view_searches">
-                                    <!-- platinum+urgent package start -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
-													<div class="xuSlider">
-														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-														</ul>
-														<div class="direction-nav">
-															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-															<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-														</div>
-														<div class="control-nav">
-															<li data-id="1"><a href="javascript:;">1</a></li>
-															<li data-id="2"><a href="javascript:;">2</a></li>
-															<li data-id="3"><a href="javascript:;">3</a></li>
-															<li data-id="4"><a href="javascript:;">4</a></li>
-															<li data-id="5"><a href="javascript:;">5</a></li>
-														</div>	
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
+                                <div class="row list_view_searches babyboyresult">
+                                	<?php echo $this->load->view("classified/baby_boy_view_search"); ?> 
+								</div>
+								<div class='row'>
+									<div class='col-md-12'>
+										<?php echo $paging_links; ?>
 									</div>
-									<!-- platinum+urgent package end -->
-									
-									<!-- platinum package start-->
-                                    <div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="xuSlider">
-														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-														</ul>
-														<div class="direction-nav">
-															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-															<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-														</div>
-														<div class="control-nav">
-															<li data-id="1"><a href="javascript:;">1</a></li>
-															<li data-id="2"><a href="javascript:;">2</a></li>
-															<li data-id="3"><a href="javascript:;">3</a></li>
-															<li data-id="4"><a href="javascript:;">4</a></li>
-															<li data-id="5"><a href="javascript:;">5</a></li>
-														</div>	
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- platinum package end -->
-
-									<!-- gold+urgent package starts -->
-									<div class="col-md-12">
-										<div class="first_list gold_bgcolor">
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
-													<div class="img-hover view_img">
-														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="gold_icon"></span>
-																	</div>
-																</div-->
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom gold_bgcolor">
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- gold+urgent package end -->
-									
-									<!-- gold package starts -->
-									<div class="col-md-12">
-										<div class="first_list gold_bgcolor">
-											<div class="row">
-												<div class="col-sm-4 ">
-													<div class="img-hover view_img">
-														<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom gold_bgcolor">
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- gold package end -->
-									
-									<!-- free+urgent package starts -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
-													<div class="img-hover">
-														<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- free+urgent package ends -->
-									
-									<!-- free package starts -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- free package ends -->
-
-									<!-- free Add Start -->
-									<div class="col-md-8 col-md-col-2" style="height: 110px;">
-										<img src="<?php echo base_url(); ?>img/slide/adds.jpg" alt="add" title="Adds">
-									</div>
-									<!-- free Add ends -->
-
-									<!-- free package starts -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- free package ends -->
 								</div>
 							</div>
 						</div>
@@ -1135,20 +811,20 @@
 	</section>
 	
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 	<script>
 		$('.xuSlider').xuSlider();
 	</script>
 	
-	<script src="js/jquery.nicescroll.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-	<script src="libs/jquery.mixitup.min.js"></script>
-	<script src="libs/main.js"></script>	
+	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+	<script src="<?php echo base_url(); ?>libs/main.js"></script>

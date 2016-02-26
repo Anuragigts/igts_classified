@@ -16,7 +16,7 @@ class  Boys_view extends CI_Controller{
                 $config = array();
             $config['base_url'] = base_url().'boys_view/index';
             $config['total_rows'] = count($this->classifed_model->count_boys_view());
-            $config['per_page'] = 1;
+            $config['per_page'] = 2;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
@@ -83,7 +83,7 @@ class  Boys_view extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'boys_view/search_filters';
             $config['total_rows'] = count($men_view_search);
-            $config['per_page'] = 1;
+            $config['per_page'] = 2;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:black; font-weight: bold;">';
