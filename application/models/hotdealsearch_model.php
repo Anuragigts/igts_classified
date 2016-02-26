@@ -2661,7 +2661,7 @@ class hotdealsearch_model extends CI_Model{
 
         /*clothstyles seller and needed count*/
         public function sellerneeded_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();
@@ -2669,42 +2669,42 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function sellerneeded_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_boyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.sub_cat_id = 22 AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 22 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 22 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 22 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function sellerneeded_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Offered' AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS offered,
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
 			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
         	$rs = $this->db->get();

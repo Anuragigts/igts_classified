@@ -589,7 +589,7 @@
 	  	$freecnt = $pckval->freecount;
 	  }
 	  foreach ($sellerneededcount as $sncnt) {
-	  	$offered = $sncnt->offered;
+	  	$seller = $sncnt->seller;
 	  	$needed = $sncnt->needed;
 	  	$charity = $sncnt->charity;
 	  }
@@ -665,8 +665,8 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Offered" >
-													<i></i> Offered (<?php echo $offered; ?>)
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" >
+													<i></i> Seller (<?php echo $seller; ?>)
 												</label>
 												<label class="checkbox">
 													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" >
