@@ -64,7 +64,7 @@
 		</script>
 		<?php
 		$fav_list = [];
-		if (!empty($favourite_list)) {
+		if (!empty($favourite_list )) {
 			foreach ($favourite_list as $favourite_list1) {
 				array_push($fav_list, $favourite_list1->ad_id);
 			}
@@ -73,8 +73,8 @@
 		 ?>
 		<!-- platinum+urgent package start -->
                                     <?php
-                                    $jobs_result1 = array_chunk($jobs_result, 10);
-                                     foreach ($jobs_result1 as $sval1) {
+                                    $womenview_result1 = array_chunk($womenview_result, 10);
+                                     foreach ($womenview_result1 as $sval1) {
                                      foreach ($sval1 as $sval) {
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
@@ -197,6 +197,9 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
+																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -336,6 +339,9 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
+																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -459,6 +465,9 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
+																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -579,6 +588,9 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
+																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -696,6 +708,9 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
+																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -761,6 +776,7 @@
 																	</div>
 																</div>
 																<?php } ?>
+																
 															</div>
 															<div class="row">
 																<div class="col-xs-4">
@@ -810,6 +826,9 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
+																</div>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -846,3 +865,5 @@
 									<!-- free Add ends -->
 									<?php } ?>
 									<!-- free package ends -->
+
+				

@@ -13,10 +13,9 @@ class  Services_view extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
-             $services_view = $this->classifed_model->count_services_view();
             $config = array();
             $config['base_url'] = base_url().'services_view/index';
-            $config['total_rows'] = count($services_view);
+            $config['total_rows'] = count($this->classifed_model->count_services_view());
             $config['per_page'] = 10;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
