@@ -17,7 +17,7 @@ class  Deals_administrator_box extends CI_Controller{
 				
 				$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
 				
-                $my_ads = $this->classifed_model->my_ads();
+                $my_ads = $this->classifed_model->my_ads_box();
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deals_administrator_box",
