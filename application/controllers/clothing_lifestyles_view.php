@@ -146,20 +146,20 @@ class  Clothing_lifestyles_view extends CI_Controller{
                 }
             }
              $services_view = $this->hotdealsearch_model->count_clothstyle_search();
+             // echo count($services_view);
             $config = array();
             $config['base_url'] = base_url().'clothing_lifestyles_view/search_filters';
             $config['total_rows'] = count($services_view);
             $config['per_page'] = 2;
-             $config['next_link'] = 'Next';
-              $config['prev_link'] = 'Previous';
+            $config['next_link'] = 'Next';
+            $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:black; font-weight: bold;">';
             $config['full_tag_close'] ='<div>';
             $this->pagination->initialize($config);
-            // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $cur_url = end(explode("/", $this->input->post('curr_url')));
+            $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $search_option = array(
                 'limit' =>$config['per_page'],
-                'start' =>$cur_url
+                'start' =>$page
                 );
         
             if ($this->session->userdata('login_id') == '') {

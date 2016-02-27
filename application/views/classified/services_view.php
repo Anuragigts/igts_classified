@@ -111,7 +111,16 @@
 	  	$mid_ad = $publicview->mid_ad;
 	  }
 	   ?>
-	   <!-- map on model -->
+	  <!-- map on model -->
+	   <script type="text/javascript">
+		$(function(){
+			$(".loc_map").click(function(){
+				var val = $(".loc_map").attr("id");
+				var val1 = val.split(",");
+				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+			});
+		});
+		</script>
 	   <script type="text/javascript">
 		$(document).ready(
 			    function()
@@ -203,7 +212,7 @@
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>services_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
-			<input type='hidden' class='curr_url' value='<?php echo current_url();?>'>
+			<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">

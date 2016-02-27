@@ -40,6 +40,16 @@
             });
         });
 	</script>
+	<!-- map on model -->
+	   <script type="text/javascript">
+		$(function(){
+			$(".loc_map").click(function(){
+				var val = $(".loc_map").attr("id");
+				var val1 = val.split(",");
+				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+			});
+		});
+		</script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
 		jssor_1_slider_init = function() {
@@ -199,6 +209,7 @@
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<form id="j-forms2" action="<?php echo base_url(); ?>Clothing_lifestyles_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+			<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
@@ -396,6 +407,23 @@
 			</div>
 		</form>
 	</section>
+	<!--MAP Modal -->
+	<div class="modal fade" id="map_location" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<!-- <form action="#" method="post" class="j-forms " > -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Map Location</h2>
+					</div>
+					<div class="modal-body map_show">
+						
+					</div>
+				</div>
+			<!-- </form> -->
+		</div>
+	</div>
 	
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 

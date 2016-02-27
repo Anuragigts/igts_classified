@@ -229,60 +229,6 @@ class  Services_view extends CI_Controller{
                 
 
 }
-        public function search_filters2(){
-            echo "<pre>";
-            print_r($this->input->post()); exit;
-             $services_view = $this->hotdealsearch_model->count_servicesprof_search();
-             echo count($services_view);
-            $config = array();
-            $config['base_url'] = base_url().'services_view/search_filters';
-            $config['total_rows'] = count($services_view);
-            $config['per_page'] = 10;
-             $config['next_link'] = 'Next';
-              $config['prev_link'] = 'Previous';
-            $config['full_tag_open'] ='<div id="pagination" style="color:black; font-weight: bold;">';
-            $config['full_tag_close'] ='<div>';
-            $this->pagination->initialize($config);
-            // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $cur_url = end(explode("/", $this->input->post('curr_url')));
-            $search_option = array(
-                'limit' =>$config['per_page'],
-                'start' =>$cur_url
-                );
-        // $services_view = $this->classifed_model->services_view($search_option);
-
-
-
-            if ($this->session->userdata('login_id') == '') {
-                    $login_status = 'no';
-                    $login = '';
-                    $favourite_list = array();
-                }
-                else{
-                    $login_status = 'yes';
-                    $login = $this->session->userdata('login_id');
-                    $favourite_list = $this->classifed_model->favourite_list();
-                }
-            /*location list*/
-             $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->servicesprof_search($search_option);
-             if (!empty($rs)) {
-                foreach ($rs as $sview) {
-                        $loginid = $sview->login_id;
-                    }
-             }
-            $result['service_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
-            $result['log_name'] = $log_name;
-            $result['public_adview'] = $public_adview;
-            $result['loc_list'] = $loc_list;
-            $result['login_status'] =$login_status;
-            $result['login'] = $login;
-            $result['favourite_list']=$favourite_list;
-            $result['paging_links'] = $this->pagination->create_links();
-            $this->load->view("classified/services_view_search",$result);
-        }
         
 }
 
