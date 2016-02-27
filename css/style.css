@@ -5866,3 +5866,6 @@ ul.sidebar-gallery {
   display: inline-block;
 }
 
+.flow_chart{
+	background-image: url("../img/flowchart.jpg");
+}

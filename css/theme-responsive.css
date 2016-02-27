@@ -286,6 +286,15 @@
 	.image-boxed a.more-boxe{
 		top: 60%;
 	}
+	.filter-header .input-large {
+		width: 51%;
+	}
+	.selector1 select {
+		width: 208px;
+	}
+	.slider-horizontal{
+		width:158px;
+	}
 }
 /* ---------------------------------------------------------------------- */
 /*	 Version 480px
@@ -314,7 +323,7 @@
 }
 @media handheld, only screen and (max-width: 320px) {
 	.portfolioFilter a {
-		font-size: 9px;
+		font-size: 6px;
 	}
 	.post_deal_bor {
 		border: 2px solid rgb(155, 147, 147);
