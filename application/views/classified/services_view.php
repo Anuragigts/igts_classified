@@ -113,526 +113,67 @@
 	   ?>
 	   <!-- map on model -->
 	   <script type="text/javascript">
-		$(function(){
-			$(".loc_map").click(function(){
-				var val = $(".loc_map").attr("id");
-				var val1 = val.split(",");
-				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
-			});
-		});
-		</script>
-
-		<!-- search filters -->
-		<script type="text/javascript">
-		$(function(){
-			$(".prof_service").click(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for professional category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var curr_url = $(".curr_url").val();
-				// alert(curr_url);
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						curr_url: curr_url,
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-        	$(".pop_service").click(function(){
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var recentdays = $(".recentdays_sort option:selected").val();
-				/*deal search for popular category */
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-        	/*business type */
-        	$(".search_bustype").click(function(){
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var recentdays = $(".recentdays_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		if ($("input:radio[name=search_bustype]").is(":checked")){
-        			var bustype = $("input[name=search_bustype]:checked").val();
-        		}
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-        	/*search only urgent / platinum / gold / free*/
-        	$(".dealurgent").click(function(){
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var recentdays = $(".recentdays_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-
-		/*search ato z / A to Z*/
-			$(".dealtitle_sort").change(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".price_sort").change(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".recentdays_sort").change(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-	/*search location */
-			$("#find_location").click(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-	/*clear search location */
-			$("#clear_location").click(function(){
-				$("#find_loc").val('');
-				var latt = '';
-				var longg = '';
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-
-	/*seller or needed for services*/
-	$(".seller_deals").change(function(){
-			var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-					});
-			var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				/*deal search for popular category */
-        		var profpop_list = [];
-        		$("input[name='prof_service[]']:checked").each( function () {
-					 var prof = $(this).val();
-				     profpop_list.push(prof); 
-				});
-        		$("input[name='pop_service[]']:checked").each( function () {
-					 var pop = $(this).val();
-				     profpop_list.push(pop); 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>services_view/search_filters",
-					data: {
-						seller_deals: seller_deals,
-						profpop_list: profpop_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-			});
-
-		});
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			               /* if( $(this).is(":checked") )
+			                {*/
+			                	 // alert('checked');
+			                	 //$("form[name='jforms']").submit();
+			                    $("form.jforms").submit();
+			               // }
+			            }
+			        )
+			        $('input:radio').click(function() {
+			        	// alert('radio');
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+			        	alert($('.dealtitle_sort').val());
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.price_sort').change(function() {
+			        	alert($('.price_sort').val());
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+			        	alert($('.recentdays_sort').val());
+							$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+			    }
+			);
 		</script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
-	 <?php foreach ($busconcount as $countval) {
+	 <?php 
+			$prof_service = $this->session->userdata('prof_service');
+			$pop_service = $this->session->userdata('pop_service');
+			$seller_deals = $this->session->userdata('seller_deals');
+			$dealurgent = $this->session->userdata('dealurgent');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealprice = $this->session->userdata('dealprice');
+			$recentdays = $this->session->userdata('recentdays');
+			$search_bustype = $this->session->userdata('search_bustype');
+			$location = $this->session->userdata('location');
+			$latt = $this->session->userdata('latt');
+			$longg = $this->session->userdata('longg');
+
+
+
+	 foreach ($busconcount as $countval) {
 	  	$allbustype = $countval->allbustype;
 	  	$business = $countval->business;
 	  	$consumer = $countval->consumer;
@@ -661,7 +202,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>services_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
 			<input type='hidden' class='curr_url' value='<?php echo current_url();?>'>
 			<div class="content_info">
 				<div class="paddings">
@@ -687,7 +228,7 @@
 											<div id="limit_scrol">
 												<?php  foreach ($services_sub_prof as $subprof) { ?>
 												<label class="checkbox">
-													<input type="checkbox" name="prof_service[]" class='prof_service' value="<?php echo $subprof->sub_subcategory_id; ?>" >
+													<input type="checkbox" name="prof_service[]" class='prof_service' value="<?php echo $subprof->sub_subcategory_id; ?>" <?php if(isset($prof_service) && in_array($subprof->sub_subcategory_id,$prof_service)){ echo 'checked = checked';}?> >
 													<i></i> <?php echo ucwords($subprof->sub_subcategory_name)." (".$subprof->no_ads.")"; ?>
 												</label>
 												<?php } ?>
@@ -701,7 +242,7 @@
 											<div id="limit_scrol">
 												<?php  foreach ($services_sub_pop as $subpop) { ?>
 												<label class="checkbox">
-													<input type="checkbox" name="pop_service[]" class="pop_service" value="<?php echo $subpop->sub_subcategory_id; ?>" >
+													<input type="checkbox" name="pop_service[]" class="pop_service" value="<?php echo $subpop->sub_subcategory_id; ?>" <?php if(isset($pop_service) && in_array($subpop->sub_subcategory_id,$pop_service)) echo 'checked = checked';?> >
 													<i></i> <?php echo ucwords($subpop->sub_subcategory_name)." (".$subpop->no_ads.")"; ?>
 												</label>
 												<?php } ?>
@@ -714,11 +255,11 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="service_provider" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_provider',$seller_deals)) echo 'checked = checked';?> value="service_provider" >
 													<i></i> Service provider (<?php echo $seller; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="service_needed" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_needed',$seller_deals)) echo 'checked = checked';?> value="service_needed" >
 													<i></i> Service Needed (<?php echo $needed; ?>)
 												</label>
 											</div>
@@ -730,15 +271,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?>  >
 													<i></i> All (<?php echo $allbustype; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
 													<i></i> Business (<?php echo $business; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
 													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
@@ -750,11 +291,11 @@
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div class="input">
-												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc">
-												<input type='hidden' name='latt' id='latt' value='' >
-												<input type='hidden' name='longg' id='longg' value='' >
-												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
-												<button class="btn btn-primary sm-btn pull-right clear_location" id='clear_location' >Clear</button>
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
+												<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
+												<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
+												<button type='submit' class="btn btn-primary sm-btn pull-right find_location" name='find_location' id='find_location' >Find</button>
+												<button class="btn btn-primary sm-btn pull-right clear_location" name='clear_location' id='clear_location' >Clear</button>
 											</div>
 										</div>
 									</div> 
@@ -765,19 +306,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" <?php if(isset($dealurgent) && in_array('urgent',$dealurgent)){ echo 'checked = checked';}?>>
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum"<?php if(isset($dealurgent) && in_array('platinum',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold"<?php if(isset($dealurgent) && in_array('gold',$dealurgent)){ echo 'checked = checked';}?>>
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" <?php if(isset($dealurgent) && in_array('free',$dealurgent)){ echo 'checked = checked';}?>>
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
@@ -818,9 +359,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="dealtitle_sort" class="dealtitle_sort">
-																<option value="Any">Any</option>
-																<option value="atoz">A to Z</option>
-																<option value="ztoa">Z to A</option>
+																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -830,9 +371,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="price_sort" class="price_sort">
-																<option value="Any">Any(Pricing)</option>
-																<option value="lowtohigh">Low to High</option>
-																<option value="hightolow">High to Low</option>
+																<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+																<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+																<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 															</select>
 															<i></i>
 														</label>
@@ -842,12 +383,12 @@
 													<div class="top_bar_top">
 														<label class="input select">
 																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any">Any(posted on)</option>
-																	<option value="last24hours">Last 24 Hours</option>
-																	<option value="last3days">Last 3 Days</option>
-																	<option value="last7days">Last 7 Days</option>
-																	<option value="last14days">Last 14 Days</option>
-																	<option value="last1month">Last 1 month</option>
+																	<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																	<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																	<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																	<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																	<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																	<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
 																</select>
 																<i></i>
 															</label>
@@ -861,12 +402,13 @@
 								
 								<div class="row search_result">
                                	  <?php echo $this->load->view("classified/services_view_search"); ?> 
-                               	</div>
-								<div class='row'>
+                               	  <!-- <div class='row'>
 									<div class='col-md-12'>
 										<?php echo $paging_links; ?>
 									</div>
-								</div>
+								  </div> -->
+                               	</div>
+								
 							</div>
 						</div>
 					</div>

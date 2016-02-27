@@ -289,9 +289,15 @@ class hotdealsearch_model extends CI_Model{
 
         /*services search fo prof sub category*/
         public function servicesprof_search($data){
-        	$profpop = $this->input->post('profpop_list');
-        	$pck = $this->input->post('pckg_list');
-        	$seller = $this->input->post('seller_deals');
+        	$profpop = array_merge($this->session->userdata('prof_service'),$this->session->userdata('pop_service'));
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -301,62 +307,63 @@ class hotdealsearch_model extends CI_Model{
 			if (!empty($profpop)) {
 				$this->db->where_in('ad.sub_scat_id', $profpop);
 			}
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
+			if (!empty($dealurgent)) {
+				if (in_array("urgent", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '');
+				}else {
+					$this->db->where_in('ad.package_type', $dealurgent);
+					$this->db->where('ad.urgent_package =', '');
+				}
 			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
-			}
-
+			
 			/*seller search*/
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
 			}
 
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 
 			$this->db->group_by(" img.ad_id");
 				/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					/*deal price ascending or descending*/
-					if ($this->input->post("dealprice") == 'lowtohigh'){
+					if ($dealprice == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
-					else if ($this->input->post("dealprice") == 'hightolow'){
+					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
@@ -364,7 +371,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			// $this->db->order_by('dtime', 'DESC');
 			// $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
-					$m_res = $this->db->get('postad AS ad',$data['limit']);
+					$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -376,9 +383,15 @@ class hotdealsearch_model extends CI_Model{
 
         /*count of searched filters for services*/
         public function count_servicesprof_search(){
-        	$profpop = $this->input->post('profpop_list');
-        	$pck = $this->input->post('pckg_list');
-        	$seller = $this->input->post('seller_deals');
+        	$profpop = array_merge($this->session->userdata('prof_service'),$this->session->userdata('pop_service'));
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -389,18 +402,19 @@ class hotdealsearch_model extends CI_Model{
 			if (!empty($profpop)) {
 				$this->db->where_in('ad.sub_scat_id', $profpop);
 			}
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
-			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
+			if (!empty($dealurgent)) {
+				if (in_array("urgent", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '');
+				}else {
+					$this->db->where_in('ad.package_type', $dealurgent);
+					$this->db->where('ad.urgent_package =', '');
+				}
 			}
 
 			/*seller search*/
@@ -409,42 +423,42 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 
 			$this->db->group_by(" img.ad_id");
 				/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					/*deal price ascending or descending*/
-					if ($this->input->post("dealprice") == 'lowtohigh'){
+					if ($dealprice == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
-					else if ($this->input->post("dealprice") == 'hightolow'){
+					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
@@ -457,9 +471,14 @@ class hotdealsearch_model extends CI_Model{
 
         /*count of searched filters for clothstyles*/
         public function count_clothstyle_search(){
-        	// $profpop = $this->input->post('profpop_list');
-        	$pck = $this->input->post('pckg_list');
-        	$seller = $this->input->post('seller_deals');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -467,21 +486,19 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "clothing_&_lifestyles");
-			// if (!empty($profpop)) {
-			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
-			// }
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
-			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
+			if (!empty($dealurgent)) {
+				if (in_array("urgent", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '');
+				}else {
+					$this->db->where_in('ad.package_type', $dealurgent);
+					$this->db->where('ad.urgent_package =', '');
+				}
 			}
 
 			/*seller search*/
@@ -490,42 +507,42 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 
 			$this->db->group_by(" img.ad_id");
 				/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					/*deal price ascending or descending*/
-					if ($this->input->post("dealprice") == 'lowtohigh'){
+					if ($dealprice == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
-					else if ($this->input->post("dealprice") == 'hightolow'){
+					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
@@ -553,9 +570,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function clothstyle_search($data){
-        	// $profpop = $this->input->post('profpop_list');
-        	$pck = $this->input->post('pckg_list');
-        	$seller = $this->input->post('seller_deals');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -566,18 +588,19 @@ class hotdealsearch_model extends CI_Model{
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
-			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
+			if (!empty($dealurgent)) {
+				if (in_array("urgent", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '');
+				}else {
+					$this->db->where_in('ad.package_type', $dealurgent);
+					$this->db->where('ad.urgent_package =', '');
+				}
 			}
 
 			/*seller search*/
@@ -586,49 +609,49 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 
 			$this->db->group_by(" img.ad_id");
 				/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					/*deal price ascending or descending*/
-					if ($this->input->post("dealprice") == 'lowtohigh'){
+					if ($dealprice == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
-					else if ($this->input->post("dealprice") == 'hightolow'){
+					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
         }
@@ -2766,9 +2789,9 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for services*/
         public function deals_pck_services(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'free') AS freecount");
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'platinum' AND urgent_package = '') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'gold' AND urgent_package = '') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND package_type = 'free' AND urgent_package = '') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -2816,9 +2839,9 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for findproperty*/
         public function deals_pck_clothstyle(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'free') AS freecount");
+		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'platinum' AND urgent_package = '') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'gold' AND urgent_package = '') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'free' AND urgent_package = '') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
