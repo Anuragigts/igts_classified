@@ -10,6 +10,7 @@
 		}
 		.list-styles li {
 			font-size:14px;
+			color: #777;
 		}
 	</style>
 
@@ -74,15 +75,15 @@
 								<div class="acc-container">
 									<div class="content">
 										<ul class="list-styles">
-											<li><i class="fa fa-check"></i> "Content" means the information, data, text, messages, sounds, videos, adverts, screen names, files, details, photographs, graphics, software, static and mobile images and all other material published in the print publication on the Website.</li>
-											<li><i class="fa fa-check"></i> " <a href="" target="_blank"><strong>99rightDeals.com</strong></a> " means 99rightDeals</li>
-											<li><i class="fa fa-check"></i> "Items" means all goods or services offered for rent or sale posted on the website.</li>
-											<li><i class="fa fa-check"></i> "Minor" means a person under the age of 18 years.</li>
-											<li><i class="fa fa-check"></i> "Post" means display, exhibit, upload, distribute, transmit, publish and/or disclose and the words "Posted" and "Posting" shall be accordingly interpreted.</li>
-											<li><i class="fa fa-check"></i> "User" means any individual who holds a user account, who print adverts or is an Advertiser.</li>
-											<li><i class="fa fa-check"></i> "Services" means any or all services that we provide through www.99rightDeals.com, inclusive of, without limitation, our print publication and online marketplace.</li>
-											<li><i class="fa fa-check"></i> "Terms" refers to Terms of Use, our Cookie Policy, our Privacy Policy and any documents referred to within.</li>
-											<li><i class="fa fa-check"></i> "Website" or “site” means the web pages that are available under the domains <a href="" target="_blank"><strong>99rightDeals.com</strong></a> " and its related websites, applications and the services.</li>
+											<li><i class="fa fa-circle"></i> "Content" means the information, data, text, messages, sounds, videos, adverts, screen names, files, details, photographs, graphics, software, static and mobile images and all other material published in the print publication on the Website.</li>
+											<li><i class="fa fa-circle"></i> " <a href="" target="_blank"><strong>99rightDeals.com</strong></a> " means 99rightDeals</li>
+											<li><i class="fa fa-circle"></i> "Items" means all goods or services offered for rent or sale posted on the website.</li>
+											<li><i class="fa fa-circle"></i> "Minor" means a person under the age of 18 years.</li>
+											<li><i class="fa fa-circle"></i> "Post" means display, exhibit, upload, distribute, transmit, publish and/or disclose and the words "Posted" and "Posting" shall be accordingly interpreted.</li>
+											<li><i class="fa fa-circle"></i> "User" means any individual who holds a user account, who print adverts or is an Advertiser.</li>
+											<li><i class="fa fa-circle"></i> "Services" means any or all services that we provide through www.99rightDeals.com, inclusive of, without limitation, our print publication and online marketplace.</li>
+											<li><i class="fa fa-circle"></i> "Terms" refers to Terms of Use, our Cookie Policy, our Privacy Policy and any documents referred to within.</li>
+											<li><i class="fa fa-circle"></i> "Website" or “site” means the web pages that are available under the domains <a href="" target="_blank"><strong>99rightDeals.com</strong></a> " and its related websites, applications and the services.</li>
 										</ul>
 									</div>
 								</div>
@@ -108,11 +109,11 @@
 										<div class="row top_10">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-check"></i> view pages from our website in a web browser; </li>
-													<li><i class="fa fa-check"></i> download pages from our website for caching in a web browser;</li>
-													<li><i class="fa fa-check"></i> print pages from our website; </li>
-													<li><i class="fa fa-check"></i> stream audio and video files from our website; and </li>
-													<li><i class="fa fa-check"></i> use  "99rightdeals" services by means of a web browser, </li>
+													<li><i class="fa fa-circle"></i> view pages from our website in a web browser; </li>
+													<li><i class="fa fa-circle"></i> download pages from our website for caching in a web browser;</li>
+													<li><i class="fa fa-circle"></i> print pages from our website; </li>
+													<li><i class="fa fa-circle"></i> stream audio and video files from our website; and </li>
+													<li><i class="fa fa-circle"></i> use  "99rightdeals" services by means of a web browser, </li>
 												</ul>
 											</div>
 										</div>
@@ -130,11 +131,11 @@
 										<div class="row top_10">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-check"></i> republish material from our website which including republication on another website;</li>
-													<li><i class="fa fa-check"></i> sell, rent or sub-license material from our website;</li>
-													<li><i class="fa fa-check"></i> show any material from our website in public;</li>
-													<li><i class="fa fa-check"></i> exploit material from our website for a commercial purpose; or</li>
-													<li><i class="fa fa-check"></i> redistribute material from our website.</li>
+													<li><i class="fa fa-circle"></i> republish material from our website which including republication on another website;</li>
+													<li><i class="fa fa-circle"></i> sell, rent or sub-license material from our website;</li>
+													<li><i class="fa fa-circle"></i> show any material from our website in public;</li>
+													<li><i class="fa fa-circle"></i> exploit material from our website for a commercial purpose; or</li>
+													<li><i class="fa fa-circle"></i> redistribute material from our website.</li>
 												</ul>
 											</div>
 										</div>
@@ -153,20 +154,20 @@
 										<div class="row top_10">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-check"></i> use our website in any way or take any action that causes, or may cause, damage to the website or impairment of the performance, availability or accessibility of the website;</li>
-													<li><i class="fa fa-check"></i> use our website in any way that is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity;</li>
-													<li><i class="fa fa-check"></i> use our website to copy, store, host, transmit, send, use, upload, publish or distribute any material which consists of (or is linked to) any ,misleading, false, defamatory, inaccurate or denigratory content, spyware, computer virus, Trojan horse, worm, keystroke logger, root kit or other malicious computer software, files or codes designed to interrupt, destroy, damage, or limit the functionality of any telecommunications equipment or computer software or hardware ;</li>
-													<li><i class="fa fa-check"></i> conduct any systematic or automated data collection activities (including without limitation scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent;</li>
-													<li><i class="fa fa-check"></i> access or otherwise interact with our website using any robot, spider or other automated means;</li>
-													<li><i class="fa fa-check"></i> violate the directives set out in the robots.txt file for our website;</li>
-													<li><i class="fa fa-check"></i> use data collected from our website for any direct marketing activity (including without limitation email marketing, SMS marketing, telemarketing and direct mailing).</li>
-													<li><i class="fa fa-check"></i> sell any fake items or otherwise contravene the trademark, copyright or other rights of third parties; </li>
-													<li><i class="fa fa-check"></i> post content in violation of relevant guidelines to advertising standards, laws or regulations; </li>
-													<li><i class="fa fa-check"></i> use our Services if you are temporarily or indefinitely suspended from using our Services or are not able to form legally binding contracts (for example if you are under 18); </li>
-													<li><i class="fa fa-check"></i> post or distribute unsolicited, spam or bulk electronic communications, pyramid schemes or chain letters; </li>
-													<li><i class="fa fa-check"></i> place those links on the Website which take users to material that contravenes these Terms or unlawful material;</li>
-													<li><i class="fa fa-check"></i> copy, modify, reproduce, create derivative works from, reverse engineer, distribute, perform or publicly display any content (except for your information) from our Services without the prior express written permission of the Website and the appropriate third party, as applicable; </li>
-													<li><i class="fa fa-check"></i> evade any technical measures we use to provide the Services;</li>
+													<li><i class="fa fa-circle"></i> use our website in any way or take any action that causes, or may cause, damage to the website or impairment of the performance, availability or accessibility of the website;</li>
+													<li><i class="fa fa-circle"></i> use our website in any way that is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity;</li>
+													<li><i class="fa fa-circle"></i> use our website to copy, store, host, transmit, send, use, upload, publish or distribute any material which consists of (or is linked to) any ,misleading, false, defamatory, inaccurate or denigratory content, spyware, computer virus, Trojan horse, worm, keystroke logger, root kit or other malicious computer software, files or codes designed to interrupt, destroy, damage, or limit the functionality of any telecommunications equipment or computer software or hardware ;</li>
+													<li><i class="fa fa-circle"></i> conduct any systematic or automated data collection activities (including without limitation scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent;</li>
+													<li><i class="fa fa-circle"></i> access or otherwise interact with our website using any robot, spider or other automated means;</li>
+													<li><i class="fa fa-circle"></i> violate the directives set out in the robots.txt file for our website;</li>
+													<li><i class="fa fa-circle"></i> use data collected from our website for any direct marketing activity (including without limitation email marketing, SMS marketing, telemarketing and direct mailing).</li>
+													<li><i class="fa fa-circle"></i> sell any fake items or otherwise contravene the trademark, copyright or other rights of third parties; </li>
+													<li><i class="fa fa-circle"></i> post content in violation of relevant guidelines to advertising standards, laws or regulations; </li>
+													<li><i class="fa fa-circle"></i> use our Services if you are temporarily or indefinitely suspended from using our Services or are not able to form legally binding contracts (for example if you are under 18); </li>
+													<li><i class="fa fa-circle"></i> post or distribute unsolicited, spam or bulk electronic communications, pyramid schemes or chain letters; </li>
+													<li><i class="fa fa-circle"></i> place those links on the Website which take users to material that contravenes these Terms or unlawful material;</li>
+													<li><i class="fa fa-circle"></i> copy, modify, reproduce, create derivative works from, reverse engineer, distribute, perform or publicly display any content (except for your information) from our Services without the prior express written permission of the Website and the appropriate third party, as applicable; </li>
+													<li><i class="fa fa-circle"></i> evade any technical measures we use to provide the Services;</li>
 												</ul>
 											</div>
 										</div>
@@ -187,13 +188,13 @@
 										<div class="row top_10">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-check"></i> send you one or more formal warnings;</li>
-													<li><i class="fa fa-check"></i> temporarily suspend your access to our website;</li>
-													<li><i class="fa fa-check"></i> permanently prohibit you from accessing our website;</li>
-													<li><i class="fa fa-check"></i> block computers using your IP address from accessing our website;</li>
-													<li><i class="fa fa-check"></i> contact any or all of your internet service providers and request that they block your access to our website;</li>
-													<li><i class="fa fa-check"></i> commence legal action against you, whether for breach of contract or otherwise; and/or</li>
-													<li><i class="fa fa-check"></i> suspend or delete your account on our website.</li>
+													<li><i class="fa fa-circle"></i> send you one or more formal warnings;</li>
+													<li><i class="fa fa-circle"></i> temporarily suspend your access to our website;</li>
+													<li><i class="fa fa-circle"></i> permanently prohibit you from accessing our website;</li>
+													<li><i class="fa fa-circle"></i> block computers using your IP address from accessing our website;</li>
+													<li><i class="fa fa-circle"></i> contact any or all of your internet service providers and request that they block your access to our website;</li>
+													<li><i class="fa fa-circle"></i> commence legal action against you, whether for breach of contract or otherwise; and/or</li>
+													<li><i class="fa fa-circle"></i> suspend or delete your account on our website.</li>
 												</ul>
 											</div>
 										</div>
@@ -206,15 +207,15 @@
 								<div class="acc-container">
 									<div class="content">
 										<ul class="list-styles">
-											<li><i class="fa fa-check"></i> The fees in respect of our website services will be as set out on the website from time to time.</li>
-											<li><i class="fa fa-check"></i> All amounts stated in these terms and conditions or on our website are stated [inclusive of VAT / exclusive of VAT].</li>
-											<li><i class="fa fa-check"></i> You must pay to us the fees in respect of our website services in advance, in cleared funds, in accordance with any instructions on our website.</li>
-											<li><i class="fa fa-check"></i> We may vary fees from time to time by posting new fees on our website ,you will be notified in advance, but this will not affect fees for services that have been previously paid.</li>
-											<li><i class="fa fa-check"></i> If you dispute any payment made to us, you must contact us immediately and provide full details of your claim.</li>
-											<li><i class="fa fa-check"></i> The premium services  will not be provided (we are in no obligation to do so) unless the full amount has been paid for in advance in accordance with these Terms.</li>
-											<li><i class="fa fa-check"></i> If the services are not paid for in time, we may cancel or suspend our performance of the paid-for Services until you have paid the outstanding amounts.</li>
-											<li><i class="fa fa-check"></i> The payment method provided by you is to use our services is required to be valid. In case of failure of the payment method or if the amount is overdue, we may collect the outstanding amounts by charging other payment methods on file, retaining debt collection agencies or instigate legal proceedings.</li>
-											<li><i class="fa fa-check"></i> The payments are non-refundable and there are no refunds or credits for partially used periods. However, if there is any cancellation, you will continue to have access to the service through the end of your current billing period. We may provide a refund, discount, or other consideration to some or all of our Users  at any time, and for any reason.</li>
+											<li><i class="fa fa-circle"></i> The fees in respect of our website services will be as set out on the website from time to time.</li>
+											<li><i class="fa fa-circle"></i> All amounts stated in these terms and conditions or on our website are stated [inclusive of VAT / exclusive of VAT].</li>
+											<li><i class="fa fa-circle"></i> You must pay to us the fees in respect of our website services in advance, in cleared funds, in accordance with any instructions on our website.</li>
+											<li><i class="fa fa-circle"></i> We may vary fees from time to time by posting new fees on our website ,you will be notified in advance, but this will not affect fees for services that have been previously paid.</li>
+											<li><i class="fa fa-circle"></i> If you dispute any payment made to us, you must contact us immediately and provide full details of your claim.</li>
+											<li><i class="fa fa-circle"></i> The premium services  will not be provided (we are in no obligation to do so) unless the full amount has been paid for in advance in accordance with these Terms.</li>
+											<li><i class="fa fa-circle"></i> If the services are not paid for in time, we may cancel or suspend our performance of the paid-for Services until you have paid the outstanding amounts.</li>
+											<li><i class="fa fa-circle"></i> The payment method provided by you is to use our services is required to be valid. In case of failure of the payment method or if the amount is overdue, we may collect the outstanding amounts by charging other payment methods on file, retaining debt collection agencies or instigate legal proceedings.</li>
+											<li><i class="fa fa-circle"></i> The payments are non-refundable and there are no refunds or credits for partially used periods. However, if there is any cancellation, you will continue to have access to the service through the end of your current billing period. We may provide a refund, discount, or other consideration to some or all of our Users  at any time, and for any reason.</li>
 										</ul>
 									</div>
 								</div>
@@ -261,12 +262,12 @@
 										<div class="row top_10">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-check"></i> be libellous or maliciously false;</li>
-													<li><i class="fa fa-check"></i> be obscene or indecent;</li>
-													<li><i class="fa fa-check"></i> infringe any copyright, moral right, database right, trade mark right, design right, right in passing off, or other intellectual property right;</li>
-													<li><i class="fa fa-check"></i> infringe any right of confidence, right of privacy or right under data protection legislation;</li>
-													<li><i class="fa fa-check"></i> constitute negligent advice or contain any negligent statement;</li>
-													<li><i class="fa fa-check"></i> constitute an incitement to commit a crime[, instructions for the commission of a crime or the promotion of criminal activity];</li>
+													<li><i class="fa fa-circle"></i> be libellous or maliciously false;</li>
+													<li><i class="fa fa-circle"></i> be obscene or indecent;</li>
+													<li><i class="fa fa-circle"></i> infringe any copyright, moral right, database right, trade mark right, design right, right in passing off, or other intellectual property right;</li>
+													<li><i class="fa fa-circle"></i> infringe any right of confidence, right of privacy or right under data protection legislation;</li>
+													<li><i class="fa fa-circle"></i> constitute negligent advice or contain any negligent statement;</li>
+													<li><i class="fa fa-circle"></i> constitute an incitement to commit a crime[, instructions for the commission of a crime or the promotion of criminal activity];</li>
 												</ul>
 											</div>
 										</div>
@@ -338,9 +339,9 @@
 										<div class="row top_10">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-check"></i> the printing of the advertisement has an omission, error or inaccuracy </li>
-													<li><i class="fa fa-check"></i> If there is any kind of failure to publish an advertisement on a precise date or dates specified by the User. </li>
-													<li><i class="fa fa-check"></i> If the actual date of the publication of an advertisement, be later or earlier than the date or dates specified by the User.</li>
+													<li><i class="fa fa-circle"></i> the printing of the advertisement has an omission, error or inaccuracy </li>
+													<li><i class="fa fa-circle"></i> If there is any kind of failure to publish an advertisement on a precise date or dates specified by the User. </li>
+													<li><i class="fa fa-circle"></i> If the actual date of the publication of an advertisement, be later or earlier than the date or dates specified by the User.</li>
 												</ul>
 											</div>
 										</div>

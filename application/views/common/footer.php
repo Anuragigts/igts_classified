@@ -3,58 +3,62 @@
 	<div class="container">
 		<div class="row">
 			<!-- Title Footer-->
-			<div class="col-sm-5">
+			<div class="col-sm-4">
 				<div class="title-footer">
-					<h2>Save on your plans!
-					<br> <span>Select 99 Deals Ad</span></h2>
+					<h2>99 Right Deals 
 				</div>
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 			</div>
 			<!-- End Title Footer-->
 
-			<div class="col-sm-7">
+			<div class="col-sm-8">
 				<div class="row">                             
-					<!-- Social Us-->
-					<div class="col-sm-4">
+					<div class="col-sm-6">
 						<h3>QUICK LINKS</h3>
-						<ul class="social">
-							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
-							<li><i class="fa fa-check"></i> <a href="terms_conditions">Terms & Conditions</a></li>
-							<!--<li><i class="fa fa-check"></i> <a href="#">Privacy Policy</a></li>-->
-							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
-							<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
-						</ul>
+						<div class="row"> 
+							<div class="col-sm-6">
+								<ul class="social">
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>index">Home</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>terms_conditions">Terms & Conditions</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Cookies Policy</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Privacy Policy</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<ul class="social">
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Assistance</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Faq</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
-					<!-- End Social Us-->
 					
-					<!-- Recent links-->
-					<div class="col-sm-4">
-						<h3>99 Deals SPECIALISTS </h3>
-						<ul>
-							<li><i class="fa fa-check"></i> <a href="#">Golf Vacations</a></li>
-							<li><i class="fa fa-check"></i> <a href="#">Disney Parks Vacations</a></li>
-							<li><i class="fa fa-check"></i> <a href="#">Vacations As Advertised</a></li>
-						</ul>
+					<div class="col-sm-6">
+						<h3>EXPLORE By Category</h3>
+						<div class="row"> 
+							<div class="col-sm-6">
+								<ul class="social">
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>deal_page">Hot Deals</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">E-Zone</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Motor Point</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>clothing_lifestyles_view">Clothing & LifeStyles</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>services_view">Services</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<ul class="social">
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>residential_view">Find a Property</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>home_kitchen_view">Home & Kitchen</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>pets_view">Pets</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>job_view">Jobs</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
-					<!-- End Recent links-->
-
-					<!-- Contact Us-->
-					<div class="col-sm-4">
-					   <h3>CONTACT US</h3>
-					   <ul class="contact_footer">
-							<li>
-								<i class="fa fa-envelope"></i> <a href="#">example@example.com</a>
-							</li>
-							<li>
-								<i class="fa fa-headphones"></i> <a href="#">55-5698-4589</a>
-							 </li>
-							<li class="location">
-								<i class="fa fa-home"></i> <a href="#"> Av new stret - New York</a>
-							</li>                                   
-						</ul>
-					</div>
-					<!-- Contact Us-->
 				</div>  
 
 				<div class="divisor"></div>

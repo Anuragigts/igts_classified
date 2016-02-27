@@ -11,6 +11,10 @@
 		}
 	</style>
 	
+	<!--[if gte IE 9]><!--
+    <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+	<!--<![endif]-->
+
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
 		<div class="tp-banner" >
@@ -191,10 +195,10 @@
 			<!-- Info Resalt-->
 			<div class="">
 				<div class="row marque_sty">
-					<div class="col-md-3">
+					<div class="col-sm-3 col-xs-3 hidden-xs">
 						<img src="<?php echo base_url(); ?>img/marquee.png" class="fa fa-plane img-responsive" alt="Hot deals" title="Hot deals Heading">
 					</div>
-					<div class="col-md-9 marque_text">
+					<div class="col-sm-9 col-xs-12 marque_text">
 						<div class="ticker3 modern-ticker mt-round">
 							<div class="mt-body">
 								<div class="mt-news">
@@ -214,7 +218,6 @@
 		<section class="content_info">
 			<!-- Info Resalt-->
 			<div class="">
-				<!-- Title -->
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
@@ -222,20 +225,8 @@
 								<h2>TOP <span>CATEGORIES </span></h2>
 								<hr class="tall">
 							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="titles">
-								<h2><span>HOT </span>DEALS</h2>
-								<hr class="tall">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8">
 							<div class="row">
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
 										<div class="overlay">
@@ -244,7 +235,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 										<div class="overlay">
@@ -323,6 +314,10 @@
 							</div>
 						</div>
 						<div class="col-md-4">
+							<div class="titles">
+								<h2><span>HOT </span>DEALS</h2>
+								<hr class="tall">
+							</div>
 							<div id="page">
 								<div id="viewport">
 									<div id="box">
