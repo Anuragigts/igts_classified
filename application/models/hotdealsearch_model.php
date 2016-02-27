@@ -323,18 +323,12 @@ class hotdealsearch_model extends CI_Model{
 				}
 				if (in_array("platinum", $dealurgent)){
 					array_push($pcklist, 'platinum');
-					// $this->db->where_in('ad.package_type', $dealurgent);
-					// $this->db->where('ad.urgent_package =', '');
 				}
 				if (in_array("gold", $dealurgent)){
 					array_push($pcklist, 'gold');
-					// $this->db->where_in('ad.package_type', $dealurgent);
-					// $this->db->where('ad.urgent_package =', '');
 				}
 				if (in_array("free", $dealurgent)){
 					array_push($pcklist, 'free');
-					// $this->db->where_in('ad.package_type', $dealurgent);
-					// $this->db->where('ad.urgent_package =', '');
 				}
 				if (!empty($pcklist)) {
 					$this->db->where_in('ad.package_type', $pcklist);
@@ -429,12 +423,26 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/*package search*/
 			if (!empty($dealurgent)) {
+				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
 					$this->db->where('ad.urgent_package !=', '');
-				}else {
-					$this->db->where_in('ad.package_type', $dealurgent);
+				}
+				else{
 					$this->db->where('ad.urgent_package =', '');
 				}
+				if (in_array("platinum", $dealurgent)){
+					array_push($pcklist, 'platinum');
+				}
+				if (in_array("gold", $dealurgent)){
+					array_push($pcklist, 'gold');
+				}
+				if (in_array("free", $dealurgent)){
+					array_push($pcklist, 'free');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
 
 			/*seller search*/
@@ -513,12 +521,26 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/*package search*/
 			if (!empty($dealurgent)) {
+				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
 					$this->db->where('ad.urgent_package !=', '');
-				}else {
-					$this->db->where_in('ad.package_type', $dealurgent);
+				}
+				else{
 					$this->db->where('ad.urgent_package =', '');
 				}
+				if (in_array("platinum", $dealurgent)){
+					array_push($pcklist, 'platinum');
+				}
+				if (in_array("gold", $dealurgent)){
+					array_push($pcklist, 'gold');
+				}
+				if (in_array("free", $dealurgent)){
+					array_push($pcklist, 'free');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
 
 			/*seller search*/
@@ -615,12 +637,26 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/*package search*/
 			if (!empty($dealurgent)) {
+				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
 					$this->db->where('ad.urgent_package !=', '');
-				}else {
-					$this->db->where_in('ad.package_type', $dealurgent);
+				}
+				else{
 					$this->db->where('ad.urgent_package =', '');
 				}
+				if (in_array("platinum", $dealurgent)){
+					array_push($pcklist, 'platinum');
+				}
+				if (in_array("gold", $dealurgent)){
+					array_push($pcklist, 'gold');
+				}
+				if (in_array("free", $dealurgent)){
+					array_push($pcklist, 'free');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
 
 			/*seller search*/

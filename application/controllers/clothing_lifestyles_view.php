@@ -193,7 +193,7 @@ class  Clothing_lifestyles_view extends CI_Controller{
             $data['login'] = $login;
             $data['favourite_list']=$favourite_list;
             $data['paging_links'] = $this->pagination->create_links();
-            $data['clothstyle_list'] = $this->hotdealsearch_model->clothstyle_list();;
+            $data['clothstyle_list'] = $this->hotdealsearch_model->clothstyle_list();
            /*business and consumer count for services*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_clothstyle();
                 /*service provided / needed for services*/

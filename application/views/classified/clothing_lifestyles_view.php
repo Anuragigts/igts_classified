@@ -111,32 +111,23 @@
 			        $("input:checkbox").change(
 			            function()
 			            {
-			               /* if( $(this).is(":checked") )
-			                {*/
-			                	 alert('checked');
-			                	 //$("form[name='jforms']").submit();
 			                    $("form.jforms").submit();
-			               // }
-			            }
+			           }
 			        )
 			        $('input:radio').click(function() {
-			        	alert('radio');
-							$("form.jforms").submit();
+			        		$("form.jforms").submit();
 			            }
 			        )
 			        $('.dealtitle_sort').change(function() {
-			        	alert($('.dealtitle_sort').val());
-							$("form.jforms").submit();
+			        		$("form.jforms").submit();
 			            }
 			        )
 			        $('.price_sort').change(function() {
-			        	alert($('.price_sort').val());
-							$("form.jforms").submit();
+			        		$("form.jforms").submit();
 			            }
 			        )
 			        $('.recentdays_sort').change(function() {
-			        	alert($('.recentdays_sort').val());
-							$("form.jforms").submit();
+			        		$("form.jforms").submit();
 			            }
 			        )
 			        $(".clear_location").click(function(){
