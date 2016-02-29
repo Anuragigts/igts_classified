@@ -321,7 +321,7 @@
 		width: 50%;
 	}
 }
-@media handheld, only screen and (max-width: 320px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 360px) {
 	.portfolioFilter a {
 		font-size: 6px;
 	}
@@ -348,4 +348,95 @@
 		font-size: 12px !important;
 		top: 152.649px !important;
 	}
+	.loca_pad{
+		padding: 12px 26px;
+	}
+	.fa-2x{
+		font-size:12px;
+	}
 }
+@media screen and (min-device-width: 361px) and (max-device-width: 640px) {
+	
+	.tp-caption.large_bold_white {
+		font-size: 20px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 16px !important;
+		top: 152.649px !important;
+	}
+	.filter-title {
+		top: 43%;
+	}
+}
+@media screen and (min-device-width: 361px) and (max-device-width: 480px) {
+	
+	.tp-caption.large_bold_white {
+		font-size: 20px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 16px !important;
+		top: 152.649px !important;
+	}
+	.filter-title {
+		top: 43%;
+	}
+}
+@media screen and (max-width: 768px){
+	
+	.filter-title {
+		top: 53%;
+	}
+	.tp-caption.large_bold_white {
+		font-size: 28px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 22px !important;
+		top: 152.649px !important;
+	}
+	
+	/* .filter-header input[type="submit"] {
+		width:8%;
+	}  */
+}
+@media screen and (max-width: 1024px){
+	
+	.filter-title {
+		top: 55%;
+	}
+	.tp-caption.large_bold_white {
+		font-size: 28px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 22px !important;
+		top: 152.649px !important;
+	}
+	
+	/* .filter-header input[type="submit"] {
+		width:8%;
+	} */
+}
+/*@media screen and (min-device-width: 770px) and (max-device-width: 1024px){
+	
+	
+	.filter-title {
+		top: 53%;
+	}
+	.tp-caption.large_bold_white {
+		font-size: 28px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 22px !important;
+		top: 152.649px !important;
+	}
+	
+	.filter-header input[type="submit"] {
+		width:10%;
+	}
+}
+ */
+
