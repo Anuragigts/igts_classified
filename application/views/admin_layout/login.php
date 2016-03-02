@@ -12,25 +12,14 @@
 
     <title>99 Right Deals :: Admin Login</title>
 
-    <!-- GLOBAL STYLES -->
-    <link href="<?php echo $this->config->item('admin_assets_url');?>css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
-    <link href="icons/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- PAGE LEVEL PLUGIN STYLES -->
+	<!-- PAGE LEVEL PLUGIN STYLES -->
 
     <!-- THEME STYLES -->
-    <link href="<?php echo $this->config->item('admin_assets_url');?>css/style.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('admin_assets_url');?>css/plugins.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>admin_template_files/css/bootstrap1.min.css" rel="stylesheet">
+   
+    <link href="<?php echo base_url(); ?>admin_template_files/css/loginstyle.css" rel="stylesheet">
 
-    <!-- THEME DEMO STYLES -->
-    <link href="<?php echo $this->config->item('admin_assets_url');?>css/demo.css" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
+    
 </head>
 
 <body class="login">
