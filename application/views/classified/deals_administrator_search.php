@@ -16,7 +16,7 @@
 			$currency = '€';
 		}
 		
-	if ($m_details->package_type == 'platinum' && $m_details->urgent_package == '') {
+	if ($m_details->package_type == 3 && $m_details->urgent_package == 0) {
 	?>
 	<div class="col-md-12">
 		<div class="first_list">
@@ -148,7 +148,7 @@
 	<!-- platinum package end -->
 
 	<?php 
-	if ($m_details->package_type == 'platinum' && $m_details->urgent_package != '') {
+	if ($m_details->package_type == 3 && $m_details->urgent_package != 0) {
 	 ?>
 	<!-- platinum+urgent package start -->
 	<div class="col-md-12">
@@ -285,7 +285,7 @@
 	<!-- platinum+urgent package end -->
 
 	<?php 
-	if ($m_details->package_type == 'gold' && $m_details->urgent_package == '') {
+	if ($m_details->package_type == 2 && $m_details->urgent_package == 0) {
 	 ?>
 	<!-- gold package starts -->
 	<div class="col-md-12">
@@ -400,7 +400,7 @@
 	<!-- gold package end -->
 	
 	<?php 
-	if ($m_details->package_type == 'gold' && $m_details->urgent_package != '') {
+	if ($m_details->package_type == 2 && $m_details->urgent_package != 0) {
 	 ?>
 	<!-- gold+urgent package starts -->
 	<div class="col-md-12">
@@ -519,7 +519,7 @@
 	
 	<!-- free package starts -->
 	<?php 
-	if ($m_details->package_type == 'free' && $m_details->urgent_package == '') {
+	if ($m_details->package_type == 1 && $m_details->urgent_package == 0) {
 	 ?>
 	<div class="col-md-12">
 		<div class="first_list">
@@ -628,7 +628,7 @@
 	
 	<!-- free+urgent package starts -->
 	<?php 
-	if ($m_details->package_type == 'free' && $m_details->urgent_package != '') {
+	if ($m_details->package_type == 1 && $m_details->urgent_package != 0) {
 	 ?>
 	<div class="col-md-12">
 		<div class="first_list">

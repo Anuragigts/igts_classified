@@ -378,7 +378,9 @@ class Description_view extends CI_Controller{
                 $ads_favourite = $this->classifed_model->ads_favourite();
                 /*ads likes ad or not*/
                 $ads_likes = $this->classifed_model->ads_likes();
-				//echo "<pre>"; print_r($this);
+                /*recommanded ads*/
+                $recommanded_ads = $this->classifed_model->recommanded_ads();
+				// echo "<pre>"; print_r($this);
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "description_view",
@@ -387,6 +389,7 @@ class Description_view extends CI_Controller{
 						"ad_video"=>$ads_description_videos,
                         "ads_loc"=> $ads_description_loc,
                         "body_content"=>$body_content,
+                        "recommanded_ads"=>$recommanded_ads,
                         "ads_review"=>$ads_review,
                         "ads_favourite"=>$ads_favourite,
                         "ads_likes"=>$ads_likes,
@@ -472,6 +475,33 @@ class Description_view extends CI_Controller{
             else{
                 echo '0';
             }
+        }
+
+        /*feedback ads creation*/
+        public function feedbackforads(){
+            $adid = $this->input->post('ad_id');
+            $feedbackads_insert = $this->classifed_model->feedbackads_insert();
+                if ($feedbackads_insert == 1) {
+                    $this->session->set_flashdata('feedbackmsg', 'feedback Sent Successfully!!');
+                    redirect($this->input->post('curr_url'));
+                }
+                else{
+                   $this->session->set_flashdata('err', 'Internal error occured'); 
+                    redirect($this->input->post('curr_url'));
+                }
+        }
+
+        public function reportforads(){
+            $adid = $this->input->post('ad_id');
+            $reportads_insert = $this->classifed_model->reportads_insert();
+                if ($reportads_insert == 1) {
+                    $this->session->set_flashdata('reportmsg', 'Report Sent Successfully!!');
+                    redirect($this->input->post('curr_url'));
+                }
+                else{
+                   $this->session->set_flashdata('err', 'Internal error occured'); 
+                    redirect($this->input->post('curr_url'));
+                }
         }
 }
 

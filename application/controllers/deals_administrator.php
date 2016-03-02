@@ -12,7 +12,6 @@ class  Deals_administrator extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
-
             $config = array();
             $config['base_url'] = base_url().'deals_administrator/index';
             $config['total_rows'] = count($this->classifed_model->count_my_ads());
@@ -42,6 +41,7 @@ class  Deals_administrator extends CI_Controller{
                         'log_name'=>$log_name,
                          'paging_links' =>$this->pagination->create_links()
                 );
+                // echo "<pre>"; print_r($this);
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }

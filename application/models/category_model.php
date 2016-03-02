@@ -140,11 +140,6 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 
-        public function cars_sub_cat_list(){
-            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = '".$this->input->post('motor_sub')."'");
-            return $rs->result_array();
-        }
-
         /*motor point for bikes & scooters sub-category*/
          public function bikes_sub_cat_fst(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13 LIMIT 60");
@@ -153,11 +148,6 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
 
          public function bikes_sub_cat_sec(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13 LIMIT 60, 94");
-            return $rs->result_array();
-        }
-
-        public function bikes_sub_cat_list(){
-            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13");
             return $rs->result_array();
         }
 
@@ -232,6 +222,96 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
         public function package_name(){
             $lid = $this->session->userdata("login_id");
     return @mysql_result(mysql_query("SELECT signup_type FROM `signup`, `login` WHERE signup.`sid` = login.`signupid` AND login.`login_id` = '$lid' "), 0, 'signup_type');
+        }
+
+        public function free_pkg_list(){
+            $this->db->select("*");
+            $this->db->from("pkg_duration_list");
+            $this->db->where("is_top", 1);
+            $this->db->where("pkg_dur_id", 1);
+            return $this->db->get()->result();
+        }
+
+        public function free_pkg_list_low(){
+            $this->db->select("*");
+            $this->db->from("pkg_duration_list");
+            $this->db->where("is_top", 0);
+            $this->db->where("pkg_dur_id", 4);
+            return $this->db->get()->result();
+        }
+
+        public function gold_pkg_list(){
+            $this->db->select("*");
+            $this->db->from("pkg_duration_list");
+            $this->db->where("is_top", 1);
+            $this->db->where("pkg_dur_id", 2);
+            return $this->db->get()->result();
+        }
+        public function gold_pkg_list_low(){
+            $this->db->select("*");
+            $this->db->from("pkg_duration_list");
+            $this->db->where("is_top", 0);
+            $this->db->where("pkg_dur_id", 5);
+            return $this->db->get()->result();
+        }
+        public function ptm_pkg_list(){
+            $this->db->select("*");
+            $this->db->from("pkg_duration_list");
+            $this->db->where("is_top", 1);
+            $this->db->where("pkg_dur_id", 3);
+            return $this->db->get()->result();
+        }
+        public function ptm_pkg_list_low(){
+            $this->db->select("*");
+            $this->db->from("pkg_duration_list");
+            $this->db->where("is_top", 0);
+            $this->db->where("pkg_dur_id", 6);
+            return $this->db->get()->result();
+        }
+
+        /*urgent-label list*/
+         public function urgentlabel1(){
+            $this->db->select("*");
+            $this->db->from("urgent_pkg_label");
+            $this->db->where("is_top_cat", 1);
+            $this->db->where("u_pkg_id", 1);
+            return $this->db->get()->result();
+        }
+
+        public function urgentlabel_low1(){
+            $this->db->select("*");
+            $this->db->from("urgent_pkg_label");
+            $this->db->where("is_top_cat",0);
+            $this->db->where("u_pkg_id", 4);
+            return $this->db->get()->result();
+        }
+        public function urgentlabel2(){
+            $this->db->select("*");
+            $this->db->from("urgent_pkg_label");
+            $this->db->where("is_top_cat", 1);
+            $this->db->where("u_pkg_id", 2);
+            return $this->db->get()->result();
+        }
+        public function urgentlabel_low2(){
+            $this->db->select("*");
+            $this->db->from("urgent_pkg_label");
+            $this->db->where("is_top_cat", 0);
+            $this->db->where("u_pkg_id", 5);
+            return $this->db->get()->result();
+        }
+        public function urgentlabel3(){
+            $this->db->select("*");
+            $this->db->from("urgent_pkg_label");
+            $this->db->where("is_top_cat", 1);
+            $this->db->where("u_pkg_id", 3);
+            return $this->db->get()->result();
+        }
+        public function urgentlabel_low3(){
+            $this->db->select("*");
+            $this->db->from("urgent_pkg_label");
+            $this->db->where("is_top_cat", 0);
+            $this->db->where("u_pkg_id", 6);
+            return $this->db->get()->result();
         }
 
         /*property for residential*/
@@ -427,5 +507,69 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
 			//echo $this->db->last_query();exit;
 			return $update_status;
         }
+		public function get_managed_modules(){
+			$staff_id = $this->uri->segment(3);
+            $rs = $this->db->query("SELECT * FROM manage_module where staff_id = '".$staff_id."'");
+			return $rs->row();
+        }
+		function update_manage_modules($sel_cats){
+			if($this->input->post('m_manage_id')){
+				$m_manage_id = $this->input->post('m_manage_id');
+				$update_module	= array(
+						'cat_ids'		=>		$sel_cats,
+						'update_by'		=>		$this->session->userdata('login_id'),
+						'updated_on'	=>		date("Y-m-d H:i:s"),
+						'status'		=>		$this->input->post('status')
+				);
+				$this->db->where('m_manage_id',$m_manage_id);
+				$update_status = $this->db->update('manage_module',$update_module);
+				if($update_status)
+					return $update_status;
+				else return false;
+			}
+			else{
+				$ins	= array(
+							'staff_id'		=>		$this->input->post('staff_id'),
+							'cat_ids'		=>		$sel_cats,
+							'added_by'		=>		$this->session->userdata('login_id'),
+							'added_on'		=>		date("Y-m-d H:i:s"),
+							'status'		=>		$this->input->post('status'),
+				);
+				$ins_status	=	$this->db->insert('manage_module',$ins);
+				if($ins_status)
+					return $ins_status;
+				else return false;
+			}
+
+		}
+
+        public function cars_sub_cat_list(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = '".$this->input->post('motor_sub')."'");
+            return $rs->result_array();
+        }
+
+        public function bikes_sub_cat_list(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13");
+            return $rs->result_array();
+        }
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

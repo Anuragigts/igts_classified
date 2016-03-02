@@ -80,6 +80,13 @@ class Postad_create_motors extends CI_Controller{
               /*plants vehicles*/
               $data['plants'] = $this->postad_motor_model->get_plants_models();
 
+              $data['free_pkg_list'] = $this->category_model->free_pkg_list();
+             $data['gold_pkg_list'] = $this->category_model->gold_pkg_list();
+             $data['ptm_pkg_list'] = $this->category_model->ptm_pkg_list();
+             $data['urgentlabel1'] = $this->category_model->urgentlabel1();
+             $data['urgentlabel2'] = $this->category_model->urgentlabel2();
+             $data['urgentlabel3'] = $this->category_model->urgentlabel3();
+
 	            $this->load->view("classified_layout/inner_template",$data);
         }
 
@@ -124,6 +131,52 @@ class Postad_create_motors extends CI_Controller{
                         $cst    .=   '<option value='.$st->sub_sub_subcategory_id.'>'.$st->sub_sub_subcategory_name.'</option>';
                }
                echo $cst;
+        }
+
+        public function vrm_api(){
+                $vrm = $this->input->post('vrm');
+                // $url = "https://api.vehicleis.uk/vehicle-search/?vrm=".$vrm."&api_key=2139ed51b08fe88dab91aff8dd2c3be0";
+                $url = "http://phpmail.local/json_view.php";
+                $ch = curl_init();
+                // Disable SSL verification
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                // Will return the response, if false it print the response
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                // Set the url
+                curl_setopt($ch, CURLOPT_URL,$url);
+                // Execute
+                $result=curl_exec($ch);
+                // Closing
+                curl_close($ch);
+                $json_response = json_decode($result, true);
+                // echo $json_response['request']['error'];exit;
+                if ($json_response['request']['error']) {
+                   $res_array = array(
+                          'make'=>'',
+                          'model'=>'',
+                          'colour'=>'',
+                          'manufacture_year'=>'',
+                          'fuel_type'=>'',
+                          'engine_size'=>''/*,
+                          'no_miles'=>$json_response['data']['mot_history']['odometer_reading'],
+                          'status'=>$json_response['data']['mot_history']['test_result']*/
+                          );
+                  echo json_encode($res_array);
+                }
+                else{
+                  $res_array = array(
+                        'make'=>$json_response['data']['vehicle_information']['make'],
+                        'model'=>$json_response['data']['vehicle_information']['model'],
+                        'colour'=>$json_response['data']['vehicle_information']['colour'],
+                        'manufacture_year'=>$json_response['data']['vehicle_information']['manufacture_year'],
+                        'fuel_type'=>$json_response['data']['vehicle_information']['fuel_type'],
+                        'engine_size'=>$json_response['data']['vehicle_information']['engine_size']/*,
+                        'no_miles'=>$json_response['data']['mot_history']['odometer_reading'],
+                        'status'=>$json_response['data']['mot_history']['test_result']*/
+                        );
+                echo json_encode($res_array);
+                }
+                
         }
 
 

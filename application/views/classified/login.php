@@ -44,7 +44,6 @@
 				
 				submitHandler: function(form) {
 					return true;
-					//form.submit();
 				}
 			});
 
@@ -179,4 +178,4 @@
 		
 	</script>
 	
-	<script src="j-folder/js/jquery.validate.min.js"></script>
+	<!--<script src="j-folder/js/jquery.validate.min.js"></script>-->

@@ -42,7 +42,7 @@ class Admin_model extends CI_Model{
 					return 1;                        
                 }
                 else{
-                        return 0;
+					return 0;
                 }
         }
         public function insert_user(){
@@ -64,18 +64,7 @@ class Admin_model extends CI_Model{
                                         "profile_img"       =>      "avatar.jpg"
                                 ); 
                 $this->db->insert("profile",$profile);                
-                $addr       =   array(
-                                        "login_id"          =>      $login_id,
-                                        "house_no"          =>      $this->input->post("houseno")?$this->input->post("houseno"):"N/A",
-                                        "street"            =>      $this->input->post("street")?$this->input->post("street"):"N/A",
-                                        "landmark"          =>      $this->input->post("landmark")?$this->input->post("landmark"):"N/A",
-                                        "city"              =>      $this->input->post("city"),
-                                        "state"             =>      $this->input->post("state"),
-                                        "country"           =>      $this->input->post("cty"),
-                                        "zip_code"          =>      $this->input->post("zipcode"),
-                                        "is_default"        =>      1,
-                                ); 
-                $this->db->insert("address",$addr);
+               
                 if($this->db->affected_rows() > 0){
                         return 1;
                 }else{
@@ -85,15 +74,8 @@ class Admin_model extends CI_Model{
         public function getCustomers(){
                 $this->db->select("l.*,p.*,a.*,c.City_name,s.State_name,d.Country_name");
                 $this->db->from("login as l");
-                $this->db->join("profile as p","l.login_id = p.login_id","inner");
-                $this->db->join("address as a","a.login_id = l.login_id","inner");                
-                $this->db->join("cities as c","c.City_id = a.city","inner");
-                $this->db->join("states as s","s.State_id = a.state","inner");
-                $this->db->join("countries as d","d.Country_id = a.country","inner");
-                $this->db->where("l.user_type","2");
                 $this->db->order_by("l.login_id","desc");
                 $uq     =     $this->db->get();
-                //echo $this->db->last_query();exit;
                 if($this->db->affected_rows() > 0){
                         return $uq->result();                        
                 }
@@ -143,5 +125,158 @@ class Admin_model extends CI_Model{
                         return 0;
                 } 
         }
+		function get_userlist(){
+			$seg_type = $this->uri->segment(3);
+			if($seg_type == 'business')
+				$user_type='6';
+			else
+				$user_type='7';
+			
+			if($seg_type!=''){
+				$this->db->select("l_in.*,p.*");
+				$this->db->where('l_in.user_type',$user_type);
+                $this->db->from("login as l_in");
+                $this->db->join("profile as p","l_in.login_id = p.login_id","inner");
+				$info = $this->db->get()->result();
+				return $info;
+			}
+		}
+		function add_new_staff(){
+			$ins_data = array(
+					'user_type'		=>	$this->input->post('staff_type'),
+					'login_email'		=>	$this->input->post('login_email'),
+					'login_password'		=>	md5($this->input->post('staff_pw')),
+					'login_status'		=>	0
+			);
+			$this->db->insert('login',$ins_data);
+			$staff_id = $this->db->insert_id();
+			
+			 $profile    =   array(
+                                        "first_name"        =>      strtolower($this->input->post("staff_f_name")),
+                                        "last_name"         =>      strtolower($this->input->post("staff_l_name")),
+                                        "phone"             =>      $this->input->post("con_number"),
+										"login_id"          =>     	$staff_id,
+                                ); 
+				$this->db->insert("profile",$profile); 
+				return true;
+				
+				
+		}
+		function get_staffType(){
+			$this->db->select();
+			$this->db->from('user_type');
+			$user_type = $this->db->get()->result();
+			return $user_type;
+		}
+		function get_user_status(){
+			$this->db->select();
+			$this->db->from('user_status');
+			$user_status = $this->db->get()->result();
+			return $user_status;
+		}
+		function getListStaff(){
+			$sess_user_type = $this->session->userdata('user_type');
+			$this->db->select();
+			
+			if($this->uri->segment(3)!=''){
+				$user_type = $this->uri->segment(3);
+			}
+			
+			if($sess_user_type < $user_type && $user_type != 7){
+				$this->db->where('l.user_type',$user_type);
+			}
+			else{
+				return array();
+			}
+		
+			$this->db->from('login as l');
+			$this->db->order_by("l.login_id","desc");
+			$this->db->join("profile as p","l.login_id = p.login_id","inner");
+			$this->db->join("user_status as us","us.user_status_id = l.login_status","inner");
+			$staff = $this->db->get()->result();
+			//echo $this->db->last_query();exit;
+			return $staff;
+		}
+		function getStaff(){
+			$this->db->select();
+			
+			if($this->uri->segment(3)!=''){
+				$user_type = $this->uri->segment(3);
+				$this->db->where('l.login_id',$user_type);
+			}
+			$this->db->from('login as l');
+			$this->db->order_by("l.login_id","desc");
+			$this->db->join("profile as p","l.login_id = p.login_id","inner");
+			$staff = $this->db->get()->row();
+			return $staff;
+		}
+		 public function update_staff(){
+			
+                $login_id   =  array("login_id" => $this->uri->segment(3));
+                $profile    =   array(
+                                        "first_name"        =>      strtolower($this->input->post("first_name")),
+                                        "last_name"         =>      strtolower($this->input->post("last_name")),
+                                        "phone"             =>      $this->input->post("phone"),
+                                ); 
+				$this->db->update("profile",$profile,$login_id);
+				//echo $this->db->last_query();
+				$login_update    =   array(
+                                        "login_email"        =>      strtolower($this->input->post("login_email")),
+                                        "user_type"            =>      $this->input->post("user_type"),
+										"login_status"            =>      $this->input->post("staff_status"),
+                                );
+                $this->db->update("login",$login_update,$login_id);  
+				echo $this->db->last_query();
+                $vp     =   $this->db->affected_rows();
+              //echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
+                if($vp > 0){
+                        return 1;
+                }else{
+                        return 0;
+                } 
+        }
+		function change_user_status(){
+			$user_ids = explode(',',rtrim($this->input->post('selected_users'),','));
+			$this->db->set('login_status',$this->input->post('change_status'));
+			$this->db->where_in('login_id',$user_ids);
+			$update_Status = $this->db->update('login');
+			echo $this->db->last_query();
+		}
+		function get_adsdetails(){
+			$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads, package_type FROM(`postad` AS ad) WHERE DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW()) - INTERVAL 25 DAY GROUP BY dtime, package_type order by dtime desc";
+
+
+			$query = $this->db->query($sql);
+
+			$last_weak_ads = $query->result();
+			return $last_weak_ads;
+			echo $this->db->last_query();
+
+			echo '<pre>';print_r($last_weak_ads);echo '</pre>';exit;
+		}
+		function get_no_of_ads(){
+			$this->load->model("ads_model");
+			$cats = $this->ads_model->get_assigned_cats();
+			$this->db->select('count(*) as ads_count, p_ad.package_type,pkg_l.pkg_dur_name,pkg_l.pkg_dur_name');
+			
+			$this->db->from('postad as p_ad');
+			if($this->session->userdata('user_type') != 1){
+				$cats_list = explode(',',$cats->cat_ids);		
+				$this->db->where_in('category_id',$cats_list);
+			}
+			$this->db->where_in('pkg_l.status',1);
+			$this->db->join("pkg_duration_list as pkg_l","p_ad.package_type = pkg_l.pkg_dur_id","inner");
+			$this->db->group_by('p_ad.package_type');
+			
+			$count_ads = $this->db->get()->result();
+			//echo $this->db->last_query();//exit;
+			return $count_ads;
+		}
+		function get_pkg_details(){
+			$this->db->select();
+			$this->db->where_in('status',1);
+			$this->db->from('pkg_duration_list');
+			$pkg_details = $this->db->get()->result();
+			return $pkg_details;
+		}
 }
-?>

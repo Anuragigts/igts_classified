@@ -60,23 +60,15 @@ class Postad_motor_model extends CI_Model{
                         }
 
                          /*web-link for free */
-              if ($this->input->post('package_type') == 'free') {
+              if ($this->input->post('package_type') == 1) {
                             $url = "";
                         }
-                        /*web-link for free urgent*/
-              if ($this->input->post('package_type') == 'free_urgent') {
-                            $url = $this->input->post("freeurgent_weblink");
-                        }
                         /*web-link for gold*/
-              if ($this->input->post('package_type') == 'gold') {
+              if ($this->input->post('package_type') == 2) {
                             $url = $this->input->post("gold_weblink");
                         }
-                        /*web-link for gold + urgent*/
-              if ($this->input->post('package_type') == 'gold_urgent') {
-                            $url = $this->input->post("goldurgent_weblink");
-                        }
                         /*web-link for platinum*/
-              if ($this->input->post('package_type') == 'platinum') {
+              if ($this->input->post('package_type') == 3) {
                             $url = $this->input->post("platinum_weblink");
                         }
 
@@ -122,7 +114,7 @@ class Postad_motor_model extends CI_Model{
                         $this->db->insert("location", $loc);
 
                         /*free package*/
-                    if ($this->input->post('package_type') == 'free') {
+                    if ($this->input->post('package_type') == 1) {
                        $plat_data = array('ad_id' => $insert_id,
                                             'ad_validfrom' => date("d-m-Y H:i:s"),
                                             'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
@@ -132,19 +124,9 @@ class Postad_motor_model extends CI_Model{
                        $this->db->insert('free_ads', $plat_data);
                     }
 
-                    /*free+urgent package*/
-                    if ($this->input->post('package_type') == 'free_urgent') {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('freeurgent_ads', $plat_data);
-                    }
 
                     /*gold package*/
-                    if ($this->input->post('package_type') == 'gold') {
+                    if ($this->input->post('package_type') == 2) {
                        $plat_data = array('ad_id' => $insert_id,
                                             'ad_validfrom' => date("d-m-Y H:i:s"),
                                             'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
@@ -154,19 +136,9 @@ class Postad_motor_model extends CI_Model{
                        $this->db->insert('gold_ads', $plat_data);
                     }
 
-                    /*gold+urgent package*/
-                    if ($this->input->post('package_type') == 'gold_urgent') {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('goldurgent_ads', $plat_data);
-                    }
 
                         /*platinum package*/
-                    if ($this->input->post('package_type') == 'platinum') {
+                    if ($this->input->post('package_type') == 3) {
                        $plat_data = array('ad_id' => $insert_id,
                                         'marquee'=>$this->input->post('marquee_title'),
                                             'ad_validfrom' => date("d-m-Y H:i:s"),
@@ -233,10 +205,22 @@ class Postad_motor_model extends CI_Model{
                     if ($this->input->post('category_id') == 'motorpoint') {
                         /*cars, vans, coaches, buses details*/
                          if ($this->input->post('sub_id') == '12' || $this->input->post('sub_id') == '15' || $this->input->post('sub_id') == '16') {
+                                if ($this->input->post('manufacture1') != '') {
+                                   $manuf = $this->input->post('manufacture1');
+                                }
+                                else{
+                                    $manuf = $this->input->post('manufacture');   
+                                }
+                                if ($this->input->post('Model1') != '' ) {
+                                    $model = $this->input->post('Model1');   
+                                }
+                                else{
+                                    $model = $this->input->post('Model');   
+                                }
                             $cars_details = array('ad_id' => $insert_id,
                                             'reg_number' => $this->input->post('veh_regno'),
-                                            'manufacture' => $this->input->post('manufacture'),
-                                            'model' => $this->input->post('Model'),
+                                            'manufacture' => $manuf,
+                                            'model' => $model,
                                             'color'=>$this->input->post('color'),
                                             'reg_year'=>$this->input->post('reg_year'),
                                             'fueltype'=>$this->input->post('FuelType'),
@@ -316,7 +300,7 @@ class Postad_motor_model extends CI_Model{
                         }
 
                             /*urgent lable expiry*/
-                        if ($this->input->post('package_urgent') != '') {
+                        if ($this->input->post('package_urgent') != 0) {
                             $days = array_shift(explode("daysurgent", $this->input->post('package_urgent')));
                             $urgent_details = array('ad_id' => $insert_id,
                                         'valid_from' => date('d-m-Y H:i:s'),

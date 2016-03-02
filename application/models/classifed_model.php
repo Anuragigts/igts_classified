@@ -128,7 +128,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -147,7 +148,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "jobs");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -167,7 +169,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "services");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -187,7 +190,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "motorpoint");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -207,7 +211,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "clothing_&_lifestyles");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -227,7 +232,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "findaproperty");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -247,7 +253,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "kitchenhome");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -267,7 +274,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "pets");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -289,7 +297,8 @@ Class Classifed_model extends CI_model{
 		$this->db->select("ad.*, img.*");
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
-		$this->db->where("ad.package_type", "platinum");
+		$this->db->or_where("ad.package_type", "3");
+		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "ezone");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
@@ -311,7 +320,8 @@ Class Classifed_model extends CI_model{
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
-		$this->db->where('ads.package_type', 'platinum');
+		$this->db->or_where("ads.package_type", "3");
+		$this->db->or_where("ads.package_type", "6");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -331,7 +341,8 @@ Class Classifed_model extends CI_model{
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
-		$this->db->where('ads.package_type', 'gold');
+		$this->db->or_where("ads.package_type", "2");
+		$this->db->or_where("ads.package_type", "5");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -387,6 +398,27 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
+	public function business_logos(){
+		$this->db->select("ads.*, img.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ads");
+		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		$this->db->where('ads.ad_type', 'business');
+		$this->db->where('img.bus_logo !=', '');
+		$this->db->group_by('img.ad_id');
+		$this->db->order_by('dtime', 'DESC');
+		$this->db->limit(10);
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
 
 	/*my ads in deals administrator*/
 	public function count_my_ads(){
@@ -403,13 +435,13 @@ Class Classifed_model extends CI_model{
 
 	public function my_ads($data){
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
-		// $this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
+		// echo $this->db->last_query();
 		return $res->result();
 	}
 	public function my_ads_box(){
@@ -572,6 +604,8 @@ Class Classifed_model extends CI_model{
 
 	/*cars, vans, buses*/
 	public function ads_detailed_cars(){
+		$vrmcheck = @mysql_result(mysql_query("SELECT `manufacture` FROM `motor_car_van_bus_ads` WHERE ad_id = '".$this->uri->segment(3)."'"), 0, 'manufacture');
+		if (ctype_digit($vrmcheck)) {
 		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, car_model.car_model as cmodel");
 		$this->db->from("motor_car_van_bus_ads, sub_subcategory, car_model");
 		$this->db->where('sub_subcategory.sub_subcategory_id = motor_car_van_bus_ads.manufacture');
@@ -579,6 +613,15 @@ Class Classifed_model extends CI_model{
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		return $res->result();
+				}
+		else{
+		$this->db->select("*,motor_car_van_bus_ads.manufacture AS manufacture1, motor_car_van_bus_ads.model as cmodel");
+		$this->db->from("motor_car_van_bus_ads");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();	
+		}
+		
 	}
 
 	/*motor home caravans*/
@@ -662,6 +705,40 @@ Class Classifed_model extends CI_model{
 			}
 	}
 
+	/*feedback for ads*/
+	public function feedbackads_insert(){
+		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'contact_name'	=> $this->input->post('fbkcontname'),
+						'mobile'	=> $this->input->post('feedbackno'),
+						'email'	=> $this->input->post('busemail'),
+						'message'		=> $this->input->post('feedbackmsg'),
+						'created_on'	=> date("Y-m-d H:i:s")
+			);
+			$this->db->insert("feedbackforads", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	/*report for ads*/
+	public function reportads_insert(){
+		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'name'	=> $this->input->post('report_view'),
+						'message'	=> $this->input->post('reportmsg'),
+						'created_on'	=> date("Y-m-d H:i:s")
+			);
+			$this->db->insert("reportforads", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
 	/*display ads_review()*/
 	public function ads_review(){
 		$this->db->select("*");
@@ -700,6 +777,33 @@ Class Classifed_model extends CI_model{
 		$this->db->where('login_id', $this->session->userdata('login_id'));
 		$res = $this->db->get();
 		return $res->result();
+	}
+
+	/*recommanded ads*/
+	public function recommanded_ads(){
+		$qr = mysql_query("SELECT * FROM postad WHERE ad_id='".$this->uri->segment(3)."'");
+		$catid = @mysql_result($qr,0,'category_id');
+		$subid = @mysql_result($qr,0,'sub_cat_id');
+		$title = @mysql_result($qr,0,'deal_tag');
+		$this->db->select("ads.*, img.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad as ads");
+		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		$this->db->or_where('ads.category_id', $catid);
+		$this->db->or_where('ads.sub_cat_id', $subid);
+		$this->db->like('ads.deal_tag',$title);
+		$this->db->group_by('img.ad_id');
+		$this->db->order_by('dtime', 'DESC');
+		$this->db->limit(10);
+		$m_res = $this->db->get();
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}	
 	}
 
 	/*display in pickup deals*/

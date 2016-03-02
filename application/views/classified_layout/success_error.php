@@ -30,3 +30,19 @@ if($this->session->userdata("chebox") == 1 && $this->session->userdata("info") !
     </h4>
 </div>
 <?php } ?>
+<!-- feedback message alert -->
+<?php if($this->session->flashdata("feedbackmsg") != ""){ ?>
+<div class="alert">
+    <h3 style='color: red;'>
+        <?php echo $this->session->flashdata("feedbackmsg");?>
+    </h3>
+</div>
+<?php } ?>
+<!-- report message alert -->
+<?php if($this->session->flashdata("reportmsg") != ""){ ?>
+<div class="alert">
+    <h3 style='color: red;'>
+        <?php echo $this->session->flashdata("reportmsg");?>
+    </h3>
+</div>
+<?php } ?>

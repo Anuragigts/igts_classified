@@ -59,66 +59,6 @@
                             <?php echo form_error("mobile");?>
                         </div>
                     </div>
-                    <div class="form-group">                        
-                        <div class="col-lg-6">
-                            <label>House No. <span class="text-red">*</span></label>
-                            <input type="text" name="houseno" value="<?php echo $edt["house_no"];?>" class="form-control" placeholder="House No."/>
-                            <?php echo form_error("houseno");?>
-                        </div>
-                        <div class="col-lg-6">
-                            <label>Street</label>
-                            <input type="text" name="street" value="<?php echo $edt["street"];?>" class="form-control" placeholder="Street"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-6">
-                            <label>Land Mark</label>
-                            <input type="text" name="landmark" value="<?php echo $edt["landmark"];?>" class="form-control" placeholder="Land Mark"/>
-                        </div>  
-                        <div class="col-lg-6">
-                            <label>Telephone No.</label>
-                            <input type="text" name="phone" value="<?php echo $edt["phone"];?>" class="form-control" placeholder="Telephone No." ruleset="[^0-9]" onkeyup="validateR(this, '')"  maxlength="12"/>
-                        </div> 
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-6">
-                            <label>Zip Code <span class="text-red">*</span></label>
-                            <input type="text" name="zipcode" value="<?php echo $edt["zip_code"];?>" class="form-control" placeholder="Zip Code" ruleset="[^0-9]" onkeyup="validateR(this, '')"  maxlength="6"/>
-                            <?php echo form_error("zipcode");?>
-                        </div>              
-                        <div class="col-lg-6">
-                            <label>Country <span class="text-red">*</span></label>
-                            <select class="form-control country" name="cty">
-                                <option value="">-- Select Country --</option>
-                                <?php foreach ($cty as $ct){ ?>
-                                        <option value="<?php echo $ct->Country_id;?>" <?php echo ($ct->Country_id == $edt["country"])?"selected = selected":"";?> ><?php echo ucfirst(strtolower($ct->Country_name));?></option>
-                                <?php } ?>
-                            </select>
-                            <?php echo form_error("cty");?>
-                        </div>         
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-6">
-                            <label>State <span class="text-red">*</span></label>
-                            <select class="form-control state" name="state">
-                                <option value="">-- Select State --</option>
-                                <?php foreach ($scty as $sct){ ?>
-                                        <option value="<?php echo $sct->State_id;?>" <?php echo ($sct->State_id == $edt["state"])?"selected = selected":"";?> ><?php echo $sct->State_name;?></option>
-                                <?php } ?>
-                            </select>
-                            <?php echo form_error("state");?>
-                        </div>                
-                        <div class="col-lg-6">
-                            <label>City <span class="text-red">*</span></label>
-                            <select class="form-control city" name="city">
-                                <option value="">-- Select City --</option>
-                                <?php foreach ($city as $cti){ ?>
-                                        <option value="<?php echo $cti->City_id;?>" <?php echo ($cti->City_id == $edt["city"])?"selected = selected":"";?>><?php echo $cti->City_name;?></option>
-                                <?php } ?>
-                            </select>
-                            <?php echo form_error("city");?>
-                        </div>
-                    </div>
                     <div class="form-group text-center">
                         <input type="submit" class="btn btn-default" value="Update Customer Care" name="update_customer"/>
                     </div>

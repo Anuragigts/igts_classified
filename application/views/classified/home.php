@@ -11,10 +11,6 @@
 		}
 	</style>
 	
-	<!--[if gte IE 9]><!--
-    <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
-	<!--<![endif]-->
-
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
 		<div class="tp-banner" >
@@ -204,7 +200,7 @@
 								<div class="mt-news">
 									<ul>
 										<?php foreach ($news as $n_val) { ?>
-										<li><a href="javascript:void(0);" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
+										<li><a href="<?php echo base_url(); ?>description_view/details/<?php echo $n_val->ad_id; ?>" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
 										<?php	} ?>
 									</ul>
 								</div>
@@ -355,7 +351,7 @@
 											</div>
 											<?php
 												}else{
-												if ($hot_deals_val->urgent_package != '') {
+												if ($hot_deals_val->urgent_package != 0) {
 													?>
 													<div class="significant_badge">
 													<span>Urgent</span>
@@ -400,7 +396,7 @@
 														<h3 class="home_price"></h3>		
 													<?php	}
 													?>
-												<a href="#" data-toggle="modal" data-target="#sendnow"  class="btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
+												<a href="javascript:void(0);" data-toggle="modal" data-target="#sendnow" id='<?php echo $hot_deals_val->ad_id; ?>'  class="btn_v btn-4 btn-4a fa fa-arrow-right fdk_ad"><span>Send Now</span></a>
 												<?php  if ($hot_deals_val->ad_type == 'business') {
 														if ($hot_deals_val->bus_logo != '') {
 													 ?>
@@ -467,7 +463,7 @@
                                     	}
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 showall">
-							<?php if ($val->urgent_package != '') { ?>
+							<?php if ($val->urgent_package != 0) { ?>
 									<div class="most_valued_badge">
 										<span>Urgent</span>
 									</div>
@@ -517,7 +513,7 @@
 									
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 jobs">
-							<?php if ($m_ads->urgent_package != '') { ?>
+							<?php if ($m_ads->urgent_package != 0) { ?>
 									<div class="most_valued_badge">
 										<span>Urgent</span>
 									</div>
@@ -565,7 +561,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 services">
-							<?php if ($m_ads_services->urgent_package != '') { ?>
+							<?php if ($m_ads_services->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -614,7 +610,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 motorpoint">
-							<?php if ($motor_val->urgent_package != '') { ?>
+							<?php if ($motor_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -663,7 +659,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 cloths_lifestyles">
-							<?php if ($cloth_val->urgent_package != '') { ?>
+							<?php if ($cloth_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -712,7 +708,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 findproperty">
-							<?php if ($prop_val->urgent_package != '') { ?>
+							<?php if ($prop_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -761,7 +757,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 homekitchen">
-							<?php if ($khome_val->urgent_package != '') { ?>
+							<?php if ($khome_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -810,7 +806,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 pets">
-							<?php if ($m_ads_pets->urgent_package != '') { ?>
+							<?php if ($m_ads_pets->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -859,7 +855,7 @@
                                     	}	
 							?>
 						<div class="col-xs-12 col-sm-6 col-md-3 ezone">
-							<?php if ($m_ads_ezone->urgent_package != '') { ?>
+							<?php if ($m_ads_ezone->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
 								<span>Urgent</span>
 							</div>
@@ -935,7 +931,7 @@
                                     	}	
 								 ?>
 								<div>
-									<?php if ($b_ads->urgent_package != '') { ?>
+									<?php if ($b_ads->urgent_package != 0) { ?>
 									<div class="bus_rec_badge">
 										<span>Urgent</span>
 									</div>
@@ -944,7 +940,7 @@
 										<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
-									<?php if ($b_ads->package_type == 'gold') { ?>
+									<?php if ($b_ads->package_type == 2) { ?>
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
@@ -957,7 +953,7 @@
 										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	} 	}
 										 ?>
-										<?php if ($b_ads->package_type == 'gold') { ?>
+										<?php if ($b_ads->package_type == 2) { ?>
 										 	<div class="business_crown">
 											<span></span><b>
 											<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
@@ -985,7 +981,7 @@
 										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}	}
 										 ?>
-										 <?php if ($b_ads->package_type == 'platinum') { ?>
+										 <?php if ($b_ads->package_type == 3) { ?>
 										 	<div class="business_crown">
 											<span></span><b>
 											<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
@@ -1038,7 +1034,7 @@
                                     	}	
 								 ?>
 								<div>
-									<?php if ($b_ads->urgent_package != '') { ?>
+									<?php if ($b_ads->urgent_package != 0) { ?>
 									<div class="bus_rec_badge">
 										<span>Urgent</span>
 									</div>
@@ -1047,7 +1043,7 @@
 										<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
-									<?php if ($b_ads->package_type == 'gold') { ?>
+									<?php if ($b_ads->package_type == 2) { ?>
 									<div class="info-gallery">
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
@@ -1058,7 +1054,7 @@
 										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
-										<?php if ($b_ads->package_type == 'gold') { ?>
+										<?php if ($b_ads->package_type == 2) { ?>
 										 	<div class="business_crown">
 											<span></span><b>
 											<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
@@ -1085,7 +1081,7 @@
 										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
-										 <?php if ($b_ads->package_type == 'platinum') { ?>
+										 <?php if ($b_ads->package_type == 3) { ?>
 										 	<div class="business_crown">
 											<span></span><b>
 											<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
@@ -1139,7 +1135,7 @@
                                     	}	
 									 ?>
 								<div>
-									<?php if ($free_val->urgent_package != '') { ?>
+									<?php if ($free_val->urgent_package != 0) { ?>
 											<div class="bus_rec_badge">
 												<span>Urgent</span>
 											</div>
@@ -1149,7 +1145,7 @@
 										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									
-									<?php if ($free_val->package_type == 'gold') { ?>
+									<?php if ($free_val->package_type == 2) { ?>
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
@@ -1163,10 +1159,10 @@
 										?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
-											<?php if ($free_val->package_type == 'platinum') { ?>
+											<?php if ($free_val->package_type == 3) { ?>
 											<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
 											<?php	} ?>
-											<?php if ($free_val->package_type == 'gold') { ?>
+											<?php if ($free_val->package_type == 2) { ?>
 											<span></span><b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="thumb" title="Right Deal"></b>
 											<?php	} ?>
 										</div>
@@ -1185,7 +1181,7 @@
 										?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
-											<?php if ($free_val->package_type == 'platinum') { ?>
+											<?php if ($free_val->package_type == 3) { ?>
 											<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
 											<?php	} ?>
 										</div>
@@ -1211,48 +1207,11 @@
 								<div class="slide_j2"></div>
 							</div>
 							<div data-u="slides" class="slide_j3">
+								<?php foreach ($business_logos as $bval) { ?>
 								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/acer.png" alt="acer" title="Acer"/>
+									<img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $bval->bus_logo; ?>" alt="<?php echo base_url(); ?>ad_images/<?php echo $bval->bus_logo; ?>" title="Business logo" />
 								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/canon.png" alt="canon" title="Canon"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/casio.png" alt="casio" title="Casio"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/dell.png" alt="dell" title="Dell"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/htc.png" alt="htc" title="HTC"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/intel.png" alt="intel" title="Intel" />
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/iPhone.png" alt="iPhone" title="iPhone"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/lenevo.png" alt="lenevo" title="Lenovo"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/lg.png" alt="lg" title="LG"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/nexus.png" alt="nexus" title="Nexus"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/nokia.png" alt="nokia" title="Nokia"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/ricoh.png" alt="ricoh" title="Ricoh"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/samsung.png" alt="samsung" title="Samsung"/>
-								</div>
-								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>img/brand/Windows.png" alt="Windows" title="Windows" />
-								</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -1374,4 +1333,128 @@
              });
          });
       </script>
-	
+      <script type="text/javascript">
+			$(function(){
+				$(".fdk_ad").click(function(){
+					$("#fdbkads").val($(this).attr('id'));
+				});
+			});
+		</script>
+
+		<script src="j-folder/js/jquery.validate.min.js"></script>
+				<script type="text/javascript">
+					$(function(){
+						$("#feedbackads").validate({
+								// Specify the validation rules
+										rules: {
+											fbkcontname: {
+												required: true
+											},
+											feedbackmsg: {
+												required: true,
+												minlength: 60
+											},
+											busemail: {
+												required: true,
+												email: true
+											},
+											feedbackno: {
+												required: true
+											}
+										},
+										
+										// Specify the validation error messages
+										messages: {
+											fbkcontname: {
+												required: "Please Enter contact name"
+											},
+											feedbackmsg: {
+												required: "Please Enter feedback message",
+												minlength: "message contains atleast 60 characters"
+											},
+											busemail: {
+												required: "Please Enter valid mail id"
+											},
+											feedbackno: {
+												required: "Please Enter Mobile Number"
+											}
+										},
+										
+										submitHandler: function(form) {
+											return true;
+										}
+									});
+							});
+							</script>
+	<!-- Modal -->
+	<div class="modal dialog1 fade" id="sendnow" role="dialog">
+		<div class="modal-dialog1">
+			<!-- Modal content-->
+			<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms" id="feedbackads" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Send <span>NOW </span></h2>
+					</div>
+					<div class="modal-body">
+						<div class="j-row">
+											<div class="unit">
+												<label class="label">Contact Name
+													<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="name">
+														<i class="fa fa-user"></i>
+													</label>
+													<input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name ">
+													<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
+													<input type="hidden" name="ad_id" id='fdbkads' value="">
+												</div>
+											</div>
+											<div class="unit">
+												<label class="label">Mobile Number
+													<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="phone">
+														<i class="fa fa-phone"></i>
+													</label>
+													<input type="text" id="feedbackno" name="feedbackno" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
+												</div>
+											</div>
+											<div class="unit">
+												<label class="label">Email
+													<sup data-toggle="tooltip" title="" data-original-title="Email">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<label class="icon-right" for="email">
+														<i class="fa fa-envelope-o"></i>
+													</label>
+													<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+												</div>
+											</div>
+											<div class="unit">
+												<label class="label">Message
+													<sup data-toggle="tooltip" title="" data-original-title="Message">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea>
+												</div>
+											</div>
+											<div class="unit">													
+												<button class="btn btn-primary " id='change_pwd'>Send Now</button>
+											</div>
+										</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div> 

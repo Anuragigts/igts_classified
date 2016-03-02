@@ -24,7 +24,7 @@ class  Clothing_lifestyles_view extends CI_Controller{
                 $this->session->set_userdata('longg','');
                 $config = array();
                 $config['base_url'] = base_url().'Clothing_lifestyles_view/index';
-                $config['total_rows'] = count($this->classifed_model->count_clothstyle_view());;
+                $config['total_rows'] = count($this->classifed_model->count_clothstyle_view());
                 $config['per_page'] = 2;
                 $config['next_link'] = 'Next';
                 $config['prev_link'] = 'Previous';

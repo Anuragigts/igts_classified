@@ -45,6 +45,12 @@ class Postad_create_jobs extends CI_Controller{
              $data['sub_sub_id'] = $sub_sub_cat;
              $data['login_id'] = $this->session->userdata("login_id");
              $data['package_name'] = $this->category_model->package_name();
+             $data['free_pkg_list'] = $this->category_model->free_pkg_list();
+             $data['gold_pkg_list'] = $this->category_model->gold_pkg_list();
+             $data['ptm_pkg_list'] = $this->category_model->ptm_pkg_list();
+             $data['urgentlabel1'] = $this->category_model->urgentlabel1();
+             $data['urgentlabel2'] = $this->category_model->urgentlabel2();
+             $data['urgentlabel3'] = $this->category_model->urgentlabel3();
 	            $this->load->view("classified_layout/inner_template",$data);
         }
 

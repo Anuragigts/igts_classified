@@ -8,16 +8,69 @@
 			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="">Ads List</a></li>
+		<li><a href="">SubCategory List</a></li>
 	</ul>
+	
+	<div class="row-fluid sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title>
+				<h2><i class="halflings-icon white edit"></i><span class="break"></span>List Sub Categories</h2>
+				<div class="box-icon">
+					<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+						<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+						<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>-->
+				</div>
+			</div>
+			<div class="box-content">
+				<form class="form-horizontal" id="validate" method="post">
+					<fieldset>
+						<div class='span6'>
+							<div class="control-group">
+								<label class="control-label" for="focusedInput">Category Name</label>
+								<div class="controls">
+									<select name="cat_name" class="form-control cat_chage">
+										<option value="">-- Select Category --</option>
+										<?php foreach ($view as $vt){ ?>
+										<option value="<?php echo $vt->category_id;?>" <?php echo set_select("cat_name",$vt->category_id);?>><?php echo ucfirst($vt->category_name);?></option>
+										<?php } ?>
+									</select>
+									 <?php echo form_error("cat_name");?>
+								</div>
+							</div>
+						</div>
+						<div class='span6'>
+							<div class="control-group">
+								<label class="control-label" for="typeahead">Sub Category Name <span class="text-red">*</span></label>
+								<div class="controls">
+									<input type="text" name="scat_name" value="<?php echo set_value("scat_name");?>" class="form-control sct-ret" placeholder="Sub Category Name" maxlength="100"/> 
+                            <?php echo form_error("scat_name");?>
+								</div>
+							</div>
+						</div>
+						
+						 <div class="form-group">
+                        <div class="col-lg-5"></div>
+                        <div class="col-lg-2">
+                           <input type="submit" name="create_subcategory" value="Create Sub Category" class="btn btn-default"/> 
+                        </div>
+                        <div class="col-lg-5"></div>                        
+                    </div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<!--/span-->
+	</div>
+	<!--/row-->
+
 		<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Adds</h2>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Sub Categories</h2>
 						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>-->
 						</div>
 					</div>
 					<div class="box-content">
@@ -63,110 +116,11 @@
 		
 		
 	</div>	
-		
-<div class="row">
-    <div class="col-lg-12">
-        <div class="page-title">
-            <h1>Sub Categories
-                <small>Sub Categories</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="<?= base_url();?>admin_dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Sub Categories</li>
-            </ol>
-        </div>
-    </div>
-    <!-- /.col-lg-12 -->
-</div>
+
 <!-- /.row -->
 <!-- end PAGE TITLE AREA -->
 
 <!-- begin DASHBOARD CIRCLE TILES -->
-<div class="row">
-    <div class="portlet portlet-default">
-        <div class="portlet-heading">
-            <div class="portlet-title">
-                <h4>Sub Categories</h4>
-            </div>
-            <div class="portlet-widgets">
-                <span class="divider"></span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#defaultPortlet"><i class="fa fa-chevron-down"></i></a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div id="defaultPortlet" class="panel-collapse collapse in">
-            <div class="portlet-body">
-                 <?php $this->load->view("admin/success_error");?>
-                <form class="form-horizontal" id="validate" method="post">
-                    <div class="form-group">
-                        <div class="col-lg-6">
-                            <label>Category Name <span class="text-red">*</span></label>
-                            <select name="cat_name" class="form-control">
-                                <option value="">-- Select Category --</option>
-                                <?php foreach ($view as $vt){ ?>
-                                <option value="<?php echo $vt->category_id;?>" <?php echo set_select("cat_name",$vt->category_id);?>><?php echo ucfirst($vt->category_name);?></option>
-                                <?php } ?>
-                            </select>
-                            <?php echo form_error("cat_name");?>
-                        </div>
-                        <div class="col-lg-6">
-                           <label>Sub Category Name <span class="text-red">*</span></label>
-                           <input type="text" name="scat_name" value="<?php echo set_value("scat_name");?>" class="form-control sct-ret" placeholder="Sub Category Name" maxlength="100"/> 
-                            <?php echo form_error("scat_name");?>
-                        </div>                      
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-5"></div>
-                        <div class="col-lg-2">
-                            <input type="submit" name="create_subcategory" value="Create Sub Category" class="btn btn-default"/> 
-                        </div>
-                        <div class="col-lg-5"></div>                        
-                    </div>
-                </form>
-                <div class="row"></div>
-                <h3>List Sub Categories</h3>
-                <div class="table-responsive tb-row">
-                    <table id="example-table" class="table table-striped table-bordered table-hover table-default">
-                        <thead>
-                            <tr>
-                                <th>S.No.</th>
-                                <th>Category Name</th>
-                                <th>Sub Category Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <?php 
-                                $i = 1;
-                                foreach($sview as $vw){?>
-                                    <tr>
-                                        <td><?php echo $i++;?></td>
-                                        <td><?php  
-                                        $vasl = ucfirst($vw->category_name);
-                                        echo $vasl;?></td>
-                                        <td><?php  
-                                        $val = ucfirst($vw->sub_category_name);
-                                        echo $val;?></td>
-                                        <td>
-                                            <a href="javascript:void(0);" category="<?php echo $vw->sub_category_id;?>" cat="<?php echo $vw->category_id;?>" class="edcategory" data-toggle="modal" data-target="#flexModal" title="Edit Sub Category"><i class='fa fa-edit text-blue'></i></a>
-                                            <?php if($vw->sub_category_status == 0){ ?>
-                                                <a href="javascript:void(0);" class="cactivate" title="Activate" cname="<?php echo $val;?>" category="<?php echo $vw->sub_category_id;?>"><i class='fa fa-check-circle-o text-green'></i></a>
-                                            <?php } else { ?>
-                                                <a href="javascript:void(0);" class="cdeactivate" title="Deactivate" cname="<?php echo $val;?>" category="<?php echo $vw->sub_category_id;?>"><i class='fa fa-times-circle-o text-red'></i></a>
-                                            <?php } ?>
-                                            <a href="<?php echo base_url();?>subcategory/delete/<?php echo $vw->sub_category_id;?>" title="Delete  Sub Category"><i class='fa fa-trash-o text-red'></i></a>
-                                        </td>
-                                    </tr>
-                                <?php 
-                                }
-                                ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal modal-flex fade" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

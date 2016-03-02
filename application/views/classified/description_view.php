@@ -37,6 +37,14 @@
 	</style>
 	
 	<script type="text/javascript">
+	function isNumber(evt) {
+	    evt = (evt) ? evt : window.event;
+	    var charCode = (evt.which) ? evt.which : evt.keyCode;
+	    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+	        return false;
+	    }
+	    return true;
+	}
 	$(function(){
 		/*favourite ad display */
 		var fav_count = <?php echo count($ads_favourite); ?>;
@@ -259,19 +267,19 @@
 									<div class="row">
 										<!-- Post Header-->
 										<div class="col-sm-9 col-xs-8">
-											<?php if ($urgent_pack != "") { ?>
+											<?php if ($urgent_pack != 0) { ?>
 												<div class="featured-badge pull-right">
 												<span>Urgent</span>
 											</div>
 											<?php	} ?>
 											<div class="post-header">
-												<?php if ($package_type == 'platinum') { ?>
+												<?php if ($package_type == 3) { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
 														<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Best Deal">
 													</div>
 												<?php	} ?>
 
-												<?php if ($package_type == 'gold') { ?>
+												<?php if ($package_type == 2) { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
 														<img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal">
 													</div>
@@ -403,28 +411,30 @@
 														</p>
 													</div>
 													<div>
-														<form action="#" method="post" class="j-forms tooltip-hover">
+														<form action="<?php echo base_url(); ?>description_view/reportforads" method="post" id='reportforads' class="j-forms tooltip-hover">
 															<aside class="widget view_sidebar">
 																<div class="j-row">
 																	<label class="radio">
-																		<input type="radio" name="report_view" value="" checked="">
+																		<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
+																		<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
+																		<input type="radio" name="report_view" value="This is illegal/fraudulent" checked>
 																		<i></i> This is illegal/fraudulent
 																	</label>
 																	<label class="radio">
-																		<input type="radio" name="report_view" value="">
+																		<input type="radio" name="report_view" value="This deal is spam">
 																		<i></i> This deal is spam
 																	</label>
 																	<label class="radio">
-																		<input type="radio" name="report_view" value="">
+																		<input type="radio" name="report_view" value="This deal is a duplicate">
 																		<i></i> This deal is a duplicate
 																	</label>
 																	<label class="radio">
-																		<input type="radio" name="report_view" value="">
+																		<input type="radio" name="report_view" value="This deal is in the wrong category">
 																		<i></i> This deal is in the wrong category
 																	</label>
 																	<div class="unit">
 																		<div class="input">
-																			<textarea type="text" id="" name="" placeholder="Please Provide more Information"></textarea>
+																			<textarea type="text" id="reportmsg" name="reportmsg" placeholder="Please Provide more Information"></textarea>
 																		</div>
 																	</div>
 																	<div class="unit">													
@@ -541,6 +551,71 @@
 											},
 											user_rating: {
 												required: "Please give review rating"
+											}
+										},
+										
+										submitHandler: function(form) {
+											// form.submit();
+											return true;
+										}
+									});
+
+							$("#feedbackads").validate({
+								// Specify the validation rules
+										rules: {
+											fbkcontname: {
+												required: true
+											},
+											feedbackmsg: {
+												required: true,
+												minlength: 60
+											},
+											busemail: {
+												required: true,
+												email: true
+											},
+											feedbackno: {
+												required: true
+											}
+										},
+										
+										// Specify the validation error messages
+										messages: {
+											fbkcontname: {
+												required: "Please Enter contact name"
+											},
+											feedbackmsg: {
+												required: "Please Enter feedback message",
+												minlength: "message contains atleast 60 characters"
+											},
+											busemail: {
+												required: "Please Enter valid mail id"
+											},
+											feedbackno: {
+												required: "Please Enter Mobile Number"
+											}
+										},
+										
+										submitHandler: function(form) {
+											// form.submit();
+											return true;
+										}
+									});
+
+							$("#reportforads").validate({
+								// Specify the validation rules
+										rules: {
+											reportmsg: {
+												required: true,
+												minlength: 60
+											}
+										},
+										
+										// Specify the validation error messages
+										messages: {
+											reportmsg: {
+												required: "Please Enter feedback message",
+												minlength: "message contains atleast 60 characters"
 											}
 										},
 										
@@ -668,7 +743,8 @@
 								<div class="text_center">
 									<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 								</div>
-								<form action="#" method="post" class="j-forms tooltip-hover">
+								<?php echo $this->view("classified_layout/success_error"); ?>
+								<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="feedbackads">
 									<aside class="widget view_sidebar send_now_hide" style="display:none;">
 										<div class="j-row">
 											<div class="unit">
@@ -681,7 +757,9 @@
 													<label class="icon-right" for="name">
 														<i class="fa fa-user"></i>
 													</label>
-													<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+													<input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name ">
+													<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
+													<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
 												</div>
 											</div>
 											<div class="unit">
@@ -694,7 +772,7 @@
 													<label class="icon-right" for="phone">
 														<i class="fa fa-phone"></i>
 													</label>
-													<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+													<input type="text" id="feedbackno" name="feedbackno" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
 												</div>
 											</div>
 											<div class="unit">
@@ -717,7 +795,7 @@
 													</sup>
 												</label>
 												<div class="input">
-													<textarea type="text" id="" name="" placeholder="Enter Your Feedback "></textarea>
+													<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea>
 												</div>
 											</div>
 											<div class="unit">													
@@ -759,135 +837,75 @@
 					<!-- End Title-->
 					
 					<div class="container">
-						<div class="row">
-							<div class="col-sm-12">
-								<div id="boxes-carousel112">
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-									
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-										   <div class="price"><span></span><b><i class="fa fa-hand-o-right"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-										<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price"><span></span><b><i class="fa fa-fire"></i></b><b><i class="fa fa-hand-o-right"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
-
-									<!-- Item carousel Boxed-->
-									<div>
-										<div class="img-hover similar_deal_bot">
-											<img src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets" class="img-responsive">
-											<div class="overlay"><a href=""><i class="fa fa-link"></i></a></div>
-										</div>
-
-										<div class="info-gallery">
-											<h3>Sample Text Here</h3>
-											<hr class="separator">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-											<h3 class="home_price">€9,999</h3>
-											<a href="" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-											<div class="price"><span></span><b><i class="fa fa-fire"></i></b></div>
-										</div>
-									</div>
-									<!-- End Item carousel Boxed-->
+							<div class="row">
+								<div class="col-sm-3">
+								<a href="business_deals_view">
+									<img src="<?php echo base_url(); ?>img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
+								</a>
 								</div>
-							</div>
+								<div class="col-sm-9">
+									<div id="boxes-carousel">
+										<!-- Item carousel Boxed-->
+										<?php foreach ($recommanded_ads as $b_ads) {
+											/*currency symbol*/ 
+		                                    	if ($b_ads->currency == 'pound') {
+		                                    		$currency = '£';
+		                                    	}
+		                                    	else if ($b_ads->currency == 'euro') {
+		                                    		$currency = '€';
+		                                    	}	
+										 ?>
+										<div>
+											<?php if ($b_ads->urgent_package != '') { ?>
+											<div class="bus_rec_badge">
+												<span>Urgent</span>
+											</div>
+											<?php } ?>
+											<div class="img-hover related_ads">
+												<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+												<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+											</div>
+											<div class="info-gallery">
+												<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+												<hr class="separator">
+												<?php if ($b_ads->ad_type != 'consumer') { ?>
+												<?php if ($b_ads->bus_logo != '') { ?>
+													<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+												<?php	}
+												else{ ?>
+												<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+											<?php	}
+												}
+												 ?>
+												 <?php if ($b_ads->package_type == 'platinum') { ?>
+												 	<div class="business_crown">
+													<span></span><b>
+													<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+													</div>
+												<?php	 } ?>
+												 <?php if ($b_ads->package_type == 'gold') { ?>
+												 	<div class="business_crown">
+													<span></span><b>
+													<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Crown" title="Right Deal"></b>
+													</div>
+												<?php	 } ?>
+												<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
+												<?php if ($b_ads->category_id != 'jobs') { ?>
+												<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+												<?php }
+												else{ ?>
+													<h3 class="home_price"></h3>		
+												<?php	}
+												?>
+												<a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+											</div>
+											
+											
+										</div>
+										<?php	} ?>
+										<!-- End Item carousel Boxed-->
+									</div>
+								</div>
 						</div>
 					</div>
 					<!-- End boxes-carousel-->

@@ -45,23 +45,15 @@ class Postad_property_model extends CI_Model{
                         }
 
                          /*web-link for free */
-              if ($this->input->post('package_type') == 'free') {
+              if ($this->input->post('package_type') == 1) {
                             $url = "";
                         }
-                        /*web-link for free urgent*/
-              if ($this->input->post('package_type') == 'free_urgent') {
-                            $url = $this->input->post("freeurgent_weblink");
-                        }
                         /*web-link for gold*/
-              if ($this->input->post('package_type') == 'gold') {
+              if ($this->input->post('package_type') == 2) {
                             $url = $this->input->post("gold_weblink");
                         }
-                        /*web-link for gold + urgent*/
-              if ($this->input->post('package_type') == 'gold_urgent') {
-                            $url = $this->input->post("goldurgent_weblink");
-                        }
                         /*web-link for platinum*/
-              if ($this->input->post('package_type') == 'platinum') {
+              if ($this->input->post('package_type') == 3) {
                             $url = $this->input->post("platinum_weblink");
                         }
 
@@ -107,7 +99,7 @@ class Postad_property_model extends CI_Model{
                         $this->db->insert("location", $loc);
 
                         /*free package*/
-                    if ($this->input->post('package_type') == 'free') {
+                    if ($this->input->post('package_type') == 1) {
                        $plat_data = array('ad_id' => $insert_id,
                                             'ad_validfrom' => date("d-m-Y H:i:s"),
                                             'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
@@ -117,19 +109,9 @@ class Postad_property_model extends CI_Model{
                        $this->db->insert('free_ads', $plat_data);
                     }
 
-                    /*free+urgent package*/
-                    if ($this->input->post('package_type') == 'free_urgent') {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('freeurgent_ads', $plat_data);
-                    }
 
                     /*gold package*/
-                    if ($this->input->post('package_type') == 'gold') {
+                    if ($this->input->post('package_type') == 2) {
                        $plat_data = array('ad_id' => $insert_id,
                                             'ad_validfrom' => date("d-m-Y H:i:s"),
                                             'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
@@ -139,19 +121,8 @@ class Postad_property_model extends CI_Model{
                        $this->db->insert('gold_ads', $plat_data);
                     }
 
-                    /*gold+urgent package*/
-                    if ($this->input->post('package_type') == 'gold_urgent') {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('goldurgent_ads', $plat_data);
-                    }
-
                         /*platinum package*/
-                    if ($this->input->post('package_type') == 'platinum') {
+                    if ($this->input->post('package_type') == 3) {
                        $plat_data = array('ad_id' => $insert_id,
                                             'marquee'=>$this->input->post('marquee_title'),
                                             'ad_validfrom' => date("d-m-Y H:i:s"),

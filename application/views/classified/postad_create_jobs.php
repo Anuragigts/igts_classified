@@ -14,38 +14,44 @@
 		$(function(){
 			$('.select_pack').change(function(){
 				var ch = $('input[name="select_packge"]:checked').val();
-				if(ch == 'freepackage'){
+				if(ch == 1){
+					var fimg = $("#fimg_pck_count").val();
 					$(".free_pck").css("display", 'block');
 					$(".gold_pck").css("display", 'none');
 					$(".platinum_pck").css("display", 'none');
-					document.getElementById("package_type").value = 'free';
+					document.getElementById("package_type").value = '1';
 					$(".freeurgent").attr('checked', false);	
 					$(".platinumurgent").attr('checked', false);
 					$(".goldurgent").attr('checked', false);
-					document.getElementById("package_urgent").value = '';
+					document.getElementById("package_urgent").value = '0';
 					document.getElementById("image_count").value = '0';
+					document.getElementById("pck_img_limit").value = fimg;
 				}
-				if(ch == 'goldpackage'){
+				if(ch == 2){
+					var gimg = $("#gimg_pck_count").val();
 					$(".free_pck").css("display", 'none');
 					$(".gold_pck").css("display", 'block');
 					$(".platinum_pck").css("display", 'none');
-					document.getElementById("package_type").value = 'gold';
+					document.getElementById("package_type").value = '2';
 					$(".freeurgent").attr('checked', false);
 					$(".goldurgent").attr('checked', false);	
 					$(".platinumurgent").attr('checked', false);
-					document.getElementById("package_urgent").value = '';
+					document.getElementById("package_urgent").value = '0';
 					document.getElementById("image_count").value = '0';
+					document.getElementById("pck_img_limit").value = gimg;
 				}
-				if(ch == 'platinumpackage'){
+				if(ch == 3){
+					var pimg = $("#pimg_pck_count").val();
 					$(".free_pck").css("display", 'none');
 					$(".gold_pck").css("display", 'none');
 					$(".platinum_pck").css("display", 'block');
-					document.getElementById("package_type").value = 'platinum';
+					document.getElementById("package_type").value = '3';
 					$(".freeurgent").attr('checked', false);
 					$(".goldurgent").attr('checked', false);
 					$(".platinumurgent").attr('checked', false);	
-					document.getElementById("package_urgent").value = '';	
-					document.getElementById("image_count").value = '0';		
+					document.getElementById("package_urgent").value = '0';	
+					document.getElementById("image_count").value = '0';	
+					document.getElementById("pck_img_limit").value = pimg;	
 				}
 			});
 		
@@ -59,66 +65,39 @@
 		$(function(){
 			$(".multi-submit-btn").click(function(){
 				var img_count = $("#image_count").val();
-				var pck_type = $("#package_type").val();
+				var pck_type = parseInt($("#package_type").val());
+				var pckimglimit = parseInt($("#pck_img_limit").val());
 		
 				/*free type image validation*/
-				if(pck_type == 'free'){
+				if(pck_type == 1){
 				if (img_count == 0) {
 					$(".free_img_error").css('display', 'block'); return false;
 				}
-				else if(pck_type == 'free' && (img_count > 5 || img_count < 3)){
+				else if(pck_type == 1 && (img_count > pckimglimit)){
 					$(".free_img_error").css('display', 'block'); return false;
 				}
 				else{
 					$(".free_img_error").css('display', 'none'); return true;
 				}
 			}
-		
-			/*free+urgent type image validation*/
-			if(pck_type == 'free_urgent'){
-				if (img_count == 0) {
-					$(".freeurgent_img_error").css('display', 'block'); return false;
-				}
-				else if(pck_type == 'free_urgent' && img_count > 9){
-					$(".freeurgent_img_error").css('display', 'block'); return false;
-				}
-				else{
-					$(".freeurgent_img_error").css('display', 'none'); return true;
-				}
-			}
-		
 			/*gold type image validation*/
-			if(pck_type == 'gold'){
+			if(pck_type == 2){
 				if (img_count == 0) {
 					$(".gold_img_error").css('display', 'block'); return false;
 				}
-				else if(pck_type == 'gold' && img_count > 9){
+				else if(pck_type == 2 && img_count > pckimglimit){
 					$(".gold_img_error").css('display', 'block'); return false;
 				}
 				else{
 					$(".gold_img_error").css('display', 'none'); return true;
 				}
 			}
-		
-			/*gold+urgent image validation*/
-			if(pck_type == 'gold_urgent'){
-				if (img_count == 0) {
-					$(".goldurgent_img_error").css('display', 'block'); return false;
-				}
-				else if(pck_type == 'gold_urgent' && img_count > 12){
-					$(".goldurgent_img_error").css('display', 'block'); return false;
-				}
-				else{
-					$(".goldurgent_img_error").css('display', 'none'); return true;
-				}
-			}
-		
 			/*platinum image validation*/
-				if(pck_type == 'platinum'){
+				if(pck_type == 3){
 				if (img_count == 0) {
 					$(".platinum_img_error").css('display', 'block'); return false;
 				}
-				else if(pck_type == 'platinum' && img_count > 12){
+				else if(pck_type == 3 && img_count > pckimglimit){
 					$(".platinum_img_error").css('display', 'block'); return false;
 				}
 				else{
@@ -1074,6 +1053,47 @@
 										<!-- start name -->
 										<!-- SERVICES, JOBS, PROPERTY, MOTOR POINTS -->
 										<?php if (@$cat == 'jobs') { ?>
+										<?php foreach ($free_pkg_list as $pack_val) {
+													$free_duration = $pack_val->dur_days;
+													$freepck_img = $pack_val->img_count;
+													$free_bump_home = $pack_val->bump_home;
+													$free_bump_search = $pack_val->bump_search;
+													$c_euro = $pack_val->cost_euro;
+													$c_pund = $pack_val->cost_pound;
+												}
+												foreach ($gold_pkg_list as $pack_val) {
+													$gold_duration = $pack_val->dur_days;
+													$goldpck_img = $pack_val->img_count;
+													$gold_bump_home = $pack_val->bump_home;
+													$gold_bump_search = $pack_val->bump_search;
+													$gc_euro = $pack_val->cost_euro;
+													$gc_pund = $pack_val->cost_pound;
+												}
+												foreach ($ptm_pkg_list as $pack_val) {
+													$ptm_duration = $pack_val->dur_days;
+													$ptmpck_img = $pack_val->img_count;
+													$ptm_bump_home = $pack_val->bump_home;
+													$ptm_bump_search = $pack_val->bump_search;
+													$ptm_euro = $pack_val->cost_euro;
+													$ptm_pound = $pack_val->cost_pound;
+												}
+												/*urgent lable list*/
+												foreach ($urgentlabel1 as $pack_val) {
+													$u_pkg_days1 = $pack_val->u_pkg_days;
+													$u_pkg_euro_cost1 = $pack_val->u_pkg_euro_cost;
+													$u_pkg_pound_cost1 = $pack_val->u_pkg__pound_cost;
+												}
+												foreach ($urgentlabel2 as $pack_val) {
+													$u_pkg_days2 = $pack_val->u_pkg_days;
+													$u_pkg_euro_cost2 = $pack_val->u_pkg_euro_cost;
+													$u_pkg_pound_cost2 = $pack_val->u_pkg__pound_cost;
+												}
+												foreach ($urgentlabel3 as $pack_val) {
+													$u_pkg_days3 = $pack_val->u_pkg_days;
+													$u_pkg_euro_cost3 = $pack_val->u_pkg_euro_cost;
+													$u_pkg_pound_cost3 = $pack_val->u_pkg__pound_cost;
+												}
+												 ?>
 										<div class="j-row">
 											<div class="span4">
 												<!-- promotion-box-->
@@ -1087,8 +1107,8 @@
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 5 photos</li>
+															<li><i class="fa fa-check"></i> Validity : <?php echo $free_duration; ?> days</li>
+															<li><i class="fa fa-check"></i> Up to <?php echo $freepck_img; ?> Images</li>
 															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox"><strong>Example</strong></a></li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
@@ -1099,18 +1119,19 @@
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<div class="free_bg text_center free_pound" style="display:none;">
-																<h3 class="price_amt">£0</h3>
+																<h3 class="price_amt">£<?php echo $c_pund; ?></h3>
 															</div>
 															<div class="free_bg text_center free_euro" style="display:none;">
-																<h3 class="price_amt">€0</h3>
+																<h3 class="price_amt">€<?php echo $c_euro; ?></h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
 															<label class="radio">
-															<input type="radio" id='free_pck' name="select_packge" class='select_pack' value="freepackage" data-price="5">
+															<input type="radio" id='free_pck' name="select_packge" class='select_pack' value="1" data-price="5">
 															<i></i>
 															Select Free 
 															</label>
+															<input type = 'hidden' name='fimg_pck_count' id='fimg_pck_count' value ="<?php echo $freepck_img; ?>">
 														</div>
 													</div>
 													<!-- End promotion-box-info-->
@@ -1129,11 +1150,11 @@
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 9 Images</li>
-															<li><i class="fa fa-check"></i> Bump up to 7days in result</li>
+															<li><i class="fa fa-check"></i> Validity : <?php echo $gold_duration; ?> days</li>
+															<li><i class="fa fa-check"></i> Up to <?php echo $goldpck_img; ?> Images</li>
+															<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result</li>
 															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
-															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for 7days <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for <?php echo $gold_bump_home; ?>days <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
@@ -1141,18 +1162,19 @@
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
-																<h3 class="price_amt">£4.99</h3>
+																<h3 class="price_amt">£<?php echo $gc_pund; ?></h3>
 															</div>
 															<div class="gold_bg text_center free_euro" style="display:none;">
-																<h3 class="price_amt">€6.59</h3>
+																<h3 class="price_amt">€<?php echo $gc_euro; ?></h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
 															<label class="radio">
-															<input type="radio" id='gold_pck' name="select_packge" class='select_pack' value="goldpackage" data-price="5">
+															<input type="radio" id='gold_pck' name="select_packge" class='select_pack' value="2" data-price="5">
 															<i></i>
 															Select Gold 
 															</label>
+															<input type = 'hidden' name='gimg_pck_count' id='gimg_pck_count' value ="<?php echo $goldpck_img; ?>">
 														</div>
 													</div>
 													<!-- End promotion-box-info-->
@@ -1171,27 +1193,28 @@
 													<!-- promotion-box-info-->
 													<div class="promotion-box-info">
 														<ul class="list-styles">
-															<li><i class="fa fa-check"></i> Validity : 30 days</li>
-															<li><i class="fa fa-check"></i> Up to 12 Images</li>
-															<li><i class="fa fa-check"></i> Bump up to 14days in result</li>
-															<li><i class="fa fa-check"></i> Ad will display 3D rotation on Homepage Significant Ads for 5 days<a href="img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Validity : <?php echo $ptm_duration; ?> days</li>
+															<li><i class="fa fa-check"></i> Up to <?php echo $ptmpck_img; ?> Images</li>
+															<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result</li>
+															<li><i class="fa fa-check"></i> Ad will display 3D rotation on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days<a href="img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result</li>
 															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Crown symbol will attach  </li>
 															<div class="platinum_bg text_center free_pound" style="display:none;">
-																<h3 class="price_amt">£9.99</h3>
+																<h3 class="price_amt">£<?php echo $ptm_pound; ?></h3>
 															</div>
 															<div class="platinum_bg text_center free_euro" style="display:none;">
-																<h3 class="price_amt">€13.20</h3>
+																<h3 class="price_amt">€<?php echo $ptm_euro; ?></h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
 															<label class="radio">
-															<input type="radio" id='platinum_pck' name="select_packge" class='select_pack' value="platinumpackage" data-price="5">
+															<input type="radio" id='platinum_pck' name="select_packge" class='select_pack' value="3" data-price="5">
 															<i></i>
 															Select Platinum 
 															</label>
+															<input type = 'hidden' name='pimg_pck_count' id='pimg_pck_count' value ="<?php echo $ptmpck_img; ?>">
 														</div>
 													</div>
 													<!-- End promotion-box-info-->
@@ -1220,14 +1243,14 @@
 															<!-- promotion-box-info-->
 															<div class="promotion-box-info free_pound" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> £0.99-7Days (Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> £ <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">£0.99</h3>
+																		<h3 class="price_amt">£ <?php echo $u_pkg_pound_cost1 ?> </h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="7daysurgent"  data-price="5">
+																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="1"  data-price="5">
 																	<i></i>
 																	Urgent
 																	</label>
@@ -1235,14 +1258,14 @@
 															</div>
 															<div class="promotion-box-info free_euro" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> €1.31-7Days (Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> €<?php echo $u_pkg_euro_cost1 ?>-<?php echo $u_pkg_days1 ?>Days (Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">€1.31</h3>
+																		<h3 class="price_amt">€<?php echo $u_pkg_euro_cost1 ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="7daysurgent"  data-price="5">
+																	<input type="radio" id='freeurgent' name="select_urgent" class='select_urgent_pack freeurgent' value="1"  data-price="5">
 																	<i></i>
 																	Urgent
 																	</label>
@@ -1253,14 +1276,14 @@
 															<!-- promotion-box-info-->
 															<div class="promotion-box-info free_pound" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> £1.49 -14 days (Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> £<?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">£1.49</h3>
+																		<h3 class="price_amt">£<?php echo $u_pkg_pound_cost2 ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="14daysurgent"  data-price="5">
+																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="2"  data-price="5">
 																	<i></i>
 																	Urgent 
 																	</label>
@@ -1268,14 +1291,14 @@
 															</div>
 															<div class="promotion-box-info free_euro" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> €1.97 -14 days (Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> €<?php echo $u_pkg_euro_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">€1.97</h3>
+																		<h3 class="price_amt">€<?php echo $u_pkg_euro_cost2 ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="14daysurgent"  data-price="5">
+																	<input type="radio" id='goldurgent' name="select_urgent" class='select_urgent_pack goldurgent' value="2"  data-price="5">
 																	<i></i>
 																	Urgent 
 																	</label>
@@ -1286,14 +1309,14 @@
 															<!-- promotion-box-info-->
 															<div class="promotion-box-info free_pound" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> £1.99-30 Days(Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> £<?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">£1.99</h3>
+																		<h3 class="price_amt">£<?php echo $u_pkg_pound_cost3; ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="30daysurgent"  data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="3"  data-price="5">
 																	<i></i>
 																	Urgent
 																	</label>
@@ -1301,14 +1324,14 @@
 															</div>
 															<div class="promotion-box-info free_euro" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i>€2.63-30 Days(Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i>€<?php echo $u_pkg_euro_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">€2.63</h3>
+																		<h3 class="price_amt">€<?php echo $u_pkg_euro_cost3 ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
 																	<label class="radio">
-																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="30daysurgent"  data-price="5">
+																	<input type="radio" id='platinumurgent' name="select_urgent" class='select_urgent_pack platinumurgent' value="3"  data-price="5">
 																	<i></i>
 																	Urgent
 																	</label>
@@ -1330,7 +1353,7 @@
 										<!-- free__pck Start -->
 										<div class="j-row free_pck" style='display: none;'>
 											<div class="alert alert-danger free_img_error" style='display:none;' >
-												<strong>Error!</strong> Please upload upto 3-5 images only
+												<strong>Error!</strong> Please upload upto <?php echo $freepck_img; ?> images only
 											</div>
 											<div class="span4 unit">
 												<div style="width:240px;">
@@ -1348,7 +1371,7 @@
 												<div class="j-row">
 													<div class="span12">
 														<div>
-															<h3>Upload Images ( 3-5 images ) :</h3>
+															<h3>Upload Images ( <?php echo $freepck_img; ?> images ) :</h3>
 															<div id="output_free">
 																<ul id="free"></ul>
 															</div>
@@ -1362,7 +1385,7 @@
 										<!-- free_urgent_pck Start -->
 										<div class="j-row free_urgent_pck" style='display: none;'>
 											<div class="alert alert-danger freeurgent_img_error" style='display:none;' >
-												<strong>Error!</strong> Please upload upto 9 images only
+												<strong>Error!</strong> Please upload upto <?php echo $freepck_img; ?> images only
 											</div>
 											<div class="span4 unit">
 												<div style="width:240px;">
@@ -1380,7 +1403,7 @@
 												<div class="j-row">
 													<div class="span12">
 														<div>
-															<h3>Upload Images ( 9 images ) :</h3>
+															<h3>Upload Images ( <?php echo $freepck_img; ?> images ) :</h3>
 															<div id="output_free_urgent">
 																<ul id="free"></ul>
 															</div>
@@ -1417,7 +1440,7 @@
 										<!-- Gold package Start -->
 										<div class="j-row gold_pck" style='display: none;'>
 											<div class="alert alert-danger gold_img_error" style='display:none;' >
-												<strong>Error!</strong> Please upload upto 9 images only
+												<strong>Error!</strong> Please upload upto <?php echo $goldpck_img; ?> images only
 											</div>
 											<div class="span4 unit">
 												<div style="width:240px;">
@@ -1435,7 +1458,7 @@
 												<div class="j-row">
 													<div class="span12">
 														<div>
-															<h3>Upload Images ( 9 images ) :</h3>
+															<h3>Upload Images ( <?php echo $goldpck_img; ?> images ) :</h3>
 															<div id="output_gold">
 																<ul id="free"></ul>
 															</div>
@@ -1462,7 +1485,7 @@
 										<!-- gold_urgent_pck Start -->
 										<div class="j-row gold_urgent_pck" style='display: none;'>
 											<div class="alert alert-danger goldurgent_img_error" style='display:none;' >
-												<strong>Error!</strong> Please upload upto 12 images only
+												<strong>Error!</strong> Please upload upto <?php echo $goldpck_img; ?> images only
 											</div>
 											<div class="span4 unit">
 												<div style="width:240px;">
@@ -1480,7 +1503,7 @@
 												<div class="j-row">
 													<div class="span12">
 														<div>
-															<h3>Upload Images ( 12 images ) :</h3>
+															<h3>Upload Images ( <?php echo $goldpck_img; ?> images ) :</h3>
 															<div id="output_gold_urgent">
 																<ul id="free"></ul>
 															</div>
@@ -1507,7 +1530,7 @@
 										<!-- platinum package Start -->
 										<div class="j-row platinum_pck" style='display: none;'>
 											<div class="alert alert-danger platinum_img_error" style='display:none'; >
-												<strong>Error!</strong> Please upload upto 12 images only
+												<strong>Error!</strong> Please upload upto <?php echo $ptmpck_img; ?> images only
 											</div>
 											<div class="span4 unit">
 												<div style="width:240px;">
@@ -1525,7 +1548,7 @@
 												<div class="j-row">
 													<div class="span12">
 														<div>
-															<h3>Upload Images ( 12 images ) :</h3>
+															<h3>Upload Images ( <?php echo $ptmpck_img; ?> images ) :</h3>
 															<div id="output_platinum">
 																<ul id="free"></ul>
 															</div>
@@ -1579,9 +1602,11 @@
 										<div class="j-row">
 											<div class="span12 unit">
 												<input type='hidden' id='package_type' name='package_type' value='' />
+												<input type='hidden' id='pck_imgcount' name='pck_imgcount' value='' />
 												<input type='hidden' id='package_urgent' name='package_urgent' value='' />
 												<input type='hidden' id='package_name' name='package_name' value='<?php echo @$package_name; ?>' />
 												<input type='hidden' id='image_count' name='image_count' value='0' />
+												<input type='hidden' id='pck_img_limit' name='pck_img_limit' value='0' />
 												<b>Contact Information</b>
 											</div>
 										</div>

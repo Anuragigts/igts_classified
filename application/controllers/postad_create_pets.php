@@ -52,6 +52,13 @@ class Postad_create_pets extends CI_Controller{
              $data['login_id'] = $this->session->userdata("login_id");
              $data['package_name'] = $this->category_model->package_name();
 
+             $data['free_pkg_list'] = $this->category_model->free_pkg_list_low();
+             $data['gold_pkg_list'] = $this->category_model->gold_pkg_list_low();
+             $data['ptm_pkg_list'] = $this->category_model->ptm_pkg_list_low();
+             $data['urgentlabel1'] = $this->category_model->urgentlabel_low1();
+             $data['urgentlabel2'] = $this->category_model->urgentlabel_low2();
+             $data['urgentlabel3'] = $this->category_model->urgentlabel_low3();
+
 	            $this->load->view("classified_layout/inner_template",$data);
         }
 

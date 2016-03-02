@@ -65,7 +65,8 @@
 		};
 	</script>
 		<div class="row">
-			<?php foreach ($my_ads_details as $m_details) {
+			<?php
+			 foreach ($my_ads_details as $m_details) {
 			/*person name*/
 			if ($m_details->ad_type == 'business') {
 			$person_name = @mysql_result(mysql_query("SELECT `contact_person` FROM `contactinfo_business` WHERE ad_id = '$m_details->ad_id'"), 0,'contact_person');
@@ -84,7 +85,7 @@
 		?>
 			<!-- platinum+urgent starts -->
 			<?php 
-			if ($m_details->package_type == 'platinum' && $m_details->urgent_package != '') {
+			if ($m_details->package_type == '3' && $m_details->urgent_package != '0') {
 			 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="featured-badge">
@@ -134,7 +135,7 @@
 			
 			<!-- platinum starts -->
 			<?php 
-			if ($m_details->package_type == 'platinum' && $m_details->urgent_package == '') {
+			if ($m_details->package_type == 3 && $m_details->urgent_package == 0) {
 			 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="xuSlider xuSlider_plat">
@@ -181,7 +182,7 @@
 			
 			<!-- gold+urgent starts -->
 			<?php 
-			if ($m_details->package_type == 'gold' && $m_details->urgent_package != '') {
+			if ($m_details->package_type == 2 && $m_details->urgent_package != 0) {
 			 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="featured-badge">
@@ -215,7 +216,7 @@
 		
 			<!-- gold starts -->
 			<?php 
-		if ($m_details->package_type == 'gold' && $m_details->urgent_package == '') {
+		if ($m_details->package_type == 2 && $m_details->urgent_package == 0) {
 		 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="img-hover box_img">
@@ -246,7 +247,7 @@
 			
 			<!-- free+urgent starts-->
 			<?php 
-		if ($m_details->package_type == 'free' && $m_details->urgent_package != '') {
+		if ($m_details->package_type == 1 && $m_details->urgent_package != 0) {
 		 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="featured-badge">
@@ -277,7 +278,7 @@
 			
 			<!-- free starts-->
 			<?php 
-		if ($m_details->package_type == 'free' && $m_details->urgent_package == '') {
+		if ($m_details->package_type == 1 && $m_details->urgent_package == 0) {
 		 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="img-hover box_img">

@@ -57,7 +57,7 @@ class Classified extends CI_Controller{
                                 /*business ads in home*/  
                                 $data['business_ads'] = $this->classifed_model->business_ads();  
 
-                                // echo "<pre>"; print_r($this);
+                                $data['business_logos'] = $this->classifed_model->business_logos();  
 
                 $this->load->view("classified_layout/inner_template",$data);
         }

@@ -39,5 +39,26 @@ class Settings extends CI_Controller {
                 }
                 $this->load->view("admin_layout/inner_template",$data);
         }
+		function list_banners(){
+			
+			if($this->input->post('update_banner')){
+				//echo '<pre>';print_r($this->input->post());echo '</pre>';
+				$update_status = $this->settings_model->update_banner();
+				if($update_status)
+					redirect('admin_dashboard');
+				else 
+					$all_banners = $this->settings_model->get_banners();
+			}else{
+				$all_banners = $this->settings_model->get_banners();
+			}
+				$data   =   array(
+						"title"         =>     "Classifieds :: Admin Banners",
+						"metadesc"      =>     "Classifieds :: Admin Banners",
+						"metakey"       =>     "Classifieds :: Admin Banners",
+						"content"       =>     "list_banners",
+						"all_banners"	=>     $all_banners
+				);
+			$this->load->view("admin_layout/inner_template",$data);
+		}
 }
 ?>

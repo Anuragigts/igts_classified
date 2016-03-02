@@ -158,7 +158,7 @@
 									</div>
 								</div>
 								<div class="first_box_list deals_search_result">
-									<?php echo $this->load->view('classified/deals_administrator_box_search'); ?>
+									<?php  echo $this->load->view('classified/deals_administrator_box_search'); ?>
 								</div>
 							</div>
 						</form>

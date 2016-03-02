@@ -1,4 +1,5 @@
-<script src="<?php echo base_url();?>admin_template_files/js/jquery-1.9.1.min.js"></script>
+
+<!--<script src="<?php echo base_url();?>admin_template_files/js/jquery-1.9.1.min.js"></script>-->
 	<script src="<?php echo base_url();?>admin_template_files/js/jquery-migrate-1.0.0.min.js"></script>
 	
 		<script src="<?php echo base_url();?>admin_template_files/js/jquery-ui-1.10.0.custom.min.js"></script>

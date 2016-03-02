@@ -37,9 +37,9 @@
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Packages Details</h2>
 						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>-->
 						</div>
 					</div>
 					<div class="box-content">
@@ -52,7 +52,7 @@
 								<th>Image Count</th>
 								<th>Bump Home</th>
 								<th>Bump Search</th>
-								<th>Package Type</th>
+								<th>Price Type</th>
                                 <th>Cost Euro</th>
 								<th>Cost Pound</th>
 								<th>Likes Limit</th>
@@ -71,7 +71,7 @@
 								<td><?php echo $pkg->img_count;?></td>
 								<td><?php echo $pkg->bump_home;?></td>
 								<td><?php echo $pkg->bump_search;?></td>
-								<td><?php if($pkg->is_top==1)echo 'Top';else echo "Normal "?></td>
+								<td><?php if($pkg->is_top==1)echo 'High';else echo "Low"; ?></td>
 								<td><?php echo $pkg->cost_euro;?></td>
 								<td><?php echo $pkg->cost_pound;?></td>
 								<td><?php echo $pkg->likes_count; ?></td>

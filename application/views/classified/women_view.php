@@ -37,6 +37,51 @@
             });
         });
 	</script>
+	<!-- map on model -->
+   <script type="text/javascript">
+	$(function(){
+		$(".loc_map").click(function(){
+			var val = $(".loc_map").attr("id");
+			var val1 = val.split(",");
+			$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+		});
+	});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			                    $("form.jforms").submit();
+			           }
+			        )
+			        $('input:radio').click(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $('.price_sort').change(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+			    }
+			);
+		</script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
@@ -103,479 +148,7 @@
 			//responsive code end
 		};
 	</script>
-	 <script type="text/javascript">
-	  $(function(){
-	  	/*a toz search*/
-	  	$(".dealtitle_sort").change(function(){
-	  		var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-	  			var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-		/*price asc / desc search*/
-	  	$(".price_sort").change(function(){
-	  		var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-	  			var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-		/*recent days*/
-		$(".recentdays_sort").change(function(){
-			var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-		/*bus/consumer search*/
-		$(".search_bustype").change(function(){
-			var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-			var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-		/*seller search*/
-		$(".seller_deals").change(function(){
-			var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-		/*deal urgent*/
-		$(".dealurgent").click(function(){
-			var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-			/*women list*/
-			$(".women_list").click(function(){
-				var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-			/*search location */
-			$("#find_location").click(function(){
-				var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-	/*clear search location */
-			$("#clear_location").click(function(){
-				var women_list = [];
-				$("input[name='women_list[]']:checked").each( function () {
-					 var women = $(this).val();
-					 	 women_list.push(women);
-					 
-				});
-				$("#find_loc").val('');
-				var latt = '';
-				var longg = '';
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>women_view/search_filters",
-					data: {
-						women_list: women_list,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".women_result").html(data);
-					}
-				})
-        	});
-	  });
-	  </script>
+	 
 	<?php foreach ($busconcount as $countval) {
 	  	$allbustype = $countval->allbustype;
 	  	$business = $countval->business;
@@ -603,6 +176,17 @@
 	  	$accessories = $women_list_countval->accessories;
 	  	$wedding = $women_list_countval->wedding;
 	  }
+	  		$sub_cat = $this->session->userdata('sub_cat');
+	  		$seller_deals = $this->session->userdata('seller_deals');
+			$dealurgent = $this->session->userdata('dealurgent');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealprice = $this->session->userdata('dealprice');
+			$recentdays = $this->session->userdata('recentdays');
+			$search_bustype = $this->session->userdata('search_bustype');
+			$location = $this->session->userdata('location');
+			$latt = $this->session->userdata('latt');
+			$longg = $this->session->userdata('longg');
 
 	  ?>
 	  
@@ -621,7 +205,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms2" action="<?php echo base_url(); ?>women_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
@@ -644,19 +228,19 @@
 										<div class="cd-filter-content">
 											<div>
 													<label class="checkbox">
-														<input type="checkbox" class='women_list' name="women_list[]" value="359" >
+														<input type="checkbox" class='women_list' name="women_list[]" value="359" <?php if(isset($sub_cat) && in_array(359,$sub_cat)){ echo 'checked = checked';}?> >
 														<i></i> Clothing (<?php echo $cloths; ?>)
 													</label>
 													<label class="checkbox">
-														<input type="checkbox" class='women_list' name="women_list[]" value="360" >
+														<input type="checkbox" class='women_list' name="women_list[]" value="360" <?php if(isset($sub_cat) && in_array(360,$sub_cat)){ echo 'checked = checked';}?> >
 														<i></i> Shoes (<?php echo $shoes; ?>)
 													</label>
 													<label class="checkbox">
-														<input type="checkbox" class='women_list' name="women_list[]" value="361" >
+														<input type="checkbox" class='women_list' name="women_list[]" value="361" <?php if(isset($sub_cat) && in_array(361,$sub_cat)){ echo 'checked = checked';}?> >
 														<i></i> Accessories (<?php echo $accessories; ?>)
 													</label>
 													<label class="checkbox">
-														<input type="checkbox" class='women_list' name="women_list[]" value="362" >
+														<input type="checkbox" class='women_list' name="women_list[]" value="362" <?php if(isset($sub_cat) && in_array(362,$sub_cat)){ echo 'checked = checked';}?> >
 														<i></i> Wedding (<?php echo $wedding; ?>)
 													</label>
 											</div>
@@ -669,15 +253,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> >
 													<i></i> Seller (<?php echo $seller; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> >
 													<i></i> Needed (<?php echo $needed; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Charity" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Charity" <?php if(isset($seller_deals) && in_array('Charity',$seller_deals)) echo 'checked = checked';?> >
 													<i></i> Charity (<?php echo $charity; ?>)
 												</label>
 											</div>
@@ -689,15 +273,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> >
 													<i></i> All (<?php echo $allbustype; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
 													<i></i> Business (<?php echo $business; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
 													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
@@ -709,7 +293,7 @@
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div class="input">
-												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc">
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value='<?php echo $location; ?>'>
 												<input type='hidden' name='latt' id='latt' value='' >
 												<input type='hidden' name='longg' id='longg' value='' >
 												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
@@ -724,19 +308,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" <?php if(isset($dealurgent) && in_array('urgent',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" <?php if(isset($dealurgent) && in_array('platinum',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" <?php if(isset($dealurgent) && in_array('gold',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" <?php if(isset($dealurgent) && in_array('free',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>

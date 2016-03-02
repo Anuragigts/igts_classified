@@ -84,7 +84,7 @@
                                     	else if ($sval->currency == 'euro') {
                                     		$currency = '€';
                                     	}
-                                    	if ($sval->package_type == 'platinum' && $sval->urgent_package != '') { ?>
+                                    	if (($sval->package_type == 3 || $sval->package_type == 6) && $sval->urgent_package != '0') { ?>
                                     <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -229,7 +229,7 @@
 									<!-- platinum+urgent package end -->
 									
 									<!-- platinum package start-->
-									<?php if ($sval->package_type == 'platinum' && $sval->urgent_package == '') {  ?>
+									<?php if (($sval->package_type == 3 || $sval->package_type == 6) && $sval->urgent_package == 0) {  ?>
                                     <div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -370,7 +370,7 @@
 									<!-- platinum package end -->
 
 									<!-- gold+urgent package starts -->
-									<?php if ($sval->package_type == 'gold' && $sval->urgent_package != '') {  ?>
+									<?php if (($sval->package_type == 2 || $sval->package_type == 5) && $sval->urgent_package != '0') {  ?>
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
@@ -496,7 +496,7 @@
 									<!-- gold+urgent package end -->
 									
 									<!-- gold package starts -->
-									<?php if ($sval->package_type == 'gold' && $sval->urgent_package == '') {  ?>
+									<?php if (($sval->package_type == 2 || $sval->package_type == 5) && $sval->urgent_package == 0) {  ?>
 									<div class="col-md-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
@@ -619,7 +619,7 @@
 									<!-- gold package end -->
 									
 									<!-- free+urgent package starts -->
-									<?php if ($sval->package_type == 'free' && $sval->urgent_package != '') {  ?>
+									<?php if (($sval->package_type == 1 || $sval->package_type == 4) && $sval->urgent_package != '0') {  ?>
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">
@@ -739,7 +739,7 @@
 									<!-- free+urgent package ends -->
 									
 									<!-- free package starts -->
-									<?php if ($sval->package_type == 'free' && $sval->urgent_package == '') {  ?>
+									<?php if (($sval->package_type == 1 || $sval->package_type == 4) && $sval->urgent_package == '0') {  ?>
 									<div class="col-md-12">
 										<div class="first_list">
 											<div class="row">

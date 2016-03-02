@@ -7,8 +7,6 @@
 				<div class="title-footer">
 					<h2>99 Right Deals 
 				</div>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 			</div>
 			<!-- End Title Footer-->
 
