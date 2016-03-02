@@ -4252,7 +4252,7 @@ transition-delay:.2s;
 		.error{
 			/* display: none;
 			margin-left: 10px; */
-			color:red;
+			color:red !important;
 		}		
 		
 		.error_show{
@@ -5868,4 +5868,8 @@ ul.sidebar-gallery {
 
 .flow_chart{
 	background-image: url("../img/flowchart.jpg");
+}
+.related_ads img{
+    width: 308px;
+    height: 160px;
 }
