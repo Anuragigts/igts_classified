@@ -128,12 +128,7 @@
 			        $("input:checkbox").change(
 			            function()
 			            {
-			               /* if( $(this).is(":checked") )
-			                {*/
-			                	 // alert('checked');
-			                	 //$("form[name='jforms']").submit();
 			                    $("form.jforms").submit();
-			               // }
 			            }
 			        )
 			        $('input:radio').click(function() {

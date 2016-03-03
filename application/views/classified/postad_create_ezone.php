@@ -692,7 +692,9 @@
 											<div class="col-sm-8 pad_bottm">
 												<ul class="social-team pull-left">
 													<li>
-														<b><?php echo ucfirst(@$cat); ?></b>
+														<b><?php
+														$cat11 = @mysql_result(mysql_query("SELECT category_name FROM catergory WHERE category_id = '$cat'"), 0, 'category_name');
+														 echo ucfirst(@$cat11); ?></b>
 														<input type='hidden' name='login_id' id='login_id' value="<?php echo @$login_id; ?>" />
 														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
@@ -1809,7 +1811,7 @@
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>E-Zone Category
-														<input type='hidden' name='ezone_cat' id='ezone_cat' value='ezone' />
+														<input type='hidden' name='ezone_cat' id='ezone_cat' value='8' />
 														<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
 														<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
 														<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />

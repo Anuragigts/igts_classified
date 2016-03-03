@@ -131,6 +131,31 @@
 								</li>					
 							</ul>	
 						</li>
+						<li >
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Coupons &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<ul style='margin-left:15px; color:green' >
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>coupons/ListCoupons">
+										<i class="fa fa-angle-double-right"></i> View Coupons
+									</a>
+								</li>					
+							</ul>	
+						</li>
+						<li >
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Review &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<ul style='margin-left:15px; color:green' >
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>Reviews/AllReview">
+										<i class="fa fa-angle-double-right"></i> All Reviews
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>Reviews/reviewByAd">
+										<i class="fa fa-angle-double-right"></i> Reviews by Ad
+									</a>
+								</li>
+							</ul>	
+						</li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> User Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green'>

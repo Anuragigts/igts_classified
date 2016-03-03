@@ -14,6 +14,7 @@ class Admin_dashboard extends CI_Controller {
 				
 				$ads_count = $this->admin_model->get_adsdetails();
 				$no_of_ads = $this->admin_model->get_no_of_ads();
+				$latest_ads = $this->admin_model->get_latest_ads();
 				//$pkg_types = $this->admin_model->get_pkg_details();
 				//echo '<pre>';print_r($no_of_ads);echo '</pre>';//exit;
                 $data   =   array(
@@ -22,10 +23,10 @@ class Admin_dashboard extends CI_Controller {
                         "metakey"       =>     "Classifieds :: Admin Dashboard",
                         "content"       =>     "dashboard",
 						"no_of_ads"     =>     $no_of_ads,
-						//"pkg_types"     =>     $pkg_types,
+						"latest_ads"     =>     $latest_ads,
 						"ads_count"     =>     $ads_count
                 );
-				//echo '<pre>';print_r($data);echo '</pre>';exit;
+				//echo '<pre>';print_r($data['latest_ads']);echo '</pre>';exit;
                 $this->load->view("admin_layout/inner_template",$data);
         }
 }

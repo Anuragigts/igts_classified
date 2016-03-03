@@ -84,7 +84,7 @@ td a.btn{line-height:15px;}
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>99RightDeals</span></a>
+				<a class="brand"  style='padding: 0px 20px;' href="<?php echo base_url()?>admin_dashboard"><span style='background-color:white;'><img src='<?php echo base_url()?>img/99rightdeal.png'></img></span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -101,35 +101,35 @@ td a.btn{line-height:15px;}
 									<a href="#refresh"><i class="icon-repeat"></i></a>
 								</li>	-->
                             	<li>
-                                    <a href="<?php echo base_url()?>ads/listAds/0/">
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/0/">
 										<span class="icon blue"><i class="icon-user"></i></span>
 										<span class="message">New Ads</span>
 										<span class="time"><?php echo $this->session->userdata('new');?></span> 
                                     </a>
                                 </li>
 								<li>
-                                    <a href="<?php echo base_url()?>ads/listAds/3/" >
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/3/" >
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
 										<span class="message">Pending Ads</span>
 										<span class="time"><?php echo $this->session->userdata('ad_pending');?></span> 
                                     </a>
                                 </li>
 								<li>
-                                    <a href="<?php echo base_url()?>ads/listAds/4/">
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/4/">
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
 										<span class="message">Rejected Ads</span>
 										<span class="time"><?php echo $this->session->userdata('ad_reject');?></span> 
                                     </a>
                                 </li>
 								<li>
-                                    <a href="<?php echo base_url()?>ads/listAds/2/">
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/2/">
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
 										<span class="message">On Hold Ads</span>
 										<span class="time"><?php echo $this->session->userdata('ad_hold');?></span> 
                                     </a>
                                 </li>
 								<li>
-                                    <a href="<?php echo base_url()?>ads/listAds/1/">
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/1/">
 										<span class="icon blue"><i class="icon-user"></i></span>
 										<span class="message">Active Ads</span>
 										<span class="time"><?php echo $this->session->userdata('active_ad');?></span> 
@@ -346,7 +346,7 @@ td a.btn{line-height:15px;}
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="<?php echo base_url()?>admin/profile"><i class="halflings-icon user"></i> Profile</a></li>
 								<li><a href="<?php echo base_url()?>admin/logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>

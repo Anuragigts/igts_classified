@@ -690,7 +690,9 @@
 											<div class="col-sm-8 pad_bottm">
 												<ul class="social-team pull-left">
 													<li>
-														<b><?php echo ucfirst(@$cat); ?></b>
+														<b><?php $cat11 = @mysql_result(mysql_query("SELECT category_name FROM catergory WHERE category_id = '$cat'"), 0, 'category_name');
+														echo ucfirst(@$cat11);
+														 ?></b>
 														<input type='hidden' name='login_id' id='login_id' value="<?php echo @$login_id; ?>" />
 														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
@@ -1779,7 +1781,7 @@
 						<div class="row">
 							<div class="col-md-12 post_deal_bor">
 								<div class="row">
-									<input type='hidden' name='jobs_cat' id='jobs_cat' value='jobs' />
+									<input type='hidden' name='jobs_cat' id='jobs_cat' value='1' />
 									<input type='hidden' name='jobs_sub' id='jobs_sub' value='' />
 									<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 									<?php foreach ($jobs as $j_val) { ?>

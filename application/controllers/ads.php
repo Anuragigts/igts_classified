@@ -176,5 +176,22 @@ class Ads extends CI_Controller {
 			//print_r($data['ads_list']);
 			//echo $this->load->view('admin/selected_ads_filter',$data);
 		}
+		
+		public function listAdsbyStatus(){
+				$view_page = 'ads_list';
+			 $data   =   array(
+                        "title"         =>     "Admin Dashboard",
+                        "metadesc"      =>     "Classifieds :: Admin Dashboard",
+                        "metakey"       =>     "Classifieds :: Admin Dashboard",
+                        "content"       =>     $view_page
+                );
+				$this->load->model("category_model");
+			$data['category_list'] = $this->category_model->view();
+			$data['urgent_label'] = $this->ads_model->get_urgent_labelview();
+			$request = $this->uri->segment(3);
+			//echo $request;exit;
+			$data['ads_list'] = $this->ads_model->listAdsbyStatus($request);
+			$this->load->view("admin_layout/inner_template",$data);
+		}
 }
 ?>

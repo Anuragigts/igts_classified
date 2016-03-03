@@ -53,13 +53,12 @@
                                 <th>Description</th>
 								<th>Status</th>
 								<th>View</th>
-                                <th style='width:55px;'>Action</th>
+                                <th style=''>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 0;
-							//echo '<pre>';print_r($ads_list[0]);echo '</pre>';
-                            foreach($ads_list as $ads){$i++; ?>
+							 foreach($ads_list as $ads){$i++; ?>
                             <tr class="odd gradeX">
                                 <td><input type='checkbox' name='deal_id[]' class='deal_id' id='deal_id<?php echo $ads->ad_id; ?>' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'></td>
 								<td><?php echo ucwords($ads->deal_tag);?></td>
@@ -68,7 +67,7 @@
 								<td><?php echo $ads->price;?></td>
 								<td><?php echo $ads->created_on;?></td>
 								<td><?php echo $ads->expire_data;?></td>
-								<td title ='<?php echo $ads->deal_desc?>'><?php echo substr($ads->deal_desc, '0', '25');?></td>
+								<td title ='<?php echo $ads->deal_desc?>'><?php echo substr(strip_tags($ads->deal_desc), '0', '25');?></td>
 								<td><?php if($ads->ad_status == 1)echo 'Approved'; 
 								else if($ads->ad_status == 0)echo 'New';
 								else if($ads->ad_status == 2)echo 'On Hold';
@@ -83,9 +82,9 @@
 											<i class="halflings-icon edit white"></i> 
 									</a>
 									<!--<a href="javascript:void(0);" class="deactivate btn btn-info" title="View"><i class='halflings-icon ok-circle' style='color:red'></i></a>-->&nbsp;
-									<a class="btn btn-danger" href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id;?>" title="Delete Ad Content" style=''>
+									<!--<a class="btn btn-danger" href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id;?>" title="Delete Ad Content" style=''>
 									<i class="halflings-icon white trash" style='width:10px; height:12px'></i> 
-									</a>
+									</a>-->
 								</td>
                             </tr>
                             <?php } ?>
@@ -95,7 +94,7 @@
 					<select name='change_status'>
 						<option>Select status </option>
 						<option value='0'>New</option>
-						<option value='1'>Active</option>
+						<!--<option value='1'>Active</option>-->
 						<option value='2'>On-Hold</option>
 						<option value='3'>In-progress</option>
 						<option value='4'>Rejected</option>

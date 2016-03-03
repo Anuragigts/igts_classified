@@ -1,3 +1,4 @@
+	 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<div id="content" class="span9">
 			<ul class="breadcrumb">
 				<li>
@@ -5,7 +6,7 @@
 					<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="">Ads List</a></li>
+				<li><a href="">Ads Staff</a></li>
 			</ul>
 			<?php if($this->session->flashdata('err') != ''){?>
                  <div class="alert alert-block alert-danger fade in">
@@ -29,11 +30,13 @@
                  </div>
              <br>
              <?php }?>
+<?php //echo '<pre>';print_r($staff_type);echo '</pre>';?>
+<?php //echo '<pre>';print_r($urgent_label);echo '</pre>';?>
 <?php //echo '<pre>';print_r($category_list[0]);echo '</pre>';?>
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Add New Urgent Lable</h2>
+						<h2><i class="halflings-icon white edit"></i><span class="break"></span>New Coupon</h2>
 						<div class="box-icon">
 							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -43,60 +46,59 @@
 					<div class="box-content">
 						<form class="form-horizontal" action='<?php echo current_url();?>' method='post'>
 							<fieldset>
-							<input type='hidden' name='u_pkg_id' value='<?php echo $urg_label->u_pkg_id; ?>'>
-							  
-							  <div class="control-group">
-								<label class="control-label" for="urg_name">Package Name</label>
+							 <!-- <div class="control-group">
+								<label class="control-label" for="c_code"> Coupon Code</label>
 								<div class="controls">
-								  <input type="text" id="urg_name" name="urg_name" value='<?php echo $urg_label->u_pkg_name; ?>'>
+								  <input type="text" id="c_code" name="c_code" value='<?php echo set_value('c_code'); ?>'required >
+								  <span><?php echo form_error('c_code'); ?></span>
+								</div>
+							  </div>-->
+							   <div class="control-group">
+								<label class="control-label" for="c_value"> Coupon Value</label>
+								<div class="controls">
+								  <input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'><span><?php echo form_error('c_value'); ?></span>
 								</div>
 							  </div>
 							   <div class="control-group">
-								<label class="control-label" for="urg_dur">Package Duration</label>
+								<label class="control-label" for="c_type"> Coupon Type</label>
 								<div class="controls">
-								  <input type="number" id="urg_dur" name="urg_dur" value='<?php echo $urg_label->u_pkg_days; ?>'>
-								 	
-								</div>
-							  </div>
-							   
-							  <div class="control-group">
-								<label class="control-label" for="pound_price">Pound Price</label>
-								<div class="controls">
-								  <input type="text" id="pound_price" name="pound_price" value='<?php echo $urg_label->u_pkg__pound_cost; ?>'>
-									&nbsp;&nbsp;<b style='font-family: ""; vertical-align:middle; font-size:35px;'>£</b>
-								</div>
-							  </div>
-							  
-							  <div class="control-group">
-								<label class="control-label" for="euro_price">Euro Price</label>
-								<div class="controls">
-								  <input type="text" id="euro_price" name="euro_price" value='<?php echo $urg_label->u_pkg_euro_cost; ?>'>
-								 <i class='glyphicons-icon euro' style='vertical-align:bottom; height:38px;'></i>
-								
-								</div>
-							  </div>
-							  
-							  
-							   <div class="control-group">
-								<label class="control-label" for="add_type">Package Category</label>
-								<div class="controls">
-								  <input type="checkbox" id="is_top_cat" name='is_top_cat' value='1'  <?php if($urg_label->is_top_cat == 1)echo 'checked'; ?>> Check the box if it is Top Category
+								  <label class="radio">
+								<input type="radio" class="c_type" name="c_type" value='p' checked> Percentage
+								</label>
+								<label class="radio">
+								<input type="radio" class="c_type" name="c_type" value='d'> Flat Discount
+								</label>
+								<span><?php echo form_error('c_type'); ?></span>
 								</div>
 							  </div>
 							   <div class="control-group">
-								<label class="control-label" for="selectError3">Change Status</label>
+								<label class="control-label" for="max_disc">Max Discount</label>
 								<div class="controls">
-								  <select id="urg_status" name='urg_status'>
-									<option value='0' <?php if($urg_label->status == 0) echo 'selected';?>> In Active</option>
-									<option value='1' <?php if($urg_label->status == 1) echo 'selected';?>>  Activate </option>
+								  <input type="text" id="max_disc" name="max_disc" value='<?php echo set_value('max_disc'); ?>' maxlength="10" required > 
+								  <span><?php echo form_error('max_disc'); ?></span>
+								</div>
+							  </div>
+							    <!--<div class="control-group">
+								<label class="control-label" for="c_count">No Of Coupons</label>
+								<div class="controls">
+								 <input type="number" id="c_count" name="c_count" value='<?php echo set_value('c_count'); ?>' maxlength="5"  min="1"required > 
+								  <span><?php echo form_error('c_count'); ?></span>
+								</div>
+							  </div>-->
+							 
+							  <div class="control-group">
+								<label class="control-label" for="c_status">Coupon Status </label>
+								<div class="controls">
+								  <select id="c_status" name='c_status'>
+									<option value='0' > In-Active</option>
+									<option value='1' > Active</option>
 								  </select>
 								</div>
 							  </div>
-							  
-							  <input type='hidden' value='<?php echo current_url();?>' name='curr_url'>
 							 
+							
 							  <div class="form-actions">
-								<input type="submit" class="btn btn-primary" name='update_urgLabel' value='Update'>
+								<input type="submit" class="btn btn-primary" name='new_coupon' value='Create'>
 								<button class="btn">Cancel</button>
 							  </div>
 							</fieldset>
@@ -106,4 +108,8 @@
 			</div>
     </div>
 </div>
+</div>
+<script>
+
+</script>
 <!-- end DASHBOARD CIRCLE TILES -->

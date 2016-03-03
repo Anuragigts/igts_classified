@@ -37,7 +37,7 @@
                 });
 
                 $.validator.addMethod("pwcheck", function(value) {
-				   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/.test(value); // consists of only these
+				   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(value); // consists of only these
 				});
 
 				 jQuery.validator.addMethod("character", function (value) {
@@ -101,12 +101,12 @@
 					bus_password: {
 						required: "Please provide a password",
 						// minlength: "Your password must be at least 8 characters long",
-						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit, one special character)"
+						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit)"
 					},
 					con_password: {
 						required: "Please provide a password",
 						// minlength: "Your password must be at least 8 characters long",
-						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit, one special character)"
+						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit)"
 					},
 					con_email: "Please enter a valid email address",
 					bus_email: "Please enter a valid email address",

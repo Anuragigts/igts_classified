@@ -1,6 +1,13 @@
+		<style>
+		.verticalChart .singleBar {
+			float: left;
+			margin-left: 0.15% !important;
+			margin-right: 0.15% !important;
+			width: 8% !important;
+		}
+		</style>
 		
-		
-		<div id="content" class="span9">
+		<div id="content" class="span9" style='min-height:150px'>
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
@@ -174,6 +181,322 @@ echo '<pre>';
 				</div>	-->
 				
 			</div>		
+		
+		<!--</div>
+		<div id="content" class="span9">-->
+		<div class="row-fluid">
+					<div class="widget blue span8" onTablet="span6" onDesktop="span8">
+					<h2><span class="glyphicons globe"><i></i></span> Demographics</h2>
+					<hr>
+					<div class="content">
+						<div class="verticalChart">
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>36%</span>
+									</div>
+								</div>
+								<div class="title">Jan</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>15%</span>
+									</div>
+								</div>
+								<div class="title">Feb</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>12%</span>
+									</div>
+								</div>
+								<div class="title">Mar</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>9%</span>
+									</div>
+								</div>
+								<div class="title">Apr</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>7%</span>
+									</div>
+								</div>
+								<div class="title">May</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>6%</span>
+									</div>
+								</div>
+								<div class="title">Jun</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>5%</span>
+									</div>
+								</div>
+								<div class="title">Jul</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>4%</span>
+									</div>
+								</div>
+								<div class="title">Aug</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>3%</span>
+									</div>
+								</div>
+								<div class="title">Sep</div>
+							</div>
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>1%</span>
+									</div>
+								</div>
+								<div class="title">Oct</div>
+							</div>	
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>1%</span>
+									</div>
+								</div>
+								<div class="title">Nov</div>
+							</div>	
+							<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>1%</span>
+									</div>
+								</div>
+								<div class="title">Dec</div>
+							</div>	
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+					
+				
+		<div class="box black span4 noMargin" onTablet="span12" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white check"></i><span class="break"></span>Latest Ads</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div class="todo metro">
+							<ul class="todo-list">
+							<?php foreach($latest_ads as $l_ads){
+								if($l_ads->package_type == 3){$li_class = 'blue';}
+								else if($l_ads->package_type == 2){$li_class = 'yellow';}
+								else if($l_ads->package_type == 1){$li_class = 'green';}
+								?>
+								<li class="<?php echo $li_class; ?>">
+									<!--<a class="action icon-check-empty" href="#"></a>-->
+<?php echo ucwords($l_ads->deal_tag);?>	
+									<strong><?php echo $l_ads->created_on; ?></strong>
+								</li>
+							<?php }?>
+							</ul>
+						</div>	
+					</div>
+				</div>
+		</div>
+		<?php /*?>
+		<div class="row-fluid">
+				<div class="box black span4" onTablet="span6" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white list"></i><span class="break"></span>Weekly Status</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="dashboard-list metro">
+							<li>
+								<a href="#">
+									<i class="icon-arrow-up green"></i>                               
+									<strong>92</strong>
+									New Comments                                    
+								</a>
+							</li>
+						  <li>
+							<a href="#">
+							  <i class="icon-arrow-down red"></i>
+							  <strong>15</strong>
+							  New Registrations
+							</a>
+						  </li>
+						  <li>
+							<a href="#">
+							  <i class="icon-minus blue"></i>
+							  <strong>36</strong>
+							  New Articles                                    
+							</a>
+						  </li>
+						  <li>
+							<a href="#">
+							  <i class="icon-comment yellow"></i>
+							  <strong>45</strong>
+							  User reviews                                    
+							</a>
+						  </li>
+						  <li>
+							<a href="#">
+							  <i class="icon-arrow-up green"></i>                               
+							  <strong>112</strong>
+							  New Comments                                    
+							</a>
+						  </li>
+						  <li>
+							<a href="#">
+							  <i class="icon-arrow-down red"></i>
+							  <strong>31</strong>
+							  New Registrations
+							</a>
+						  </li>
+						  <li>
+							<a href="#">
+							  <i class="icon-minus blue"></i>
+							  <strong>93</strong>
+							  New Articles                                    
+							</a>
+						  </li>
+						  <li>
+							<a href="#">
+							  <i class="icon-comment yellow"></i>
+							  <strong>256</strong>
+							  User reviews                                    
+							</a>
+						  </li>
+						</ul>
+					</div>
+				</div><!--/span-->
+				
+				<div class="box black span4" onTablet="span6" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Last Users</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="dashboard-list metro">
+							<li class="green">
+								<a href="#">
+									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+								</a>
+								<strong>Name:</strong> Dennis Ji<br>
+								<strong>Since:</strong> Jul 25, 2012 11:09<br>
+								<strong>Status:</strong> Approved             
+							</li>
+							<li class="yellow">
+								<a href="#">
+									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+								</a>
+								<strong>Name:</strong> Dennis Ji<br>
+								<strong>Since:</strong> Jul 25, 2012 11:09<br>
+								<strong>Status:</strong> Pending                                
+							</li>
+							<li class="red">
+								<a href="#">
+									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+								</a>
+								<strong>Name:</strong> Dennis Ji<br>
+								<strong>Since:</strong> Jul 25, 2012 11:09<br>
+								<strong>Status:</strong> Banned                                  
+							</li>
+							<li class="blue">
+								<a href="#">
+									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+								</a>
+								<strong>Name:</strong> Dennis Ji<br>
+								<strong>Since:</strong> Jul 25, 2012 11:09<br>
+								<strong>Status:</strong> Updated                                 
+							</li>
+						</ul>
+					</div>
+				</div><!--/span-->
+				
+				<div class="box black span4 noMargin" onTablet="span12" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white check"></i><span class="break"></span>To Do List</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div class="todo metro">
+							<ul class="todo-list">
+								<li class="red">
+									<a class="action icon-check-empty" href="#"></a>	
+									Windows Phone 8 App 
+									<strong>today</strong>
+								</li>
+								<li class="red">
+									<a class="action icon-check-empty" href="#"></a>
+									New frontend layout
+									<strong>today</strong>
+								</li>
+								<li class="yellow">
+									<a class="action icon-check-empty" href="#"></a>
+									Hire developers
+									<strong>tommorow</strong>
+								</li>
+								<li class="yellow">
+									<a class="action icon-check-empty" href="#"></a>
+									Windows Phone 8 App
+									<strong>tommorow</strong>
+								</li>
+								<li class="green">
+									<a class="action icon-check-empty" href="#"></a>
+									New frontend layout
+									<strong>this week</strong>
+								</li>
+								<li class="green">
+									<a class="action icon-check-empty" href="#"></a>
+									Hire developers
+									<strong>this week</strong>
+								</li>
+								<li class="blue">
+									<a class="action icon-check-empty" href="#"></a>
+									New frontend layout
+									<strong>this month</strong>
+								</li>
+								<li class="blue">
+									<a class="action icon-check-empty" href="#"></a>
+									Hire developers
+									<strong>this month</strong>
+								</li>
+							</ul>
+						</div>	
+					</div>
+				</div>
+			
+			</div>
+			<?php */?>
 		
 		</div>
 	</div>

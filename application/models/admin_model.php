@@ -168,6 +168,12 @@ class Admin_model extends CI_Model{
 			$user_type = $this->db->get()->result();
 			return $user_type;
 		}
+		function get_postad_categories(){
+			$this->db->select();
+			$this->db->from('catergory');
+			$user_type = $this->db->get()->result();
+			return $user_type;
+		}
 		function get_user_status(){
 			$this->db->select();
 			$this->db->from('user_status');
@@ -278,5 +284,22 @@ class Admin_model extends CI_Model{
 			$this->db->from('pkg_duration_list');
 			$pkg_details = $this->db->get()->result();
 			return $pkg_details;
+		}
+		function get_latest_ads(){
+			$this->db->select();
+			$this->db->where('created_on <', date('Y-m-d'));
+			//$this->db->from('postad');
+			$this->db->order_by('created_on','desc');
+			$latest_ads = $this->db->get('postad',10,5)->result();
+			//echo '<pre>';print_r($latest_ads);echo '</pre>';
+			//echo $this->db->last_query();exit;
+			return $latest_ads;
+		}
+		function get_profile_details(){
+			$this->db->select();
+			$this->db->where('l.login_id', $this->session->userdata('login_id'));
+			$this->db->join("profile as p","p.login_id = l.login_id","inner");
+			$profile = $this->db->get('login as l')->row();
+			return $profile;
 		}
 }

@@ -80,9 +80,6 @@
 								<td>
 									<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>category/EditPackage/<?php echo $pkg->pkg_dur_id ;?>" title="Edit Package Details">
 											<i class="halflings-icon edit white"></i> 
-									</a>&nbsp;
-									<a class="btn btn-danger" href="<?php echo base_url();?>category/getPackage/<?php echo $pkg->pkg_dur_id;?>" title="Delete Package Content" style=''>
-											<i class="halflings-icon white trash" style='width:10px; height:12px'></i> 
 									</a>
 								</td>
 							

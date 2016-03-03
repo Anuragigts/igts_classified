@@ -239,8 +239,73 @@
 	
 	<div class="modal dialog3" id="feedback_1" role="dialog">
 		<div class="modal-dialog3">
+			<script type="text/javascript">
+			$(function(){
+				 $("#site_feedback").validate({
+			
+				// Specify the validation rules
+				rules: {
+					category: {
+						required: true
+					},
+					return_site: {
+						required: true
+					},
+					frnd_ref:{
+						required: true
+					},
+					fdbk_mail: {
+						required: true,
+						email: true
+					},
+					Feedback:{
+						required: true
+					},
+					fdbk_mobile:{
+						required: true
+					},
+				},
+				
+				// Specify the validation error messages
+				messages: {
+					category: {
+						required: 'Please select category'
+					},
+					return_site: {
+						required: 'Please select option'
+					},
+					frnd_ref:{
+						required: 'Please select option'
+					},
+					fdbk_mail: {
+						required: 'Enter email id',
+						email: 'Please enter a valid email id'
+					},
+					Feedback:{
+						required: 'Enter feedback message'
+					},
+					fdbk_mobile:{
+						required: 'Enter Mobile number'
+					},
+				},
+				
+				submitHandler: function(form) {
+					return true;
+					//form.submit();
+				}
+			});
+			});
+		function isNumber(evt) {
+	    evt = (evt) ? evt : window.event;
+	    var charCode = (evt.which) ? evt.which : evt.keyCode;
+	    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+	        return false;
+	    }
+	    return true;
+	}
+			</script>
 			<!-- Modal content-->
-			<form action="#" method="post" class="j-forms tooltip-hover" >
+			<form action="" method="post" id='site_feedback' class="j-forms tooltip-hover" >
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -254,12 +319,16 @@
 										<div class="col-sm-12 unit">
 											<label class="label">Which category were you most interested in ?</label>
 											<label class="input select">
-												<select name="classified">
+												<select name="category">
 													<option value="none" selected disabled="">Please select an option</option>
-													<option value="">Holidays</option>
-													<option value="">City Breaks</option>
-													<option value="">Hotel Only</option>
-													<option value="">Other</option>
+													<option value="1">Jobs</option>
+													<option value="2">Services</option>
+													<option value="3">Motor Point</option>
+													<option value="4">Find A Property</option>
+													<option value="5">Pets</option>
+													<option value="6">Clothing & Lifestyles</option>
+													<option value="7">Home & Kitchen</option>
+													<option value="8">E-zone</option>
 												</select>
 												<i></i>
 											</label>
@@ -267,13 +336,13 @@
 										<div class="col-sm-12 unit">
 											<label class="label">How likely are you to return to to 99 right Deals ?</label>
 											<label class="input select">
-												<select name="classified">
+												<select name="return_site">
 													<option value="none" selected disabled="">Please select an option</option>
-													<option value="">Highly likely</option>
-													<option value="">Somewhat likely</option>
-													<option value="">Unsure</option>
-													<option value="">Somewhat unlikely</option>
-													<option value="">Highly unlikely</option>
+													<option value="Highly Yes">Highly Yes</option>
+													<option value="Likely">Likely</option>
+													<option value="Not sure">Not sure</option>
+													<option value="Unlikely">Unlikely</option>
+													<option value="Never">Never</option>
 												</select>
 												<i></i>
 											</label>
@@ -281,10 +350,13 @@
 										<div class="col-sm-12 unit">
 											<label class="label">Would you recommend the site to a friend ?</label>
 											<label class="input select">
-												<select name="classified">
+												<select name="frnd_ref">
 													<option value="none" selected disabled="">Please select an option</option>
-													<option value="">Yes</option>
-													<option value="">No</option>
+													<option value="Definitely Yes">Definitely Yes</option>
+													<option value="Likely">Likely</option>
+													<option value="Not Sure">Not Sure</option>
+													<option value="UnLikely">UnLikely</option>
+													<option value="Never">Never</option>
 												</select>
 												<i></i>
 											</label>
@@ -299,23 +371,23 @@
 									<div class="rating-group">
 										<label class="label">Easy to Use :</label>
 										<div class="ratings">
-											<input id="5acc" type="radio" name="easytouse">
+											<input id="5acc" type="radio" name="easytouse" value='5'>
 											<label for="5acc">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="4acc" type="radio" name="easytouse">
+											<input id="4acc" type="radio" name="easytouse" value='4'>
 											<label for="4acc">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="3acc" type="radio" name="easytouse">
+											<input id="3acc" type="radio" name="easytouse" value='3'>
 											<label for="3acc">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="2acc" type="radio" name="easytouse">
+											<input id="2acc" type="radio" name="easytouse" value='2'>
 											<label for="2acc">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="1acc" type="radio" name="easytouse">
+											<input id="1acc" type="radio" name="easytouse" value='1' checked>
 											<label for="1acc">
 												<i class="fa fa-smile-o"></i>
 											</label>
@@ -324,23 +396,23 @@
 									<div class="rating-group">
 										<label class="label">Stability and Speed :</label>
 										<div class="ratings">
-											<input id="5Stab" type="radio" name="Stability-rating">
+											<input id="5Stab" type="radio" name="Stability-rating" value='5' >
 											<label for="5Stab">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="4Stab" type="radio" name="Stability-rating">
+											<input id="4Stab" type="radio" name="Stability-rating" value='4'>
 											<label for="4Stab">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="3Stab" type="radio" name="Stability-rating">
+											<input id="3Stab" type="radio" name="Stability-rating" value='3'>
 											<label for="3Stab">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="2Stab" type="radio" name="Stability-rating">
+											<input id="2Stab" type="radio" name="Stability-rating" value='2'>
 											<label for="2Stab">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="1Stab" type="radio" name="Stability-rating">
+											<input id="1Stab" type="radio" name="Stability-rating" value='1' checked>
 											<label for="1Stab">
 												<i class="fa fa-smile-o"></i>
 											</label>
@@ -349,23 +421,23 @@
 									<div class="rating-group">
 										<label class="label">Design :</label>
 										<div class="ratings">
-											<input id="5price" type="radio" name="Design-rating">
+											<input id="5price" type="radio" name="Design-rating" value='5' >
 											<label for="5price">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="4price" type="radio" name="Design-rating">
+											<input id="4price" type="radio" name="Design-rating" value='4'>
 											<label for="4price">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="3price" type="radio" name="Design-rating">
+											<input id="3price" type="radio" name="Design-rating" value='3'>
 											<label for="3price">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="2price" type="radio" name="Design-rating">
+											<input id="2price" type="radio" name="Design-rating" value='2'>
 											<label for="2price">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="1price" type="radio" name="Design-rating">
+											<input id="1price" type="radio" name="Design-rating" value='1' checked>
 											<label for="1price">
 												<i class="fa fa-smile-o"></i>
 											</label>
@@ -390,7 +462,7 @@
 											<label for="2overl">
 												<i class="fa fa-smile-o"></i>
 											</label>
-											<input id="1overl" type="radio" value='1' name="Overall-rating">
+											<input id="1overl" type="radio" value='1' name="Overall-rating" checked>
 											<label for="1overl">
 												<i class="fa fa-smile-o"></i>
 											</label>
@@ -419,7 +491,7 @@
 										<label class="icon-right" for="email">
 											<i class="fa fa-envelope-o"></i>
 										</label>
-										<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
+										<input type="email" id="fdbk_mail" name="fdbk_mail" placeholder="Enter Your Email">
 									</div>
 								</div>
 							</div>
@@ -434,29 +506,8 @@
 										<label class="icon-right" for="phone">
 											<i class="fa fa-phone"></i>
 										</label>
-										<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number ">
+										<input type="text" id="fdbk_mobile" name="fdbk_mobile" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
 									</div>
-								</div>
-								<div class="col-sm-6 unit">
-									<label class="label">Category
-										<sup data-toggle="tooltip" title="" data-original-title="Category">
-											<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-										</sup>
-									</label>
-									<label class="input select">
-										<select name="Category">
-											<option value="none" selected disabled="">Select Category</option>
-											<option value="">E-Zone</option>
-											<option value="">Motor Point</option>
-											<option value="">Clothing & LifeStyles</option>
-											<option value="">Services</option>
-											<option value="">Find a Property</option>
-											<option value="">Home & Kitchen</option>
-											<option value="">Pets</option>
-											<option value="">Jobs</option>
-										</select>
-										<i></i>
-									</label>
 								</div>
 								<div class="col-sm-12 unit">													
 									<button class="btn_v btn-4 btn-4a fa fa-arrow-right pull-right"><span>Submit</span></button>

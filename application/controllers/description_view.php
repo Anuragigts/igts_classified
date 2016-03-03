@@ -47,13 +47,13 @@ class Description_view extends CI_Controller{
                  $body_content = '';
                 foreach ($detailed_desc as $value) {
                     /*services*/
-                    if ($value->category_id == 'services') {
+                    if ($value->category_id == '2') {
                         $body_content = array('Service' => $value->services,
                                             'Type of service'=>$value->service_type,
                                             'Price Type'=> $value->price_type );
                     }
                     /*pets*/
-                    if ($value->category_id == 'pets') {
+                    if ($value->category_id == '5') {
                         $detailed_pets = $this->classifed_model->ads_detailed_pets();
                         foreach ($detailed_pets as $val) {
                             $body_content = array('Service Type' => $value->services,
@@ -65,7 +65,7 @@ class Description_view extends CI_Controller{
                         } 
                     }
                     /*clothes and lifestyles*/
-                    if ($value->category_id == 'clothing_&_lifestyles') {
+                    if ($value->category_id == '6') {
                             /*clothing details*/
                             if ($value->sub_scat_id == '359' || $value->sub_scat_id == '363' ||
                                 $value->sub_scat_id == '367' || $value->sub_scat_id == '370' ||
@@ -147,7 +147,7 @@ class Description_view extends CI_Controller{
                     }
 
                     /*find a property*/
-                    if ($value->category_id == 'findaproperty') {
+                    if ($value->category_id == '4') {
                         /*residential*/
                         if ($value->sub_cat_id == '11') {
                             $detailed_prop = $this->classifed_model->ads_detailed_prop();
@@ -182,7 +182,7 @@ class Description_view extends CI_Controller{
                     }
 
                     /*Job category*/
-                    if ($value->category_id == 'jobs') {
+                    if ($value->category_id == '1') {
                         $detailed_jobs = $this->classifed_model->ads_detailed_jobs();
                         if ($value->currency == 'pound') {
                             $currency = '£';
@@ -203,7 +203,7 @@ class Description_view extends CI_Controller{
 
                 }
                 /*motor point*/
-                if ($value->category_id == 'motorpoint') {
+                if ($value->category_id == '3') {
                     /*bikes*/
                     if ($value->sub_cat_id == '13') {
                  $detailed_bikes = $this->classifed_model->ads_detailed_bikes();   
@@ -303,7 +303,7 @@ class Description_view extends CI_Controller{
                     }
                 }
 
-                if ($value->category_id == 'ezone') {
+                if ($value->category_id == '8') {
                     /*ezone*/
                     if ($value->sub_cat_id == '59' || $value->sub_cat_id == '60'
                         || $value->sub_cat_id == '61' || $value->sub_cat_id == '62'
@@ -341,7 +341,7 @@ class Description_view extends CI_Controller{
                     # code...
                 }
 
-                if ($value->category_id == 'kitchenhome') {
+                if ($value->category_id == '7') {
                     /*ezone*/
                     if ($value->sub_cat_id == '67' || $value->sub_cat_id == '68'
                         || $value->sub_cat_id == '69') {

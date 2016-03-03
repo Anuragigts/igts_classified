@@ -318,6 +318,12 @@ class Ads_model extends CI_Model{
 			$data = $this->db->get()->result();
 			return $data;
 		}
+		function get_postad_packages(){
+			$this->db->select();
+			$this->db->from('pkg_duration_list');
+			$data = $this->db->get()->result();
+			return $data;
+		}
 		function get_ads_videos($ad_id){
 			$this->db->select();
 			$this->db->where('ad_id',$ad_id);
@@ -338,6 +344,29 @@ class Ads_model extends CI_Model{
 			$this->db->where('id',$v_id);
 			$up_status = $this->db->update('videos',$update_status);
 			return $up_status;
+		}
+		function listAdsbyStatus($ads_type){
+			$status_type = $this->uri->segment(3);
+			//exit;
+			$cats = $this->get_assigned_cats();
+			if(empty($cats) && $this->session->userdata('user_type') != 1)
+				return array();
+			else{
+				$this->db->select('p_add.*,cat.category_id as cat_id, cat.*');
+				
+				$this->db->join('catergory as cat','cat.category_id = p_add.sub_cat_id','inner');
+				if($this->session->userdata('user_type') != 1){
+					$cats_list = explode(',',$cats->cat_ids);		
+					$this->db->where_in('p_add.category_id',$cats_list);
+				}
+				$this->db->where('p_add.ad_status',$status_type);
+				$this->db->order_by('p_add.updated_on', 'desc');
+				$this->db->from('postad as p_add');
+				$data = $this->db->get()->result();
+				//echo $this->db->last_query();
+				//echo '<pre>';print_r($data);echo '</pre>';exit;
+				return $data;
+			}
 		}
 }
 ?>

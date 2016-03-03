@@ -303,7 +303,7 @@ class hotdealsearch_model extends CI_Model{
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "services");
+			$this->db->where("ad.category_id", "2");
 			if (!empty($profpop)) {
 				$this->db->where_in('ad.sub_scat_id', $profpop);
 			}
@@ -410,7 +410,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "services");
+			$this->db->where("ad.category_id", "2");
 			if (!empty($profpop)) {
 				$this->db->where_in('ad.sub_scat_id', $profpop);
 			}
@@ -511,7 +511,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -595,17 +595,17 @@ class hotdealsearch_model extends CI_Model{
 
         public function clothstyle_list(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=20) AS women,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20) AS women,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=21) AS men,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21) AS men,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=22) AS boy,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22) AS boy,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=23) AS girls,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23) AS girls,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=24) AS babyboy,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24) AS babyboy,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=25) AS babygirl");
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25) AS babygirl");
 		return $this->db->get()->result();
         }
 
@@ -624,7 +624,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -727,7 +727,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
@@ -826,7 +826,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -912,7 +912,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -999,7 +999,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1085,7 +1085,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1171,7 +1171,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1257,7 +1257,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1343,7 +1343,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1429,7 +1429,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1515,7 +1515,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1601,7 +1601,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
@@ -1679,63 +1679,63 @@ class hotdealsearch_model extends CI_Model{
 
         public function women_list_count(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=359) AS clothes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=359) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=360) AS shoes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=360) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=361) AS accessories,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=361) AS accessories,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=362) AS wedding
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=362) AS wedding
 			");
         	return $this->db->get()->result();
         }
 
          public function men_list_count(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=363) AS clothes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=363) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=364) AS shoes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=364) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=365) AS accessories,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=365) AS accessories,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=366) AS wedding
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=366) AS wedding
 			");
         	return $this->db->get()->result();
         }
          public function boys_list_count(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=367) AS clothes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=367) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=368) AS shoes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=368) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=369) AS accessories
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=369) AS accessories
 			");
         	return $this->db->get()->result();
         }
         public function girls_list_count(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=370) AS clothes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=370) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=371) AS shoes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=371) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=372) AS accessories
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=372) AS accessories
 			");
         	return $this->db->get()->result();
         }
 
         public function babyboy_list_count(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=373) AS clothes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=373) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=374) AS accessories
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=374) AS accessories
 			");
         	return $this->db->get()->result();
         }
          public function babygirl_list_count(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=373) AS clothes,
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=373) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = 'clothing_&_lifestyles' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=374) AS accessories
+			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=374) AS accessories
 			");
         	return $this->db->get()->result();
         }
@@ -1756,7 +1756,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "clothing_&_lifestyles");
+			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
@@ -1856,7 +1856,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "jobs");
+			$this->db->where("ad.category_id", "1");
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
@@ -1935,7 +1935,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "jobs");
+			$this->db->where("ad.category_id", "1");
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
@@ -2004,76 +2004,94 @@ class hotdealsearch_model extends CI_Model{
 
         /*pets search*/
         public function pets_search($data){
-        	$pets_sub = $this->input->post('pets_sub');
-        	$pck = $this->input->post('pckg_list');
-        	$seller = $this->input->post('seller_deals');
+        	$pets_sub = $this->session->userdata('pets_sub');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "pets");
+			$this->db->where("ad.category_id", "5");
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
 			}
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+					$this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
 				}
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array(4, $dealurgent)){
+					array_push($pcklist, 4);
+				}
+				if (in_array(5, $dealurgent)){
+					array_push($pcklist, 5);
+				}
+				if (in_array(6, $dealurgent)){
+					array_push($pcklist, 6);
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
-			}
-
+			
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 
 			$this->db->group_by(" img.ad_id");
 				/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					/*deal price ascending or descending*/
-					if ($this->input->post("dealprice") == 'lowtohigh'){
+					if ($dealprice == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
-					else if ($this->input->post("dealprice") == 'hightolow'){
+					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
-					}
-					else{
-						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit']);
@@ -2087,73 +2105,94 @@ class hotdealsearch_model extends CI_Model{
         }
 
          public function count_pets_search(){
-        	$pets_sub = $this->input->post('pets_sub');
-        	$pck = $this->input->post('pckg_list');
-        	$seller = $this->input->post('seller_deals');
+        	$pets_sub = $this->session->userdata('pets_sub');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "pets");
+			$this->db->where("ad.category_id", "5");
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
 			}
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
-			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array(4, $dealurgent)){
+					array_push($pcklist, 4);
+				}
+				if (in_array(5, $dealurgent)){
+					array_push($pcklist, 5);
+				}
+				if (in_array(6, $dealurgent)){
+					array_push($pcklist, 6);
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
 
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 
 			$this->db->group_by(" img.ad_id");
 				/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					/*deal price ascending or descending*/
-					if ($this->input->post("dealprice") == 'lowtohigh'){
+					if ($dealprice == 'lowtohigh'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
 					}
-					else if ($this->input->post("dealprice") == 'hightolow'){
+					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
@@ -2181,7 +2220,7 @@ class hotdealsearch_model extends CI_Model{
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "kitchenhome");
+			$this->db->where("ad.category_id", "7");
 			if (!empty($kitchen_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
 			}
@@ -2262,7 +2301,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->where("ad.category_id", "kitchenhome");
+			$this->db->where("ad.category_id", "7");
 			if (!empty($kitchen_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
 			}
@@ -2348,7 +2387,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
-			$this->db->where("ad.category_id", "findaproperty");
+			$this->db->where("ad.category_id", "4");
 			if (!empty($proptype)) {
 				$this->db->where_in('ad.sub_cat_id', $proptype);
 			}
@@ -2497,7 +2536,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
-			$this->db->where("ad.category_id", "findaproperty");
+			$this->db->where("ad.category_id", "4");
 			if (!empty($proptype)) {
 				$this->db->where_in('ad.sub_cat_id', $proptype);
 			}
@@ -2634,114 +2673,114 @@ class hotdealsearch_model extends CI_Model{
 
         /*business and consumer count in services*/
         public function busconcount_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_type = 'consumer') AS consumer");
         	$this->db->from("postad");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         /*jobs count business or consumer*/
         public function busconcount_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*pets count business or consumer*/
         public function busconcount_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*kitchenhome count business or consumer*/
         public function busconcount_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*findproperty count business or consumer*/
         public function busconcount_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*cloths and lifestyles count business or consumer*/
         public function busconcount_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function busconcount_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 20 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 20 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 20 AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function busconcount_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 21 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 21 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 21 AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_boysview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 22 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 22 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 22 AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function busconcount_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 23 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 23 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 23 AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 24 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 24 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 24 AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 25 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 25 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 25 AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*pets seller and needed count*/
         public function sellerneeded_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND services = 'Needed') AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*services seller and needed count*/
         public function sellerneeded_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND services = 'service_provider') AS provider,
-	(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND services = 'service_needed') AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider') AS provider,
+	(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -2756,9 +2795,9 @@ class hotdealsearch_model extends CI_Model{
 
         /*pets seller and needed count*/
         public function sellerneeded_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND services = 'Charity') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -2766,33 +2805,33 @@ class hotdealsearch_model extends CI_Model{
         /*findproperty seller and needed count*/
         public function sellerneeded_property(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND prc.offered_type = 'Offered') AS offered,
+			ad.category_id = '7' AND prc.offered_type = 'Offered') AS offered,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND prc.offered_type = 'Wanted') AS wanted");
+			ad.category_id = '7' AND prc.offered_type = 'Wanted') AS wanted");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*clothstyles seller and needed count*/
         public function sellerneeded_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = 'clothing_&_lifestyles') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = 'clothing_&_lifestyles') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = 'clothing_&_lifestyles') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneeded_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 20 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 20 AND ad.category_id = '6') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 20 AND ad.category_id = '6') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 20 AND ad.category_id = '6') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 21 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 21 AND ad.category_id = '6') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 21 AND ad.category_id = '6') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 21 AND ad.category_id = '6') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -2804,23 +2843,23 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
         public function sellerneeded_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 23 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 23 AND ad.category_id = '6') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 23 AND ad.category_id = '6') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 23 AND ad.category_id = '6') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 24 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 24 AND ad.category_id = '6') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 24 AND ad.category_id = '6') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 24 AND ad.category_id = '6') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function sellerneeded_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 25 AND ad.category_id = 'clothing_&_lifestyles') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 25 AND ad.category_id = '6') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 25 AND ad.category_id = '6') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 25 AND ad.category_id = '6') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -2828,15 +2867,15 @@ class hotdealsearch_model extends CI_Model{
         /*findproperty area count*/
         public function areacount_property(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND prc.`build_area` < 500) AS less500,
+			ad.category_id = '4' AND prc.`build_area` < 500) AS less500,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
+			ad.category_id = '4' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
+			ad.category_id = '4' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
+			ad.category_id = '4' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = 'findaproperty' AND prc.build_area > 2000) AS plus2000");
+			ad.category_id = '4' AND prc.build_area > 2000) AS plus2000");
         	$rs = $this->db->get();
         	return $rs->row();
         }
@@ -2844,13 +2883,13 @@ class hotdealsearch_model extends CI_Model{
         /*findproperty bedrooms count*/
         public function bedroomcount_property(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bed_rooms = 1) AS one1,
+		ad.category_id = '4' AND prc.bed_rooms = 1) AS one1,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bed_rooms = 2) AS secon2,
+		ad.category_id = '4' AND prc.bed_rooms = 2) AS secon2,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bed_rooms = 3) AS third3,
+		ad.category_id = '4' AND prc.bed_rooms = 3) AS third3,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bed_rooms >= 4) AS four4");
+		ad.category_id = '4' AND prc.bed_rooms >= 4) AS four4");
         	$rs = $this->db->get();
         	return $rs->row();
         }
@@ -2858,130 +2897,130 @@ class hotdealsearch_model extends CI_Model{
          /*findproperty bathroomcount_property count*/
         public function bathroomcount_property(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bath_rooms = 1) AS one1,
+		ad.category_id = '4' AND prc.bath_rooms = 1) AS one1,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bath_rooms = 2) AS secon2,
+		ad.category_id = '4' AND prc.bath_rooms = 2) AS secon2,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bath_rooms = 3) AS third3,
+		ad.category_id = '4' AND prc.bath_rooms = 3) AS third3,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = 'findaproperty' AND prc.bath_rooms >= 4) AS four4");
+		ad.category_id = '4' AND prc.bath_rooms >= 4) AS four4");
         	$rs = $this->db->get();
         	return $rs->row();
         }
 
         /*findproperty resi_comm_count_property count*/
         public function resi_comm_count_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = 'findaproperty' AND ad.sub_cat_id = 11) AS residential,
-(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = 'findaproperty' AND ad.sub_cat_id = 26) AS commercial");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = '4' AND ad.sub_cat_id = 11) AS residential,
+(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = '4' AND ad.sub_cat_id = 26) AS commercial");
         	$rs = $this->db->get();
         	return $rs->row();
         }
 
         /*packages count for services*/
         public function deals_pck_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND (package_type = 3 OR package_type = 6) AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND (package_type = 2 OR package_type = 5) AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'services' AND (package_type = 1 OR package_type = 4) AND urgent_package = '0') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND (package_type = 3 OR package_type = 6) AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND (package_type = 2 OR package_type = 5) AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND (package_type = 1 OR package_type = 4) AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for jobs*/
         public function deals_pck_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'jobs' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*packages count for pets*/
         public function deals_pck_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'pets' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*packages count for pets*/
         public function deals_pck_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = 'kitchenhome' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND urgent_package != '') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = 'platinum') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = 'gold') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for findproperty*/
         public function deals_pck_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'findaproperty' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for findproperty*/
         public function deals_pck_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'platinum' AND urgent_package = '') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'gold' AND urgent_package = '') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND package_type = 'free' AND urgent_package = '') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = 'platinum' AND urgent_package = '') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = 'gold' AND urgent_package = '') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = 'free' AND urgent_package = '') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          public function deals_pck_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles'  AND sub_cat_id = 20 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 20 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 20 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 20 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 20 AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles'  AND sub_cat_id = 21 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 21 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 21 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 21 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 21 AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_boysview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles'  AND sub_cat_id = 22 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 22 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 22 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 22 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 22 AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles'  AND sub_cat_id = 23 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 23 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 23 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 23 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 23 AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles'  AND sub_cat_id = 24 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 24 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 24 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 24 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 24 AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles'  AND sub_cat_id = 25 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 25 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 25 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = 'clothing_&_lifestyles' AND sub_cat_id = 25 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 25 AND urgent_package != '') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = 'platinum') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = 'gold') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = 'free') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }

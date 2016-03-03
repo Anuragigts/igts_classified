@@ -98,6 +98,7 @@
 								<th>Gallery</th>
 								<th>Status</th>
 								<th>View</th>
+								<th>Buy</th>
                                 <th style='width:55px;'>Action</th>
                             </tr>
                         </thead>
@@ -122,6 +123,8 @@
 								</td>
 								<td>
 									<a class="" href="<?php echo base_url();?>description_view/details/<?php echo $ads->ad_id.'/';?>" target='_blank'title="View Ad Content" style=''>View</a>
+								</td>
+								<td><a class="" href="<?php echo base_url();?>products/buy/<?php echo $ads->ad_id.'/'.'pound';?>" title="Buy The Package" style=''>In Pound</a>
 								</td>
 								<td>
 									<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id.'/edit/';?>" title="Edit Ad Details">

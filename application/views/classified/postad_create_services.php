@@ -694,7 +694,9 @@
 											<div class="col-sm-8 pad_bottm">
 												<ul class="social-team pull-left">
 													<li>
-														<b><?php echo ucfirst(@$cat); ?></b>
+														<b><?php
+														$cat11 = @mysql_result(mysql_query("SELECT category_name FROM catergory WHERE category_id = '$cat'"), 0, 'category_name');
+														 echo ucfirst($cat11); ?></b>
 														<input type='hidden' name='login_id' id='login_id' value="<?php echo @$login_id; ?>" />
 														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
@@ -951,7 +953,7 @@
 										<div class="divider gap-bottom-25"></div>
 										<!-- start name -->
 										<!-- SERVICES, JOBS, PROPERTY, MOTOR POINTS -->
-										<?php if (@$cat == 'services') { ?>
+										
 										<div class="j-row">
 											<?php foreach ($free_pkg_list as $pack_val) {
 													$free_duration = $pack_val->dur_days;
@@ -960,6 +962,7 @@
 													$free_bump_search = $pack_val->bump_search;
 													$c_euro = $pack_val->cost_euro;
 													$c_pund = $pack_val->cost_pound;
+													$free_likes = $pack_val->likes_count;
 												}
 												foreach ($gold_pkg_list as $pack_val) {
 													$gold_duration = $pack_val->dur_days;
@@ -968,6 +971,7 @@
 													$gold_bump_search = $pack_val->bump_search;
 													$gc_euro = $pack_val->cost_euro;
 													$gc_pund = $pack_val->cost_pound;
+													$gold_likes = $pack_val->likes_count;
 												}
 												foreach ($ptm_pkg_list as $pack_val) {
 													$ptm_duration = $pack_val->dur_days;
@@ -1009,7 +1013,7 @@
 															<li><i class="fa fa-check"></i> Validity : <?php echo $free_duration; ?> days</li>
 															<li><i class="fa fa-check"></i> Up to <?php echo $freepck_img; ?> Images</li>
 															<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox"><strong>Example</strong></a></li>
-															<li class="text_center"> <br> </li>
+															<li><i class="fa fa-check"></i>Deal will be HOT Deal with <?php echo $free_likes; ?> Likes </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"><br></li>
 															<li class="text_center"> <br></li>
@@ -1052,10 +1056,10 @@
 															<li><i class="fa fa-check"></i> Validity : <?php echo $gold_duration; ?> days</li>
 															<li><i class="fa fa-check"></i> Up to <?php echo $goldpck_img; ?> Images</li>
 															<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result</li>
-															<li><i class="fa fa-check"></i> Deal will Highlight in result</li>
-															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page for <?php echo $gold_bump_home; ?>days <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Deal will Highlight in search result</li>
+															<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Deal will be HOT Deals with <?php echo $gold_likes; ?> Likes</li>
 															<li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
-															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
@@ -1095,11 +1099,12 @@
 															<li><i class="fa fa-check"></i> Validity : <?php echo $ptm_duration; ?> days</li>
 															<li><i class="fa fa-check"></i> Up to <?php echo $ptmpck_img; ?> Images</li>
 															<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result</li>
-															<li><i class="fa fa-check"></i> Ad will display 3D rotation on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days<a href="img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
+															<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days<a href="img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result</li>
-															<li><i class="fa fa-check"></i> Video 30sec can upload </li>
+															<li><i class="fa fa-check"></i> Youtube Video can provide </li>
 															<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
 															<li><i class="fa fa-check"></i> Crown symbol will attach  </li>
+															<li><i class="fa fa-check"></i> Deal will automatically in HOT Deals</li>
 															<div class="platinum_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£<?php echo $ptm_pound; ?></h3>
 															</div>
@@ -1242,7 +1247,7 @@
 												<!-- End promotion-box-->
 											</div>
 										</div>
-										<?php	} ?>
+										
 										<!-- Consumer to Consumer End-->
 										<div class="divider_space"></div>
 										<!-- Consumer to Consumer End-->
@@ -1671,7 +1676,7 @@
 								<div class="row">
 									<div class="col-md-6 clearfix">
 										<h3>Professional
-											<input type='hidden' name='services_cat' id='services_cat' value='services' />
+											<input type='hidden' name='services_cat' id='services_cat' value='2' />
 											<input type='hidden' name='services_sub' id='services_sub' value='' />
 											<input type='hidden' name='services_sub_sub' id='services_sub_sub' value='' />
 										</h3>

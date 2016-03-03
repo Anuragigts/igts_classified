@@ -500,11 +500,11 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
 					'is_top_cat'			=>	$is_top,
 					'updated_by'			=>	$this->session->userdata('login_id'),
 					'updated_on'			=>	date("Y-m-d H:i:s"),
-					'status'				=>	$this->input->post('pkg_status')
+					'status'				=>	$this->input->post('urg_status')
 			);
 			$this->db->where('u_pkg_id',$this->input->post('u_pkg_id'));
 			$update_status = $this->db->update('urgent_pkg_label',$info);
-			//echo $this->db->last_query();exit;
+			// echo $this->db->last_query();exit;
 			return $update_status;
         }
 		public function get_managed_modules(){

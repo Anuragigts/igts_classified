@@ -1,4 +1,8 @@
-	<div id="content" class="span9">
+	<style>
+.spanform{min-height:250px !important;}
+</style>
+	<div id="content" class="span9 spanform">
+	<?php // echo '<pre>';print_r($posted_data);echo '</pre>'; //exit;?>
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
@@ -40,28 +44,14 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" id="validate" method="post" action='<?php echo base_url()?>Report/Get_report/'>
+						<form class="form-horizontal" id="validate" method="post" action='<?php echo base_url()?>Reports/Ads/'>
 					<fieldset>
 						<div class='span6'>
 							<div class="control-group">
 								<label class="control-label" for="focusedInput">Date Start</label>
 								<div class="controls">
-								 <input type="text" name="start_date" value="" class="form-control" placeholder="Start Date"/> 
+								 <input type="text" name="start_date" value="<?php if(isset($posted_data)) echo $posted_data['start_date'] ?>" class="datepicker form-control start_date" placeholder="Start Date"/> 
                             <?php echo form_error("start_date");?>
-								</div>
-							</div>
-						</div>
-						<div class='span6'>
-							<div class="control-group">
-								<label class="control-label" for="typeahead">Group By <span class="text-red">*</span></label>
-								<div class="controls">
-								<select name='groupt_by'>
-									<option> Select </option>
-									<option value='day'> Daily</option>
-									<option value='week'> Weekly</option>
-									<option value='month'> Monthly</option>
-								</select>
-                            <?php echo form_error("group_by");?>    
 								</div>
 							</div>
 						</div>
@@ -69,26 +59,41 @@
 							<div class="control-group">
 								<label class="control-label" for="typeahead">Date End <span class="text-red">*</span></label>
 								<div class="controls">
-									 <input type="text" name="end_date" value="" class="form-control" placeholder="End Date"/>
+									 <input type="text" name="end_date" value="<?php if(isset($posted_data)) echo $posted_data['end_date']; ?>" class="datepicker form-control end_date" placeholder="End Date"/>
                             <?php echo form_error("end_date");?>   
+								</div>
+							</div>
+						</div>
+						<?php //echo '<pre>';print_r($categories);echo '</pre>';?>
+						<div class='span6' style='margint:0px;'>
+							<div class="control-group">
+							<label class="control-label" for="typeahead">Package Type <span class="text-red">*</span></label>
+								<div class="controls">
+									<select name='pkg_type' class='pkg_type'>
+									<option value='0'> Select Status Type </option>
+									<?php foreach($pkg_types as $a_status){?>
+									<option value='<?php echo $a_status->pkg_dur_id;?>'<?php if(isset($posted_data) && $posted_data['pkg_type'] == $a_status->pkg_dur_id)echo 'selected';?>><?php echo ucwords($a_status->pkg_dur_name);?> </option>
+									<?php }?>
+								</select>
+                            <?php echo form_error("pkg_type");?>
 								</div>
 							</div>
 						</div>
 						<div class='span6' style='margint:0px;'>
 							<div class="control-group">
-							<label class="control-label" for="typeahead">Ads Status<span class="text-red">*</span></label>
+							<label class="control-label" for="typeahead">Category Type <span class="text-red">*</span></label>
 								<div class="controls">
-									<select name='ord_status'>
-									<option> Select </option>
-									<?php foreach()$?>
-									<option value='day'> Daily</option>
-									<option value='week'> Weekly</option>
-									<option value='month'> Monthly</option>
+									<select name='cat_type' class='cat_type'>
+									<option value='0'> Select Status Type </option>
+									<?php foreach($categories as $cat){?>
+									<option value='<?php echo $cat->category_id?>'<?php if(isset($posted_data) && $posted_data['cat_type'] == $cat->category_id)echo 'selected';?>><?php echo ucwords($cat->category_name);?> </option>
+									<?php }?>
 								</select>
-                            <?php echo form_error("ord_status");?>
-								</div>
+                            <?php echo form_error("cat_type");?>
+							</div>
 							</div>
 						</div>
+						
 						 <div class="form-group">
 							<div class="col-lg-5"></div>
 							<div class="col-lg-2">
@@ -98,28 +103,106 @@
 						</div>
 					</fieldset>
 				</form>
-					</div>
 				</div><!--/span-->
 			</div>
-    </div>
+		</div>
+		<?php if(isset($result)){
+			//echo '<pre>';print_r($result[0]);echo '</pre>';?>
+		<div class="row-fluid sortable2">
+			<div class="box span12">
+				<div class="box-header" data-original-title style='height:32px;padding:5px;'>
+					<h2><i class="halflings-icon white user"></i><span class="break"></span>List Sub Sub Categories</h2>
+					<div class="box-icon" >	
+					<select name='report_type'class='report_type'>
+						<option value='exl'>Excel</option>
+						<option value='pdf'>PDF</option>
+					</select>
+					<a href='<?php echo base_url();?>Reports/Get_report/' target="_blank"  style="color: inherit" data-toggle="tooltip" data-placement="top" title="Download exl">Download</i></a>					
+					<button class='generate_report'>Generate</button>
+					
+					<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>-->
+					</div>
+				</div>
+				<div class="box-content">
+					<table class="table table-striped table-bordered bootstrap-datatable datatable">
+                        <thead>
+                            <tr>
+                                <th>Ad ID</th>
+                                <th>Deal Tag</th>
+                                <th>Created On</th>
+                                <th>Expire On</th>
+                                <th>Price</th>
+								<th>Package Name</th>
+								<th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <?php 
+                                $i = 1;
+                                foreach($result as $list){?>
+                                    <tr>
+                                        <td><?php echo $list->ad_prefix.str_pad($list->ad_id, 7, "0", STR_PAD_LEFT);?></td>
+                                        <td><?php  
+                                        $vasl = ucfirst($list->deal_tag);
+                                        echo $vasl;?></td>
+                                        <td><?php  
+                                        $val2 = $list->created_on;
+                                        echo $val2;?></td>
+                                        <td><?php  
+                                        $val = $list->expire_data;
+                                        echo $val;?></td>
+                                        <td><?php  
+                                        $val = $list->price;
+                                        echo $val;?></td> 
+										<td><?php  
+                                       echo $list->ad_type;?></td>
+									   <td><?php  
+                                        $val = ucfirst($list->pkg_dur_name);
+                                        echo $val;?></td>
+                                        <td>
+                                            sdfas
+                                            
+                                        </td>
+                                    </tr>
+                                <?php 
+                                }
+                                ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+			</div>
+   
+<?php }?>
+</div>
 </div>
 </div>
 <script>
 $(document).ready(function() {
-    $("#phone").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-             // Allow: Ctrl+A, Command+A
-            (e.keyCode == 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
-             // Allow: home, end, left, right, down, up
-            (e.keyCode >= 35 && e.keyCode <= 40)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
+    $(".generate_report").click(function () {
+		 var report_type = $('.report_type').val();
+		 var start_date = $('.start_date').val();
+		 var pkg_type = $('.pkg_type').val();
+		 var cat_type = $('.cat_type').val();
+		 var end_date = $('.end_date').val();
+		 
+		 $.ajax({
+		type: "POST",
+		url: "<?php echo base_url();?>Reports/Get_report",
+		data: {
+			report_type: report_type,
+			start_date: start_date,
+			pkg_type: pkg_type,
+			cat_type: cat_type,
+			end_date: end_date
+		},
+		success: function (data) {
+			
+		}
     });
+});
 });
 </script>

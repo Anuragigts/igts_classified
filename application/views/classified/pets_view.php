@@ -114,493 +114,45 @@
 			});
 		});
 		</script>
-	<script type="text/javascript">
-	$(function(){
-		/*pets sub search*/
-		$(".pets_sub").change(function(){
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-	/*pets seller or needed deals*/
-		$(".seller_deals").change(function(){
-			var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						seller_deals: seller_deals,
-						pets_sub: pets_sub,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-		/*business type */
-        	$(".search_bustype").click(function(){
-        		var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var recentdays = $(".recentdays_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		if ($("input:radio[name=search_bustype]").is(":checked")){
-        			var bustype = $("input[name=search_bustype]:checked").val();
-        		}
-				
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-        	/*search only urgent / platinum / gold / free*/
-        	$(".dealurgent").click(function(){
-        		var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var recentdays = $(".recentdays_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-
-		/*search ato z / A to Z*/
-			$(".dealtitle_sort").change(function(){
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".price_sort").change(function(){
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".recentdays_sort").change(function(){
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-	/*search location */
-			$("#find_location").click(function(){
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-
-	/*clear location*/
-	$("#clear_location").click(function(){
-			$("#find_loc").val('');
-				var pets_sub = [];
-				$("input[name='pets_sub[]']:checked").each( function () {
-					 var pets = $(this).val();
-					 	 pets_sub.push(pets);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = '';
-				var longg = '';
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				
-				var bustype = $("input[name=search_bustype]:checked").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>pets_view/search_filters",
-					data: {
-						pets_sub: pets_sub,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".pets_search_result").html(data);
-					}
-				})
-        	});
-	});
-	</script>
+		 <script type="text/javascript">
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			                    $("form.jforms").submit();
+			            }
+			        )
+			        $('input:radio').click(function() {
+			        	// alert('radio');
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+			        	alert($('.dealtitle_sort').val());
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.price_sort').change(function() {
+			        	alert($('.price_sort').val());
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+			        	alert($('.recentdays_sort').val());
+							$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+			    }
+			);
+		</script>
 	  <?php foreach ($busconcount as $countval) {
 	  	$allbustype = $countval->allbustype;
 	  	$business = $countval->business;
@@ -637,7 +189,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms2" action="<?php echo base_url(); ?>pets_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
@@ -725,19 +277,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" >
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
@@ -822,11 +374,6 @@
                                 <div class="row list_view_searches pets_search_result">
                                 	<?php echo $this->load->view("classified/pets_view_search"); ?>
                                 </div>
-								<div class='row'>
-									<div class='col-md-12'>
-										<?php echo $paging_links; ?>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

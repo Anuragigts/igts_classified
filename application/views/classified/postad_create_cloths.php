@@ -720,9 +720,11 @@ jQuery(document).ready(function($) {
 											<div class="col-sm-8 pad_bottm">
 												<ul class="social-team pull-left">
 													<li>
-														<b><?php echo ucfirst(@$cat); ?></b>
+														<b><?php
+														$cat11 = @mysql_result(mysql_query("SELECT category_name FROM catergory WHERE category_id = '$cat'"), 0, 'category_name');
+														 echo ucfirst(@$cat11); ?></b>
 														<input type='hidden' name='login_id' id='login_id' value="<?php echo @$login_id; ?>" />
-														<input type='hidden' name='category_id' id='category_id' value="<?php echo str_replace(" ","_",@$cat); ?>" />
+														<input type='hidden' name='category_id' id='category_id' value="<?php echo @$cat; ?>" />
 														<input type='hidden' name='sub_id' id='sub_id' value="<?php echo @$sub_id; ?>" />
 														<input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
 														 /</li>
@@ -1567,6 +1569,7 @@ jQuery(document).ready(function($) {
 													$free_bump_search = $pack_val->bump_search;
 													$c_euro = $pack_val->cost_euro;
 													$c_pund = $pack_val->cost_pound;
+													$free_likes = $pack_val->likes_count;
 												}
 												foreach ($gold_pkg_list as $pack_val) {
 													$gold_duration = $pack_val->dur_days;
@@ -1575,6 +1578,7 @@ jQuery(document).ready(function($) {
 													$gold_bump_search = $pack_val->bump_search;
 													$gc_euro = $pack_val->cost_euro;
 													$gc_pund = $pack_val->cost_pound;
+													$gold_likes = $pack_val->likes_count;
 												}
 												foreach ($ptm_pkg_list as $pack_val) {
 													$ptm_duration = $pack_val->dur_days;
@@ -2305,7 +2309,7 @@ jQuery(document).ready(function($) {
 							<div class="col-md-10 col-md-offset-1 post_deal_bor">
 								<div class="row">
 									<div class="col-md-4 clearfix">
-										<input type='hidden' name='cloths_cat' id='cloths_cat' value='clothing & lifestyles' />
+										<input type='hidden' name='cloths_cat' id='cloths_cat' value='6' />
 												<input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
 												<input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
 										<h3>Women</h3>

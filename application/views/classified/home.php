@@ -389,7 +389,7 @@
 													<!-- end Tab Two - contact -->
 												</div>
 												
-												<?php if ($hot_deals_val->category_id != 'jobs') { ?>
+												<?php if ($hot_deals_val->category_id != '1') { ?>
 													<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
 													<?php }
 														else{ ?>
@@ -478,7 +478,7 @@
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
 								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
-								<?php if ($val->category_id != 'jobs') { ?>
+								<?php if ($val->category_id != '1') { ?>
 								<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
 								<?php } 
 								else{ ?>
@@ -960,7 +960,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<?php if ($b_ads->category_id != 'jobs') { ?>
+										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<?php }
 											else{ ?>
@@ -988,7 +988,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
-										<?php if ($b_ads->category_id != 'jobs') { ?>
+										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<?php }
 										else{ ?>
@@ -1061,7 +1061,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
-										<?php if ($b_ads->category_id != 'jobs') { ?>
+										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<?php }
 										else{ ?>
@@ -1088,7 +1088,7 @@
 											</div>
 										<?php	 } ?>
 										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
-										<?php if ($b_ads->category_id != 'jobs') { ?>
+										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 										<?php }
 										else{ ?>
@@ -1150,7 +1150,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,44); ?> </p>
-										<?php if ($free_val->category_id != 'jobs') { ?>
+										<?php if ($free_val->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 										<?php }
 										else{ ?>
@@ -1172,7 +1172,7 @@
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<p><?php echo substr(strip_tags($free_val->deal_desc),0,44); ?> </p>
-										<?php if ($free_val->category_id != 'jobs') { ?>
+										<?php if ($free_val->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 										<?php }
 										else{ ?>

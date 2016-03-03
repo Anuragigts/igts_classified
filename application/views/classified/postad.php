@@ -72,7 +72,7 @@
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>E-Zone Category
-														<input type='hidden' name='ezone_cat' id='ezone_cat' value='ezone' />
+														<input type='hidden' name='ezone_cat' id='ezone_cat' value='8' />
 														<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
 														<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
 														<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />
@@ -175,7 +175,7 @@
 																<div class="row">
 																	<div class="col-md-3 clearfix">
 																		<h3>
-																<input type='hidden' name='motor_cat' id='motor_cat' value='motorpoint' />
+																<input type='hidden' name='motor_cat' id='motor_cat' value='3' />
 																<input type='hidden' name='motor_sub' id='motor_sub' value='' />
 																<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
 																<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
@@ -246,7 +246,7 @@
 														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-4 clearfix">
-																	<input type='hidden' name='cloths_cat' id='cloths_cat' value='clothing & lifestyles' />
+																	<input type='hidden' name='cloths_cat' id='cloths_cat' value='6' />
 																			<input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
 																			<input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
 																	<h3>Women</h3>
@@ -323,7 +323,7 @@
 																<div class="row">
 																	<div class="col-md-6 clearfix">
 																		<h3>Professional
-																			<input type='hidden' name='services_cat' id='services_cat' value='services' />
+																			<input type='hidden' name='services_cat' id='services_cat' value='2' />
 																			<input type='hidden' name='services_sub' id='services_sub' value='' />
 																			<input type='hidden' name='services_sub_sub' id='services_sub_sub' value='' />
 																		</h3>
@@ -374,7 +374,7 @@
 															<div class="row">
 																<div class="col-md-12 text_center clearfix">
 																	<h3><a href="javascript:void(0)" id="11,0" class='propertyforsale'>Residential</a>
-																		<input type='hidden' name='property_cat' id='property_cat' value='findaproperty' />
+																		<input type='hidden' name='property_cat' id='property_cat' value='4' />
 																			<input type='hidden' name='property_sub' id='property_sub' value='' />
 																			<input type='hidden' name='property_sub_sub' id='property_sub_sub' value='' />
 																	</h3>
@@ -416,7 +416,7 @@
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Home & Kitchen Category
-														<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='kitchenhome' />
+														<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='7' />
 														<input type='hidden' name='kitchen_sub' id='kitchen_sub' value='' />
 														<input type='hidden' name='kitchen_sub_sub' id='kitchen_sub_sub' value='' />
 													</h2>
@@ -479,7 +479,7 @@
 														<div class="col-md-12 post_deal_bor">
 															<div class="row">
 																<div class="col-md-2 clearfix">
-																	<input type='hidden' name='pets_cat' id='pets_cat' value='pets' />
+																	<input type='hidden' name='pets_cat' id='pets_cat' value='5' />
 																	<input type='hidden' name='pets_sub' id='pets_sub' value='' />
 																	<input type='hidden' name='pets_sub_sub' id='pets_sub_sub' value='' />
 																	<?php foreach ($pets_sub_cat as $p_sub) { ?>
@@ -539,7 +539,7 @@
 														<div class="row">
 															<div class="col-md-12  post_deal_bor">
 																<div class="row">
-																	<input type='hidden' name='jobs_cat' id='jobs_cat' value='jobs' />
+																	<input type='hidden' name='jobs_cat' id='jobs_cat' value='1' />
 																	<input type='hidden' name='jobs_sub' id='jobs_sub' value='' />
 																	<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 																	<?php foreach ($jobs as $j_val) { ?>

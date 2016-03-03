@@ -83,5 +83,17 @@ class Admin extends CI_Controller {
 				$this->load->view("admin_layout/inner_template",$data);
 			}
 		}
+		function profile(){
+			  $profile = $this->admin_model->get_profile_details();
+			  $data   =   array(
+                        "title"         =>     "Admin Dashboard",
+                        "metadesc"      =>     "Classifieds :: Admin Dashboard",
+                        "metakey"       =>     "Classifieds :: Admin Dashboard",
+                        "content"       =>     "viewProfile",
+                        "profile"       =>     $profile
+                );
+                $this->load->view("admin_layout/inner_template",$data);
+			  
+		}
 }
 ?>

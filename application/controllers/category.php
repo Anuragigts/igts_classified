@@ -186,7 +186,7 @@ class Category extends CI_Controller {
 					else{
 						$status = $this->category_model->update_urg_label_details();
 						if($status == 1){
-							$this->session->set_flashdata("msg","Urgent Label Details is Inserted Successfully");
+							$this->session->set_flashdata("msg","Urgent Label Details Updated Successfully");
 							redirect('category/urgLabel');
 						}
 						else{

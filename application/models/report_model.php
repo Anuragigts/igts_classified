@@ -7,7 +7,7 @@
  */
 
 class Report_model extends CI_Model{
-        public function ireport(){
+        /*public function ireport(){
                 $dt  =  array(
                                 "report_type"   =>  $this->input->post("rtype")
                         );
@@ -39,6 +39,26 @@ class Report_model extends CI_Model{
         }
         public function delete($param) {
                 $this->db->delete("report_type",array("report_type_id" => $param));
+        }*/
+		public function get_list_ads() {
+			$start = $this->session->userdata('start_date');
+			$end = $this->session->userdata('end_date');
+			$this->db->select();
+			if($this->session->userdata('cat_type')>0)
+				$this->db->where('p_ad.category_id',$this->session->userdata('cat_type'));
+			if($this->session->userdata('pkg_type')>0)
+				$this->db->where('p_ad.package_type',$this->session->userdata('pkg_type'));
+			
+			$this->db->where('p_ad.created_on >=', date( 'd-m-Y H:i:s',strtotime($start)));
+$this->db->where('p_ad.created_on <=', date( 'd-m-Y H:i:s',strtotime($end)));
+$this->db->join('pkg_duration_list p_list','p_list.pkg_dur_id = p_ad.package_type','inner');
+$this->db->join('login log','log.login_id = p_ad.login_id','inner');
+
+			$this->db->from('postad p_ad');
+			
+			$result = $this->db->get()->result();
+                        echo $this->db->last_query();exit;
+			return $result;
         }
 }
 ?>
