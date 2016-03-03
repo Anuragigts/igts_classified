@@ -305,7 +305,7 @@
 	}
 			</script>
 			<!-- Modal content-->
-			<form action="" method="post" id='site_feedback' class="j-forms tooltip-hover" >
+			<form action="<?php echo base_url(); ?>classified/feedback_site" method="post" id='site_feedback' class="j-forms tooltip-hover" >
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>

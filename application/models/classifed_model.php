@@ -723,6 +723,29 @@ Class Classifed_model extends CI_model{
 			}
 	}
 
+	/*feedback for website*/
+	public function feedbacksite_insert(){
+		$data = array('category'	=> $this->input->post('category'),
+						'site_return'	=> $this->input->post('return_site'),
+						'frnd_refer'	=> $this->input->post('frnd_ref'),
+						'fdk_msg'		=> $this->input->post('Feedback'),
+						'fdk_mail'		=> $this->input->post('fdbk_mail'),
+						'fdk_mobile'	=> $this->input->post('fdbk_mobile'),
+						'easytouse'		=> $this->input->post('easytouse'),
+						'stability'		=> $this->input->post('Stability-rating'),
+						'design'		=> $this->input->post('Design-rating'),
+						'overall'		=> $this->input->post('Overall-rating'),
+						'created_on'	=> date("Y-m-d H:i:s")
+			);
+			$this->db->insert("feedback_site", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
 	/*report for ads*/
 	public function reportads_insert(){
 		$data = array('ad_id'=> $this->input->post('ad_id'),
@@ -997,7 +1020,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->where("ad.category_id", "pets");
+		$this->db->where("ad.category_id", "5");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();

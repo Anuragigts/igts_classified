@@ -406,11 +406,6 @@
 								
 								<div class="row search_result">
                                	  <?php echo $this->load->view("classified/services_view_search"); ?> 
-                               	  <!-- <div class='row'>
-									<div class='col-md-12'>
-										<?php echo $paging_links; ?>
-									</div>
-								  </div> -->
                                	</div>
 								
 							</div>

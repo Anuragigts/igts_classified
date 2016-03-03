@@ -1199,7 +1199,6 @@
 										<div class="divider gap-bottom-25"></div>
 										<!-- start name -->
 										<!-- SERVICES, JOBS, PROPERTY, MOTOR POINTS -->
-										<?php if (@$cat == 'findaproperty') { ?>
 										<?php foreach ($free_pkg_list as $pack_val) {
 													$free_duration = $pack_val->dur_days;
 													$freepck_img = $pack_val->img_count;
@@ -1494,7 +1493,6 @@
 												<!-- End promotion-box-->
 											</div>
 										</div>
-										<?php	} ?>
 										<!-- Consumer to Consumer End-->
 										<div class="divider_space"></div>
 										<!-- Consumer to Consumer End-->

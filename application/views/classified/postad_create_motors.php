@@ -48,6 +48,8 @@
 					var esize = data.engine_size;
 					var esize1 = esize.split('cc');
 					$("#eng_size").val(esize1[0]);
+					$("#mot_status").val(data.mot);
+					$("#road_tax").val(data.road_tax);
 					}
 					else{
 						$(".manualentry").text("Enter Manually");

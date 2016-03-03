@@ -26,7 +26,7 @@ class  Pets_view extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'pets_view/index';
             $config['total_rows'] = count($this->classifed_model->count_pets_view());
-            $config['per_page'] = 10;
+            $config['per_page'] = 1;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
@@ -147,7 +147,7 @@ class  Pets_view extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'pets_view/index';
             $config['total_rows'] = count($this->hotdealsearch_model->count_pets_search());
-            $config['per_page'] = 10;
+            $config['per_page'] = 1;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
@@ -190,7 +190,7 @@ class  Pets_view extends CI_Controller{
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
-             $data['pets_sub'] = $this->hotdealsearch_model->pets_sub_search();
+             $result['pets_sub'] = $this->hotdealsearch_model->pets_sub_search();
              /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_pets();
                  /*seller and needed count for pets*/
