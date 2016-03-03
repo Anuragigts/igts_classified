@@ -167,7 +167,6 @@
 			$seller_deals = $this->session->userdata('seller_deals');
 			$dealurgent = $this->session->userdata('dealurgent');
 			$dealtitle = $this->session->userdata('dealtitle');
-			$dealtitle = $this->session->userdata('dealtitle');
 			$dealprice = $this->session->userdata('dealprice');
 			$recentdays = $this->session->userdata('recentdays');
 			$search_bustype = $this->session->userdata('search_bustype');

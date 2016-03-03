@@ -11,7 +11,7 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="js/filter.css"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('.cd-filter-content').niceScroll({
@@ -173,6 +173,16 @@
 	  	$seller = $sncnt->seller;
 	  	$needed = $sncnt->needed;
 	  }
+	  		$pets_sub1 = $this->session->userdata('pets_sub');
+	  		$seller_deals = $this->session->userdata('seller_deals');
+			$dealurgent = $this->session->userdata('dealurgent');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealprice = $this->session->userdata('dealprice');
+			$recentdays = $this->session->userdata('recentdays');
+			$search_bustype = $this->session->userdata('search_bustype');
+			$location = $this->session->userdata('location');
+			$latt = $this->session->userdata('latt');
+			$longg = $this->session->userdata('longg');
 	   ?>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
@@ -212,7 +222,7 @@
 											<div id="limit_scrol">
 												<?php foreach ($pets_sub as $petval) { ?>
 													<label class="checkbox">
-													<input type="checkbox" name="pets_sub[]" class='pets_sub' value="<?php echo $petval->sub_category_id; ?>" >
+													<input type="checkbox" name="pets_sub[]" class='pets_sub' value="<?php echo $petval->sub_category_id; ?>" <?php if(isset($pets_sub1) && in_array($petval->sub_category_id,$pets_sub1)){ echo 'checked = checked';}?> >
 													<i></i>  <?php echo ucwords($petval->sub_category_name)." (".$petval->no_ads.")"; ?>  
 													</label>
 												<?php } ?>
@@ -225,11 +235,11 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
 													<i></i> Seller Deals (<?php echo $seller; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
 													<i></i> Needed Deals (<?php echo $needed; ?>)
 												</label>
 											</div>
@@ -242,15 +252,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
 													<i></i> All (<?php echo $allbustype; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
 													<i></i> Business (<?php echo $business; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
 													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
@@ -277,19 +287,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
@@ -330,9 +340,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="dealtitle_sort" class="dealtitle_sort">
-																<option value="Any">Any</option>
-																<option value="atoz">A to Z</option>
-																<option value="ztoa">Z to A</option>
+																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -342,9 +352,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="price_sort" class="price_sort">
-																<option value="Any">Any(Pricing)</option>
-																<option value="lowtohigh">Low to High</option>
-																<option value="hightolow">High to Low</option>
+																<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+																<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+																<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 															</select>
 															<i></i>
 														</label>
@@ -354,12 +364,12 @@
 													<div class="top_bar_top">
 														<label class="input select">
 																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any">Any(posted on)</option>
-																	<option value="last24hours">Last 24 Hours</option>
-																	<option value="last3days">Last 3 Days</option>
-																	<option value="last7days">Last 7 Days</option>
-																	<option value="last14days">Last 14 Days</option>
-																	<option value="last1month">Last 1 month</option>
+																	<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																	<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																	<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																	<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																	<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																	<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
 																</select>
 																<i></i>
 															</label>

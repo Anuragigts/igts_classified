@@ -16,7 +16,7 @@
 			$currency = '€';
 		}
 		
-	if ($m_details->package_type == 3 && $m_details->urgent_package == 0) {
+	if (($m_details->package_type == 3 || $m_details->package_type == 6) && $m_details->urgent_package == 0) {
 	?>
 	<div class="col-md-12">
 		<div class="first_list">
@@ -108,7 +108,7 @@
 						<div class="col-xs-4">
 							<div class="row">
 								
-									<?php if ($m_details->category_id != 'jobs') { ?>
+									<?php if ($m_details->category_id != '1') { ?>
 								<div class="col-xs-10 col-xs-offset-1 amt_bg">
 									<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 								</div>
@@ -148,7 +148,7 @@
 	<!-- platinum package end -->
 
 	<?php 
-	if ($m_details->package_type == 3 && $m_details->urgent_package != 0) {
+	if (($m_details->package_type == 3 || $m_details->package_type == 6) && $m_details->urgent_package != 0) {
 	 ?>
 	<!-- platinum+urgent package start -->
 	<div class="col-md-12">
@@ -244,7 +244,7 @@
 						<div class="col-xs-4">
 							<div class="row">
 								
-									<?php if ($m_details->category_id != 'jobs') { ?>
+									<?php if ($m_details->category_id != '1') { ?>
 								<div class="col-xs-10 col-xs-offset-1 amt_bg">
 									<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 								</div>
@@ -285,7 +285,7 @@
 	<!-- platinum+urgent package end -->
 
 	<?php 
-	if ($m_details->package_type == 2 && $m_details->urgent_package == 0) {
+	if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_details->urgent_package == 0) {
 	 ?>
 	<!-- gold package starts -->
 	<div class="col-md-12">
@@ -360,7 +360,7 @@
 						<div class="col-xs-4">
 							<div class="row">
 								
-									<?php if ($m_details->category_id != 'jobs') { ?>
+									<?php if ($m_details->category_id != '1') { ?>
 								<div class="col-xs-10 col-xs-offset-1 amt_bg">
 									<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 								</div>
@@ -400,7 +400,7 @@
 	<!-- gold package end -->
 	
 	<?php 
-	if ($m_details->package_type == 2 && $m_details->urgent_package != 0) {
+	if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_details->urgent_package != 0) {
 	 ?>
 	<!-- gold+urgent package starts -->
 	<div class="col-md-12">
@@ -478,7 +478,7 @@
 						<div class="col-xs-4">
 							<div class="row">
 								
-									<?php if ($m_details->category_id != 'jobs') { ?>
+									<?php if ($m_details->category_id != '1') { ?>
 								<div class="col-xs-10 col-xs-offset-1 amt_bg">
 									<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 								</div>
@@ -519,7 +519,7 @@
 	
 	<!-- free package starts -->
 	<?php 
-	if ($m_details->package_type == 1 && $m_details->urgent_package == 0) {
+	if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_details->urgent_package == 0) {
 	 ?>
 	<div class="col-md-12">
 		<div class="first_list">
@@ -587,7 +587,7 @@
 						<div class="col-xs-4">
 							<div class="row">
 								
-									<?php if ($m_details->category_id != 'jobs') { ?>
+									<?php if ($m_details->category_id != '1') { ?>
 								<div class="col-xs-10 col-xs-offset-1 amt_bg">
 									<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 								</div>
@@ -628,7 +628,7 @@
 	
 	<!-- free+urgent package starts -->
 	<?php 
-	if ($m_details->package_type == 1 && $m_details->urgent_package != 0) {
+	if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_details->urgent_package != 0) {
 	 ?>
 	<div class="col-md-12">
 		<div class="first_list">
@@ -699,7 +699,7 @@
 						<div class="col-xs-4">
 							<div class="row">
 
-									<?php if ($m_details->category_id != 'jobs') { ?>
+									<?php if ($m_details->category_id != '1') { ?>
 									<div class="col-xs-10 col-xs-offset-1 amt_bg">
 										<h3 class="view_price"><?php echo $currency.number_format($m_details->price); ?>	</h3>
 									</div>
