@@ -3,7 +3,6 @@
 	
 	<style>
 		.img-hover img{
-			width:308px;
 			height:160px;
 			border-top: 1px solid #f4f4f4;
 			border-left: 1px solid #f4f4f4;
@@ -216,13 +215,13 @@
 			<div class="">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-sm-8">
 							<div class="titles">
 								<h2>TOP <span>CATEGORIES </span></h2>
 								<hr class="tall">
 							</div>
 							<div class="row">
-								<div class="col-md-4 col-sm-4 col-xs-10">
+								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
 										<div class="overlay">
@@ -231,7 +230,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-10">
+								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 										<div class="overlay">
@@ -309,7 +308,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 col-sm-8 col-xs-12">
 							<div class="titles">
 								<h2><span>HOT </span>DEALS</h2>
 								<hr class="tall">
@@ -341,8 +340,8 @@
 											<?php if($hot_deals_val->img_name == ''){
 												if ($hot_deals_val->urgent_package != '') { ?>
 													<div class="significant_badge">
-													<span>Urgent</span>
-												</div>
+														
+													</div>
 												<?php }
 												?>
 											<div class="img-hover significant_ad">
@@ -354,7 +353,7 @@
 												if ($hot_deals_val->urgent_package != 0) {
 													?>
 													<div class="significant_badge">
-													<span>Urgent</span>
+													
 													</div>
 													<?php }
 													?>
@@ -462,10 +461,10 @@
                                     		$currency = '€';
                                     	}
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 showall">
+						<div class="col-xs-12 col-sm-4 col-md-3 showall">
 							<?php if ($val->urgent_package != 0) { ?>
 									<div class="most_valued_badge">
-										<span>Urgent</span>
+										
 									</div>
 								<?php	}
 								 ?>
@@ -512,10 +511,10 @@
 						<?php foreach ($sig_ads_jobs as $m_ads){
 									
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 jobs">
+						<div class="col-xs-12 col-sm-4 col-md-3 jobs">
 							<?php if ($m_ads->urgent_package != 0) { ?>
 									<div class="most_valued_badge">
-										<span>Urgent</span>
+										
 									</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -560,10 +559,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 services">
+						<div class="col-xs-12 col-sm-4 col-md-3 services">
 							<?php if ($m_ads_services->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -609,10 +608,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 motorpoint">
+						<div class="col-xs-12 col-sm-4 col-md-3 motorpoint">
 							<?php if ($motor_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -658,10 +657,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 cloths_lifestyles">
+						<div class="col-xs-12 col-sm-4 col-md-3 cloths_lifestyles">
 							<?php if ($cloth_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -707,10 +706,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 findproperty">
+						<div class="col-xs-12 col-sm-4 col-md-3 findproperty">
 							<?php if ($prop_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -756,10 +755,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 homekitchen">
+						<div class="col-xs-12 col-sm-4 col-md-3 homekitchen">
 							<?php if ($khome_val->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -805,10 +804,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 pets">
+						<div class="col-xs-12 col-sm-4 col-md-3 pets">
 							<?php if ($m_ads_pets->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -854,10 +853,10 @@
                                     		$currency = '€';
                                     	}	
 							?>
-						<div class="col-xs-12 col-sm-6 col-md-3 ezone">
+						<div class="col-xs-12 col-sm-4 col-md-3 ezone">
 							<?php if ($m_ads_ezone->urgent_package != 0) { ?>
 							<div class="most_valued_badge">
-								<span>Urgent</span>
+								
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
@@ -933,7 +932,7 @@
 								<div>
 									<?php if ($b_ads->urgent_package != 0) { ?>
 									<div class="bus_rec_badge">
-										<span>Urgent</span>
+										
 									</div>
 									<?php } ?>
 									<div class="img-hover">
@@ -1016,12 +1015,12 @@
 				<!-- End Title-->
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-3">
+						<div class="col-sm-3 col-xs-12">
 						<a href="business_deals_view">
 							<img src="<?php echo base_url(); ?>img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
 						</a>
 						</div>
-						<div class="col-sm-9">
+						<div class="col-sm-9 col-xs-12">
 							<div id="boxes-carousel">
 								<!-- Item carousel Boxed-->
 								<?php foreach ($business_ads as $b_ads) {
@@ -1036,7 +1035,7 @@
 								<div>
 									<?php if ($b_ads->urgent_package != 0) { ?>
 									<div class="bus_rec_badge">
-										<span>Urgent</span>
+										
 									</div>
 									<?php } ?>
 									<div class="img-hover">
@@ -1115,12 +1114,12 @@
 				<!-- End Title-->
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-3">
+						<div class="col-sm-3 col-xs-12">
 							<a href="recent_deals_view">
 								<img src="<?php echo base_url(); ?>img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
 							</a>
 						</div>
-						<div class="col-sm-9">
+						<div class="col-sm-9 col-xs-12">
 							<div id="boxes-carousel1">
 								<!-- Item carousel Boxed-->
 								<?php 
@@ -1137,7 +1136,7 @@
 								<div>
 									<?php if ($free_val->urgent_package != 0) { ?>
 											<div class="bus_rec_badge">
-												<span>Urgent</span>
+												
 											</div>
 										<?php } ?>
 									<div class="img-hover">

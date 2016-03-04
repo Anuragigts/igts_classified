@@ -89,7 +89,7 @@
 			 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="featured-badge">
-					<span>Urgent</span>
+					
 				</div>
 				<div class="xuSlider xuSlider_plat_urgtnt">
 					<ul class="sliders">
@@ -186,7 +186,7 @@
 			 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="featured-badge">
-					<span>Urgent</span>
+					
 				</div>
 				<div class="img-hover box_img">
 					<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
@@ -251,7 +251,7 @@
 		 ?>
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="featured-badge">
-					<span>Urgent</span>
+					
 				</div>
 				<div class="img-hover box_img">
 					<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">

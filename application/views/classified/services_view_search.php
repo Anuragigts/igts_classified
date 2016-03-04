@@ -90,7 +90,7 @@
 											<div class="row">
 												<div class="col-sm-4">
 													<div class="featured-badge">
-														<span>Urgent</span>
+														
 													</div>
 													<div class="xuSlider">
 														<ul class="sliders">
@@ -376,7 +376,7 @@
 											<div class="row">
 												<div class="col-sm-4">
 													<div class="featured-badge">
-														<span>Urgent</span>
+														
 													</div>
 													<div class="img-hover view_img">
 														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
@@ -625,7 +625,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="featured-badge">
-														<span>Urgent</span>
+														
 													</div>
 													<div class="img-hover">
 														<img src="<?php echo base_url(); ?>ad_images/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">

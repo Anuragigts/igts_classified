@@ -156,7 +156,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="featured-badge">
-						<span>Urgent</span>
+						
 					</div>
 					<div class="xuSlider">
 						<ul class="sliders">
@@ -408,7 +408,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="featured-badge">
-						<span>Urgent</span>
+						
 					</div>
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
@@ -635,7 +635,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="featured-badge">
-						<span>Urgent</span>
+						
 					</div>
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">

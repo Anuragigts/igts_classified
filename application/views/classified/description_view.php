@@ -266,11 +266,11 @@
 								<div class="post-item">
 									<div class="row">
 										<!-- Post Header-->
-										<div class="col-sm-9 col-xs-8">
+										<div class="col-sm-9 col-xs-12">
 											<?php if ($urgent_pack != 0) { ?>
-												<div class="featured-badge pull-right">
-												<span>Urgent</span>
-											</div>
+												<div class="featured_badge_view">
+												
+												</div>
 											<?php	} ?>
 											<div class="post-header">
 												<?php if ($package_type == 3) { ?>
@@ -307,7 +307,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-3 col-xs-4  post-header1">
+										<div class="col-sm-3 col-xs-6  post-header1">
 											<div class="add-to-compare-list pull-left">
 												<input type="hidden" name="ad_id" id="ad_id" value="<?php echo $ad_id_no; ?>" />
 												<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
@@ -727,7 +727,7 @@
 									<ul class="list-styles contact_now_hide" style="display:none;">
 										<li><i class="fa fa-phone phn"></i><strong> <?php echo $mobile; ?></strong></li>
 									</ul>
-									<div class="top_5">
+									<div class="bot_pad_10">
 										<div class="amt_bg">
 											<?php if ($catid != 'jobs') { ?>
 											<h3 class="view_price_1"><?php echo $price; ?></h3>
@@ -735,7 +735,8 @@
 										</div>
 										<?php if ($catid != 'jobs') { ?>
 										<div>
-											<h4><?php echo $ptype; ?></h4>
+											<img src="<?php echo base_url(); ?>img/icons/negotiable.png" alt="negotiable" title="Negotiable">
+											<img src="<?php echo base_url(); ?>img/icons/fixed.png" alt="fixed" title="Fixed">
 										</div>
 										<?php } ?>
 									</div>
@@ -858,7 +859,7 @@
 										<div>
 											<?php if ($b_ads->urgent_package != '') { ?>
 											<div class="bus_rec_badge">
-												<span>Urgent</span>
+												
 											</div>
 											<?php } ?>
 											<div class="img-hover related_ads">
