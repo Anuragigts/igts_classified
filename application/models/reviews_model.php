@@ -21,7 +21,6 @@ class Reviews_model extends CI_Model{
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->join('pkg_duration_list as pd','pd.pkg_dur_id = p.package_type','inner');
 		$reviews = $this->db->get()->result();
-		// echo $this->db->last_query();exit;
 		return $reviews;	
 	}
 	public function get_Adreview($a_id){

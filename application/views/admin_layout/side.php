@@ -17,7 +17,7 @@
 							<div class="clearfix"></div>
 						</li>
 						<li><a href="<?php echo base_url();?>admin_dashboard"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
-						<?php echo $sess_user_type = $this->session->userdata('user_type');
+						<?php $sess_user_type = $this->session->userdata('user_type');
 						if($sess_user_type !=5){?>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Staff Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
@@ -91,6 +91,16 @@
 								<li>
 									<a class="submenu" href="<?php echo base_url();?>ads/aprovals">
 										<i class="fa fa-angle-double-right"></i> Ad-Approvals
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>ads/adsusertype/business">
+										<i class="fa fa-angle-double-right"></i> Business Ads
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>ads/adsusertype/consumer">
+										<i class="fa fa-angle-double-right"></i> Consumer Ads
 									</a>
 								</li>
 								<li>

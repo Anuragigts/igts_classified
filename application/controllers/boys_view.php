@@ -52,7 +52,7 @@ class  Boys_view extends CI_Controller{
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
              $boys_list_count = $this->hotdealsearch_model->boys_list_count();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
+            $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "boys_view",
@@ -119,7 +119,7 @@ class  Boys_view extends CI_Controller{
              }
             $result['boyview_result'] = $rs;
             $public_adview = $this->classifed_model->publicads();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
+            $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
             $result['loc_list'] = $loc_list;

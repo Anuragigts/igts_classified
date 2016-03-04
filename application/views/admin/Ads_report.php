@@ -111,14 +111,13 @@
 		<div class="row-fluid sortable2">
 			<div class="box span12">
 				<div class="box-header" data-original-title style='height:32px;padding:5px;'>
-					<h2><i class="halflings-icon white user"></i><span class="break"></span>List Sub Sub Categories</h2>
+					<h2><i class="halflings-icon white user"></i><span class="break"></span>Export Reports</h2>
 					<div class="box-icon" >	
 					<select name='report_type'class='report_type'>
 						<option value='exl'>Excel</option>
-						<option value='pdf'>PDF</option>
 					</select>
 					<a href='<?php echo base_url();?>Reports/Get_report/' target="_blank"  style="color: inherit" data-toggle="tooltip" data-placement="top" title="Download exl">Download</i></a>					
-					<button class='generate_report'>Generate</button>
+					
 					
 					<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>

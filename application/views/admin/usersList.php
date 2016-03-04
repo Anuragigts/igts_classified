@@ -62,7 +62,7 @@
                             foreach($user_list as $users){$i++; ?>
                             <tr class="odd gradeX">
                                 <td><input type='checkbox' name='user_id[]' class='user_id' id='user_id<?php echo $users->login_id; ?>' value='<?php echo $users->login_id; ?>' onclick='select_user_id(<?php echo $users->login_id;?>)'></td>
-								<td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->last_name);?></td>
+								<td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
 								<td><?php echo $users->login_email;?></td>
 								<td><?php echo $users->mobile;?></td>
 								<?php if($user_type == 'business'){?>
@@ -102,6 +102,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <script>
 function select_user_id(user_id){

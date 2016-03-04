@@ -13,17 +13,15 @@ class Reports extends CI_Controller {
         public function Ads(){
 			$this->load->model("ads_model");
 			$pkg_types = $this->ads_model->get_postad_packages();
-				$categories = $this->admin_model->get_postad_categories();
+			$categories = $this->admin_model->get_postad_categories();
 			if($this->input->post()){
-				$posted_data = array('start_date'=>$this->input->post('start_date'),
-								'groupt_by'=>$this->input->post('groupt_by'),
+				$posted_data = array(
+								'start_date'=>$this->input->post('start_date'),
 								'end_date'=>$this->input->post('end_date'),
 								'cat_type'=>$this->input->post('cat_type'),
-								'start_date'=>$this->input->post('start_date'),
 								'pkg_type'=>$this->input->post('pkg_type')
 								);
-					$this->session->set_userdata($posted_data);
-				//echo '<pre>';print_r($this->input->post());echo '</pre>';//exit;
+				$this->session->set_userdata($posted_data);
 				$result = $this->report_model->get_list_ads();
 				
 				$data   =   array(

@@ -33,7 +33,7 @@
 <?php //echo '<pre>';print_r($staff_type);echo '</pre>';?>
 <?php //echo '<pre>';print_r($urgent_label);echo '</pre>';?>
 <?php //echo '<pre>';print_r($category_list[0]);echo '</pre>';?>
-			<div class="row-fluid sortable">
+			<div class="row-fluid ">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>New Coupon</h2>
@@ -54,31 +54,37 @@
 								</div>
 							  </div>-->
 							   <div class="control-group">
-								<label class="control-label" for="c_value"> Coupon Value</label>
+								<label class="control-label" for="c_value"> Coupon Prefix</label>
 								<div class="controls">
-								  <input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'><span><?php echo form_error('c_value'); ?></span>
+								  <input type="text" id="c_prefix" name="c_prefix" value='<?php echo set_value('c_prefix'); ?>'maxlength = "6" style="text-transform:uppercase" ><span><?php echo form_error('c_prefix'); ?></span>
 								</div>
 							  </div>
 							   <div class="control-group">
+								<label class="control-label" for="c_value"> Coupon Value</label>
+								<div class="controls">
+								  <input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'onkeypress="return isNumber(event)" maxlength = "3"><span><?php echo form_error('c_value'); ?></span>
+								</div>
+							  </div>
+							  <!-- <div class="control-group">
 								<label class="control-label" for="c_type"> Coupon Type</label>
 								<div class="controls">
 								  <label class="radio">
 								<input type="radio" class="c_type" name="c_type" value='p' checked> Percentage
 								</label>
 								<label class="radio">
-								<input type="radio" class="c_type" name="c_type" value='d'> Flat Discount
+								<input type="radio" class="c_type" name="c_type" value='d'> Discount
 								</label>
 								<span><?php echo form_error('c_type'); ?></span>
 								</div>
-							  </div>
-							   <div class="control-group">
+							  </div>-->
+							  <!-- <div class="control-group">
 								<label class="control-label" for="max_disc">Max Discount</label>
 								<div class="controls">
 								  <input type="text" id="max_disc" name="max_disc" value='<?php echo set_value('max_disc'); ?>' maxlength="10" required > 
 								  <span><?php echo form_error('max_disc'); ?></span>
 								</div>
 							  </div>
-							    <!--<div class="control-group">
+							    <div class="control-group">
 								<label class="control-label" for="c_count">No Of Coupons</label>
 								<div class="controls">
 								 <input type="number" id="c_count" name="c_count" value='<?php echo set_value('c_count'); ?>' maxlength="5"  min="1"required > 
@@ -95,8 +101,6 @@
 								  </select>
 								</div>
 							  </div>
-							 
-							
 							  <div class="form-actions">
 								<input type="submit" class="btn btn-primary" name='new_coupon' value='Create'>
 								<button class="btn">Cancel</button>
@@ -110,6 +114,14 @@
 </div>
 </div>
 <script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
 
 </script>
 <!-- end DASHBOARD CIRCLE TILES -->

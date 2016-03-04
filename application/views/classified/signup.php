@@ -178,10 +178,10 @@
 												<form  method="post" class="log_form" action="" id="register_form" novalidate="novalidate">
 													<div class="col-1">
 														<label class="radio-inline">
-															<input type="radio" name="signup_type" value='consumer' class='sign_type'  checked /> Consumer
+															<input type="radio" name="signup_type" value='7' class='sign_type'  checked /> Consumer
 														</label>
 														<label class="radio-inline">
-															<input type="radio" name="signup_type" value='business' class='sign_type' /> Business
+															<input type="radio" name="signup_type" value='6' class='sign_type' /> Business
 														</label>
 													</div>
 													<div class="form" id='signup_consumer'>

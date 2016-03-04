@@ -62,7 +62,7 @@ class  Services_view extends CI_Controller{
             $public_adview = $this->classifed_model->publicads();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
+            $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "services_view",
@@ -199,7 +199,7 @@ class  Services_view extends CI_Controller{
             $public_adview = $this->classifed_model->publicads();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
+            $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "services_view",

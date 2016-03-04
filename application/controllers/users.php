@@ -63,7 +63,7 @@ class Users extends CI_Controller {
 				 if($this->form_validation->run() == TRUE){
 					 $ins_status = $this->admin_model->add_new_staff();	
 					 if($ins_status){
-						 redirect('admin_dashboard');
+						 redirect('users/staff/'.$this->input->post('staff_type'));
 					 }
 					 else {
 						 redirect('users/addStaff');

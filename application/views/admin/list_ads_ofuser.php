@@ -34,11 +34,11 @@
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>User Details</h2>
-						<!--<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+						<div class="box-icon">
+							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>-->
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-						</div>-->
+						</div>
 					</div>
 					<div class="box-content">
 						<form class="form-horizontal" action='<?php echo base_url()?>ads/update' method='post'>
@@ -46,7 +46,7 @@
 							<div class="control-group">
 								<label class="control-label" for="user_name">User Name</label>
 								<div class="controls">
-								  <input type="text" id="user_name" name="user_name" value='<?php echo $user_details->first_name.' '. $user_details->last_name; ?>' readonly>
+								  <input type="text" id="user_name" name="user_name" value='<?php echo $user_details->first_name.' '. $user_details->lastname; ?>' readonly>
 								</div>
 							  </div>
 							 
@@ -86,9 +86,9 @@
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of User Ads</h2>
 						<div class="box-icon">
-							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>-->
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>-->
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
 					<div class="box-content">
@@ -96,14 +96,14 @@
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
                         <thead>
                             <tr>
-								<th>Select<input type='checkbox' name='checkAll' class='checkAll' id='checkAll' value='1'></th>
+								<th>Select<!--<input type='checkbox' name='checkAll' class='checkAll' id='checkAll'>-->	</th>
 								<th>Deal Tag</th>
                                 <th>Package Type</th>
                                 <th>Category</th>
 								<th>Price</th>
 								<th>Posted On</th>
 								<th>Expire On</th>
-                                <th>Description</th>
+                                <!--<th>Description</th>-->
 								<th>Status</th>
 								<th>View</th>
                                 <th style='width:55px;'>Action</th>
@@ -113,18 +113,20 @@
                             <?php $i = 0;
                             foreach($ads_list as $ads){$i++; ?>
                             <tr class="odd gradeX">
-                                <td><input type='checkbox'  value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'></td>
+								 <td id='<?php echo 'td_'.$ads->ad_id?>' class='<?php if($ads->ad_status != 1)echo 'td_class_uncheck'?>'><?php if($ads->ad_status != 1){?>
+								<input type='checkbox' name='deal_id[]' class='checkbox1' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'><?php }?></td>
+								
 								<td><?php echo ucwords($ads->deal_tag);?></td>
 								<td><?php echo ucwords($ads->pkg_name);?></td>
 								<td><?php echo ucwords($ads->category_name);?></td>
 								<td><?php echo $ads->price;?></td>
 								<td><?php echo $ads->created_on;?></td>
 								<td><?php echo $ads->expire_data;?></td>
-								<td title ='<?php echo $ads->deal_desc?>'><?php echo substr($ads->deal_desc, '0', '20');?></td>
-								<td><?php if($ads->ad_status == 1)echo 'Approved'; 
+								<!--<td title ='<?php echo $ads->deal_desc?>'><?php echo substr($ads->deal_desc, '0', '20');?></td>-->
+								<td><?php if($ads->ad_status == 1)echo 'Active'; 
 								else if($ads->ad_status == 0)echo 'New';
-								else if($ads->ad_status == 2)echo 'On Hold';
-								else if($ads->ad_status == 3)echo 'Pending';
+								else if($ads->ad_status == 2)echo 'In-Progress';
+								else if($ads->ad_status == 3)echo 'On Hold';
 								else echo 'Rejected';?>
 								</td>
 								<td>
@@ -160,9 +162,40 @@
         </div>
     </div>
 </div>
+</div>
 
 <script>
-$("#checkAll").change(function () {
+
+$(document).ready(function() {
+    $('#checkAll5').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+            $('.checkbox1').each(function() { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"               
+            });
+        }else{
+            $('.checkbox1').each(function() { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+            });         
+        }
+		
+
+    });
+    
+	$('#checkAll').on('change', function() {
+    if (!$(this).is(':checked')) {
+        $('.checkbox1').attr('checked', false);   
+    } else {
+        $('.checkbox1').attr('checked', true);
+    }
+});
+});
+
+$(document).ready(function(){ 
+    $("#checkAll4").change(function(){
+      $(".checkbox1").prop('checked', $(this).prop("checked"));
+      });
+});
+$("#checkAll2").change(function () {
     $("input:checkbox").prop('checked', $(this).prop("checked"));
 });
 	/*$("input[type=checkbox]").each(function() {

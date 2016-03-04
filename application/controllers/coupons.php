@@ -43,14 +43,17 @@
 		}
 		public function AddCoupon(){
 			if($this->input->post()){
-				echo '<pre>';print_r($this->input->post());echo '</pre>';
+				//echo '<pre>';print_r($this->input->post());echo '</pre>';//exit;
 				$this->form_validation->set_rules("c_value","Coupon Code","required");
-				$this->form_validation->set_rules("max_disc","Maximum Discount","required");
-				$this->form_validation->set_rules("c_type","Coupon Type ","required");
+				$this->form_validation->set_rules("c_prefix","Coupon Prefix","required");
+				//$this->form_validation->set_rules("max_disc","Maximum Discount","required");
+				//$this->form_validation->set_rules("c_type","Coupon Type ","required");
 				//$this->form_validation->set_rules("c_count","Coupon Count","required");
 				$this->form_validation->set_rules("c_status","Coupon Status","required");
 				if($this->form_validation->run() == TRUE){
+					$this->session->set_flashdata('msg','Coupon Code is Successfully Inserted');
 					 $ins_status = $this->coupons_model->add_new_coupon();	
+					 redirect('coupons/ListCoupons');
 				}
 				else{
 					$this->session->set_flashdata('err','Some details are not valid, Please try again');
@@ -58,7 +61,6 @@
 				}
 			}
 			else{
-			$coupons_list = $this->coupons_model->get_coupons();
 			$data   =   array(
 						"title"         =>     "Admin Dashboard",
 						"metadesc"      =>     "Classifieds :: Admin Dashboard",
@@ -67,6 +69,13 @@
 				);
 				$this->load->view("admin_layout/inner_template",$data);
 			}
+			$data   =   array(
+					"title"         =>     "Admin Dashboard",
+					"metadesc"      =>     "Classifieds :: Admin Dashboard",
+					"metakey"       =>     "Classifieds :: Admin Dashboard",
+					"content"       =>     "addNewCoupon",
+			);
+			$this->load->view("admin_layout/inner_template",$data);
 		}
 		function change_status(){
 			$change_status = $this->coupons_model->change_status();

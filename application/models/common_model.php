@@ -38,9 +38,9 @@ class Common_model extends CI_Model{
                 return $v['row_count'];
         }
         public function getAll(){
-                $this->db->select("l.*,p.*,a.*,c.City_name,s.State_name,d.Country_name");
+                $this->db->select("l.*,a.*,c.City_name,s.State_name,d.Country_name");
                 $this->db->from("login as l");
-                $this->db->join("profile as p","l.login_id = p.login_id","inner");
+               // $this->db->join("profile as p","l.login_id = p.login_id","inner");
                 $this->db->join("address as a","a.login_id = l.login_id","inner");                
                 $this->db->join("cities as c","c.City_id = a.city","inner");
                 $this->db->join("states as s","s.State_id = a.state","inner");

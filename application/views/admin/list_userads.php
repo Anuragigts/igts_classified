@@ -27,7 +27,7 @@
                  </div>
              <br>
              <?php }?>
-			 <?php echo '<pre>';print_r($user_list[0]);echo '</pre>';?>
+			 <?php //echo '<pre>';print_r($user_list[0]);echo '</pre>';?>
 			
 			<div class="row-fluid sortable">		
 				<div class="box span12">
@@ -57,7 +57,7 @@
                             <?php $i = 0;
                             foreach($user_list as $users){$i++; ?>
                             <tr class="odd gradeX">
-                               <td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->last_name);?></td>
+                               <td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
 								<td><?php echo $users->login_email;?></td>
 								<td><?php echo $users->mobile;?></td>
 								<td><?php if($users->user_type == 6)echo 'Business';else echo 'Consumer';?></td>
@@ -83,5 +83,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- end DASHBOARD CIRCLE TILES -->

@@ -232,12 +232,12 @@
 										<div class="cd-filter-content">
 											<div class="filters_categories">	
 												<ul class="list-styles">
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="women_view">Women</a> (<?php echo $womencount ?>)</li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="men_view">Men</a> (<?php echo $mencount ?>)</li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="boys_view">Boy</a> (<?php echo $boycount ?>)</li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="girls_view">Girls</a> (<?php echo $girlscount ?>)</li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="baby_boy_view">Baby Boy</a> (<?php echo $babyboycount ?>)</li>
-													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="baby_girl_view">Baby Girl</a> (<?php echo $babygirlcount ?>)</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>women_view">Women</a> (<?php echo $womencount ?>)</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>men_view">Men</a> (<?php echo $mencount ?>)</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>boys_view">Boy</a> (<?php echo $boycount ?>)</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>girls_view">Girls</a> (<?php echo $girlscount ?>)</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>baby_boy_view">Baby Boy</a> (<?php echo $babyboycount ?>)</li>
+													<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>baby_girl_view">Baby Girl</a> (<?php echo $babygirlcount ?>)</li>
 												</ul>
 											</div>
 										</div>
@@ -303,19 +303,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" <?php if(isset($dealurgent) && in_array('urgent',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" <?php if(isset($dealurgent) && in_array('platinum',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" <?php if(isset($dealurgent) && in_array('gold',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" <?php if(isset($dealurgent) && in_array('free',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>

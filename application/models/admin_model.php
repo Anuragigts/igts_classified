@@ -7,9 +7,9 @@
  */
 class Admin_model extends CI_Model{
         public function login(){
-                $this->db->select("l.*,p.*");
+                $this->db->select("l.*,");
                 $this->db->from("login as l");
-                $this->db->join("profile as p","l.login_id = p.login_id","inner");
+                //$this->db->join("profile as p","l.login_id = p.login_id","inner");
                 $this->db->where("l.login_email",$this->input->post("email"));
                 $this->db->where("l.login_password",md5($this->input->post("password")));
                 $uq     =     $this->db->get();
@@ -18,6 +18,8 @@ class Admin_model extends CI_Model{
 					$this->db->select('');
 					$this->db->from('postad');
 					$post_add_details = $this->db->get()->result();
+					//echo '<pre>';print_r($post_add_details);echo '</pre>';//exit;
+					//echo $this->db->last_query();exit;
 					foreach($post_add_details as $add){
 						if($add->ad_status == 1)
 							$ad_active++;
@@ -46,16 +48,21 @@ class Admin_model extends CI_Model{
                 }
         }
         public function insert_user(){
+			echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
                 $login      =   array(
                                         "user_type"         =>      2,
                                         "login_email"       =>      $this->input->post("email"),
                                         "login_password"    =>      md5($this->input->post("password")),
                                         "is_confirm"        =>      'confirm',
-                                        "login_status"      =>      1
+                                        "login_status"      =>      1,
+										"first_name"        =>      strtolower($this->input->post("first_name")),
+                                        "lastname"         =>       strtolower($this->input->post("last_name")),
+                                        "mobile"            =>      $this->input->post("mobile"),
+										"profile_img"       =>      "avatar.jpg"
                                 );
                 $this->db->insert("login",$login);
                 $login_id   =   $this->db->insert_id();
-                $profile    =   array(
+                /*$profile    =   array(
                                         "login_id"          =>      $login_id,
                                         "first_name"        =>      strtolower($this->input->post("first_name")),
                                         "last_name"         =>      strtolower($this->input->post("last_name")),
@@ -63,7 +70,7 @@ class Admin_model extends CI_Model{
                                         "phone"             =>      $this->input->post("phone")?$this->input->post("phone"):"N/A",
                                         "profile_img"       =>      "avatar.jpg"
                                 ); 
-                $this->db->insert("profile",$profile);                
+                $this->db->insert("profile",$profile);  */              
                
                 if($this->db->affected_rows() > 0){
                         return 1;
@@ -84,9 +91,9 @@ class Admin_model extends CI_Model{
                 }
         }
         public function getCustomerid($uri){
-                $this->db->select("l.*,p.*,a.*");
+                $this->db->select("l.*,a.*");
                 $this->db->from("login as l");
-                $this->db->join("profile as p","l.login_id = p.login_id","inner");
+                //$this->db->join("profile as p","l.login_id = p.login_id","inner");
                 $this->db->join("address as a","a.login_id = l.login_id","inner");                
                 $this->db->where("l.login_id",$uri);
                 $uq     =     $this->db->get();
@@ -102,23 +109,12 @@ class Admin_model extends CI_Model{
                 $login_id   =  array("login_id" => $uri);
                 $profile    =   array(
                                         "first_name"        =>      strtolower($this->input->post("first_name")),
-                                        "last_name"         =>      strtolower($this->input->post("last_name")),
+                                        "lastname"         =>      strtolower($this->input->post("last_name")),
                                         "mobile"            =>      $this->input->post("mobile"),
-                                        "phone"             =>      $this->input->post("phone")
                                 ); 
-                $this->db->update("profile",$profile,$login_id);     
+                $this->db->update("login",$profile,$login_id);     
                 $vp     =   $this->db->affected_rows();
-                $addr       =   array(
-                                        "house_no"          =>      $this->input->post("houseno"),
-                                        "street"            =>      $this->input->post("street"),
-                                        "landmark"          =>      $this->input->post("landmark"),
-                                        "city"              =>      $this->input->post("city"),
-                                        "state"             =>      $this->input->post("state"),
-                                        "country"           =>      $this->input->post("cty"),
-                                        "zip_code"          =>      $this->input->post("zipcode"),
-                                        "is_default"        =>      1,
-                                ); 
-                $this->db->update("address",$addr,$login_id);
+                
                 if($vp > 0 || $this->db->affected_rows() > 0){
                         return 1;
                 }else{
@@ -133,31 +129,35 @@ class Admin_model extends CI_Model{
 				$user_type='7';
 			
 			if($seg_type!=''){
-				$this->db->select("l_in.*,p.*");
+				$this->db->select("l_in.*");
 				$this->db->where('l_in.user_type',$user_type);
                 $this->db->from("login as l_in");
-                $this->db->join("profile as p","l_in.login_id = p.login_id","inner");
+                //$this->db->join("profile as p","l_in.login_id = p.login_id","inner");
 				$info = $this->db->get()->result();
 				return $info;
 			}
 		}
 		function add_new_staff(){
+			echo '<pre>';print_r($this->input->post());echo '</pre>';//exit;
 			$ins_data = array(
 					'user_type'		=>	$this->input->post('staff_type'),
 					'login_email'		=>	$this->input->post('login_email'),
 					'login_password'		=>	md5($this->input->post('staff_pw')),
-					'login_status'		=>	0
+					'login_status'		=>	$this->input->post('staff_status'),
+					"first_name"        =>      strtolower($this->input->post("staff_f_name")),
+					"lastname"         =>      strtolower($this->input->post("staff_l_name")),
+					"mobile"             =>      $this->input->post("con_number"),
 			);
 			$this->db->insert('login',$ins_data);
 			$staff_id = $this->db->insert_id();
 			
-			 $profile    =   array(
+			 /*$profile    =   array(
                                         "first_name"        =>      strtolower($this->input->post("staff_f_name")),
                                         "last_name"         =>      strtolower($this->input->post("staff_l_name")),
                                         "phone"             =>      $this->input->post("con_number"),
 										"login_id"          =>     	$staff_id,
                                 ); 
-				$this->db->insert("profile",$profile); 
+				$this->db->insert("profile",$profile); */
 				return true;
 				
 				
@@ -197,7 +197,7 @@ class Admin_model extends CI_Model{
 		
 			$this->db->from('login as l');
 			$this->db->order_by("l.login_id","desc");
-			$this->db->join("profile as p","l.login_id = p.login_id","inner");
+			//$this->db->join("profile as p","l.login_id = p.login_id","inner");
 			$this->db->join("user_status as us","us.user_status_id = l.login_status","inner");
 			$staff = $this->db->get()->result();
 			//echo $this->db->last_query();exit;
@@ -219,17 +219,20 @@ class Admin_model extends CI_Model{
 		 public function update_staff(){
 			
                 $login_id   =  array("login_id" => $this->uri->segment(3));
-                $profile    =   array(
+                /*$profile    =   array(
                                         "first_name"        =>      strtolower($this->input->post("first_name")),
                                         "last_name"         =>      strtolower($this->input->post("last_name")),
                                         "phone"             =>      $this->input->post("phone"),
                                 ); 
-				$this->db->update("profile",$profile,$login_id);
+				$this->db->update("profile",$profile,$login_id);*/
 				//echo $this->db->last_query();
 				$login_update    =   array(
                                         "login_email"        =>      strtolower($this->input->post("login_email")),
                                         "user_type"            =>      $this->input->post("user_type"),
 										"login_status"            =>      $this->input->post("staff_status"),
+										"first_name"        =>      strtolower($this->input->post("first_name")),
+                                        "lastname"         =>      strtolower($this->input->post("last_name")),
+                                        "mobile"             =>      $this->input->post("phone"),
                                 );
                 $this->db->update("login",$login_update,$login_id);  
 				echo $this->db->last_query();
@@ -298,7 +301,7 @@ class Admin_model extends CI_Model{
 		function get_profile_details(){
 			$this->db->select();
 			$this->db->where('l.login_id', $this->session->userdata('login_id'));
-			$this->db->join("profile as p","p.login_id = l.login_id","inner");
+			//$this->db->join("profile as p","p.login_id = l.login_id","inner");
 			$profile = $this->db->get('login as l')->row();
 			return $profile;
 		}

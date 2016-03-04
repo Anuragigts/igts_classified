@@ -11,7 +11,7 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="js/filter.css"> 
+	<link rel="stylesheet" href="<?php echo base_url();?>js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('.cd-filter-content').niceScroll({
@@ -107,461 +107,48 @@
             });
         });
 	</script>
-
-		<script type="text/javascript">
-		$(function(){
-			$(".job_search").click(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-				/*deal search for jobs category */
-        		var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						jobs_list: jobs_list,
-						dealtitle: dealtitle,
-						recentdays: recentdays,
-						jobs_pos: jobs_pos,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-        	/*search ato z / A to Z*/
-			$(".dealtitle_sort").change(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						recentdays: recentdays,
-						jobs_pos: jobs_pos,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".recentdays_sort").change(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						jobs_pos: jobs_pos,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-
-        	/*jobs position*/
-        	$(".positionfor").click(function(){
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				// alert(jobs_pos);
-				 var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						jobs_pos: jobs_pos,
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-        	/*jobs bus type*/
-        	$(".search_bustype").click(function(){
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				// alert(jobs_pos);
-				 var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						bustype: bustype,
-						jobs_pos: jobs_pos,
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-        	/*deal urgent*/
-        	$(".dealurgent").click(function(){
-        		var latt = $("#latt").val();
-				var longg = $("#longg").val();
-        		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				// alert(jobs_pos);
-				 var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						bustype: bustype,
-						jobs_pos: jobs_pos,
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-			/*search location*/
-		$("#find_location").click(function(){
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				// alert(jobs_pos);
-				 var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						bustype: bustype,
-						jobs_pos: jobs_pos,
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-	/*clear location*/
-	$("#clear_location").click(function(){
-				$("#find_loc").val('');
-				var latt = '';
-				var longg = '';
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				// alert(jobs_pos);
-				 var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						bustype: bustype,
-						jobs_pos: jobs_pos,
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-
-		/*seller for jobs*/
-		$(".seller_deals").click(function(){
-			var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-        		var bustype = $("input[name=search_bustype]:checked").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var jobs_list = [];
-        		$("input[name='job_search[]']:checked").each( function () {
-					 var jobs = $(this).val();
-				     jobs_list.push(jobs); 
-				});
-				var jobs_pos = [];
-        		$("input[name='positionfor[]']:checked").each( function () {
-					 var pos = $(this).val();
-				     jobs_pos.push(pos); 
-				});
-				// alert(jobs_pos);
-				 var recentdays = $(".recentdays_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>job_view/search_filters",
-					data: {
-						seller_deals: seller_deals,
-						bustype: bustype,
-						jobs_pos: jobs_pos,
-						recentdays: recentdays,
-						dealtitle: dealtitle,
-						jobs_list: jobs_list,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".jobs_search_result").html(data);
-					}
-				})
-        	});
-
-		});
+	 <script type="text/javascript">
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			                    $("form.jforms").submit();
+			            }
+			        )
+			        $('input:radio').click(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+			    }
+			);
 		</script>
 	  <?php
+	$jobsearch = $this->session->userdata('job_search');
+    $positionfor = $this->session->userdata('positionfor');
+	$seller_deals = $this->session->userdata('seller_deals');
+	$dealurgent = $this->session->userdata('dealurgent');
+	$dealtitle = $this->session->userdata('dealtitle');
+	$recentdays = $this->session->userdata('recentdays');
+	$search_bustype = $this->session->userdata('search_bustype');
+	$location = $this->session->userdata('location');
+	$latt = $this->session->userdata('latt');
+	$longg = $this->session->userdata('longg');
 	  foreach ($public_adview as $publicview) {
 	  	$left_ad1 = $publicview->sidead_one;
 	  	$topad = $publicview->topad;
@@ -605,7 +192,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms2" action="<?php echo base_url(); ?>job_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
@@ -628,7 +215,7 @@
 											<div id="limit_scrol">
 												<?php foreach ($jobs_sub as $jobval) { ?>
 													<label class="checkbox">
-														<input type="checkbox" name="job_search[]" class="job_search" value="<?php echo $jobval->sub_category_id; ?>" >
+														<input type="checkbox" name="job_search[]" class="job_search" value="<?php echo $jobval->sub_category_id; ?>" <?php if (isset($jobsearch) && in_array($jobval->sub_category_id, $jobsearch)) { echo 'checked=checked';	} ?> >
 														<i></i> <?php echo $jobval->sub_category_name."(".$jobval->no_ads.")"; ?> 
 													</label>
 												<?php } ?>
@@ -641,15 +228,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor"  value="Fresher" >
+													<input type="checkbox" name="positionfor[]" class="positionfor"  value="Fresher" <?php if (isset($positionfor) && in_array('Fresher', $positionfor)) { echo 'checked=checked';	} ?> >
 													<i></i>  Fresher (<?php echo $freshers; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor" value="Experience" >
+													<input type="checkbox" name="positionfor[]" class="positionfor" value="Experience" <?php if (isset($positionfor) && in_array('Experience', $positionfor)) { echo 'checked=checked';	} ?> >
 													<i></i> Experience (<?php echo $experience; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor" value="Internship" >
+													<input type="checkbox" name="positionfor[]" class="positionfor" value="Internship" <?php if (isset($positionfor) && in_array('Internship', $positionfor)) { echo 'checked=checked';	} ?> >
 													<i></i> Internship (<?php echo $internship; ?>)
 												</label>
 												<label class="checkbox">
@@ -666,15 +253,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
 													<i></i> All (<?php echo $allbustype; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
 													<i></i> Business (<?php echo $business; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
 													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
@@ -722,19 +309,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
@@ -775,9 +362,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="dealtitle_sort" class="dealtitle_sort">
-																<option value="Any">Any</option>
-																<option value="atoz">A to Z</option>
-																<option value="ztoa">Z to A</option>
+																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -787,12 +374,12 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="recentdays_sort" class="recentdays_sort">
-																<option value="Any">Any(posted on)</option>
-																<option value="last24hours">Last 24 Hours</option>
-																<option value="last3days">Last 3 Days</option>
-																<option value="last7days">Last 7 Days</option>
-																<option value="last14days">Last 14 Days</option>
-																<option value="last1month">Last 1 month</option>
+																<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
 															</select>
 															<i></i>
 														</label>
@@ -806,11 +393,6 @@
 
                                 <div class="row list_view_searches jobs_search_result">
                                 	<?php echo $this->load->view("classified/jobs_view_search"); ?> 
-								</div>
-								<div class='row'>
-									<div class='col-md-12'>
-										<?php echo $paging_links; ?>
-									</div>
 								</div>
 							</div>
 						</div>

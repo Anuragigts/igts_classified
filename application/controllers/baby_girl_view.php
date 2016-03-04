@@ -52,7 +52,7 @@ class  Baby_girl_view extends CI_Controller{
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
              $babygirl_list_count = $this->hotdealsearch_model->babygirl_list_count();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
+            $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "baby_girl_view",
@@ -119,7 +119,7 @@ class  Baby_girl_view extends CI_Controller{
              }
             $result['babygirlview_result'] = $rs;
             $public_adview = $this->classifed_model->publicads();
-            $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
+            $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
             $result['loc_list'] = $loc_list;

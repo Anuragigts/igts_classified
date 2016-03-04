@@ -9,7 +9,8 @@
 	class Coupons_model extends CI_Model{
 		function get_coupons(){
 			$this->db->select();
-			$this->db->from('coupon_codes');
+			$this->db->from('coupon_codes as cc');
+			$this->db->join("login as l","l.login_id = cc.added_by","inner"); 
 			$coupon_list = $this->db->get()->result();
 			return $coupon_list;
 		}
@@ -23,9 +24,10 @@
 		}
 		function add_new_coupon(){
 			$c_count = $this->input->post('c_count');
+			$c_prefix = $this->input->post('c_prefix');
 			//for($i= 0; $i< $c_count; $i++){
 				$a = mt_rand(10000,99999); 
-				$c_code = 'COUP'.$a;
+				$c_code = strtoupper($c_prefix).$a;
 				$coupon_info = array(
 								'added_on'				=>	date('Y-m-d H:i:s'),
 								'added_by' 				=>	$this->session->userdata('login_id'),

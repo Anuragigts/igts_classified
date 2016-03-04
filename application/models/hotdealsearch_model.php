@@ -521,19 +521,19 @@ class hotdealsearch_model extends CI_Model{
 			if (!empty($dealurgent)) {
 				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
-					$this->db->where('ad.urgent_package !=', '');
+					$this->db->where('ad.urgent_package !=', '0');
 				}
 				else{
-					$this->db->where('ad.urgent_package =', '');
+					$this->db->where('ad.urgent_package =', '0');
 				}
-				if (in_array("platinum", $dealurgent)){
-					array_push($pcklist, 'platinum');
+				if (in_array("6", $dealurgent)){
+					array_push($pcklist, '6');
 				}
-				if (in_array("gold", $dealurgent)){
-					array_push($pcklist, 'gold');
+				if (in_array("5", $dealurgent)){
+					array_push($pcklist, '5');
 				}
-				if (in_array("free", $dealurgent)){
-					array_push($pcklist, 'free');
+				if (in_array("4", $dealurgent)){
+					array_push($pcklist, '4');
 				}
 				if (!empty($pcklist)) {
 					$this->db->where_in('ad.package_type', $pcklist);
@@ -637,19 +637,19 @@ class hotdealsearch_model extends CI_Model{
 			if (!empty($dealurgent)) {
 				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
-					$this->db->where('ad.urgent_package !=', '');
+					$this->db->where('ad.urgent_package !=', '0');
 				}
 				else{
-					$this->db->where('ad.urgent_package =', '');
+					$this->db->where('ad.urgent_package =', '0');
 				}
-				if (in_array("platinum", $dealurgent)){
-					array_push($pcklist, 'platinum');
+				if (in_array("6", $dealurgent)){
+					array_push($pcklist, '6');
 				}
-				if (in_array("gold", $dealurgent)){
-					array_push($pcklist, 'gold');
+				if (in_array("5", $dealurgent)){
+					array_push($pcklist, '5');
 				}
-				if (in_array("free", $dealurgent)){
-					array_push($pcklist, 'free');
+				if (in_array("4", $dealurgent)){
+					array_push($pcklist, '4');
 				}
 				if (!empty($pcklist)) {
 					$this->db->where_in('ad.package_type', $pcklist);
@@ -741,19 +741,19 @@ class hotdealsearch_model extends CI_Model{
 			if (!empty($dealurgent)) {
 				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
-					$this->db->where('ad.urgent_package !=', '');
+					$this->db->where('ad.urgent_package !=', '0');
 				}
 				else{
-					$this->db->where('ad.urgent_package =', '');
+					$this->db->where('ad.urgent_package =', '0');
 				}
-				if (in_array("platinum", $dealurgent)){
-					array_push($pcklist, 'platinum');
+				if (in_array("6", $dealurgent)){
+					array_push($pcklist, '6');
 				}
-				if (in_array("gold", $dealurgent)){
-					array_push($pcklist, 'gold');
+				if (in_array("5", $dealurgent)){
+					array_push($pcklist, '5');
 				}
-				if (in_array("free", $dealurgent)){
-					array_push($pcklist, 'free');
+				if (in_array("4", $dealurgent)){
+					array_push($pcklist, '4');
 				}
 				if (!empty($pcklist)) {
 					$this->db->where_in('ad.package_type', $pcklist);
@@ -983,7 +983,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
         }
@@ -1156,7 +1156,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
         }
@@ -1500,7 +1500,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
         }
@@ -1586,7 +1586,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
         }
@@ -1672,7 +1672,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
         }
@@ -1770,19 +1770,19 @@ class hotdealsearch_model extends CI_Model{
 			if (!empty($dealurgent)) {
 				$pcklist = [];
 				if (in_array("urgent", $dealurgent)) {
-					$this->db->where('ad.urgent_package !=', '');
+					$this->db->where('ad.urgent_package !=', '0');
 				}
 				else{
-					$this->db->where('ad.urgent_package =', '');
+					$this->db->where('ad.urgent_package =', '0');
 				}
-				if (in_array("platinum", $dealurgent)){
-					array_push($pcklist, 'platinum');
+				if (in_array("6", $dealurgent)){
+					array_push($pcklist, '6');
 				}
-				if (in_array("gold", $dealurgent)){
-					array_push($pcklist, 'gold');
+				if (in_array("5", $dealurgent)){
+					array_push($pcklist, '5');
 				}
-				if (in_array("free", $dealurgent)){
-					array_push($pcklist, 'free');
+				if (in_array("4", $dealurgent)){
+					array_push($pcklist, '4');
 				}
 				if (!empty($pcklist)) {
 					$this->db->where_in('ad.package_type', $pcklist);
@@ -1845,10 +1845,15 @@ class hotdealsearch_model extends CI_Model{
 
         /*jobs search fo  sub category*/
         public function jobs_search($data){
-        	$seller = $this->input->post('seller_deals');
-        	$jobslist = $this->input->post('jobs_list');
-        	$jobs_pos = $this->input->post('jobs_pos');
-        	$pck = $this->input->post('pckg_list');
+        	$jobslist = $this->session->userdata('job_search');
+        	$jobs_pos = $this->session->userdata('positionfor');
+        	$seller = $this->session->userdata('seller_deals');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->unset_userdata('dealtitle');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
         	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -1867,53 +1872,68 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->where_in('jd.jobtype_title', $seller);
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array(1, $dealurgent)){
+					array_push($pcklist, 1);
+				}
+				if (in_array(2, $dealurgent)){
+					array_push($pcklist, 2);
+				}
+				if (in_array(3, $dealurgent)){
+					array_push($pcklist, 3);
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
-			}
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 			
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 			$this->db->group_by(" img.ad_id");
 			/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad',$data['limit']);
+			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			   // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -1924,10 +1944,15 @@ class hotdealsearch_model extends CI_Model{
         }
 
          public function count_jobs_search(){
-        	$seller = $this->input->post('seller_deals');
-        	$jobslist = $this->input->post('jobs_list');
-        	$jobs_pos = $this->input->post('jobs_pos');
-        	$pck = $this->input->post('pckg_list');
+        	$jobslist = $this->session->userdata('job_search');
+        	$jobs_pos = $this->session->userdata('positionfor');
+        	$seller = $this->session->userdata('seller_deals');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->unset_userdata('dealtitle');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
         	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -1946,48 +1971,63 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->where_in('jd.jobtype_title', $seller);
 			}
 			/*package search*/
-			if (!empty($pck)) {
-				$this->db->where_in('ad.package_type', $pck);
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array(1, $dealurgent)){
+					array_push($pcklist, 1);
+				}
+				if (in_array(2, $dealurgent)){
+					array_push($pcklist, 2);
+				}
+				if (in_array(3, $dealurgent)){
+					array_push($pcklist, 3);
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
 			}
-			/*urgent label*/
-			if ($this->input->post("urgent")) {
-				$this->db->where('ad.urgent_package !=', '');
-			}
-			if ($this->input->post('bustype')) {
-				if ($this->input->post('bustype') == 'business' || $this->input->post('bustype') == 'consumer') {
-					$this->db->where("ad.ad_type", $this->input->post('bustype'));
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
 				}
 			}
 
 			/*location search*/
-			if ($this->input->post("latt")) {
-				$this->db->where("loc.latt", $this->input->post("latt"));
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
 			}
 
 			
 			/*deal posted days 24hr/3day/7day/14day/1month */
-			if ($this->input->post("recentdays") == 'last24hours'){
+			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
 			}
-			else if ($this->input->post("recentdays") == 'last3days'){
+			else if ($recentdays == 'last3days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last7days'){
+			else if ($recentdays == 'last7days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
 			}
-			else if ($this->input->post("recentdays") == 'last14days'){
+			else if ($recentdays == 'last14days'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
 			}	
-			else if ($this->input->post("recentdays") == 'last1month'){
+			else if ($recentdays == 'last1month'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
 			}
 			$this->db->group_by(" img.ad_id");
 			/*deal title ascending or descending*/
-					if ($this->input->post("dealtitle") == 'atoz') {
+					if ($dealtitle == 'atoz') {
 						$this->db->order_by("ad.deal_tag","ASC");
 					}
-					else if ($this->input->post("dealtitle") == 'ztoa'){
+					else if ($dealtitle == 'ztoa'){
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					
@@ -2094,7 +2134,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad', $data['limit']);
+			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -2281,7 +2321,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad', $data['limit']);
+			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -2512,7 +2552,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
-			$m_res = $this->db->get('postad AS ad', $data['limit']);
+			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			  // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -2919,108 +2959,108 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for services*/
         public function deals_pck_services(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND (package_type = 3 OR package_type = 6) AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND (package_type = 2 OR package_type = 5) AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND (package_type = 1 OR package_type = 4) AND urgent_package = '0') AS freecount");
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 3 AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 2 AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 1 AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for jobs*/
         public function deals_pck_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*packages count for pets*/
         public function deals_pck_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '4'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*packages count for pets*/
         public function deals_pck_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND urgent_package != '') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = 'platinum') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = 'gold') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = '4'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for findproperty*/
         public function deals_pck_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for findproperty*/
         public function deals_pck_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = 'platinum' AND urgent_package = '') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = 'gold' AND urgent_package = '') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = 'free' AND urgent_package = '') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          public function deals_pck_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 20 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 20 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 21 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 21 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_boysview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 22 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 22 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 23 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 23 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 24 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 24 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 25 AND urgent_package != '') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = 'platinum') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = 'gold') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = 'free') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 25 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }

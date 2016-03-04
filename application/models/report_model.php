@@ -48,16 +48,16 @@ class Report_model extends CI_Model{
 				$this->db->where('p_ad.category_id',$this->session->userdata('cat_type'));
 			if($this->session->userdata('pkg_type')>0)
 				$this->db->where('p_ad.package_type',$this->session->userdata('pkg_type'));
+			if($this->session->userdata('start_date')>0)
+				$this->db->where('p_ad.created_on >=', date( 'd-m-Y H:i:s',strtotime($start)));
+			if($this->session->userdata('end_date')>0)
+				$this->db->where('p_ad.created_on <=', date( 'd-m-Y H:i:s',strtotime($end)));
 			
-			$this->db->where('p_ad.created_on >=', date( 'd-m-Y H:i:s',strtotime($start)));
-$this->db->where('p_ad.created_on <=', date( 'd-m-Y H:i:s',strtotime($end)));
-$this->db->join('pkg_duration_list p_list','p_list.pkg_dur_id = p_ad.package_type','inner');
-$this->db->join('login log','log.login_id = p_ad.login_id','inner');
-
+			$this->db->join('pkg_duration_list p_list','p_list.pkg_dur_id = p_ad.package_type','inner');
+			$this->db->join('login log','log.login_id = p_ad.login_id','inner');
 			$this->db->from('postad p_ad');
 			
 			$result = $this->db->get()->result();
-                        echo $this->db->last_query();exit;
 			return $result;
         }
 }

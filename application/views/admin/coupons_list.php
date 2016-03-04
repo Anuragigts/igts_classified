@@ -31,6 +31,7 @@
                  </div>
              <br>
              <?php }?>
+			 <?php //echo '<pre>';print_r($coupons_list[0]);echo '</pre>';?>
 			 <div style='margin-bottom:10px;margin-right:25px; float:right;' > 
 			 <a href='<?php echo base_url();?>coupons/AddCoupon' class='btn btn-success'>Add New</a></div>
 			 
@@ -51,11 +52,11 @@
 								<th>Coupon Code</th>
 								<th>Added By</th>
                                 <th>Added On</th>
-								<th>Coupon Type</th>
+								<!--<th>Coupon Type</th>
 								<th>Coupon Value</th>
 							
-								<th>Maximum Discount</th>
-									<th>Status</th>
+								<th>Maximum Discount</th>-->
+								<th>Status</th>
                                 <th style='width:55px;'>Action</th>
                             </tr>
                         </thead>
@@ -65,11 +66,11 @@
                             <tr class="odd gradeX">
 							
 								<td><?php echo ucwords($coup->c_code);?></td>
-								<td><?php echo $coup->added_by;?></td>
+								<td><?php echo ucwords($coup->first_name).'&nbsp;'.ucwords($coup->lastname);?></td>
 								<td><?php echo $coup->added_on;?></td>
-								<td><?php if($coup->c_type_percent_cash == 'p')echo 'Percentage'; else echo 'Amount';?></td>
+								<!--<td><?php if($coup->c_type_percent_cash == 'p')echo 'Percentage'; else echo 'Amount';?></td>
 								<td><?php echo $coup->c_value;?></td>
-								<td><?php echo $coup->max_disc;?></td>
+								<td><?php echo $coup->max_disc;?></td>-->
 								<td id='act_status<?php echo $coup->c_id;?>'><?php if($coup->c_status == 1)echo 'Active'; else echo 'In-Active';?></td>
 								<td id='status<?php echo $coup->c_id; ?>'>
 										<?php if($coup->c_status == 1){?><span class='btn btn-success'><i class="halflings-icon minus-sign active_coupon  white" id='coupon_<?php echo $coup->c_id; ?>'title="In-Activate Coupon "></i></span>

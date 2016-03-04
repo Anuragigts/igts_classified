@@ -71,9 +71,9 @@
                             <?php $i = 0;
                             foreach($Staff_list as $users){$i++; ?>
                             <tr class="odd gradeX">
-								<td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->last_name);?></td>
+								<td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
 								<td><?php echo $users->login_email;?></td>
-								<td><?php echo $users->phone;?></td>
+								<td><?php echo $users->mobile;?></td>
 								<?php if( $sess_user_type != '1'){?>
 								<?php }else{?>
 									<td><a href='<?php echo base_url().'admin/manage_module/'.$users->login_id; ?>'>Mange</td>
@@ -94,5 +94,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- end DASHBOARD CIRCLE TILES -->

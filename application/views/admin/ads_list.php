@@ -29,6 +29,85 @@
                  </div>
              <br>
              <?php }?>
+			 	<style>
+	fieldset .span4{
+		margin-left:1.5641% !important;
+	}
+	</style>
+			  <div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-header" data-original-title>
+					<h2><i class="halflings-icon white edit"></i><span class="break"></span>Filter Details</h2>
+					<div class="box-icon">
+					<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>-->
+					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+					<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+					</div>
+					</div>
+					<div class="box-content">
+						<fieldset>
+						<form name='ads_filter' method='post' action='<?php echo base_url()?>ads/aprovals' >
+							<div class="control-group span4">
+								<label class="control-label" for="pkg_type">Package Type</label>
+								<div class="controls">
+									<select id="pkg_type" name='pkg_type' >
+									<option value='' >Select Package</option>
+									<?php foreach($packages_details as $pkgs){if($pkgs->status == 1){?>
+									<option value='<?php echo $pkgs->pkg_dur_id; ?>'<?php if(isset($filter_details)&& ($filter_details['pkg_type'] == $pkgs->pkg_dur_id)) echo 'selected';?>><?php echo ucwords($pkgs->pkg_dur_name); ?></option>
+									<?php }}?>
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label" for="cat_type">Category Type</label>
+								<div class="controls">
+									<select id="cat_type" name='cat_type' >
+									<option value=''>Select Category</option>
+									<?php foreach($category_list as $cats){?>
+									<option value='<?php echo $cats->category_id; ?>'<?php if(isset($filter_details)&& ($filter_details['cat_type'] == $cats->category_id)) echo 'selected';?>><?php echo ucwords($cats->category_name); ?></option>
+									<?php }?>
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label" for="ad_status">Status</label>
+								<div class="controls">
+									<select id="ad_status" name='ad_status' >
+									<option value=''>Select Status</option>
+									<?php foreach($ad_status as $status){?>
+							<option value='<?php echo $status->id; ?>'<?php if(isset($filter_details)&& ($filter_details['ad_status'] == $status->id)) echo 'selected';?>><?php echo ucwords($status->status_name); ?></option>
+							<?php }?>
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label" for="focusedInput">Date Start</label>
+								<div class="controls">
+									 <input type="text" name="start_date" value="<?php if(isset($filter_details)&& ($filter_details['start_date'] !=''))echo $filter_details['start_date']; ?>" class="datepicker form-control start_date" placeholder="Start Date" /> 
+								</div>
+							</div>
+							
+						<div class='control-group span4'>
+								<label class="control-label" for="typeahead">End Date</label>
+								<div class="controls">
+									 <input type="text" name="end_date" value="<?php if(isset($filter_details)&& ($filter_details['end_date'] !=''))echo $filter_details['end_date']; ?>" class="datepicker form-control end_date" placeholder="End Date" />
+								</div>
+						</div>
+						<?php if(isset($ads_type)){?>
+						<input type="hidden" name="ads_type" value="<?php echo $ads_type; ?>" readonly />
+						<?php }?>
+						<div class='control-group span4'>
+								<label class="control-label" for="focusedInput">&nbsp;</label>
+								<div class="controls">
+								<input type='submit' name='ads_filter' class='btn btn-success' value='Submit' >
+								</div>
+						</div>
+							<input type='hidden' value='<?php echo current_url();?>' name='curr_url'>
+							</form>
+						</fieldset>
+					</div>
+				</div>
+			</div>
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
@@ -56,13 +135,14 @@
                                 <th style=''>Action</th>
                             </tr>
                         </thead>
+						<?php //echo '<pre>';print_r($ads_list[0]);?>
                         <tbody>
                             <?php $i = 0;
 							 foreach($ads_list as $ads){$i++; ?>
                             <tr class="odd gradeX">
                                 <td><input type='checkbox' name='deal_id[]' class='deal_id' id='deal_id<?php echo $ads->ad_id; ?>' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'></td>
 								<td><?php echo ucwords($ads->deal_tag);?></td>
-								<td><?php echo ucwords($ads->package_type);?></td>
+								<td><?php echo ucwords($ads->pkg_name);?></td>
 								<td><?php echo ucwords($ads->category_name);?></td>
 								<td><?php echo $ads->price;?></td>
 								<td><?php echo $ads->created_on;?></td>
@@ -106,6 +186,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <script>
 function select_post_ad(ad_id){

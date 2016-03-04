@@ -106,7 +106,7 @@ class Login_model extends CI_Model{
 
                 $this->load->library('email', $config);
                 $this->email->set_newline("\r\n");
-                $this->email->from('test@igravitas.in', "Admin Team");
+                $this->email->from('test@igravitas.in', "99 Right Deals");
                 $this->email->to($mail);
                 // $this->email->cc("manasa.s@igravitas.in");
                 $this->email->subject("99 Right Deals Forgotten Password");
