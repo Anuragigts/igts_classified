@@ -365,36 +365,28 @@
 											<div class="info-gallery slider_bg">
 												<h3><?php echo substr($hot_deals_val->deal_tag, 0, 20); ?></h3>
 												<hr class="separator">
-												<ul class="nav nav-tabs">
+												<!-- <ul class="nav nav-tabs">
 													<li class="active">
 														<a href="#description<?php echo $i; ?>" data-toggle="tab"> DESCRIPTION</a>
 													</li>
 													<li>
 														<a href="#contact<?php echo $i; ?>" data-toggle="tab"> Contact</a>
 													</li>
-												</ul>
+												</ul> -->
 												<!-- End Nav Tabs-->
-												<div class="tab-content">
-													<!-- Tab One - DESCRIPTION -->
+												<!-- <div class="tab-content">
 													<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">
 														<p><?php echo substr(strip_tags($hot_deals_val->deal_desc), 0, 40); ?> </p>
 													</div>
-													<!-- end Tab One - DESCRIPTION -->
-													<!-- Tab Two - contact -->
 													<div class="tab-pane paddi_ng" id="contact<?php echo $i; ?>">
 														<p> Mobile : <?php echo $person; ?> , Email : <?php echo $mobile; ?></p>
 														<p> </p>
 													</div>
-													<!-- end Tab Two - contact -->
-												</div>
+												</div> -->
 												
 												<?php if ($hot_deals_val->category_id != '1') { ?>
 													<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
-													<?php }
-														else{ ?>
-														<h3 class="home_price"></h3>		
-													<?php	}
-													?>
+													<?php } ?>
 												<a href="javascript:void(0);" data-toggle="modal" data-target="#sendnow" id='<?php echo $hot_deals_val->ad_id; ?>'  class="btn_v btn-4 btn-4a fa fa-arrow-right fdk_ad"><span>Send Now</span></a>
 												<?php  if ($hot_deals_val->ad_type == 'business') {
 														if ($hot_deals_val->bus_logo != '') {
@@ -476,14 +468,9 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($val->deal_desc),0,44); ?> </p>
 								<?php if ($val->category_id != '1') { ?>
 								<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
-								<?php } 
-								else{ ?>
-									<h3 class="home_price"></h3>		
-								<?php	}
-								?>
+								<?php }?>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
 								if($val->ad_type == 'business'){
@@ -524,9 +511,7 @@
 							
 							<div class="info-gallery">
 								<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
-								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads->deal_desc),0,44); ?> </p>
-								<h3 class="home_price"></h3>	
+								<hr class="separator">	
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
 								if($m_ads->ad_type == 'business'){
@@ -549,7 +534,7 @@
 							</div>
 						</div>
 						<?php } ?>
-						<!-- most valued ads for services -->
+						<!-- sig ads for services -->
 						<?php foreach ($sig_ads_services as $m_ads_services){
 										/*currency symbol*/ 
                                     	if ($m_ads_services->currency == 'pound') {
@@ -573,7 +558,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads_services->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_services->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -598,7 +582,7 @@
 						</div>
 						<?php } ?>
 
-						<!-- most valued ads for motor point -->
+						<!-- sig ads for motor point -->
 						<?php foreach ($sig_ads_motor as $motor_val){
 										/*currency symbol*/ 
                                     	if ($motor_val->currency == 'pound') {
@@ -622,7 +606,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($motor_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($motor_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($motor_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -647,7 +630,7 @@
 						</div>
 						<?php } ?>
 
-						<!-- most valued ads for cloths and lifestyles -->
+						<!-- sig ads for cloths and lifestyles -->
 						<?php foreach ($sig_ads_cloths as $cloth_val){
 										/*currency symbol*/ 
                                     	if ($cloth_val->currency == 'pound') {
@@ -671,7 +654,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($cloth_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($cloth_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($cloth_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -696,7 +678,7 @@
 						</div>
 						<?php } ?>
 
-						<!-- most valued ads for find a property -->
+						<!-- sig ads for find a property -->
 						<?php foreach ($sig_ads_property as $prop_val){
 										/*currency symbol*/ 
                                     	if ($prop_val->currency == 'pound') {
@@ -720,7 +702,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($prop_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($prop_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($prop_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -769,7 +750,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($khome_val->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($khome_val->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($khome_val->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -794,7 +774,7 @@
 						</div>
 						<?php } ?>
 
-						<!-- most valued ads for pets -->
+						<!-- sig ads for pets -->
 						<?php foreach ($sig_ads_pets as $m_ads_pets){
 									/*currency symbol*/ 
                                     	if ($m_ads_pets->currency == 'pound') {
@@ -818,7 +798,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads_pets->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_pets->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -843,7 +822,7 @@
 						</div>
 						<?php } ?>
 						
-						<!-- most valued ads for ezone -->
+						<!-- sig ads for ezone -->
 						<?php foreach ($sig_ads_ezone as $m_ads_ezone){
 									/*currency symbol*/ 
                                     	if ($m_ads_ezone->currency == 'pound') {
@@ -867,7 +846,6 @@
 							<div class="info-gallery">
 								<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
 								<hr class="separator">
-								<p><?php echo substr(strip_tags($m_ads_ezone->deal_desc),0,44); ?> </p>
 								<h3 class="home_price"><?php echo $currency.number_format($m_ads_ezone->price); ?></h3>
 								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								<?php
@@ -958,14 +936,10 @@
 											<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php }
-											else{ ?>
-											<h3 class="home_price"></h3>		
-										<?php	}
-										?>
+										<?php } ?>
+											
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -986,14 +960,9 @@
 											<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
 										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php }
-										else{ ?>
-											<h3 class="home_price"></h3>		
-										<?php	}
-										?>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -1059,14 +1028,9 @@
 											<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
 										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php }
-										else{ ?>
-											<h3 class="home_price"></h3>		
-										<?php	}
-										?>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php }else{ ?>
@@ -1086,14 +1050,9 @@
 											<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 											</div>
 										<?php	 } ?>
-										<p><?php echo substr(strip_tags($b_ads->deal_desc),0,44); ?> </p>
 										<?php if ($b_ads->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
-										<?php }
-										else{ ?>
-											<h3 class="home_price"></h3>		
-										<?php	}
-										?>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 									</div>
 									<?php	} ?>
@@ -1148,14 +1107,9 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr(strip_tags($free_val->deal_desc),0,44); ?> </p>
 										<?php if ($free_val->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
-										<?php }
-										else{ ?>
-											<h3 class="home_price"></h3>		
-										<?php	}
-										?>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 3) { ?>
@@ -1170,14 +1124,9 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<p><?php echo substr(strip_tags($free_val->deal_desc),0,44); ?> </p>
 										<?php if ($free_val->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
-										<?php }
-										else{ ?>
-											<h3 class="home_price"></h3>		
-										<?php	}
-										?>
+										<?php } ?>
 										<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<div class="price">
 											<?php if ($free_val->package_type == 3) { ?>
