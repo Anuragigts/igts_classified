@@ -160,10 +160,10 @@ class Common_model extends CI_Model{
              $s_email = @mysql_result(mysql_query("SELECT `login_email` FROM `login` WHERE `login_id` = '".$this->uri->segment(4)."' AND `user_type` = '".$this->uri->segment(5)."'"), 0,'login_email');
                  $this->load->library('email', $config);
                  $this->email->set_newline("\r\n");
-                $this->email->from('test@igravitas.in', "Admin Team");
+                $this->email->from('test@igravitas.in', "99RightDeals");
                 $this->email->to($s_email);
                 // $this->email->cc("manasa.s@igravitas.in");
-                $this->email->subject("Classifieds");
+                $this->email->subject("99RightDeals Classifieds");
                 $message    =   "<h1 style='color:16A085;'>Re-Activate Account</h1>";
                 $pid    =       $this->session->userdata("login_id");
                 $uid    =       $this->session->userdata("user_type");

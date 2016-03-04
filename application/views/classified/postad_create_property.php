@@ -1309,7 +1309,6 @@
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
 															<li class="text_center"> <br> </li>
-															<li class="text_center"> <br> </li>
 															<div class="gold_bg text_center free_pound" style="display:none;">
 																<h3 class="price_amt">£<?php echo $gc_pund; ?></h3>
 															</div>

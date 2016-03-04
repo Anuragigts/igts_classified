@@ -57,8 +57,7 @@ class Postad_create_services extends CI_Controller{
 
         public function get_details(){
             $lid = $this->input->post('log_id');
-         $res = $this->db->query("SELECT * FROM signup, login WHERE login.`signupid` = signup.`sid` AND
- login.`login_id`= '$lid' GROUP BY login.`login_id`");
+         $res = $this->db->query("SELECT * FROM login WHERE  login.`login_id`= '$lid'");
             foreach ($res->result_array() as $row) {
                 $data = array('busname' => $row['bus_name'],
                                 'cont_name'=>$row['first_name']."".$row['lastname'],

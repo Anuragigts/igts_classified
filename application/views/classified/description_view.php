@@ -736,8 +736,12 @@
 										</div>
 										<?php if ($catid != '1') { ?>
 										<div>
-											<img src="<?php echo base_url(); ?>img/icons/negotiable.png" alt="negotiable" title="Negotiable">
-											<img src="<?php echo base_url(); ?>img/icons/fixed.png" alt="fixed" title="Fixed">
+											<?php if ($ptype == 'Negotiable') { ?>
+												<img src="<?php echo base_url(); ?>img/icons/negotiable.png" alt="negotiable" title="Negotiable">
+											<?php }
+											else if ($ptype == 'Fixed'){ ?>
+												<img src="<?php echo base_url(); ?>img/icons/fixed.png" alt="fixed" title="Fixed">
+											<?php } ?>
 										</div>
 										<?php } ?>
 									</div>
