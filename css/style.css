@@ -2582,7 +2582,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	border:solid #dedede 1px;
 	padding: 20px 12px 30px 12px;
 	margin-bottom: 40px;
-	min-height: 247px;
+	min-height: 200px;
 }
 #boxes-carousel .info-gallery{
 	border-right: 0;
@@ -2651,8 +2651,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .info-gallery .price11{
 	position: absolute;
-	top: -40px;
-	right:9px;
+	top: -46px;
+	right:0;
 	color: #fff;
 }
 .info-gallery .sig_price{
@@ -3948,7 +3948,7 @@ address strong{
 
 .significant_ad img{
 	width:358px !important;
-	height:198px !important;
+	height:232px !important;
 }
 .item-service-line h5{
 	font-size:19px;
@@ -4218,7 +4218,7 @@ transform:translatey(0);
 transition-delay:.2s;
 }
 .top_13{
-	padding-top:37px;
+	padding-top:10px;
 }
 
 
@@ -5028,7 +5028,7 @@ h4 a:hover{
 	cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;
 }
 .recentad_heig{
-	height:406px;
+	height:359px;
 }
 .business_img{
 	height:306px;width: 264px;
@@ -5374,15 +5374,14 @@ tbody th,td{
 #limit_scrol{
 	height: 200px;
 }
-tbody tr td{
+.view_page_table tbody tr td{
 	float: right;
 }
-tbody tr {
-	/* border-bottom: 1px solid #ddd; */
-}
-tbody tr th{
+
+.view_page_table tbody tr th{
 	float: left;
-}
+} 
+
 .whit_e{
 	color:#fff !important;
 }
@@ -5786,4 +5785,7 @@ ul.sidebar-gallery {
 }
 .bot_pad_10{
 	padding-bottom: 10px;
+}
+strong{
+	margin-bottom:15px !important;
 }
