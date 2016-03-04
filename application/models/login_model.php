@@ -20,43 +20,8 @@ class Login_model extends CI_Model{
 
                 if($this->db->affected_rows() > 0) {                 
                         $pq     =       $uq->row_array();
-                        if($this->input->post("w_login") == "1"){
-                                $this->session->set_userdata("chebox",$this->input->post("w_login"));
-                        }
                         $this->session->set_userdata($pq);
                         return $pq['login_id'];    
-                }
-                else{
-                        $pasd    =   "";
-                        if($this->input->post("w_login") == "1"){
-                                        $vaop    =   md5(rand(10000,99999));
-                                        $this->session->set_userdata("chebox",$this->input->post("w_login"));
-                        }else{
-                                        $vaop   =   "";
-                        }   
-                        if($this->input->post("w_login") == "1"){
-                                $login      =   array(
-                                        "user_type"         =>      3,
-                                        "login_email"       =>      $this->input->post("email"),
-                                        "login_password"    =>      $pasd,
-                                        "is_confirm"        =>      $vaop,
-                                        "login_status"      =>      2
-                                );                        
-                                $this->db->insert("login",$login);
-                                $login_id   =   $this->db->insert_id();
-                                $profile    =   array(
-                                                        "login_id"          =>      $login_id,
-                                                        "profile_img"       =>      "avatar.jpg"
-                                                ); 
-                                $this->db->insert("profile",$profile);  
-                                if($this->db->affected_rows() > 0){
-                                        $this->session->set_userdata($login);
-                                        $this->session->set_userdata($profile);
-                                        return $login_id;
-                                }else{
-                                        return 0;
-                                }
-                        }
                 }
         }
 

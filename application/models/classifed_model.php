@@ -762,6 +762,7 @@ Class Classifed_model extends CI_model{
 	/*report for ads*/
 	public function reportads_insert(){
 		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'cat_id'=> $this->input->post('cat_id'),
 						'name'	=> $this->input->post('report_view'),
 						'message'	=> $this->input->post('reportmsg'),
 						'created_on'	=> date("Y-m-d H:i:s")

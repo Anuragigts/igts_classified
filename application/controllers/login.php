@@ -19,7 +19,7 @@ class Login extends CI_Controller{
 
                         $this->form_validation->set_rules("email","Email Id","required|valid_email");
                         
-                        if($this->input->post("w_login") == "1"){
+                       /* if($this->input->post("w_login") == "1"){
                                 $this->form_validation->set_rules("password","Password","");
                                 if($this->form_validation->run() == TRUE){
                                $mail_exist = $this->login_model->mailexist();
@@ -32,11 +32,11 @@ class Login extends CI_Controller{
                                 redirect("signup");
                             }
                         }
-                        }
-                        if($this->input->post("w_login") == "0"){
-                              $this->form_validation->set_rules("password","Password","required");
-                        }
-                        if($this->form_validation->run() == TRUE){
+                        }*/
+                        // if($this->input->post("w_login") == "0"){
+                        //       $this->form_validation->set_rules("password","Password","required");
+                        // }
+                        // if($this->form_validation->run() == TRUE){
                              
                             
                             // exit;
@@ -47,7 +47,7 @@ class Login extends CI_Controller{
                                             $this->session->set_flashdata("err","Login Failed : Please Check your Email Id or Password");
                                             redirect("login");                                        
                                     }
-                        }
+                        // }
                 }
                 $this->load->view("classified_layout/inner_template",$data);
         }

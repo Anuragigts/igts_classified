@@ -215,7 +215,7 @@
 				}
 				$posted_on = date("M d, Y H:i:s", strtotime($ads_desc_val->created_on));
 				$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
-				if ($catid !='jobs') {
+				if ($catid !='1') {
 				$price = $currency.number_format($ads_desc_val->price);
 				$ptype = $ads_desc_val->price_type;
 				}
@@ -417,6 +417,7 @@
 																	<label class="radio">
 																		<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 																		<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
+																		<input type="hidden" name="cat_id" value="<?php echo $catid; ?>">
 																		<input type="radio" name="report_view" value="This is illegal/fraudulent" checked>
 																		<i></i> This is illegal/fraudulent
 																	</label>
@@ -729,11 +730,11 @@
 									</ul>
 									<div class="bot_pad_10">
 										<div class="amt_bg">
-											<?php if ($catid != 'jobs') { ?>
+											<?php if ($catid != '1') { ?>
 											<h3 class="view_price_1"><?php echo $price; ?></h3>
 											<?php } ?>
 										</div>
-										<?php if ($catid != 'jobs') { ?>
+										<?php if ($catid != '1') { ?>
 										<div>
 											<img src="<?php echo base_url(); ?>img/icons/negotiable.png" alt="negotiable" title="Negotiable">
 											<img src="<?php echo base_url(); ?>img/icons/fixed.png" alt="fixed" title="Fixed">
