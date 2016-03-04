@@ -156,50 +156,84 @@
 						</div>
 						<!-- End Item Table-->
 
-						<form id="j-forms" action="#" class="j-forms" method="post">
-							<!-- Item Table-->
-							<div class="col-md-9">
-                                <div class="row">
-									<div class="col-sm-12">
-										<h2>Deals Status</h2>
-										<label>Hi <?php echo $log_name; ?></label><hr>
-									</div>
+						<div class="col-md-9">
+							<div class="row">
+								<div class="col-sm-12">
+									<h2>Deals Status</h2>
+									<label>Hi <?php echo $log_name; ?></label><hr>
 								</div>
-                                
-                                <!-- sort-by-container-->
-                                
-                                <!-- sort-by-container-->
-                                <div class="row list_view_searches deals_search_result">
-                                    <?php echo $this->load->view('classified/deals_status_search'); ?>
-	                                    <div class='text_center col-md-12'>
-											<?php echo $paging_links; ?>
-										</div>
-								</div>
-						</form>
+							</div>
+							
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>
+											#
+										</th>
+										<th>
+											First Name
+										</th>
+										<th>
+											Last Name
+										</th>
+										<th>
+											Username
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											1
+										</td>
+										<td>
+											Mark
+										</td>
+										<td>
+											Otto
+										</td>
+										<td>
+											@mdo
+										</td>
+									</tr>
+									<tr>
+										<td>
+											2
+										</td>
+										<td>
+											Jacob
+										</td>
+										<td>
+											Thornton
+										</td>
+										<td>
+											@fat
+										</td>
+									</tr>
+									<tr>
+										<td>
+											3
+										</td>
+										<td>
+											Larry
+										</td>
+										<td>
+											the Bird
+										</td>
+										<td>
+											@twitter
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!--MAP Modal -->
-	<div class="modal fade" id="map_location" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<!-- <form action="#" method="post" class="j-forms " > -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Map Location</h2>
-					</div>
-					<div class="modal-body map_show">
-						
-					</div>
-				</div>
-			<!-- </form> -->
-		</div>
-	</div>
-	
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
@@ -210,51 +244,4 @@
 	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>   
 
 	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-	<script>
-		$('.xuSlider').xuSlider();
-	</script>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36251023-1']);
-	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>	
-
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-
-	<script>
-		var myCenter=new google.maps.LatLng(55.8558347,-3.3274721000000227);
-
-		function initialize()
-		{
-		var mapProp = {
-		  center: myCenter,
-		  zoom:5,
-		  mapTypeId: google.maps.MapTypeId.ROADMAP
-		  };
-
-		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-		var marker = new google.maps.Marker({
-		  position: myCenter,
-		  title:'Click to zoom'
-		  });
-
-		marker.setMap(map);
-
-		// Zoom to 9 when clicking on marker
-		google.maps.event.addListener(marker,'click',function() {
-		  map.setZoom(9);
-		  map.setCenter(marker.getPosition());
-		  });
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
+	

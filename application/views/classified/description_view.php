@@ -362,8 +362,8 @@
 																$body_content1 = array_chunk($body_content, 2, true);
 																 foreach ($body_content1 as $val) {
 																 	foreach ($val as $k => $value) { ?>
-																 		<div class="col-sm-6">
-																			<table class="table table-bordered">
+																 		<div class="col-sm-6 view_page_table">
+																			<table class="table">
 																				<tbody>
 																					<tr><th><?php echo $k; ?></th><td><?php echo $value; ?></td></tr>
 																				</tbody>

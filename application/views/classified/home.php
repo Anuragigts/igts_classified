@@ -345,8 +345,8 @@
 												<?php }
 												?>
 											<div class="img-hover significant_ad">
-												<img src="<?php echo base_url(); ?>ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-												<div class="overlay"><a href="<?php echo base_url(); ?>ad_images/no_image.png" ><i class="fa fa-link"></i></a></div>
+												<img src="<?php echo base_url(); ?>pictures/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
+												<div class="overlay"><a href="<?php echo base_url(); ?>pictures/no_image.png" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php
 												}else{
@@ -358,7 +358,7 @@
 													<?php }
 													?>
 											<div class="img-hover significant_ad">
-												<img src="<?php echo base_url(); ?>ad_images/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
+												<img src="<?php echo base_url(); ?>pictures/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
 												<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<?php	} ?>
@@ -392,12 +392,12 @@
 														if ($hot_deals_val->bus_logo != '') {
 													 ?>
 													<div class="bus_logo">
-													<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $hot_deals_val->bus_logo; ?>" /></b>
+													<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $hot_deals_val->bus_logo; ?>" /></b>
 													</div>
 														<?php }
 																else{ ?>
 														<div class="bus_logo">
-														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 														</div>
 													<?php			}
 															} ?>
@@ -461,7 +461,7 @@
 								<?php	}
 								 ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -476,12 +476,12 @@
 								if($val->ad_type == 'business'){
 								 if ($val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -505,7 +505,7 @@
 									</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -517,12 +517,12 @@
 								if($m_ads->ad_type == 'business'){
 								 if ($m_ads->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -551,7 +551,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -564,12 +564,12 @@
 								if($m_ads_services->ad_type == 'business'){
 								 if ($m_ads_services->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads_services->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_services->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -599,7 +599,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $motor_val->img_name; ?>" alt="<?php echo $motor_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $motor_val->img_name; ?>" alt="<?php echo $motor_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -612,12 +612,12 @@
 								if($motor_val->ad_type == 'business'){
 								 if ($motor_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $motor_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $motor_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -647,7 +647,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $cloth_val->img_name; ?>" alt="<?php echo $cloth_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $cloth_val->img_name; ?>" alt="<?php echo $cloth_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -660,12 +660,12 @@
 								if($cloth_val->ad_type == 'business'){
 								 if ($cloth_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $cloth_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $cloth_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -695,7 +695,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $prop_val->img_name; ?>" alt="<?php echo $prop_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $prop_val->img_name; ?>" alt="<?php echo $prop_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -708,12 +708,12 @@
 								if($prop_val->ad_type == 'business'){
 								 if ($prop_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $prop_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $prop_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -743,7 +743,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $khome_val->img_name; ?>" alt="<?php echo $khome_val->img_name; ?>" title="services" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $khome_val->img_name; ?>" alt="<?php echo $khome_val->img_name; ?>" title="services" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -756,12 +756,12 @@
 								if($khome_val->ad_type == 'business'){
 								 if ($khome_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $khome_val->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $khome_val->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -791,7 +791,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -804,12 +804,12 @@
 								if($m_ads_pets->ad_type == 'business'){
 								 if ($m_ads_pets->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -839,7 +839,7 @@
 							</div>
 								<?php	} ?>
 							<div class="img-hover">
-								<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
 								<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 							</div>
 							
@@ -852,12 +852,12 @@
 								if($m_ads_ezone->ad_type == 'business'){
 								 if ($m_ads_ezone->bus_logo != '') { ?>
 									<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" /></b>
 									</div>
 								<?php }
 								else{ ?>
 								<div class="bus_logo">
-									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" /></b>
+									<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
 									</div>
 								<?php } 
 									}
@@ -914,7 +914,7 @@
 									</div>
 									<?php } ?>
 									<div class="img-hover">
-										<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+										<img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<?php if ($b_ads->package_type == 2) { ?>
@@ -924,10 +924,10 @@
 										<?php
 										 if ($b_ads->ad_type != 'consumer') { 
 										 if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	} 	}
 										 ?>
 										<?php if ($b_ads->package_type == 2) { ?>
@@ -948,10 +948,10 @@
 										<hr class="separator">
 										<?php if ($b_ads->ad_type != 'consumer') { 
 										 if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}	}
 										 ?>
 										 <?php if ($b_ads->package_type == 3) { ?>
@@ -1008,7 +1008,7 @@
 									</div>
 									<?php } ?>
 									<div class="img-hover">
-										<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+										<img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<?php if ($b_ads->package_type == 2) { ?>
@@ -1016,10 +1016,10 @@
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
 										<?php if ($b_ads->package_type == 2) { ?>
@@ -1038,10 +1038,10 @@
 										<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
 										<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 										<?php	}
 										else{ ?>
-										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+										<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 									<?php	}
 										 ?>
 										 <?php if ($b_ads->package_type == 3) { ?>
@@ -1099,7 +1099,7 @@
 											</div>
 										<?php } ?>
 									<div class="img-hover">
-										<img src="<?php echo base_url(); ?>ad_images/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
+										<img src="<?php echo base_url(); ?>pictures/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
 										<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									
@@ -1157,7 +1157,7 @@
 							<div data-u="slides" class="slide_j3">
 								<?php foreach ($business_logos as $bval) { ?>
 								<div style="display: none;">
-									<img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $bval->bus_logo; ?>" alt="<?php echo base_url(); ?>ad_images/<?php echo $bval->bus_logo; ?>" title="Business logo" />
+									<img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $bval->bus_logo; ?>" alt="<?php echo base_url(); ?>pictures/<?php echo $bval->bus_logo; ?>" title="Business logo" />
 								</div>
 								<?php } ?>
 							</div>
