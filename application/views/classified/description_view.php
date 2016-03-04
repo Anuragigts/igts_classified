@@ -333,7 +333,7 @@
 												<?php foreach ($ads_pics as $ads_pics_val) {
 													$busimg = $ads_pics_val->bus_logo;
 												 ?>
-													<a href="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>"><img src="<?php echo base_url(); ?>ad_images/<?php echo $ads_pics_val->img_name; ?>" alt="Photo 1" /></a>
+													<a href="<?php echo base_url(); ?>pictures/<?php echo $ads_pics_val->img_name; ?>"><img src="<?php echo base_url(); ?>pictures/<?php echo $ads_pics_val->img_name; ?>" alt="Photo 1" /></a>
 											
 												<?php }	 ?>
 												</div>
@@ -710,10 +710,10 @@
 								<aside class="widget view_sidebar text_center">
 									<?php if ($isbustype == 'business') { 
 										if ($busimg != '') { ?>
-											<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $busimg; ?>" alt="" class="img-responsive"><hr>
+											<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $busimg; ?>" alt="" class="img-responsive"><hr>
 										<?php }
 										else{ ?>
-											<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="" class="img-responsive"><hr>
+											<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="" class="img-responsive"><hr>
 										<?php }
 										 ?>
 									
@@ -868,7 +868,7 @@
 											</div>
 											<?php } ?>
 											<div class="img-hover related_ads">
-												<img src="<?php echo base_url(); ?>ad_images/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
+												<img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 												<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<div class="info-gallery">
@@ -876,10 +876,10 @@
 												<hr class="separator">
 												<?php if ($b_ads->ad_type != 'consumer') { ?>
 												<?php if ($b_ads->bus_logo != '') { ?>
-													<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+													<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 												<?php	}
 												else{ ?>
-												<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+												<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
 											<?php	}
 												}
 												 ?>

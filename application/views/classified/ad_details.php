@@ -21,7 +21,7 @@
                     <?php 
                     if(count($img_view) > 0){
                         foreach ($img_view as $imw){?>
-                            <li><img src="<?php echo base_url();?>ad_images/<?php echo $imw->img_name;?>" alt="img" class="img  img-responsive"/></li>
+                            <li><img src="<?php echo base_url();?>pictures/<?php echo $imw->img_name;?>" alt="img" class="img  img-responsive"/></li>
                     <?php 
                         }
                     }?>
@@ -31,7 +31,7 @@
                     if(count($img_view) > 0){
                         $i = 0;
                         foreach ($img_view as $imw){?>
-                            <a class="thumb-item-link" data-slide-index="<?php echo $i++;?>" href="#"><img src="<?php echo base_url();?>ad_images/<?php echo $imw->img_name;?>" alt="img" /></a>
+                            <a class="thumb-item-link" data-slide-index="<?php echo $i++;?>" href="#"><img src="<?php echo base_url();?>pictures/<?php echo $imw->img_name;?>" alt="img" /></a>
                     <?php 
                         }
                     }?>

@@ -15,7 +15,7 @@ if(count($view) > 0){
                          <a href="#"> Top Ads</a>
                          </div>
                          <div class="col-sm-2 no-padding photobox">
-                         <div class="add-image"> <span class="photo-count"><i class="fa fa-camera"></i> 2 </span> <a href="ads-details.html"><img class="thumbnail no-margin" src="<?php echo base_url();?>/ad_images/" alt="img"></a> </div>
+                         <div class="add-image"> <span class="photo-count"><i class="fa fa-camera"></i> 2 </span> <a href="ads-details.html"><img class="thumbnail no-margin" src="<?php echo base_url();?>/pictures/" alt="img"></a> </div>
                          </div>
 
                          <div class="col-sm-7 add-desc-box">

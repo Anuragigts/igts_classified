@@ -11,7 +11,7 @@ class Postad extends CI_Controller{
                 $this->load->model("common_model");
                 $this->load->model("postad_model");
                 $this->load->model("category_model");
-                $config['upload_path'] = './ad_mages/';
+                $config['upload_path'] = './pictures/';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $this->load->library('upload',$config);
         }
@@ -217,7 +217,7 @@ class Postad extends CI_Controller{
         }
         public function do_upla($file,$fp){
                 $plogin_id      =   $this->session->userdata("login_id");
-                $config['upload_path'] = './ad_images';
+                $config['upload_path'] = './pictures';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $uid = date('Y-m-d_i-s');
                 $uid = $fp."_".$uid."_".$plogin_id;

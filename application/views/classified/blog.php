@@ -173,59 +173,9 @@
 										</div>                     
 									</div>
 									
-									<div class="widget tags">
-										<h3>Tag Cloud</h3>
-										<ul class="tag-cloud">
-											<li><a class="bor_log btn" href="#">Apple</a></li>
-											<li><a class="bor_log btn" href="#">Barcelona</a></li>
-											<li><a class="bor_log btn" href="#">Office</a></li>
-											<li><a class="bor_log btn" href="#">Ipod</a></li>
-											<li><a class="bor_log btn" href="#">Stock</a></li>
-											<li><a class="bor_log btn" href="#">Race</a></li>
-											<li><a class="bor_log btn" href="#">London</a></li>
-											<li><a class="bor_log btn" href="#">Football</a></li>
-											<li><a class="bor_log btn" href="#">Porche</a></li>
-											<li><a class="bor_log btn" href="#">Gadgets</a></li>
-										</ul>
-									</div>
 									
-									<div class="widget blog_aboutus">
-										<h3>About Us</h3>
-										<div class="accrodation">
-										   <span class="acc-trigger"><a href="#">Mision</a></span>
-											<div class="acc-container">
-												<div class="content">
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
-												</div>
-											</div>
-										  
-											<span class="acc-trigger"><a href="#">Vision</a></span>
-											<div class="acc-container">
-												<div class="content">
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
-												</div>
-											</div>
-									   
-											<span class="acc-trigger active"><a href="#">Our services</a></span>
-											<div class="acc-container">
-												<div class="content">
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.
-												</div>
-											</div>
-										</div> 
-									</div>
 									
-									<div class="widget blog_gallery">
-										<h3>Our Gallery</h3>
-										<ul class="sidebar-gallery">
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery1.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery2.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery3.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery4.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery5.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery6.png" alt="" /></a></li>
-										</ul>
-									</div>
+									
 								</aside>  
 							</div>
                         </div>

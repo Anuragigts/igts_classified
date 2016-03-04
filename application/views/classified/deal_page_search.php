@@ -22,7 +22,7 @@
 																<?php 
 															$pic = mysql_query("select * from ad_img WHERE ad_id = '$rs->ad_id'");
 															while ($res = mysql_fetch_object($pic)) { ?>
-															<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 															<?php	
 																}
 															 ?>
@@ -75,12 +75,12 @@
 															<?php if ($rs->ad_type != 'consumer') {
 																if ($rs->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 															  } ?>
@@ -142,7 +142,7 @@
 																<?php 
 															$pic = mysql_query("select * from ad_img WHERE ad_id = '$rs->ad_id'");
 															while ($res = mysql_fetch_object($pic)) { ?>
-															<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 															<?php	
 																}
 															 ?>
@@ -195,12 +195,12 @@
 															<?php if ($rs->ad_type != 'consumer') {
 																if ($rs->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 															  } ?>
@@ -263,7 +263,7 @@
 															
 														</div>
 														<div class="img-hover view_img">
-															<img src="<?php echo base_url(); ?>ad_images/<?php echo $rs->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
+															<img src="<?php echo base_url(); ?>pictures/<?php echo $rs->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
 															<div class="overlay"><a href="description_view/details/<?php echo $rs->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 														</div>
 														<div class="">
@@ -308,12 +308,12 @@
 															<?php if ($rs->ad_type != 'consumer') {
 																if ($rs->bus_logo != '') { ?>
 																	<div class="col-xs-4 serch_bus_logo">
-																<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 																else{ ?>
 																<div class="col-xs-4 serch_bus_logo">
-																<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
 																</div>
 															<?php	}
 															  } ?>

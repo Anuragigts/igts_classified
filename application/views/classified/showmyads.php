@@ -26,14 +26,14 @@
 				<?php if($m_list->img == ''){
 													?>
 													<div class="img-hover">
-						<img src="ad_images/no_image.png" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/no_image.png" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 												<?php }
 												else{ ?>
 												<div class="img-hover">
-						<img src="ad_images/<?php echo $m_list->img; ?>" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/<?php echo $m_list->img; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/<?php echo $m_list->img; ?>" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/<?php echo $m_list->img; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 											<?php	} ?>
 					
@@ -89,14 +89,14 @@
 				<?php if($s_ads->img == ''){
 													?>
 													<div class="img-hover">
-						<img src="ad_images/no_image.png" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/no_image.png" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 												<?php }
 												else{ ?>
 												<div class="img-hover">
-						<img src="ad_images/<?php echo $s_ads->img; ?>" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/<?php echo $s_ads->img; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/<?php echo $s_ads->img; ?>" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/<?php echo $s_ads->img; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 											<?php   } ?>
 					
@@ -152,14 +152,14 @@
 				<?php if($cru_ads->img == ''){
 													?>
 													<div class="img-hover">
-						<img src="ad_images/no_image.png" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/no_image.png" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 												<?php }
 												else{ ?>
 												<div class="img-hover">
-						<img src="ad_images/<?php echo $cru_ads->img; ?>" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/<?php echo $cru_ads->img; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/<?php echo $cru_ads->img; ?>" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/<?php echo $cru_ads->img; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 											<?php   } ?>
 					
@@ -215,14 +215,14 @@
 				<?php if($f_ads->img_name == ''){
 													?>
 													<div class="img-hover">
-						<img src="ad_images/no_image.png" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/no_image.png" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/no_image.png" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 												<?php }
 												else{ ?>
 												<div class="img-hover">
-						<img src="ad_images/<?php echo $f_ads->img_name; ?>" alt="" class="img-responsive">
-						<div class="overlay"><a href="ad_images/<?php echo $f_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
+						<img src="pictures/<?php echo $f_ads->img_name; ?>" alt="" class="img-responsive">
+						<div class="overlay"><a href="pictures/<?php echo $f_ads->img_name; ?>" class="fancybox"><i class="fa fa-plus-circle"></i></a></div>
 					</div>
 											<?php   } ?>
 					

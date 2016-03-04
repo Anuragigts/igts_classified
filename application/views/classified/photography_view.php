@@ -812,7 +812,7 @@
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
-														<img src="ad_images/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
+														<img src="pictures/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
 														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">

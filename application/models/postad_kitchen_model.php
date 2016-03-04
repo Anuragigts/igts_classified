@@ -12,7 +12,7 @@ class Postad_kitchen_model extends CI_Model{
                         if($this->input->post('checkbox_toggle') == 'Yes'){
                                 $ad_type = 'business';
                                 
-                                $target_dir = "./ad_images/business_logos/";
+                                $target_dir = "./pictures/business_logos/";
                             
                         // $target_file = $target_dir . basename($_FILES["file"]["name"]);
                         // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -127,7 +127,7 @@ class Postad_kitchen_model extends CI_Model{
                                 $filteredData = explode(',', $rawData);
                             $unencoded = base64_decode($filteredData[1]);
                             //Create the image 
-                            $fp = fopen('./ad_images/'.time().$i.'.jpg', 'w');
+                            $fp = fopen('./pictures/'.time().$i.'.jpg', 'w');
                             $plat_img = array('ad_id' => $insert_id,
                                         'img_name' => time().$i.'.jpg',
                                         'img_time' => date('d-m-Y H:i:s'),

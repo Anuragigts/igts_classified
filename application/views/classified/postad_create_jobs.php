@@ -822,7 +822,7 @@
 												</div>
 												<div class="span2 unit" class='del_img'>
 													<a href='javascript:void(0);' id="del_img" style='display:none;'>
-													<img src="<?php echo base_url(); ?>ad_images/delete.png" alt='delete' title="Delete"/></a>
+													<img src="<?php echo base_url(); ?>pictures/delete.png" alt='delete' title="Delete"/></a>
 												</div>
 											</div>
 										</div>

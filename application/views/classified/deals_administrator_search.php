@@ -27,7 +27,7 @@
 							<?php 
 							$pic = mysql_query("select * from ad_img WHERE ad_id = '$m_details->ad_id'");
 							while ($res = mysql_fetch_object($pic)) { ?>
-							<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
 								}
 							 ?>
@@ -81,12 +81,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -163,7 +163,7 @@
 							<?php 
 							$pic = mysql_query("select * from ad_img WHERE ad_id = '$m_details->ad_id'");
 							while ($res = mysql_fetch_object($pic)) { ?>
-							<li><img src="<?php echo base_url(); ?>ad_images/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
 								}
 							 ?>
@@ -218,12 +218,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -293,7 +293,7 @@
 			<div class="row">
 				<div class="col-sm-4 ">
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
@@ -334,12 +334,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -411,7 +411,7 @@
 						
 					</div>
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
@@ -452,12 +452,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -526,7 +526,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
@@ -561,12 +561,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -638,7 +638,7 @@
 						
 					</div>
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>ad_images/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
@@ -673,12 +673,12 @@
 						if ($m_details->ad_type == 'business') {
 							if ($m_details->bus_logo != '') { ?>
 							<div class="col-xs-4 serch_bus_logo">
-							<img src="<?php echo base_url(); ?>ad_images/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
+							<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt="<?php echo $m_details->bus_logo; ?>" title="busniess logo" class="img-responsive">
 							</div>
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>ad_images/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
