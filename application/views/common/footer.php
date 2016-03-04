@@ -2,31 +2,27 @@
 <footer id="footer" class="footer-v1">
 	<div class="container">
 		<div class="row">
-			<!-- Title Footer-->
-			<div class="col-sm-4">
-				<div class="title-footer">
-					<h2>99 Right Deals 
-				</div>
-			</div>
-			<!-- End Title Footer-->
-
-			<div class="col-sm-8">
+			<div class="col-sm-12">
 				<div class="row">                             
 					<div class="col-sm-6">
 						<h3>QUICK LINKS</h3>
 						<div class="row"> 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>index">Home</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>terms_conditions">Terms & Conditions</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Cookies Policy</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Privacy Policy</a></li>
 								</ul>
 							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<ul class="social">
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Cookies Policy</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Privacy Policy</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-4">
+								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Assistance</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Faq</a></li>
@@ -36,20 +32,24 @@
 					</div>
 					
 					<div class="col-sm-6">
-						<h3>EXPLORE By Category</h3>
+						<h3>EXPLORE By CATEGORY</h3>
 						<div class="row"> 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>deal_page">Hot Deals</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">E-Zone</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Motor Point</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>clothing_lifestyles_view">Clothing & LifeStyles</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>services_view">Services</a></li>
 								</ul>
 							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<ul class="social">
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>clothing_lifestyles_view">Clothing & LifeStyles</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>services_view">Services</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>residential_view">Find a Property</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-4">
+								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>home_kitchen_view">Home & Kitchen</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>pets_view">Pets</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>job_view">Jobs</a></li>
@@ -63,7 +63,7 @@
 				
 				<div class="row">
 					<!-- Newsletter-->
-					<div class="col-md-12">
+					<div class="col-md-7">
 						<h3>NEWSLETTER SIGN UP</h3>  
 						<form id="newsletterForm" action="http://html.iwthemes.com/travelia/run/php/mailchip/newsletter-subscribe.php">
 							<div class="row">
