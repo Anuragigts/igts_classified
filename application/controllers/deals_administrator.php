@@ -33,7 +33,7 @@ class  Deals_administrator extends CI_Controller{
                 }
 
                 $my_ads = $this->classifed_model->my_ads($search_option);
-                $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+                $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deals_administrator",
@@ -52,7 +52,7 @@ class  Deals_administrator extends CI_Controller{
                 }
 
                 $my_ads = $this->classifed_model->my_ads_search();
-                $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+                $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."' "), 0, 'first_name');
                 $result   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deals_administrator",

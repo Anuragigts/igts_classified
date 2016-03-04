@@ -934,9 +934,9 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
-			// if (!empty($profpop)) {
-			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
-			// }
+			if (!empty($sub_cat)) {
+				$this->db->where_in('ad.sub_scat_id', $sub_cat);
+			}
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);

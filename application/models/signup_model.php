@@ -26,7 +26,8 @@ class Signup_model extends CI_Model{
                                     'is_confirm'=>$is_confirm,
                                     'login_status'=>1,
                                     'first_name' => $this->input->post('con_fname'),
-                                    'lastname' => $this->input->post('con_lname'));
+                                    'lastname' => $this->input->post('con_lname'),
+                                    'mobile'=>$this->input->post('con_mobile'));
                     $this->db->insert('login', $login_data);
             }
             else{

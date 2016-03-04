@@ -14,7 +14,7 @@ class Pickup_deals extends CI_Controller{
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }
-                $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+                $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."' "), 0, 'first_name');
                 $pickup_deals = $this->classifed_model->pickup_deals();
                 // echo "<pre>";
                 // print_r($this);
@@ -34,7 +34,7 @@ class Pickup_deals extends CI_Controller{
                 }
 
                 $pickup_deals = $this->classifed_model->pickup_deals_search();
-                $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+                $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."'"), 0, 'first_name');
                 $result   =   array(
                         'pickup_deals'=> $pickup_deals,
                         'log_name'=>$log_name

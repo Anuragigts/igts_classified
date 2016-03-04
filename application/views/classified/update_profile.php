@@ -1,8 +1,8 @@
 	<?php foreach ($prof_data as $prof_val) {
-		$prof_id = $prof_data['sid'];
+		$prof_id = $prof_data['login_id'];
 		$fname = $prof_data['first_name'];
 		$lname = $prof_data['lastname'];
-		$mail_id = $prof_data['email'];
+		$mail_id = $prof_data['login_email'];
 		$mobile = $prof_data['mobile'];
 		} ?>
 	<title>99 Right Deals :: Deals Administrator</title>
@@ -285,26 +285,6 @@
 												<button class="btn btn-primary " id='change_pwd'>Change Password</button>
 											</div>
 										</div>
-									</div>
-								</div>
-								<hr class="separator">
-								<div class="row">
-									<div class="col-sm-12 unit">
-										<h3>Manage contact email</h3>
-										<label>Login with: <strong><?php echo $mail_id; ?></strong>
-										<input type='hidden' name='email' id='email' value="<?php echo $mail_id; ?>" />
-										</label>
-									</div>
-								</div>
-								<hr class="separator">
-								<div class="row">
-									<div class="col-sm-12 unit">
-										<h3>Marketing preferences</h3>
-										<label class="checkbox-toggle">
-										<input type="checkbox">
-										<i></i>
-										I would like to receive news, offers and promotions from Classified
-										</label>
 									</div>
 								</div>
 								<hr class="separator">

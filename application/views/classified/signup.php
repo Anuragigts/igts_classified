@@ -25,12 +25,12 @@
       
 
         $(function(){
-                $('.sign_type').click(function(){
+                $('.sign_type').change(function(){
                         var ch = $("input[name='signup_type']:checked").val();
-                        if(ch == 'business'){
+                        if(ch == 6){
                             $("#signup_business").css('display', 'block');
                             $("#signup_consumer").css('display', 'none');
-                        }else{
+                        }else if(ch == 7){
                             $("#signup_business").css('display', 'none');
                             $("#signup_consumer").css('display', 'block');
                         }

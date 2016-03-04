@@ -2,10 +2,10 @@
 
 class Profile_model extends CI_Model{
 	public function prof_data(){
-		$mail = $this->session->userdata('login_email');
+		$login_id = $this->session->userdata('login_id');
 		$this->db->select("*");
-		$this->db->from("signup");
-		$this->db->where("email", $mail);
+		$this->db->from("login");
+		$this->db->where("login_id", $login_id);
 		$res = $this->db->get();
 		return $res->row_array();
 	}
@@ -17,8 +17,8 @@ class Profile_model extends CI_Model{
                         "lastname"   =>  $this->input->post('lname1'),
                         "mobile"   =>  $this->input->post('mobile1')
                 );
-                $this->db->where('sid',$this->input->post('prof_id1'));
-                $this->db->update("signup",$prof);
+                $this->db->where('login_id',$this->input->post('prof_id1'));
+                $this->db->update("login",$prof);
                 if($this->db->affected_rows() > 0){
                         return 1;
                 }else{
@@ -31,9 +31,9 @@ class Profile_model extends CI_Model{
 
         	/*password is exist or not*/
         	$this->db->select("COUNT(*)");
-        	$this->db->from("signup");
-        	$this->db->where('sid', $this->input->post('prof_id1'));
-        	$this->db->where('password', md5($this->input->post('cur_pwd1')));
+        	$this->db->from("login");
+        	$this->db->where('login_id', $this->input->post('prof_id1'));
+        	$this->db->where('login_password', md5($this->input->post('cur_pwd1')));
         	$res = $this->db->get();
         	$res1 = $res->row_array();
         	if($res1['COUNT(*)'] != 1){
