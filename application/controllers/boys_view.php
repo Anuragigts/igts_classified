@@ -190,13 +190,13 @@ class  Boys_view extends CI_Controller{
                         $loginid = $sview->login_id;
                     }
              }
+              $boys_list_count = $this->hotdealsearch_model->boys_list_count();
               $result   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "boys_view",
                         'boys_list_count' => $boys_list_count);
             $result['boyview_result'] = $rs;
             $public_adview = $this->classifed_model->publicads();
-             $boys_list_count = $this->hotdealsearch_model->boys_list_count();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;

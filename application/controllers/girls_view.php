@@ -13,10 +13,20 @@ class  Girls_view extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
+                $this->session->set_userdata('girls_list',array());  
+                $this->session->set_userdata('seller_deals',array());
+                $this->session->set_userdata('dealurgent',array());
+                $this->session->set_userdata('dealtitle','');
+                $this->session->set_userdata('dealprice','');
+                $this->session->set_userdata('recentdays','');
+                $this->session->set_userdata('search_bustype','all');
+                $this->session->set_userdata('location');
+                $this->session->set_userdata('latt','');
+                $this->session->set_userdata('longg','');
                 $config = array();
             $config['base_url'] = base_url().'girls_view/index';
             $config['total_rows'] = count($this->classifed_model->count_girls_view());
-            $config['per_page'] = 10;
+            $config['per_page'] = 1;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
@@ -79,11 +89,75 @@ class  Girls_view extends CI_Controller{
         }
 
         public function search_filters(){
+            if($this->input->post()){
+                    $this->session->set_userdata('girls_list',array());  
+                    $this->session->set_userdata('seller_deals',array());
+                    $this->session->set_userdata('dealurgent',array());
+                    $this->session->set_userdata('dealtitle','');
+                    $this->session->set_userdata('dealprice','');
+                    $this->session->set_userdata('recentdays','');
+                    $this->session->set_userdata('search_bustype','all');
+                    $this->session->set_userdata('location');
+                    $this->session->set_userdata('latt','');
+                    $this->session->set_userdata('longg','');
+                 if($this->input->post('girls_list')){
+                       $this->session->set_userdata('girls_list',$this->input->post('girls_list'));
+                }else{
+                     $this->session->set_userdata('girls_list',array());
+                }
+
+                if($this->input->post('seller_deals')){
+                   // $data['seller_deals'] = $this->input->post('seller_deals');
+                       $this->session->set_userdata('seller_deals',$this->input->post('seller_deals'));
+                }else{
+                     $this->session->set_userdata('seller_deals',array());
+                }
+                 if($this->input->post('dealurgent')){
+                    //$data['dealurgent'] = $this->input->post('dealurgent');
+                       $this->session->set_userdata('dealurgent' ,$this->input->post('dealurgent'));
+                }else{
+                     $this->session->set_userdata('dealurgent',array());
+                }
+                 if($this->input->post('search_bustype')){
+                    //$data['search_bustype'] = $this->input->post('search_bustype');
+                       $this->session->set_userdata('search_bustype',$this->input->post('search_bustype'));
+                }else{
+                     $this->session->set_userdata('search_bustype','all');
+                }
+                if($this->input->post('dealtitle_sort')){
+                       $this->session->set_userdata('dealtitle',$this->input->post('dealtitle_sort'));
+                }else{
+                     $this->session->set_userdata('dealtitle','Any');
+                }
+                if($this->input->post('price_sort')){
+                       $this->session->set_userdata('dealprice',$this->input->post('price_sort'));
+                }else{
+                     $this->session->set_userdata('dealprice','Any');
+                }
+                if($this->input->post('recentdays_sort')){
+                       $this->session->set_userdata('recentdays',$this->input->post('recentdays_sort'));
+                }else{
+                     $this->session->set_userdata('recentdays','Any');
+                }
+                if($this->input->post('latt')){
+                    $this->session->set_userdata('location',$this->input->post('find_loc'));
+                       $this->session->set_userdata('latt',$this->input->post('latt'));
+                }else{
+                    $this->session->set_userdata('location','');
+                     $this->session->set_userdata('latt','');
+                }
+                if($this->input->post('longg')){
+                       $this->session->set_userdata('longg',$this->input->post('longg'));
+                }else{
+                     $this->session->set_userdata('longg','');
+                }
+            }
              $men_view_search = $this->hotdealsearch_model->count_girls_view_search();
+              $girls_list_count = $this->hotdealsearch_model->girls_list_count();
             $config = array();
             $config['base_url'] = base_url().'girls_view/search_filters';
             $config['total_rows'] = count($men_view_search);
-            $config['per_page'] = 10;
+            $config['per_page'] = 1;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:black; font-weight: bold;">';
@@ -117,6 +191,10 @@ class  Girls_view extends CI_Controller{
                         $loginid = $sview->login_id;
                     }
              }
+              $result   =   array(
+                        "title"     =>  "Classifieds",
+                        "content"   =>  "girls_view",
+                        'girls_list_count' => $girls_list_count);
             $result['girlview_result'] = $rs;
             $public_adview = $this->classifed_model->publicads();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
@@ -127,7 +205,13 @@ class  Girls_view extends CI_Controller{
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
-            echo $this->load->view("classified/girls_view_search",$result);
+            /*business and consumer count for services*/
+                $result['busconcount'] = $this->hotdealsearch_model->busconcount_girlsview();
+                /*service provided / needed for services*/
+                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_girlsview();
+                 /*packages count*/
+                $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_girlsview();
+             $this->load->view("classified_layout/inner_template",$result);
         }
         
 }
