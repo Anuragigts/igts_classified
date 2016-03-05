@@ -8,7 +8,21 @@
 			border-left: 1px solid #f4f4f4;
 			border-right: 1px solid #f4f4f4;
 		}
+		#slider5a .slider-track-high, #slider5c .slider-track-high {
+			background: green;
+			
+		}
+		.slider-horizontal{
+			width: 170px;
+			margin-left: 31px;
+		}
+		.tooltip.top {
+			padding: 5px 0;
+			margin-top: -32px;
+		}
+		
 	</style>
+	<link rel="stylesheet" href="css/homeslider.css">
 	
 	<section class="tp-banner-container">
 		<!-- SLIDE  -->
@@ -158,21 +172,47 @@
 		<!-- FILTER HEADER - TITLE HEADER-->
 		<div class="filter-title">
 			<!-- FILTER HEADER-->
-			<div class="filter-header">
-				<form action="searchview">
-					<input type="text" required="required" placeholder="I'm looking for" class="input-large">
-					<div class="selector1">
-						<select class="guests-input">
-							<?php foreach ($show_all as $show_val) { ?>
-							<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
-							<?php	} ?>
-						</select>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-sm-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
+						<div class="search-form wow pulse" data-wow-delay="0.8s">
+							<form action="" class="form-inline">
+								<div class="form-group">
+									<label class="icon-left" for="consemail">
+										<i class="fa fa-search hidden-xs hidden-sm"></i>
+									</label>
+									<input type="text" class="form-control" placeholder="I'm looking for">
+								</div>
+								<div class="form-group">
+									<select name="" id="" class="form-control">
+										<option>Select Your City</option>
+										<option>E-Zone</option>
+										<option>Services</option>
+										<option>Pets</option>
+										<option>Jobs</option>
+										<option>Home & Kitchen</option>
+										<option>Property</option>
+										<option>Motors</option>
+										<option>Cloths & Lifestyles</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="icon-left" for="consemail">
+										<i class="fa fa-search hidden-xs hidden-sm"></i>
+									</label>
+									<input type="text" class="form-control" placeholder="Location">
+								</div>
+								<div class="form-group">
+									<label class="icon-left distance_range" for="consemail">
+										<i class="fa fa-map-marker fa-2x hidden-xs hidden-sm"></i>
+									</label>
+									<input id="ex5a" class="form-control" type="text"/>
+								</div>
+								<input type="submit" class="btn" value="Search">
+							</form>
+						</div>
 					</div>
-					<input type="text" required="required" placeholder="Location" class="input-large">
-					<i class="fa fa-map-marker fa-2x loca_pad"></i>
-					<input id="slider-range" type="text" class="span2"  data-slider-min="1" data-slider-max="20" data-slider-step="2" /> 
-					<input type="submit" class="pull-right" value="Search">
-				</form>
+				</div>
 			</div>
 			<!-- END FILTER HEADER-->
 		</div>
@@ -1290,50 +1330,55 @@
 		</script>
 
 		<script src="j-folder/js/jquery.validate.min.js"></script>
+		
+		<script src="js/bootstrap-slider.js"></script>
+		<script>
+		$("#ex5a").slider({ id: "slider5a", min: 0, max: 20, value: 5 });
+		</script>
 				<script type="text/javascript">
 					$(function(){
 						$("#feedbackads").validate({
 								// Specify the validation rules
-										rules: {
-											fbkcontname: {
-												required: true
-											},
-											feedbackmsg: {
-												required: true,
-												minlength: 60
-											},
-											busemail: {
-												required: true,
-												email: true
-											},
-											feedbackno: {
-												required: true
-											}
-										},
-										
-										// Specify the validation error messages
-										messages: {
-											fbkcontname: {
-												required: "Please Enter contact name"
-											},
-											feedbackmsg: {
-												required: "Please Enter feedback message",
-												minlength: "message contains atleast 60 characters"
-											},
-											busemail: {
-												required: "Please Enter valid mail id"
-											},
-											feedbackno: {
-												required: "Please Enter Mobile Number"
-											}
-										},
-										
-										submitHandler: function(form) {
-											return true;
-										}
-									});
-							});
-							</script>
+							rules: {
+								fbkcontname: {
+									required: true
+								},
+								feedbackmsg: {
+									required: true,
+									minlength: 60
+								},
+								busemail: {
+									required: true,
+									email: true
+								},
+								feedbackno: {
+									required: true
+								}
+							},
+							
+							// Specify the validation error messages
+							messages: {
+								fbkcontname: {
+									required: "Please Enter contact name"
+								},
+								feedbackmsg: {
+									required: "Please Enter feedback message",
+									minlength: "message contains atleast 60 characters"
+								},
+								busemail: {
+									required: "Please Enter valid mail id"
+								},
+								feedbackno: {
+									required: "Please Enter Mobile Number"
+								}
+							},
+							
+							submitHandler: function(form) {
+								return true;
+							}
+						});
+				});
+				</script>
 	<!-- Modal -->
 	<div class="modal dialog1 fade" id="sendnow" role="dialog">
 		<div class="modal-dialog1">
@@ -1346,61 +1391,61 @@
 					</div>
 					<div class="modal-body">
 						<div class="j-row">
-											<div class="unit">
-												<label class="label">Contact Name
-													<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="name">
-														<i class="fa fa-user"></i>
-													</label>
-													<input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name ">
-													<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
-													<input type="hidden" name="ad_id" id='fdbkads' value="">
-												</div>
-											</div>
-											<div class="unit">
-												<label class="label">Mobile Number
-													<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="phone">
-														<i class="fa fa-phone"></i>
-													</label>
-													<input type="text" id="feedbackno" name="feedbackno" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
-												</div>
-											</div>
-											<div class="unit">
-												<label class="label">Email
-													<sup data-toggle="tooltip" title="" data-original-title="Email">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<label class="icon-right" for="email">
-														<i class="fa fa-envelope-o"></i>
-													</label>
-													<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
-												</div>
-											</div>
-											<div class="unit">
-												<label class="label">Message
-													<sup data-toggle="tooltip" title="" data-original-title="Message">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-													</sup>
-												</label>
-												<div class="input">
-													<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea>
-												</div>
-											</div>
-											<div class="unit">													
-												<button class="btn btn-primary " id='change_pwd'>Send Now</button>
-											</div>
-										</div>
+							<div class="unit">
+								<label class="label">Contact Name
+									<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
+										<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<label class="icon-right" for="name">
+										<i class="fa fa-user"></i>
+									</label>
+									<input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name ">
+									<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
+									<input type="hidden" name="ad_id" id='fdbkads' value="">
+								</div>
+							</div>
+							<div class="unit">
+								<label class="label">Mobile Number
+									<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
+										<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<label class="icon-right" for="phone">
+										<i class="fa fa-phone"></i>
+									</label>
+									<input type="text" id="feedbackno" name="feedbackno" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
+								</div>
+							</div>
+							<div class="unit">
+								<label class="label">Email
+									<sup data-toggle="tooltip" title="" data-original-title="Email">
+										<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<label class="icon-right" for="email">
+										<i class="fa fa-envelope-o"></i>
+									</label>
+									<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+								</div>
+							</div>
+							<div class="unit">
+								<label class="label">Message
+									<sup data-toggle="tooltip" title="" data-original-title="Message">
+										<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea>
+								</div>
+							</div>
+							<div class="unit">													
+								<button class="btn btn-primary " id='change_pwd'>Send Now</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</form>

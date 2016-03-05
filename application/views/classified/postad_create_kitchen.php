@@ -1717,7 +1717,7 @@
 														</label>
 														<div class="input">
 															<label class="icon-right" for="consemail">
-															<i class="fa fa-envelope-o"></i>
+																<i class="fa fa-envelope-o"></i>
 															</label>
 															<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
 														</div>
