@@ -9,7 +9,7 @@
 						<div class="row"> 
 							<div class="col-sm-4">
 								<ul class="social">
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>index">Home</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Home</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>terms_conditions">Terms & Conditions</a></li>
 								</ul>
