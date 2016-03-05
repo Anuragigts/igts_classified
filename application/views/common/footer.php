@@ -18,14 +18,14 @@
 								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Cookies Policy</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Privacy Policy</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-4">
 								<ul class="social">
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Assistance</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>assistance">Assistance</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Faq</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
 								</ul>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-				   <p>Copyright @ 2015.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank">iGravitas TechnoSoft</a> India (P) Ltd.</p>
+				   <p>Copyright @ 2016.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank">iGravitas TechnoSoft</a> India (P) Ltd.</p>
 				</div>
 			</div>
 		</div>
