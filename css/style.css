@@ -5789,3 +5789,6 @@ ul.sidebar-gallery {
 strong{
 	margin-bottom:15px !important;
 }
+.modal  {
+    opacity: 1;
+}
