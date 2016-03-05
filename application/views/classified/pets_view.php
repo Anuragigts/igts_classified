@@ -125,22 +125,18 @@
 			            }
 			        )
 			        $('input:radio').click(function() {
-			        	// alert('radio');
 							$("form.jforms").submit();
 			            }
 			        )
 			        $('.dealtitle_sort').change(function() {
-			        	alert($('.dealtitle_sort').val());
 							$("form.jforms").submit();
 			            }
 			        )
 			        $('.price_sort').change(function() {
-			        	alert($('.price_sort').val());
 							$("form.jforms").submit();
 			            }
 			        )
 			        $('.recentdays_sort').change(function() {
-			        	alert($('.recentdays_sort').val());
 							$("form.jforms").submit();
 			            }
 			        )
@@ -272,7 +268,7 @@
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div class="input">
-												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc">
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" value="<?php echo $location; ?>" name="find_loc">
 												<input type='hidden' name='latt' id='latt' value='' >
 												<input type='hidden' name='longg' id='longg' value='' >
 												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>

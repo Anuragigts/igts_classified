@@ -180,7 +180,7 @@ class Postad_cloths_model extends CI_Model{
                            $women_cloths = array('ad_id' => $insert_id,
                                                 'cloth_type'=>$this->input->post('checkbox_wmcloth'),
                                                 'w_size' => $this->input->post('Size'),
-                                                'color' => $this->input->post('Color'),
+                                                'color' => $this->input->post('color'),
                                                 'brand' => $this->input->post('brand'),
                                                 'no_of_items'=>$this->input->post('noofitem'),
                                                 'fit'=>$this->input->post('Fit'),

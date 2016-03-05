@@ -7,7 +7,7 @@
 				else if ($pvalue->currency == 'euro') {
 					$currency = '€';
 				}
-				if ($pvalue->package_type == 'platinum' && $pvalue->urgent_package != '') {
+				if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package != '0') {
 			 ?>
 			<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 				<div class="first_list">
@@ -141,7 +141,7 @@
 			
 			<!-- platinum package start-->
 			<?php 
-			if ($pvalue->package_type == 'platinum' && $pvalue->urgent_package == ''){
+			if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package == '0'){
 			 ?>
 			<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 				<div class="first_list">
@@ -271,7 +271,7 @@
 
 			<!-- gold+urgent package starts -->
 			<?php 
-			if ($pvalue->package_type == 'gold' && $pvalue->urgent_package != ''){
+			if (($pvalue->package_type == '2' || $pvalue->package_type == '5') && $pvalue->urgent_package != '0'){
 			 ?>
 			<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 				<div class="first_list gold_bgcolor">
@@ -388,7 +388,7 @@
 			
 			<!-- gold package starts -->
 			<?php 
-			if ($pvalue->package_type == 'gold' && $pvalue->urgent_package == ''){
+			if (($pvalue->package_type == '2' || $pvalue->package_type == '5') && $pvalue->urgent_package == '0'){
 			 ?>
 			<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 				<div class="first_list gold_bgcolor">
@@ -500,7 +500,7 @@
 			
 			<!-- free+urgent package starts -->
 			<?php 
-			if ($pvalue->package_type == 'free' && $pvalue->urgent_package != ''){
+			if (($pvalue->package_type == '1' || $pvalue->package_type == '4') && $pvalue->urgent_package != ''){
 			 ?>
 			<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 				<div class="first_list">
@@ -611,7 +611,7 @@
 			
 			<!-- free package starts -->
 			<?php 
-			if ($pvalue->package_type == 'free' && $pvalue->urgent_package == ''){
+			if (($pvalue->package_type == '1' || $pvalue->package_type == '4') && $pvalue->urgent_package == '0'){
 			 ?>
 			<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 				<div class="first_list">

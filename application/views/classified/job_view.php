@@ -144,6 +144,7 @@
 	$seller_deals = $this->session->userdata('seller_deals');
 	$dealurgent = $this->session->userdata('dealurgent');
 	$dealtitle = $this->session->userdata('dealtitle');
+	echo "<pre>"; print_r($dealtitle);echo "</pre>";
 	$recentdays = $this->session->userdata('recentdays');
 	$search_bustype = $this->session->userdata('search_bustype');
 	$location = $this->session->userdata('location');
@@ -362,9 +363,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="dealtitle_sort" class="dealtitle_sort">
-																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
-																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
-																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
+																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected';?> >Any</option>
+																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected';?> >A to Z</option>
+																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected';?> >Z to A</option>
 															</select>
 															<i></i>
 														</label>

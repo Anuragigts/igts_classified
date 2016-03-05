@@ -82,6 +82,7 @@ class  Pets_view extends CI_Controller{
         }
 
         public function search_filters(){
+             if($this->input->post()){
                 $this->session->unset_userdata('pets_sub');
                 $this->session->unset_userdata('seller_deals');
                 $this->session->unset_userdata('dealurgent');
@@ -143,9 +144,10 @@ class  Pets_view extends CI_Controller{
                 }else{
                      $this->session->set_userdata('longg','');
                 }
+            }
 
             $config = array();
-            $config['base_url'] = base_url().'pets_view/index';
+            $config['base_url'] = base_url().'pets_view/search_filters';
             $config['total_rows'] = count($this->hotdealsearch_model->count_pets_search());
             $config['per_page'] = 1;
              $config['next_link'] = 'Next';
