@@ -95,7 +95,8 @@
 						<option value='2'>In-Active</option>
 						<option value='4'>Block</option>
 					</select>
-					<input type='text' name='selected_users' class='selected_users' id='selected_users' value=''>
+					<input type='hidden' name='cur_url' class='cur_url' id='cur_url' value='<?php echo current_url();?>'>
+					<input type='hidden' name='selected_users' class='selected_users' id='selected_users' value=''>
 					<input type='submit' name='active' class='btn success'value='Change Status' >
 					</form>
                 </div>

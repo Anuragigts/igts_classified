@@ -196,6 +196,8 @@
     </div>
 </div>
 <!-- /.modal -->
+</div>
+</div>
 <script>
 	$(".sactivate").click(function(){
 	        var  ssubcat    =   $(this).attr("scategory");

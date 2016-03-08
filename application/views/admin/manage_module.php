@@ -1,3 +1,7 @@
+	
+	<style>
+	.row-fluid [class*="span"] { min-height: 65px !important;}
+	</style>
 	<div id="content" class="span9">
 			<ul class="breadcrumb">
 				<li>
@@ -53,11 +57,10 @@
 								<div class='span3'>
 								<div class="control-group">
 								  <label class="checkbox">
-									<input type="checkbox" id="optionsCheckbox2" name='cats[]' value="<?php echo $cat->category_id; ?>" <?php if(in_array($cat->category_id, $assigned_cats))echo 'checked';?>>
+									<input type="checkbox" id="" name='cats[]' value="<?php echo $cat->category_id; ?>" <?php if(in_array($cat->category_id, $assigned_cats))echo 'checked';?>>
 									<?php echo ucwords($cat->category_name); ?>
 								  </label>
 								</div>
-								
 								</div>
 								<!--<div class='span2' style='height:50px;'>
 							<input type='checkbox' value='<?php echo $cat->category_id; ?>'<?php if(in_array($cat->category_id, $assigned_cats))echo 'checked';?>><?php echo ucwords($cat->category_name); ?>
@@ -90,5 +93,6 @@
 				</div><!--/span-->
 			</div>
     </div>
+</div>
 </div>
 <!-- end DASHBOARD CIRCLE TILES -->

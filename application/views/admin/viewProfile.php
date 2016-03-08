@@ -46,13 +46,13 @@
 							  <div class="control-group">
 								<label class="control-label" for="staff_f_name"> First Name</label>
 								<div class="controls">
-								 <label class="control-label" for="login_email"><?php echo $profile->first_name; ?></label>
+								 <label class="control-label" for="login_email"><?php echo ucwords($profile->first_name); ?></label>
 								</div>
 							  </div>
 							   <div class="control-group">
 								<label class="control-label" for="staff_l_name"> Last Name</label>
 								<div class="controls">
-								 <label class="control-label" for="login_email"><?php echo $profile->last_name; ?></label>
+								 <label class="control-label" for="login_email"><?php echo ucwords($profile->lastname); ?></label>
 								</div>
 							  </div>
 							   <div class="control-group">

@@ -55,13 +55,13 @@
 							  <div class="control-group">
 								<label class="control-label" for="last_name">Last Name</label>
 								<div class="controls">
-								  <input type="text" id="last_name" name="last_name" value='<?php echo $staff->last_name; ?>' >
+								  <input type="text" id="last_name" name="last_name" value='<?php echo $staff->lastname; ?>' >
 								</div>
 							  </div> 
 							  <div class="control-group">
 								<label class="control-label" for="phone">Mobile Number</label>
 								<div class="controls">
-								  <input type="text" id="phone" name="phone" value='<?php echo $staff->phone; ?>' maxlength="10">
+								  <input type="text" id="phone" name="phone" value='<?php echo $staff->mobile; ?>' maxlength="10">
 								</div>
 							  </div>
 							   <div class="control-group">

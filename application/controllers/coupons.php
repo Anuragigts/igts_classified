@@ -57,17 +57,7 @@
 				}
 				else{
 					$this->session->set_flashdata('err','Some details are not valid, Please try again');
-					$user_list = $this->admin_model->get_userlist();
 				}
-			}
-			else{
-			$data   =   array(
-						"title"         =>     "Admin Dashboard",
-						"metadesc"      =>     "Classifieds :: Admin Dashboard",
-						"metakey"       =>     "Classifieds :: Admin Dashboard",
-						"content"       =>     "addNewCoupon",
-				);
-				$this->load->view("admin_layout/inner_template",$data);
 			}
 			$data   =   array(
 					"title"         =>     "Admin Dashboard",

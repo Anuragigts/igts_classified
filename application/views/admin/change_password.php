@@ -29,24 +29,33 @@
 							<?php $this->load->view("admin/success_error");?>
 							<form class="form-horizontal" id="validate" method="post" action = "<?php echo current_url(); ?>">
 						 <fieldset>
-							 <div class="control-group">
-									<div class="span4" style='height:55px;'></div>
-									<div class="span4">
-										<label class='control-label'> Password <span class="text-red">*</span></label>
-										<input type="password" name="password" placeholder="Password"/>
-										<?php echo form_error("password");?>
-									</div>
-									<div class="span4" style='height:55px;'></div>
+						 <div class="control-group">
+								<div class="span4" style='height:55px;'></div>
+								<div class="span4">
+									<label class='control-label'> Old Password <span class="text-red">*</span></label>
+									<input type="password" name="old_password" placeholder="Old Password"/>
+									<?php echo form_error("password");?>
 								</div>
-							 <div class="control-group">
-									<div class="span4" style='height:55px;'></div>
-									<div class="span4">
-										<label class='control-label'>Confirm Password <span class="text-red">*</span></label>
-										<input type="password" name="cpassword" placeholder="Confirm Password"/>
-										<?php echo form_error("cpassword");?>
-									</div>
-									<div class="span4" style='height:55px;'></div>
+								<div class="span4" style='height:55px;'></div>
+							</div>
+							<div class="control-group">
+								<div class="span4" style='height:55px;'></div>
+								<div class="span4">
+									<label class='control-label'> New Password <span class="text-red">*</span></label>
+									<input type="password" name="password" placeholder="Password"/>
+									<?php echo form_error("password");?>
 								</div>
+								<div class="span4" style='height:55px;'></div>
+							</div>
+							<div class="control-group">
+								<div class="span4" style='height:55px;'></div>
+								<div class="span4">
+									<label class='control-label'>Confirm Password <span class="text-red">*</span></label>
+									<input type="password" name="cpassword" placeholder="Confirm Password"/>
+									<?php echo form_error("cpassword");?>
+								</div>
+								<div class="span4" style='height:55px;'></div>
+							</div>
 							
 							<!--
 							   <div class="control-group">

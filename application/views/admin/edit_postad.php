@@ -163,6 +163,7 @@
 			</div>
     </div>
 </div>
+</div>
 <script>
 function view_comment()
 {

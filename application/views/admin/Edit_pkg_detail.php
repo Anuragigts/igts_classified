@@ -133,11 +133,8 @@
 			</div>
     </div>
 </div>
+</div>
 <script>
-
-$("#pound_price").blur(function(){
-    alert("This input field has lost its focus.");
-});
 
 function view_comment()
 {

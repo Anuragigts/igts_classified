@@ -19,10 +19,10 @@ class Users extends CI_Controller {
 		public function staff(){
 			$user_status = $this->admin_model->get_user_status();
                 $data   =   array(
-                        "title"         =>     "Admin Staff List",
-                        "metadesc"      =>     "Classifieds :: Admin Dashboard",
-                        "metakey"       =>     "Classifieds :: Admin Dashboard",
-                        "content"       =>     "staffList",
+                        "title"         =>		"Admin Staff List",
+                        "metadesc"      =>		"Classifieds :: Admin Dashboard",
+                        "metakey"       =>		"Classifieds :: Admin Dashboard",
+                        "content"       =>		"staffList",
 						"user_status"   => 		$user_status,
 						'staff_type'	=>		$this->uri->segment(3)
                 );
@@ -46,6 +46,7 @@ class Users extends CI_Controller {
 						'user_list'		=>		$user_list
                 );
 				$data['user_type']= $this->uri->segment(3);
+				
                 $this->load->view("admin_layout/inner_template",$data);
 		}
 		public function addStaff()
@@ -146,7 +147,7 @@ class Users extends CI_Controller {
 					$this->session->set_flashdata("err","Update Failed, Please try again");
 				}
 			}
-			redirect('users/get_users');
+			redirect($this->input->post('cur_url'));
 			
 		}
 		function list_userads(){

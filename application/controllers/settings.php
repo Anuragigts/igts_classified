@@ -16,28 +16,32 @@ class Settings extends CI_Controller {
                 $this->load->view("admin_layout/inner_template",$data);
         }
         public function change_password(){
-                if($this->session->userdata("user_type") == ""){  redirect("/");};
-                $data   =   array(
-                        "title"         =>     "Classifieds :: Admin Change Password",
-                        "metadesc"      =>     "Classifieds :: Admin Change Password",
-                        "metakey"       =>     "Classifieds :: Admin Change Password",
-                        "content"       =>     "change_password"
-                );
-                if($this->input->post("change")){
-                        $this->form_validation->set_rules("password","Password","required");
-                        $this->form_validation->set_rules("cpassword","Confirm Password",'required|matches[password]');
-                        if($this->form_validation->run() == TRUE){
-                                $upd    =   $this->settings_model->change();
-                                if($upd == 1){
-                                        $this->session->set_flashdata("msg","Password has been updated Successfully");
-                                        redirect("settings/change_password");
-                                }else{
-                                        $this->session->set_flashdata("err","Internal error occurred while changing your password");
-                                        redirect("settings/change_password");
-                                }
-                        }
-                }
-                $this->load->view("admin_layout/inner_template",$data);
+			if($this->session->userdata("user_type") == ""){  redirect("/");};
+			$data   =   array(
+					"title"         =>     "Classifieds :: Admin Change Password",
+					"metadesc"      =>     "Classifieds :: Admin Change Password",
+					"metakey"       =>     "Classifieds :: Admin Change Password",
+					"content"       =>     "change_password"
+			);
+			if($this->input->post("change")){
+				$this->form_validation->set_rules("old_password","Old Password","required");
+				$this->form_validation->set_rules("password"," New Password","required");
+				$this->form_validation->set_rules("cpassword","Confirm Password",'required|matches[password]');
+				if($this->form_validation->run() == TRUE){
+					$upd    =   $this->settings_model->change();
+					if($upd == 1){
+						$this->session->set_flashdata("msg","Password has been updated Successfully");
+						redirect("settings/change_password");
+					}else if($upd == 'wrong'){
+						$this->session->set_flashdata("err","The Old Password you entered is incorrect");
+						redirect("settings/change_password");
+					}else{
+						$this->session->set_flashdata("err","Some thing went wrong while updating the Password, Please try again..");
+						redirect("settings/change_password");
+					}
+				}
+			}
+			$this->load->view("admin_layout/inner_template",$data);
         }
 		function list_banners(){
 			

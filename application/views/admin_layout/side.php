@@ -186,7 +186,7 @@
 									<a class="submenu" href="<?php echo base_url();?>coupons/ListCoupons">
 										<i class="fa fa-angle-double-right"></i> View Coupons
 									</a>
-								</li>					
+								</li>
 							</ul>	
 						</li>
 						<li >

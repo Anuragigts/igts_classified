@@ -8,14 +8,25 @@
 class Settings_model extends CI_Model{
 	public function change(){
 		$login  =   $this->session->userdata("login_id");
-		$dtr    =   array(
-						"login_password"    =>  md5($this->input->post("password"))
-				);
-		$this->db->update("login",$dtr,array("login_id" => $login));
-		if($this->db->affected_rows() > 0){
-				return 1;
+		$chk_pw = md5($this->input->post("old_password"));
+		
+		$this->db->select();
+		$this->db->where('login_password',$this->input->post("old_password"));
+		$this->db->where('login_id',$login);
+		$this->db->from('login');
+		$l_details = $this->db->get()->row();
+		if(count($l_details) == 1){			
+			$dtr    =   array(
+							"login_password"    =>  md5($this->input->post("password"))
+					);
+			$this->db->update("login",$dtr,array("login_id" => $login));
+			if($this->db->affected_rows() > 0){
+					return 1;
+			}else{
+					return 0;
+			}
 		}else{
-				return 0;
+			return 'wrong';
 		}
 	}
 		

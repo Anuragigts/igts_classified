@@ -49,7 +49,7 @@ class Admin extends CI_Controller {
 				//$sel_cats;exit;
 				$status	=	$this->category_model->update_manage_modules($sel_cats);
 				if($status){
-					$this->session->set_flashdata('msg','Successfully');
+					$this->session->set_flashdata('msg','Successfully Updated the Moudule Management');
 					redirect('users/staff/2');
 				}
 				else{

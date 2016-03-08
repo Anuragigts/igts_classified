@@ -246,9 +246,10 @@ class Admin_model extends CI_Model{
                                         "mobile"             =>      $this->input->post("phone"),
                                 );
                 $this->db->update("login",$login_update,$login_id);  
-				echo $this->db->last_query();
-                $vp     =   $this->db->affected_rows();
+				//echo $this->db->last_query();
+                $vp     =   $this->db->affected_rows();//exit;
               //echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
+			  
                 if($vp > 0){
                         return 1;
                 }else{
@@ -260,7 +261,12 @@ class Admin_model extends CI_Model{
 			$this->db->set('login_status',$this->input->post('change_status'));
 			$this->db->where_in('login_id',$user_ids);
 			$update_Status = $this->db->update('login');
-			echo $this->db->last_query();
+			$vp     =   $this->db->affected_rows();
+			if($vp > 0){
+					return 1;
+			}else{
+					return 0;
+			} 
 		}
 		function get_adsdetails(){
 			$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads, package_type FROM(`postad` AS ad) WHERE DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW()) - INTERVAL 25 DAY GROUP BY dtime, package_type order by dtime desc";

@@ -107,7 +107,7 @@ class Category extends CI_Controller {
 					else{
 						$status = $this->category_model->update_pkg_details();
 						if($status == 1){
-							$this->session->set_flashdata("msg","Package Details is Inserted Successfully");
+							$this->session->set_flashdata("msg","Package Details are Updated Successfully");
 							redirect('category/listPackages');
 						}
 						else{
@@ -116,9 +116,9 @@ class Category extends CI_Controller {
 						}
 					}
 			}else{
-			$pkg_id= $this->uri->segment(3);
-			$packages_details = $this->category_model->get_pkg($pkg_id);
-			$data   =   array(
+				$pkg_id= $this->uri->segment(3);
+				$packages_details = $this->category_model->get_pkg($pkg_id);
+				$data   =   array(
                         "title"         	=>     "Classifieds :: Admin Category",
                         "metadesc"     		=>     "Classifieds :: Admin Category",
                         "metakey"       	=>     "Classifieds :: Admin Category",

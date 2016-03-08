@@ -76,7 +76,7 @@
 								<td><?php echo $users->mobile;?></td>
 								<?php if( $sess_user_type != '1'){?>
 								<?php }else{?>
-									<td><a href='<?php echo base_url().'admin/manage_module/'.$users->login_id; ?>'>Mange</td>
+									<td><a href='<?php echo base_url().'admin/manage_module/'.$users->login_id; ?>'>Manage Modules</td>
 								<?php }?>
 								<td><?php echo ucwords($users->user_status);?></td>
 								<td>

@@ -171,6 +171,9 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+</div>
+</div>
 <script>
     $(".cactivate").click(function(){
             var scategory   =   $(this).attr("category");
