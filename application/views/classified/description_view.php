@@ -846,7 +846,7 @@
 							<div class="row">
 								<div class="col-sm-3">
 								<a href="business_deals_view">
-									<img src="<?php echo base_url(); ?>img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
+									<img src="<?php echo base_url(); ?>img/recommended.jpg" alt="recommended" title="RECOMMENDED Deals" class="des_rec_heig img-responsive">
 								</a>
 								</div>
 								<div class="col-sm-9">
