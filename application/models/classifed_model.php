@@ -1065,6 +1065,41 @@ Class Classifed_model extends CI_model{
 		}
 	}
 
+	/*motor search*/
+	public function count_motor_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+
+	public function motor_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
 	/*ads for kitchen_view search */
 	public function kitchenhome_view($data){
 		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
@@ -1076,7 +1111,7 @@ Class Classifed_model extends CI_model{
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
-
+		
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}
@@ -1096,7 +1131,7 @@ Class Classifed_model extends CI_model{
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
-
+		// echo $this->db->last_query();exit;
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}

@@ -11,10 +11,7 @@ class  Cars_view extends CI_Controller{
                 //$this->load->model("login_model");
         }
         public function index(){
-                if ($this->session->userdata('login_id') == '') {
-                   redirect('login');
-                }
-                $data   =   array(
+               $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "cars_view"
                 );

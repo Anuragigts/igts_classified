@@ -170,10 +170,7 @@ class  Girls_view extends CI_Controller{
                 'start' =>$cur_url
                 );
         // $services_view = $this->classifed_model->services_view($search_option);
-
-
-
-            if ($this->session->userdata('login_id') == '') {
+         if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
                     $favourite_list = array();

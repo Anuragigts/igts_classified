@@ -105,6 +105,20 @@
             });
         });
 	</script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+	<script type="text/javascript">
+	google.maps.event.addDomListener(window, 'load', function () {
+            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                var place = places.getPlace();
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+                $("#latt").val(latitude);
+                $("#longg").val(longitude);
+            });
+        });
+	</script>
 
 	<!-- map on model -->
 	   <script type="text/javascript">
@@ -137,892 +151,56 @@
 	  	$offered = $sncnt->offered;
 	  	$wanted = $sncnt->wanted;
 	  }
+	  		$proptype = $this->session->userdata('proptype');
+	        $bed_rooms = $this->session->userdata('bed_rooms');
+	        $bathroom = $this->session->userdata('bathroom');
+	        $area_square = $this->session->userdata('area_square');
+	  		$seller_deals = $this->session->userdata('seller_deals');
+			$dealurgent = $this->session->userdata('dealurgent');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealprice = $this->session->userdata('dealprice');
+			$recentdays = $this->session->userdata('recentdays');
+			$search_bustype = $this->session->userdata('search_bustype');
+			$location = $this->session->userdata('location');
+			$latt = $this->session->userdata('latt');
+			$longg = $this->session->userdata('longg');
 	   ?>
-
 	   <script type="text/javascript">
-	   $(function(){
-	   		/*bathroom*/
-	   	$(".bathroom").click(function(){
-	   		var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-			var bed_rooms = [];
-			$("input[name='bed_rooms[]']:checked").each( function () {
-				 var bed = $(this).val();
-				 	 bed_rooms.push(bed);
-				 
-			});
-			var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						proptype: proptype,
-						area_square: area_square
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-	   	});
-	   		/*bed_rooms*/
-	   	$(".bed_rooms").click(function(){
-	   			var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						bed_rooms: bed_rooms,
-						proptype: proptype,
-						bathroom: bathroom,
-						area_square: area_square
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-	   	});
-	   		/*proptype*/
-	   	$(".proptype").click(function(){
-	   			var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-	   	});
-	   	/*area square*/
-	   	$(".area_square").click(function(){
-	   			var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-	   	});
-	   	/*seller deals*/
-	   	$(".seller_deals").change(function(){
-	   		var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						seller_deals: seller_deals,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-			});
-	   	/*business type*/
-	   	$(".search_bustype").click(function(){
-	   		var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-	   		if ($("input:radio[name=search_bustype]").is(":checked")){
-	    			var bustype = $("input[name=search_bustype]:checked").val();
-	    		}
-	    		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						seller_deals: seller_deals,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						bustype: bustype,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-	   	});
-	   	/*deal urgent*/
-	   	$(".dealurgent").change(function(){
-	   		var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-	   		var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-				var bustype = $("input[name=search_bustype]:checked").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						bustype: bustype,
-						seller_deals: seller_deals,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-			});
-	   	/*search ato z / A to Z*/
-			$(".dealtitle_sort").change(function(){
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".price_sort").change(function(){
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-        	});
-		/*search last days */
-			$(".recentdays_sort").change(function(){
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-        	});
-	/*search location */
-			$("#find_location").click(function(){
-				var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = $("#latt").val();
-				var longg = $("#longg").val();
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-        	});
-
-	/*clear location*/
-	$("#clear_location").click(function(){
-			var area_square = [];
-				$("input[name='area_square[]']:checked").each( function () {
-					 var area = $(this).val();
-					 	 area_square.push(area);
-					 
-				});
-				var proptype = [];
-				$("input[name='proptype[]']:checked").each( function () {
-					 var prop = $(this).val();
-					 	 proptype.push(prop);
-					 
-				});
-				var bathroom = [];
-				$("input[name='bathroom[]']:checked").each( function () {
-					 var bath = $(this).val();
-					 	 bathroom.push(bath);
-					 
-				});
-				var bed_rooms = [];
-				$("input[name='bed_rooms[]']:checked").each( function () {
-					 var bed = $(this).val();
-					 	 bed_rooms.push(bed);
-					 
-				});
-				var seller_deals = [];
-				$("input[name='seller_deals[]']:checked").each( function () {
-					 var seller = $(this).val();
-					 	 seller_deals.push(seller);
-					 
-				});
-				var pckg_list = [];
-        		var urgent = '';
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var pck = $(this).val();
-					 if (pck == 'urgent') {
-					 	urgent = pck;
-					 }
-					 else{
-					 	 pckg_list.push(pck);
-					 }
-				     
-				});
-				$("#find_loc").val('');
-				var bustype = $("input[name=search_bustype]:checked").val();
-				var latt = '';
-				var longg = '';
-				var recentdays = $(".recentdays_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>residential_view/search_filters",
-					data: {
-						bustype: bustype,
-						seller_deals: seller_deals,
-						pckg_list: pckg_list,
-						urgent: urgent,
-						proptype: proptype,
-						bathroom: bathroom,
-						bed_rooms: bed_rooms,
-						area_square: area_square,
-						dealtitle: dealtitle,
-						dealprice: dealprice,
-						recentdays: recentdays,
-						latt: latt,
-						longg: longg
-					},
-					success: function (data) {
-						$(".residential_result").html(data);
-					}
-				})
-        	});
-	   });
-	   </script>
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			                    $("form.jforms").submit();
+			           }
+			        )
+			        $('input:radio').click(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $('.price_sort').change(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+			        		$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+			    }
+			);
+		</script>
 	  
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
@@ -1039,7 +217,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms2" action="<?php echo base_url(); ?>residential_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
@@ -1061,11 +239,11 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="proptype[]" class='proptype' value="11" />
+													<input type="checkbox" name="proptype[]" class='proptype' value="11" <?php if(isset($proptype) && in_array(11,$proptype)){ echo 'checked = checked';}?> />
 													<i></i> Residential (<?php echo $resi_comm_count->residential; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="proptype[]" class='proptype' value="26" />
+													<input type="checkbox" name="proptype[]" class='proptype' value="26" <?php if(isset($proptype) && in_array(26,$proptype)){ echo 'checked = checked';}?> />
 													<i></i> Commercial (<?php echo $resi_comm_count->commercial; ?>)
 												</label>
 											</div>
@@ -1077,19 +255,19 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="1" >
+													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="1" <?php if(isset($bed_rooms) && in_array(1,$bed_rooms)){ echo 'checked = checked';}?> >
 													<i></i> 1 (<?php echo $bedroomcount->one1; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="2" >
+													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="2" <?php if(isset($bed_rooms) && in_array(2,$bed_rooms)){ echo 'checked = checked';}?> >
 													<i></i> 2 (<?php echo $bedroomcount->secon2; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="3" >
+													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="3" <?php if(isset($bed_rooms) && in_array(3,$bed_rooms)){ echo 'checked = checked';}?> >
 													<i></i> 3 (<?php echo $bedroomcount->third3; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="4" >
+													<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="4" <?php if(isset($bed_rooms) && in_array(4,$bed_rooms)){ echo 'checked = checked';}?> >
 													<i></i> 4+ (<?php echo $bedroomcount->four4; ?>)
 												</label>
 											</div>
@@ -1100,19 +278,19 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="bathroom[]" class='bathroom' value="1" >
+													<input type="checkbox" name="bathroom[]" class='bathroom' value="1" <?php if(isset($bathroom) && in_array(1,$bathroom)){ echo 'checked = checked';}?> >
 													<i></i> 1 (<?php echo $bathroomcount->one1; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="bathroom[]" class='bathroom' value="2" >
+													<input type="checkbox" name="bathroom[]" class='bathroom' value="2" <?php if(isset($bathroom) && in_array(2,$bathroom)){ echo 'checked = checked';}?> >
 													<i></i> 2 (<?php echo $bathroomcount->secon2; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="bathroom[]" class='bathroom' value="3" >
+													<input type="checkbox" name="bathroom[]" class='bathroom' value="3" <?php if(isset($bathroom) && in_array(3,$bathroom)){ echo 'checked = checked';}?> >
 													<i></i> 3 (<?php echo $bathroomcount->third3; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="bathroom[]" class='bathroom' value="4" >
+													<input type="checkbox" name="bathroom[]" class='bathroom' value="4" <?php if(isset($bathroom) && in_array(4,$bathroom)){ echo 'checked = checked';}?> >
 													<i></i> 4+ (<?php echo $bathroomcount->four4; ?>)
 												</label>
 											</div>
@@ -1125,23 +303,23 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="area_square[]" class='area_square' value="<500" >
+													<input type="checkbox" name="area_square[]" class='area_square' value="<500" <?php if(isset($area_square) && in_array('<500',$area_square)){ echo 'checked = checked';}?> >
 													<i></i> Less than 500 (<?php echo $areacount->less500; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="area_square[]" class='area_square' value="500-1000" >
+													<input type="checkbox" name="area_square[]" class='area_square' value="500-1000" <?php if(isset($area_square) && in_array("500-1000",$area_square)){ echo 'checked = checked';}?> >
 													<i></i> 500 - 1000 (<?php echo $areacount->plus500; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="area_square[]" class='area_square' value="1000-1500" >
+													<input type="checkbox" name="area_square[]" class='area_square' value="1000-1500" <?php if(isset($area_square) && in_array("1000-1500",$area_square)){ echo 'checked = checked';}?> >
 													<i></i> 1000 - 1500 (<?php echo $areacount->plus1000; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="area_square[]" class='area_square' value="1500-2000" >
+													<input type="checkbox" name="area_square[]" class='area_square' value="1500-2000" <?php if(isset($area_square) && in_array("1500-2000",$area_square)){ echo 'checked = checked';}?> >
 													<i></i> 1500 - 2000 (<?php echo $areacount->plus1500; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="area_square[]" class='area_square' value=">2000" >
+													<input type="checkbox" name="area_square[]" class='area_square' value=">2000" <?php if(isset($area_square) && in_array(">2000",$area_square)){ echo 'checked = checked';}?> >
 													<i></i> More than 2000 (<?php echo $areacount->plus2000; ?>)
 												</label>
 											</div>
@@ -1154,11 +332,11 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Offered" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Offered" <?php if(isset($seller_deals) && in_array('Offered',$seller_deals)) echo 'checked = checked';?> >
 													<i></i> Offered Deals (<?php echo $offered; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Wanted" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Wanted" <?php if(isset($seller_deals) && in_array('Wanted',$seller_deals)) echo 'checked = checked';?> >
 													<i></i> Wanted Deals (<?php echo $wanted; ?>)
 												</label>
 											</div>
@@ -1171,15 +349,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="all" checked >
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
 													<i></i> All (<?php echo $allbustype; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="business" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
 													<i></i> Business (<?php echo $business; ?>)
 												</label>
 												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" >
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
 													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
@@ -1191,7 +369,7 @@
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div class="input">
-												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc">
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
 												<input type='hidden' name='latt' id='latt' value='' >
 												<input type='hidden' name='longg' id='longg' value='' >
 												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
@@ -1206,19 +384,19 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0"<?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3"<?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="gold" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2"<?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="free" >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1"<?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
@@ -1255,9 +433,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="dealtitle_sort" class="dealtitle_sort">
-																<option value="Any">Any</option>
-																<option value="atoz">A to Z</option>
-																<option value="ztoa">Z to A</option>
+																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -1267,9 +445,9 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="price_sort" class="price_sort">
-																<option value="Any">Any(Pricing)</option>
-																<option value="lowtohigh">Low to High</option>
-																<option value="hightolow">High to Low</option>
+																<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?>>Any(Pricing)</option>
+																<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?>>Low to High</option>
+																<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?>>High to Low</option>
 															</select>
 															<i></i>
 														</label>
@@ -1279,12 +457,12 @@
 													<div class="top_bar_top">
 														<label class="input select">
 																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any">Any(posted on)</option>
-																	<option value="last24hours">Last 24 Hours</option>
-																	<option value="last3days">Last 3 Days</option>
-																	<option value="last7days">Last 7 Days</option>
-																	<option value="last14days">Last 14 Days</option>
-																	<option value="last1month">Last 1 month</option>
+																	<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?>>Any(posted on)</option>
+																	<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?>>Last 24 Hours</option>
+																	<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?>>Last 3 Days</option>
+																	<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?>>Last 7 Days</option>
+																	<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?>>Last 14 Days</option>
+																	<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?>>Last 1 month</option>
 																</select>
 																<i></i>
 															</label>
@@ -1298,11 +476,6 @@
 								
 								<div class="row list_view_searches residential_result">
 									<?php echo $this->load->view('classified/residential_view_search') ?>
-								</div>
-								<div class='row'>
-									<div class='col-md-12'>
-										<?php echo $paging_links; ?>
-									</div>
 								</div>
 							</div>
 						</div>

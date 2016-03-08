@@ -73,8 +73,8 @@
 		 ?>
 		<!-- platinum+urgent package start -->
                                     <?php
-                                    $residential_result1 = array_chunk($residential_result, 10);
-                                     foreach ($residential_result1 as $sval1) {
+                                    $motor_result1 = array_chunk($motor_result, 10);
+                                     foreach ($motor_result1 as $sval1) {
                                      foreach ($sval1 as $sval) {
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
@@ -865,8 +865,9 @@
 									<!-- free Add ends -->
 									<?php } ?>
 									<!-- free package ends -->
-									<div class='row'>
-										<div class='col-md-12'>
-											<?php echo $paging_links; ?>
-										</div>
+									
+								<div class='row'>
+									<div class='col-md-12'>
+										<?php echo $paging_links; ?>
 									</div>
+								</div>
