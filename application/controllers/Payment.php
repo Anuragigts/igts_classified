@@ -146,5 +146,17 @@ class Payment extends CI_Controller
 			$this->paypal_lib->paypal_auto_form();
 		}
     }
+	  function checkout(){
+		$ad_id = $this->uri->segment(3);
+        $ins_status = $this->Payment_model->get_ad_details($ad_id);
+		$data   =   array(
+                        "title"         	=>     "Classifieds :: Admin Category",
+                        "metadesc"     		=>     "Classifieds :: Admin Category",
+                        "metakey"       	=>     "Classifieds :: Admin Category",
+                        "content"       	=>     "checkout",
+						"tran_details"     	=>  	$ins_status,
+			);
+			$this->load->view("classified_layout/inner_template",$data);	
+     }
 	
 }

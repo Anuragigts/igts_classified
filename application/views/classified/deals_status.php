@@ -187,10 +187,11 @@
 										<td><?php $t_cost = $ads->cost_pound+$ads->u_pkg__pound_cost;
 												echo $t_cost;//$ads->cost_pound.'&'.$ads->u_pkg__pound_cost.'&'.;?></td>
 										<td><?php echo ucwords($ads->status_name);?></td>
-										<td><?php if($ads->payment_status == 1 || $t_cost == 0) echo 'No Pending';else {?>
-										<a href="javascript:void(0);" ad_id="<?php echo $ads->ad_id;?>" ad_cost='<?php echo $t_cost;?>' data-toggle="modal" data-target="#flexModal" title="Pay Now" class="paynow btn btn-success" style='color:red'>Pay</a>
-										<!--
-										<a href="javascript:void(0);" ad_id="<?php echo $ads->ad_id;?>" ad_cost='<?php echo $t_cost;?>' data-toggle="modal" data-target="#flexModal" title="Pay Now" class= "paynow('<?php echo $ads->ad_id;?>','<?php echo $t_cost;?>')">Pay</a>--><?php }?></td>
+										<td class="pay_btn">
+										<?php if($ads->payment_status == 1 || $t_cost == 0) echo "<span style='color:green;'>No Due</span>";else {?>
+										<a href="<?php base_url();?>payment/checkout/<?php echo $ads->ad_id;?>" title="Pay Now" >Pay Now</a>
+										<?php }?>
+										</td>
 										<td><?php echo ucwords($ads->deal_tag);?></td>
 									</tr>
 								<?php }?>
@@ -251,7 +252,7 @@
 		document.getElementById('post_ad_id').value = adid;
 		document.getElementById('post_ad_amt').value = cost;
 	}
-	$(function(){
+	/*$(function(){
 			$(".c_check").click(function(){
 				var c_code = $(".c_code").val();
 				var post_ad_amt = $("#post_ad_amt").val();
@@ -275,7 +276,7 @@
 					alert('Please Enter Coupoun Code If Any');
 				}
         	});
-	});
+	});*/
 	</script>
 
 	<!-- End Shadow Semiboxed -->

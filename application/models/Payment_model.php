@@ -105,5 +105,13 @@ class Payment_model extends CI_Model{
 		$this->db->where('ad_id',$ad_id);
 		$this->db->update('postad',$u_data);
 	}
+	public function get_ad_details($ad_id){
+		$this->db->select();
+		$this->db->where('ad_id',$ad_id);
+		$this->db->from('postad');
+		$p_details = $this->db->get()->row();
+		
+		return $p_details;
+	}
 }
 ?>
