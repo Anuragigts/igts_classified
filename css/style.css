@@ -243,6 +243,10 @@ ul.single-carousel,
 	-ms-transition: 0.3s all ease;
 	transition: 0.3s all ease;
 }
+.btn1{
+	padding: 12px 41px !important;
+	margin-left: 5px;
+}
 .btn-primary:last-child{
 	margin-right: 0;
 }
@@ -5791,4 +5795,33 @@ strong{
 }
 .modal  {
     opacity: 1;
+}
+.total_price{
+	padding: 10px 0px;
+	font-size: 24px;
+	float:right;
+}
+.check_out .table > thead > tr > th {
+  border-bottom: 1px solid #ddd; 
+  vertical-align: top;
+}
+.tot_top{
+	padding-top: 16px !important;
+}
+/* .cart_image img{
+	width: 200px;
+	height: 110px;
+} */
+.chck_bg_clr{
+	background-color: #E95413;
+}
+.pay_btn a{
+	background-color: rgb(239, 83, 13);
+	border-radius: 6px;
+	padding: 5px 10px 5px;
+	text-align: center;
+	color: rgb(255, 255, 255);
+}
+.pay_btn a :hover{
+	color: #fff !important ;
 }
