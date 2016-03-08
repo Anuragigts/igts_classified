@@ -978,7 +978,7 @@ jQuery(document).ready(function($) {
 																</sup>
 															</label>
 															<label class="radio">
-																<input type="radio" name="checkbox_motbike"  value="For Hire">
+																<input type="radio" name="checkbox_motbike"  value="ForHire">
 																<i></i>For Hire
 																<sup data-toggle="tooltip" title="" data-original-title="For Hire">
 																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
