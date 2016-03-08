@@ -56,5 +56,12 @@
 			
 			return $update_status;
 		}
+		function get_c_result($c_code){
+			$this->db->where('c_code',$c_code);
+			$this->db->where('c_status',1);
+			$c_info = $this->db->get('coupon_codes')->row();
+			//echo $this->db->last_query();
+			return $c_info;
+		}
 	}
 ?>

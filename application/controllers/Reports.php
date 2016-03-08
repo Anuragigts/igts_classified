@@ -9,9 +9,11 @@ class Reports extends CI_Controller {
 			parent::__construct();
 			$this->load->model("admin_model");
 			$this->load->model("report_model");
+			$this->load->model("ads_model");
+			$this->load->model("category_model");
         }
         public function Ads(){
-			$this->load->model("ads_model");
+			
 			$pkg_types = $this->ads_model->get_postad_packages();
 			$categories = $this->admin_model->get_postad_categories();
 			if($this->input->post()){
@@ -76,8 +78,8 @@ class Reports extends CI_Controller {
 			  $xls = new Excel_XML;
             $xls->addArray ($data_array);
             $xls->generateXML ( "ads_list" );
-			
 		}
+		
 }
 ?>
 

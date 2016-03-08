@@ -18,6 +18,10 @@
 						</li>
 						<li><a href="<?php echo base_url();?>admin_dashboard"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<?php $sess_user_type = $this->session->userdata('user_type');
+							if($sess_user_type == 1){?>
+							<li><a href="<?php echo base_url();?>Payment/Transactions"><i class="icon-dashboard"></i><span class="hidden-tablet"> Transactions</span></a></li>	
+						<?php }?>
+						<?php 
 						if($sess_user_type !=5){?>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Staff Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
@@ -51,6 +55,40 @@
 						</li>
 						<?php }?>
 						<li><a href="<?php echo base_url()?>settings/list_banners"><i class="icon-lock"></i><span class="hidden-tablet"> Banners </span></a></li>
+						<li >
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Reports For Ads &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<ul style='margin-left:15px; color:green' >
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>admin/ReportsByAds">
+										<i class="fa fa-angle-double-right"></i> Ad Wise Reports
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>admin/AllReports">
+										<i class="fa fa-angle-double-right"></i> List Reports
+									</a>
+								</li>
+							</ul>	
+						</li>
+						<li >
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Feedback For Ads &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<ul style='margin-left:15px; color:green' >
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>admin/FeedbackByAds">
+										<i class="fa fa-angle-double-right"></i> Ad Wise Feedback
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>admin/AllFeedbacks">
+										<i class="fa fa-angle-double-right"></i> List Feedbacks
+									</a>
+								</li>
+							</ul>	
+						</li>
+						
+						
+						<!--<li><a href="<?php echo base_url()?>reports/reportforads"><i class="icon-lock"></i><span class="hidden-tablet"> Reports For Ads </span></a></li>
+						<li><a href="<?php echo base_url()?>admin/adsFeedback"><i class="icon-lock"></i><span class="hidden-tablet"> Ads Feedback</span></a></li>-->
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet">Category Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >

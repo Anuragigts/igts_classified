@@ -5,7 +5,7 @@
 					<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="">Ads List</a></li>
+				<li><a href="">Add Wise Report List</a></li>
 			</ul>
 <?php if($this->session->flashdata('err') != ''){?>
                  <div class="alert alert-block alert-danger fade in">
@@ -20,19 +20,20 @@
              <?php }?>
 			 <?php if($this->session->flashdata('msg') != ''){?>
                  <div class="alert alert-block alert-info fade in no-margin">
-                     <button data-dismiss="alert" class="close" type="button"> × </button>
+                     <button data-dismiss="alert" class="close" type="button">
+                       ×
+                     </button>
                      <p>
                        <?php echo ($this->session->flashdata('msg'))?$this->session->flashdata('msg'):''?>
                      </p>
                  </div>
              <br>
-             <?php }?>
-			 <?php //echo '<pre>';print_r($user_list[0]);echo '</pre>';?>
-			
+             <?php }
+			 // echo '<pre>';print_r($adwise_reports[0]);echo '</pre>';?>
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Users</h2>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Reviews by Ads</h2>
 						<div class="box-icon">
 							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -43,38 +44,33 @@
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
                         <thead>
                             <tr>
-								<th>User Name</th>
-								<th>E-Mail</th>
-                                <th>Contact No</th>
-								<th>User Type</th>
-								<th>Ads Count</th>
-								<th>Status</th>
-								
-                                <th style='width:55px;'>Action</th>
+								<th>Deal Tag</th>
+                                <th>Category Name</th>
+								<th>Package </th>
+								<th>Count</th>
+                               <th>View</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 0;
-                            foreach($user_list as $users){$i++; ?>
+                            foreach($adwise_reports as $ads){$i++; ?>
                             <tr class="odd gradeX">
-                               <td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
-								<td><?php echo $users->login_email;?></td>
-								<td><?php echo $users->mobile;?></td>
-								<td><?php if($users->user_type == 6)echo 'Business';else echo 'Consumer';?></td>
-								<td><?php if($users->login_status == 1)echo 'Active';
-								else if($users->login_status == 0)echo 'New User';
-								else if($users->login_status == 2)echo 'In-Active';
-								else if($users->login_status == 4)echo 'Blocked';?></td>
-								<td><?php echo $users->pkg_count.' Ads';?></td>
+                               <td><?php echo ucwords($ads->deal_tag);?></td>
+								<td><?php echo ucwords($ads->category_name);?></td>
+								<td><?php echo ucwords($ads->pkg_name);?></td>
+								<td><?php echo $ads->report_count;?></td>
 								<td>
-									<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/get_adsuser/<?php echo $users->login_id;?>" title="Get List of Ads">
+									<a class="" href="<?php echo base_url();?>admin/getAdReports/<?php echo $ads->ad_id.'/';?>" title="View All Reports " style=''>View</a>
+								</td><!---->
+								<!--<td>
+									<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>s" title="Ad Reviews  Details">
 											<i class="halflings-icon edit white"></i> 
 									</a>
-									<!--<a href="javascript:void(0);" class="deactivate btn btn-info" title="View"><i class='halflings-icon ok-circle' style='color:red'></i></a>-->&nbsp;
-									<!--<a class="btn btn-danger" href="<?php echo base_url();?>ads/aprovals/<?php echo $users->login_id;?>" title="Delete Ad Content" style=''>
+									<a href="javascript:void(0);" class="deactivate btn btn-info" title="View"><i class='halflings-icon ok-circle' style='color:red'></i></a>&nbsp;
+									<a class="btn btn-danger" href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id;?>" title="Delete Ad Content" style=''>
 									<i class="halflings-icon white trash" style='width:10px; height:12px'></i> 
-									</a>-->
-								</td>
+									</a>
+								</td>-->
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -85,4 +81,3 @@
     </div>
 </div>
 </div>
-<!-- end DASHBOARD CIRCLE TILES -->

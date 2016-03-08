@@ -30,7 +30,7 @@
                  </div>
              <br>
              <?php }?>
-<?php //echo '<pre>';print_r($staff_type);echo '</pre>';?>
+<?php //echo '<pre>';print_r($user_status);echo '</pre>';?>
 <?php //echo '<pre>';print_r($urgent_label);echo '</pre>';?>
 <?php //echo '<pre>';print_r($category_list[0]);echo '</pre>';?>
 			<div class="row-fluid sortable">
@@ -81,7 +81,7 @@
 								  <option value=''>Select Staff Type</option>
 								  <?php $sess_user_type = $this->session->userdata('user_type');
 								  foreach($staff_type as $s_type){
-									  if($s_type->user_type_id !=1 && $s_type->user_type_id !=7){
+									  if($s_type->user_type_id !=1 && $s_type->user_type_id !=7 && $s_type->user_type_id !=6){
 										  if($sess_user_type < $s_type->user_type_id){ ?>
 								  <option value='<?php echo $s_type->user_type_id; ?>'><?php echo ucwords($s_type->user_type_name); ?></option>
 								  <?php }
@@ -95,9 +95,10 @@
 								<div class="controls">
 								  <select id="staff_status" name='staff_status'>
 								    <option>Select Staff Status</option>
-									<option value='0' > In-Active</option>
-									<option value='1' > Active</option>
-									<option value='2' > On Hold</option>
+									<?php foreach($user_status as $s_status){
+										if($s_status->user_status_id <= 3){?>
+									<option value='<?php echo $s_status->user_status_id; ?>'> <?php echo ucwords($s_status->user_status); ?></option>
+									<?php }}?>
 								  </select>
 								</div>
 							  </div>
@@ -123,6 +124,7 @@
 				</div><!--/span-->
 			</div>
     </div>
+</div>
 </div>
 <script>
 $(document).ready(function() {

@@ -113,7 +113,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="pkg_web_link">WebLink</label>
 								<div class="controls">
-								  <input type="text" name='pkg_web_link' id="pkg_web_link" value='<?php echo $ads_details->web_link; ?>'>
+								  <input type="text" name='pkg_web_link' id="pkg_web_link" value='<?php echo $ads_details->web_link; ?>' readonly>
 								</div>
 							  </div> 
 							  
@@ -127,6 +127,7 @@
 								<label class="control-label" for="urg_type">Urgent Label Type</label>
 								<div class="controls">
 								  <select id="urg_type" name="urg_type" disabled>
+								  <option> No label</option>
 								  <?php foreach($urgent_label as $lab){?>
 								  <option value='<?php echo $lab->u_pkg_id; ?>'<?php if($ads_details->urgent_package == $lab->u_pkg_id)echo 'selected'?>><?php echo ucwords($lab->u_pkg_name); ?></option>
 								  <?php }?>
@@ -134,11 +135,11 @@
 								</div>
 							  </div>
 							  <div class="control-group">
-								<label class="control-label" for="ad_status">Ad Status<?php echo $ads_details->ad_status;?></label>
+								<label class="control-label" for="ad_status">Ad Status</label>
 								<div class="controls">
 								  <select id="ad_status" name="ad_status" onchange="view_comment()">
 								  <?php foreach($ad_status as $status){?>
-									<option value='<?php if($status->id =='0')?>'<?php if($status->id == $ads_details->ad_status)echo 'selected'?>><?php echo ucwords($status->status_name);?></option>
+									<option value='<?php echo $status->id; ?>'<?php if($status->id == $ads_details->ad_status)echo 'selected'?>><?php echo ucwords($status->status_name);?></option>
 								  <?php }?>
 								  </select>
 								</div>

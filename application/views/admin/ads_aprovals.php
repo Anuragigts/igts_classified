@@ -116,7 +116,7 @@
 				<?php /*$this->load->view('admin/selected_ads_filter',$ads_list);*/?>
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Adds</h2>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Ads</h2>
 						<div class="box-icon">
 							<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>-->
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -138,7 +138,6 @@
 								<th>Gallery</th>
 								<th>Status</th>
 								<th>View</th>
-								<th>Buy</th>
                                 <th style='width:55px;'>Action</th>
                             </tr>
                         </thead>
@@ -165,16 +164,14 @@
 								<td>
 									<a class="" href="<?php echo base_url();?>description_view/details/<?php echo $ads->ad_id.'/';?>" target='_blank'title="View Ad Content" style=''>View</a>
 								</td>
-								<td><a class="" href="<?php echo base_url();?>products/buy/<?php echo $ads->ad_id.'/'.'pound';?>" title="Buy The Package" style=''>Buy</a>
-								</td>
 								<td>
 									<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id.'/edit/';?>" title="Edit Ad Details">
 											<i class="halflings-icon edit white"></i> 
 									</a>
 									<!--<a href="javascript:void(0);" class="deactivate btn btn-info" title="View"><i class='halflings-icon ok-circle' style='color:red'></i></a>&nbsp;
 									<a class="btn btn-danger" href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id;?>" title="Delete Ad Content" style=''>
-									<i class="halflings-icon white trash" style='width:10px; height:12px'></i> -->
-									</a>
+									<i class="halflings-icon white trash" style='width:10px; height:12px'></i>
+									</a> -->
 								</td>
                             </tr>
                             <?php } ?>

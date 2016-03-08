@@ -49,7 +49,7 @@
 
 		  });
 		  
-		  </script>
+		</script>
 		  
 	<!-- Section Title-->    
 	<div class="section-title-01">

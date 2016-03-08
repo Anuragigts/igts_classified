@@ -84,6 +84,7 @@ class Users extends CI_Controller {
 					$data['staff_type'] = $this->admin_model->get_staffType();
 				}
 			}else{
+				$user_status = $this->admin_model->get_user_status();
 				$user_list = $this->admin_model->get_userlist();
 				$data   =   array(
 						"title"         =>     "Add New Staff",
@@ -91,6 +92,7 @@ class Users extends CI_Controller {
 						"metakey"       =>     "Classifieds :: Admin Dashboard",
 						"content"       =>     "addNewStaff",
 						'user_list'		=>		$user_list,
+						"user_status"   => 		$user_status,
 				);
 				$data['staff_type'] = $this->admin_model->get_staffType();	
 			}

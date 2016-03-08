@@ -175,6 +175,59 @@ td a.btn{line-height:15px;}
 								</li>	-->
 							</ul>
 						</li>
+						<li class="dropdown notifications">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="icon-envelope"></i>
+								<span class="badge red">
+								4 </span>
+							</a>
+							<ul class="dropdown-menu messages">
+								<li class="dropdown-menu-title">
+ 									<span>Feedbacks & Reports</span>
+									<a href="#refresh"><i class="icon-repeat"></i></a>
+								</li>	
+								<li>
+                                    <a href="<?php echo base_url()?>admin/AllFeedbacks/1">
+									
+									<span class="icon green"><i class="icon-comment-alt"></i></span>
+									<span class="header">
+											<span class="from">
+										    	Active Feedbacks
+										     </span>
+											<span class="time"><?php echo $this->session->userdata('a_feedback').' Feedbacks';?></span>
+										</span>
+										 
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>admin/AllFeedbacks/0">
+									<span class="icon green"><i class="icon-comment-alt"></i></span>
+									<span class="header">
+											<span class="from"> In Active Feedbacks</span>
+										<span class="time"><?php echo $this->session->userdata('ina_feedback').' Feedbacks';?></span> 
+										</span>
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>admin/AllReports/1">
+									<span class="icon green"><i class="icon-comment-alt"></i></span>
+									<span class="header">
+											<span class="from">Active Reports</span>
+										<span class="time"><?php echo $this->session->userdata('a_reports').' Reports';?></span> 
+										</span>
+                                    </a>
+                                </li>
+								<li>
+                                    <a href="<?php echo base_url()?>admin/AllReports/0">
+									<span class="icon green"><i class="icon-comment-alt"></i></span>
+									<span class="header">
+											<span class="from">In Active Reports</span>
+										<span class="time"><?php echo $this->session->userdata('ina_reports').' Reports';?></span> 
+										</span>
+                                    </a>
+                                </li>
+							</ul>
+						</li>
 						<!-- start: Notifications Dropdown -->
 						<!--<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

@@ -5,7 +5,7 @@
 					<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="">Ads List</a></li>
+				<li><a href="">New Label</a></li>
 			</ul>
 			<?php if($this->session->flashdata('err') != ''){?>
                  <div class="alert alert-block alert-danger fade in">
@@ -56,7 +56,7 @@
 							   <div class="control-group">
 								<label class="control-label" for="urg_dur">Package Duration</label>
 								<div class="controls">
-								  <input type="number" id="urg_dur" name="urg_dur" value=''>
+								  <input type="number" id="urg_dur" name="urg_dur" value='' min='0'>
 								 	
 								</div>
 							  </div>
@@ -72,14 +72,13 @@
 							  <div class="control-group">
 								<label class="control-label" for="euro_price">Euro Price</label>
 								<div class="controls">
-								  <input type="text" id="euro_price" name="euro_price" value=''>
-								 <i class='glyphicons-icon euro' style='vertical-align:bottom; height:38px;'></i>
-								
+									<input type="text" id="euro_price" name="euro_price" value=''>
+									<i class='glyphicons-icon euro' style='vertical-align:bottom; height:38px;'></i>
 								</div>
 							  </div>
 							  
 							  
-							   <div class="control-group">
+							  <div class="control-group">
 								<label class="control-label" for="add_type">Package Category</label>
 								<div class="controls">
 								  <input type="checkbox" id="is_top_cat" name='is_top_cat' value='1' > Check the box if the Package is Top Category

@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Paypal extends CI_Controller 
+class Payment extends CI_Controller 
 {
      function  __construct(){
         parent::__construct();
         $this->load->library('paypal_lib');
-        $this->load->model('paypal_model');
+		$this->load->model('Transaction_model');
+		$this->load->model('Payment_model');
      }
      
      function success(){
@@ -47,16 +48,18 @@ class Paypal extends CI_Controller
 		$data['shipping'] = $post_paypal["shipping"];
 		$data['transaction_subject'] = $post_paypal["transaction_subject"];
 		
-		$ins_status = $this->paypal_model->insert_tran($data);
+		$coup_status  = $this->Payment_model->update_coupon_status($data['product_id']);
+		$ins_status = $this->Payment_model->insert_tran($data);
+		$ins_status = $this->Payment_model->update_ad_pay_status($data['product_id']);
 		
-		$data   =   array(
-                        "title"         	=>     "Classifieds :: Admin Category",
-                        "metadesc"     		=>     "Classifieds :: Admin Category",
-                        "metakey"       	=>     "Classifieds :: Admin Category",
+		$info   =   array(
+                        "title"         	=>     "Classifieds ",
                         "content"       	=>     "tran_success",
 						"tran_details"     	=>  	$data,
 			);
-			$this->load->view("admin_layout/inner_template",$data);		
+			$this->session->flashdata('msg','Your Payment has successfully Completed');
+			redirect('deals_status');
+			// $this->load->view("classified_layout/inner_template",$info);
         //$this->load->view('/success', $data);
      }
      
@@ -83,7 +86,65 @@ class Paypal extends CI_Controller
         //check whether the payment is verified
         if(eregi("VERIFIED",$result)){
             //insert the transaction data into the database
-            $this->paypal_model->insertTransaction($data);
+            $this->Payment_model->insertTransaction($data);
         }
     }
+	function Transactions(){
+        //paypal return transaction details array
+		$ins_status = $this->Transaction_model->get_Transactions();
+		$data   =   array(
+                        "title"         	=>     "Classifieds :: Admin Category",
+                        "metadesc"     		=>     "Classifieds :: Admin Category",
+                        "metakey"       	=>     "Classifieds :: Admin Category",
+                        "content"       	=>     "Transaction_list",
+						"tran_details"     	=>  	$ins_status,
+			);
+			$this->load->view("admin_layout/inner_template",$data);	
+    }
+	public function Pay(){
+		$ad_id 			= 	$this->input->post('post_ad_id');
+		$post_ad_amt 	= 	$this->input->post('post_ad_amt');
+		$coup_ad_amt 	= 	$this->input->post('coup_ad_amt');
+		$c_code 		= 	$this->input->post('c_code');
+		
+		if($coup_ad_amt < $post_ad_amt && $coup_ad_amt !=0 ){
+			$amt = $coup_ad_amt;
+		}else{
+			$amt = $post_ad_amt;
+		}
+        //Set variables for paypal form
+        $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //test PayPal api url
+        $paypalID = 'amanbabu-facilitator@gmail.com'; //business email
+        $returnURL = base_url().'payment/success'; //payment success url
+        $cancelURL = base_url().'payment/cancel'; //payment cancel url
+        $notifyURL = base_url().'payment/ipn'; //ipn url
+		
+		
+        //get particular product data
+        $ad_info = $this->Payment_model->getRows($ad_id, $c_code);
+		if(empty($ad_info)){
+			redirect('deals_status');
+		}else{
+			//$config['paypal_lib_currency_code'] =$ad_info['currency_type'];
+			//$this->paypallib_config->initialize($config);
+			//echo '<pre>';print_r($ad_info);echo '</pre>';exit;
+			//$userID = 1; //current user id
+			$logo = base_url().'assets/images/codexworld-logo.png';
+			
+			
+			$this->paypal_lib->add_field('business', $paypalID);
+			$this->paypal_lib->add_field('return', $returnURL);
+			$this->paypal_lib->add_field('cancel_return', $cancelURL);
+			$this->paypal_lib->add_field('notify_url', $notifyURL);
+			$this->paypal_lib->add_field('item_name', $ad_info['name']);
+			//$this->paypal_lib->add_field('currencyCode', $ad_info['currency_type']);
+			$this->paypal_lib->add_field('custom', $ad_info['user_id']);
+			$this->paypal_lib->add_field('item_number',  $ad_info['ad_id']);
+			$this->paypal_lib->add_field('amount', $amt);        
+			$this->paypal_lib->image($logo);
+			
+			$this->paypal_lib->paypal_auto_form();
+		}
+    }
+	
 }

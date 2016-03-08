@@ -47,8 +47,18 @@ class Admin_model extends CI_Model{
 					return 0;
                 }
         }
+		public function get_assigned_cats(){
+			$log_id = $this->session->userdata('login_id');
+			$this->db->select('cat_ids');
+			$this->db->where('status',1);
+			$this->db->where('staff_id',$log_id);
+			$this->db->from('manage_module');
+			$cats = $this->db->get()->row();
+			//echo $this->db->last_query();exit;
+			return $cats;
+		}
         public function insert_user(){
-			echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
+			//echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
                 $login      =   array(
                                         "user_type"         =>      2,
                                         "login_email"       =>      $this->input->post("email"),
@@ -212,8 +222,9 @@ class Admin_model extends CI_Model{
 			}
 			$this->db->from('login as l');
 			$this->db->order_by("l.login_id","desc");
-			$this->db->join("profile as p","l.login_id = p.login_id","inner");
+			//$this->db->join("profile as p","l.login_id = p.login_id","inner");
 			$staff = $this->db->get()->row();
+			//echo '<pre>';print_r($staff);echo '</pre>';exit;
 			return $staff;
 		}
 		 public function update_staff(){
@@ -264,8 +275,8 @@ class Admin_model extends CI_Model{
 			echo '<pre>';print_r($last_weak_ads);echo '</pre>';exit;
 		}
 		function get_no_of_ads(){
-			$this->load->model("ads_model");
-			$cats = $this->ads_model->get_assigned_cats();
+			//$this->load->model("ads_model");
+			$cats = $this->get_assigned_cats();
 			$this->db->select('count(*) as ads_count, p_ad.package_type,pkg_l.pkg_dur_name,pkg_l.pkg_dur_name');
 			
 			$this->db->from('postad as p_ad');
@@ -305,4 +316,154 @@ class Admin_model extends CI_Model{
 			$profile = $this->db->get('login as l')->row();
 			return $profile;
 		}
+		function get_reports_count(){
+			$this->db->select('r_ad.status, count(r_ad.status) as r_count');
+			//$this->db->where('r_ad.login_id', $this->session->userdata('login_id'));
+			//$this->db->join("profile as p","p.login_id = l.login_id","inner");
+			$this->db->group_by('r_ad.status');
+			$this->db->order_by('r_ad.status');
+			$reports_count = $this->db->get('reportforads as r_ad')->result();
+			
+			return $reports_count;
+		}
+		function get_feedback_count(){
+			$this->db->select('f_back.status, count(f_back.status) as f_count');
+			$this->db->group_by('f_back.status');
+			$this->db->order_by('f_back.status');
+			$feedback_count = $this->db->get('feedbackforads as f_back')->result();
+			return $feedback_count;
+		}
+		
+	function get_Feedbacks(){
+		$cats = $this->get_assigned_cats();
+		$this->db->select();
+		if($this->session->userdata('user_type') != 1){
+			$cats_list = explode(',',$cats->cat_ids);		
+			$this->db->where_in('p_ad.category_id',$cats_list);
+		}
+		if($this->uri->segment(3) !=''){
+			//echo $this->uri->segment(3);
+			$f_type = $this->uri->segment(3);
+			if($f_type == 1 || $f_type == 0)
+				$this->db->where('f_ad.status',$f_type);
+		}
+		$this->db->join('postad as p','p.ad_id = f_ad.ad_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->from('feedbackforads as f_ad');
+		$all_feedbacks = $this->db->get()->result();
+		//echo $this->db->last_query();
+		//echo '<pre>';print_r($all_feedbacks);echo '</pre>';exit;
+		return $all_feedbacks;
+	}
+	function get_FeedbacksByAds(){
+		$cats = $this->get_assigned_cats();
+		//$this->db->select();
+		$this->db->select('l.login_email,l.first_name,l.lastname,l.mobile, COUNT(f_ad.ad_id) as report_count,p.deal_tag,cat.category_name,pkg_list.pkg_dur_name as pkg_name,p.ad_id');
+		
+		if($this->session->userdata('user_type') != 1){
+			$cats_list = explode(',',$cats->cat_ids);		
+			$this->db->where_in('p.category_id',$cats_list);
+		}
+		$this->db->group_by('f_ad.ad_id');;
+		$this->db->join('postad as p','p.ad_id = f_ad.ad_id','inner');
+		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		if($this->uri->segment(3)){
+			$f_type = $this->uri->segment(3);
+			if($f_type == 1 || $f_type == 0)
+				$this->db->where('f_ad.status',$f_type);
+		}
+		$this->db->join('login as l','l.login_id = p.login_id','inner');
+		$this->db->from('feedbackforads as f_ad');
+		$all_feedbacks = $this->db->get()->result();
+		//echo $this->db->last_query();
+		//echo '<pre>';print_r($all_feedbacks);echo '</pre>';exit;
+		return $all_feedbacks;
+	}
+	function getAdfeedbacks(){
+		$ad_id = $this->uri->segment(3);
+		$this->db->select();
+		$this->db->where('f_ad.ad_id',$ad_id);
+		$this->db->join('postad as p','p.ad_id = f_ad.ad_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->from('feedbackforads as f_ad');
+		$all_feedbacks = $this->db->get()->result();
+		//echo '<pre>';print_r($all_feedbacks);echo '</pre>';exit;
+		return $all_feedbacks;
+	}
+	function get_reportforads(){
+		$cats = $this->get_assigned_cats();
+		$this->db->select('r_ad.*, r_ad.created_on as r_created,pkg_list.*,p.*,cat.category_name as cat_name');
+		if($this->session->userdata('user_type') != 1){
+			$cats_list = explode(',',$cats->cat_ids);		
+			$this->db->where_in('p.category_id',$cats_list);
+		}
+		if($this->uri->segment(3)){
+			$r_type = $this->uri->segment(3);
+			if($r_type == 1 || $r_type == 0)
+				$this->db->where('r_ad.status',$r_type);
+		}
+		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
+		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->from('reportforads as r_ad');
+		$all_reports = $this->db->get()->result();
+		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
+		return $all_reports;
+	}
+	function get_ReportsByAds(){
+		$cats = $this->get_assigned_cats();
+		//$this->db->select();
+		$this->db->select('l.login_email,l.first_name,l.lastname,l.mobile, COUNT(r_ad.ad_id) as report_count,p.deal_tag,cat.category_name,pkg_list.pkg_dur_name as pkg_name,p.ad_id');
+		
+		if($this->session->userdata('user_type') != 1){
+			$cats_list = explode(',',$cats->cat_ids);		
+			$this->db->where_in('p.category_id',$cats_list);
+		}
+		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
+		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->join('login as l','l.login_id = p.login_id','inner');
+		$this->db->from('reportforads as r_ad');
+		$all_reports = $this->db->get()->result();
+		//echo $this->db->last_query();
+		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
+		return $all_reports;
+	}
+	function getAdReports(){
+		$ad_id = $this->uri->segment(3);
+		$this->db->select();
+		$this->db->where('r_ad.ad_id',$ad_id);
+		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->from('reportforads as r_ad');
+		$all_reports = $this->db->get()->result();
+		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
+		return $all_reports;
+	}
+	function get_FilterReports($filter_details){
+		$cats = $this->get_assigned_cats();
+		$this->db->select();
+		if($this->session->userdata('user_type') != 1){
+			$cats_list = explode(',',$cats->cat_ids);		
+			$this->db->where_in('p_ad.category_id',$cats_list);
+		}
+		if($filter_details['start_date'] !='')
+			$this->db->where('r_ad.created_on >=', date( 'Y-m-d H:i:s',strtotime($filter_details['start_date'])));
+		if($filter_details['end_date'] !='')
+			$this->db->where('r_ad.created_on <=', date( 'Y-m-d H:i:s',strtotime($filter_details['end_date'])));
+		if($filter_details['pkg_type'] != 0 && $filter_details['pkg_type'] !='')
+			$this->db->where('r_ad.package_type',$filter_details['pkg_type']);
+		if($filter_details['cat_type'] != 0 && $filter_details['cat_type'] != '')
+			$this->db->where('r_ad.category_id',$filter_details['cat_type']);
+		
+		$this->db->join('postad as p_ad','p_ad.ad_id = r_ad.ad_id','inner');
+		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_ad.package_type','inner');
+		$this->db->from('reportforads as r_ad');
+		$all_reports = $this->db->get()->result();
+		echo $this->db->last_query();
+		echo '<pre>';print_r($all_reports);echo '</pre>';exit;
+		return $all_reports;
+	}
+	
 }

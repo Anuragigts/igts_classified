@@ -89,6 +89,66 @@
 			//echo $this->db->last_query();
 			//return $change_status;
 		}
+		function get_c_result(){
+			if($this->input->post('c_code')){
+				$c_code = $this->input->post('c_code');
+				$post_ad_amt = $this->input->post('post_ad_amt');
+				$c_info = $this->coupons_model->get_c_result($c_code);
+				if(count($c_info) == 1){
+					if($c_info->max_cus == 0){
+						$pkg_disc_amt = $post_ad_amt-(($post_ad_amt*($c_info->c_value)/100));
+						//echo $pkg_disc_amt ;
+						$c_details = array(
+										'c_code'		=>		$c_info->c_code,
+										'c_value' 		=>		$c_info->c_value,
+										'max_cus' 		=>		$c_info->max_cus,
+										'used_count' 	=>		$c_info->used_count,
+										'pkg_disc_amt'	=>		$pkg_disc_amt,
+										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.$pkg_disc_amt
+							); 
+							$info = json_encode($c_details);
+							echo $info;
+					}else{
+						if($c_info->max_cus > $c_info->used_count){
+							$pkg_disc_amt = $post_ad_amt-(($post_ad_amt*($c_info->c_value))/100);
+							//echo $pkg_disc_amt ;
+							$c_details = array(
+										'c_code'		=>		$c_info->c_code,
+										'c_value' 		=>		$c_info->c_value,
+										'max_cus' 		=>		$c_info->max_cus,
+										'used_count' 	=>		$c_info->used_count,
+										'pkg_disc_amt'	=>		ceil($pkg_disc_amt),
+										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.$pkg_disc_amt
+							); 
+							$info = json_encode($c_details);
+							echo $info;
+						 }else{
+							 $c_details = array(
+										'c_code'		=>		$c_info->c_code,
+										'c_value' 		=>		0,
+										'max_cus' 		=>		$c_info->max_cus,
+										'used_count' 	=>		$c_info->used_count,
+										'pkg_disc_amt'	=>		ceil($post_ad_amt),
+										'c_responce'	=>		'The Coupon Code you have added is Expired or Invalid.' 
+							); 
+							$info = json_encode($c_details);
+							echo $info;
+						 }
+					}
+				}else{
+					$c_details = array(
+										'c_code'		=>		$c_info->c_code,
+										'c_value' 		=>		0,
+										'max_cus' 		=>		$c_info->max_cus,
+										'used_count' 	=>		$c_info->used_count,
+										'pkg_disc_amt'	=>		ceil($post_ad_amt),
+										'c_responce'	=>		'The Coupon Code you have added is Expired or Invalid.' ,
+							); 
+							$info = json_encode($c_details);
+							echo $info;
+				}
+			}
+		}
 	}
 ?>
 

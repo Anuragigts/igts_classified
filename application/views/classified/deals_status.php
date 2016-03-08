@@ -155,75 +155,45 @@
 							</div>
 						</div>
 						<!-- End Item Table-->
-
+<?php //echo '<pre>';print_r($my_ads_details[2]);echo '</pre>';?>
 						<div class="col-md-9">
-							<div class="row">
+							<div class="row row-fluid">
 								<div class="col-sm-12">
 									<h2>Deals Status</h2>
 									<label>Hi <?php echo $log_name; ?></label><hr>
 								</div>
 							</div>
 							
-							<table class="table table-bordered">
+							<table class="table table-striped table-bordered">
 								<thead>
 									<tr>
-										<th>
-											#
-										</th>
-										<th>
-											First Name
-										</th>
-										<th>
-											Last Name
-										</th>
-										<th>
-											Username
-										</th>
+										<th>Deal Tag</th>
+										<th>Category</th>
+										<th>Package Type</th>
+										<th>Urgent Label</th>
+										<th>Amount</th>
+										<th>Ad Status</th>
+										<th>Payment Status</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
+								<?php foreach($my_ads_details as $ads){?>
 									<tr>
-										<td>
-											1
-										</td>
-										<td>
-											Mark
-										</td>
-										<td>
-											Otto
-										</td>
-										<td>
-											@mdo
-										</td>
+										<td><?php echo ucwords($ads->deal_tag);?></td>
+										<td><?php echo ucwords($ads->category_name);?></td>
+										<td><?php echo ucwords($ads->pkg_dur_name);?></td>
+										<td><?php if($ads->u_pkg_id == 0) echo 'Normal';else {echo ucwords($ads->u_pkg_name);}?></td>
+										<td><?php $t_cost = $ads->cost_pound+$ads->u_pkg__pound_cost;
+												echo $t_cost;//$ads->cost_pound.'&'.$ads->u_pkg__pound_cost.'&'.;?></td>
+										<td><?php echo ucwords($ads->status_name);?></td>
+										<td><?php if($ads->payment_status == 1 || $t_cost == 0) echo 'No Pending';else {?>
+										<a href="javascript:void(0);" ad_id="<?php echo $ads->ad_id;?>" ad_cost='<?php echo $t_cost;?>' data-toggle="modal" data-target="#flexModal" title="Pay Now" class="paynow btn btn-success" style='color:red'>Pay</a>
+										<!--
+										<a href="javascript:void(0);" ad_id="<?php echo $ads->ad_id;?>" ad_cost='<?php echo $t_cost;?>' data-toggle="modal" data-target="#flexModal" title="Pay Now" class= "paynow('<?php echo $ads->ad_id;?>','<?php echo $t_cost;?>')">Pay</a>--><?php }?></td>
+										<td><?php echo ucwords($ads->deal_tag);?></td>
 									</tr>
-									<tr>
-										<td>
-											2
-										</td>
-										<td>
-											Jacob
-										</td>
-										<td>
-											Thornton
-										</td>
-										<td>
-											@fat
-										</td>
-									</tr>
-									<tr>
-										<td>
-											3
-										</td>
-										<td>
-											Larry
-										</td>
-										<td>
-											the Bird
-										</td>
-										<td>
-											@twitter
-										</td>
-									</tr>
+								<?php }?>
 								</tbody>
 							</table>
 						</div>
@@ -232,7 +202,81 @@
 				</div>
 			</div>
 		</div>
+		<div class="modal modal-flex fade" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close md-close edit_close2" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="flexModalLabel">Pay for Posting Ad</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" method="post" action ='<?php echo base_url()?>Payment/Pay'>
+							<div class="htname">
+								<input type='hidden' id='post_ad_id' name='post_ad_id'>
+								<input type='hidden' id='post_ad_amt' name='post_ad_amt'>
+								<input type='text' id='coup_ad_amt' name='coup_ad_amt'>
+							</div>                    
+							<div class="form-group">
+								<div class="span4"></div>
+								<div class="span4">
+								<label for ='c_code'>Coupon Code</label>
+								<input type='text' name='c_code' class='c_code' value='COUP7303' placeholder = 'Coupon Code'  ><span class='c_check'>Apply</span><span class='c_responce' style='color:green'></span>
+								</div>                       
+							</div>
+							<div class="form-group">
+								<div class="span4"></div>
+								<div class="span4">
+									<button type="submit" class="btn btn-default update_cad btn_cat" >Pay Now</button>
+								</div>
+								<div class="span4"></div>                        
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
 	</section>
+	<script>
+	$('.paynow').click(function(){
+		var ad_cost = $( this ).attr( "ad_cost" );
+			var ad_id = $( this ).attr( "ad_id" );
+		document.getElementById('post_ad_id').value = ad_id;
+		document.getElementById('post_ad_amt').value = ad_cost;
+		$(".c_responce").html('');
+	});
+	function paynow(adid, cost){
+		alert(adid+'----'+cost);
+		document.getElementById('post_ad_id').value = adid;
+		document.getElementById('post_ad_amt').value = cost;
+	}
+	$(function(){
+			$(".c_check").click(function(){
+				var c_code = $(".c_code").val();
+				var post_ad_amt = $("#post_ad_amt").val();
+				if(c_code != ''){
+					$.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>coupons/get_c_result",
+						data: {
+							c_code: c_code,
+							post_ad_amt: post_ad_amt
+						},
+						success: function (data) {
+							var c_details = JSON.parse(data);
+							var c_value = c_details['c_value'];
+							var pkg_disc_amt = c_details['pkg_disc_amt'];
+							$(".c_responce").html(c_details['c_responce']);
+							document.getElementById('coup_ad_amt').value = pkg_disc_amt;
+						}
+					});
+				}else{
+					alert('Please Enter Coupoun Code If Any');
+				}
+        	});
+	});
+	</script>
 
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
