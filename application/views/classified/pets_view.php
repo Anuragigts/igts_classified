@@ -287,7 +287,7 @@
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
@@ -295,7 +295,7 @@
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
