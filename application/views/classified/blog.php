@@ -49,9 +49,21 @@
 													<a href="#" class="title">Sample Blog One Link</a>
 												</h3>
 												<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-												<div class="read-more">
+												
+												<div>
+													<ul class="social-team  pull-right">
+														<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+														<li><a href="#"><i class="fa fa-skype"></i></a></li>
+														<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+														<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+														<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+													</ul>                 
+												</div> 
+												
+												<div class="read-more pull-left">
 												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 												</div>
+												
 											</div>
 										</div>    
 									</div>
@@ -75,9 +87,21 @@
 													<a href="#" class="title">Sample Blog One Link</a>
 												</h3>
 												<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-												<div class="read-more">
+												
+												<div>
+													<ul class="social-team  pull-right">
+														<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+														<li><a href="#"><i class="fa fa-skype"></i></a></li>
+														<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+														<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+														<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+													</ul>                 
+												</div> 
+												
+												<div class="read-more pull-left">
 												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 												</div>
+												
 											</div>
 										</div>    
 									</div>
@@ -101,9 +125,21 @@
 													<a href="#" class="title">Sample Blog One Link</a>
 												</h3>
 												<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-												<div class="read-more">
+												
+												<div>
+													<ul class="social-team  pull-right">
+														<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+														<li><a href="#"><i class="fa fa-skype"></i></a></li>
+														<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+														<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+														<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+													</ul>                 
+												</div> 
+												
+												<div class="read-more pull-left">
 												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 												</div>
+												
 											</div>
 										</div>    
 									</div>
@@ -129,7 +165,7 @@
 									</div>
 									
 									<div class="widget archieve">
-										<h3>Archieve</h3>
+										<h3>Archive</h3>
 										<div class="row">
 											<div class="col-sm-12">
 												<ul class="blog_archieve">
@@ -142,36 +178,6 @@
 													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
 													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
 												</ul>
-											</div>
-										</div>                     
-									</div>
-									
-									<div class="widget categories">
-										<h3>Recent Comments</h3>
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="single_comments">
-													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-													<div class="entry-meta small muted">
-														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-													</div>
-												</div>
-												<div class="single_comments">
-													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-													<div class="entry-meta small muted">
-														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-													</div>
-												</div>
-												<div class="single_comments">
-													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-													<div class="entry-meta small muted">
-														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-													</div>
-												</div>
-												
 											</div>
 										</div>                     
 									</div>

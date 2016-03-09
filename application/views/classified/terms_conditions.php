@@ -50,7 +50,7 @@
 									<li><a href='about_us'>About US</a></li>
 									<li><a href='contact_us'>Contact US</a></li>
 									<li class="active_page"><a href='terms_conditions'>Terms & Conditions</a></li>
-									<li><a href=''>Privacy Policy</a></li>
+									<li><a href='privacy_policy'>Privacy Policy</a></li>
 									<li><a href=''>Refund Policy</a></li>
 								</ul>
 							</div>

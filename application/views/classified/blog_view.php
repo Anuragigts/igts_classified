@@ -158,7 +158,7 @@
 									</div>
 									
 									<div class="widget archieve">
-										<h3>Archieve</h3>
+										<h3>Archive</h3>
 										<div class="row">
 											<div class="col-sm-12">
 												<ul class="blog_archieve">
@@ -175,35 +175,6 @@
 										</div>                     
 									</div>
 									
-									<div class="widget categories">
-										<h3>Recent Comments</h3>
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="single_comments">
-													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-													<div class="entry-meta small muted">
-														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-													</div>
-												</div>
-												<div class="single_comments">
-													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-													<div class="entry-meta small muted">
-														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-													</div>
-												</div>
-												<div class="single_comments">
-													<img src="<?php echo base_url(); ?>img/blog/avatar3.png" alt=""  />
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-													<div class="entry-meta small muted">
-														<span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-													</div>
-												</div>
-												
-											</div>
-										</div>                     
-									</div>
 								</aside>     
 
 							</div>

@@ -17,7 +17,7 @@
 							<div class="col-sm-4">
 								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Cookies Policy</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Privacy Policy</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>privacy_policy">Privacy Policy</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 								</ul>
 							</div>
@@ -103,7 +103,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-				   <p>Copyright @ 2016.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank">iGravitas TechnoSoft</a> India (P) Ltd.</p>
+				   <p>Copyright @ 2016.All Right Reserved to 99 Right Deals</p>
 				</div>
 			</div>
 		</div>
