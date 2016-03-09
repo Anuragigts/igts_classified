@@ -5625,9 +5625,15 @@ margin-left: -1px;
 .blog-item {
   border-radius: 0;
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  border: 2px solid #f4f4f4;
+	padding: 10px;
+	border-radius: 10px;
 }
-
+.blog-item ul li{
+	display: inline-block;
+	padding-left: 10px;
+}
 .blog .blog-item .img-blog {
   border-radius: 5px;
   margin-bottom: 25px;
@@ -5652,8 +5658,6 @@ margin-left: -1px;
 }
 
 
-}
-
 .blog .blog-item .entry-meta {
   border-radius: 5px;
   overflow: hidden;
@@ -5675,6 +5679,7 @@ margin-left: -1px;
   color: #fff;
   padding: 10px 0;
   text-align: center;
+  font-weight: bold;
 }
 
 .entry-meta  {
