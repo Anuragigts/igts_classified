@@ -5719,8 +5719,7 @@ margin-left: -1px;
     background: #f5f5f5;
     border-radius: 4px;
     color: #888;
-    display: inline-block;
-    padding: 5px 15px;
+    padding: 3px 10px;
 }
 .badge {
     background-color: #c52d2f;
@@ -5827,4 +5826,7 @@ strong{
 }
 .pay_btn a :hover{
 	color: #fff !important ;
+}
+.gmap_marker{
+	overflow-y: hidden;
 }
