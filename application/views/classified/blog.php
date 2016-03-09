@@ -43,12 +43,12 @@
 												
 											<div class="col-xs-12 col-sm-10 ">
 												<a href="#">
-													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/1.jpg" width="100%" alt="" />
 												</a>
 												<h3 class="post-title">
 													<a href="#" class="title">Sample Blog One Link</a>
 												</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+												<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
 												<div class="read-more">
 												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 												</div>
@@ -69,12 +69,12 @@
 												
 											<div class="col-xs-12 col-sm-10 ">
 												<a href="#">
-													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/2.jpg" width="100%" alt="" />
 												</a>
 												<h3 class="post-title">
 													<a href="#" class="title">Sample Blog One Link</a>
 												</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+												<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
 												<div class="read-more">
 												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 												</div>
@@ -95,12 +95,12 @@
 												
 											<div class="col-xs-12 col-sm-10 ">
 												<a href="#">
-													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+													<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/3.jpg" width="100%" alt="" />
 												</a>
 												<h3 class="post-title">
 													<a href="#" class="title">Sample Blog One Link</a>
 												</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+												<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
 												<div class="read-more">
 												   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 												</div>
@@ -110,6 +110,42 @@
 								</div>
 
 								<aside class="col-md-4">
+									<div class="widget archieve">
+										<h3>Categories</h3>
+										<div class="row">
+											<div class="col-sm-12">
+												<ul class="blog_archieve">
+													<li><a href="#"> General <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"> Used Furniture <span class="pull-right">(32)</a></li>
+													<li><a href="#"> Second Hand Sofas <span class="pull-right">(19)</a></li>
+													<li><a href="#"> Locations <span class="pull-right">(08)</a></li>
+													<li><a href="#"> We love housing <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"> Pug Puppies <span class="pull-right">(32)</a></li>
+													<li><a href="#"> Quad Bikes for sale <span class="pull-right">(19)</a></li>
+													<li><a href="#"> Technology<span class="pull-right">(08)</a></li>
+												</ul>
+											</div>
+										</div>                     
+									</div>
+									
+									<div class="widget archieve">
+										<h3>Archieve</h3>
+										<div class="row">
+											<div class="col-sm-12">
+												<ul class="blog_archieve">
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+												</ul>
+											</div>
+										</div>                     
+									</div>
+									
 									<div class="widget categories">
 										<h3>Recent Comments</h3>
 										<div class="row">
@@ -138,43 +174,7 @@
 												
 											</div>
 										</div>                     
-									</div><!--/.recent comments-->
-									 
-
-									<div class="widget categories">
-										<h3>Categories</h3>
-										<div class="row">
-											<div class="col-sm-6">
-												<ul class="blog_category">
-													<li><a href="#">Computers <span class="badge">04</span></a></li>
-													<li><a href="#">Smartphone <span class="badge">10</span></a></li>
-													<li><a href="#">Gedgets <span class="badge">06</span></a></li>
-													<li><a href="#">Technology <span class="badge">25</span></a></li>
-												</ul>
-											</div>
-										</div>                     
-									</div><!--/.categories-->
-									
-									<div class="widget archieve">
-										<h3>Archieve</h3>
-										<div class="row">
-											<div class="col-sm-12">
-												<ul class="blog_archieve">
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-												</ul>
-											</div>
-										</div>                     
 									</div>
-									
-									
-									
 									
 								</aside>  
 							</div>

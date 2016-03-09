@@ -11,7 +11,7 @@
 	</style>
 	<link rel="stylesheet" href="libs/slider.css">
 	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
-	<!-- use jssor.slider.debug.js instead for debug -->
+	
 	<script>
 		jssor_1_slider_init = function() {
 			
@@ -117,16 +117,11 @@
 	
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
-	<!-- Section Title-->    
 	<div class="section-title-01">
-		<!-- Parallax Background -->
 		<div class="bg_parallax image_01_parallax"></div>
 	</div>   
-	<!-- End Section Title-->
 	
-	<!--Content Central -->
 	<section class="content-central">
-		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
@@ -135,7 +130,6 @@
 			<div class="paddings">
 				<div class="container">
 					<div class="row">
-						<!-- Item Table-->
 						<div class="col-sm-3">
 							<div class="item-table">
 								<div class="header-table color-red">
@@ -143,18 +137,17 @@
 									<h2><?php echo @$log_name; ?></h2> 
 								</div>
 								<ul class="dashboard_tag">
-									<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>Reserved Searches</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals_Status'>Deals Status</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin"><a href='deals_administrator'>Deals Administrator</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup"><a href='pickup_deals'>Pickup deals</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites"><a href='reserved_searches'>My Favourites</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="Update Profile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
 								</ul>
 								<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 							</div>
 						</div>
-						<!-- End Item Table-->
-
+						
 						<form action="#" method="post" class="j-forms">
-							<!-- Item Table-->
 							<div class="col-sm-9 list-view">
 								<div class="row">
 									<div class="col-sm-12">
@@ -211,8 +204,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- sort-by-container-->
-								
+                               
 								<div class="row list_view_searches pickup_result">
                                    <?php echo $this->load->view('classified/pickup_deals_search'); ?>
 								</div>
@@ -224,24 +216,17 @@
 		</div>
 	</section>
 	
-	<!-- End Shadow Semiboxed -->
-	
-	
-	<!--MAP Modal -->
 	<div class="modal fade" id="map_location" role="dialog">
 		<div class="modal-dialog">
-			<!-- Modal content-->
-			<!-- <form action="#" method="post" class="j-forms " > -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Map Location</h2>
-					</div>
-					<div class="modal-body map_show">
-						
-					</div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2>Map Location</h2>
 				</div>
-			<!-- </form> -->
+				<div class="modal-body map_show">
+					
+				</div>
+			</div>
 		</div>
 	</div>
 	
@@ -267,15 +252,13 @@
 
 		marker.setMap(map);
 
-		// Zoom to 9 when clicking on marker
 		google.maps.event.addListener(marker,'click',function() {
 		  map.setZoom(9);
 		  map.setCenter(marker.getPosition());
 		  });
 			 
 		google.maps.event.addListener(map,'center_changed',function() {
-		// 3 seconds after the center of the map has changed, pan back to the marker
-		  window.setTimeout(function() {
+		 window.setTimeout(function() {
 			map.panTo(marker.getPosition());
 		  },3000);
 		  });
@@ -301,13 +284,12 @@
 	<script src="libs/jquery.mixitup.min.js"></script>
 	<script src="libs/main.js"></script>
 
-	<!-- location map -->
 	<script type="text/javascript">
-	$(function(){
-		$(".loc_map").click(function(){
-			var val = $(".loc_map").attr("id");
-			var val1 = val.split(",");
-			$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+		$(function(){
+			$(".loc_map").click(function(){
+				var val = $(".loc_map").attr("id");
+				var val1 = val.split(",");
+				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+			});
 		});
-	});
 	</script>

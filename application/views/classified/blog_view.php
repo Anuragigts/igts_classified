@@ -31,7 +31,7 @@
 							<div class="blog row">
 								<div class="col-md-8">
 									<div class="blog-item">
-										<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/blog/blog1.jpg" width="100%" alt="" />
+										<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/3.jpg" width="100%" alt="" />
 										<div class="row">  
 											<div class="col-xs-12 col-sm-2 text-center">
 												<div class="entry-meta">
@@ -43,13 +43,22 @@
 											</div>
 											<div class="col-xs-12 col-sm-10 blog-content">
 												<h2>Consequat bibendum quam</h2>
-												<p>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
+												<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
+											</div>
+										</div>
+										
+										<div class="row">  
+											<div class="col-xs-12 col-sm-12 blog-content">
+												<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper.</p>
+												
+												<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
 
-												<p>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper.</p>
-
+												<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper.</p>
+												
 												<div class="post-tags">
 													<strong>Tag:</strong> <a href="#">Cool</a> / <a href="#">Creative</a> / <a href="#">Dubttstep</a>
 												</div>
+												
 											</div>
 										</div>
 										
@@ -130,6 +139,42 @@
 								</div>
 
 								<aside class="col-md-4">
+									<div class="widget archieve">
+										<h3>Categories</h3>
+										<div class="row">
+											<div class="col-sm-12">
+												<ul class="blog_archieve">
+													<li><a href="#"> General <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"> Used Furniture <span class="pull-right">(32)</a></li>
+													<li><a href="#"> Second Hand Sofas <span class="pull-right">(19)</a></li>
+													<li><a href="#"> Locations <span class="pull-right">(08)</a></li>
+													<li><a href="#"> We love housing <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"> Pug Puppies <span class="pull-right">(32)</a></li>
+													<li><a href="#"> Quad Bikes for sale <span class="pull-right">(19)</a></li>
+													<li><a href="#"> Technology<span class="pull-right">(08)</a></li>
+												</ul>
+											</div>
+										</div>                     
+									</div>
+									
+									<div class="widget archieve">
+										<h3>Archieve</h3>
+										<div class="row">
+											<div class="col-sm-12">
+												<ul class="blog_archieve">
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+												</ul>
+											</div>
+										</div>                     
+									</div>
+									
 									<div class="widget categories">
 										<h3>Recent Comments</h3>
 										<div class="row">
@@ -158,63 +203,6 @@
 												
 											</div>
 										</div>                     
-									</div><!--/.recent comments-->
-									 
-
-									<div class="widget categories">
-										<h3>Categories</h3>
-										<div class="row">
-											<div class="col-sm-6">
-												<ul class="blog_category">
-													<li><a href="#">Computers <span class="badge">04</span></a></li>
-													<li><a href="#">Smartphone <span class="badge">10</span></a></li>
-													<li><a href="#">Gedgets <span class="badge">06</span></a></li>
-													<li><a href="#">Technology <span class="badge">25</span></a></li>
-												</ul>
-											</div>
-										</div>                     
-									</div>
-									
-									<div class="widget archieve">
-										<h3>Archieve</h3>
-										<div class="row">
-											<div class="col-sm-12">
-												<ul class="blog_archieve">
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-												</ul>
-											</div>
-										</div>                     
-									</div>
-									
-									<div class="widget tags">
-										<h3>Tag Cloud</h3>
-										<ul class="tag-cloud">
-											<li><a class="bor_log btn" href="#">Apple</a></li>
-											<li><a class="bor_log btn" href="#">Barcelona</a></li>
-											<li><a class="bor_log btn" href="#">Office</a></li>
-											<li><a class="bor_log btn" href="#">Ipod</a></li>
-											<li><a class="bor_log btn" href="#">Stock</a></li>
-											<li><a class="bor_log btn" href="#">Race</a></li>
-											<li><a class="bor_log btn" href="#">London</a></li>
-											<li><a class="bor_log btn" href="#">Football</a></li>
-											<li><a class="bor_log btn" href="#">Porche</a></li>
-											<li><a class="bor_log btn" href="#">Gadgets</a></li>
-										</ul>
-									</div>
-									
-									<div class="widget blog_gallery">
-										<h3>Our Gallery</h3>
-										<ul class="sidebar-gallery">
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery1.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery2.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery3.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery4.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery5.png" alt="" /></a></li>
-											<li><a href="#"><img src="<?php echo base_url(); ?>img/blog/gallery6.png" alt="" /></a></li>
-										</ul>
 									</div>
 								</aside>     
 

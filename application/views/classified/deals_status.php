@@ -145,11 +145,11 @@
 									<h2><?php echo @$log_name; ?></h2> 
 								</div>
 								<ul class="dashboard_tag">
-									<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_Status'>Deals Status</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>Reserved Searches</a></li>
-									<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals_Status'>Deals Status</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin"><a href='deals_administrator'>Deals Administrator</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup"><a href='pickup_deals'>Pickup deals</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites"><a href='reserved_searches'>My Favourites</a></li>
+									<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="Update Profile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
 								</ul>
 								<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 							</div>
@@ -174,7 +174,6 @@
 										<th>Amount</th>
 										<th>Ad Status</th>
 										<th>Payment Status</th>
-										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -192,7 +191,6 @@
 										<a href="<?php base_url();?>payment/checkout/<?php echo $ads->ad_id;?>" title="Pay Now" >Pay Now</a>
 										<?php }?>
 										</td>
-										<td><?php echo ucwords($ads->deal_tag);?></td>
 									</tr>
 								<?php }?>
 								</tbody>
