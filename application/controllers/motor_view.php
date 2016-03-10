@@ -52,7 +52,7 @@ class  Motor_view extends CI_Controller{
             foreach ($motor_result as $pview) {
                 $loginid = $pview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_motor();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
@@ -176,7 +176,7 @@ class  Motor_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "motor_view");
             $result['motor_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_motor();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
