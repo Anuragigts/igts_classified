@@ -7,8 +7,8 @@
                                     	else if ($rs->currency == 'euro') {
                                     		$currency = '€';
                                     	}
-                            $personname = mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM login WHERE login_id =(SELECT login_id FROM postad WHERE ad_id = '$rs->ad_id'))"), 0, 'first_name');
-							if ($rs->package_type == 'platinum' && $rs->urgent_package != '') {
+                            $personname = $rs->first_name;
+							if (($rs->package_type == '3' || $rs->package_type == '6') && $rs->urgent_package != '') {
 						 ?>
 										<div class="col-md-12">
 											<div class="first_list">
@@ -99,7 +99,7 @@
 															</div>
 															<div class="col-xs-4">
 																<div class="row">
-																	<?php if ($rs->category_id != 'jobs') { ?>
+																	<?php if ($rs->category_id != '1') { ?>
 																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																		<h3 class="view_price"><?php echo $currency.number_format($rs->price); ?></h3>
 																	</div>
@@ -132,7 +132,7 @@
 										<!-- platinum+urgent package end -->
 
 										<!-- platinum  starts -->
-										<?php if ($rs->package_type == 'platinum' && $rs->urgent_package == '') { ?>
+										<?php if (($rs->package_type == '3' || $rs->package_type == '6') && $rs->urgent_package == '') { ?>
 										<div class="col-md-12">
 											<div class="first_list">
 												<div class="row">
@@ -219,7 +219,7 @@
 															</div>
 															<div class="col-xs-4">
 																<div class="row">
-																	<?php if ($rs->category_id != 'jobs') { ?>
+																	<?php if ($rs->category_id != '1') { ?>
 																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																		<h3 class="view_price"><?php echo $currency.number_format($rs->price); ?></h3>
 																	</div>
@@ -253,7 +253,7 @@
 										
 										<!-- gold+urgent package starts -->
 										<?php 
-										if ($rs->package_type == 'gold' && $rs->urgent_package != '') {
+										if (($rs->package_type == '2' || $rs->package_type == '5') && $rs->urgent_package != '') {
 										 ?>
 										<div class="col-md-12">
 											<div class="first_list gold_bgcolor">
@@ -332,7 +332,7 @@
 															</div>
 															<div class="col-xs-4">
 																<div class="row">
-																	<?php if ($rs->category_id != 'jobs') { ?>
+																	<?php if ($rs->category_id != '1') { ?>
 																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																		<h3 class="view_price"><?php echo $currency.number_format($rs->price); ?></h3>
 																	</div>

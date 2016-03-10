@@ -990,11 +990,11 @@
 													<label class="input select">
 														<select name="positionfor">
 															<option value="none" selected disabled="">Select Position Type</option>
-															<option value="Student (Higher Education Graduate)">Student (Higher Education Graduate)</option>
+															<option value="Student_(Higher_Education_Graduate)">Student (Higher Education Graduate)</option>
 															<option value="Entry-level">Entry-level</option>
-															<option value="Expirenced (Non-Manager)">Expirenced (Non-Manager)</option>
-															<option value="Manager (Managing the staff)">Manager (Managing the staff)</option>
-															<option value="Executive (Director Dept.Head)">Executive (Director Dept.Head)</option>
+															<option value="Expirenced_(Non-Manager)">Expirenced (Non-Manager)</option>
+															<option value="Manager_(Managing_the_staff)">Manager (Managing the staff)</option>
+															<option value="Executive_(Director_Dept.Head)">Executive (Director Dept.Head)</option>
 														</select>
 														<i></i>
 													</label>

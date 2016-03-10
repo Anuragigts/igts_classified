@@ -1,4 +1,4 @@
-	<title>Right Deals :: Small Appliances View</title>
+	<title>Right Deals :: Motor View</title>
 	
 	<style>
 		.section-title-01{
@@ -11,7 +11,7 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="js/filter.css"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('.cd-filter-content').niceScroll({
@@ -24,8 +24,9 @@
 		});
 	</script>
 	
-	<link rel="stylesheet" href="libs/slider.css">
-	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
 		jssor_1_slider_init = function() {
@@ -90,8 +91,100 @@
 			//responsive code end
 		};
 	</script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+	<script type="text/javascript">
+	google.maps.event.addDomListener(window, 'load', function () {
+            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                var place = places.getPlace();
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+                $("#latt").val(latitude);
+                $("#longg").val(longitude);
+            });
+        });
+	</script>
+	 <!-- map on model -->
+	   <script type="text/javascript">
+		$(function(){
+			$(".loc_map").click(function(){
+				var val = $(".loc_map").attr("id");
+				var val1 = val.split(",");
+				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+			});
+		});
+		</script>
+
+	<script type="text/javascript">
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			                    $("form.jforms").submit();
+			            }
+			        )
+			        $('input:radio').click(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.price_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+			    }
+			);
+		</script>
+			  <?php foreach ($busconcount as $countval) {
+			  	$allbustype = $countval->allbustype;
+			  	$business = $countval->business;
+			  	$consumer = $countval->consumer;
+			  }
+			  foreach ($deals_pck as $pckval) {
+			  	$urgentcnt = $pckval->urgentcount;
+			  	$platinumcnt = $pckval->platinumcount;
+			  	$goldcnt = $pckval->goldcount;
+			  	$freecnt = $pckval->freecount;
+			  }
+			  foreach ($public_adview as $publicview) {
+			  	$left_ad1 = $publicview->sidead_one;
+			  	$topad = $publicview->topad;
+			  	$mid_ad = $publicview->mid_ad;
+			  }
+			  foreach ($sellerneededcount as $sncnt) {
+			  	$seller = $sncnt->seller;
+			  	$needed = $sncnt->needed;
+			  	$forhire = $sncnt->forhire;
+			  }
+			$smalls_sub12 = $this->session->userdata('smalls_sub');
+	  		$seller_deals = $this->session->userdata('seller_deals');
+			$dealurgent = $this->session->userdata('dealurgent');
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealprice = $this->session->userdata('dealprice');
+			$recentdays = $this->session->userdata('recentdays');
+			$search_bustype = $this->session->userdata('search_bustype');
+			$location = $this->session->userdata('location');
+			$latt = $this->session->userdata('latt');
+			$longg = $this->session->userdata('longg');
+	   ?>
 	  
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
 	<div class="section-title-01">
@@ -106,13 +199,13 @@
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+		<form id="j-forms2" action="<?php echo base_url(); ?>small_applicaances_view/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
 							<div class="col-md-10 col-sm-8 col-md-offset-1">
-								<img src="<?php echo base_url(); ?>img/slide/ban5.jpg" alt="add" title="Adds">
+								<?php echo $topad; ?>
 							</div>
 						</div>
 					</div>
@@ -122,186 +215,21 @@
 							<div class="col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<h3 class="title-widget">Small Appliances</h3>
+									<a href="<?php echo base_url(); ?>motor_view"><h3 class="title-widget">Ezone Filter</h3></a>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget">All Types</h4>
+										<h4 class="title-widget"> Small Appliances</h4>
 										<div class="cd-filter-content">
 											<div id="limit_scrol">
+												<?php foreach ($smalls_sub as $smalls_subval) { ?>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Microwave Ovens & OTG
+													<input type="checkbox" name="smalls_sub[]" class='smalls_sub' value="<?php echo $smalls_subval->sub_subcategory_id; ?>" <?php if(isset($smalls_sub12) && in_array($smalls_subval->sub_subcategory_id,$smalls_sub12)) echo 'checked = checked';?> >
+													<i></i> <?php echo $smalls_subval->sub_subcategory_name; ?> (<?php echo $smalls_subval->no_ads; ?>)
 												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Food Processors
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Mixer Grinder Juicers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Cookers & Steamers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Toasters & Sandwich Makers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Blenders & Choppers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Grills & Tandooris
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Coffee Tea Makers & Kettles
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Fryers & Snack makers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Water Purifiers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Dishwashers
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Flour Mill
-												</label>
-											</div>
-										</div> 
-									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Brand</h4>
-
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Samsung 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Apple 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Sony
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Panasonic
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> LG
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> HTC
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Intel
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Karbonn
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Amekette
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Nokia
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lenovo
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Microsoft
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lava
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Oppo
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Motorola
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Philips
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Dell
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> iBall
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Acer
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Toshiba
-												</label>
+												<?php } ?>
 											</div>
 										</div>
-									</div>
-									
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed"> Price Range</h4>
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 500 & Below 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 501 - Rs. 2000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 2001 - Rs. 5000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 5001 - Rs. 8000
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 8001 - Rs. 10000
-												</label><label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 10001 - Rs. 14999
-												</label><label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Rs. 15000 & Above
-												</label>
-											</div>
-										</div>
-									</div>
+									</div> 
 									
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Seller Type</h4>
@@ -309,107 +237,52 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> All 
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
+													<i></i> Seller Deals (<?php echo $seller; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Trade
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
+													<i></i> Needed Deals (<?php echo $needed; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Private
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('ForHire',$seller_deals)) echo 'checked = checked';?> value="ForHire" >
+													<i></i> ForHire Deals (<?php echo $forhire; ?>)
+												</label>
+											</div>
+										</div> 
+									</div>
+									
+									<div class="cd-filter-block">
+										<h4 class="title-widget closed">Deal Type</h4>
+
+										<div class="cd-filter-content" style="overflow: hidden; display: none;">
+											<div>
+												<label class="radio">
+													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
+													<i></i> All (<?php echo $allbustype; ?>)
+												</label>
+												<label class="radio">
+													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
+													<i></i> Business (<?php echo $business; ?>)
+												</label>
+												<label class="radio">
+													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
+													<i></i> Consumer (<?php echo $consumer; ?>)
 												</label>
 											</div>
 										</div>
 									</div>
 									
 									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deals posted in</h4>
-
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i>Last 24 Hours
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 3 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 7 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 14 Days
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 1 Month
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Last 2 Month
-												</label>
-											</div>
-										</div>
-									</div> 
-									
-									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Location</h4>
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div id="limit_scrol">
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Madhapur
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Banjara Hills
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> madhapur
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Secunderabad 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Kachiguda 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> JNTU 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> KPHP 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Jubilee Hills 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Lakdikapul
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Khairatabad
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Dilsukhnagar
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
-												</label>
+											<div class="input">
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" value="<?php echo $location; ?>" name="find_loc">
+												<input type='hidden' name='latt' id='latt' value='' >
+												<input type='hidden' name='longg' id='longg' value='' >
+												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
+												<button class="btn btn-primary sm-btn pull-right clear_location" id='clear_location' >Clear</button>
 											</div>
 										</div>
 									</div> 
@@ -420,33 +293,32 @@
 										<div class="cd-filter-content">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Urgent Deals 
+													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Feature Deals
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
+													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Deals With Pictures
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
+													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="" value="" >
-													<i></i> Others
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
+													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>
-										</div> 
-									</div>
+										</div>
+									</div> 
+									
+									
+									
+									
 								</div>
 								<div class="row top_20">
-									<div class="col-sm-12">
-										<img src="<?php echo base_url(); ?>img/slide/right_ad.jpg" alt="add" title="Adds">
-									</div>
-								</div>
-								<div class="row top_20">
-									<div class="col-sm-12">
-										<img src="<?php echo base_url(); ?>img/slide/right_ad.jpg" alt="add" title="Adds">
+									<div class="col-sm-12 left_ad1">
+										<?php echo $left_ad1; ?>
 									</div>
 								</div>
 							</div>
@@ -456,7 +328,7 @@
 							<div class="col-md-9">
                                 <div class="sort-by-container tooltip-hover">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-12">
                                             <strong>Sort by:</strong>
                                             <ul>                            
                                                 <li>
@@ -477,10 +349,10 @@
 												<li>
 													<div class="top_bar_top">
 														<label class="input select">
-															<select name="star">
-																<option value="none" selected disabled="">Select Name</option>
-																<option value="5">A to Z</option>
-																<option value="4">Z to A</option>
+															<select name="dealtitle_sort" class="dealtitle_sort">
+																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 															</select>
 															<i></i>
 														</label>
@@ -489,721 +361,38 @@
 												<li>
 													<div class="top_bar_top">
 														<label class="input select">
-															<select name="star">
-																<option value="none" selected disabled="">Select Price</option>
-																<option value="5">Sort Ascending</option>
-																<option value="4">Sort Descending</option>
+															<select name="price_sort" class="price_sort">
+																<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+																<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+																<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 															</select>
 															<i></i>
 														</label>
 													</div>
                                                 </li>
+                                                <li>
+													<div class="top_bar_top">
+														<label class="input select">
+																<select name="recentdays_sort" class="recentdays_sort">
+																	<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																	<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																	<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																	<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																	<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																	<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+																</select>
+																<i></i>
+															</label>
+													</div>
+												</li>
 											</ul>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <ul class="style-view">
-                                                <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-                                                    <a href="">
-                                                        <i class="fa fa-th-large"></i>
-                                                    </a>
-                                                </li>
-                                                <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-                                                    <a href="small_applicaances_view">
-                                                        <i class="fa fa-list"></i>
-                                                    </a>
-                                                </li> 
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- sort-by-container-->
-
-                                <div class="row list_view_searches">
-                                    <!-- platinum+urgent package start -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
-													<div class="xuSlider">
-														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-														</ul>
-														<div class="direction-nav">
-															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-															<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-														</div>
-														<div class="control-nav">
-															<li data-id="1"><a href="javascript:;">1</a></li>
-															<li data-id="2"><a href="javascript:;">2</a></li>
-															<li data-id="3"><a href="javascript:;">3</a></li>
-															<li data-id="4"><a href="javascript:;">4</a></li>
-															<li data-id="5"><a href="javascript:;">5</a></li>
-														</div>	
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-										<!-- End Item Gallery List View-->
-									</div>
-									<!-- platinum+urgent package end -->
-									
-									<!-- platinum package start-->
-                                    <div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="xuSlider">
-														<ul class="sliders">
-															<li><img src="img/blog/002.jpg" class="img-responsive" alt="Slider1" title="Sliders"></li>
-															<li><img src="img/blog/003.jpg" class="img-responsive" alt="Slider2" title="Sliders"></li>
-															<li><img src="img/blog/004.jpg" class="img-responsive" alt="Slider3" title="Sliders"></li>
-															<li><img src="img/blog/005.jpg" class="img-responsive" alt="Slider4" title="Sliders"></li>
-															<li><img src="img/blog/006.jpg" class="img-responsive" alt="Slider5" title="Sliders"></li>
-														</ul>
-														<div class="direction-nav">
-															<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-															<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-														</div>
-														<div class="control-nav">
-															<li data-id="1"><a href="javascript:;">1</a></li>
-															<li data-id="2"><a href="javascript:;">2</a></li>
-															<li data-id="3"><a href="javascript:;">3</a></li>
-															<li data-id="4"><a href="javascript:;">4</a></li>
-															<li data-id="5"><a href="javascript:;">5</a></li>
-														</div>	
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- platinum package end -->
-
-									<!-- gold+urgent package starts -->
-									<div class="col-md-12">
-										<div class="first_list gold_bgcolor">
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
-													<div class="img-hover view_img">
-														<img src="img/blog/005.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-																<!--div class="col-xs-4 ">
-																	<div class="add-to-compare-list pull-right">
-																		<span class="gold_icon"></span>
-																	</div>
-																</div-->
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom gold_bgcolor">
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- gold+urgent package end -->
-									
-									<!-- gold package starts -->
-									<div class="col-md-12">
-										<div class="first_list gold_bgcolor">
-											<div class="row">
-												<div class="col-sm-4 ">
-													<div class="img-hover view_img">
-														<img src="pictures/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-													<div class="">
-														<div class="price11">
-															<span></span><b>
-															<img src="img/icons/thumb.png" class="pull-right" alt="thumb" title="thumb Icon"></b>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom gold_bgcolor">
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- gold package end -->
-									
-									<!-- free+urgent package starts -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="featured-badge">
-														<span>Urgent</span>
-													</div>
-													<div class="img-hover">
-														<img src="img/blog/004.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- free+urgent package ends -->
-									
-									<!-- free package starts -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- free package ends -->
-
-									<!-- free Add Start -->
-									<div class="col-md-8 col-md-col-2" style="height: 110px;">
-										<img src="<?php echo base_url(); ?>img/slide/adds.jpg" alt="add" title="Adds">
-									</div>
-									<!-- free Add ends -->
-
-									<!-- free package starts -->
-									<div class="col-md-12">
-										<div class="first_list">
-											<div class="row">
-												<div class="col-sm-4 view_img">
-													<div class="img-hover">
-														<img src="img/blog/002.jpg" alt="img_1" title="img_1" class="img-responsive">
-														<div class="overlay"><a href="description_view"><i class="top_20 fa fa-link"></i></a></div>
-													</div>
-												</div>
-												<div class="col-sm-8 middle_text">
-													<div class="row">
-														<div class="col-sm-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<h3 class="list_title">Sample text Here</h3>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-4">
-																	<ul class="starts">
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																	</ul>
-																</div>
-																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
-																		<a href="" class="location"> Location</a> ,<a href="" class="location">Place</a>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xs-4 serch_bus_logo">
-															<img src="img/brand/intel.png" alt="intel" title="intel logo" class="img-responsive">
-														</div>
-													</div>
-													<hr class="separator">
-													<div class="row">
-														<div class="col-xs-8">
-															<div class="row">
-																<div class="col-xs-12">
-																	<p class="">The Holiday Inn Bilbao is in a prime location next to the Basilica of  and the </p>
-																</div>
-																<div class="col-xs-12">
-																	<a href="description_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-4">
-															<div class="row">
-																<div class="col-xs-10 col-xs-offset-1 amt_bg">
-																	<h3 class="view_price">£1106</h3>
-																</div>
-																<div class="col-xs-12">
-																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><!-- End Row-->
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="post-meta list_view_bottom" >
-													<ul>
-														<li><i class="fa fa-camera"></i><a href="#">2</a></li>
-														<li><i class="fa fa-video-camera"></i><a href="#">3</a></li>
-														<li><i class="fa fa-user"></i><a href="#">Person Name</a></li>
-														<li><i class="fa fa-clock-o"></i><span>April 23, 2015</span></li>
-														<li><i class="fa fa-eye"></i><span>234 Views</span></li>
-														<li><span>Deal ID : 112457856</span></li>
-														<li><i class="fa fa-star"></i><span><a href="#">Saved</a></span></li>
-														<li><i class="fa fa-edit"></i></li>
-														<li><img src="img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
-													</ul>                      
-												</div>
-											</div>
-										</div><hr class="separator">	
-									</div>
-									<!-- free package ends -->
+								
+								<div class="row list_view_searches motor_result">
+									<?php echo $this->load->view("classified/small_applicaances_view_search"); ?>
 								</div>
 							</div>
 						</div>
@@ -1212,22 +401,40 @@
 			</div>
 		</form>
 	</section>
+
+	<!--MAP Modal -->
+	<div class="modal fade" id="map_location" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<!-- <form action="#" method="post" class="j-forms " > -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Map Location</h2>
+					</div>
+					<div class="modal-body map_show">
+						
+					</div>
+				</div>
+			<!-- </form> -->
+		</div>
+	</div>
 	
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 	<script>
 		$('.xuSlider').xuSlider();
 	</script>
 	
-	<script src="js/jquery.nicescroll.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-	<script src="libs/jquery.mixitup.min.js"></script>
-	<script src="libs/main.js"></script>	
+	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+	<script src="<?php echo base_url(); ?>libs/main.js"></script>	

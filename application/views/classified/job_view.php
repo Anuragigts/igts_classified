@@ -144,7 +144,7 @@
 	$seller_deals = $this->session->userdata('seller_deals');
 	$dealurgent = $this->session->userdata('dealurgent');
 	$dealtitle = $this->session->userdata('dealtitle');
-	echo "<pre>"; print_r($dealtitle);echo "</pre>";
+	// echo "<pre>"; print_r($seller_deals);echo "</pre>";
 	$recentdays = $this->session->userdata('recentdays');
 	$search_bustype = $this->session->userdata('search_bustype');
 	$location = $this->session->userdata('location');
@@ -167,10 +167,11 @@
 	  	$freecnt = $pckval->freecount;
 	  }
 	  foreach ($jobpositioncnt as $posval) {
-	  	$freshers = $posval->freshers;
-	  	$experience = $posval->experience;
-	  	$internship = $posval->internship;
-	  	$contract = $posval->contract;
+	  	$students = $posval->students;
+	  	$entrylevel = $posval->entrylevel;
+	  	$nonmanager = $posval->nonmanager;
+	  	$manager = $posval->manager;
+	  	$executive = $posval->executive;
 	  }
 	   foreach ($sellerneededcount as $sncnt) {
 	  	$company = $sncnt->company;
@@ -229,20 +230,24 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor"  value="Fresher" <?php if (isset($positionfor) && in_array('Fresher', $positionfor)) { echo 'checked=checked';	} ?> >
-													<i></i>  Fresher (<?php echo $freshers; ?>)
+													<input type="checkbox" name="positionfor[]" class="positionfor"  value="Student_(Higher_Education_Graduate)" <?php if (isset($positionfor) && in_array('Student_(Higher_Education_Graduate)', $positionfor)) { echo 'checked=checked';	} ?> >
+													<i></i>  Student (Higher Education Graduate) (<?php echo $students; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor" value="Experience" <?php if (isset($positionfor) && in_array('Experience', $positionfor)) { echo 'checked=checked';	} ?> >
-													<i></i> Experience (<?php echo $experience; ?>)
+													<input type="checkbox" name="positionfor[]" class="positionfor" value="Entry-level" <?php if (isset($positionfor) && in_array('Entry-level', $positionfor)) { echo 'checked=checked';	} ?> >
+													<i></i> Entry-level (<?php echo $entrylevel; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor" value="Internship" <?php if (isset($positionfor) && in_array('Internship', $positionfor)) { echo 'checked=checked';	} ?> >
-													<i></i> Internship (<?php echo $internship; ?>)
+													<input type="checkbox" name="positionfor[]" class="positionfor" value="Expirenced_(Non-Manager)" <?php if (isset($positionfor) && in_array('Expirenced_(Non-Manager)', $positionfor)) { echo 'checked=checked';	} ?> >
+													<i></i> Expirenced (Non-Manager) (<?php echo $nonmanager; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="positionfor[]" class="positionfor" value="Contract" >
-													<i></i> Contract (<?php echo $contract; ?>)
+													<input type="checkbox" name="positionfor[]" class="positionfor" value="Manager_(Managing_the_staff)" <?php if (isset($positionfor) && in_array('Manager_(Managing_the_staff)', $positionfor)) { echo 'checked=checked';	} ?> >
+													<i></i> Manager (Managing the staff) (<?php echo $manager; ?>)
+												</label>
+												<label class="checkbox">
+													<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
+													<i></i> Executive (Director Dept.Head) (<?php echo $executive; ?>)
 												</label>
 											</div>
 										</div>
@@ -275,15 +280,15 @@
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Company" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Company" <?php if(isset($seller_deals) && in_array('Company',$seller_deals)){ echo 'checked = checked';}?> >
 													<i></i> Company Deals (<?php echo $company; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Agency" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Agency" <?php if(isset($seller_deals) && in_array('Agency',$seller_deals)){ echo 'checked = checked';}?> >
 													<i></i> Agency Deals (<?php echo $agency; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Other" >
+													<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Other" <?php if(isset($seller_deals) && in_array('Other',$seller_deals)){ echo 'checked = checked';}?> >
 													<i></i> Other Deals (<?php echo $other; ?>)
 												</label>
 											</div>
@@ -295,7 +300,7 @@
 
 										<div class="cd-filter-content" style="overflow: hidden; display: none;">
 											<div class="input">
-												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc">
+												<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
 												<input type='hidden' name='latt' id='latt' value='' >
 												<input type='hidden' name='longg' id='longg' value='' >
 												<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>

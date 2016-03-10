@@ -403,6 +403,11 @@
 										</div>
 									</div>
 								</div>
+								<div class="row top_20">
+									<div class="col-sm-12 left_ad1">
+										<?php echo $left_ad1; ?>
+									</div>
+								</div>
 								
 							</div>
 							<!-- End Item Table-->

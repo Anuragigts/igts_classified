@@ -151,27 +151,27 @@
 			    }
 			);
 		</script>
-	  <?php foreach ($busconcount as $countval) {
-	  	$allbustype = $countval->allbustype;
-	  	$business = $countval->business;
-	  	$consumer = $countval->consumer;
-	  }
-	  foreach ($deals_pck as $pckval) {
-	  	$urgentcnt = $pckval->urgentcount;
-	  	$platinumcnt = $pckval->platinumcount;
-	  	$goldcnt = $pckval->goldcount;
-	  	$freecnt = $pckval->freecount;
-	  }
-	  foreach ($public_adview as $publicview) {
-	  	$left_ad1 = $publicview->sidead_one;
-	  	$topad = $publicview->topad;
-	  	$mid_ad = $publicview->mid_ad;
-	  }
-	  foreach ($sellerneededcount as $sncnt) {
-	  	$seller = $sncnt->seller;
-	  	$needed = $sncnt->needed;
-	  	$forhire = $sncnt->forhire;
-	  }
+			  <?php foreach ($busconcount as $countval) {
+			  	$allbustype = $countval->allbustype;
+			  	$business = $countval->business;
+			  	$consumer = $countval->consumer;
+			  }
+			  foreach ($deals_pck as $pckval) {
+			  	$urgentcnt = $pckval->urgentcount;
+			  	$platinumcnt = $pckval->platinumcount;
+			  	$goldcnt = $pckval->goldcount;
+			  	$freecnt = $pckval->freecount;
+			  }
+			  foreach ($public_adview as $publicview) {
+			  	$left_ad1 = $publicview->sidead_one;
+			  	$topad = $publicview->topad;
+			  	$mid_ad = $publicview->mid_ad;
+			  }
+			  foreach ($sellerneededcount as $sncnt) {
+			  	$seller = $sncnt->seller;
+			  	$needed = $sncnt->needed;
+			  	$forhire = $sncnt->forhire;
+			  }
 	  		$seller_deals = $this->session->userdata('seller_deals');
 			$dealurgent = $this->session->userdata('dealurgent');
 			$dealtitle = $this->session->userdata('dealtitle');
@@ -311,15 +311,15 @@
 													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 												</label>
 												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
+													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
 													<i></i> Recent Deals (<?php echo $freecnt; ?>)
 												</label>
 											</div>

@@ -42,290 +42,42 @@
                 $("#longg").val(longitude);
             });
         });
-
-        $(function(){
-        	/*find search deal*/
-        	$("#find_deal").click(function(){
-        		var cat = $("#category_name").val();
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		var bustype = $("input[name=business_type]:checked").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/result_form",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype
-					},
-					success: function (data) {
-						$(".result_hide").css("display", 'block');
-						$(".search_result").html(data);
-					}
-				})
-        	});
-        	/*searches for urgent or platinum*/
-        	$(".dealurgent").click(function(){
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		if ($("input:radio[name=business_type]").is(":checked")) {
-        			var bustype = $("input[name=business_type]:checked").val();
-        		}else{
-        			var bustype = 0;
-        		}
-        		var cat = $("#category_name").val();
-        		/*deal urgent */
-        		var urgenttime_list = [];
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var urgent = $(this).val();
-				     urgenttime_list.push(urgent); 
-				});
-				/*deal location search */
-        		var location_list = [];
-        		$("input[name='loc_search[]']:checked").each( function () {
-					 var location = $(this).val();
-				     location_list.push(location); 
-				});
-
-				
-				/*deal title sort*/
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-
-				/*deal title sort*/
-				var priceval = $(".price_sort option:selected").val(); 
-				/*recent days sort*/
-				var recentdays = $(".recentdays_sort option:selected").val(); 
-
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/search_filters",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						dealtitle: dealtitle,
-						priceval: priceval,
-						recentdays: recentdays,
-						urgenttime_list: urgenttime_list,
-						location_list: location_list
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-	
-			$(".loc_search").click(function(){
-
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		if ($("input:radio[name=business_type]").is(":checked")) {
-        			var bustype = $("input[name=business_type]:checked").val();
-        		}else{
-        			var bustype = 0;
-        		}
-        		var cat = $("#category_name").val();
-        		/*deal location search */
-        		var location_list = [];
-        		$("input[name='loc_search[]']:checked").each( function () {
-					 var location = $(this).val();
-				     location_list.push(location); 
-				});
-
-				/*deal urgent */
-        		var urgenttime_list = [];
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var urgent = $(this).val();
-				     urgenttime_list.push(urgent); 
-				});
-				
-				/*deal title sort*/
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-
-				/*deal title sort*/
-				var priceval = $(".price_sort option:selected").val(); 
-				/*recent days sort*/
-				var recentdays = $(".recentdays_sort option:selected").val(); 
-
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/search_filters",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						dealtitle: dealtitle,
-						priceval: priceval,
-						recentdays: recentdays,
-						location_list: location_list,
-						urgenttime_list: urgenttime_list
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-
-		/*deal title ascending order*/
-		$(".dealtitle_sort").change(function(){
-
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		if ($("input:radio[name=business_type]").is(":checked")) {
-        			var bustype = $("input[name=business_type]:checked").val();
-        		}else{
-        			var bustype = 0;
-        		}
-        		var cat = $("#category_name").val();
-        		/*deal location search */
-        		var location_list = [];
-        		$("input[name='loc_search[]']:checked").each( function () {
-					 var location = $(this).val();
-				     location_list.push(location); 
-				});
-
-				/*deal urgent */
-        		var urgenttime_list = [];
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var urgent = $(this).val();
-				     urgenttime_list.push(urgent); 
-				});
-				
-				/*deal title sort*/
-				var priceval = $(".price_sort option:selected").val();
-				/*recent days sort*/
-				var recentdays = $(".recentdays_sort option:selected").val(); 
-
-				/*deal title sort*/
-				var dealtitle = $(".dealtitle_sort option:selected").val(); 
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/search_filters",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						dealtitle: dealtitle,
-						priceval: priceval,
-						recentdays: recentdays,
-						location_list: location_list,
-						urgenttime_list: urgenttime_list
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-
-	/*deal title descending order*/
-		$(".price_sort").change(function(){
-
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		if ($("input:radio[name=business_type]").is(":checked")) {
-        			var bustype = $("input[name=business_type]:checked").val();
-        		}else{
-        			var bustype = 0;
-        		}
-        		var cat = $("#category_name").val();
-        		/*deal location search */
-        		var location_list = [];
-        		$("input[name='loc_search[]']:checked").each( function () {
-					 var location = $(this).val();
-				     location_list.push(location); 
-				});
-
-				/*deal urgent */
-        		var urgenttime_list = [];
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var urgent = $(this).val();
-				     urgenttime_list.push(urgent); 
-				});
-				
-				/*deal title sort*/
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-
-				/*deal title sort*/
-				var priceval = $(".price_sort option:selected").val(); 
-				/*recent days sort*/
-				var recentdays = $(".recentdays_sort option:selected").val(); 
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/search_filters",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						dealtitle: dealtitle,
-						priceval: priceval,
-						recentdays: recentdays,
-						location_list: location_list,
-						urgenttime_list: urgenttime_list
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-
-	/*recent days sort order*/
-		$(".recentdays_sort").change(function(){
-
-        		var latt = $("#latt").val();
-        		var longg = $("#longg").val();
-        		if ($("input:radio[name=business_type]").is(":checked")) {
-        			var bustype = $("input[name=business_type]:checked").val();
-        		}else{
-        			var bustype = 0;
-        		}
-        		var cat = $("#category_name").val();
-        		/*deal location search */
-        		var location_list = [];
-        		$("input[name='loc_search[]']:checked").each( function () {
-					 var location = $(this).val();
-				     location_list.push(location); 
-				});
-
-				/*deal urgent */
-        		var urgenttime_list = [];
-        		$("input[name='dealurgent[]']:checked").each( function () {
-					 var urgent = $(this).val();
-				     urgenttime_list.push(urgent); 
-				});
-				
-				/*deal title sort*/
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-
-				/*recent days sort*/
-				var recentdays = $(".recentdays_sort option:selected").val(); 
-				/*price sort*/
-				var priceval = $(".price_sort option:selected").val(); 
-				$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deal_page/search_filters",
-					data: {
-						cat: cat,
-						latt: latt,
-						longg: longg,
-						bustype: bustype,
-						dealtitle: dealtitle,
-						priceval: priceval,
-						recentdays: recentdays,
-						location_list: location_list,
-						urgenttime_list: urgenttime_list
-					},
-					success: function (data) {
-						$(".search_result").html(data);
-					}
-				})
-        	});
-        });
     </script>
+    <script type="text/javascript">
+		$(document).ready(
+			    function()
+			    {
+			        $("input:checkbox").change(
+			            function()
+			            {
+			                    $("form.jforms").submit();
+			            }
+			        )
+			        $('input:radio').click(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.dealtitle_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $('.recentdays_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
+			        $(".clear_location").click(function(){
+			        	$('#latt').val('');
+			        	$('#longg').val('');
+			        	$('#find_loc').val('');
+			        	$("form.jforms").submit();
+			        });
+
+			        $("#find_deal").click(function(){
+			        	$("form").submit();
+			        });
+			    }
+			);
+		</script>
 	  
 	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
@@ -342,7 +94,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form action="" method="post" class="j-forms" style="background-color: white ! important;">
+		<form action="<?php echo base_url(); ?>deal_page" method="post" class="j-forms jforms" style="background-color: white ! important;">
 			<div class="content_info hotdeal_minheight">
 				<div class="paddings">
 					<div class="container">
@@ -380,14 +132,9 @@
 													<input type='hidden' name='longg' id='longg' value='' >
 													<select name="category_name" id="category_name">
 														<option value="all" selected >All</option>
-														<option value="ezone">E-Zone</option>
-														<option value="motorpoint">Motor Point</option>
-														<option value="clothing_&_lifestyles">Clothing & LifeStyles</option>
-														<option value="services">Services</option>
-														<option value="findaproperty">Find a Property</option>
-														<option value="kitchenhome">Home & Kitchen</option>
-														<option value="pets">Pets</option>
-														<option value="jobs">Jobs</option>
+														<?php foreach ($category as $categorycal) { ?>
+														<option value="<?php echo $categorycal->category_id; ?>"><?php echo ucfirst($categorycal->category_name); ?></option>
+														<?php } ?>
 													</select>
 													<i></i>
 												</label>
@@ -397,7 +144,7 @@
 													<div class="input">
 														<input type="text" placeholder="Enter Location" id="find_loc" name="find_loc">
 													</div>
-													<button type="button" id='find_deal' class="bg addon-btn adn-130 adn-right">
+													<button type="button" id='find_deal' name='find_deal' value="find_deal" class="bg addon-btn adn-130 adn-right">
 														Find a Deal
 													</button>
 												</div>
@@ -411,7 +158,7 @@
 							
 					<div class="container">
 						<div class="row">		
-							<div class="deal_result_hide result_hide" style='display:none;'>
+							<div class="deal_result_hide result_hide" >
 								<hr class="top_20 separator">
 								<div class="col-sm-3 all_categories">
 								<div class="container-by-widget-filter bg-dark color-white">
@@ -520,7 +267,8 @@
 									</div>
 									<!-- sort-by-container-->
 
-									<div class="row list_view_searches search_result">
+									<div class="row list_view_searches">
+										<?php echo $this->load->view("classified/deal_page_search"); ?> 
 									</div>
 								</div>
 							</div>
