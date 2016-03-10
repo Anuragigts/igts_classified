@@ -297,6 +297,67 @@
 	}
 }
 /* ---------------------------------------------------------------------- */
+/*	 Version 360px
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 360px) {
+	.featured_badge_view {
+		width: 136px;
+		height: 86px;
+		background: transparent url("../img/icons/reco.png") no-repeat;
+		position: absolute;
+		top: 0;
+		z-index: 7;
+		right: -220px;
+	}
+	.featured-badge {
+		width: 136px;
+		height: 86px;
+		background: transparent url("../img/icons/reco.png") no-repeat;
+		position: absolute;
+		top: 0;
+		z-index: 7;
+		right: 0;
+	}
+
+	.most_valued_badge{
+		height: 60px;
+		background: transparent url("../img/icons/reco.png") no-repeat;
+		position: absolute;
+		left: 190px;
+		top: 0;
+		z-index: 99;
+		right: 0;
+	}
+
+	.bus_rec_badge {
+		height: 60px;
+		background: transparent url("../img/icons/reco.png") no-repeat;
+		position: absolute;
+		left: 203px;
+		top: 0;
+		z-index: 99;
+		right: 0;
+	}
+
+
+	.significant_badge {
+		height: 60px;
+		background: transparent url("../img/icons/reco.png") no-repeat;
+		position: absolute;
+		left: 232px;
+		top: 0;
+		z-index: 99;
+		right: 0;
+	}
+	.sort-by-container ul li {
+		padding: 0;
+		width: 100%;
+		margin-right: 15px;
+		display: inline-block;
+	}
+}
+
+/* ---------------------------------------------------------------------- */
 /*	 Version 480px
 /* ---------------------------------------------------------------------- */
 @media handheld, only screen and (max-width: 470px) {

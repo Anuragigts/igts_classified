@@ -5031,6 +5031,11 @@ h4 a:hover{
 .slide_j3{
 	cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 40px; overflow: hidden;
 }
+.slide_j3 img{
+	padding-left:5px;
+	padding-right:5px;
+	border-radius: 8px;
+}
 .recentad_heig{
 	height:359px;
 }
@@ -5690,7 +5695,7 @@ margin-left: -1px;
 }
 
 .blog .blog-item .entry-meta > span a {
-  font-size: 12px;
+  font-size: 11px;
   margin-left: 3px;
   font-weight: 300;
   color: #888;
@@ -5834,4 +5839,19 @@ strong{
 }
 .gmap_marker{
 	overflow-y: hidden;
+}
+.cont_left{
+	padding: 20px;
+	border: 2px solid #9FC955;
+	border-radius: 16px;
+	background-color: #9FC955;
+}
+.whi_te{
+	color:#fff;
+}
+.whi_te a{
+	color:#fff;
+}
+.whi_te a:hover{
+	color:#E95413 !important;
 }
