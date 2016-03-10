@@ -132,22 +132,18 @@
 			            }
 			        )
 			        $('input:radio').click(function() {
-			        	// alert('radio');
 							$("form.jforms").submit();
 			            }
 			        )
 			        $('.dealtitle_sort').change(function() {
-			        	alert($('.dealtitle_sort').val());
 							$("form.jforms").submit();
 			            }
 			        )
 			        $('.price_sort').change(function() {
-			        	alert($('.price_sort').val());
 							$("form.jforms").submit();
 			            }
 			        )
 			        $('.recentdays_sort').change(function() {
-			        	alert($('.recentdays_sort').val());
 							$("form.jforms").submit();
 			            }
 			        )

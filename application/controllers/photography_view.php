@@ -146,7 +146,7 @@ class  Photography_view extends CI_Controller{
 
             $config = array();
             $config['base_url'] = base_url().'photography_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_entertain_search());
+            $config['total_rows'] = count($this->hotdealsearch_model->count_poto_search());
             $config['per_page'] = 2;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -171,7 +171,7 @@ class  Photography_view extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->entertain_search($search_option);
+             $rs = $this->hotdealsearch_model->poto_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;

@@ -130,6 +130,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->or_where("ad.package_type", "3");
 		$this->db->or_where("ad.package_type", "6");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -150,6 +151,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "1");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -170,6 +172,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -190,6 +193,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -210,6 +214,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "6");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -230,6 +235,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "4");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -250,6 +256,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "7");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -270,6 +277,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "5");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -292,6 +300,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -313,6 +322,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where("ads.package_type", "3");
+		$this->db->where("ads.ad_status", "1");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -334,6 +344,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->or_where("ads.package_type", "2");
 		$this->db->or_where("ads.package_type", "5");
+		$this->db->where("ads.ad_status", "1");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -354,6 +365,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.ad_type', 'consumer');
+		$this->db->where("ads.ad_status", "1");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -376,6 +388,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.ad_type', 'business');
+		$this->db->where("ads.ad_status", "1");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -396,6 +409,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.ad_type', 'business');
+		$this->db->where("ads.ad_status", "1");
 		$this->db->where('img.bus_logo !=', '');
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
@@ -418,6 +432,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
@@ -429,6 +444,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
@@ -440,6 +456,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
@@ -455,6 +472,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('urgent_pkg_label as u_lab','u_lab.u_pkg_id = ad.urgent_package','inner');
 		$this->db->join('pkg_duration_list as pl','pl.pkg_dur_id = ad.package_type','inner');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
@@ -467,6 +485,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
@@ -481,6 +500,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
 		if ($this->input->post("dealtitle") == 'atoz') {
@@ -962,6 +982,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -982,6 +1003,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -998,6 +1020,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "1");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad",$data['limit'],$data['start']);
@@ -1018,6 +1041,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "1");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1039,6 +1063,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "5");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1053,6 +1078,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "5");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1088,6 +1114,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1103,6 +1130,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1118,6 +1146,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1133,6 +1162,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1148,6 +1178,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1163,6 +1194,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1178,6 +1210,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1193,6 +1226,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1208,6 +1242,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1223,6 +1258,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1238,6 +1274,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1253,6 +1290,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1267,6 +1305,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1286,6 +1325,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1305,6 +1345,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1326,6 +1367,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1341,6 +1383,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1356,6 +1399,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1371,6 +1415,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1387,6 +1432,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1419,6 +1465,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1439,6 +1486,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1458,6 +1506,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1477,6 +1526,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1496,6 +1546,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1515,6 +1566,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1534,6 +1586,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1553,6 +1606,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1572,6 +1626,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1592,6 +1647,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1611,6 +1667,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1630,6 +1687,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1649,6 +1707,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1668,6 +1727,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1688,6 +1748,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "7");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1708,6 +1769,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "7");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1728,6 +1790,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "4");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1748,6 +1811,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "4");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1769,6 +1833,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -1790,6 +1855,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1813,6 +1879,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "20");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -1834,6 +1901,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "20");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1856,6 +1924,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "21");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1877,6 +1946,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "21");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -1898,6 +1968,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "22");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1919,6 +1990,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "23");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1940,6 +2012,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "24");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1961,6 +2034,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "25");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1982,6 +2056,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "22");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2003,6 +2078,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "23");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2025,6 +2101,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "24");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2046,6 +2123,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "25");
+		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);

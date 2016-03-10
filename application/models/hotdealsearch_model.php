@@ -513,28 +513,64 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 
-		
-
-        public function hotdeal_search(){
+		public function count_hotdeal_search(){
+				$cat_id =  $this->session->userdata('cat_id');
+				$bus_id =  $this->session->userdata('bus_id');
         		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
-				$this->db->from("postad as ad");
+        		$this->db->from('postad AS ad');
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-				$this->db->join('login as log', "log.login_id = ad.login_id", 'join');
-				if ($this->input->post('cat') != 'all') {
-					$this->db->where('ad.category_id', $this->input->post('cat'));
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				if ($cat_id != 'all') {
+					$this->db->where('ad.category_id', $cat_id);
 				}
-				if ($this->input->post('bustype') != '0') {
+				if ($bus_id != '') {
+					$this->db->where('ad.ad_type', $bus_id);
+				}
+				/*if ($this->input->post('bustype') != '0') {
 					$this->db->where('ad.ad_type', $this->input->post('bustype'));
-				}
-				if ($this->input->post('latt') != '') {
+				}*/
+				/*if ($this->input->post('latt') != '') {
 					$this->db->where('loc.latt', $this->input->post('latt'));
 					$this->db->where('loc.longg', $this->input->post('longg'));
-				}
+				}*/
+				$pcktype = '((ad.package_type = "3" OR ad.package_type = "6") OR ((ad.package_type = "2" OR ad.package_type = "5" )
+				AND ad.urgent_package != "0" ))';
+				$this->db->where($pcktype);
 				$this->db->group_by("img.ad_id");
 				$this->db->order_by("ad.ad_id", "DESC");
-				$res = $this->db->get();
-				return $res->result();
+				$m_res = $this->db->get();
+				return $m_res->result();
+		}
+
+        public function hotdeal_search($data){
+        		$cat_id =  $this->session->userdata('cat_id');
+        		$bus_id =  $this->session->userdata('bus_id');
+        		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				if ($cat_id != 'all') {
+					$this->db->where('ad.category_id', $cat_id);
+				}
+				if ($bus_id != '') {
+					$this->db->where('ad.ad_type', $bus_id);
+				}
+				/*if ($this->input->post('bustype') != '0') {
+					$this->db->where('ad.ad_type', $this->input->post('bustype'));
+				}*/
+				/*if ($this->input->post('latt') != '') {
+					$this->db->where('loc.latt', $this->input->post('latt'));
+					$this->db->where('loc.longg', $this->input->post('longg'));
+				}*/
+				$pcktype = '((ad.package_type = "3" OR ad.package_type = "6") OR ((ad.package_type = "2" OR ad.package_type = "5" )
+					AND ad.urgent_package != "0" ))';
+				$this->db->where($pcktype);
+				$this->db->group_by("img.ad_id");
+				$this->db->order_by("ad.ad_id", "DESC");
+				$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+				// echo $this->db->last_query(); exit;
+				return $m_res->result();
 			
         }
 
@@ -640,6 +676,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "2");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($profpop)) {
 				$this->db->where_in('ad.sub_scat_id', $profpop);
 			}
@@ -747,6 +784,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "2");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($profpop)) {
 				$this->db->where_in('ad.sub_scat_id', $profpop);
 			}
@@ -848,6 +886,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
+			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -961,6 +1000,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
+			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -1065,6 +1105,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
 			}
@@ -1169,6 +1210,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
+			$this->db->where("ad.ad_status", "1");
 			
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
@@ -1270,6 +1312,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
 			}
@@ -1373,6 +1416,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
+			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -1479,9 +1523,8 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
-			// if (!empty($profpop)) {
-			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
-			// }
+			$this->db->where("ad.ad_status", "1");
+			
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -1585,6 +1628,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
+			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -1687,6 +1731,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
+			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -1789,6 +1834,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
+			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -1891,6 +1937,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
+			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -1991,6 +2038,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
+			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -2094,6 +2142,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
+			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
 			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
 			// }
@@ -2260,6 +2309,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
 			}
@@ -2364,6 +2414,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "1");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
@@ -2463,6 +2514,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "1");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
@@ -2561,6 +2613,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "5");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
 			}
@@ -2663,6 +2716,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "5");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
 			}
@@ -2867,6 +2921,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
+			$this->db->where("ad.ad_status", "1");
 			
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
@@ -2969,6 +3024,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($phone_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $phone_sub);
 			}
@@ -3074,6 +3130,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($homes_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $homes_sub);
 			}
@@ -3179,6 +3236,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($smalls_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $smalls_sub);
 			}
@@ -3283,6 +3341,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($lappy_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $lappy_sub);
 			}
@@ -3387,6 +3446,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($pcare_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $pcare_sub);
 			}
@@ -3491,8 +3551,114 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($entertain_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $entertain_sub);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('ad.services', $seller);
+			}
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
+				}
+			}
+			/*package search*/
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array(4, $dealurgent)){
+					array_push($pcklist, 4);
+				}
+				if (in_array(5, $dealurgent)){
+					array_push($pcklist, 5);
+				}
+				if (in_array(6, $dealurgent)){
+					array_push($pcklist, 6);
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
+			}
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($recentdays == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($recentdays == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($recentdays == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($recentdays == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($recentdays == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by("ad.ad_id", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+			 // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+        public function poto_search($data){
+        	$poto_sub = $this->session->userdata('poto_sub');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->where("ad.category_id", "8");
+			$this->db->where("ad.sub_cat_id", "66");
+			$this->db->where("ad.ad_status", "1");
+			if (!empty($poto_sub)) {
+				$this->db->where_in('ad.sub_scat_id', $poto_sub);
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
@@ -3595,6 +3761,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($access_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $access_sub);
 			}
@@ -3800,7 +3967,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
-			
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
 			}
@@ -3903,6 +4070,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($phone_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $phone_sub);
 			}
@@ -4009,6 +4177,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($homes_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $homes_sub);
 			}
@@ -4114,6 +4283,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($smalls_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $smalls_sub);
 			}
@@ -4219,6 +4389,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($lappy_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $lappy_sub);
 			}
@@ -4324,6 +4495,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($access_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $access_sub);
 			}
@@ -4429,6 +4601,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($pcare_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $pcare_sub);
 			}
@@ -4535,8 +4708,116 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($entertain_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $entertain_sub);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('ad.services', $seller);
+			}
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
+				}
+			}
+			/*package search*/
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array(4, $dealurgent)){
+					array_push($pcklist, 4);
+				}
+				if (in_array(5, $dealurgent)){
+					array_push($pcklist, 5);
+				}
+				if (in_array(6, $dealurgent)){
+					array_push($pcklist, 6);
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
+			}
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($recentdays == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($recentdays == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($recentdays == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($recentdays == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($recentdays == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($latt) {
+				$this->db->where("loc.latt", $latt);
+				$this->db->where("loc.longg", $longg);
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by("ad.ad_id", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			 // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+
+        public function count_poto_search(){
+        	$poto_sub = $this->session->userdata('poto_sub');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$latt = $this->session->userdata('latt');
+        	$longg = $this->session->userdata('longg');
+        	$seller = $this->session->userdata('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->where("ad.category_id", "8");
+			$this->db->where("ad.sub_cat_id", "66");
+			$this->db->where("ad.ad_status", "1");
+			if (!empty($poto_sub)) {
+				$this->db->where_in('ad.sub_scat_id', $poto_sub);
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
@@ -4644,6 +4925,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
+			$this->db->where("ad.ad_status", "1");
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -4782,6 +5064,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($plants_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $plants_sub);
 			}
@@ -4888,6 +5171,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($farming_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $farming_sub);
 			}
@@ -4994,6 +5278,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($boats_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $boats_sub);
 			}
@@ -5099,6 +5384,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($plants_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $plants_sub);
 			}
@@ -5204,6 +5490,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($farming_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $farming_sub);
 			}
@@ -5309,6 +5596,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($boats_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $boats_sub);
 			}
@@ -5416,6 +5704,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
+			$this->db->where("ad.ad_status", "1");
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -5555,6 +5844,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
+			$this->db->where("ad.ad_status", "1");
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -5694,6 +5984,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
+			$this->db->where("ad.ad_status", "1");
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -5834,6 +6125,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
+			$this->db->where("ad.ad_status", "1");
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -5975,6 +6267,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
+			$this->db->where("ad.ad_status", "1");
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -6115,6 +6408,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
+			$this->db->where("ad.ad_status", "1");
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -6256,6 +6550,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_bike_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
+			$this->db->where("ad.ad_status", "1");
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -6396,6 +6691,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
+			$this->db->where("ad.ad_status", "1");
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -6535,6 +6831,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('motor_bike_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
+			$this->db->where("ad.ad_status", "1");
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -6673,6 +6970,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "7");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($kitchen_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
 			}
@@ -6774,6 +7072,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "7");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($kitchen_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
 			}
@@ -6881,6 +7180,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($proptype)) {
 				$this->db->where_in('ad.sub_cat_id', $proptype);
 			}
@@ -7048,6 +7348,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.ad_status", "1");
 			if (!empty($proptype)) {
 				$this->db->where_in('ad.sub_cat_id', $proptype);
 			}
