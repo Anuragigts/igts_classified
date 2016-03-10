@@ -1080,6 +1080,319 @@ Class Classifed_model extends CI_model{
 
 		return $m_res->result();
 	}
+	public function count_ezone_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_phones_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "59");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_homes_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "60");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_smalls_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "61");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_lappy_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "62");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_access_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "63");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_pcare_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "64");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_entertain_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "65");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_poto_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "66");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_plants_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "17");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_farming_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "18");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_boats_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "19");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function plants_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "17");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function farming_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "18");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function boats_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "19");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	/*cars search*/
+	public function count_cars_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "12");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_carvans_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "14");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_coaches_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "16");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	public function count_vans_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "15");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
+	/*count_bikes_scoters_view search*/
+	public function count_bikes_scoters_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "13");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
 
 	public function motor_view($data){
 		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
@@ -1088,6 +1401,273 @@ Class Classifed_model extends CI_model{
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "3");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function ezone_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	public function phones_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "59");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function homes_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "60");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function smalls_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "61");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function lappy_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "62");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function access_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "63");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function pcare_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "64");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function entertain_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "65");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function poto_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "8");
+		$this->db->where("ad.sub_cat_id", "66");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+
+	public function cars_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "12");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function carvans_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "14");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function vans_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "15");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function coaches_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "16");
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function bikes_scoters_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
