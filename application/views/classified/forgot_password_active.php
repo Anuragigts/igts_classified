@@ -9,8 +9,7 @@
 		overflow: hidden;
 		}
 	</style>
-	<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>logreg.css">
-	<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>switchery.min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>css/logreg.css">
 	<script type="text/javascript" src="switchery.min.js"></script>
 	<!-- Section Title-->    
 	<div class="section-title-01">

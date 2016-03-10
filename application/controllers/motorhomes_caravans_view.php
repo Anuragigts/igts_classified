@@ -196,7 +196,7 @@ class  Motorhomes_caravans_view  extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "motorhomes_caravans_view");
             $result['carvans_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_motor();
             $result['petrolcnt'] = $this->hotdealsearch_model->caravans_petrolcnt();
             $result['milagecnt'] = $this->hotdealsearch_model->caravans_milagecnt();
             $result['enginecnt'] = $this->hotdealsearch_model->caravans_enginecnt();

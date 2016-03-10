@@ -30,8 +30,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
+							<?php echo $this->view("classified_layout/success_error"); ?>
 							<div class="row login_totpad">
-								<div class="col-sm-12">		
+								<div class="col-sm-12">	
 									<div class="row login_left">
 										<div class="col-md-6">
 											<div class=" pull-left">
@@ -44,7 +45,6 @@
 									</div>
 									<div class="login-form">
 										<!-- End Title -->
-										<?php echo $this->view("classified_layout/success_error"); ?>
 										<form  method="post" class="log_form" action="" id="forgot-form">
 											<div class="col-12">
 												<label>Current Email <sup style='color:red;'>*</sup>

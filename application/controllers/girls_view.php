@@ -58,7 +58,7 @@ class  Girls_view extends CI_Controller{
             foreach ($girls_view as $sview) {
                 $loginid = $sview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_clothing();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
              $girls_list_count = $this->hotdealsearch_model->girls_list_count();
@@ -193,7 +193,7 @@ class  Girls_view extends CI_Controller{
                         "content"   =>  "girls_view",
                         'girls_list_count' => $girls_list_count);
             $result['girlview_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_clothing();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;

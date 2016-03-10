@@ -59,7 +59,7 @@ class  Women_view extends CI_Controller{
             foreach ($women_view as $sview) {
                 $loginid = $sview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_clothing();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
              $women_list_count = $this->hotdealsearch_model->women_list_count();

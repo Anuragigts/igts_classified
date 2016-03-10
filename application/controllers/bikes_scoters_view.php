@@ -55,7 +55,7 @@ class  Bikes_scoters_view extends CI_Controller{
             foreach ($bikes_result as $pview) {
                 $loginid = $pview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_motor();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
@@ -196,7 +196,7 @@ class  Bikes_scoters_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "bikes_scoters_view");
             $result['bikes_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_motor();
             $result['petrolcnt'] = $this->hotdealsearch_model->bikepetrolcnt();
             $result['milagecnt'] = $this->hotdealsearch_model->bikemilagecnt();
             $result['enginecnt'] = $this->hotdealsearch_model->bikeenginecnt();

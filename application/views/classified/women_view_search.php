@@ -865,5 +865,9 @@
 									<!-- free Add ends -->
 									<?php } ?>
 									<!-- free package ends -->
-
+									<div class=''>
+										<div class='col-md-12'>
+											<?php echo $paging_links; ?>
+										</div>
+									</div>
 				

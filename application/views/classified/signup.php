@@ -158,6 +158,9 @@
                         <div class="container">
                             <div class="row ">
 								<div class="col-sm-10 col-sm-offset-1">
+									<div class="login-title">
+										<?php echo $this->view("classified_layout/success_error"); ?>
+									</div>
 									<div class="row login_totpad">
 										<div class="col-sm-12">
 											<div class="row login_left">
@@ -171,10 +174,6 @@
 												</div>
 											</div>
 											<div class="login-form">
-												<div class="login-title">
-													<?php echo $this->view("classified_layout/success_error"); ?>
-												</div><!-- End Title -->
-
 												<form  method="post" class="log_form" action="" id="register_form" novalidate="novalidate">
 													<div class="col-1">
 														<label class="radio-inline">
