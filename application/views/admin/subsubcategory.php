@@ -1,9 +1,5 @@
-
-
-
-
 <style>
-.spanform{min-height:250px !important;}
+	.spanform{min-height:250px !important;}
 </style>
 <?php $main_cat = $view; ?>
 <div id="content" class="span9 spanform">
@@ -30,7 +26,7 @@
 										<option value="<?php echo $vt->category_id;?>" <?php echo set_select("cat_name",$vt->category_id);?>><?php echo ucfirst($vt->category_name);?></option>
 										<?php } ?>
 									</select>
-									 <?php echo form_error("cat_name");?>
+									<?php echo form_error("cat_name");?>
 								</div>
 							</div>
 						</div>
@@ -44,7 +40,7 @@
 										<option value="<?php echo $vt->sub_category_id;?>" <?php echo set_select("scat_name",$vt->sub_category_id);?>><?php echo ucfirst($vt->sub_category_name);?></option>
 										<?php } ?>
 									</select>
-									 <?php echo form_error("scat_name");?>
+									<?php echo form_error("scat_name");?>
 								</div>
 							</div>
 						</div>
@@ -57,13 +53,13 @@
 								</div>
 							</div>
 						</div>
-						 <div class="form-group">
-                        <div class="col-lg-5"></div>
-                        <div class="col-lg-2">
-                            <input type="submit" name="create_ssubcategory" value="Create Sub Sub Category" class="btn btn-default"/> 
-                        </div>
-                        <div class="col-lg-5"></div>                        
-                    </div>
+						<div class="form-group">
+							<div class="col-lg-5"></div>
+							<div class="col-lg-2">
+								<input type="submit" name="create_ssubcategory" value="Create Sub Sub Category" class="btn btn-default"/> 
+							</div>
+							<div class="col-lg-5"></div>
+						</div>
 					</fieldset>
 				</form>
 			</div>
@@ -72,7 +68,6 @@
 	</div>
 	<!--/row-->
 </div>
-
 <div id="content" class="span9" style='min-height: 300px;'>
 	<div class="span12">
 		<div class="row-fluid sortable">
@@ -88,44 +83,44 @@
 				<div class="row"></div>
 				<div class="box-content">
 					<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						 <thead>
-                            <tr>
-                                <th>S.No.</th>
-                                <th>Category Name</th>
-                                <th>Sub Category Name</th>
-                                <th>Sub Sub Category Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <?php 
-                                $i = 1;
-                                foreach($sview as $vw){?>
-                                    <tr>
-                                        <td><?php echo $i++;?></td>
-                                        <td><?php  
-                                        $vasl = ucfirst($vw->category_name);
-                                        echo $vasl;?></td>
-                                        <td><?php  
-                                        $val2 = ucfirst($vw->sub_category_name);
-                                        echo $val2;?></td>
-                                        <td><?php  
-                                        $val = ucfirst($vw->sub_subcategory_name);
-                                        echo $val;?></td>
-                                        <td>
-                                            <a href="javascript:void(0);" scategory="<?php echo $vw->sub_subcategory_id;?>" scat="<?php echo $vw->sub_category_id;?>" cat="<?php echo $vw->category_id;?>" class="edcategory" data-toggle="modal" data-target="#flexModal" title="Edit Sub Sub Category"><i class='halflings-icon edit '></i></a>
-                                            <?php if($vw->sub_substatus == 0){ ?>
-                                                <a href="javascript:void(0);" class="sactivate" title="Activate" cname="<?php echo $val;?>" scategory="<?php echo $vw->sub_subcategory_id;?>"><i class='halflings-icon edit green'></i></a>
-                                            <?php } else { ?>
-                                                <a href="javascript:void(0);" class="sdeactivate" title="Deactivate" cname="<?php echo $val;?>" scategory="<?php echo $vw->sub_subcategory_id;?>"><i class='icon-remove-circle text-red'></i></a>
-                                            <?php } ?>
-                                            <a href="<?php echo base_url();?>subsubcategory/delete/<?php echo $vw->sub_subcategory_id;?>" title="Delete Sub Sub Category"><i class='halflings-icon trash text-red'></i></a>
-                                        </td>
-                                    </tr>
-                                <?php 
-                                }
-                                ?>
-                        </tbody>
+						<thead>
+							<tr>
+								<th>S.No.</th>
+								<th>Category Name</th>
+								<th>Sub Category Name</th>
+								<th>Sub Sub Category Name</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php 
+								$i = 1;
+								foreach($sview as $vw){?>
+							<tr>
+								<td><?php echo $i++;?></td>
+								<td><?php  
+									$vasl = ucfirst($vw->category_name);
+									echo $vasl;?></td>
+								<td><?php  
+									$val2 = ucfirst($vw->sub_category_name);
+									echo $val2;?></td>
+								<td><?php  
+									$val = ucfirst($vw->sub_subcategory_name);
+									echo $val;?></td>
+								<td>
+									<a href="javascript:void(0);" scategory="<?php echo $vw->sub_subcategory_id;?>" scat="<?php echo $vw->sub_category_id;?>" cat="<?php echo $vw->category_id;?>" class="edcategory" data-toggle="modal" data-target="#flexModal" title="Edit Sub Sub Category"><i class='halflings-icon edit '></i></a>
+									<?php if($vw->sub_substatus == 0){ ?>
+									<a href="javascript:void(0);" class="sactivate" title="Activate" cname="<?php echo $val;?>" scategory="<?php echo $vw->sub_subcategory_id;?>"><i class='halflings-icon edit green'></i></a>
+									<?php } else { ?>
+									<a href="javascript:void(0);" class="sdeactivate" title="Deactivate" cname="<?php echo $val;?>" scategory="<?php echo $vw->sub_subcategory_id;?>"><i class='icon-remove-circle text-red'></i></a>
+									<?php } ?>
+									<a href="<?php echo base_url();?>subsubcategory/delete/<?php echo $vw->sub_subcategory_id;?>" title="Delete Sub Sub Category"><i class='halflings-icon trash text-red'></i></a>
+								</td>
+							</tr>
+							<?php 
+								}
+								?>
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -133,67 +128,66 @@
 	</div>
 </div>
 <div class="modal modal-flex fade" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="flexModalLabel">Edit Sub Sub Category</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" method="post">
-                    <div class="htname">
-                        
-                    </div>                    
-                    <div class="form-group">
-                        <div class="span2" style='height:55px'></div>
-                        <div class="span8">
-                            <label>Category Name <span class="text-red">*</span></label>
-                           <select name="scat_name" class=" span form-control cat-val cat_chage">
-                                <option value="">-- Select Category --</option>
-                                <?php 
-								foreach ($view as $vt){ ?>
-                                <option value="<?php echo $vt->category_id;?>"><?php echo ucfirst($vt->category_name);?></option>
-                                <?php } ?>
-                            </select>
-                            <span class="err-cat text-red"></span>
-                        </div>
-                        <div class="span2" style='height:55px'></div>  
-                    </div>
-                    <div class="form-group">
-                        <div class="span2" style='height:55px'></div>
-                        <div class="span8">
-                            <label>Sub Category Name <span class="text-red">*</span></label>
-                            <select name="scat_name" class="span form-control scat-val scat_chage">
-                                <option value="">-- Select Sub Category --</option>
-                                <?php foreach ($bview as $vt){ ?>
-                                <option value="<?php echo $vt->sub_category_id;?>"><?php echo ucfirst($vt->sub_category_name);?></option>
-                                <?php } ?>
-                            </select>
-                            <span class="err-scat text-red"></span>
-                        </div>
-                        <div class="span2" style='height:55px'></div>  
-                    </div>
-                    <div class="form-group">
-                        <div class="span2" style='height:55px'></div>
-                        <div class="span8">
-                           <label>Sub Sub Category Name <span class="text-red">*</span></label>
-                           <input type="text" name="sscat_name" class="span form-control ctname" placeholder="Sub Sub Category Name" onkeypress="return onlyAlpha(event);" maxlength="100"/> 
-                           <span class="err-sscat text-red"></span>
-                        </div>
-                        <div class="span2" style='height:55px'></div>                        
-                    </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="flexModalLabel">Edit Sub Sub Category</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" method="post">
+					<div class="htname">
+					</div>
+					<div class="form-group">
+						<div class="span2" style='height:55px'></div>
+						<div class="span8">
+							<label>Category Name <span class="text-red">*</span></label>
+							<select name="scat_name" class=" span form-control cat-val cat_chage">
+								<option value="">-- Select Category --</option>
+								<?php 
+									foreach ($view as $vt){ ?>
+								<option value="<?php echo $vt->category_id;?>"><?php echo ucfirst($vt->category_name);?></option>
+								<?php } ?>
+							</select>
+							<span class="err-cat text-red"></span>
+						</div>
+						<div class="span2" style='height:55px'></div>
+					</div>
+					<div class="form-group">
+						<div class="span2" style='height:55px'></div>
+						<div class="span8">
+							<label>Sub Category Name <span class="text-red">*</span></label>
+							<select name="scat_name" class="span form-control scat-val scat_chage">
+								<option value="">-- Select Sub Category --</option>
+								<?php foreach ($bview as $vt){ ?>
+								<option value="<?php echo $vt->sub_category_id;?>"><?php echo ucfirst($vt->sub_category_name);?></option>
+								<?php } ?>
+							</select>
+							<span class="err-scat text-red"></span>
+						</div>
+						<div class="span2" style='height:55px'></div>
+					</div>
+					<div class="form-group">
+						<div class="span2" style='height:55px'></div>
+						<div class="span8">
+							<label>Sub Sub Category Name <span class="text-red">*</span></label>
+							<input type="text" name="sscat_name" class="span form-control ctname" placeholder="Sub Sub Category Name" onkeypress="return onlyAlpha(event);" maxlength="100"/> 
+							<span class="err-sscat text-red"></span>
+						</div>
+						<div class="span2" style='height:55px'></div>
+					</div>
 					<br/><br/><br/>
-                    <div class="form-group">
-                        <div class="span4"></div>
-                        <div class="span4">
-                            <button type="button" class="btn btn-default update_cad btn_cat" category="">Update Sub Sub Category</button>
-                        </div>
-                        <div class="span4"></div>                        
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<div class="form-group">
+						<div class="span4"></div>
+						<div class="span4">
+							<button type="button" class="btn btn-default update_cad btn_cat" category="">Update Sub Sub Category</button>
+						</div>
+						<div class="span4"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- /.modal -->
 </div>

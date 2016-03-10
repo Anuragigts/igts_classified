@@ -264,12 +264,12 @@
 							</div> 
 						</div> 
 						<div class="row">
-							<div class="col-md-9 col-sm-8 single-blog">
+							<div class="col-md-9 col-sm-12 single-blog">
 								<!-- Post Item Gallery-->
 								<div class="post-item">
 									<div class="row">
 										<!-- Post Header-->
-										<div class="col-sm-9 col-xs-12">
+										<div class="col-md-9 col-sm-9 col-xs-12">
 											<?php if ($urgent_pack != 0) { ?>
 												<div class="featured_badge_view">
 												
@@ -310,7 +310,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-3 col-xs-6  post-header1">
+										<div class="col-md-3 col-sm-3 col-xs-12  post-header1">
 											<div class="add-to-compare-list pull-left">
 												<input type="hidden" name="ad_id" id="ad_id" value="<?php echo $ad_id_no; ?>" />
 												<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
@@ -633,83 +633,83 @@
 								  
 								</script>
 								<form action="<?php echo base_url(); ?>description_view/review" id="rating_form" method="post" class="j-forms tooltip-hover">
-								<div class="widget view_sidebar review_hide" style="display:none;">
-									<div class="j-row">
-										<div class="span12 unit">
-											<label class="label">Review Title 
-												<sup data-toggle="tooltip" title="" data-original-title="Review Title">
-													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-											</label>
-											<div class="input">
-												<label class="icon-right" for="review_title">
-													<i class="fa fa-compass"></i>
+									<div class="widget view_sidebar review_hide" style="display:none;">
+										<div class="j-row">
+											<div class="span12 unit">
+												<label class="label">Review Title 
+													<sup data-toggle="tooltip" title="" data-original-title="Review Title">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<input type="text" id="review_title" name="review_title" placeholder="Enter Review Title">
-												<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
+												<div class="input">
+													<label class="icon-right" for="review_title">
+														<i class="fa fa-compass"></i>
+													</label>
+													<input type="text" id="review_title" name="review_title" placeholder="Enter Review Title">
+													<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
+												</div>
 											</div>
-										</div>
-										<div class="span12 unit">
-											<label class="label">Your Review 
-												<sup data-toggle="tooltip" title="" data-original-title="Your Review ">
-													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-											</label>
-											<div class="input">
-												<textarea type="text" id="review_msg" name="review_msg" placeholder="Enter Your Review"></textarea>
+											<div class="span12 unit">
+												<label class="label">Your Review 
+													<sup data-toggle="tooltip" title="" data-original-title="Your Review ">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
+												</label>
+												<div class="input">
+													<textarea type="text" id="review_msg" name="review_msg" placeholder="Enter Your Review"></textarea>
+												</div>
 											</div>
-										</div>
-										<div class="span12 unit">
-											<label class="label">Name 
-												<sup data-toggle="tooltip" title="" data-original-title="Name">
-													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-											</label>
-											<div class="input">
-												<label class="icon-right" for="name">
-													<i class="fa fa-user"></i>
+											<div class="span12 unit">
+												<label class="label">Name 
+													<sup data-toggle="tooltip" title="" data-original-title="Name">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<input type="text" id="review_name" name="review_name" placeholder="Enter Name">
+												<div class="input">
+													<label class="icon-right" for="name">
+														<i class="fa fa-user"></i>
+													</label>
+													<input type="text" id="review_name" name="review_name" placeholder="Enter Name">
+												</div>
 											</div>
-										</div>
-										<div class="span4 rating-group">
-											<label class="label">Your Rating
-												<sup data-toggle="tooltip" title="" data-original-title="Your Rating">
-													<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-												</sup>
-											</label>
-											<div class="ratings">
-												<input id="5acc" type="radio" name="user_rating" value="5">
-												<label for="5acc">
-													<i class="fa fa-smile-o"></i>
+											<div class="span4 rating-group">
+												<label class="label">Your Rating
+													<sup data-toggle="tooltip" title="" data-original-title="Your Rating">
+														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+													</sup>
 												</label>
-												<input id="4acc" type="radio" name="user_rating" value="4">
-												<label for="4acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="3acc" type="radio" name="user_rating" value="3">
-												<label for="3acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="2acc" type="radio" name="user_rating" value="2">
-												<label for="2acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
-												<input id="1acc" type="radio" name="user_rating" value="1" checked="">
-												<label for="1acc">
-													<i class="fa fa-smile-o"></i>
-												</label>
+												<div class="ratings">
+													<input id="5acc" type="radio" name="user_rating" value="5">
+													<label for="5acc">
+														<i class="fa fa-smile-o"></i>
+													</label>
+													<input id="4acc" type="radio" name="user_rating" value="4">
+													<label for="4acc">
+														<i class="fa fa-smile-o"></i>
+													</label>
+													<input id="3acc" type="radio" name="user_rating" value="3">
+													<label for="3acc">
+														<i class="fa fa-smile-o"></i>
+													</label>
+													<input id="2acc" type="radio" name="user_rating" value="2">
+													<label for="2acc">
+														<i class="fa fa-smile-o"></i>
+													</label>
+													<input id="1acc" type="radio" name="user_rating" value="1" checked="">
+													<label for="1acc">
+														<i class="fa fa-smile-o"></i>
+													</label>
+												</div>
 											</div>
-										</div>
-										<div class="span12 unit clearfix top_20">													
-											<input type="submit" class="btn btn-primary" name="add_review" id='add_review' value="Add Review"> 
+											<div class="span12 unit clearfix top_20">													
+												<input type="submit" class="btn btn-primary" name="add_review" id='add_review' value="Add Review"> 
+											</div>
 										</div>
 									</div>
-								</div>
 								</form>
 							</div>
 							
-							<div class="col-md-3 col-sm-4 col-xs-12">
+							<div class="col-md-3 col-sm-5 col-xs-12">
 								<aside class="widget view_sidebar text_center">
 									<?php if ($isbustype == 'business') { 
 										if ($busimg != '') { ?>
@@ -848,9 +848,7 @@
 					<div class="container">
 							<div class="row">
 								<div class="col-sm-3">
-								<a href="business_deals_view">
-									<img src="<?php echo base_url(); ?>img/recommended.jpg" alt="recommended" title="RECOMMENDED Deals" class="des_rec_heig img-responsive">
-								</a>
+								<img src="<?php echo base_url(); ?>img/recommended.jpg" alt="recommended" title="RECOMMENDED Deals" class="des_rec_heig img-responsive">
 								</div>
 								<div class="col-sm-9">
 									<div id="boxes-carousel">
