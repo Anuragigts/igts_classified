@@ -14,7 +14,6 @@
 		}
 		.slider-horizontal{
 			width: 170px;
-			margin-left: 31px;
 		}
 		.tooltip.top {
 			padding: 5px 0;
@@ -172,47 +171,21 @@
 		<!-- FILTER HEADER - TITLE HEADER-->
 		<div class="filter-title">
 			<!-- FILTER HEADER-->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-sm-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-						<div class="search-form wow pulse" data-wow-delay="0.8s">
-							<form action="" class="form-inline">
-								<div class="form-group">
-									<label class="icon-left" for="consemail">
-										<i class="fa fa-search hidden-xs hidden-sm"></i>
-									</label>
-									<input type="text" class="form-control" placeholder="I'm looking for">
-								</div>
-								<div class="form-group">
-									<select name="" id="" class="form-control">
-										<option>Select Your City</option>
-										<option>E-Zone</option>
-										<option>Services</option>
-										<option>Pets</option>
-										<option>Jobs</option>
-										<option>Home & Kitchen</option>
-										<option>Property</option>
-										<option>Motors</option>
-										<option>Cloths & Lifestyles</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label class="icon-left" for="consemail">
-										<i class="fa fa-search hidden-xs hidden-sm"></i>
-									</label>
-									<input type="text" class="form-control" placeholder="Location">
-								</div>
-								<div class="form-group">
-									<label class="icon-left distance_range" for="consemail">
-										<i class="fa fa-map-marker fa-2x hidden-xs hidden-sm"></i>
-									</label>
-									<input id="ex5a" class="form-control" type="text"/>
-								</div>
-								<input type="submit" class="btn" value="Search">
-							</form>
-						</div>
+			<div class="filter-header">
+				<form action="searchview">
+					<input type="text" required="required" placeholder="I'm looking for" class="input-large">
+					<div class="selector1">
+						<select class="guests-input">
+							<?php foreach ($show_all as $show_val) { ?>
+							<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
+							<?php	} ?>
+						</select>
 					</div>
-				</div>
+					<input type="text" required="required" placeholder="Location" class="input-large">
+					<i class="fa fa-map-marker fa-2x loca_pad"></i>
+					<input type="text" id="ex5a" class="form-control" type="text"/>
+					<input type="submit" class="pull-right" value="Search">
+				</form>
 			</div>
 			<!-- END FILTER HEADER-->
 		</div>
