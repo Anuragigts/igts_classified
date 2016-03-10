@@ -17,9 +17,10 @@ class Admin_dashboard extends CI_Controller {
 				$latest_ads = $this->admin_model->get_latest_ads();
 				$reports_count = $this->admin_model->get_reports_count();
 				$feedback_count = $this->admin_model->get_feedback_count();
+				$monthly_ads = $this->admin_model->get_monthly_ads_count();
 
 				//$pkg_types = $this->admin_model->get_pkg_details();
-				//echo '<pre>';print_r($feedback_count);echo '</pre>';//exit;
+				//echo '<pre>';print_r($monthly_ads);echo '</pre>';exit;
 				//echo '<pre>';print_r($reports_count);echo '</pre>';exit;
 				if(isset($reports_count[0])){
 					$ina_reports = $reports_count[0]->r_count;
@@ -59,7 +60,8 @@ class Admin_dashboard extends CI_Controller {
 						"latest_ads"     	=>     $latest_ads,
 						"reports_count"     =>     $reports_count,
 						"feedback_count"    =>     $feedback_count,
-						"ads_count"     	=>     $ads_count
+						"ads_count"     	=>     $ads_count,
+						'monthly_ads' 		=>  	$monthly_ads,
                 );
 				//echo '<pre>';print_r($data['latest_ads']);echo '</pre>';exit;
                 $this->load->view("admin_layout/inner_template",$data);

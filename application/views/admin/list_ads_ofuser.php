@@ -5,7 +5,7 @@
 					<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="">Ads List</a></li>
+				<li><a href="">User Ads List</a></li>
 			</ul>
 <?php if($this->session->flashdata('err') != ''){?>
                  <div class="alert alert-block alert-danger fade in">
@@ -29,7 +29,7 @@
                  </div>
              <br>
              <?php }
-			  //echo '<pre>';print_r($user_details);echo '</pre>';?>
+			  //echo '<pre>';print_r($ads_list[6]);echo '</pre>';?>
 			  <div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
@@ -100,10 +100,11 @@
 								<th>Deal Tag</th>
                                 <th>Package Type</th>
                                 <th>Category</th>
-								<th>Price</th>
+								<!--<th>Price</th>-->
 								<th>Posted On</th>
 								<th>Expire On</th>
                                 <!--<th>Description</th>-->
+								<th>Payment</th>
 								<th>Status</th>
 								<th>View</th>
                                 <th style='width:55px;'>Action</th>
@@ -119,10 +120,10 @@
 								<td><?php echo ucwords($ads->deal_tag);?></td>
 								<td><?php echo ucwords($ads->pkg_name);?></td>
 								<td><?php echo ucwords($ads->category_name);?></td>
-								<td><?php echo $ads->price;?></td>
+								<!--<td><?php echo $ads->price;?></td>-->
 								<td><?php echo $ads->created_on;?></td>
 								<td><?php echo $ads->expire_data;?></td>
-								<!--<td title ='<?php echo $ads->deal_desc?>'><?php echo substr($ads->deal_desc, '0', '20');?></td>-->
+								<td><?php if($ads->is_free == 1 || $ads->payment_status == 1)echo "<span style='color:green;'>No-Due</span>";else echo "<span style='color:red;'>Pending</span>"?></td>
 								<td><?php if($ads->ad_status == 1)echo 'Active'; 
 								else if($ads->ad_status == 0)echo 'New';
 								else if($ads->ad_status == 2)echo 'In-Progress';

@@ -30,8 +30,9 @@ class Settings extends CI_Controller {
 				if($this->form_validation->run() == TRUE){
 					$upd    =   $this->settings_model->change();
 					if($upd == 1){
-						$this->session->set_flashdata("msg","Password has been updated Successfully");
-						redirect("settings/change_password");
+						redirect('admin/logout');
+						//$this->session->set_flashdata("msg","Password has been updated Successfully");
+						//redirect("settings/change_password");
 					}else if($upd == 'wrong'){
 						$this->session->set_flashdata("err","The Old Password you entered is incorrect");
 						redirect("settings/change_password");
@@ -44,17 +45,10 @@ class Settings extends CI_Controller {
 			$this->load->view("admin_layout/inner_template",$data);
         }
 		function list_banners(){
-			
-			if($this->input->post('update_banner')){
+		
 				//echo '<pre>';print_r($this->input->post());echo '</pre>';
-				$update_status = $this->settings_model->update_banner();
-				if($update_status)
-					redirect('admin_dashboard');
-				else 
-					$all_banners = $this->settings_model->get_banners();
-			}else{
+				
 				$all_banners = $this->settings_model->get_banners();
-			}
 				$data   =   array(
 						"title"         =>     "Classifieds :: Admin Banners",
 						"metadesc"      =>     "Classifieds :: Admin Banners",
@@ -64,5 +58,29 @@ class Settings extends CI_Controller {
 				);
 			$this->load->view("admin_layout/inner_template",$data);
 		}
+		function get_banner(){	
+			if($this->input->post('update_banner')){
+				$update_status = $this->settings_model->update_banner();
+				if($update_status)
+					redirect('admin_dashboard');
+				else 
+					$all_banners = $this->settings_model->get_banners();
+			}else{
+				$b_id = $this->uri->segment(3);
+				if($b_id>0){
+					$all_banners = $this->settings_model->get_banners_details($b_id);
+					$data   =   array(
+							"title"         =>     "Classifieds :: Admin Banners",
+							"metadesc"      =>     "Classifieds :: Admin Banners",
+							"metakey"       =>     "Classifieds :: Admin Banners",
+							"content"       =>     "edit_banners",
+							"all_banners"	=>     $all_banners
+				);
+			$this->load->view("admin_layout/inner_template",$data);
+			}else
+				redirect('settings/list_banners');
+			
+		}
+	}
 }
 ?>

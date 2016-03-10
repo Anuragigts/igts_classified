@@ -40,8 +40,15 @@ class Ads_model extends CI_Model{
 		}
 	}
 	public function get_postad($post_add_id){
+		$cats = $this->get_assigned_cats();
 		$this->db->select();
 		$this->db->where('ad_id',$post_add_id);
+		
+		//echo '<pre>';print_r($data);echo '</pre>';exit;
+		if($this->session->userdata('user_type') != 1){
+			$cats_list = explode(',',$cats->cat_ids);		
+			$this->db->where_in('category_id',$cats_list);
+		}
 		$this->db->from('postad');
 		$data = $this->db->get()->row();
 		return $data;
@@ -175,7 +182,7 @@ class Ads_model extends CI_Model{
 		if(empty($cats) && $this->session->userdata('user_type') != 1)
 			return array();
 		else{
-			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name');
+			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,a_status.status_name');
 			if($this->uri->segment(3)){
 				$ad_type = $this->uri->segment(3);
 				if($ad_type == 'platinum'){
@@ -187,6 +194,7 @@ class Ads_model extends CI_Model{
 				}
 			}
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
+			$this->db->join('ad_status as a_status','a_status.id = p_add.ad_status','inner');
 			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
 			if($this->session->userdata('user_type') != 1){
 				$cats_list = explode(',',$cats->cat_ids);		
@@ -336,7 +344,7 @@ class Ads_model extends CI_Model{
 		if(empty($cats) && $this->session->userdata('user_type') != 1)
 			return array();
 		else{
-			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name');
+			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,a_stat.status_name');
 			
 			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
 			if($this->session->userdata('user_type') != 1){
@@ -344,6 +352,7 @@ class Ads_model extends CI_Model{
 				$this->db->where_in('p_add.category_id',$cats_list);
 			}
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
+			$this->db->join('ad_status as a_stat','a_stat.id = p_add.ad_status','inner');
 			$this->db->where('p_add.ad_status',$status_type);
 			$this->db->order_by('p_add.updated_on', 'desc');
 			$this->db->from('postad as p_add');
@@ -364,9 +373,10 @@ class Ads_model extends CI_Model{
 		if(empty($cats) && $this->session->userdata('user_type') != 1)
 			return array();
 		else{
-			$this->db->select('p_ad.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name');
+			$this->db->select('p_ad.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,a_status.status_name');
 		$this->db->join('catergory as cat','cat.category_id = p_ad.category_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_ad.package_type','inner');
+		$this->db->join('ad_status as a_status','a_status.id = p_ad.ad_status','inner');
 		//$this->db->order_by('p_ad.updated_on', 'desc');
 		if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		

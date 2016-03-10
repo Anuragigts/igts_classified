@@ -147,10 +147,10 @@
                                         $name = ucfirst($list->name);
                                         echo $name;?></td>
                                         <td><?php  
-                                        $val2 = $list->r_created;
+                                        $val2 = $list->created_on;
                                         echo $val2;?></td>
 										<td><?php  
-                                       echo ucwords($list->cat_name);?></td>
+                                       echo ucwords($list->pkg_dur_name);?></td>
                                         <td><?php  
                                         $val = $list->price;
                                         echo $val;?></td> 

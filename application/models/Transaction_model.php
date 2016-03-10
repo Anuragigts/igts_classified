@@ -8,8 +8,12 @@
 
 	class Transaction_model extends CI_Model{
 		function get_Transactions(){
-			$this->db->select();
-			$this->db->from('payments');
+			$this->db->select('p.*,p_ad.deal_tag,l.first_name,l.lastname,l.login_email,l.login_id');
+			$this->db->join('postad as p_ad', "p_ad.ad_id = p.product_id", 'join');
+			$this->db->join('login as l', "l.login_id = p_ad.login_id", 'join');
+			$this->db->order_by('p.payment_date','desc');
+			$this->db->from('payments p');
+			
 			$transactions = $this->db->get()->result();
 			return $transactions;
 		}

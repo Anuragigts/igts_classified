@@ -148,7 +148,7 @@ class Admin_model extends CI_Model{
 			}
 		}
 		function add_new_staff(){
-			echo '<pre>';print_r($this->input->post());echo '</pre>';//exit;
+			//echo '<pre>';print_r($this->input->post());echo '</pre>';//exit;
 			$ins_data = array(
 					'user_type'		=>	$this->input->post('staff_type'),
 					'login_email'		=>	$this->input->post('login_email'),
@@ -269,16 +269,16 @@ class Admin_model extends CI_Model{
 			} 
 		}
 		function get_adsdetails(){
-			$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads, package_type FROM(`postad` AS ad) WHERE DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW()) - INTERVAL 25 DAY GROUP BY dtime, package_type order by dtime desc";
+			$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads, package_type FROM(`postad` AS ad) WHERE DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW()) - INTERVAL 30 DAY GROUP BY dtime, package_type order by dtime desc";
 
 
 			$query = $this->db->query($sql);
 
 			$last_weak_ads = $query->result();
 			return $last_weak_ads;
-			echo $this->db->last_query();
+			//echo $this->db->last_query();
 
-			echo '<pre>';print_r($last_weak_ads);echo '</pre>';exit;
+			//echo '<pre>';print_r($last_weak_ads);echo '</pre>';exit;
 		}
 		function get_no_of_ads(){
 			//$this->load->model("ads_model");
@@ -467,9 +467,18 @@ class Admin_model extends CI_Model{
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_ad.package_type','inner');
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
-		echo $this->db->last_query();
-		echo '<pre>';print_r($all_reports);echo '</pre>';exit;
+		//echo $this->db->last_query();
+		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
 		return $all_reports;
+	}
+	function get_monthly_ads_count(){
+		$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads,SUM(ad.paid_amt)as t_paid, ad.payment_status FROM(`postad` AS ad) WHERE  DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW() - INTERVAL 1 YEAR) GROUP BY EXTRACT(YEAR_MONTH FROM dtime), ad.payment_status order by dtime desc,ad.payment_status desc ";
+		//$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads FROM(`postad` AS ad) WHERE DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW() - INTERVAL 1 YEAR) GROUP BY EXTRACT(YEAR_MONTH FROM dtime) order by dtime desc";
+
+		$query = $this->db->query($sql);
+		$year_ads = $query->result();
+		//echo $this->db->last_query();exit;
+		return $year_ads;
 	}
 	
 }

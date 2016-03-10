@@ -29,6 +29,7 @@
                  </div>
              <br>
              <?php }?>
+			 <?php //echo '<pre>';print_r($ads_details);echo '</pre>';?>
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
@@ -138,9 +139,11 @@
 								<label class="control-label" for="ad_status">Ad Status</label>
 								<div class="controls">
 								  <select id="ad_status" name="ad_status" onchange="view_comment()">
-								  <?php foreach($ad_status as $status){?>
-									<option value='<?php echo $status->id; ?>'<?php if($status->id == $ads_details->ad_status)echo 'selected'?>><?php echo ucwords($status->status_name);?></option>
-								  <?php }?>
+								  <?php foreach($ad_status as $status){
+									 if(($ads_details->is_free == 0) && ($ads_details->payment_status == 0 ) && ($status->id == 1 )){?>
+									 <?php }else{ ?>
+									<option value='<?php echo $status->id; ?>'<?php if($status->id == $ads_details->ad_status)echo 'selected'; ?>><?php echo ucwords($status->status_name);?></option>
+								  <?php }}?>
 								  </select>
 								</div>
 							  </div>
@@ -159,7 +162,7 @@
 							</fieldset>
 						  </form>
 					</div>
-				</div><!--/span-->
+				</div>
 			</div>
     </div>
 </div>

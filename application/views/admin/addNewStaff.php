@@ -6,7 +6,7 @@
 					<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="">Ads Staff</a></li>
+				<li><a href="">New Staff</a></li>
 			</ul>
 			<?php if($this->session->flashdata('err') != ''){?>
                  <div class="alert alert-block alert-danger fade in">
@@ -77,7 +77,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="staff_dur"> Staff Type</label>
 								<div class="controls">
-								  <select name='staff_type' required>
+								  <select name='staff_type' class ='staff_type' required>
 								  <option value=''>Select Staff Type</option>
 								  <?php $sess_user_type = $this->session->userdata('user_type');
 								  foreach($staff_type as $s_type){
@@ -102,7 +102,7 @@
 								  </select>
 								</div>
 							  </div>
-							   <div class="control-group">
+							  <div class="control-group">
 								<label class="control-label" for="staff_dur"> Password</label>
 								<div class="controls">
 								  <input type='password' name='staff_pw' class='staff_pw' value=''> <span><?php echo form_error('staff_pw'); ?></span>
@@ -149,11 +149,9 @@ $('.c_staff_pw').blur(function() {
 	var c_nw_pw = $('.c_staff_pw').val();
 	if(nw_pw !== c_nw_pw){
 		$('#pw_err' ).text( 'Password and Confirm password should be same' );
-		//alert('password and Confirm password should be same');
 	}else{
 		$('#pw_err' ).text( '' );
 	}
-	//alert(nw_pw+'----'+c_nw_pw);
 });
 </script>
 <!-- end DASHBOARD CIRCLE TILES -->

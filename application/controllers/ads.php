@@ -55,6 +55,10 @@ class Ads extends CI_Controller {
 					$post_type = $this->uri->segment(4);
 					if($post_add_id !=''){
 						$data['ads_details'] = $this->ads_model->get_postad($post_add_id);
+						if(empty($data['ads_details'])){
+							$this->session->set_flashdata('err','You dont have permision to view the Add.');
+							redirect('ads/aprovals');
+						}
 						$data['content'] ='edit_postad';
 					}else{
 						$data['ads_list'] = $this->ads_model->get_allpostads();

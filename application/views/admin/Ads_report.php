@@ -133,9 +133,8 @@
                                 <th>Created On</th>
                                 <th>Expire On</th>
                                 <th>Price</th>
+								<th>User Type</th>
 								<th>Package Name</th>
-								<th>Price</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -161,10 +160,6 @@
 									   <td><?php  
                                         $val = ucfirst($list->pkg_dur_name);
                                         echo $val;?></td>
-                                        <td>
-                                            sdfas
-                                            
-                                        </td>
                                     </tr>
                                 <?php 
                                 }

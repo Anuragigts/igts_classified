@@ -99,16 +99,20 @@ class Payment_model extends CI_Model{
 			$this->db->update('coupons_used',$u_data);
 		}
 	}
-	public function update_ad_pay_status($ad_id){
-		$u_data = array('payment_status'=>1);
+	public function update_ad_pay_status($ad_id,$paid_amt){
+		$u_data = array('payment_status'=>1,
+						'paid_amt'=>$paid_amt);
 		$this->db->where('login_id',$this->session->userdata('login_id'));
 		$this->db->where('ad_id',$ad_id);
 		$this->db->update('postad',$u_data);
 	}
 	public function get_ad_details($ad_id){
-		$this->db->select();
-		$this->db->where('ad_id',$ad_id);
-		$this->db->from('postad');
+		$this->db->select('p_ad.*,p_list.cost_pound,u_lab.u_pkg__pound_cost,a_img.img_name');
+		$this->db->where('p_ad.ad_id',$ad_id);
+		$this->db->join('ad_img as a_img', "a_img.ad_id = p_ad.ad_id", 'join');
+		$this->db->join('pkg_duration_list as p_list', "p_list.pkg_dur_id = p_ad.package_type", 'join');
+		$this->db->join('urgent_pkg_label as u_lab', "u_lab.u_pkg_id = p_ad.urgent_package", 'join');
+		$this->db->from('postad as p_ad');
 		$p_details = $this->db->get()->row();
 		
 		return $p_details;

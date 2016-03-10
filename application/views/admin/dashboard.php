@@ -5,6 +5,9 @@
 			margin-right: 0.15% !important;
 			width: 8% !important;
 		}
+		.verticalChart .singleBar .bar .value span {
+			text-shadow:none;
+		}
 		</style>
 		
 		<div id="content" class="span9" style='min-height:150px'>
@@ -17,7 +20,7 @@
 				<li><a href="#">Dashboard</a></li>
 			</ul>
 			<div class="row-fluid">
-				<?php //echo '<pre>';print_r($ads_count);echo '</pre>';
+				<?php //echo '<pre>';print_r($monthly_ads[0]);echo '</pre>';
 				$today = date('d');
 				$free_count=[];
 				$gold_count=[];
@@ -48,18 +51,14 @@
 		$gold_list = '';
 		$platinum_list = '';
 		
-krsort($free_count);
-krsort($gold_count);
-krsort($platinum_count);
-/*echo '<pre>';
-		print_r($free_count);
-		//print_r($free_list);
-		print_r($gold_count);
-		print_r($platinum_count);
-		echo '</pre>';
-	*/	
+	krsort($free_count);
+	krsort($gold_count);
+	krsort($platinum_count);
+	
+	
+	
 $a=0;$date=date("y:m:d");
-for($i=0; $i<25; $i++){
+for($i=0; $i<30; $i++){
 	//$date=date('y:m:d');
 $todays_date = date('Y-m-d', strtotime(-$i.' day', strtotime($date)));
 	//$date = date('y-m-d', strtotime(-$i.' day', date('y:m:d')));
@@ -87,55 +86,46 @@ $todays_date = date('Y-m-d', strtotime(-$i.' day', strtotime($date)));
 		$platinum_array[$today] =  0;
 		$platinum_list = $platinum_list.'0,';
 	}
-	/*
-	if (array_key_exists($today, $free_count)) {
-		$free_array[$today] =  $free_count[$today];
-	}else{
-		$free_array[$today] =  0;
-	}
-	if (array_key_exists($today, $gold_count)) {
-		$gold_array[$today] =  $gold_count[$today];
-	}else{
-		$gold_array[$today] =  0;
-	}
-	if (array_key_exists($today, $platinum_count)) {
-		$platinum_array[$today] =  $platinum_count[$today];
-	}else{
-		$platinum_array[$today] =  0;
-	}*/
-	//$today = date('d');
 	
-	//$today-=1;
-}/*
-echo '<pre>';
-		print_r($free_array);
-		//print_r($free_list);
-		print_r($gold_array);
-		print_r($platinum_array);
-		echo '</pre>';*/
-
-		/*	
-		foreach($free_count as $key=>$value){
-			if($key == $today){
-				$free_list.=$free_list.$value.',';
-			}else{
-				$free_list.=$free_list.$value.',';
-			}
-			$today--;
-		}*/
+}
 		$free_list = rtrim($free_list,',');
 		$gold_list = rtrim($gold_list,',');
 		$platinum_list = rtrim($platinum_list,',');
-		/*
-		echo 'free_list =='.rtrim($free_list,',').'---------<br/>';
-		echo 'gold_list =='.rtrim($gold_list,',').'---------<br/>';
-		echo 'platinum_list =='.rtrim($platinum_list,',').'---------<br/>';
 		
-		echo 'freecount =='.$free_count.'---------<br/>';
-		echo 'gold_count =='.$gold_count.'---------<br/>';
-		echo 'platinum_count =='.$platinum_count.'---------<br/>';*/
-		//echo '<pre>';print_r($no_of_ads);echo '</pre>';
-			
+		//echo '<pre>';print_r($monthly_ads[0]);echo '</pre>';
+	/*$m=0;$date=date("y:m:d");
+	foreach($monthly_ads as $m_ads){
+		
+		//$d = date_parse_from_format("Y-m-d", $m_ads->dtime);
+		 $m_month =  date("m",strtotime( $m_ads->dtime))."\n";
+		 $m_year = date("Y",strtotime( $m_ads->dtime))."\n";
+		 $m_info[$m_year.'-'.$m_month] = $m_ads->no_ads;
+//echo $d["month"];
+//echo $d["Year"];
+echo $m_info[$m_year.'-'.$m_month];
+	}*/
+	//echo '<pre>';print_r($m_info);echo '</pre>';
+	/*
+	for($j=0; $j<12; $j++){
+		$month = date("Y-m", strtotime(-$j." months", strtotime($date)));
+		echo $month;
+		if (array_key_exists($month,$m_info))
+		{
+			echo $month;
+		}else{
+			echo  'no'.'<br/>';
+		}
+		/*if(in_array($month,$m_info)){
+		echo $month;
+		
+		echo '<br/>';
+		}else{
+			echo $month;
+			//echo '106'.'<br/>';
+		}
+	}	*/	
+		
+		
 		?>
 		<?php foreach($no_of_ads as $p_ads){
 			if($p_ads->package_type == 1) {
@@ -190,10 +180,44 @@ echo '<pre>';
 					<hr>
 					<div class="content">
 						<div class="verticalChart">
-							<div class="singleBar">
+						<?php $array_date=array();
+							foreach($monthly_ads as $m_ads){
+								$time=strtotime($m_ads->dtime);
+								$month=date("F",$time);
+								$year=date("Y",$time);
+								$c_month = substr($month,0,3).'-'.$year;
+								if(!in_array($c_month ,$array_date) && ($m_ads->payment_status == 1)){
+									$array_date[] = $c_month;?>
+								
+									<div class="singleBar">
 								<div class="bar">
 									<div class="value">
-										<span>36%</span>
+										<span style='color:black;'><?php echo round($m_ads->t_paid,2); ?></span>
+									</div>
+								</div>
+								<div class="title"><?php echo substr($month,0,3) .'<br/>'.$year; ?></div>
+							</div>
+									
+								<?php }elseif(!in_array($c_month ,$array_date)){
+									//echo '<pre>';print_r($array_date);echo '</pre>';
+									$array_date[] = $c_month;?>
+									<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>0</span>
+									</div>
+								</div>
+								<div class="title"><?php echo substr($month,0,3) .'<br/>'.$year; ?></div>
+							</div>
+								<?php }	?>
+								
+								
+						<?php } ?>
+	
+							<!--<div class="singleBar">
+								<div class="bar">
+									<div class="value">
+										<span>36</span>
 									</div>
 								</div>
 								<div class="title">Jan</div>
@@ -285,7 +309,7 @@ echo '<pre>';
 									</div>
 								</div>
 								<div class="title">Dec</div>
-							</div>	
+							</div>	-->
 							<div class="clearfix"></div>
 						</div>
 					</div>

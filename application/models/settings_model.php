@@ -11,10 +11,12 @@ class Settings_model extends CI_Model{
 		$chk_pw = md5($this->input->post("old_password"));
 		
 		$this->db->select();
-		$this->db->where('login_password',$this->input->post("old_password"));
+		$this->db->where('login_password',$chk_pw);
 		$this->db->where('login_id',$login);
 		$this->db->from('login');
 		$l_details = $this->db->get()->row();
+		//echo '<pre>';print_r($l_details);echo '</pre>';
+		//echo $this->db->last_query();exit;
 		if(count($l_details) == 1){			
 			$dtr    =   array(
 							"login_password"    =>  md5($this->input->post("password"))
@@ -32,7 +34,15 @@ class Settings_model extends CI_Model{
 		
 	public function get_banners(){
 		$this->db->select();
+		$this->db->from('publicads_searchview as p_v');
+		$this->db->join('catergory as cat', "cat.category_id = p_v.cat_id", 'join');
+		$banners = $this->db->get()->result();
+		return $banners;	
+	}
+	public function get_banners_details($b_id){
+		$this->db->select();
 		$this->db->from('publicads_searchview');
+		$this->db->where('id',$b_id);
 		$banners = $this->db->get()->row();
 		return $banners;	
 	}	
@@ -42,7 +52,7 @@ class Settings_model extends CI_Model{
 			'topad'=>htmlspecialchars($this->input->post('banner_top')),
 			'mid_ad'=>htmlspecialchars($this->input->post('banner_mid'))
 			);
-			$this->db->where('id',1);
+			$this->db->where('id',$this->input->post('b_id'));
 			$up_status = $this->db->update('publicads_searchview', $update);
 			return $up_status;
 	}

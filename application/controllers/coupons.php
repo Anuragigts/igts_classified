@@ -82,33 +82,41 @@
 		function get_c_result(){
 			if($this->input->post('c_code')){
 				$c_code = $this->input->post('c_code');
-				$post_ad_amt = $this->input->post('post_ad_amt');
+				//$post_ad_amt = $this->input->post('post_ad_amt');
+				$ad_id = $this->input->post('ad_id');
+				$p_amt = $this->coupons_model->get_ad_amt($ad_id);
+				//echo '<pre>';print_r($p_amt);echo '</pre>';
+				$amt = $p_amt->u_pkg__pound_cost+$p_amt->cost_pound;
 				$c_info = $this->coupons_model->get_c_result($c_code);
 				if(count($c_info) == 1){
+					$disc = $amt*($c_info->c_value)/100;
 					if($c_info->max_cus == 0){
-						$pkg_disc_amt = $post_ad_amt-(($post_ad_amt*($c_info->c_value)/100));
+						
+						$pkg_disc_amt = $amt-(($amt*($disc)/100));
 						//echo $pkg_disc_amt ;
 						$c_details = array(
 										'c_code'		=>		$c_info->c_code,
 										'c_value' 		=>		$c_info->c_value,
 										'max_cus' 		=>		$c_info->max_cus,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		$pkg_disc_amt,
+										'pkg_disc_amt'	=>		round($pkg_disc_amt,2),
+										'disc'			=>		round($disc,2),
 										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.$pkg_disc_amt
 							); 
 							$info = json_encode($c_details);
 							echo $info;
 					}else{
 						if($c_info->max_cus > $c_info->used_count){
-							$pkg_disc_amt = $post_ad_amt-(($post_ad_amt*($c_info->c_value))/100);
+							$pkg_disc_amt = $amt-(($amt*($c_info->c_value))/100);
 							//echo $pkg_disc_amt ;
 							$c_details = array(
 										'c_code'		=>		$c_info->c_code,
 										'c_value' 		=>		$c_info->c_value,
 										'max_cus' 		=>		$c_info->max_cus,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		ceil($pkg_disc_amt),
-										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.$pkg_disc_amt
+										'pkg_disc_amt'	=>		round($pkg_disc_amt, 2),
+										'disc'			=>		round($disc,2),
+										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.round($pkg_disc_amt, 2)
 							); 
 							$info = json_encode($c_details);
 							echo $info;
@@ -118,7 +126,7 @@
 										'c_value' 		=>		0,
 										'max_cus' 		=>		$c_info->max_cus,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		ceil($post_ad_amt),
+										'pkg_disc_amt'	=>		round($amt, 2),
 										'c_responce'	=>		'The Coupon Code you have added is Expired or Invalid.' 
 							); 
 							$info = json_encode($c_details);
@@ -131,7 +139,7 @@
 										'c_value' 		=>		0,
 										'max_cus' 		=>		$c_info->max_cus,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		ceil($post_ad_amt),
+										'pkg_disc_amt'	=>		round($amt, 2),
 										'c_responce'	=>		'The Coupon Code you have added is Expired or Invalid.' ,
 							); 
 							$info = json_encode($c_details);

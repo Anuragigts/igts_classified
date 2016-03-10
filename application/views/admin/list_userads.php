@@ -61,11 +61,11 @@
 								<td><?php echo $users->login_email;?></td>
 								<td><?php echo $users->mobile;?></td>
 								<td><?php if($users->user_type == 6)echo 'Business';else echo 'Consumer';?></td>
+								<td><?php echo $users->pkg_count.' Ads';?></td>
 								<td><?php if($users->login_status == 1)echo 'Active';
 								else if($users->login_status == 0)echo 'New User';
 								else if($users->login_status == 2)echo 'In-Active';
 								else if($users->login_status == 4)echo 'Blocked';?></td>
-								<td><?php echo $users->pkg_count.' Ads';?></td>
 								<td>
 									<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/get_adsuser/<?php echo $users->login_id;?>" title="Get List of Ads">
 											<i class="halflings-icon edit white"></i> 

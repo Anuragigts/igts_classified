@@ -129,7 +129,7 @@
 								<th>Price</th>
 								<th>Posted On</th>
 								<th>Expire On</th>
-                                <th>Description</th>
+                                <!--<th>Description</th>-->
 								<th>Status</th>
 								<th>View</th>
                                 <th style=''>Action</th>
@@ -147,12 +147,8 @@
 								<td><?php echo $ads->price;?></td>
 								<td><?php echo $ads->created_on;?></td>
 								<td><?php echo $ads->expire_data;?></td>
-								<td title ='<?php echo $ads->deal_desc?>'><?php echo substr(strip_tags($ads->deal_desc), '0', '25');?></td>
-								<td><?php if($ads->ad_status == 1)echo 'Approved'; 
-								else if($ads->ad_status == 0)echo 'New';
-								else if($ads->ad_status == 2)echo 'On Hold';
-								else if($ads->ad_status == 3)echo 'Pending';
-								else echo 'Rejected';?>
+								<!--<td title ='<?php echo $ads->deal_desc?>'><?php echo substr(strip_tags($ads->deal_desc), '0', '25');?></td>-->
+								<td><?php echo ucwords($ads->status_name);?>
 								</td>
 								<td>
 									<a class="" href="<?php echo base_url();?>description_view/details/<?php echo $ads->ad_id.'/';?>" target='_blank'title="View Ad Content" style=''>View</a>

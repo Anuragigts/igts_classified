@@ -29,7 +29,6 @@
                  </div>
              <br>
              <?php }?>
-			 <?php //echo '<pre>';print_r($all_banners[0]);echo '</pre>';?>
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
@@ -41,38 +40,36 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-                        <thead>
-                            <tr>
-								<th>Category Id</th>
-								<th>Category Name </th>
-								<!--<th>Ad1</th>
-								<th>Ad2</th>
-								<th>Ad3</th>-->
-								<th>Status</th>
-								<th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 0;
-                            foreach($all_banners as $banner){$i++; ?>
-                            <tr class="odd gradeX">
-							<td> <?php echo $banner->category_id;?></td>
-							<td> <?php echo ucwords($banner->category_name);?></td>
-							<!--<td> <?php echo $banner->sidead_one;?></td>
-							<td> <?php echo $banner->topad;?></td>
-							<td> <?php echo $banner->mid_ad;?></td>
-							<td> <?php echo $banner->mid_ad;?></td>-->
-                            <td><?php if($banner->b_status == 1)echo "Active"; else echo 'In-Active';?></td>
-							<td><a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>settings/get_banner/<?php echo $banner->id;?>" title="Get List of Ads">
-											<i class="halflings-icon edit white"></i> 
-									</a></td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-					
-                </div>
+						<form class="form-horizontal" action='<?php echo current_url(); ?>' method='post'>
+							<fieldset>
+							<input type='hidden' value='<?php echo $all_banners->id;?>' name='b_id'>
+							<div class="control-group">
+								<label class="control-label" for="user_name">Side Banner:</label>
+								<div class="controls">
+								<textarea name='banner_side'><?php echo htmlspecialchars($all_banners->sidead_one);?></textarea>
+								</div>
+							  </div>
+							  
+							  <div class="control-group">
+								<label class="control-label" for="user_name">Top Banner Name:</label>
+								<div class="controls">
+								<textarea name='banner_top'><?php echo htmlspecialchars($all_banners->topad);?></textarea>
+								</div>
+							  </div>
+							   <div class="control-group">
+								<label class="control-label" for="user_name">Middle Banner:</label>
+								<div class="controls">
+								<textarea name='banner_mid'><?php echo htmlspecialchars($all_banners->mid_ad);?></textarea>
+								</div>
+							  </div>
+							   <div class="form-actions">
+								<input type="submit" class="btn btn-primary" name='update_banner' value='Update Banners'>
+								<button class="btn">Cancel</button>
+							  </div>
+						  </fieldset>
+						</form>
+							 
+					</div>
 			</div>								  
 		</div>	
     </div>
