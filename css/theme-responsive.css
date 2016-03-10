@@ -108,7 +108,7 @@
 
 	/* Filter Header - Title Header ------------------------------*/
 	.header-v1{	
-		background: rgba(0,0,0,0.7);
+		/* background: rgba(0,0,0,0.7); */
 		max-height: 2000px !important;	
 	}
 	.flat-mega-menu > ul > .title > a{
@@ -323,7 +323,7 @@
 		height: 60px;
 		background: transparent url("../img/icons/reco.png") no-repeat;
 		position: absolute;
-		left: 190px;
+		left: 156px;
 		top: 0;
 		z-index: 99;
 		right: 0;
@@ -333,7 +333,7 @@
 		height: 60px;
 		background: transparent url("../img/icons/reco.png") no-repeat;
 		position: absolute;
-		left: 203px;
+		left: 163px	;
 		top: 0;
 		z-index: 99;
 		right: 0;
@@ -384,7 +384,12 @@
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 360px) {
 	.portfolioFilter a {
-		font-size: 6px;
+		font-size: 12px;
+		line-height: 24px;
+	}
+	.portfolioFilter a {
+		margin: auto 6px;
+		padding-bottom: 0px;
 	}
 	.post_deal_bor {
 		border: 2px solid rgb(155, 147, 147);
@@ -413,8 +418,37 @@
 		padding: 12px 26px;
 	}
 	.fa-2x{
-		font-size:12px;
+		font-size:16px;
 	}
+	.main_logo {
+		margin-top: -17px !important;
+	}
+	.recentad_heig{
+		display:none;
+	}
+	.des_rec_heig{
+		display:none;
+	}
+	.fa-bars{
+		color:#333;
+	}
+	.modal-dialog3 {
+		padding-top: 100px;
+	}
+	.modal-dialog3 .j-forms .label {
+		font-size: 11px;
+	}
+	.modal-dialog3 .j-forms .rating-group .label {
+		font-size: 12px;
+	}
+	.btn-4 {
+		padding: 10px 29px 10px 28px;
+	}
+	.post-header1 {
+		padding: 5px 33px 22px 36px;
+		float: right;
+	}
+	
 }
 @media screen and (min-device-width: 361px) and (max-device-width: 640px) {
 	
@@ -428,6 +462,13 @@
 	}
 	.filter-title {
 		top: 43%;
+	}
+	.main_logo {
+		margin-top: -17px !important;
+	}
+	.post-header1 {
+		padding: 5px 33px 22px 36px;
+		float: right;
 	}
 }
 
@@ -510,6 +551,13 @@
 	.selector1 select {
 		width: 285px;
 	}
+	.main_logo {
+		margin-top: -17px !important;
+	}
+	.post-header1 {
+		padding: 5px 33px 22px 36px;
+		float: right;
+	}
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
@@ -530,16 +578,28 @@
 		width:10%;
 	}
 	.filter-header .input-large{
-		width: 19%;
+		width: 17%;
 		background: none;
 		padding-top: 6px;
 		padding-left: 10px;
 	}
+	.main_logo {
+		margin-top: -17px !important;
+	}
 }
 
 @media screen and (max-width: 1037px){
-	.filter-header .input-large{
-		width: 20%;
+	
+	.tp-caption.large_bold_white {
+		font-size: 28px !important;
+		top: 142.649px !important;
+	}
+	.tp-caption.small_light_white {
+		font-size: 22px !important;
+		top: 152.649px !important;
+	}
+	.filter-title {
+		top: 55%;
 	}
 }
  
