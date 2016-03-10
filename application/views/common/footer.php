@@ -70,7 +70,7 @@
 								<div class="col-md-5">
 									<div class="input-group">
 										<span class="input-group-addon">
-											<i class="fa fa-envelope"></i>
+											<i class="fa fa-user"></i>
 										</span>
 										<input class="form-control" placeholder="Your Name" name="name" type="text" required="required">
 									</div>

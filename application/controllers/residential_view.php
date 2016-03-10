@@ -56,7 +56,7 @@ class  Residential_view extends CI_Controller{
             foreach ($residential_view as $rview) {
                 $loginid = $rview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_property();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -208,7 +208,7 @@ class  Residential_view extends CI_Controller{
                         "content"   =>  "residential_view");
             $result['residential_result'] = $rs;
             $result['paging_links'] = $this->pagination->create_links();
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_property();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;

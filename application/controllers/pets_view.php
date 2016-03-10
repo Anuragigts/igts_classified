@@ -53,7 +53,7 @@ class  Pets_view extends CI_Controller{
             foreach ($pets_view as $pview) {
                 $loginid = $pview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_pets();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
@@ -183,7 +183,7 @@ class  Pets_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "pets_view");
             $result['pets_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_pets();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;

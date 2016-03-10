@@ -34,6 +34,9 @@
 			width: 100px !important;
 			height:60px;
 		}
+		.jgallery {
+			height:480px !important;
+		}
 	</style>
 	
 	<script type="text/javascript">
@@ -827,7 +830,7 @@
 										<li><i class="fa fa-check imp"></i> <a href="#">Irregular email addresses</a></li>
 										<li><i class="fa fa-check imp"></i> <a href="#">Contact info in pictures</a></li>
 									</ul>
-									<p class="text_center imp">To learn more, visit the <a href="#" class="imp"> click here</a> to report this listing.</p>
+									<p class="text_center imp">To learn more, visit the <a href="<?php echo base_url(); ?>assistance" class="imp"> click here</a> to report this listing.</p>
 								</aside>
 								
 							</div>

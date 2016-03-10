@@ -405,25 +405,6 @@
 											<div class="info-gallery slider_bg">
 												<h3><?php echo substr($hot_deals_val->deal_tag, 0, 20); ?></h3>
 												<hr class="separator">
-												<!-- <ul class="nav nav-tabs">
-													<li class="active">
-														<a href="#description<?php echo $i; ?>" data-toggle="tab"> DESCRIPTION</a>
-													</li>
-													<li>
-														<a href="#contact<?php echo $i; ?>" data-toggle="tab"> Contact</a>
-													</li>
-												</ul> -->
-												<!-- End Nav Tabs-->
-												<!-- <div class="tab-content">
-													<div class="tab-pane active paddi_ng" id="description<?php echo $i; ?>">
-														<p><?php echo substr(strip_tags($hot_deals_val->deal_desc), 0, 40); ?> </p>
-													</div>
-													<div class="tab-pane paddi_ng" id="contact<?php echo $i; ?>">
-														<p> Mobile : <?php echo $person; ?> , Email : <?php echo $mobile; ?></p>
-														<p> </p>
-													</div>
-												</div> -->
-												
 												<?php if ($hot_deals_val->category_id != '1') { ?>
 													<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
 													<?php } ?>
@@ -493,7 +474,7 @@
                                     		$currency = '€';
                                     	}
 							?>
-						<div class="col-xs-12 col-sm-4 col-md-3 showall">
+						<div class="col-sm-4 col-md-3 col-xs-12 showall">
 							<?php if ($val->urgent_package != 0) { ?>
 									<div class="most_valued_badge">
 										

@@ -54,7 +54,7 @@ class  Job_view extends CI_Controller{
                 $loginid = $jview->login_id;
             }
              $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_jobs();
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "job_view",
@@ -176,7 +176,7 @@ class  Job_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "job_view");
              $result['jobs_result'] = $res;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_jobs();
             if (!empty($res)) {
                  foreach ($res as $resview) {
                     $loginid = $resview->login_id;

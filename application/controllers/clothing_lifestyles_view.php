@@ -58,7 +58,7 @@ class  Clothing_lifestyles_view extends CI_Controller{
             foreach ($clothstyle_view as $sview) {
                 $loginid = $sview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_clothing();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -184,7 +184,7 @@ class  Clothing_lifestyles_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "clothing_lifestyles_view");
             $data['clothstyle_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_clothing();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $data['log_name'] = $log_name;
             $data['public_adview'] = $public_adview;

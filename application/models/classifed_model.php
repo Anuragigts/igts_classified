@@ -1487,6 +1487,70 @@ Class Classifed_model extends CI_model{
 		$m_res = $this->db->get();
 			return $m_res->result();
 	}
+	
+	public function publicads_ezone(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 8);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_motor(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 3);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_clothing(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 6);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_service(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 2);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_property(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 4);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_homekitchen(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 7);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_pets(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 5);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
+	
+	public function publicads_jobs(){
+		$this->db->select("*");
+		$this->db->from("publicads_searchview");
+		$this->db->where("cat_id", 1);
+		$m_res = $this->db->get();
+			return $m_res->result();
+	}
 
 
 

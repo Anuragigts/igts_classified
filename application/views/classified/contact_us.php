@@ -40,18 +40,18 @@
                                 <div class="col-sm-12">
 									<div class="row">
 										<div class="col-md-4">
-											<aside>
-												<h4>The Office</h4>
-												<address>
+											<aside class="cont_left">
+												<h4 class="whi_te">The Office</h4>
+												<address class="whi_te">
 												  <i class="fa fa-map-marker"></i> fa795 Folsom Ave, Suite 600<br>
 												  <i class="fa fa-plane"></i> San Francisco, CA 94107<br>
 												  <i class="fa fa-phone"></i>  (123) 456-7890
 												</address>
 
-												<address>
-												  <strong>99 Deals Emails</strong><br>
-												  <i class="fa fa-envelope"></i><a href="mailto:#" class="cont_a"> sales@gmail.com</a><br>
-												  <i class="fa fa-envelope"></i><a href="mailto:#" class="cont_a"> support@gmail.com</a>
+												<address class="whi_te">
+												  <strong class="whi_te">99 Deals Emails</strong><br>
+												  <i class="fa fa-envelope"></i><a href="mailto:#"> sales@gmail.com</a><br>
+												  <i class="fa fa-envelope"></i><a href="mailto:#"> support@gmail.com</a>
 												</address>
 											</aside>
 

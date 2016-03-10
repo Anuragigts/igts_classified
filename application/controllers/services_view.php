@@ -59,7 +59,7 @@ class  Services_view extends CI_Controller{
             foreach ($services_view as $sview) {
                 $loginid = $sview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_service();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
@@ -196,7 +196,7 @@ class  Services_view extends CI_Controller{
             foreach ($services_view as $sview) {
                 $loginid = $sview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_service();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');

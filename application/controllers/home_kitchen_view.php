@@ -53,7 +53,7 @@ class  Home_kitchen_view extends CI_Controller{
                         $loginid = $kview->login_id;
                     }
                 $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
-                 $public_adview = $this->classifed_model->publicads();
+                 $public_adview = $this->classifed_model->publicads_homekitchen();
                 $kitchen_view = $this->hotdealsearch_model->kitchen_sub_search();
                 $home_view = $this->hotdealsearch_model->home_sub_search();
                 $decor_view = $this->hotdealsearch_model->decor_sub_search();
@@ -195,7 +195,7 @@ class  Home_kitchen_view extends CI_Controller{
                 );
             $result['kitchen_result'] = $rs;
             $result['paging_links'] = $this->pagination->create_links();
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_homekitchen();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
