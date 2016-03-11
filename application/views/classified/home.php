@@ -25,7 +25,7 @@
 		<div class="tp-banner" >
 			<ul>
 				<li data-transition="slidevertical">
-					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img-responsive" alt="Slider1" title="Slider1">
+					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img img-responsive" alt="Slider1" title="Slider1">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -201,7 +201,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 										<div class="overlay">
@@ -210,7 +210,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
 										<div class="overlay">
@@ -230,7 +230,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="services" title="services Category">
 										<div class="overlay">
@@ -239,7 +239,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="property" title="property Category">
 										<div class="overlay">
@@ -259,7 +259,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets Category">
 										<div class="overlay">
@@ -268,7 +268,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
 										<div class="overlay">

@@ -37,8 +37,8 @@
 							<div class="col-sm-4">
 								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>deal_page">Hot Deals</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">E-Zone</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Motor Point</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>ezone_view">E-Zone</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>motor_view">Motor Point</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-4">
