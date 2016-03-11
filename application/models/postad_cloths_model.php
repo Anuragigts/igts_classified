@@ -186,7 +186,7 @@ class Postad_cloths_model extends CI_Model{
                                                 'fit'=>$this->input->post('Fit'),
                                                 'made_in'=>$this->input->post('madein'),
                                                 'material'=>$this->input->post('material'),
-                                                'washing instructor'=>$this->input->post('washinst'),
+                                                'washing_instruct'=>$this->input->post('washinst'),
                                                 'length'=>$this->input->post('length')
                                 );
                         $this->db->insert("lifestyle_clothing", $women_cloths);
