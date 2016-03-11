@@ -364,26 +364,31 @@
 										<?php
 											}
 										 } ?>
+										 <div class=''>
+											<div class='col-md-12'>
+												<?php echo $paging_links; ?>
+											</div>
+										</div>
 
-			<div class="modal fade" id="map_location" role="dialog">
-				<div class="modal-dialog">
-					<!-- Modal content-->
-					<!-- <form action="#" method="post" class="j-forms " > -->
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h2>Map Location</h2>
-							</div>
-							<div class="modal-body map_show">
-								
-							</div>
-						</div>
-					<!-- </form> -->
-				</div>
-			</div>
+										<div class="modal fade" id="map_location" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<!-- <form action="#" method="post" class="j-forms " > -->
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h2>Map Location</h2>
+														</div>
+														<div class="modal-body map_show">
+															
+														</div>
+													</div>
+												<!-- </form> -->
+											</div>
+										</div>
 
-	<link rel="stylesheet" href="libs/slider.css">
-	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<!-- use jssor.slider.debug.js instead for debug -->
 	<script>
 		jssor_1_slider_init = function() {

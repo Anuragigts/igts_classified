@@ -172,21 +172,21 @@
 
 
 
-	 foreach ($busconcount as $countval) {
-	  	$allbustype = $countval->allbustype;
-	  	$business = $countval->business;
-	  	$consumer = $countval->consumer;
-	  }
-	  foreach ($deals_pck as $pckval) {
-	  	$urgentcnt = $pckval->urgentcount;
-	  	$platinumcnt = $pckval->platinumcount;
-	  	$goldcnt = $pckval->goldcount;
-	  	$freecnt = $pckval->freecount;
-	  }
-	  foreach ($sellerneededcount as $sncnt) {
-	  	$seller = $sncnt->provider;
-	  	$needed = $sncnt->needed;
-	  }
+			 foreach ($busconcount as $countval) {
+			  	$allbustype = $countval->allbustype;
+			  	$business = $countval->business;
+			  	$consumer = $countval->consumer;
+			  }
+			  foreach ($deals_pck as $pckval) {
+			  	$urgentcnt = $pckval->urgentcount;
+			  	$platinumcnt = $pckval->platinumcount;
+			  	$goldcnt = $pckval->goldcount;
+			  	$freecnt = $pckval->freecount;
+			  }
+			  foreach ($sellerneededcount as $sncnt) {
+			  	$seller = $sncnt->provider;
+			  	$needed = $sncnt->needed;
+			  }
 	   ?>
 	<!-- Section Title-->    
 	<div class="section-title-01">

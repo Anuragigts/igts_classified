@@ -65,7 +65,7 @@ class Postad_ezone_model extends CI_Model{
                                     'created_on'   => date('d-m-Y h:i:s'),
                                     'updated_on'   => date('d-m-Y h:i:s'),
                                     'terms_conditions' =>$this->input->post('terms_condition'),
-                                    'ad_status'     => 1
+                                    'ad_status'     => 0
                                     );
                 // echo "<pre>"; print_r($data); exit;
                     $this->db->insert('postad', $data);

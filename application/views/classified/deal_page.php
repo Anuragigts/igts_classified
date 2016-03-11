@@ -16,7 +16,7 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="js/filter.css"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('.cd-filter-content').niceScroll({
@@ -29,9 +29,9 @@
 		});
 	</script>
 	
-	 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-    <script type="text/javascript">
-        google.maps.event.addDomListener(window, 'load', function () {
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+	<script type="text/javascript">
+	google.maps.event.addDomListener(window, 'load', function () {
             var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
             google.maps.event.addListener(places, 'place_changed', function () {
                 var place = places.getPlace();
@@ -42,7 +42,7 @@
                 $("#longg").val(longitude);
             });
         });
-    </script>
+	</script>
     <script type="text/javascript">
 		$(document).ready(
 			    function()
@@ -61,6 +61,10 @@
 							$("form.jforms").submit();
 			            }
 			        )
+			        $('.price_sort').change(function() {
+							$("form.jforms").submit();
+			            }
+			        )
 			        $('.recentdays_sort').change(function() {
 							$("form.jforms").submit();
 			            }
@@ -73,13 +77,50 @@
 			        });
 
 			        $("#find_deal").click(function(){
-			        	$("form").submit();
+			        	$("form.jforms").submit();
 			        });
 			    }
 			);
 		</script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+		<script type="text/javascript">
+		google.maps.event.addDomListener(window, 'load', function () {
+	            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
+	            google.maps.event.addListener(places, 'place_changed', function () {
+	                var place = places.getPlace();
+	                var address = place.formatted_address;
+	                var latitude = place.geometry.location.lat();
+	                var longitude = place.geometry.location.lng();
+	                $("#latt").val(latitude);
+	                $("#longg").val(longitude);
+	            });
+	        });
+		</script>
+		<?php 
+		foreach ($busconcount as $countval) {
+		  	$allbustype = $countval->allbustype;
+		  	$business = $countval->business;
+		  	$consumer = $countval->consumer;
+		  }
+		  foreach ($deals_pck as $pckval) {
+		  	$urgentcnt = $pckval->urgentcount;
+		  	$platinumcnt = $pckval->platinumcount;
+		  	$goldcnt = $pckval->goldcount;
+		  	$freecnt = $pckval->freecount;
+		  }
+		$cat_id =  $this->session->userdata('cat_id');
+		$bus_id =  $this->session->userdata('bus_id');
+
+		$search_bustype = $this->session->userdata('search_bustype');
+		$dealtitle = $this->session->userdata('dealtitle');
+		$dealprice = $this->session->userdata('dealprice');
+		$recentdays = $this->session->userdata('recentdays');
+		$location = $this->session->userdata('location');
+		$latt = $this->session->userdata('latt');
+		$longg = $this->session->userdata('longg');
+		 ?>
 	  
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
 	<div class="section-title-01">
@@ -94,7 +135,7 @@
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<form action="<?php echo base_url(); ?>deal_page" method="post" class="j-forms jforms" style="background-color: white ! important;">
+		<form action="<?php echo base_url(); ?>deal_page/index" method="post" class="j-forms jforms" style="background-color: white ! important;">
 			<div class="content_info hotdeal_minheight">
 				<div class="paddings">
 					<div class="container">
@@ -110,13 +151,13 @@
 										<div class="unit check logic-block-radio">
 											<div class="inline-group hot_deal_rad">
 												<label class="radio">
-													<input type="radio" name="business_type" class='bus_type' value="business">
+													<input type="radio" name="business_type" class='bus_type' value="business" <?php if ($bus_id == 'business') {	echo "checked=checked";	} ?> >
 													<i></i>Business 
 												</label>
 											</div>
 											<div class="inline-group hot_deal_rad1">
 												<label class="radio">
-													<input type="radio" name="business_type" class='bus_type'  value="consumer">
+													<input type="radio" name="business_type" class='bus_type'  value="consumer" <?php if ($bus_id == 'consumer') {	echo "checked=checked";	} ?> >
 													<i></i>Consumer 
 												</label>
 											</div>
@@ -131,9 +172,9 @@
 													<input type='hidden' name='latt' id='latt' value='' >
 													<input type='hidden' name='longg' id='longg' value='' >
 													<select name="category_name" id="category_name">
-														<option value="all" selected >All</option>
+														<option value="all" selected <?php if ($cat_id == 'all') { echo "selected=selected"; } ?> >All</option>
 														<?php foreach ($category as $categorycal) { ?>
-														<option value="<?php echo $categorycal->category_id; ?>"><?php echo ucfirst($categorycal->category_name); ?></option>
+														<option value="<?php echo $categorycal->category_id; ?>" <?php if ($cat_id == $categorycal->category_id) { echo "selected=selected"; } ?> ><?php echo ucfirst($categorycal->category_name); ?></option>
 														<?php } ?>
 													</select>
 													<i></i>
@@ -143,10 +184,10 @@
 												<div class="widget right-130">
 													<div class="input">
 														<input type="text" placeholder="Enter Location" id="find_loc" name="find_loc">
+														<input type='hidden' name='latt' id='latt' value='' >
+														<input type='hidden' name='longg' id='longg' value='' >
 													</div>
-													<button type="button" id='find_deal' name='find_deal' value="find_deal" class="bg addon-btn adn-130 adn-right">
-														Find a Deal
-													</button>
+													<input type="submit" id='find_deal' name='find_deal' value="FindDeal" class="bg addon-btn adn-130 adn-right" />
 												</div>
 											</div>
 										</div>
@@ -164,39 +205,51 @@
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
 									<h3 class="title-widget">Filters</h3>
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Location</h4>
-
-										<div class="cd-filter-content">
-											<div id="limit_scrol">
-												<?php foreach ($loc_list as $loc_val) {
-													$loc_name = explode(",", $loc_val->loc_name);
-												 ?>
-												<label class="checkbox">
-													<input type="checkbox" name="loc_search[]" class='loc_search' value="<?php echo $loc_val->latt.",".$loc_val->longg; ?>" >
-													<i></i> <?php echo $loc_name[2]; ?>
-												</label>
-												<?php } ?>
-											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
 									
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Search Only</h4>
+										<div class="cd-filter-block">
+											<h4 class="title-widget closed">Deal Type</h4>
 
-										<div class="cd-filter-content">
-											<div>
-												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="urgent" >
-													<i></i> Urgent Deals 
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="platinum" >
-													<i></i> Significant Deals
-												</label>
+											<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div>
+													<label class="radio">
+														<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?>  >
+														<i></i> All (<?php echo $allbustype; ?>)
+													</label>
+													<label class="radio">
+														<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
+														<i></i> Business (<?php echo $business; ?>)
+													</label>
+													<label class="radio">
+														<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
+														<i></i> Consumer (<?php echo $consumer; ?>)
+													</label>
+												</div>
 											</div>
-										</div> <!-- cd-filter-content -->
-									</div> <!-- cd-filter-block -->
+											<div class="cd-filter-block">
+												<h4 class="title-widget">Search Only</h4>
+
+												<div class="cd-filter-content">
+													<div>
+														<label class="checkbox">
+															<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?>>
+															<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3"<?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
+															<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2"<?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?>>
+															<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?>>
+															<i></i> Recent Deals (<?php echo $freecnt; ?>)
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
 								</div>
 							</div>
 								<!-- Item Table-->
@@ -225,39 +278,39 @@
 														<div class="top_bar_top">
 															<label class="input select">
 																<select name="dealtitle_sort" class="dealtitle_sort">
-																	<option value="Any">Any</option>
-																	<option value="atoz">A to Z</option>
-																	<option value="ztoa">Z to A</option>
+																	<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																	<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																	<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 																</select>
 																<i></i>
 															</label>
 														</div>
-													</li>
+	                                                </li>
 													<li>
 														<div class="top_bar_top">
 															<label class="input select">
 																<select name="price_sort" class="price_sort">
-																	<option value="Any">Any(Pricing)</option>
-																	<option value="lowtohigh">Low to High</option>
-																	<option value="hightolow">High to Low</option>
+																	<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+																	<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+																	<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 																</select>
 																<i></i>
 															</label>
 														</div>
-													</li>
-													<li>
+	                                                </li>
+	                                                <li>
 														<div class="top_bar_top">
 															<label class="input select">
-																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any">Any(posted on)</option>
-																	<option value="last24hours">Last 24 Hours</option>
-																	<option value="last3days">Last 3 Days</option>
-																	<option value="last7days">Last 7 Days</option>
-																	<option value="last14days">Last 14 Days</option>
-																	<option value="last1month">Last 1 month</option>
-																</select>
-																<i></i>
-															</label>
+																	<select name="recentdays_sort" class="recentdays_sort">
+																		<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																		<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																		<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																		<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																		<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																		<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+																	</select>
+																	<i></i>
+																</label>
 														</div>
 													</li>
 												</ul>
@@ -280,10 +333,10 @@
 	</section>
 	<!-- End Shadow Semiboxed -->
 	
-	<script src="js/jquery.js"></script>
-	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 	
-	<script src="js/jquery.nicescroll.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-	<script src="libs/jquery.mixitup.min.js"></script>
-	<script src="libs/main.js"></script>
+	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+	<script src="<?php echo base_url(); ?>libs/main.js"></script>

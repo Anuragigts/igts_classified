@@ -92,7 +92,6 @@ class Description_view extends CI_Controller{
                                 $detailed_styles = $this->classifed_model->ads_detailed_acces();
                                 foreach ($detailed_styles as $val) {
                                     $body_content = array('Cloth Type' => $val->cloth_type,
-                                                            'Size'=>$val->w_size,
                                                             'Color'=> $val->color,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Material'=>$val->material,

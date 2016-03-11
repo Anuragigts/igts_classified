@@ -65,7 +65,7 @@ class Postad_cloths_model extends CI_Model{
                                     'created_on'   => date('d-m-Y h:i:s'),
                                     'updated_on'   => date('d-m-Y h:i:s'),
                                     'terms_conditions' =>$this->input->post('terms_condition'),
-                                    'ad_status'     => 1
+                                    'ad_status'     => 0
                                     );
                 // echo "<pre>"; print_r($data); exit;
                     $this->db->insert('postad', $data);
@@ -186,7 +186,7 @@ class Postad_cloths_model extends CI_Model{
                                                 'fit'=>$this->input->post('Fit'),
                                                 'made_in'=>$this->input->post('madein'),
                                                 'material'=>$this->input->post('material'),
-                                                'washing_instruct'=>$this->input->post('washinst'),
+                                                'washing instructor'=>$this->input->post('washinst'),
                                                 'length'=>$this->input->post('length')
                                 );
                         $this->db->insert("lifestyle_clothing", $women_cloths);
@@ -236,7 +236,7 @@ class Postad_cloths_model extends CI_Model{
                                                 'fit'=>'',
                                                 'made_in'=>'',
                                                 'material'=>$this->input->post('material'),
-                                                'washing_instruct'=>$this->input->post('washinst'),
+                                                'washing instructor'=>$this->input->post('washinst'),
                                                 'length'=>$this->input->post('length')
                                 );
                         $this->db->insert("lifestyle_wedding", $women_wedding);
