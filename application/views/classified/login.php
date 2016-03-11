@@ -1,4 +1,5 @@
 	<title>Right Deals :: Login</title>
+	
 	<style>
 		.section-title-01{
 		height: 315px;
@@ -9,19 +10,15 @@
 		overflow: hidden;
 		}
 	</style>
-	<link rel="stylesheet" type="text/css" media="all" href="css/logreg.css">
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
 	
-	<!-- jQuery Form Validation code -->
-		<script>
-		  
-		  // When the browser is ready...
-		  $(function() {
-		  
-			// Setup form validation on the #register-form element
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>css/logreg.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
+	
+	<script>
+		$(function() {
+		
 			$("#login_form").validate({
 			
-				// Specify the validation rules
 				rules: {
 					email: {
 						required: true,
@@ -32,8 +29,7 @@
 						minlength: 5
 					},
 				},
-				
-				// Specify the validation error messages
+			
 				messages: {
 					password: {
 						required: "Please provide a password",
@@ -46,24 +42,21 @@
 					return true;
 				}
 			});
-
-		  });
-		  
-		</script>
-		  
-	<!-- Section Title-->    
+			
+		});
+		
+	</script>
+	
 	<div class="section-title-01">
 		<div class="bg_parallax image_02_parallax"></div>
 	</div>
-	<!-- End Section Title-->
-	<!--Content Central -->
+	
 	<section class="content-central">
-		<!-- Shadow Semiboxed -->
+		
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<!-- End Shadow Semiboxed -->
-		<!-- End content info - page Fill with -->
+		
 		<div class="content_info">
 			<div class="paddings-mini">
 				<div class="container">
@@ -72,7 +65,6 @@
 							<div class="login-form">
 								<?php echo $this->view("classified_layout/success_error"); ?>
 								<div class="row login_totpad">
-									
 									<div class="col-md-12">
 										<script type="text/javascript">
 											function check(){
@@ -142,7 +134,6 @@
 														<h4 class="log_side pull-right"><a href="forgot_password" class="signup_clr">Forgot Password</a></h4>
 													</div>
 												</form>
-												<!-- End form -->
 												<div class="row social_icons">
 													<div class="col-md-6">
 														<div class="login-options">
@@ -150,7 +141,6 @@
 														</div>
 													</div>
 													<div class="col-md-6">
-														<!-- end FB login -->
 														<div class=" login-options">
 															<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
 														</div>
@@ -162,20 +152,17 @@
 								</div>
 							</div>
 						</div>
-						<!-- end col-md-8/offset -->
 					</div>
-					<!-- end row -->
 				</div>
 			</div>
 		</div>
-		<!-- End content info - page Fill with  --> 
 	</section>
-	<script src="js/jquery.js"></script> 
+	
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+	
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();
 		},5000);
 		
 	</script>
-	
-	<!--<script src="j-folder/js/jquery.validate.min.js"></script>-->

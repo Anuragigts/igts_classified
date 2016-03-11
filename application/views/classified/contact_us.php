@@ -9,23 +9,72 @@
 		overflow: hidden;
 		}
 	</style>
+	
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
+	
+	<script>
+								  
+	  // When the browser is ready...
+	  $(function() {
+	  
+		// Setup form validation on the #register-form element
+		$("#contact_form").validate({
+		
+			// Specify the validation rules
+			rules: {
+				contact_name: {
+					required: true,
+				},
+				contact_email: {
+						required: true,
+						email: true
+					},
+				contact_no: {
+					required: true,
+				},
+				contact_message: {
+					required: true,
+					minlength: 60
+				}
+			},
+			
+			// Specify the validation error messages
+			messages: {
+				contact_name: {
+					required: "Please Enter Your Name",
+				},
+				contact_no: {
+					required: "Please Enter Mobile No"
+					//minlength: "Please Enter 10 Digit Mobile No"
+				},
+				contact_message: {
+					required: "Please Enter Message",
+					minlength: "Title contains atleast 60 characters"
+				},
+				contact_email: "Please enter a valid email address",
+			},
+			
+			submitHandler: function(form) {
+				// form.submit();
+				return true;
+			}
+		});
 
+	  });
+	  
+	</script>
+	
 	<div class="section-title-01">
 		<div class="bg_parallax image_01_parallax"></div>
 	</div>
-	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css" />
 	
 	<section class="content-central">
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		<div class="content_info">
-			<div class="">
-				
-				<div id="map"></div>
-               
-                <div class="content_info">
+			<form id="contact_form" action="#" class="j-forms" method="post" style="background-color:#fff;">
+				<div class="content_info">
                     <div class="paddings-mini">
                         <div class="container">
                             <div class="row">
@@ -39,39 +88,80 @@
 							<div class="row">
                                 <div class="col-sm-12">
 									<div class="row">
-										<div class="col-md-4">
+										<div class="col-md-4 col-sm-4 col-xs-12">
 											<aside class="cont_left">
-												<h4 class="whi_te">The Office</h4>
 												<address class="whi_te">
-												  <i class="fa fa-map-marker"></i> fa795 Folsom Ave, Suite 600<br>
-												  <i class="fa fa-plane"></i> San Francisco, CA 94107<br>
-												  <i class="fa fa-phone"></i>  (123) 456-7890
-												</address>
-
-												<address class="whi_te">
-												  <strong class="whi_te">99 Deals Emails</strong><br>
-												  <i class="fa fa-envelope"></i><a href="mailto:#"> sales@gmail.com</a><br>
-												  <i class="fa fa-envelope"></i><a href="mailto:#"> support@gmail.com</a>
+													<i class="fa fa-map-marker"></i> fa795 Folsom Ave, Suite 600<br>
+													<span class="pad_left_23"></span> San Francisco, CA 94107<br>
 												</address>
 											</aside>
-
-											<hr class="tall">
 										</div>
-										
-										<div class="col-md-8">
-											<h3>Contact Form</h3>
-											<p class="lead">
+										<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+											<aside class="cont_left">
+												<address class="whi_te">
+													<i class="fa fa-phone"></i>  (123) 456-7890 <br>
+													<i class="fa fa-phone"></i>  (123) 456-7890
+												</address>
+											</aside>
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+											<aside class="cont_left">
+												<address class="whi_te">
+													<i class="fa fa-envelope"></i><a href="mailto:#"> sales@gmail.com</a><br>
+													<i class="fa fa-envelope"></i><a href="mailto:#"> support@gmail.com</a>
+												</address>
+											</aside>
+										</div>
+									</div>
+									<div class="divider_space"></div>	
+									<div class="row">
+										<div class="col-md-8 col-sm-7 col-xs-12">
+											<p class="lead" align="justify">
 											   Find a wide variety of airline tickets and cheap flights, hotels, tour packages, car rentals, cruises and more in travelia.com.You can choose your favorite destination and start planning your long-awaited vacation.
-											   You can also check availability of flights and hotels quickly and easily, in order to find the option that best suits your needs.
 											</p>
-											<form id="form-contact" class="form-theme" action="">
-												<input type="text" placeholder="Name" name="Name" required="">
-												<input type="email" placeholder="Email" name="Email" required="">
-												<input type="number" placeholder="Phone" name="Phone" required="">
-												<textarea placeholder="Your Message" name="message" required=""></textarea>
-												<input type="submit" name="Submit" value="Send Message" class="btn btn-primary">
-											</form> 
-											<div id="result"></div>  
+											<div class="row">
+												<div class="col-sm-12 unit">
+													<div class="input">
+														<label class="icon-right" for="contact_name">
+															<i class="fa fa-user"></i>
+														</label>
+														<input type="text" id="contact_name" name="contact_name" placeholder="Enter Your Name"  >
+													</div>
+												</div>
+												<div class="col-sm-12 unit">
+													<div class="input">
+														<label class="icon-right" for="contact_email">
+															<i class="fa fa-envelope-o"></i>
+														</label>
+														<input type="email" id="contact_email" name="contact_email" placeholder="Enter Your Email">
+													</div>
+												</div>
+												<div class="col-sm-12 unit">
+													<div class="input">
+														<label class="icon-right" for="contact_no">
+															<i class="fa fa-phone"></i>
+														</label>
+														<input type="text" id="contact_no" name="contact_no" placeholder="Enter Your Mobile Number ">
+													</div>
+												</div>
+												<div class="col-sm-12 unit">
+													<div class="input">
+														<textarea type="text" id="contact_message" name="contact_message" placeholder="Enter Your Message "></textarea>
+													</div>
+												</div>
+												<div class="col-sm-12 unit">													
+													<input type="submit" id="submit" name='submit' class="btn btn-primary" value="Send">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-5 col-xs-5">
+											<img src="img/contact.jpg" class="img img-responsive con_tact" alt="Contact" title="Contact">
+										</div>
+									</div>
+									<div class="divider_space"></div>	
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div id="map"></div>
 										</div>
 									</div>
 								</div>
@@ -79,12 +169,12 @@
                         </div>
                     </div>
                 </div>  
-			</div>
+			</form>
 		</div>   
 	</section>
 	
-	<script src="js/jquery.js"></script>
-	<script src="js/maps/gmap3.js"></script>  
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script>
+	<script src="<?php echo base_url(); ?>js/maps/gmap3.js"></script>  
 	
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript">
@@ -126,3 +216,5 @@
 		}
 
 	</script>
+	
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>

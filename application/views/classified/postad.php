@@ -1,38 +1,32 @@
 	<title>Right Deals :: PostaDeal</title>
 	<style>
 		.section-title-01{
-		height: 273px;
-		background-color: #262626;
-		text-align: center;
-		position: relative;
-		width: 100%;
-		overflow: hidden;
+			height: 273px;
+			background-color: #262626;
+			text-align: center;
+			position: relative;
+			width: 100%;
+			overflow: hidden;
 		}
 		.nav-tabs li a {
-		border: 0px none;
-		padding: 12px 13px;
-		background: #3A4749 none repeat scroll 0% 0%;
-		color: #FFF;
+			border: 0px none;
+			padding: 12px 13px;
+			background: #3A4749 none repeat scroll 0% 0%;
+			color: #FFF;
 		}
 	</style>
 	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
-	<!-- Section Title-->    
 	<div class="section-title-01">
-		<!-- Parallax Background -->
 		<div class="bg_parallax image_02_parallax"></div>
-		<!-- Parallax Background -->
 	</div>
-	<!-- End Section Title-->
-	<!--Content Central -->
+	
 	<section class="content-central">
-		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
-		<!-- End Shadow Semiboxed -->
-		<!-- End content info - page Fill with -->
+		
 		<div class="content_info">
 			<div class="paddings-mini">
 				<div class="container">
@@ -63,93 +57,92 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="Zone" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<div class="modal-content">
 												<form method='post' id='ezone_form' action="<?php echo base_url(); ?>postad_create_ezone">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>E-Zone Category
-														<input type='hidden' name='ezone_cat' id='ezone_cat' value='8' />
-														<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
-														<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
-														<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />
-													</h2>
-												</div>
-												<div class="modal-body">
-													<div class="row ezone_h3 mod_pad">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-3 clearfix">
-																	<h3>Phones & Tablets</h3>
-																	<?php foreach ($ezone_phones as $ezone_phones_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>E-Zone Category
+															<input type='hidden' name='ezone_cat' id='ezone_cat' value='8' />
+															<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
+															<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
+															<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />
+														</h2>
+													</div>
+													<div class="modal-body">
+														<div class="row ezone_h3 mod_pad">
+															<div class="col-md-12 post_deal_bor">
+																<div class="row">
+																	<div class="col-md-3 clearfix">
+																		<h3>Phones & Tablets</h3>
+																		<?php foreach ($ezone_phones as $ezone_phones_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Home Appliances</h3>
+																		<?php foreach ($ezone_home as $ezone_home_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Small Appliances</h3>
+																		<?php foreach ($ezone_small as $ezone_small_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Laptop & Computers</h3>
+																		<?php foreach ($ezone_laptops as $ezone_laptops_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_laptops_val['sub_category_id'].','.$ezone_laptops_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_laptops_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
 																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Home Appliances</h3>
-																	<?php foreach ($ezone_home as $ezone_home_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+																<div class="row col-md-12" >
+																	<button type="button" id='ezone_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
 																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Small Appliances</h3>
-																	<?php foreach ($ezone_small as $ezone_small_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+																<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
+																	<div class="col-md-3 clearfix">
+																		<h3>Accessories</h3>
+																		<?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Personal Care</h3>
+																		<?php foreach ($ezone_pcare as $ezone_pcare_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_pcare_val['sub_category_id'].','.$ezone_pcare_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_pcare_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Home Entertainment</h3>
+																		<?php foreach ($ezone_entertainment as $ezone_entertainment_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_entertainment_val['sub_category_id'].','.$ezone_entertainment_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_entertainment_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Photography</h3>
+																		<?php foreach ($ezone_photo as $ezone_photo_val) { ?>
+																		<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
 																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Laptop & Computers</h3>
-																	<?php foreach ($ezone_laptops as $ezone_laptops_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_laptops_val['sub_category_id'].','.$ezone_laptops_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_laptops_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+																<div class="row col-md-12" >
+																	<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
 																</div>
-															</div>
-															<div class="row col-md-12" >
-																<button type="button" id='ezone_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
-															</div>
-															<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
-																<div class="col-md-3 clearfix">
-																	<h3>Accessories</h3>
-																	<?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Personal Care</h3>
-																	<?php foreach ($ezone_pcare as $ezone_pcare_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_pcare_val['sub_category_id'].','.$ezone_pcare_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_pcare_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Home Entertainment</h3>
-																	<?php foreach ($ezone_entertainment as $ezone_entertainment_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_entertainment_val['sub_category_id'].','.$ezone_entertainment_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_entertainment_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Photography</h3>
-																	<?php foreach ($ezone_photo as $ezone_photo_val) { ?>
-																	<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-															</div>
-															<div class="row col-md-12" >
-																<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
+													<div class="modal-footer">
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													</div>
 												</form>
 											</div>
 										</div>
 									</div>
-									<!-- E-Zone content End-->
+									
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
 											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
@@ -159,10 +152,9 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="Motor" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -175,21 +167,23 @@
 																<div class="row">
 																	<div class="col-md-3 clearfix">
 																		<h3>
-																<input type='hidden' name='motor_cat' id='motor_cat' value='3' />
-																<input type='hidden' name='motor_sub' id='motor_sub' value='' />
-																<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
-																<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
-																<a href="javascript:void(0);" id="12,0,0" class="cars_cars">Cars</a>
-																			</h3>
+																			<input type='hidden' name='motor_cat' id='motor_cat' value='3' />
+																			<input type='hidden' name='motor_sub' id='motor_sub' value='' />
+																			<input type='hidden' name='motor_sub_sub' id='motor_sub_sub' value='' />
+																			<input type='hidden' name='motor_sub_sub_sub' id='motor_sub_sub_sub' value='' />
+																			<a href="javascript:void(0);" id="12,0,0" class="cars_cars">Cars</a>
+																		</h3>
 																	</div>
 																	<div class="col-md-3 clearfix">
 																		<h3><a href="javascript:void(0);" id="13,0,0" class="bike_scooters">
-																			Bikes & Scooters</a></h3>
+																			Bikes & Scooters</a>
+																		</h3>
 																	</div>
 																	<div class="col-md-3 clearfix">
 																		<h3>
 																			<a href="javascript:void(0);" id="17,0,0" class="motor_plant_machinery">
-																				Plant Machinery</a></h3>
+																			Plant Machinery</a>
+																		</h3>
 																	</div>
 																	<div class="col-md-3 clearfix">
 																		<h3><a href="javascript:void(0);" id="15,0,0" class="motor_vans_trucks">Vans, Trucks & SUV's</a></h3>
@@ -219,7 +213,6 @@
 											</div>
 										</div>
 									</div>
-									<!-- Motor Point content End-->
 								</div>
 								<div class="row top_13">
 									<div class="col-md-4 col-sm-4 col-xs-12">
@@ -231,73 +224,72 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="LifeStyles" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Clothing & LifeStyles Category</h2>
 												</div>
 												<form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-4 clearfix">
-																	<input type='hidden' name='cloths_cat' id='cloths_cat' value='6' />
-																			<input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
-																			<input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
-																	<h3>Women</h3>
-																	<?php foreach ($cloths_women as $c_val) { ?>
-																	<h4><a id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" class="cloths_women"  href="javascript:void(0);"  ><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-12 post_deal_bor">
+																<div class="row">
+																	<div class="col-md-4 clearfix">
+																		<input type='hidden' name='cloths_cat' id='cloths_cat' value='6' />
+																		<input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
+																		<input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
+																		<h3>Women</h3>
+																		<?php foreach ($cloths_women as $c_val) { ?>
+																		<h4><a id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" class="cloths_women"  href="javascript:void(0);"  ><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Men</h3>
+																		<?php foreach ($cloths_men as $c_men) { ?>
+																		<h4><a id="<?php echo  $c_men['sub_category_id'].','.$c_men['sub_subcategory_id']; ?>" class="cloths_men"  href="javascript:void(0);"  ><?php echo $c_men['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Boy</h3>
+																		<?php foreach ($cloths_boy as $c_boy) { ?>
+																		<h4><a id="<?php echo  $c_boy['sub_category_id'].','.$c_boy['sub_subcategory_id']; ?>" class="cloths_boy"  href="javascript:void(0);"  ><?php echo $c_boy['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
 																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Men</h3>
-																	<?php foreach ($cloths_men as $c_men) { ?>
-																	<h4><a id="<?php echo  $c_men['sub_category_id'].','.$c_men['sub_subcategory_id']; ?>" class="cloths_men"  href="javascript:void(0);"  ><?php echo $c_men['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Boy</h3>
-																	<?php foreach ($cloths_boy as $c_boy) { ?>
-																	<h4><a id="<?php echo  $c_boy['sub_category_id'].','.$c_boy['sub_subcategory_id']; ?>" class="cloths_boy"  href="javascript:void(0);"  ><?php echo $c_boy['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-md-4 clearfix">
-																	<h3>Girls</h3>
-																	<?php foreach ($cloths_girls as $c_girl) { ?>
-																	<h4><a id="<?php echo  $c_girl['sub_category_id'].','.$c_girl['sub_subcategory_id']; ?>" class="cloths_girl"  href="javascript:void(0);"  ><?php echo $c_girl['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Baby Boy</h3>
-																	<?php foreach ($cloths_baby_boy as $c_bboy) { ?>
-																	<h4><a id="<?php echo  $c_bboy['sub_category_id'].','.$c_bboy['sub_subcategory_id']; ?>" class="cloths_bboy"  href="javascript:void(0);"  ><?php echo $c_bboy['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Baby Girl</h3>
-																	<?php foreach ($cloths_baby_girl as $c_bgirl) { ?>
-																	<h4><a id="<?php echo  $c_bgirl['sub_category_id'].','.$c_bgirl['sub_subcategory_id']; ?>" class="cloths_bgirl"  href="javascript:void(0);"  ><?php echo $c_bgirl['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+																<div class="row">
+																	<div class="col-md-4 clearfix">
+																		<h3>Girls</h3>
+																		<?php foreach ($cloths_girls as $c_girl) { ?>
+																		<h4><a id="<?php echo  $c_girl['sub_category_id'].','.$c_girl['sub_subcategory_id']; ?>" class="cloths_girl"  href="javascript:void(0);"  ><?php echo $c_girl['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Baby Boy</h3>
+																		<?php foreach ($cloths_baby_boy as $c_bboy) { ?>
+																		<h4><a id="<?php echo  $c_bboy['sub_category_id'].','.$c_bboy['sub_subcategory_id']; ?>" class="cloths_bboy"  href="javascript:void(0);"  ><?php echo $c_bboy['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Baby Girl</h3>
+																		<?php foreach ($cloths_baby_girl as $c_bgirl) { ?>
+																		<h4><a id="<?php echo  $c_bgirl['sub_category_id'].','.$c_bgirl['sub_subcategory_id']; ?>" class="cloths_bgirl"  href="javascript:void(0);"  ><?php echo $c_bgirl['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
-											</form>
+													<div class="modal-footer">
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													</div>
+												</form>
 											</div>
 										</div>
 									</div>
-									<!-- Clothing & LifeStyles content End-->
+									
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
 											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="services" title="services Category">
@@ -307,10 +299,9 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="Services" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -348,7 +339,7 @@
 											</div>
 										</div>
 									</div>
-									<!-- Services content End-->
+									
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
 											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="property" title="property Category">
@@ -358,44 +349,42 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<form method='post' id='property_form' action="<?php echo base_url(); ?>postad_create_property">
-									<div class="modal dialog1 fade" id="Property" role="dialog">
-										<div class="modal-dialog1">
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Find a Property Category</h2>
-												</div>
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-12 text_center clearfix">
-																	<h3><a href="javascript:void(0)" id="11,0" class='propertyforsale'>Residential</a>
-																		<input type='hidden' name='property_cat' id='property_cat' value='4' />
+										<div class="modal dialog1 fade" id="Property" role="dialog">
+											<div class="modal-dialog1">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Find a Property Category</h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-12 post_deal_bor">
+																<div class="row">
+																	<div class="col-md-12 text_center clearfix">
+																		<h3><a href="javascript:void(0)" id="11,0" class='propertyforsale'>Residential</a>
+																			<input type='hidden' name='property_cat' id='property_cat' value='4' />
 																			<input type='hidden' name='property_sub' id='property_sub' value='' />
 																			<input type='hidden' name='property_sub_sub' id='property_sub_sub' value='' />
-																	</h3>
-																</div>
-																<div class="col-md-12 text_center clearfix">
-																	<h3>
-																		<a href="javascript:void(0)" id="26,0" class='propertyforsale'>Commercial</a>
-																	</h3>
+																		</h3>
+																	</div>
+																	<div class="col-md-12 text_center clearfix">
+																		<h3>
+																			<a href="javascript:void(0)" id="26,0" class='propertyforsale'>Commercial</a>
+																		</h3>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													<div class="modal-footer">
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								</form>
-									<!-- Find a Property content End-->
+									</form>
 								</div>
 								<div class="row top_13">
 									<div class="col-md-4 col-sm-4 col-xs-12">
@@ -407,54 +396,53 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="Kitchen" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<form method='post' id='kitchen_form' action="<?php echo base_url(); ?>postad_create_kitchen">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>Home & Kitchen Category
-														<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='7' />
-														<input type='hidden' name='kitchen_sub' id='kitchen_sub' value='' />
-														<input type='hidden' name='kitchen_sub_sub' id='kitchen_sub_sub' value='' />
-													</h2>
-												</div>
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-4 clearfix">
-																	<h3>Kitchen Essentials</h3>
-																	<?php foreach ($kitchen_essentials as $kitchen_essentials_val) { ?>
-																	<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_essentials_val['sub_category_id'].','.$kitchen_essentials_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_essentials_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Home Essentials</h3>
-																	<?php foreach ($kitchen_home as $kitchen_home_val) { ?>
-																	<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_home_val['sub_category_id'].','.$kitchen_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_home_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Decor</h3>
-																	<?php foreach ($kitchen_decor as $kitchen_decor_val) { ?>
-																	<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_decor_val['sub_category_id'].','.$kitchen_decor_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_decor_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2>Home & Kitchen Category
+															<input type='hidden' name='kitchen_cat' id='kitchen_cat' value='7' />
+															<input type='hidden' name='kitchen_sub' id='kitchen_sub' value='' />
+															<input type='hidden' name='kitchen_sub_sub' id='kitchen_sub_sub' value='' />
+														</h2>
+													</div>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-12 post_deal_bor">
+																<div class="row">
+																	<div class="col-md-4 clearfix">
+																		<h3>Kitchen Essentials</h3>
+																		<?php foreach ($kitchen_essentials as $kitchen_essentials_val) { ?>
+																		<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_essentials_val['sub_category_id'].','.$kitchen_essentials_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_essentials_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Home Essentials</h3>
+																		<?php foreach ($kitchen_home as $kitchen_home_val) { ?>
+																		<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_home_val['sub_category_id'].','.$kitchen_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_home_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Decor</h3>
+																		<?php foreach ($kitchen_decor as $kitchen_decor_val) { ?>
+																		<h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_decor_val['sub_category_id'].','.$kitchen_decor_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_decor_val['sub_subcategory_name']; ?></a></h4>
+																		<?php	} ?>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													</div>
 												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</form>
+											</form>
 										</div>
 									</div>
-									<!-- Home & Kitchen content End-->
+									
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
 											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets Category">
@@ -464,58 +452,57 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="Pets" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
 													<h2>Pets Category</h2>
 												</div>
 												<form method='post' id='pets_form' action="<?php echo base_url(); ?>postad_create_pets">
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-2 clearfix">
-																	<input type='hidden' name='pets_cat' id='pets_cat' value='5' />
-																	<input type='hidden' name='pets_sub' id='pets_sub' value='' />
-																	<input type='hidden' name='pets_sub_sub' id='pets_sub_sub' value='' />
-																	<?php foreach ($pets_sub_cat as $p_sub) { ?>
+													<div class="modal-body">
+														<div class="row">
+															<div class="col-md-12 post_deal_bor">
+																<div class="row">
+																	<div class="col-md-2 clearfix">
+																		<input type='hidden' name='pets_cat' id='pets_cat' value='5' />
+																		<input type='hidden' name='pets_sub' id='pets_sub' value='' />
+																		<input type='hidden' name='pets_sub_sub' id='pets_sub_sub' value='' />
+																		<?php foreach ($pets_sub_cat as $p_sub) { ?>
 																		<h3><a id="<?php echo $p_sub['sub_category_id']; ?>" href="javascript:void(0);" class="pets_others"  ><?php echo ucfirst($p_sub['sub_category_name']); ?></a></h3>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Big Animals</h3>
-																	<?php foreach ($pets_big_animal as $p_animal) { ?>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Big Animals</h3>
+																		<?php foreach ($pets_big_animal as $p_animal) { ?>
 																		<h4><a class="pets_big" id="<?php echo  $p_animal['sub_category_id'].','.$p_animal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_animal['sub_subcategory_name']); ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Small Animals</h3>
-																	<?php foreach ($pets_small_animal as $p_sanimal) { ?>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-3 clearfix">
+																		<h3>Small Animals</h3>
+																		<?php foreach ($pets_small_animal as $p_sanimal) { ?>
 																		<h4><a class="pets_small" id="<?php echo  $p_sanimal['sub_category_id'].','.$p_sanimal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_sanimal['sub_subcategory_name']); ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-4 clearfix">
-																	<h3>Pet Accessories</h3>
-																	<?php foreach ($pets_accessories as $p_accessories) { ?>
+																		<?php	} ?>
+																	</div>
+																	<div class="col-md-4 clearfix">
+																		<h3>Pet Accessories</h3>
+																		<?php foreach ($pets_accessories as $p_accessories) { ?>
 																		<h4><a class="pets_accessories" id="<?php echo  $p_accessories['sub_category_id'].','.$p_accessories['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_accessories['sub_subcategory_name']); ?></a></h4>
-																	<?php	} ?>
+																		<?php	} ?>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
-											</form>
+													<div class="modal-footer">
+														<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+													</div>
+												</form>
 											</div>
 										</div>
 									</div>
-									<!-- Pets content End-->
+									
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div class="hovereffect">
 											<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg" alt="jobs" title="jobs Category">
@@ -525,10 +512,9 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal -->
+									
 									<div class="modal fade" id="Jobs" role="dialog">
 										<div class="modal-dialog">
-											<!-- Modal content-->
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -544,7 +530,7 @@
 																	<input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 																	<?php foreach ($jobs as $j_val) { ?>
 																	<div class="col-md-4 clearfix">
-																	<h4><a href="javascript:void(0)" class='job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
+																		<h4><a href="javascript:void(0)" class='job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
 																	</div>
 																	<?php } ?>
 																</div>
@@ -561,16 +547,12 @@
 								</div>
 							</div>
 						</div>
-						<!-- end col-md-8/offset -->
 					</div>
-					<!-- end row -->
 				</div>
 			</div>
 		</div>
-		<!-- End content info - page Fill with  --> 
 	</section>
-	<!-- End Content Central -->
-
+	
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();

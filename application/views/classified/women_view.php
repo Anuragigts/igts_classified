@@ -384,16 +384,16 @@
                                                 <li>
 													<div class="top_bar_top">
 														<label class="input select">
-																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
-																	<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
-																	<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
-																	<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?>>Last 7 Days</option>
-																	<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
-																	<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
-																</select>
-																<i></i>
-															</label>
+															<select name="recentdays_sort" class="recentdays_sort">
+																<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?>>Last 7 Days</option>
+																<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+															</select>
+															<i></i>
+														</label>
 													</div>
 												</li>
 											</ul>
@@ -417,6 +417,24 @@
 			</div>
 		</form>
 	</section>
+	
+	<!--MAP Modal -->
+	<div class="modal fade" id="map_location" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<!-- <form action="#" method="post" class="j-forms " > -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Map Location</h2>
+					</div>
+					<div class="modal-body map_show">
+						
+					</div>
+				</div>
+			<!-- </form> -->
+		</div>
+	</div>
 	
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 

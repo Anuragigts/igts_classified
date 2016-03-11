@@ -160,8 +160,8 @@
 																	</ul>
 																</div>
 																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																	<div class="location pull-right">
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -303,7 +303,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -429,7 +429,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -551,8 +551,8 @@
 																	</ul>
 																</div>
 																<div class="col-xs-8">
-																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																	<div class="location pull-right">
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -672,7 +672,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -757,14 +757,14 @@
 																</div>
 																<?php if (in_array($sval->ad_id, $fav_list)) { ?>
 																	<div class="col-xs-2">
-																	<div class="add-to-favourite-list pull-right">
-																		<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-																		<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
-																		<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
-																		<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-																		</a>
+																		<div class="add-to-favourite-list pull-right">
+																			<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
+																			<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+																			<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
+																			<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
+																			</a>
+																		</div>
 																	</div>
-																</div>
 																<?php }else{ ?>
 																		<div class="col-xs-2">
 																	<div class="add-to-favourite-list pull-right">
@@ -790,7 +790,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
