@@ -5796,7 +5796,6 @@ ul.sidebar-gallery {
 	background-image: url("../img/flowchart.jpg");
 }
 .related_ads img{
-    width: 308px;
     height: 160px;
 }
 .bot_pad_10{
@@ -5854,4 +5853,20 @@ strong{
 }
 .whi_te a:hover{
 	color:#E95413 !important;
+}
+
+.add_top img,iframe{
+	width: 940px;
+	height: 230px;
+}
+.add_left img,iframe{
+	width: 262px;
+	height: 156px;
+}
+.add_middle img,iframe{
+	width: 848px;
+	height: 90px;
+}
+#pagination{
+	padding-top: 20px;
 }

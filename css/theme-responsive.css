@@ -451,6 +451,20 @@
 	.top_pad_10{
 		padding-top:10px;
 	}
+	.add_top img,iframe{
+		width: 289px;
+		height: 151px;
+	}
+	.add_left img,iframe{
+		width: 289px;
+		height: 155px;
+		padding-bottom: 23px;
+	}
+	.add_middle img,iframe{
+		width: 289px;
+		height: 70px;
+		padding-bottom: 20px;
+	}
 	
 }
 @media screen and (min-device-width: 361px) and (max-device-width: 640px) {
@@ -588,6 +602,18 @@
 	}
 	.main_logo {
 		margin-top: -17px !important;
+	}
+	.add_top img,iframe{
+		width: 719px;
+		height: 159px;
+	}
+	.add_left img,iframe{
+		width: 158px;
+		height: 108px;
+	}
+	.add_middle img,iframe{
+		width: 539px;
+		height: 90px;
 	}
 }
 
