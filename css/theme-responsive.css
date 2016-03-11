@@ -451,16 +451,19 @@
 	.top_pad_10{
 		padding-top:10px;
 	}
-	.add_top img,iframe{
+	.add_top img,
+	.add_top iframe{
 		width: 289px;
 		height: 151px;
 	}
-	.add_left img,iframe{
+	.add_left img,
+	.add_left iframe{
 		width: 289px;
 		height: 155px;
 		padding-bottom: 23px;
 	}
-	.add_middle img,iframe{
+	.add_middle img,
+	.add_middle iframe{
 		width: 289px;
 		height: 70px;
 		padding-bottom: 20px;
@@ -603,15 +606,18 @@
 	.main_logo {
 		margin-top: -17px !important;
 	}
-	.add_top img,iframe{
+	.add_top img,
+	.add_top iframe{
 		width: 719px;
 		height: 159px;
 	}
-	.add_left img,iframe{
+	.add_left img,
+	.add_left iframe{
 		width: 158px;
 		height: 108px;
 	}
-	.add_middle img,iframe{
+	.add_middle img,
+	.add_middle iframe{
 		width: 539px;
 		height: 90px;
 	}

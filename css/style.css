@@ -3530,7 +3530,7 @@ address strong{
 }
 .item-table ul li{
 	font-size: 0.9rem;
-	padding: 15px 5px 15px 25%;
+	padding: 15px 0px 10px 19px;
 	border-bottom: 1px solid #ededed;
 	-webkit-transition: 0.3s all ease;
 	-moz-transition: 0.3s all ease;
@@ -5840,7 +5840,7 @@ strong{
 	overflow-y: hidden;
 }
 .cont_left{
-	padding: 20px;
+	padding: 10px 10px 0px 10px;
 	border: 2px solid #9FC955;
 	border-radius: 16px;
 	background-color: #9FC955;
@@ -5855,18 +5855,33 @@ strong{
 	color:#E95413 !important;
 }
 
-.add_top img,iframe{
+.add_top img,
+.add_top iframe{
 	width: 940px;
 	height: 230px;
 }
-.add_left img,iframe{
+.add_left img,
+.add_left iframe{
 	width: 262px;
 	height: 156px;
 }
-.add_middle img,iframe{
+.add_middle img,
+.add_middle iframe{
 	width: 848px;
 	height: 90px;
 }
+
+
 #pagination{
 	padding-top: 20px;
+}
+.pad_left_23{
+	padding-left:23px;
+}
+.divider_space{
+	padding:20px;
+}
+.con_tact{
+	border-radius: 10px;
+	height: 370px;
 }
