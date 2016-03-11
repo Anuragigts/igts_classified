@@ -448,6 +448,9 @@
 		padding: 5px 33px 22px 36px;
 		float: right;
 	}
+	.top_pad_10{
+		padding-top:10px;
+	}
 	
 }
 @media screen and (min-device-width: 361px) and (max-device-width: 640px) {
