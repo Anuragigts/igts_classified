@@ -856,7 +856,7 @@
 											}
 										} ?>
 										<!-- free Add Start -->
-									<div class="col-md-8 col-md-col-2 middle_ad" >
+									<div class="col-md-12 col-sm-12 col-xs-12 add_middle" >
 										<?php foreach ($public_adview as $publicview) {
 										  	 echo $mid_ad = $publicview->mid_ad;
 										  }

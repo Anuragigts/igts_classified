@@ -25,7 +25,7 @@
 		<div class="tp-banner" >
 			<ul>
 				<li data-transition="slidevertical">
-					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img img-responsive" alt="Slider1" title="Slider1">
+					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img-responsive" alt="Slider1" title="Slider1">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -194,7 +194,7 @@
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
+										<img class="img img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
 										<div class="overlay">
 											<h2>Hot Deals</h2>
 											<a class="info" href="deal_page">View Details</a>
@@ -203,7 +203,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
+										<img class="img img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
 										<div class="overlay">
 											<h2>E-Zone</h2>
 											<a class="info" href="ezone_view">View Details</a>
@@ -212,7 +212,7 @@
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
+										<img class="img img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
 										<div class="overlay">
 											<h2>Motor Point</h2>
 											<a class="info" href="motor_view">View Details</a>

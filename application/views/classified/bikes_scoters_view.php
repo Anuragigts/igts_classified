@@ -225,7 +225,7 @@
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
-							<div class="col-md-10 col-sm-8 col-md-offset-1">
+							<div class="col-md-10 col-sm-8 col-md-offset-1 add_top">
 								<?php echo $topad; ?>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 					<div class="container">
 						<div class="row">
 							<!-- Item Table-->
-							<div class="col-md-3 col-sm-6 ">
+							<div class="col-md-3 col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
 									<h3 class="title-widget">Bikes Scooter Filter</h3>
@@ -392,7 +392,7 @@
 									</div>
 								</div>
 								<div class="row top_20">
-									<div class="col-sm-12">
+									<div class="col-sm-12 add_left">
 										<?php echo $left_ad1; ?>
 									</div>
 								</div>
@@ -400,7 +400,7 @@
 							<!-- End Item Table-->
 
 							<!-- Item Table-->
-							<div class="col-md-9 col-sm-12">
+							<div class="col-md-9 col-sm-9">
                                 <div class="sort-by-container tooltip-hover">
                                     <div class="row">
                                         <div class="col-md-12">

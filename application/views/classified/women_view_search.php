@@ -84,7 +84,7 @@
                                     		$currency = '€';
                                     	}
                                     	if ($sval->package_type == '6' && $sval->urgent_package != '0') { ?>
-                                    <div class="col-md-12">
+                                    <div class="col-sm-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4">
@@ -229,7 +229,7 @@
 									
 									<!-- platinum package start-->
 									<?php if ($sval->package_type == '6' && $sval->urgent_package == '0') {  ?>
-                                    <div class="col-md-12">
+                                    <div class="col-sm-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4">
@@ -370,7 +370,7 @@
 
 									<!-- gold+urgent package starts -->
 									<?php if ($sval->package_type == '5' && $sval->urgent_package != '0') {  ?>
-									<div class="col-md-12">
+									<div class="col-sm-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4">
@@ -496,7 +496,7 @@
 									
 									<!-- gold package starts -->
 									<?php if ($sval->package_type == '5' && $sval->urgent_package == '0') {  ?>
-									<div class="col-md-12">
+									<div class="col-sm-12">
 										<div class="first_list gold_bgcolor">
 											<div class="row">
 												<div class="col-sm-4 ">
@@ -619,7 +619,7 @@
 									
 									<!-- free+urgent package starts -->
 									<?php if ($sval->package_type == '4' && $sval->urgent_package != '0') {  ?>
-									<div class="col-md-12">
+									<div class="col-sm-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
@@ -739,7 +739,7 @@
 									
 									<!-- free package starts -->
 									<?php if ($sval->package_type == '4' && $sval->urgent_package == '0') {  ?>
-									<div class="col-md-12">
+									<div class="col-sm-12">
 										<div class="first_list">
 											<div class="row">
 												<div class="col-sm-4 view_img">
@@ -856,7 +856,7 @@
 											}
 										} ?>
 										<!-- free Add Start -->
-									<div class="col-md-8 col-md-col-2 middle_ad" >
+									<div class="col-md-12 col-sm-12 col-xs-12 add_middle">
 										<?php foreach ($public_adview as $publicview) {
 										  	 echo $mid_ad = $publicview->mid_ad;
 										  }
