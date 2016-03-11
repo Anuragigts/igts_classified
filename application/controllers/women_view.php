@@ -193,7 +193,7 @@ class  Women_view extends CI_Controller{
                         "content"   =>  "women_view",
                         'women_list_count' => $women_list_count);
             $result['womenview_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_clothing();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
