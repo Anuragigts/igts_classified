@@ -101,7 +101,7 @@
 										'used_count' 	=>		$c_info->used_count,
 										'pkg_disc_amt'	=>		round($pkg_disc_amt,2),
 										'disc'			=>		round($disc,2),
-										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.$pkg_disc_amt
+										'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b>$c_info->c_code </b>, The Amount to be paid is ".round($pkg_disc_amt, 2)."</span>"
 							); 
 							$info = json_encode($c_details);
 							echo $info;
@@ -116,7 +116,7 @@
 										'used_count' 	=>		$c_info->used_count,
 										'pkg_disc_amt'	=>		round($pkg_disc_amt, 2),
 										'disc'			=>		round($disc,2),
-										'c_responce'	=>		'After Applying the Coupon <b>'.$c_info->c_code.'</b>, The Amount to be paid is '.round($pkg_disc_amt, 2)
+										'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b> $c_info->c_code </b>, The Amount to be paid is ".round($pkg_disc_amt, 2)."</span>"
 							); 
 							$info = json_encode($c_details);
 							echo $info;
@@ -124,10 +124,11 @@
 							 $c_details = array(
 										'c_code'		=>		$c_info->c_code,
 										'c_value' 		=>		0,
-										'max_cus' 		=>		$c_info->max_cus,
+										'max_cus' 		=>		0,
 										'used_count' 	=>		$c_info->used_count,
 										'pkg_disc_amt'	=>		round($amt, 2),
-										'c_responce'	=>		'The Coupon Code you have added is Expired or Invalid.' 
+										'disc'			=>		0.00,
+										'c_responce'	=>		"<span style='color:red'>The Coupon Code you have added is Expired or Invalid.</span>" 
 							); 
 							$info = json_encode($c_details);
 							echo $info;
@@ -135,15 +136,16 @@
 					}
 				}else{
 					$c_details = array(
-										'c_code'		=>		$c_info->c_code,
-										'c_value' 		=>		0,
-										'max_cus' 		=>		$c_info->max_cus,
-										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		round($amt, 2),
-										'c_responce'	=>		'The Coupon Code you have added is Expired or Invalid.' ,
-							); 
-							$info = json_encode($c_details);
-							echo $info;
+									'c_code'		=>		$c_code,
+									'c_value' 		=>		0,
+									'max_cus' 		=>		0,
+									'used_count' 	=>		0,
+									'pkg_disc_amt'	=>		round($amt, 2),
+									'disc'			=>		0.00,
+									'c_responce'	=>		"<span style='color:red'>The Coupon Code you have added is Expired or Invalid.</span>" 
+						); 
+						$info = json_encode($c_details);
+						echo $info;
 				}
 			}
 		}

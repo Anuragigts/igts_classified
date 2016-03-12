@@ -61,7 +61,7 @@
 						</div>
 						<div class="form-actions">
 							<input type="submit" class="btn btn-primary" name='update_banner' value='Update Banners'>
-							<button class="btn">Cancel</button>
+							<a href='<?php echo SITE_URL; ?>settings/list_banners' class="btn">Cancel</a>
 						</div>
 					</fieldset>
 				</form>

@@ -399,10 +399,7 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 		public function get_packages_details(){
-			//echo '312';
-            $rs = $this->db->query("SELECT * FROM pkg_duration_list");
-			//echo $this->db->last_query();
-			//print_r($rs->result_array());
+            $rs = $this->db->query("SELECT * FROM pkg_duration_list where pkg_dur_id != 0");
             return $rs->result();
         }
 		public function get_pkg($pkg_id){

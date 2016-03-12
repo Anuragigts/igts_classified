@@ -1,12 +1,12 @@
 	<title>Right Deals :: Safety Tips</title>
 	<style>
 		.section-title-01{
-			height: 273px;
-			background-color: #262626;
-			text-align: center;
-			position: relative;
-			width: 100%;
-			overflow: hidden;
+		height: 273px;
+		background-color: #262626;
+		text-align: center;
+		position: relative;
+		width: 100%;
+		overflow: hidden;
 		}
 		.list-styles li {
 			font-size:14px;
@@ -14,16 +14,25 @@
 		}
 	</style>
 
+	<!-- Section Title-->    
 	<div class="section-title-01">
+		<!-- Parallax Background -->
 		<div class="bg_parallax image_01_parallax"></div>
 	</div>
+	<!-- End Section Title-->
 	
+	<link rel="stylesheet" href="j-folder/css/j-forms.css" />
+	
+	<!--Content Central -->
 	<section class="content-central">
+		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
+		<!-- End content info -->
 		<div class="content_info">
 			<div class="paddings">
+				<!-- content-->
 				<div class="container about_text">
 					<div class="row">
 						<div class="col-md-12">
@@ -623,8 +632,10 @@
 						</div>
 					</div>
 				</div>
+				<!-- End content-->
 			</div>
 		</div>   
+		<!-- End content info -->
 	</section>
-	
-	<script src="<?php echo base_url(); ?>js/jquery.js"></script>
+	<!-- End Shadow Semiboxed -->
+	<script src="js/jquery.js"></script>

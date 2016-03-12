@@ -68,7 +68,7 @@
 							</div>
 						</div>
 						<div class="form-actions">
-							<button class="btn">Cancel</button>
+							<a href='<?php echo SITE_URL; ?>admin_dashboard' class="btn">Cancel</a>
 						</div>
 					</fieldset>
 				</form>

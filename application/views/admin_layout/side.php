@@ -170,7 +170,7 @@
 							</ul>	
 						</li>
 						<li >
-							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Reports &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
+							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Sales Reports &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
 								<li>
 									<a class="submenu" href="<?php echo base_url();?>Reports/Ads">

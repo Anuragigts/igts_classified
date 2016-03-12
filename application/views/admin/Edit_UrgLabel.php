@@ -86,7 +86,7 @@
 						<input type='hidden' value='<?php echo current_url();?>' name='curr_url'>
 						<div class="form-actions">
 							<input type="submit" class="btn btn-primary" name='update_urgLabel' value='Update'>
-							<button class="btn">Cancel</button>
+							<a href='<?php echo SITE_URL; ?>category/urgLabel' class="btn">Cancel</a>
 						</div>
 					</fieldset>
 				</form>

@@ -38,12 +38,14 @@ class Users extends CI_Controller {
 		public function get_users()
 		{
 			$user_list = $this->admin_model->get_userlist();
+			$user_status = $this->admin_model->get_user_status();
 			$data   =   array(
                         "title"         =>     "Admin Dashboard",
                         "metadesc"      =>     "Classifieds :: Admin Dashboard",
                         "metakey"       =>     "Classifieds :: Admin Dashboard",
                         "content"       =>     "usersList",
-						'user_list'		=>		$user_list
+						'user_list'		=>		$user_list,
+						'user_status'	=>		$user_status
                 );
 				$data['user_type']= $this->uri->segment(3);
 				

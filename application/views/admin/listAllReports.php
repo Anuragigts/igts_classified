@@ -144,7 +144,7 @@
 								$val2 = $list->created_on;
 								echo $val2;?></td>
 							<td><?php  
-								echo ucwords($list->pkg_dur_name);?></td>
+								echo ucwords($list->category_name);?></td>
 							<td><?php  
 								$val = $list->price;
 								echo $val;?></td>

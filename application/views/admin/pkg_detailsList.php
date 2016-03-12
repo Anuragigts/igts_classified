@@ -89,4 +89,5 @@
 	</div>
 </div>
 </div>
+</div>
 <!-- end DASHBOARD CIRCLE TILES -->

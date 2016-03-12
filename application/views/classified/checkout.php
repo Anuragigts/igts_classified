@@ -82,6 +82,9 @@
 											<th class="tot_top">Total :</th>
 											<th class="tot_top total_amt"><?php echo $tran_details->cost_pound+$tran_details->u_pkg__pound_cost; ?></th>
 										</tr>
+										<tr>
+											<td  colspan='4'class='response_coupon'></td>
+										</tr>
 									</thead>
 								</table>
 							</div>
@@ -118,6 +121,7 @@
 							var c_value = c_details['c_value'];
 							var pkg_disc_amt = c_details['pkg_disc_amt'];
 							$(".disc_val").html(c_details['disc']);
+							$(".response_coupon").html(c_details['c_responce']);
 							$(".total_amt").html(pkg_disc_amt);
 							document.getElementById('pkg_disc_amt').value = pkg_disc_amt;
 						}

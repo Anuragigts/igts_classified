@@ -72,26 +72,26 @@
 								else if($users->login_status == 0)echo 'New User';
 								else if($users->login_status == 2)echo 'In-Active';
 								else if($users->login_status == 4)echo 'Blocked';?></td>
-							<td>
+							<!--<td>
 								<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/aprovals/<?php echo $users->login_id;?>" title="Edit User Details">
 								<i class="halflings-icon edit white"></i> 
 								</a>
-								<!--<a href="javascript:void(0);" class="deactivate btn btn-info" title="View"><i class='halflings-icon ok-circle' style='color:red'></i></a>-->&nbsp;
+								<a href="javascript:void(0);" class="deactivate btn btn-info" title="View"><i class='halflings-icon ok-circle' style='color:red'></i></a>&nbsp;
 								<a class="btn btn-danger" href="<?php echo base_url();?>ads/aprovals/<?php echo $users->login_id;?>" title="Delete Ad Content" style=''>
 								<i class="halflings-icon white trash" style='width:10px; height:12px'></i> 
 								</a>
-							</td>
+							</td>-->
 						</tr>
 						<?php } ?>
 					</tbody>
 				</table>
 				<form name='change_status' method='post' action='<?php echo base_url()?>users/change_user_status' >
+				<?php //echo '<pre>';print_r($user_status);echo '</pre>';?>
 					<select name='change_status'>
 						<option>Select status </option>
-						<option value='0'>New</option>
-						<option value='1'>Active</option>
-						<option value='2'>In-Active</option>
-						<option value='4'>Block</option>
+						<?php foreach($user_status as $u_status){?>
+						<option value='<?php echo $u_status->user_status_id?>'><?php echo ucwords($u_status->user_status);?></option>
+						<?php }?>
 					</select>
 					<input type='hidden' name='cur_url' class='cur_url' id='cur_url' value='<?php echo current_url();?>'>
 					<input type='hidden' name='selected_users' class='selected_users' id='selected_users' value=''>

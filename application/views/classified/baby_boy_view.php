@@ -197,7 +197,7 @@
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
-							<div class="col-md-10 col-sm-8 col-md-offset-1 add_top">
+							<div class="col-md-10 col-sm-8 col-md-offset-1">
 								<?php echo $topad; ?>
 							</div>
 						</div>
@@ -205,7 +205,7 @@
 					<div class="container">
 						<div class="row">
 							<!-- Item Table-->
-							<div class="col-md-3 col-sm-3">
+							<div class="col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
 									<a href="<?php echo base_url(); ?>clothing_lifestyles_view"><h4 class="title-widget">Clothing & LifeStyle </h4></a>
@@ -307,7 +307,7 @@
 									</div>
 								</div>
 								<div class="row top_20">
-									<div class="col-sm-12 add_left">
+									<div class="col-sm-12">
 										<?php echo $left_ad1; ?>
 									</div>
 								</div>
@@ -315,7 +315,7 @@
 							<!-- End Item Table-->
 
 							<!-- Item Table-->
-							<div class="col-md-9  col-sm-9">
+							<div class="col-md-9">
                                 <div class="sort-by-container tooltip-hover">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -391,24 +391,6 @@
 			</div>
 		</form>
 	</section>
-	
-	<!--MAP Modal -->
-	<div class="modal fade" id="map_location" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<!-- <form action="#" method="post" class="j-forms " > -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Map Location</h2>
-					</div>
-					<div class="modal-body map_show">
-						
-					</div>
-				</div>
-			<!-- </form> -->
-		</div>
-	</div>
 	
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 

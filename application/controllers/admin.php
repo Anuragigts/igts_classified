@@ -143,10 +143,7 @@ class Admin extends CI_Controller {
 				$filter_details['pkg_type'] = $this->input->post('pkg_type');
 				$filter_details['cat_type'] = $this->input->post('cat_type');
 				$filter_details['start_date'] = $this->input->post('start_date');
-				$filter_details['end_date'] = $this->input->post('end_date');
-						
-					
-						
+				$filter_details['end_date'] = $this->input->post('end_date');						
 				$ad_reports = $this->admin_model->get_FilterReports($filter_details);
 				$categories = $this->admin_model->get_postad_categories();
 				$data   =   array(

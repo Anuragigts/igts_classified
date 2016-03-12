@@ -92,6 +92,22 @@
 			$platinum_list = rtrim($platinum_list,',');
 			
 			
+			
+			$revenue_count = array();
+				foreach($monthly_ads as $m_ads){
+							$time=strtotime($m_ads->dtime);
+							$month=date("F",$time);
+							$year=date("Y",$time);
+							$c_month = substr($month,0,3).'-'.$year;
+							//if(!in_array($c_month ,$array_date) && ($m_ads->payment_status == 1)){
+								$array_date[] = $c_month;
+								$revenue_count[$c_month] = round($m_ads->t_paid,2);
+							}
+								
+			/*echo '<pre>'.'monthly_ads';print_r($monthly_ads);echo '</pre>';
+			echo '<pre>'.'revenue_count';print_r($revenue_count);echo '</pre>';
+			echo '<pre>'.'array_date';print_r($array_date);echo '</pre>';
+			*/
 			?>
 		<?php foreach($no_of_ads as $p_ads){
 			if($p_ads->package_type == 1) {
@@ -119,7 +135,62 @@
 			<hr>
 			<div class="content">
 				<div class="verticalChart">
-					<?php $array_date=array();
+					<?php $time_date = date('Y-m-d');
+			
+			for($d=0;$d<12;$d++){
+				$new_timestamp = strtotime(-$d.' months', strtotime($date));
+				
+				$time_date = date("Y-m-d",$new_timestamp);
+				//echo '11--'.$time_date= date('Y-m-d');
+				$month_date=date("F",strtotime($time_date));
+				$year_date=date("Y",strtotime($time_date));
+				$c_month_date = substr($month_date,0,3).'-'.$year_date;
+				
+				
+				if(array_key_exists(trim($c_month_date),$revenue_count)){//echo $c_month_date.'111===45';echo '<br/>'.'----'.'<br/>'; ?>
+					<div class="singleBar">
+						<div class="bar">
+							<div class="value">
+								<span style='color:#ffffff !important;'><?php echo $revenue_count[$c_month_date] ?></span>
+							</div>
+						</div>
+						<div class="title"><?php echo substr($month_date,0,3) .'<br/>'.$year_date; ?></div>
+					</div>
+				<?php }else{?>
+					<div class="singleBar">
+						<div class="bar">
+							<div class="value">
+								<span style='color:#ffffff;'>0</span>
+							</div>
+						</div>
+						<div class="title"><?php echo substr($month_date,0,3) .'<br/>'.$year_date; ?></div>
+					</div>
+				<?php }
+				/*$time=strtotime($m_ads->dtime);
+				$month=date("F",$time);
+				$year=date("Y",$time);
+				$c_month = substr($month,0,3).'-'.$year;
+							
+							
+				$date = strtotime($c_date. -$d.' months');
+				*/
+				
+				//$c_date = date('Y-m-d');
+				//echo $time_date = strtotime(strtotime($c_date). -$d.' months');
+			}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					/*$array_date=array();
 						foreach($monthly_ads as $m_ads){
 							$time=strtotime($m_ads->dtime);
 							$month=date("F",$time);
@@ -146,7 +217,7 @@
 						<div class="title"><?php echo substr($month,0,3) .'<br/>'.$year; ?></div>
 					</div>
 					<?php }	?>
-					<?php } ?>
+					<?php } */?>
 					<div class="clearfix"></div>
 				</div>
 			</div>

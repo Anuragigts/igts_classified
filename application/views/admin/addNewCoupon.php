@@ -67,7 +67,7 @@
 						</div>
 						<div class="form-actions">
 							<input type="submit" class="btn btn-primary" name='new_coupon' value='Create'>
-							<button class="btn">Cancel</button>
+							<a href='<?php base_url()?>ListCoupons' class="btn">Cancel</a>
 						</div>
 					</fieldset>
 				</form>

@@ -137,7 +137,7 @@
 						<?php $i = 0;
 							foreach($ads_list as $ads){$i++; ?>
 						<tr class="odd gradeX">
-							<td><input type='checkbox' name='deal_id[]' class='deal_id' id='deal_id<?php echo $ads->ad_id; ?>' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'></td>
+							<td><?php if($ads->ad_status != 1){?><input type='checkbox' name='deal_id[]' class='deal_id' id='deal_id<?php echo $ads->ad_id; ?>' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'><?php }?></td>
 							<td><?php echo ucwords($ads->deal_tag);?></td>
 							<td><?php echo ucwords($ads->pkg_name);?></td>
 							<td><?php echo ucwords($ads->category_name);?></td>
@@ -162,10 +162,10 @@
 				<form name='change_status' method='post' action='<?php echo base_url()?>ads/change_status' >
 					<select name='change_status'>
 						<option>Select status </option>
-						<option value='0'>New</option>
-						<option value='2'>On-Hold</option>
-						<option value='3'>In-progress</option>
-						<option value='4'>Rejected</option>
+						<?php foreach($ad_status as $status){
+							if($status->id == 1){}else{?>
+						<option value='<?php echo $status->id; ?>'><?php echo ucwords($status->status_name); ?></option>
+							<?php }}?>
 					</select>
 					<input type='hidden' name='selected_ads' class='selected_ads' id='selected_ads' value=''>
 					<input type='submit' name='active' class='btn success'value='Change Status' >

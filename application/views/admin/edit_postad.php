@@ -53,7 +53,7 @@
 							<div class="controls">
 								<select id="cat_type" name='cat_type'>
 									<?php foreach($category_list as $cat){?>
-									<option value='<?php echo $cat->category_id; ?>'<?php if($cat->category_id == $ads_details->sub_cat_id)echo 'selected';?>>
+									<option value='<?php echo $cat->category_id; ?>'<?php if($cat->category_id == $ads_details->category_id)echo 'selected';?>>
 										<?php echo ucwords($cat->category_name); ?>
 									</option>
 									<?php }?>
@@ -139,7 +139,7 @@
 						</div>
 						<div class="form-actions">
 							<button type="submit" class="btn btn-primary">Update changes</button>
-							<button class="btn">Cancel</button>
+							<a href='<?php echo SITE_URL; ?>ads/aprovals' class="btn">Cancel</a>
 						</div>
 						<input type='hidden' value='<?php echo current_url();?>' name='curr_url'>
 					</fieldset>

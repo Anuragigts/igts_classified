@@ -399,7 +399,7 @@ class Admin_model extends CI_Model{
 	}
 	function get_reportforads(){
 		$cats = $this->get_assigned_cats();
-		$this->db->select('r_ad.*, r_ad.created_on as r_created,pkg_list.*,p.*,cat.category_name as cat_name');
+		$this->db->select('r_ad.*, r_ad.created_on as r_created,pkg_list.*,p.ad_prefix,p.ad_id,p.deal_tag,p.price,cat.category_name');
 		if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
 			$this->db->where_in('p.category_id',$cats_list);
@@ -414,13 +414,14 @@ class Admin_model extends CI_Model{
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
+		//echo $this->db->last_query();
 		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
 		return $all_reports;
 	}
 	function get_ReportsByAds(){
 		$cats = $this->get_assigned_cats();
 		//$this->db->select();
-		$this->db->select('l.login_email,l.first_name,l.lastname,l.mobile, COUNT(r_ad.ad_id) as report_count,p.deal_tag,cat.category_name,pkg_list.pkg_dur_name as pkg_name,p.ad_id');
+		$this->db->select('l.login_email,l.first_name,l.lastname,l.mobile, COUNT(r_ad.ad_id) as report_count,p.deal_tag,cat.category_name,pkg_list.pkg_dur_name as pkg_name,p.ad_id,r_ad.created_on');
 		
 		if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
@@ -430,6 +431,8 @@ class Admin_model extends CI_Model{
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
 		$this->db->join('login as l','l.login_id = p.login_id','inner');
+		$this->db->group_by('r_ad.ad_id');
+		$this->db->order_by('r_ad.created_on','desc');
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
 		//echo $this->db->last_query();
@@ -438,7 +441,7 @@ class Admin_model extends CI_Model{
 	}
 	function getAdReports(){
 		$ad_id = $this->uri->segment(3);
-		$this->db->select();
+		$this->db->select('r_ad.ad_id,r_ad.name,r_ad.created_on,p.ad_id,p.price,pkg_list.pkg_dur_name,p.ad_prefix,p.deal_tag');
 		$this->db->where('r_ad.ad_id',$ad_id);
 		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
@@ -448,6 +451,7 @@ class Admin_model extends CI_Model{
 		return $all_reports;
 	}
 	function get_FilterReports($filter_details){
+		//echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
 		$cats = $this->get_assigned_cats();
 		$this->db->select();
 		if($this->session->userdata('user_type') != 1){
@@ -459,11 +463,12 @@ class Admin_model extends CI_Model{
 		if($filter_details['end_date'] !='')
 			$this->db->where('r_ad.created_on <=', date( 'Y-m-d H:i:s',strtotime($filter_details['end_date'])));
 		if($filter_details['pkg_type'] != 0 && $filter_details['pkg_type'] !='')
-			$this->db->where('r_ad.package_type',$filter_details['pkg_type']);
+			$this->db->where('p_ad.package_type',$filter_details['pkg_type']);
 		if($filter_details['cat_type'] != 0 && $filter_details['cat_type'] != '')
-			$this->db->where('r_ad.category_id',$filter_details['cat_type']);
+			$this->db->where('r_ad.cat_id',$filter_details['cat_type']);
 		
 		$this->db->join('postad as p_ad','p_ad.ad_id = r_ad.ad_id','inner');
+		$this->db->join('catergory as cat','cat.category_id = r_ad.cat_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_ad.package_type','inner');
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
@@ -472,12 +477,18 @@ class Admin_model extends CI_Model{
 		return $all_reports;
 	}
 	function get_monthly_ads_count(){
-		$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads,SUM(ad.paid_amt)as t_paid, ad.payment_status FROM(`postad` AS ad) WHERE  DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW() - INTERVAL 1 YEAR) GROUP BY EXTRACT(YEAR_MONTH FROM dtime), ad.payment_status order by dtime desc,ad.payment_status desc ";
+		$sql = "SELECT DATE_FORMAT(STR_TO_DATE(pay.payment_date, '%Y-%m-%d'),'%Y-%m-%d') AS dtime ,SUM(pay.gross_amt) as t_paid FROM(`payments` AS pay) WHERE DATE_FORMAT(STR_TO_DATE(pay.payment_date, '%Y-%m-%d'),'%Y-%m-%d')>= DATE(NOW() - INTERVAL 1 YEAR) GROUP BY EXTRACT(YEAR_MONTH FROM dtime) order by dtime desc ";
+		
+		//$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads,SUM(ad.paid_amt)as t_paid, ad.payment_status FROM(`postad` AS ad) WHERE  DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW() - INTERVAL 1 YEAR) AND ad.payment_status=1 GROUP BY EXTRACT(YEAR_MONTH FROM dtime), ad.payment_status order by dtime desc,ad.payment_status desc ";
+		
+		
 		//$sql = "SELECT DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d') AS dtime , COUNT(*) AS no_ads FROM(`postad` AS ad) WHERE DATE_FORMAT(STR_TO_DATE(ad.created_on, '%d-%m-%Y'),'%Y-%m-%d')>= DATE(NOW() - INTERVAL 1 YEAR) GROUP BY EXTRACT(YEAR_MONTH FROM dtime) order by dtime desc";
 
 		$query = $this->db->query($sql);
 		$year_ads = $query->result();
-		//echo $this->db->last_query();exit;
+		//echo $this->db->last_query();
+		//echo '<pre>';print_r($year_ads);echo '</pre>';
+		//exit;
 		return $year_ads;
 	}
 	

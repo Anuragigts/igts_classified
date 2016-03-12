@@ -84,7 +84,7 @@ td a.btn{line-height:15px;}
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand"  style='padding: 0px 20px;' href="<?php echo base_url()?>admin_dashboard"><span style='background-color:white;'><img src='<?php echo base_url()?>img/99rightdeal.png'></img></span></a>
+				<a class="brand"  style='padding: 0px 20px;' href="<?php echo base_url()?>admin_dashboard"><span><img src='<?php echo base_url()?>img/99_logo.png'></img></span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">

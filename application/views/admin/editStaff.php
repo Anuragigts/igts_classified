@@ -97,7 +97,7 @@
 						</div>
 						<div class="form-actions">
 							<input  type="submit" class="btn btn-primary" name='update_staff' value='Update Changes'>
-							<button class="btn">Cancel</button>
+							<a href='<?php echo SITE_URL; ?>users/staff/<?php echo $staff->user_type; ?>' class="btn">Cancel</a>
 						</div>
 						<input type='hidden' value='<?php echo current_url();?>' name=''>
 					</fieldset>
@@ -105,6 +105,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </div>
 <script>

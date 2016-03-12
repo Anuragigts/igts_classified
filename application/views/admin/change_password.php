@@ -46,10 +46,11 @@
 										<input type="password" name="cpassword" placeholder="Confirm Password"/>
 										<?php echo form_error("cpassword");?>
 									</div>
-									<div class="span4" style='height:55px;'></div>
+									<div class="span3" style='height:55px;'></div>
 								</div>
 								<div class="control-group text-center">
 									<input type="submit" class="btn btn-default" value="Update" name="change"/>
+									<a href='<?php echo SITE_URL; ?>admin_dashboard' class="btn">Cancel</a>
 								</div>
 							</fieldset>
 						</form>
