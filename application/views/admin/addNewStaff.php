@@ -114,7 +114,7 @@
 						</div>
 						<div class="form-actions">
 							<input type="submit" class="btn btn-primary" name='new_staff_detail' value='Save'>
-							<a href='<?php base_url()?>addStaff' class="btn">Cancel</a>
+							<a href='<?php echo SITE_URL;?>users/staff/5' class="btn">Cancel</a>
 						</div>
 					</fieldset>
 				</form>

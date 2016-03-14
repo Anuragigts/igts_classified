@@ -26,7 +26,7 @@
 									<div class="span4">
 										<label class='control-label'> Old Password <span class="text-red">*</span></label>
 										<input type="password" name="old_password" placeholder="Old Password"/>
-										<?php echo form_error("password");?>
+										<span style='color:red'><?php echo form_error("old_password");?></span>
 									</div>
 									<div class="span4" style='height:55px;'></div>
 								</div>
@@ -35,7 +35,7 @@
 									<div class="span4">
 										<label class='control-label'> New Password <span class="text-red">*</span></label>
 										<input type="password" name="password" placeholder="Password"/>
-										<?php echo form_error("password");?>
+										<span style='color:red'><?php echo form_error("password");?></span>
 									</div>
 									<div class="span4" style='height:55px;'></div>
 								</div>
@@ -44,7 +44,7 @@
 									<div class="span4">
 										<label class='control-label'>Confirm Password <span class="text-red">*</span></label>
 										<input type="password" name="cpassword" placeholder="Confirm Password"/>
-										<?php echo form_error("cpassword");?>
+										<span style='color:red'><?php echo form_error("cpassword");?></span>
 									</div>
 									<div class="span3" style='height:55px;'></div>
 								</div>

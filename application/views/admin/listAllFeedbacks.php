@@ -33,77 +33,7 @@
 	</div>
 	<br>
 	<?php }?>
-	<div class="row-fluid sortable">
-		<div class="box span12">
-			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Filters for Ad Reports</h2>
-				<div class="box-icon">
-					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-					<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-				</div>
-			</div>
-			<div class="box-content">
-				<form class="form-horizontal" id="validate" method="post" action='<?php echo base_url()?>Reports/Ads/'>
-					<fieldset>
-						<div class='span6'>
-							<div class="control-group">
-								<label class="control-label" for="focusedInput">Date Start</label>
-								<div class="controls">
-									<input type="text" name="start_date" value="<?php if(isset($posted_data)) echo $posted_data['start_date'] ?>" class="datepicker form-control start_date" placeholder="Start Date"/> 
-									<?php echo form_error("start_date");?>
-								</div>
-							</div>
-						</div>
-						<div class='span6'>
-							<div class="control-group">
-								<label class="control-label" for="typeahead">Date End <span class="text-red">*</span></label>
-								<div class="controls">
-									<input type="text" name="end_date" value="<?php if(isset($posted_data)) echo $posted_data['end_date']; ?>" class="datepicker form-control end_date" placeholder="End Date"/>
-									<?php echo form_error("end_date");?>   
-								</div>
-							</div>
-						</div>
-						<?php //echo '<pre>';print_r($pkg_types);echo '</pre>';?>
-						<div class='span6' style='margint:0px;'>
-							<div class="control-group">
-								<label class="control-label" for="typeahead">Package Type <span class="text-red">*</span></label>
-								<div class="controls">
-									<select name='pkg_type' class='pkg_type'>
-										<option value='0'> Select Status Type </option>
-										<?php foreach($pkg_types as $a_status){?>
-										<option value='<?php echo $a_status->pkg_dur_id;?>'<?php if(isset($posted_data) && $posted_data['pkg_type'] == $a_status->pkg_dur_id)echo 'selected';?>><?php echo ucwords($a_status->pkg_dur_name);?> </option>
-										<?php }?>
-									</select>
-									<?php echo form_error("pkg_type");?>
-								</div>
-							</div>
-						</div>
-						<div class='span6' style='margint:0px;'>
-							<div class="control-group">
-								<label class="control-label" for="typeahead">Category Type <span class="text-red">*</span></label>
-								<div class="controls">
-									<select name='cat_type' class='cat_type'>
-										<option value='0'> Select Status Type </option>
-										<?php foreach($categories as $cat){?>
-										<option value='<?php echo $cat->category_id?>'<?php if(isset($posted_data) && $posted_data['cat_type'] == $cat->category_id)echo 'selected';?>><?php echo ucwords($cat->category_name);?> </option>
-										<?php }?>
-									</select>
-									<?php echo form_error("cat_type");?>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-lg-5"></div>
-							<div class="col-lg-2">
-								<input type="submit" name="get_details" value="Get Details" class="btn btn-default"/> 
-							</div>
-							<div class="col-lg-5"></div>
-						</div>
-					</fieldset>
-				</form>
-			</div>
-		</div>
-	</div>
+	
 	<?php if(isset($ad_feedbacks)){
 		//echo '<pre>';print_r($result[0]);echo '</pre>';?>
 	<div class="row-fluid sortable2">
@@ -125,7 +55,7 @@
 							<th>Expire On</th>
 							<th>Price</th>
 							<th>Package Name</th>
-							<th>Action</th>
+							<!--<th>Action</th>-->
 						</tr>
 					</thead>
 					<tbody>
@@ -149,9 +79,9 @@
 							<td><?php  
 								$val = ucfirst($list->pkg_dur_name);
 								echo $val;?></td>
-							<td>
+							<!--<td>
 								sdfas
-							</td>
+							</td>-->
 						</tr>
 						<?php 
 							}

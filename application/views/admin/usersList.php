@@ -53,7 +53,7 @@
 							<th>Business Address</th>
 							<?php }?>
 							<th>Status</th>
-							<th style='width:55px;'>Action</th>
+							<!--<th style='width:55px;'>Action</th>-->
 						</tr>
 					</thead>
 					<tbody>

@@ -30,7 +30,7 @@
 	<br>
 	<?php }?>
 	<div style='margin-bottom:10px;margin-right:25px; float:right;' >
-		<?php  echo '<pre>';print_r($tran_details[0]);echo '</pre>';?>
+		<?php  //echo '<pre>';print_r($tran_details[0]);echo '</pre>';?>
 		<div class="row-fluid ">
 			<div class="box span12">
 				<div class="box-header" data-original-title>
