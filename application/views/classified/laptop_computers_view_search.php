@@ -76,6 +76,24 @@
                                     $smalls_result1 = array_chunk($smalls_result, 10);
                                      foreach ($smalls_result1 as $sval1) {
                                      foreach ($sval1 as $sval) {
+										 /*location*/
+										$latt = $sval->latt;
+										$longg = $sval->longg;
+										$url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=false";
+										$ch = curl_init();
+										// Disable SSL verification
+										curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+										// Will return the response, if false it print the response
+										curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+										// Set the url
+										curl_setopt($ch, CURLOPT_URL,$url);
+										// Execute
+										$result=curl_exec($ch);
+										// Closing
+										curl_close($ch);
+										$json_response = json_decode($result, true);
+										$city_name = $json_response['results'][0]['address_components'][2]['short_name'];
+
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
                                     		$currency = '£';
@@ -161,7 +179,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -303,7 +321,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -429,7 +447,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -552,7 +570,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -672,7 +690,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>
@@ -790,7 +808,7 @@
 																</div>
 																<div class="col-xs-8">
 																	<div class="location pull-right ">
-																		<i class="fa fa-map-marker "></i> 
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
 																		<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> Location</a>
 																	</div>
 																</div>

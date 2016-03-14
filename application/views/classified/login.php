@@ -2,7 +2,7 @@
 	
 	<style>
 		.section-title-01{
-		height: 315px;
+		height: 215px;
 		background-color: #262626;
 		text-align: center;
 		position: relative;
