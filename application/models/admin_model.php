@@ -441,10 +441,11 @@ class Admin_model extends CI_Model{
 	}
 	function getAdReports(){
 		$ad_id = $this->uri->segment(3);
-		$this->db->select('r_ad.ad_id,r_ad.name,r_ad.created_on,p.ad_id,p.price,pkg_list.pkg_dur_name,p.ad_prefix,p.deal_tag');
+		$this->db->select('r_ad.ad_id,r_ad.name,r_ad.created_on,p.ad_id,p.price,pkg_list.pkg_dur_name,p.ad_prefix,p.deal_tag,cat.*');
 		$this->db->where('r_ad.ad_id',$ad_id);
 		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
 		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
