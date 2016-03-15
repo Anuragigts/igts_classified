@@ -210,7 +210,7 @@
 						<h4 class="modal-title" id="flexModalLabel">Pay for Posting Ad</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" method="post" action ='<?php echo base_url()?>payment/Pay'>
+						<form class="form-horizontal" method="post" action ='<?php echo base_url()?>payments/Pay'>
 							<div class="htname">
 								<input type='hidden' id='post_ad_id' name='post_ad_id'>
 								<input type='hidden' id='post_ad_amt' name='post_ad_amt'>

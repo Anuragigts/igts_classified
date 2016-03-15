@@ -76,6 +76,7 @@
                                     $smalls_result1 = array_chunk($smalls_result, 10);
                                      foreach ($smalls_result1 as $sval1) {
                                      foreach ($sval1 as $sval) {
+                                     	$personname = $sval->first_name;
 										 /*location*/
 										$latt = $sval->latt;
 										$longg = $sval->longg;
@@ -233,7 +234,7 @@
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
-														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 														<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 													</ul>                      
@@ -375,7 +376,7 @@
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
-														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 														<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 													</ul>                      
@@ -501,7 +502,7 @@
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 														<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 													</ul>                      
@@ -624,7 +625,7 @@
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 														<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 													</ul>                      
@@ -744,7 +745,7 @@
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 														<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 													</ul>                      
@@ -862,7 +863,7 @@
 													<ul>
 														<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 														<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-														<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+														<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 														<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 														<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 													</ul>                      

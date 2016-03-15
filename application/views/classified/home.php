@@ -900,7 +900,7 @@
 										}	
 									?>
 								<div>
-									<?php if ($b_ads->urgent_package != 0) { ?>
+									<?php if ($b_ads->urgent_package != '0') { ?>
 									<div class="bus_rec_badge">
 									</div>
 									<?php } ?>

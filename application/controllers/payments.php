@@ -107,7 +107,7 @@ class Payment extends CI_Controller
                         "title"         	=>     "Classifieds :: Admin Category",
                         "metadesc"     		=>     "Classifieds :: Admin Category",
                         "metakey"       	=>     "Classifieds :: Admin Category",
-                        "content"       	=>     "Transaction_list",
+                        "content"       	=>     "transaction_lists",
 						"tran_details"     	=>  	$ins_status,
 			);
 			$this->load->view("admin_layout/inner_template",$data);	

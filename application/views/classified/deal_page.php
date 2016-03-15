@@ -69,13 +69,6 @@
 							$("form.jforms").submit();
 			            }
 			        )
-			        $(".clear_location").click(function(){
-			        	$('#latt').val('');
-			        	$('#longg').val('');
-			        	$('#find_loc').val('');
-			        	$("form.jforms").submit();
-			        });
-
 			        $("#find_deal").click(function(){
 			        	$("form.jforms").submit();
 			        });
@@ -110,7 +103,8 @@
 		  }
 		$cat_id =  $this->session->userdata('cat_id');
 		$bus_id =  $this->session->userdata('bus_id');
-
+		$seller_id =  $this->session->userdata('seller_id');
+		$search_sub =  $this->session->userdata('search_sub');
 		$search_bustype = $this->session->userdata('search_bustype');
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
@@ -119,6 +113,17 @@
 		$latt = $this->session->userdata('latt');
 		$longg = $this->session->userdata('longg');
 		 ?>
+
+		 <!-- map on model -->
+	   <script type="text/javascript">
+		$(function(){
+			$(".loc_map").click(function(){
+				var val = $(".loc_map").attr("id");
+				var val1 = val.split(",");
+				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+			});
+		});
+		</script>
 	  
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
@@ -169,8 +174,6 @@
 										<div class="row">
 											<div class="span6 unit">
 												<label class="input select">
-													<input type='hidden' name='latt' id='latt' value='' >
-													<input type='hidden' name='longg' id='longg' value='' >
 													<select name="category_name" id="category_name">
 														<option value="all" selected <?php if ($cat_id == 'all') { echo "selected=selected"; } ?> >All</option>
 														<?php foreach ($category as $categorycal) { ?>
@@ -183,9 +186,9 @@
 											<div class="span6 unit">
 												<div class="widget right-130">
 													<div class="input">
-														<input type="text" placeholder="Enter Location" id="find_loc" name="find_loc">
-														<input type='hidden' name='latt' id='latt' value='' >
-														<input type='hidden' name='longg' id='longg' value='' >
+														<input type="text" placeholder="Enter Location" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
+														<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
+														<input type='hidden' name='longg' id='longg' value='<?php echo $longg ?>' >
 													</div>
 													<input type="submit" id='find_deal' name='find_deal' value="FindDeal" class="bg addon-btn adn-130 adn-right" />
 												</div>
@@ -225,30 +228,59 @@
 													</label>
 												</div>
 											</div>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Search Only</h4>
+											<?php 
+											if ($cat_id) {
+											if ($cat_id != 'all') { ?>
+											 <div class="cd-filter-block">
+												<h4 class="title-widget">Search Filters</h4>
+
+												<div class="cd-filter-content">
+													<?php if ($cat_id != '2' && $cat_id != '4' && $cat_id != '7') { ?>
+													<div id='limit_scrol'>
+														<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+															<label class="checkbox">
+																<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+															</label>
+														<?php } ?>
+													</div>
+													<?php }
+													else{ ?>
+														<div>
+															<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																<label class="checkbox">
+																	<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																	<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																</label>
+															<?php } ?>
+														</div>
+													<?php } ?>
+												</div>
+											</div> 
+											<?php  }
+												}
+											 ?>
+											 <?php 
+											if ($cat_id) {
+											if ($cat_id != 'all') { ?>
+											 <div class="cd-filter-block">
+												<h4 class="title-widget">Seller Only</h4>
 
 												<div class="cd-filter-content">
 													<div>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?>>
-															<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3"<?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
-															<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2"<?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?>>
-															<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?>>
-															<i></i> Recent Deals (<?php echo $freecnt; ?>)
-														</label>
+														<?php
+														 foreach ($sellercount as $val) {
+														 	foreach ($val as $k => $value) {
+														  ?>
+															<label class="checkbox">
+																<input type="checkbox" name="seller_id[]" class="seller_id" value="<?php echo $k; ?>" <?php if (isset($seller_id) && in_array($k, $seller_id)) { echo "checked = checked";	} ?> >
+																<i></i> <?php echo $k; ?> (<?php echo $value; ?>)
+															</label>
+														<?php } } ?>
 													</div>
 												</div>
 											</div>
+											<?php } } ?>
 										</div>
 								</div>
 							</div>
@@ -332,11 +364,39 @@
 		</form>
 	</section>
 	<!-- End Shadow Semiboxed -->
+	<!--MAP Modal -->
+	<div class="modal fade" id="map_location" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<!-- <form action="#" method="post" class="j-forms " > -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Map Location</h2>
+					</div>
+					<div class="modal-body map_show">
+						
+					</div>
+				</div>
+			<!-- </form> -->
+		</div>
+	</div>
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="<?php echo base_url(); ?>js/jquery.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
+	
 	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
+	<script>
+		$('.xuSlider').xuSlider();
+	</script>
 	
 	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
 	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
-	<script src="<?php echo base_url(); ?>libs/main.js"></script>
+	<script src="<?php echo base_url(); ?>libs/main.js"></script>	
+	
+	

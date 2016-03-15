@@ -24,7 +24,7 @@
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
-		<form id="j-forms" action="<?php echo base_url();?>payment/pay/" class="j-forms" method="post" style="background-color:#fff;">
+		<form id="j-forms" action="<?php echo base_url();?>payments/pay/" class="j-forms" method="post" style="background-color:#fff;">
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container about_text">

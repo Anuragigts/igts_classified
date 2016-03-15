@@ -31,10 +31,20 @@ class Postad_model extends CI_Model{
                             $business_logo = '';
                         }
 
+                        /*is free or not*/
+                        if (($this->input->post('package_type') == 1) && $this->input->post('package_urgent') == 0) {
+                            $isfree = 1;
+                            $payment = 1;
+                        }
+                        else{
+                            $isfree = 0;
+                            $payment = 0;
+                        }
                          /*web-link for free */
               if ($this->input->post('package_type') == 1) {
                             $url = "";
                         }
+                        
                         /*web-link for gold*/
               if ($this->input->post('package_type') == 2) {
                             $url = $this->input->post("gold_weblink");
@@ -65,17 +75,14 @@ class Postad_model extends CI_Model{
                                     'created_on'   => date('d-m-Y h:i:s'),
                                     'updated_on'   => date('d-m-Y h:i:s'),
                                     'terms_conditions' =>$this->input->post('terms_condition'),
-                                    'ad_status'     => 0
+                                    'payment_status' => $payment,
+                                    'ad_status'     => 0,
+                                    'is_free' => $isfree
                                     );
                 // echo "<pre>"; print_r($data); exit;
                     $this->db->insert('postad', $data);
 
                        $insert_id = $this->db->insert_id();
-
-                       if ($insert_id != '') {
-                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
-                        $this->session->set_userdata("postad_time",time());
-                       }
 
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,
@@ -121,6 +128,7 @@ class Postad_model extends CI_Model{
 
 
                      /*image upload*/
+                     if ($this->input->post('pic_hide')) {
                              $i=1;
                        foreach($this->input->post('pic_hide') as $rawData){ 
                                 $filteredData = explode(',', $rawData);
@@ -138,6 +146,7 @@ class Postad_model extends CI_Model{
                             fclose($fp); 
                             $i++;
                        }
+                     }
 
                        /*video upload platinum*/
                        if($this->input->post('file_video_platinum')){
@@ -185,6 +194,11 @@ class Postad_model extends CI_Model{
                                 );
                         $this->db->insert("urgent_details", $urgent_details);
                     }
+
+                     $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                        $this->session->set_userdata("postad_time",time());
+                        redirect('postad');
+                     
 
                     
             

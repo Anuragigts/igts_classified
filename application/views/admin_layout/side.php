@@ -19,7 +19,7 @@
 						<li><a href="<?php echo base_url();?>admin_dashboard"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<?php $sess_user_type = $this->session->userdata('user_type');
 							if($sess_user_type == 1){?>
-							<li><a href="<?php echo base_url();?>payment/transactions"><i class="icon-dashboard"></i><span class="hidden-tablet"> Transactions</span></a></li>	
+							<li><a href="<?php echo base_url();?>payments/transactions"><i class="icon-dashboard"></i><span class="hidden-tablet"> Transactions</span></a></li>	
 						<?php }?>
 						<?php 
 						if($sess_user_type !=5){?>

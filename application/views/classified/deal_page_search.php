@@ -1,5 +1,23 @@
-						<!-- platinum+urgent package start -->
+						
 						<?php foreach ($result as $rs) {
+							/*location*/
+							 $latt = $rs->latt;
+			                $longg = $rs->longg;
+			                $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=false";
+			                $ch = curl_init();
+			                // Disable SSL verification
+			                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			                // Will return the response, if false it print the response
+			                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			                // Set the url
+			                curl_setopt($ch, CURLOPT_URL,$url);
+			                // Execute
+			                $result=curl_exec($ch);
+			                // Closing
+			                curl_close($ch);
+			                $json_response = json_decode($result, true);
+			                $city_name = $json_response['results'][0]['address_components'][2]['short_name'];
+
 							/*currency symbol*/ 
                                     	if ($rs->currency == 'pound') {
                                     		$currency = '£';
@@ -8,8 +26,317 @@
                                     		$currency = '€';
                                     	}
                             $personname = $rs->first_name;
-							if (($rs->package_type == '3' || $rs->package_type == '6') && $rs->urgent_package != '') {
+                            ?>
+                        <!-- free+urgent package starts -->
+										<?php 
+										if (($rs->package_type == '1' || $rs->package_type == '4') && $rs->urgent_package != '0') {
+										 ?>
+										<div class="col-md-12">
+											<div class="first_list gold_bgcolor">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="featured-badge">
+															
+														</div>
+														<div class="img-hover view_img">
+															<img src="<?php echo base_url(); ?>pictures/<?php echo $rs->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
+															<div class="overlay"><a href="description_view/details/<?php echo $rs->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														</div>
+													</div>
+													<div class="col-sm-8 middle_text">
+														<div class="row">
+															<div class="col-sm-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<h3 class="list_title"><?php echo $rs->deal_tag; ?></h3>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-4">
+																		<ul class="starts">
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																		</ul>
+																	</div>
+																	<div class="col-xs-8">
+																		<div class="location pull-right ">
+																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															
+															<?php if ($rs->ad_type != 'consumer') {
+																if ($rs->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
+														</div>
+														<hr class="separator">
+														<div class="row">
+															<div class="col-xs-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<p class=""><?php echo substr(strip_tags($rs->deal_desc),1, 46); ?></p>
+																	</div>
+																	<div class="col-xs-12">
+																		<a href="description_view/details/<?php echo $rs->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-4">
+																<div class="row">
+																	<?php if ($rs->category_id != '1') { ?>
+																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																		<h3 class="view_price"><?php echo $currency.number_format($rs->price); ?></h3>
+																	</div>
+																	<?php } ?>
+																	<div class="col-xs-12">
+																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><!-- End Row-->
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="post-meta list_view_bottom gold_bgcolor">
+														<ul>
+															<li><i class="fa fa-camera"></i><a href="#"><?php echo $rs->img_count; ?></a></li>
+															<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+															<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+															<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($rs->created_on)); ?></span></li>
+															<li><span>Deal ID : <?php echo $rs->ad_prefix.$rs->ad_id; ?></span></li>
+														</ul>                      
+													</div>
+												</div>
+											</div><hr class="separator">	
+										</div>
+										<!-- free+urgent package end -->
+										<?php } ?>
+										<!-- free package starts -->
+										<?php 
+										if (($rs->package_type == '1' || $rs->package_type == '4') && $rs->urgent_package == '0') {
+										 ?>
+										<div class="col-md-12">
+											<div class="first_list gold_bgcolor">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="img-hover view_img">
+															<img src="<?php echo base_url(); ?>pictures/<?php echo $rs->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
+															<div class="overlay"><a href="description_view/details/<?php echo $rs->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														</div>
+													</div>
+													<div class="col-sm-8 middle_text">
+														<div class="row">
+															<div class="col-sm-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<h3 class="list_title"><?php echo $rs->deal_tag; ?></h3>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-4">
+																		<ul class="starts">
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																		</ul>
+																	</div>
+																	<div class="col-xs-8">
+																		<div class="location pull-right ">
+																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															
+															<?php if ($rs->ad_type != 'consumer') {
+																if ($rs->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
+														</div>
+														<hr class="separator">
+														<div class="row">
+															<div class="col-xs-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<p class=""><?php echo substr(strip_tags($rs->deal_desc),1, 46); ?></p>
+																	</div>
+																	<div class="col-xs-12">
+																		<a href="description_view/details/<?php echo $rs->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-4">
+																<div class="row">
+																	<?php if ($rs->category_id != '1') { ?>
+																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																		<h3 class="view_price"><?php echo $currency.number_format($rs->price); ?></h3>
+																	</div>
+																	<?php } ?>
+																	<div class="col-xs-12">
+																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><!-- End Row-->
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="post-meta list_view_bottom gold_bgcolor">
+														<ul>
+															<li><i class="fa fa-camera"></i><a href="#"><?php echo $rs->img_count; ?></a></li>
+															<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+															<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+															<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($rs->created_on)); ?></span></li>
+															<li><span>Deal ID : <?php echo $rs->ad_prefix.$rs->ad_id; ?></span></li>
+														</ul>                      
+													</div>
+												</div>
+											</div><hr class="separator">	
+										</div>
+										<!-- free package end -->
+										<?php } ?>
+										<!-- gold package starts -->
+										<?php 
+										if (($rs->package_type == '2' || $rs->package_type == '5') && $rs->urgent_package == '0') {
+										 ?>
+										<div class="col-md-12">
+											<div class="first_list gold_bgcolor">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="img-hover view_img">
+															<img src="<?php echo base_url(); ?>pictures/<?php echo $rs->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
+															<div class="overlay"><a href="description_view/details/<?php echo $rs->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+														</div>
+														<div class="">
+															<div class="price11">
+																<span></span><b>
+																<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="thumb" title="Right Deal"></b>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-8 middle_text">
+														<div class="row">
+															<div class="col-sm-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<h3 class="list_title"><?php echo $rs->deal_tag; ?></h3>
+																	</div>
+																	<!--div class="col-xs-4 ">
+																		<div class="add-to-compare-list pull-right">
+																			<span class="gold_icon"></span>
+																		</div>
+																	</div-->
+																</div>
+																<div class="row">
+																	<div class="col-xs-4">
+																		<ul class="starts">
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star"></i></a></li>
+																			<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
+																		</ul>
+																	</div>
+																	<div class="col-xs-8">
+																		<div class="location pull-right ">
+																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															
+															<?php if ($rs->ad_type != 'consumer') {
+																if ($rs->bus_logo != '') { ?>
+																	<div class="col-xs-4 serch_bus_logo">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $rs->bus_logo; ?>" alt="<?php echo $rs->bus_logo; ?>" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+																else{ ?>
+																<div class="col-xs-4 serch_bus_logo">
+																<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader.png" title="business logo" class="img-responsive">
+																</div>
+															<?php	}
+															  } ?>
+														</div>
+														<hr class="separator">
+														<div class="row">
+															<div class="col-xs-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<p class=""><?php echo substr(strip_tags($rs->deal_desc),1, 46); ?></p>
+																	</div>
+																	<div class="col-xs-12">
+																		<a href="description_view/details/<?php echo $rs->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-4">
+																<div class="row">
+																	<?php if ($rs->category_id != '1') { ?>
+																	<div class="col-xs-10 col-xs-offset-1 amt_bg">
+																		<h3 class="view_price"><?php echo $currency.number_format($rs->price); ?></h3>
+																	</div>
+																	<?php } ?>
+																	<div class="col-xs-12">
+																		<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><!-- End Row-->
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="post-meta list_view_bottom gold_bgcolor">
+														<ul>
+															<li><i class="fa fa-camera"></i><a href="#"><?php echo $rs->img_count; ?></a></li>
+															<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
+															<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+															<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($rs->created_on)); ?></span></li>
+															<li><span>Deal ID : <?php echo $rs->ad_prefix.$rs->ad_id; ?></span></li>
+														</ul>                      
+													</div>
+												</div>
+											</div><hr class="separator">	
+										</div>
+										<!-- gold package end -->
+										<?php
+											} ?>
+                            <?php
+							if (($rs->package_type == '3' || $rs->package_type == '6') && $rs->urgent_package != '0') {
 						 ?>
+						 <!-- platinum+urgent package start -->
 										<div class="col-md-12">
 											<div class="first_list">
 												<div class="row">
@@ -66,8 +393,8 @@
 																	</div>
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
+																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
 																		</div>
 																	</div>
 																</div>
@@ -132,7 +459,7 @@
 										<!-- platinum+urgent package end -->
 
 										<!-- platinum  starts -->
-										<?php if (($rs->package_type == '3' || $rs->package_type == '6') && $rs->urgent_package == '') { ?>
+										<?php if (($rs->package_type == '3' || $rs->package_type == '6') && $rs->urgent_package == '0') { ?>
 										<div class="col-md-12">
 											<div class="first_list">
 												<div class="row">
@@ -186,8 +513,8 @@
 																	</div>
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
+																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
 																		</div>
 																	</div>
 																</div>
@@ -253,7 +580,7 @@
 										
 										<!-- gold+urgent package starts -->
 										<?php 
-										if (($rs->package_type == '2' || $rs->package_type == '5') && $rs->urgent_package != '') {
+										if (($rs->package_type == '2' || $rs->package_type == '5') && $rs->urgent_package != '0') {
 										 ?>
 										<div class="col-md-12">
 											<div class="first_list gold_bgcolor">
@@ -298,8 +625,8 @@
 																	</div>
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
-																			<i class="fa fa-map-marker "></i> 
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
+																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
 																		</div>
 																	</div>
 																</div>
@@ -453,17 +780,4 @@
 			//responsive code end
 		};
 	</script>
-	 <script>
-		$('.xuSlider').xuSlider();
-	</script>
-
-	<!-- location map -->
-	<script type="text/javascript">
-	$(function(){
-		$(".loc_map").click(function(){
-			var val = $(".loc_map").attr("id");
-			var val1 = val.split(",");
-			$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
-		});
-	});
-	</script>
+	

@@ -27,8 +27,6 @@ class Postad_property_model extends CI_Model{
                                 
                                 $target_dir = "./pictures/business_logos/";
                             
-                        // $target_file = $target_dir . basename($_FILES["file"]["name"]);
-                        // $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                                     if ($_FILES["file"]["name"] != '') {
                                        $new_name = explode(".", $_FILES["file"]["name"]);
                             $business_logo = "buslogo_".time().".".end($new_name);
@@ -43,7 +41,15 @@ class Postad_property_model extends CI_Model{
                             $ad_type = 'consumer';
                             $business_logo = '';
                         }
-
+                         /*is free or not*/
+                        if (($this->input->post('package_type') == 1) && $this->input->post('package_urgent') == 0) {
+                            $isfree = 1;
+                            $payment = 1;
+                        }
+                        else{
+                            $isfree = 0;
+                            $payment = 0;
+                        }
                          /*web-link for free */
               if ($this->input->post('package_type') == 1) {
                             $url = "";
@@ -78,17 +84,15 @@ class Postad_property_model extends CI_Model{
                                     'created_on'   => date('d-m-Y h:i:s'),
                                     'updated_on'   => date('d-m-Y h:i:s'),
                                     'terms_conditions' =>$this->input->post('terms_condition'),
-                                    'ad_status'     => 0
+                                    'payment_status' => $payment,
+                                    'ad_status'     => 0,
+                                    'is_free' => $isfree
                                     );
-                // echo "<pre>"; print_r($data); exit;
                     $this->db->insert('postad', $data);
 
                        $insert_id = $this->db->insert_id();
 
-                       if ($insert_id != '') {
-                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
-                        $this->session->set_userdata("postad_time",time());
-                       }
+                      
 
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,
@@ -98,43 +102,7 @@ class Postad_property_model extends CI_Model{
                                 );
                         $this->db->insert("location", $loc);
 
-                        /*free package*/
-                    if ($this->input->post('package_type') == 1) {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('free_ads', $plat_data);
-                    }
-
-
-                    /*gold package*/
-                    if ($this->input->post('package_type') == 2) {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('gold_ads', $plat_data);
-                    }
-
-                        /*platinum package*/
-                    if ($this->input->post('package_type') == 3) {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'marquee'=>$this->input->post('marquee_title'),
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('platinum_ads', $plat_data);
-                    }
-
-
-
+                        
                      /*image upload*/
                              $i=1;
                        foreach($this->input->post('pic_hide') as $rawData){ 
@@ -233,6 +201,11 @@ class Postad_property_model extends CI_Model{
                                 );
                         $this->db->insert("urgent_details", $urgent_details);
                     }
+
+                     $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                        $this->session->set_userdata("postad_time",time());
+                        redirect('postad');
+                        
             }
 
 

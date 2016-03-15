@@ -370,7 +370,7 @@ Class Classifed_model extends CI_model{
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
 		$m_res = $this->db->get();
-
+		// echo $this->db->last_query();exit;
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}
@@ -744,6 +744,39 @@ Class Classifed_model extends CI_model{
 
 	/*feedback for ads*/
 	public function feedbackads_insert(){
+		$login_email = @mysql_result(mysql_query("SELECT login_email FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '".$this->input->post('ad_id')."')"), 0, 'login_email');
+		 $config = Array(
+                 'protocol' => 'smtp',
+                 'smtp_host' => 'ssl://smtp.googlemail.com',
+                 'smtp_port' => 465,
+                 'smtp_user' => 'c.punnam@googlemail.com',
+                 'smtp_pass' => '12chandru12',
+                 );
+		 $this->load->library('email', $config);
+                 $this->email->set_newline("\r\n");
+                $this->email->from($this->input->post('busemail'), $this->input->post('fbkcontname'));
+                $this->email->to($login_email);
+                $this->email->subject("99 Right Deals Deal Feedback");
+                $message    =   "<div style='padding: 81px 150px;'>
+									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
+										<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
+										<img src='http://108right.igravitas.com/img/maillogo.png'>
+									</div>
+									<div style='margin-top:20px'></div>
+									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
+										<h3>Hi ".$this->input->post('con_fname').",</h3>
+										<p>Welcome to 99Rightdeals.com</p>
+										
+										<p>Contact Person : ".$this->input->post('fbkcontname')."</p>
+										<p>Contact mobile : ".$this->input->post('feedbackno')."</p>
+										<p>Contact email : ".$this->input->post('busemail')."</p>
+										<p>Message : ".$this->input->post('feedbackmsg')."</p>
+										<p>Best Wishes,</p>
+										<p>The <a href=''><strong style='color:#9FC955;'>99RightDeals </strong></a>Team</p>
+									</div>
+								</div>";
+                $this->email->message($message);
+                $this->email->send();
 		$data = array('ad_id'=> $this->input->post('ad_id'),
 						'contact_name'	=> $this->input->post('fbkcontname'),
 						'mobile'	=> $this->input->post('feedbackno'),
@@ -951,6 +984,10 @@ Class Classifed_model extends CI_model{
 			);
 			$this->db->insert("likes_deals", $data);
 			if ($this->db->affected_rows() > 0) {
+				$this->db->where('ad_id', $this->input->post('ad_id'));
+				$this->db->where('login_id', $this->input->post('login_id'));
+				$this->db->set('likes_count', 'likes_count+1', FALSE);
+				$this->db->update('postad');
 				return 1;
 			}
 			else{
@@ -966,6 +1003,10 @@ Class Classifed_model extends CI_model{
 			);
 			$this->db->delete("likes_deals", $wr);
 			if ($this->db->affected_rows() > 0) {
+				$this->db->where('ad_id', $this->input->post('ad_id'));
+				$this->db->where('login_id', $this->input->post('login_id'));
+				$this->db->set('likes_count', 'likes_count-1', FALSE);
+				$this->db->update('postad');
 				return 1;
 			}
 			else{
@@ -975,12 +1016,13 @@ Class Classifed_model extends CI_model{
 
 	/*ads for services in services search */
 	public function services_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		//$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
@@ -996,12 +1038,13 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function count_services_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
@@ -1056,12 +1099,13 @@ Class Classifed_model extends CI_model{
 
 	/*ads for jobs in pets search */
 	public function count_pets_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
@@ -1072,11 +1116,12 @@ Class Classifed_model extends CI_model{
 	}
 
 	public function pets_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
@@ -1093,12 +1138,13 @@ Class Classifed_model extends CI_model{
 
 	/*motor search*/
 	public function count_motor_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
@@ -1107,12 +1153,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_ezone_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
@@ -1122,12 +1169,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_phones_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
 		$this->db->where("ad.ad_status", "1");
@@ -1138,12 +1186,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_homes_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
 		$this->db->where("ad.ad_status", "1");
@@ -1154,12 +1203,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_smalls_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
 		$this->db->where("ad.ad_status", "1");
@@ -1170,12 +1220,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_lappy_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
 		$this->db->where("ad.ad_status", "1");
@@ -1186,12 +1237,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_access_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
 		$this->db->where("ad.ad_status", "1");
@@ -1202,12 +1254,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_pcare_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
 		$this->db->where("ad.ad_status", "1");
@@ -1218,12 +1271,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_entertain_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
 		$this->db->where("ad.ad_status", "1");
@@ -1234,12 +1288,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_poto_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
 		$this->db->where("ad.ad_status", "1");
@@ -1250,12 +1305,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_plants_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
 		$this->db->where("ad.ad_status", "1");
@@ -1266,12 +1322,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_farming_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
 		$this->db->where("ad.ad_status", "1");
@@ -1282,12 +1339,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_boats_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
 		$this->db->where("ad.ad_status", "1");
@@ -1298,11 +1356,12 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function plants_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
 		$this->db->where("ad.ad_status", "1");
@@ -1318,11 +1377,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function farming_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
 		$this->db->where("ad.ad_status", "1");
@@ -1338,11 +1398,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function boats_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
 		$this->db->where("ad.ad_status", "1");
@@ -1359,12 +1420,13 @@ Class Classifed_model extends CI_model{
 	}
 	/*cars search*/
 	public function count_cars_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
 		$this->db->where("ad.ad_status", "1");
@@ -1375,12 +1437,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_carvans_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
 		$this->db->where("ad.ad_status", "1");
@@ -1391,12 +1454,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_coaches_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
 		$this->db->where("ad.ad_status", "1");
@@ -1407,12 +1471,13 @@ Class Classifed_model extends CI_model{
 		return $m_res->result();
 	}
 	public function count_vans_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
 		$this->db->where("ad.ad_status", "1");
@@ -1424,12 +1489,13 @@ Class Classifed_model extends CI_model{
 	}
 	/*count_bikes_scoters_view search*/
 	public function count_bikes_scoters_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->where("ad.ad_status", "1");
@@ -1441,11 +1507,12 @@ Class Classifed_model extends CI_model{
 	}
 
 	public function motor_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
@@ -1459,11 +1526,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function ezone_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by(" img.ad_id");
@@ -1479,11 +1547,12 @@ Class Classifed_model extends CI_model{
 	}
 
 	public function phones_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
 		$this->db->where("ad.ad_status", "1");
@@ -1499,11 +1568,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function homes_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
 		$this->db->where("ad.ad_status", "1");
@@ -1519,11 +1589,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function smalls_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
 		$this->db->where("ad.ad_status", "1");
@@ -1539,11 +1610,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function lappy_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
 		$this->db->where("ad.ad_status", "1");
@@ -1559,11 +1631,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function access_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
 		$this->db->where("ad.ad_status", "1");
@@ -1579,11 +1652,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function pcare_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
 		$this->db->where("ad.ad_status", "1");
@@ -1599,11 +1673,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function entertain_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
 		$this->db->where("ad.ad_status", "1");
@@ -1619,11 +1694,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function poto_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
 		$this->db->where("ad.ad_status", "1");
@@ -1640,11 +1716,12 @@ Class Classifed_model extends CI_model{
 	}
 
 	public function cars_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
 		$this->db->where("ad.ad_status", "1");
@@ -1660,11 +1737,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function carvans_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
 		$this->db->where("ad.ad_status", "1");
@@ -1680,11 +1758,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function vans_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
 		$this->db->where("ad.ad_status", "1");
@@ -1700,11 +1779,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function coaches_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
 		$this->db->where("ad.ad_status", "1");
@@ -1720,11 +1800,12 @@ Class Classifed_model extends CI_model{
 		}
 	}
 	public function bikes_scoters_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->where("ad.ad_status", "1");

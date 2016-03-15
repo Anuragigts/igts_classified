@@ -188,7 +188,7 @@
 										<td><?php echo ucwords($ads->status_name);?></td>
 										<td class="pay_btn">
 										<?php if($ads->payment_status == 1 || $t_cost == 0) echo "<span style='color:green;'>No Due</span>";else {?>
-										<a href="<?php base_url();?>payment/checkout/<?php echo $ads->ad_id;?>" title="Pay Now" >Pay Now</a>
+										<a href="<?php base_url();?>payments/checkout/<?php echo $ads->ad_id;?>" title="Pay Now" >Pay Now</a>
 										<?php }?>
 										</td>
 									</tr>
@@ -209,7 +209,7 @@
 						<h4 class="modal-title" id="flexModalLabel">Pay for Posting Ad</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" method="post" action ='<?php echo base_url()?>Payment/Pay'>
+						<form class="form-horizontal" method="post" action ='<?php echo base_url()?>payments/Pay'>
 							<div class="htname">
 								<input type='hidden' id='post_ad_id' name='post_ad_id'>
 								<input type='hidden' id='post_ad_amt' name='post_ad_amt'>

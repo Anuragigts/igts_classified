@@ -227,8 +227,7 @@
 		</div>
 	</div>
 </div>
-</div>
-</div>
+
 <script>
 	$(".sactivate").click(function(){
 	        var  sssubcat    =   $(this).attr("sscategory");
