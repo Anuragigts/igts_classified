@@ -78,7 +78,7 @@ class Login_model extends CI_Model{
                 $message    =   "<div style='padding: 81px 150px;'>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
 										<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
-										<img src='http://79deals.igravitas.in/images/maillogo.png'>
+										<img src='http://108right.igravitas.com/img/maillogo.png'>
 									</div>
 									<div style='margin-top:20px'></div>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
