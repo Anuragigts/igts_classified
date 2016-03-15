@@ -1,7 +1,7 @@
 						
 						<?php foreach ($result as $rs) {
 							/*location*/
-							 $latt = $rs->latt;
+							/* $latt = $rs->latt;
 			                $longg = $rs->longg;
 			                $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=false";
 			                $ch = curl_init();
@@ -16,7 +16,7 @@
 			                // Closing
 			                curl_close($ch);
 			                $json_response = json_decode($result, true);
-			                $city_name = $json_response['results'][0]['address_components'][2]['short_name'];
+			                $city_name = $json_response['results'][0]['address_components'][2]['short_name'];*/
 
 							/*currency symbol*/ 
                                     	if ($rs->currency == 'pound') {
@@ -64,7 +64,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
@@ -161,7 +161,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
@@ -269,7 +269,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
@@ -394,7 +394,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
@@ -514,7 +514,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
@@ -626,7 +626,7 @@
 																	<div class="col-xs-8">
 																		<div class="location pull-right ">
 																			<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> <?php echo  $city_name; ?></a>
+																			<a href="javascript:void(0);" class="location loc_map" id="<?php echo $rs->latt.','.$rs->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $rs->loc_name; ?>"> Location</a>
 																		</div>
 																	</div>
 																</div>
