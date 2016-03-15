@@ -96,12 +96,12 @@
 						<h3 class="">SOCIAL MEDIA LINKS</h3>  
 						<div class="top-head">
 							<ul class="social_footer ">
-								<li><a href="https://en-gb.facebook.com/people/Right-Deals/100011496817255" targrt="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="" targrt="_blank"><i class="fa fa-skype"></i></a></li>
-								<li><a href="https://twitter.com/99rightdealsuk" targrt="_blank"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" targrt="_blank"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#" targrt="_blank"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="https://in.pinterest.com/99rightdealslim/" targrt="_blank"><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="https://en-gb.facebook.com/people/Right-Deals/100011496817255" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="" target="_blank"><i class="fa fa-skype"></i></a></li>
+								<li><a href="https://twitter.com/99rightdealsuk" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="https://in.pinterest.com/99rightdealslim/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
 							</ul> 
 						</div>
 					</div>
