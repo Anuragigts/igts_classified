@@ -138,16 +138,19 @@
 		
 		<div class="filter-title">
 			<div class="filter-header">
-				<form action="searchview">
+				<form action="<?php echo base_url(); ?>searchview" method="post">
 					<input type="text" required="required" placeholder="I'm looking for" class="input-large">
 					<div class="selector1">
 						<select class="guests-input">
+							<option value="">All</option>
 							<?php foreach ($show_all as $show_val) { ?>
 							<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
 							<?php	} ?>
 						</select>
 					</div>
-					<input type="text" required="required" placeholder="Location" class="input-large">
+					<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="">
+					<input type='hidden' name='latt' id='latt' value='' >
+					<input type='hidden' name='longg' id='longg' value='' >
 					<i class="fa fa-map-marker fa-2x loca_pad"></i>
 					<input type="text" id="ex5a" class="form-control" type="text"/>
 					<input type="submit" class="pull-right" value="Search">
@@ -170,6 +173,20 @@
 						<div class="ticker3 modern-ticker mt-round">
 							<div class="mt-body">
 								<div class="mt-news">
+									<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+									<script type="text/javascript">
+									google.maps.event.addDomListener(window, 'load', function () {
+								            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
+								            google.maps.event.addListener(places, 'place_changed', function () {
+								                var place = places.getPlace();
+								                var address = place.formatted_address;
+								                var latitude = place.geometry.location.lat();
+								                var longitude = place.geometry.location.lng();
+								                $("#latt").val(latitude);
+								                $("#longg").val(longitude);
+								            });
+								        });
+									</script>
 									<ul>
 										<?php foreach ($news as $n_val) { ?>
 										<li><a href="<?php echo base_url(); ?>description_view/details/<?php echo $n_val->ad_id; ?>" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
