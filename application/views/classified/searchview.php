@@ -151,30 +151,27 @@
 			    }
 			);
 		</script>
-			  <?php foreach ($busconcount as $countval) {
+			  <?php
+			  foreach ($busconcount as $countval) {
 			  	$allbustype = $countval->allbustype;
 			  	$business = $countval->business;
 			  	$consumer = $countval->consumer;
-			  }
-			  foreach ($deals_pck as $pckval) {
-			  	$urgentcnt = $pckval->urgentcount;
-			  	$platinumcnt = $pckval->platinumcount;
-			  	$goldcnt = $pckval->goldcount;
-			  	$freecnt = $pckval->freecount;
 			  }
 			  foreach ($public_adview as $publicview) {
 			  	$left_ad1 = $publicview->sidead_one;
 			  	$topad = $publicview->topad;
 			  	$mid_ad = $publicview->mid_ad;
 			  }
-			$dealurgent = $this->session->userdata('dealurgent');
-			$dealtitle = $this->session->userdata('dealtitle');
-			$dealprice = $this->session->userdata('dealprice');
-			$recentdays = $this->session->userdata('recentdays');
-			$search_bustype = $this->session->userdata('search_bustype');
-			$location = $this->session->userdata('location');
-			$latt = $this->session->userdata('latt');
-			$longg = $this->session->userdata('longg');
+			$looking_search = $this->session->userdata('s_looking_search'); 
+			$cat_id =  $this->session->userdata('s_cat_id');
+			$search_sub = $this->session->userdata('s_search_sub'); 
+			$dealtitle = $this->session->userdata('s_dealtitle');
+			$dealprice = $this->session->userdata('s_dealprice');
+			$recentdays = $this->session->userdata('s_recentdays');
+			$search_bustype = $this->session->userdata('s_search_bustype');
+			$location = $this->session->userdata('s_location');
+			$latt = $this->session->userdata('s_latt');
+			$longg = $this->session->userdata('s_longg');
 	   ?>
 	  
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
@@ -197,8 +194,43 @@
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
-							<div class="col-md-10 col-sm-8 col-md-offset-1 add_top">
-								<?php echo $topad; ?>
+							<div class="col-md-10 col-sm-8 col-md-offset-1" style="border: 2px solid rgb(94, 195, 163);padding: 7px 10px;height: 68px;">
+								<div class="row">
+									<div class="col-sm-3 unit">
+										<div class="input">
+											<label class="icon-left" for="">
+												<i class="fa fa-search"></i>
+											</label>
+											<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
+										</div>
+									</div>
+									<div class="col-sm-4 unit">
+										<label class="input select">
+											<select class="guests-input" name="category_name">
+												<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
+												<?php foreach ($show_all as $show_val) { ?>
+												<option value="<?php echo $show_val->category_id; ?>" <?php if ($cat_id == $show_val->category_id) { echo "selected=selected"; } ?>><?php echo ucwords($show_val->category_name); ?></option>
+												<?php	} ?>
+											</select>
+											<i></i>
+										</label>
+									</div>
+									<div class="col-sm-3 unit">
+										<div class="input">
+											<label class="icon-left" for="">
+												<i class="fa fa-search"></i>
+											</label>
+											<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
+											<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
+											<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="">
+											<input type="submit" class="primary-btn" name='' Value="Search" style="width: 154px;">
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -208,7 +240,7 @@
 							<div class="col-md-3 col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<a href="<?php echo base_url(); ?>motor_view"><h3 class="title-widget">Ezone Filter</h3></a>
+									<a href="<?php echo base_url(); ?>motor_view"><h3 class="title-widget">Home Search Filter</h3></a>
 									<div class="cd-filter-block">
 										<h4 class="title-widget closed">Deal Type</h4>
 
@@ -229,33 +261,39 @@
 											</div>
 										</div>
 									</div>
-									<div class="cd-filter-block">
-										<h4 class="title-widget">Search Only</h4>
 
-										<div class="cd-filter-content">
-											<div>
-												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
-													<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
-													<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
-													<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
-												</label>
-												<label class="checkbox">
-													<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
-													<i></i> Recent Deals (<?php echo $freecnt; ?>)
-												</label>
-											</div>
-										</div>
-									</div> 
-									
-									
-									
+											<?php 
+												if ($cat_id) {
+												if ($cat_id != 'all') { ?>
+												 <div class="cd-filter-block">
+													<h4 class="title-widget">Search Filters</h4>
+
+													<div class="cd-filter-content">
+														<?php if ($cat_id != '2' && $cat_id != '4' && $cat_id != '7') { ?>
+														<div id='limit_scrol'>
+															<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																<label class="checkbox">
+																	<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																	<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																</label>
+															<?php } ?>
+														</div>
+														<?php }
+														else{ ?>
+															<div>
+																<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																	<label class="checkbox">
+																		<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																		<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																	</label>
+																<?php } ?>
+															</div>
+														<?php } ?>
+													</div>
+												</div> 
+												<?php  }
+													}
+											 ?>
 									
 								</div>
 								<div class="row top_20">

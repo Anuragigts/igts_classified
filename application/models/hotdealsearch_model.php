@@ -101,6 +101,20 @@ class hotdealsearch_model extends CI_Model{
 				$rs = $this->db->get();
 				return $rs->result();
 			}
+
+			/*search home filter*/
+			public function subcat_searchdeals(){
+				$cat_id =  $this->session->userdata('s_cat_id');
+				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+				$this->db->from('sub_category');
+				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+				if ($cat_id != 'all') {
+					$this->db->where('sub_category.category_id', $cat_id);
+				}
+				$this->db->group_by("sub_category.sub_category_id");
+				$rs = $this->db->get();
+				return $rs->result();
+			}
 			/*services search sub category*/
 			public function services_sub_prof(){
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
@@ -4122,13 +4136,15 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
          public function count_searchviewsearch(){
-         	$cat_id =  $this->session->userdata('cat_id');
-        	$search_bustype = $this->session->userdata('search_bustype');
-        	$dealtitle = $this->session->userdata('dealtitle');
-        	$dealprice = $this->session->userdata('dealprice');
-        	$recentdays = $this->session->userdata('recentdays');
-        	$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 5);
-			$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 5);
+         	$looking_search =  $this->session->userdata('s_looking_search');
+         	$cat_id =  $this->session->userdata('s_cat_id');
+         	$search_sub =  $this->session->userdata('s_search_sub');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+        	$dealtitle = $this->session->userdata('s_dealtitle');
+        	$dealprice = $this->session->userdata('s_dealprice');
+        	$recentdays = $this->session->userdata('s_recentdays');
+        	$latt = substr($this->session->userdata('s_latt'),0,strpos($this->session->userdata('s_latt'),".") + 5);
+			$longg = substr($this->session->userdata('s_longg'),0,strpos($this->session->userdata('s_longg'),".") + 5);
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -4136,11 +4152,20 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				if ($looking_search) {
+					if ($looking_search != '') {
+						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' 
+  						OR ad.deal_desc LIKE '%$looking_search%')");
+					}
+				}
 
-			if ($cat_id) {
+				if ($cat_id) {
 					if ($cat_id != 'all') {
 						$this->db->where('ad.category_id', $cat_id);
 					}
+				}
+				if (!empty($search_sub)) {
+					$this->db->where_in('ad.sub_cat_id', $search_sub);
 				}
 			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
@@ -4188,9 +4213,6 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-					else{
-						$this->db->order_by("ad.ad_id", "DESC");
-					}
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
@@ -4202,26 +4224,35 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
         public function searchviewsearch($data){
-        	$cat_id =  $this->session->userdata('cat_id');
-        	$search_bustype = $this->session->userdata('search_bustype');
-        	$dealtitle = $this->session->userdata('dealtitle');
-        	$dealprice = $this->session->userdata('dealprice');
-        	$recentdays = $this->session->userdata('recentdays');
-        	$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 5);
-			$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 5);
+        	$looking_search =  $this->session->userdata('s_looking_search');
+        	$cat_id =  $this->session->userdata('s_cat_id');
+        	$search_sub =  $this->session->userdata('s_search_sub');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+        	$dealtitle = $this->session->userdata('s_dealtitle');
+        	$dealprice = $this->session->userdata('s_dealprice');
+        	$recentdays = $this->session->userdata('s_recentdays');
+        	$latt = substr($this->session->userdata('s_latt'),0,strpos($this->session->userdata('s_latt'),".") + 5);
+			$longg = substr($this->session->userdata('s_longg'),0,strpos($this->session->userdata('s_longg'),".") + 5);
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
-			
+				if ($looking_search) {
+					if ($looking_search != '') {
+						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' 
+  				OR ad.deal_desc LIKE '%$looking_search%')");
+					}
+				}
 				if ($cat_id) {
 					if ($cat_id != 'all') {
 						$this->db->where('ad.category_id', $cat_id);
 					}
 				}
-
+				if (!empty($search_sub)) {
+					$this->db->where_in('ad.sub_cat_id', $search_sub);
+				}
 			$this->db->where("ad.ad_status", "1");
 			
 			if ($search_bustype) {
@@ -4268,9 +4299,6 @@ class hotdealsearch_model extends CI_Model{
 					}
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
-					}
-					else{
-						$this->db->order_by("ad.ad_id", "DESC");
 					}
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
@@ -7923,15 +7951,24 @@ class hotdealsearch_model extends CI_Model{
 							$rs = $this->db->get();
 		        			return $rs->result();
 	        	}
-        	  }
-        	else{
+	        	else{
         		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
         		 ad_status = 1 AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'business') AS business,
 				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'consumer') AS consumer");
 					$rs = $this->db->get();
 	        		return $rs->result();
-        	}
+        		}
+        	  }
+        	  else{
+        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
+        		 ad_status = 1 AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'business') AS business,
+				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'consumer') AS consumer");
+					$rs = $this->db->get();
+	        		return $rs->result();
+        		}
+        	
         	
         }
 

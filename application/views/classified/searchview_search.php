@@ -93,7 +93,13 @@
 										// Closing
 										curl_close($ch);
 										$json_response = json_decode($result, true);
-										$city_name = $json_response['results'][0]['address_components'][2]['short_name'];
+										if (!empty($json_response)) {
+											$city_name = $json_response['results'][0]['address_components'][2]['short_name'];
+										}
+										else{
+											$city_name = '';
+										}
+										
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
                                     		$currency = '£';
@@ -215,9 +221,11 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<?php if ($sval->category_id != '1') { ?>
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 																</div>
+																<?php } ?>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -357,9 +365,11 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<?php if ($sval->category_id != '1') { ?>
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 																</div>
+																<?php } ?>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -483,9 +493,11 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<?php if ($sval->category_id != '1') { ?>
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 																</div>
+																<?php } ?>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -606,9 +618,11 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<?php if ($sval->category_id != '1') { ?>
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 																</div>
+																<?php } ?>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -726,9 +740,11 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<?php if ($sval->category_id != '1') { ?>
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 																</div>
+																<?php } ?>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>
@@ -844,9 +860,11 @@
 														</div>
 														<div class="col-xs-4">
 															<div class="row">
+																<?php if ($sval->category_id != '1') { ?>
 																<div class="col-xs-10 col-xs-offset-1 amt_bg">
 																	<h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 																</div>
+																<?php } ?>
 																<div class="col-xs-12">
 																	<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 																</div>

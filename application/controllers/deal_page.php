@@ -9,6 +9,7 @@ class Deal_page extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model("hotdealsearch_model");
+                $this->load->model("classifed_model");
                 $this->load->library('pagination');
                }
         public function index(){
@@ -83,6 +84,18 @@ class Deal_page extends CI_Controller{
                    $this->session->set_userdata('longg','');
               }
           }
+
+          if ($this->session->userdata('login_id') == '') {
+                    $login_status = 'no';
+                    $login = '';
+                    $favourite_list = array();
+                }
+                else{
+                    $login_status = 'yes';
+                    $login = $this->session->userdata('login_id');
+                    $favourite_list = $this->classifed_model->favourite_list();
+                }
+
           $config = array();
             $config['base_url'] = base_url().'deal_page/index';
             $config['total_rows'] = count($this->hotdealsearch_model->count_hotdeal_search());
@@ -99,12 +112,17 @@ class Deal_page extends CI_Controller{
                 );
               $result = $this->hotdealsearch_model->hotdeal_search($search_option);
               $category = $this->hotdealsearch_model->category();
+              $public_adview = $this->classifed_model->publicads_service();
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deal_page",
                           'category' => $category,
-                          'result' => $result,
-                          'paging_links' => $this->pagination->create_links()
+                          'dealsresult' => $result,
+                          'login_status' =>$login_status,
+                        'login' =>$login,
+                        'paging_links' =>$this->pagination->create_links(),
+                        'favourite_list'=>$favourite_list,
+                        "public_adview" => $public_adview
                 );
            /*business and consumer count for hot deals*/
           $data['busconcount'] = $this->hotdealsearch_model->busconcount_hotdeals();

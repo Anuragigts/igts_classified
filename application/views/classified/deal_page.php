@@ -124,7 +124,8 @@
 			});
 		});
 		</script>
-	  
+	  <link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+  <script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
@@ -381,22 +382,6 @@
 			<!-- </form> -->
 		</div>
 	</div>
-	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
-	
-	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-	<script>
-		$('.xuSlider').xuSlider();
-	</script>
-	
-	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
-
-	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
-	<script src="<?php echo base_url(); ?>libs/main.js"></script>	
 	
 	

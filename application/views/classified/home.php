@@ -139,9 +139,9 @@
 		<div class="filter-title">
 			<div class="filter-header">
 				<form action="<?php echo base_url(); ?>searchview" method="post">
-					<input type="text" required="required" placeholder="I'm looking for" class="input-large">
+					<input type="text" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
 					<div class="selector1">
-						<select class="guests-input">
+						<select class="guests-input" name="category_name">
 							<option value="">All</option>
 							<?php foreach ($show_all as $show_val) { ?>
 							<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>

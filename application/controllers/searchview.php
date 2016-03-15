@@ -14,52 +14,67 @@ class  Searchview extends CI_Controller{
         }
          public function index(){
              if($this->input->post()){
-                $this->session->unset_userdata('dealurgent');
-                $this->session->unset_userdata('search_bustype');
-                $this->session->unset_userdata('dealtitle');
-                $this->session->unset_userdata('dealprice');
-                $this->session->unset_userdata('recentdays');
-                $this->session->unset_userdata('location');
-                $this->session->unset_userdata('latt');
-                $this->session->unset_userdata('longg');
-
-                
-                 if($this->input->post('dealurgent')){
-                       $this->session->set_userdata('dealurgent' ,$this->input->post('dealurgent'));
+                $this->session->unset_userdata('s_cat_id');
+                $this->session->unset_userdata('s_looking_search'); 
+                $this->session->unset_userdata('s_search_sub'); 
+                $this->session->unset_userdata('s_dealurgent');
+                $this->session->unset_userdata('s_search_bustype');
+                $this->session->unset_userdata('s_dealtitle');
+                $this->session->unset_userdata('s_dealprice');
+                $this->session->unset_userdata('s_recentdays');
+                $this->session->unset_userdata('s_location');
+                $this->session->unset_userdata('s_latt');
+                $this->session->unset_userdata('s_longg');
+                if($this->input->post('category_name')){
+                     $this->session->set_userdata('s_cat_id',$this->input->post('category_name'));
+                }
+                if($this->input->post('looking_search')){
+                       $this->session->set_userdata('s_looking_search',$this->input->post('looking_search'));
                 }else{
-                     $this->session->set_userdata('dealurgent',array());
+                     $this->session->set_userdata('s_looking_search','');
+                }
+                if($this->input->post('search_sub')){
+                     $this->session->set_userdata('s_search_sub',$this->input->post('search_sub'));
+                }
+                else{
+                    $this->session->set_userdata('s_search_sub',array());
+                }
+                 if($this->input->post('dealurgent')){
+                       $this->session->set_userdata('s_dealurgent' ,$this->input->post('dealurgent'));
+                }else{
+                     $this->session->set_userdata('s_dealurgent',array());
                 }
                  if($this->input->post('search_bustype')){
-                       $this->session->set_userdata('search_bustype',$this->input->post('search_bustype'));
+                       $this->session->set_userdata('s_search_bustype',$this->input->post('search_bustype'));
                 }else{
-                     $this->session->set_userdata('search_bustype','all');
+                     $this->session->set_userdata('s_search_bustype','all');
                 }
                 if($this->input->post('dealtitle_sort')){
-                       $this->session->set_userdata('dealtitle',$this->input->post('dealtitle_sort'));
+                       $this->session->set_userdata('s_dealtitle',$this->input->post('dealtitle_sort'));
                 }else{
-                     $this->session->set_userdata('dealtitle','Any');
+                     $this->session->set_userdata('s_dealtitle','Any');
                 }
                 if($this->input->post('price_sort')){
-                       $this->session->set_userdata('dealprice',$this->input->post('price_sort'));
+                       $this->session->set_userdata('s_dealprice',$this->input->post('price_sort'));
                 }else{
-                     $this->session->set_userdata('dealprice','Any');
+                     $this->session->set_userdata('s_dealprice','Any');
                 }
                 if($this->input->post('recentdays_sort')){
-                       $this->session->set_userdata('recentdays',$this->input->post('recentdays_sort'));
+                       $this->session->set_userdata('s_recentdays',$this->input->post('recentdays_sort'));
                 }else{
-                     $this->session->set_userdata('recentdays','Any');
+                     $this->session->set_userdata('s_recentdays','Any');
                 }
                 if($this->input->post('latt')){
-                    $this->session->set_userdata('location',$this->input->post('find_loc'));
-                       $this->session->set_userdata('latt',$this->input->post('latt'));
+                    $this->session->set_userdata('s_location',$this->input->post('find_loc'));
+                       $this->session->set_userdata('s_latt',$this->input->post('latt'));
                 }else{
-                    $this->session->set_userdata('location','');
-                     $this->session->set_userdata('latt','');
+                    $this->session->set_userdata('s_location','');
+                     $this->session->set_userdata('s_latt','');
                 }
                 if($this->input->post('longg')){
-                       $this->session->set_userdata('longg',$this->input->post('longg'));
+                       $this->session->set_userdata('s_longg',$this->input->post('longg'));
                 }else{
-                     $this->session->set_userdata('longg','');
+                     $this->session->set_userdata('s_longg','');
                 }
             }
 
@@ -109,7 +124,9 @@ class  Searchview extends CI_Controller{
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
+            $result['show_all'] = $this->classifed_model->show_all();
               /*business and consumer count for pets*/
+               $result['subcat_cnt'] = $this->hotdealsearch_model->subcat_searchdeals();
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_search();
                  /*seller and needed count for pets*/
                 // $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_search();
