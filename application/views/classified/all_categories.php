@@ -111,8 +111,42 @@
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
-							<div class="col-md-10 col-sm-8 col-md-offset-1">
-								<img src="<?php echo base_url(); ?>img/slide/ban5.jpg" alt="add" title="Adds">
+							<div class="col-md-10 col-sm-8 col-md-offset-1" style="border: 2px solid rgb(94, 195, 163);padding: 7px 10px;height: 68px;">
+								<div class="row">
+									<div class="col-sm-3 unit">
+										<div class="input">
+											<label class="icon-left" for="">
+												<i class="fa fa-search"></i>
+											</label>
+											<input type="text" id="" name="" placeholder="Type of Service">
+										</div>
+									</div>
+									<div class="col-sm-4 unit">
+										<label class="input select">
+											<select name="">
+												<option value="none" selected disabled="">Select Category</option>
+												<option value="">Services</option>
+												<option value="">Motors</option>
+												<option value="">Pets</option>
+												<option value="">Jobs</option>
+											</select>
+											<i></i>
+										</label>
+									</div>
+									<div class="col-sm-3 unit">
+										<div class="input">
+											<label class="icon-left" for="">
+												<i class="fa fa-search"></i>
+											</label>
+											<input type="text" id="" name="" placeholder="Location">
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="">
+											<input type="submit" class="primary-btn" name='' Value="Search" style="width: 154px;">
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
