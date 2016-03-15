@@ -259,10 +259,10 @@ ul.single-carousel,
 
 
 .paddings{
-	padding: 60px 0;
+	padding: 20px 0;
 }
 .paddings-mini{
-	padding: 50px 0;
+	padding: 20px 0;
 }
 .padding-top{
 	padding-top: 70px;
@@ -2006,7 +2006,7 @@ hr.separator:before {
 }
 #footer ul li i{
 	padding-right: 5px;
-	color: #88C425 !important;
+	color: #88C425;
 }
 #footer .input-prepend{
 	width: 100%;	

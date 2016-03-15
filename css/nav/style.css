@@ -903,7 +903,7 @@
 .top_head{
 	border-top: 2px solid rgb(118, 185, 46);
 	/* border-bottom: 1px solid #f4f4f4; */
-	height:31px;
+	/* height:31px; */
 }
 .social-team{
 	/* padding-top:6px; */
@@ -970,6 +970,92 @@ width: 25px;
 	 color:#FFF;
 	 background-color:#007bb5;
 }
+
+
+
+.social_footer{
+	/* padding-top:6px; */
+	padding-right: 17px;
+}
+.social_footer li a i{
+	 color:#fff !important;
+	 /* border-left:1px solid red;
+	 padding-left:10px; */
+}
+.social_footer li a .fa-facebook{
+	 width: 40px;
+	text-align: center;
+	height: 28px;
+	padding: 13px 0px 26px 6px;
+	background-color: #3b5998;
+	border-radius: 50%;
+}
+.social_footer li a .fa-skype{
+	width: 40px;
+	text-align: center;
+	height: 28px;
+	padding: 13px 0px 26px 6px;
+	background-color:#0BBFF2;
+	border-radius: 50%;
+}
+.social_footer li a .fa-twitter{
+	width: 40px;
+	text-align: center;
+	height: 28px;
+	padding: 13px 0px 26px 6px;
+	background-color:#00aced;
+	border-radius: 50%;
+}
+.social_footer li a .fa-google-plus{
+	width: 40px;
+	text-align: center;
+	height: 28px;
+	padding: 13px 0px 26px 6px;
+	background-color:#DD4B39;
+	border-radius: 50%;
+}
+.social_footer li a .fa-linkedin{
+	width: 40px;
+	text-align: center;
+	height: 28px;
+	padding: 13px 0px 26px 6px;
+	background-color:#007bb5;
+	border-radius: 50%;
+}
+.social_footer li a .fa-pinterest{
+	width: 40px;
+	text-align: center;
+	height: 28px;
+	padding: 13px 0px 26px 6px;
+	background-color:#CB2027;
+	border-radius: 50%;
+}
+
+.social_footer li a .fa-facebook:hover{
+	 color:#3b5998 !important;
+	 background-color:#fff;
+}
+.social_footer li a .fa-skype:hover{
+	color:#0BBFF2 !important;
+	 background-color:#fff;
+}
+.social_footer li a .fa-twitter:hover{
+	color:#00aced !important;
+	 background-color:#fff;
+}
+.social_footer li a .fa-google-plus:hover{
+	color:#DD4B39 !important;
+	 background-color:#fff;
+}
+.social_footer li a .fa-linkedin:hover{
+	color:#007bb5 !important;
+	background-color:#fff;
+}
+.social_footer li a .fa-pinterest:hover{
+	color:#CB2027 !important;
+	background-color:#fff;
+}
+
 
 .info-details{
 	padding-top:6px;

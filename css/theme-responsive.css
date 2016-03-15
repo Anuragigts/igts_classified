@@ -426,7 +426,7 @@
 	.recentad_heig{
 		display:none;
 	}
-	.des_rec_heig{
+	.des_rec_heig, #aa, .top_head{
 		display:none;
 	}
 	.fa-bars{
