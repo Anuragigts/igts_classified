@@ -18,8 +18,8 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="css/homeslider.css">
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/homeslider.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<section class="tp-banner-container">
 		<div class="tp-banner" >
@@ -139,7 +139,7 @@
 		<div class="filter-title">
 			<div class="filter-header">
 				<form action="<?php echo base_url(); ?>searchview" method="post">
-					<input type="text" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
+					<input type="text" required="required" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
 					<div class="selector1">
 						<select class="guests-input" name="category_name">
 							<option value="">All</option>
@@ -1107,12 +1107,12 @@
 		});
 	</script>
 	
-	<link href="modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
-	<script src="modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
+	<link href="<?php echo base_url(); ?>modern-ticker/css/modern-ticker.css" type="text/css" rel="stylesheet">
+	<script src="<?php echo base_url(); ?>modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
 	
 	<script>$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
-	<script src="js/box-slider-all.jquery.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
+	<script src="<?php echo base_url(); ?>js/box-slider-all.jquery.min.js"></script>
 	
 	<script>
 		$(function () {
@@ -1192,8 +1192,8 @@
 		});
 	</script>
 	
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="js/bootstrap-slider.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>js/bootstrap-slider.js"></script>
 	
 	<script>
 		$("#ex5a").slider({ id: "slider5a", min: 0, max: 20, value: 5 });

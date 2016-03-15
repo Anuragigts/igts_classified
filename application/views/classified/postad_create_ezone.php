@@ -1,14 +1,14 @@
 	<title>Right Deals :: PostaDeal</title>
-	<link rel='stylesheet' type='text/css' href='imgupload/free.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/freeurgent.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/gold.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/goldurgent.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/platinum.css' />
-	<!-- <link rel='stylesheet' type='text/css' href='imgupload/jquery.fancybox.min.css' /> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-	<script src="https://dl.dropboxusercontent.com/u/2241077/jquery.dragbetter.js"></script>
-	<script src="imgupload/imageupload.js"></script>
+	
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/free.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/freeurgent.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/gold.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/goldurgent.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/platinum.css' />
+	<script src="<?php echo base_url(); ?>imgupload/jquery.fancybox.min.js"></script>
+	<script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+	
 	<script type="text/javascript">
 		/*packages selection */
 		$(function(){
@@ -1791,14 +1791,16 @@
 			</div>
 		</div>
 	</section>
-	<script src="js/jquery.js"></script> 
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
-	<script src="js/jquery.cleditor.min.js"></script>
-	<script src="js/jquery.cleditor.js"></script>
+	
+	<script src="<?php echo base_url();?>js/jquery.js"></script> 
+	<script src="<?php echo base_url();?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.cleditor.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.cleditor.js"></script>
+	
 	<script>
 		$(document).ready(function () { 
 		$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 
@@ -1807,89 +1809,89 @@
 	<!-- Modal -->
 	<form method='post' action="<?php echo base_url(); ?>postad_create_ezone" id='edit_ezone_cat'>
 		<div class="modal fade" id="Ezone" role="dialog">
-										<div class="modal-dialog">
-											<!-- Modal content-->
-											<div class="modal-content">
-												<form method='post' id='ezone_form' action="<?php echo base_url(); ?>postad_create_ezone">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h2>E-Zone Category
-														<input type='hidden' name='ezone_cat' id='ezone_cat' value='8' />
-														<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
-														<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
-														<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />
-													</h2>
-												</div>
-												<div class="modal-body">
-													<div class="row ezone_h3 mod_pad">
-														<div class="col-md-12 post_deal_bor">
-															<div class="row">
-																<div class="col-md-3 clearfix">
-																	<h3>Phones & Tablets</h3>
-																	<?php foreach ($ezone_phones as $ezone_phones_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Home Appliances</h3>
-																	<?php foreach ($ezone_home as $ezone_home_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Small Appliances</h3>
-																	<?php foreach ($ezone_small as $ezone_small_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Laptop & Computers</h3>
-																	<?php foreach ($ezone_laptops as $ezone_laptops_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_laptops_val['sub_category_id'].','.$ezone_laptops_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_laptops_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-															</div>
-															<div class="row col-md-12" >
-																<button type="button" id='ezone_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
-															</div>
-															<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
-																<div class="col-md-3 clearfix">
-																	<h3>Accessories</h3>
-																	<?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Personal Care</h3>
-																	<?php foreach ($ezone_pcare as $ezone_pcare_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_pcare_val['sub_category_id'].','.$ezone_pcare_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_pcare_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Home Entertainment</h3>
-																	<?php foreach ($ezone_entertainment as $ezone_entertainment_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_entertainment_val['sub_category_id'].','.$ezone_entertainment_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_entertainment_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-																<div class="col-md-3 clearfix">
-																	<h3>Photography</h3>
-																	<?php foreach ($ezone_photo as $ezone_photo_val) { ?>
-																	<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
-																	<?php	} ?>
-																</div>
-															</div>
-															<div class="row col-md-12" >
-																<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
-												</div>
-												</form>
-											</div>
-										</div>
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<form method='post' id='ezone_form' action="<?php echo base_url(); ?>postad_create_ezone">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>E-Zone Category
+							<input type='hidden' name='ezone_cat' id='ezone_cat' value='8' />
+							<input type='hidden' name='ezone_sub' id='ezone_sub' value='' />
+							<input type='hidden' name='ezone_sub_sub' id='ezone_sub_sub' value='' />
+							<input type='hidden' name='ezone_sub_sub_sub' id='ezone_sub_sub_sub' value='' />
+						</h2>
+					</div>
+					<div class="modal-body">
+						<div class="row ezone_h3 mod_pad">
+							<div class="col-md-12 post_deal_bor">
+								<div class="row">
+									<div class="col-md-3 clearfix">
+										<h3>Phones & Tablets</h3>
+										<?php foreach ($ezone_phones as $ezone_phones_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
 									</div>
+									<div class="col-md-3 clearfix">
+										<h3>Home Appliances</h3>
+										<?php foreach ($ezone_home as $ezone_home_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3>Small Appliances</h3>
+										<?php foreach ($ezone_small as $ezone_small_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3>Laptop & Computers</h3>
+										<?php foreach ($ezone_laptops as $ezone_laptops_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_laptops_val['sub_category_id'].','.$ezone_laptops_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_laptops_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+								</div>
+								<div class="row col-md-12" >
+									<button type="button" id='ezone_viewmore' class="pull-right btn_v btn-4 btn-4a">View More</button>
+								</div>
+								<div class="row ezone_h3" id='ezone_sec_part' style='display:none';>
+									<div class="col-md-3 clearfix">
+										<h3>Accessories</h3>
+										<?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3>Personal Care</h3>
+										<?php foreach ($ezone_pcare as $ezone_pcare_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_pcare_val['sub_category_id'].','.$ezone_pcare_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_pcare_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3>Home Entertainment</h3>
+										<?php foreach ($ezone_entertainment as $ezone_entertainment_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_entertainment_val['sub_category_id'].','.$ezone_entertainment_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_entertainment_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+									<div class="col-md-3 clearfix">
+										<h3>Photography</h3>
+										<?php foreach ($ezone_photo as $ezone_photo_val) { ?>
+										<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
+										<?php	} ?>
+									</div>
+								</div>
+								<div class="row col-md-12" >
+									<button type="button" id='ezone_viewless' style='display:none'; class="pull-right btn_v btn-4 btn-4a">View Less</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn_v btn-4 btn-4a" data-dismiss="modal">Close</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</form>
 	<!-- Services content End-->

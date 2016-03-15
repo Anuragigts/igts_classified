@@ -9,6 +9,7 @@
 			width: 100%;
 			overflow: hidden;
 		}
+		
 	</style>
 	
 	<link rel="stylesheet" href="js/filter.css"> 
@@ -21,6 +22,15 @@
 			cursorwidth: '8px',       
 			cursorcolor: '#E95413'     
 		  });
+		  function tog(v){return v?'addClass':'removeClass';} 
+			$(document).on('input', '.clearable', function(){
+				$(this)[tog(this.value)]('x');
+			}).on('mousemove', '.x', function( e ){
+				$(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
+			}).on('touchstart click', '.onX', function( ev ){
+				ev.preventDefault();
+				$(this).removeClass('x onX').val('').change();
+			});
 		});
 	</script>
 	
@@ -118,7 +128,7 @@
 											<label class="icon-left" for="">
 												<i class="fa fa-search"></i>
 											</label>
-											<input type="text" id="" name="" placeholder="Type of Service">
+											<input type="text" id="" name="" class="clearable" placeholder="Type of Service">
 										</div>
 									</div>
 									<div class="col-sm-4 unit">

@@ -1,11 +1,11 @@
 	<title>Right Deals :: PostaDeal</title>
-	<link rel='stylesheet' type='text/css' href='imgupload/free.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/freeurgent.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/gold.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/goldurgent.css' />
-	<link rel='stylesheet' type='text/css' href='imgupload/platinum.css' />
-	<script src="imgupload/jquery.fancybox.min.js"></script>
-	<script src="imgupload/imageupload.js"></script>
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/free.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/freeurgent.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/gold.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/goldurgent.css' />
+	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/platinum.css' />
+	<script src="<?php echo base_url(); ?>imgupload/jquery.fancybox.min.js"></script>
+	<script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 	<script type="text/javascript">
 		/*packages selection */
@@ -1762,14 +1762,16 @@
 			</div>
 		</div>
 	</section>
-	<script src="js/jquery.js"></script> 
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
-	<script src="js/jquery.cleditor.min.js"></script>
-	<script src="js/jquery.cleditor.js"></script>
+	
+	<script src="<?php echo base_url();?>js/jquery.js"></script> 
+	<script src="<?php echo base_url();?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.cleditor.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.cleditor.js"></script>
+	
 	<script>
 		$(document).ready(function () { 
 		$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 

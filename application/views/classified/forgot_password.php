@@ -9,7 +9,7 @@
 		overflow: hidden;
 		}
 	</style>
-	<link rel="stylesheet" type="text/css" media="all" href="css/logreg.css">
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>css/logreg.css">
 	<!-- Section Title-->    
 	<div class="section-title-01">
 		<!-- Parallax Background -->
@@ -70,7 +70,7 @@
 		</div>
 		<!-- End content info - page Fill with  --> 
 	</section>
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();

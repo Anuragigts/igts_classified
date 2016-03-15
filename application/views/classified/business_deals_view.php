@@ -11,7 +11,7 @@
 		}
 	</style>
 	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<div class="section-title-01">
 		<div class="bg_parallax image_01_parallax"></div>
@@ -19,7 +19,7 @@
 	
 	<section class="content-central">
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
 		
 		<div class="content_info">
@@ -27,7 +27,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="img/slide/side_view.jpg" class="img-responsive" alt="side_view" title="Side Ad">
+							<img src="<?php echo base_url(); ?>img/slide/side_view.jpg" class="img-responsive" alt="side_view" title="Side Ad">
 						</div>
 						
 						<form id="j-forms" action="#" class="j-forms" method="post">
@@ -99,12 +99,12 @@
 	</section>
 
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>   
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>   
 
 	

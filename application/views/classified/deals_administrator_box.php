@@ -49,7 +49,7 @@
 	});
 	</script>
 	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    
 	<div class="section-title-01">
@@ -169,12 +169,12 @@
 		</div>
 	</section>
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 	
-	<script src="j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
-	<script src="j-folder/js/additional-methods.min.js"></script>
-	<script src="j-folder/js/jquery.form.min.js"></script>
-	<script src="j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
 	

@@ -16,7 +16,7 @@
 	</div>
 	<!-- End Section Title-->
 	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 	
 	<!--Content Central -->
 	<section class="content-central">

@@ -21,7 +21,7 @@
 	</div>
 	<!-- End Section Title-->
 	
-	<link rel="stylesheet" href="j-folder/css/j-forms.css" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 	
 	<!--Content Central -->
 	<section class="content-central">
@@ -638,4 +638,4 @@
 		<!-- End content info -->
 	</section>
 	<!-- End Shadow Semiboxed -->
-	<script src="js/jquery.js"></script>
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script>
