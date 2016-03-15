@@ -259,7 +259,7 @@ ul.single-carousel,
 
 
 .paddings{
-	padding: 20px 0;
+	padding: 50px 0;
 }
 .paddings-mini{
 	padding: 50px 0;
@@ -5047,7 +5047,7 @@ h4 a:hover{
 	height:306px;width: 264px;
 }
 .loca_pad{
-	padding: 8px;
+	padding: 2px;
 }
 .signup_img{
 	height:366px;
@@ -5885,4 +5885,13 @@ strong{
 .con_tact{
 	border-radius: 10px;
 	height: 370px;
+}
+.home_btn{
+	width: 105px
+}
+.home_form{
+	background-color:#fff;
+	border: 2px solid rgb(94, 195, 163);
+	padding: 7px 10px;
+	height: 68px;
 }
