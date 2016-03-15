@@ -5,13 +5,7 @@
 			<div class="row">
 				<div class="top-head">
 					<div class="col-sm-12">
-						<ul class="social-team  pull-right">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-skype"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						</ul>                 
+						                
 					</div> 
 				</div>				
 			</div>
@@ -28,7 +22,7 @@
 			<ul class="collapse"><!-- collapse class for collapse the drop down -->
 				<!-- website title - Logo class -->
 				<li class="title">
-					<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/99rightdeal.png"  class="main_logo" alt="Logo" title="99 Right Deals">  </a> 
+					<a href="<?php echo base_url(); ?>index.php"><img src="<?php echo base_url(); ?>img/99deals.png"  alt="Logo" title="99 Right Deals">  </a> 
 				</li>
 				<?php $lid  =$this->session->userdata("login_id");
 				if($lid == ''){ ?>

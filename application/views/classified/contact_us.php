@@ -1,7 +1,7 @@
 	<title>Right Deals :: Contact us</title>
 	<style>
 		.section-title-01{
-		height: 273px;
+		height: 220px;
 		background-color: #262626;
 		text-align: center;
 		position: relative;
@@ -154,7 +154,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-md-4 col-sm-5 col-xs-5">
+										<div class="col-md-4 col-sm-5 col-xs-12">
 											<img src="img/contact.jpg" class="img img-responsive con_tact" alt="Contact" title="Contact">
 										</div>
 									</div>

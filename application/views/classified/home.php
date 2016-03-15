@@ -308,18 +308,7 @@
 											
 											  ?>
 										<figure class="slide jbs-current">
-											<?php if($hot_deals_val->img_name == ''){
-												if ($hot_deals_val->urgent_package != '') { ?>
-											<div class="significant_badge">
-											</div>
-											<?php }
-												?>
-											<div class="img-hover significant_ad">
-												<img src="<?php echo base_url(); ?>pictures/no_image.png" alt="no_image.png" title="significant" class="img-responsive">
-												<div class="overlay"><a href="<?php echo base_url(); ?>pictures/no_image.png" ><i class="fa fa-link"></i></a></div>
-											</div>
-											<?php
-												}else{
+											<?php 
 												if ($hot_deals_val->urgent_package != 0) {
 													?>
 											<div class="significant_badge">
@@ -330,7 +319,6 @@
 												<img src="<?php echo base_url(); ?>pictures/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
 												<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
-											<?php	} ?>
 											<div class="info-gallery slider_bg">
 												<h3><?php echo substr($hot_deals_val->deal_tag, 0, 20); ?></h3>
 												<hr class="separator">

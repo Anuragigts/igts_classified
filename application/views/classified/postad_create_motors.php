@@ -689,7 +689,7 @@ jQuery(document).ready(function($) {
 
 	<style>
 		.section-title-01{
-			height: 273px;
+			height: 220px;
 			background-color: #262626;
 			text-align: center;
 			position: relative;

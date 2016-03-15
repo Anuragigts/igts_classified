@@ -33,7 +33,7 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Edit Banners</h2>
+				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Edit Adds in Each Category</h2>
 				<div class="box-icon">
 				
 				</div>
@@ -59,7 +59,7 @@
 								<td> <?php echo $banner->mid_ad;?></td>
 								<td> <?php echo $banner->mid_ad;?></td>-->
 							<td><?php if($banner->b_status == 1)echo "Active"; else echo 'In-Active';?></td>
-							<td><a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>settings/get_banner/<?php echo $banner->id;?>" title="Get List of Ads">
+							<td><a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>settings/get_banner/<?php echo $banner->id;?>" title="Edit">
 								<i class="halflings-icon edit white"></i> 
 								</a>
 							</td>

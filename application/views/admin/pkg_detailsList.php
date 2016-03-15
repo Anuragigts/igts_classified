@@ -52,8 +52,8 @@
 							<th>Bump Home</th>
 							<th>Bump Search</th>
 							<th>Price Type</th>
-							<th>Cost Euro</th>
 							<th>Cost Pound</th>
+							<th>Cost Euro</th>
 							<th>Likes Limit</th>
 							<th>Created On</th>
 							<th style='width:55px;'>Action</th>
@@ -71,8 +71,8 @@
 							<td><?php echo $pkg->bump_home;?></td>
 							<td><?php echo $pkg->bump_search;?></td>
 							<td><?php if($pkg->is_top==1)echo 'High';else echo "Low"; ?></td>
-							<td><?php echo $pkg->cost_euro;?></td>
 							<td><?php echo $pkg->cost_pound;?></td>
+							<td><?php echo $pkg->cost_euro;?></td>
 							<td><?php echo $pkg->likes_count; ?></td>
 							<td><?php echo $pkg->created_on;?></td>
 							<td>

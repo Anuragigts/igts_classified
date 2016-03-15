@@ -1,7 +1,7 @@
 		<title>Right Deals :: SignUp</title>
 			<style>
 				.section-title-01{
-					height: 215px;
+					height: 220px;
 					background-color: #262626;
 					text-align: center;
 					position: relative;
