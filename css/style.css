@@ -262,7 +262,7 @@ ul.single-carousel,
 	padding: 20px 0;
 }
 .paddings-mini{
-	padding: 20px 0;
+	padding: 50px 0;
 }
 .padding-top{
 	padding-top: 70px;
@@ -917,9 +917,10 @@ hr.tall{
 }
 .filter-header .input-large{
 	width: 23%;
-	background: #fff url("../img/icons/search.png") no-repeat scroll left 6px;
-	padding-left: 40px;
-	padding-top: 7px;
+	background: #fff url("../img/icons/search.png") no-repeat scroll left 11px;
+	padding-left: 27px;
+	padding-top: 5px;
+	margin-top: 0px;
 }
 .filter-header .date-input{
 	background: #fff url("../img/icons/search.png") no-repeat scroll right 12px;
