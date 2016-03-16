@@ -170,9 +170,10 @@ class Postad_kitchen_model extends CI_Model{
                         $this->db->insert("kitchenhome_ads", $pets_details);
                     }
 
-                     $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                    if ($insert_id != '') {
+                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
                         $this->session->set_userdata("postad_time",time());
-                        redirect('postad');
+                       }
 
                     
             

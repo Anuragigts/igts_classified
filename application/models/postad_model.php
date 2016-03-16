@@ -194,6 +194,10 @@ class Postad_model extends CI_Model{
                                 );
                         $this->db->insert("urgent_details", $urgent_details);
                     }
+                    if ($insert_id != '') {
+                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                        $this->session->set_userdata("postad_time",time());
+                       }
             }
 
 

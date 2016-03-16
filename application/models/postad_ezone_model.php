@@ -171,9 +171,10 @@ class Postad_ezone_model extends CI_Model{
                         $this->db->insert("urgent_details", $urgent_details);
                     }
 
-                     $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                     if ($insert_id != '') {
+                        $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
                         $this->session->set_userdata("postad_time",time());
-                        redirect('postad');
+                       }
 
             
             }

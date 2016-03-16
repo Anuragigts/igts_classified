@@ -16,9 +16,6 @@ class Postad_create_services extends CI_Controller{
 
             if ($this->input->post("post_create_ad")) {
                  $this->postad_model->postad_creat();
-                 $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
-                 $this->session->set_userdata("postad_time",time());
-                        redirect(base_url().'postad');
             }
             
 
