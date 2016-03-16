@@ -223,30 +223,17 @@
 			<div class="paddings-mini">
 				<div class="container pad_bott_50">
 					<div class="row">
-						<div class="col-md-10 col-sm-10 col-md-offset-1">
-							<img src="<?php echo base_url(); ?>img/slide/adds.jpg" alt="add" title="Adds">
+						<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 desc_top_img">
+							<img src="http://108right.igravitas.com/img/adds/c_top.jpg" alt="add" title="Adds">
 						</div>
 					</div>
 				</div>
 				<div class="container">
-					<!--<div class="row">
-						<div class="bread_ccrumbs">
-							<div class="container">
-								<div class="crumbs">
-									<ul>
-										<li><a href="<?php echo base_url(); ?>index.php">
-											Home
-											<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
-											<input type='hidden' name="req_url" id="req_url" value="<?php echo @$req_url; ?>" />
-										</a></li>
-										<li>/</li>
-										<li><a href="<?php echo base_url(); ?>deals_administrator">Deal Administrator</a></li>  
-										<li></li>
-									</ul>    
-								</div>
-							</div>  
-						</div> 
-						</div> -->
+					<div class="row">
+						<div class="col-md-12">
+							<a href="<?php echo base_url(); ?>"><i class="fa fa-mail-reply-all fa-2x"></i></a>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-md-9 col-sm-12 single-blog">
 							<div class="post-item">
@@ -866,8 +853,8 @@
 				
 				<div class="container">
 					<div class="row">
-						<div class="col-md-10 col-sm-10 col-md-offset-1">
-							<img src="<?php echo base_url(); ?>img/slide/adds.jpg" alt="add" title="Adds">
+						<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 desc_bot_img">
+							<img src="http://108right.igravitas.com/img/adds/c_top.jpg" alt="add" title="Adds">
 						</div>
 					</div>
 				</div>

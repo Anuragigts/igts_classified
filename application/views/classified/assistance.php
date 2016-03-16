@@ -48,7 +48,7 @@
 							<div class="item_subpages">
 								<ul class="">
 									<li class="active_page"><a href='assistance'>Safety Tips</a></li>
-									<li><a href=''>Cookies Policy</a></li>
+									<li><a href='cookies_policy'>Cookies Policy</a></li>
 									<li><a href=''>Privacy Policy</a></li>
 									<li><a href=''>Faq</a></li>
 								</ul>

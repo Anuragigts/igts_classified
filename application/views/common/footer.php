@@ -16,7 +16,7 @@
 							</div>
 							<div class="col-sm-4">
 								<ul class="social">
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Cookies Policy</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>cookies_policy">Cookies Policy</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>privacy_policy">Privacy Policy</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 								</ul>
