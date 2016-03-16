@@ -1,4 +1,5 @@
 	<title>Right Deals :: PostaDeal</title>
+	
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>imgupload/free.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>imgupload/freeurgent.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>imgupload/gold.css' />
@@ -7,6 +8,7 @@
 	<script src="<?php echo base_url(); ?>imgupload/jquery.fancybox.min.js"></script>
 	<script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+	
 	<script type="text/javascript">
 		/*packages selection */
 		$(function(){

@@ -1,13 +1,14 @@
 		
-		<title>Right Deals :: PostaDeal</title>
-		<style type="text/css">
-		.nav-tabs li a {
-			border: 0px none;
-			padding: 12px 13px;
-			background: #3A4749 none repeat scroll 0% 0%;
-			color: #FFF;
-			}
-		</style>
+	<title>Right Deals :: PostaDeal</title>
+	
+	<style type="text/css">
+	.nav-tabs li a {
+		border: 0px none;
+		padding: 12px 13px;
+		background: #3A4749 none repeat scroll 0% 0%;
+		color: #FFF;
+		}
+	</style>
 		
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/free.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/freeurgent.css' />
