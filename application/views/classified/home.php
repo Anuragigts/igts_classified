@@ -1196,7 +1196,7 @@
 	<script src="<?php echo base_url(); ?>js/bootstrap-slider.js"></script>
 	
 	<script>
-		$("#ex5a").slider({ id: "slider5a", min: 0, max: 20, value: 5 });
+		$("#ex5a").slider({ id: "slider5a", min: 0, max: 50,step: 5, value: 0 });
 	</script>
 	
 	<script type="text/javascript">

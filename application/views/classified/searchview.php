@@ -162,6 +162,7 @@
 			  	$topad = $publicview->topad;
 			  	$mid_ad = $publicview->mid_ad;
 			  }
+			$miles =  $this->session->userdata('miles');
 			$looking_search = $this->session->userdata('s_looking_search'); 
 			$cat_id =  $this->session->userdata('s_cat_id');
 			$search_sub = $this->session->userdata('s_search_sub'); 
@@ -231,16 +232,18 @@
 										<div class="row">
 											<div class="col-md-7 col-sm-9 col-xs-12">
 												<label class="input select">
-													<select name="">
-														<option value="none" selected disabled="">Select Miles</option>
-														<option value="">+1 Mile</option>
-														<option value="">+3 Miles</option>
-														<option value="">+6 Miles</option>
-														<option value="">+9 Miles</option>
-														<option value="">+12 Miles</option>
-														<option value="">+15 Miles</option>
-														<option value="">+18 Miles</option>
-														<option value="">+21 Miles</option>
+													<select name="miles">
+														<option value="0" selected disabled="">Select Miles</option>
+														<option value="5" <?php if ($miles == '5') { echo "selected=selected"; } ?>>+5 Mile</option>
+														<option value="10" <?php if ($miles == '10') { echo "selected=selected"; } ?>>+10 Miles</option>
+														<option value="15" <?php if ($miles == '15') { echo "selected=selected"; } ?>>+15 Miles</option>
+														<option value="20" <?php if ($miles == '20') { echo "selected=selected"; } ?>>+20 Miles</option>
+														<option value="25" <?php if ($miles == '25') { echo "selected=selected"; } ?>>+25 Miles</option>
+														<option value="30" <?php if ($miles == '30') { echo "selected=selected"; } ?>>+30 Miles</option>
+														<option value="35" <?php if ($miles == '35') { echo "selected=selected"; } ?>>+35 Miles</option>
+														<option value="40" <?php if ($miles == '40') { echo "selected=selected"; } ?>>+40 Miles</option>
+														<option value="45" <?php if ($miles == '45') { echo "selected=selected"; } ?>>+45 Miles</option>
+														<option value="50" <?php if ($miles == '50') { echo "selected=selected"; } ?>>+50 Miles</option>
 													</select>
 													<i></i>
 												</label>
