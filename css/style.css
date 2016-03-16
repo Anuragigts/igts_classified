@@ -2418,6 +2418,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .acc-container .content{
 	font-size: 0.875rem;
 	line-height: 1.5;
+	padding-left: 20px;
 }
 .ui-progress {
   position: relative;
@@ -5279,9 +5280,8 @@ h4 a:hover{
 	padding: 0;
 }
 .item_subpages ul li{
-	font-size: 1rem;
-	padding: 15px 5px 15px 25%;
-	border-bottom: 1px solid #ededed;
+	font-size: 16px;
+	padding: 25px 10px 19px 19%;
 	-webkit-transition: 0.3s all ease;
 	-moz-transition: 0.3s all ease;
 	-o-transition: 0.3s all ease;
@@ -5869,7 +5869,16 @@ strong{
 	width: 848px;
 	height: 90px;
 }
-
+.desc_top_img img,
+.desc_top_img iframe{
+	width: 940px;
+	height: 130px;
+}
+.desc_bot_img img,
+.desc_bot_img iframe{
+	width: 940px;
+	height: 130px;
+}
 
 #pagination{
 	padding-top: 20px;

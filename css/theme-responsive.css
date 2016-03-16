@@ -468,6 +468,16 @@
 		height: 70px;
 		padding-bottom: 20px;
 	}
+	.desc_top_img img,
+	.desc_top_img iframe{
+		width: 289px;
+		height: 70px;
+	}
+	.desc_bot_img img,
+	.desc_bot_img iframe{
+		width: 289px;
+		height: 70px;
+	}
 	.home_form{
 		background-color:#fff;
 		border: 2px solid rgb(94, 195, 163);
@@ -649,6 +659,16 @@
 	.add_middle iframe{
 		width: 539px;
 		height: 90px;
+	}
+	.desc_top_img img,
+	.desc_top_img iframe{
+		width: 719px;
+		height: 129px;
+	}
+	.desc_bot_img img,
+	.desc_bot_img iframe{
+		width: 719px;
+		height: 129px;
 	}
 	/* .slider-horizontal{
 		width: 100px !important;
