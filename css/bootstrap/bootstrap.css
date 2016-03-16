@@ -5708,9 +5708,7 @@ button.close {
   background: transparent;
   border: 0;
 }
-.modal-open {
-  overflow: hidden;
-}
+
 .modal {
   position: fixed;
   top: 0;
@@ -5761,12 +5759,11 @@ button.close {
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
 .modal-backdrop {
-  /* position: fixed; */
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
   background-color: #000;
 }
 .modal-backdrop.fade {
@@ -5775,7 +5772,7 @@ button.close {
 }
 .modal-backdrop.in {
   filter: alpha(opacity=50);
-  opacity: .0;
+  opacity: .5;
 }
 .modal-header {
   min-height: 16.42857143px;
@@ -5790,7 +5787,7 @@ button.close {
 .modal-body {
 	/* position: relative; */
 	padding: 35px;
-	background-color: #f4f4f4;
+	/* background-color: #f4f4f4; */
 	/* min-height: 263px; */
 }
 .modal-footer {
