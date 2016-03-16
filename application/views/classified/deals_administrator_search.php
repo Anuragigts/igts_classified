@@ -152,8 +152,6 @@
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-						<li><i class="fa fa-edit"></i></li>
-						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>
 				</div>
 			</div>
@@ -286,8 +284,6 @@
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-						<li><i class="fa fa-edit"></i></li>
-						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>
 				</div>
 			</div>
@@ -401,8 +397,6 @@
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-						<li><i class="fa fa-edit"></i></li>
-						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>
 				</div>
 			</div>
@@ -517,8 +511,6 @@
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-						<li><i class="fa fa-edit"></i></li>
-						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>
 				</div>
 			</div>
@@ -625,8 +617,6 @@
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-						<li><i class="fa fa-edit"></i></li>
-						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>
 				</div>
 			</div>
@@ -735,8 +725,6 @@
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $person_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($m_details->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $m_details->ad_prefix.$m_details->ad_id; ?></span></li>
-						<li><i class="fa fa-edit"></i></li>
-						<li><img src="<?php echo base_url(); ?>img/icons/delete.png" alt="delete" title="delete" class="img-responsive"></li>
 					</ul>
 				</div>
 			</div>

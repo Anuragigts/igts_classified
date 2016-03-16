@@ -1,6 +1,5 @@
 	<title>Right Deals :: PostaDeal</title>
 		
-		
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/free.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/freeurgent.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/gold.css' />

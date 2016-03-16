@@ -115,7 +115,7 @@
 	<div class="footer-down">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 text_center">
 				   <p>Copyright @ 2016.All Right Reserved to 99 Right Deals</p>
 				</div>
 			</div>

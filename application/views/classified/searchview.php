@@ -194,9 +194,9 @@
 				<div class="paddings">
 					<div class="container pad_bott_50">
 						<div class="row">
-							<div class="col-md-10 col-sm-8 col-md-offset-1" style="border: 2px solid rgb(94, 195, 163);padding: 7px 10px;height: 68px;">
+							<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu">
 								<div class="row">
-									<div class="col-sm-3 unit">
+									<div class="col-md-3 col-sm-6 col-xs-12">
 										<div class="input">
 											<label class="icon-left" for="">
 												<i class="fa fa-search"></i>
@@ -204,7 +204,7 @@
 											<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
 										</div>
 									</div>
-									<div class="col-sm-4 unit">
+									<div class="col-md-3 col-sm-6 col-xs-12">
 										<label class="input select">
 											<select class="guests-input" name="category_name">
 												<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
@@ -215,7 +215,8 @@
 											<i></i>
 										</label>
 									</div>
-									<div class="col-sm-3 unit">
+
+									<div class="col-md-3 col-sm-4 col-xs-12">
 										<div class="input">
 											<label class="icon-left" for="">
 												<i class="fa fa-search"></i>
@@ -225,9 +226,28 @@
 											<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
 										</div>
 									</div>
-									<div class="col-sm-2">
-										<div class="">
-											<input type="submit" class="primary-btn" name='' Value="Search" style="width: 154px;">
+									
+									<div class="col-md-3 col-sm-8 col-xs-12">
+										<div class="row">
+											<div class="col-md-7 col-sm-9 col-xs-12">
+												<label class="input select">
+													<select name="">
+														<option value="none" selected disabled="">Select Miles</option>
+														<option value="">+1 Mile</option>
+														<option value="">+3 Miles</option>
+														<option value="">+6 Miles</option>
+														<option value="">+9 Miles</option>
+														<option value="">+12 Miles</option>
+														<option value="">+15 Miles</option>
+														<option value="">+18 Miles</option>
+														<option value="">+21 Miles</option>
+													</select>
+													<i></i>
+												</label>
+											</div>
+											<div class="col-md-5 col-sm-3 col-xs-12">
+												<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
+											</div>
 										</div>
 									</div>
 								</div>
