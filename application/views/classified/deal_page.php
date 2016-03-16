@@ -53,9 +53,9 @@
 			                    $("form.jforms").submit();
 			            }
 			        )
-			        $('input:radio').click(function() {
+			        /*$('input:radio').click(function() {
 							$("form.jforms").submit();
-			            }
+			            }*/
 			        )
 			        $('.dealtitle_sort').change(function() {
 							$("form.jforms").submit();

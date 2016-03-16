@@ -139,7 +139,7 @@
 		<div class="filter-title">
 			<div class="filter-header">
 				<form action="<?php echo base_url(); ?>searchview" method="post">
-					<input type="text" required="required" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
+					<input type="text" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
 					<div class="selector1">
 						<select class="guests-input" name="category_name">
 							<option value="">All</option>
@@ -152,7 +152,7 @@
 					<input type='hidden' name='latt' id='latt' value='' >
 					<input type='hidden' name='longg' id='longg' value='' >
 					<i class="fa fa-map-marker fa-2x loca_pad"></i>
-					<input type="text" id="ex5a" class="form-control" type="text"/>
+					<input type="text" id="ex5a" class="form-control" name="miles" type="text"/>
 					<input type="submit" class="pull-right" value="Search">
 				</form>
 			</div>

@@ -4135,7 +4135,13 @@ class hotdealsearch_model extends CI_Model{
 				return array();
 			}
         }
+        public function miles2kms($miles) { 
+			$ratio = 1.609344; 
+			$kms = $miles * $ratio; 
+			return $kms; 
+			} 
          public function count_searchviewsearch(){
+         	$miles =  $this->session->userdata('miles');
          	$looking_search =  $this->session->userdata('s_looking_search');
          	$cat_id =  $this->session->userdata('s_cat_id');
          	$search_sub =  $this->session->userdata('s_search_sub');
@@ -4143,8 +4149,23 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('s_dealtitle');
         	$dealprice = $this->session->userdata('s_dealprice');
         	$recentdays = $this->session->userdata('s_recentdays');
-        	$latt = substr($this->session->userdata('s_latt'),0,strpos($this->session->userdata('s_latt'),".") + 5);
-			$longg = substr($this->session->userdata('s_longg'),0,strpos($this->session->userdata('s_longg'),".") + 5);
+
+        	$distance = round($this->miles2kms($miles));
+			$earthRadius = 6371;
+			if ($this->session->userdata('s_latt') !='') {
+				$lat1 = deg2rad($this->session->userdata('s_latt'));
+				$lon1 = deg2rad($this->session->userdata('s_longg'));
+			}
+			else{
+				$lat1 = 0;
+				$lon1 = 0;
+			}
+			$bearing = deg2rad(0);
+
+			$lat2 = asin(sin($lat1) * cos($distance / $earthRadius) + cos($lat1) * sin($distance / $earthRadius) * cos($bearing));
+			$lon2 = $lon1 + atan2(sin($bearing) * sin($distance / $earthRadius) * cos($lat1), cos($distance / $earthRadius) - sin($lat1) * sin($lat2));
+			$latt = substr(rad2deg($lat2),0,strpos(rad2deg($lat2),".") + 5);
+			$longg = substr(rad2deg($lon2),0,strpos(rad2deg($lon2),".") + 5);
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -4192,7 +4213,7 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
+			if ($this->session->userdata('s_latt') !='') {
 				$this->db->where("(loc.latt LIKE '$latt%' 
   					OR loc.longg LIKE '$longg%')");
 			}
@@ -4224,6 +4245,7 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
         public function searchviewsearch($data){
+        	$miles =  $this->session->userdata('miles');
         	$looking_search =  $this->session->userdata('s_looking_search');
         	$cat_id =  $this->session->userdata('s_cat_id');
         	$search_sub =  $this->session->userdata('s_search_sub');
@@ -4231,8 +4253,23 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('s_dealtitle');
         	$dealprice = $this->session->userdata('s_dealprice');
         	$recentdays = $this->session->userdata('s_recentdays');
-        	$latt = substr($this->session->userdata('s_latt'),0,strpos($this->session->userdata('s_latt'),".") + 5);
-			$longg = substr($this->session->userdata('s_longg'),0,strpos($this->session->userdata('s_longg'),".") + 5);
+        	$distance = round($this->miles2kms($miles));
+			$earthRadius = 6371;
+			if ($this->session->userdata('s_latt') !='') {
+				$lat1 = deg2rad($this->session->userdata('s_latt'));
+				$lon1 = deg2rad($this->session->userdata('s_longg'));
+			}
+			else{
+				$lat1 = 0;
+				$lon1 = 0;
+			}
+			
+			$bearing = deg2rad(0);
+
+			$lat2 = asin(sin($lat1) * cos($distance / $earthRadius) + cos($lat1) * sin($distance / $earthRadius) * cos($bearing));
+			$lon2 = $lon1 + atan2(sin($bearing) * sin($distance / $earthRadius) * cos($lat1), cos($distance / $earthRadius) - sin($lat1) * sin($lat2));
+			$latt = substr(rad2deg($lat2),0,strpos(rad2deg($lat2),".") + 5);
+			$longg = substr(rad2deg($lon2),0,strpos(rad2deg($lon2),".") + 5);
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -4279,7 +4316,7 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
+			if ($this->session->userdata('s_latt') !='') {
 				$this->db->where("(loc.latt LIKE '$latt%' 
   				OR loc.longg LIKE '$longg%')");
 			}

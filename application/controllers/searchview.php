@@ -14,6 +14,7 @@ class  Searchview extends CI_Controller{
         }
          public function index(){
              if($this->input->post()){
+                $this->session->unset_userdata('miles');
                 $this->session->unset_userdata('s_cat_id');
                 $this->session->unset_userdata('s_looking_search'); 
                 $this->session->unset_userdata('s_search_sub'); 
@@ -25,6 +26,9 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('s_location');
                 $this->session->unset_userdata('s_latt');
                 $this->session->unset_userdata('s_longg');
+                if($this->input->post('miles')){
+                     $this->session->set_userdata('miles',$this->input->post('miles'));
+                }
                 if($this->input->post('category_name')){
                      $this->session->set_userdata('s_cat_id',$this->input->post('category_name'));
                 }
