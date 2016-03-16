@@ -233,7 +233,7 @@
 											<div class="col-md-7 col-sm-9 col-xs-12">
 												<label class="input select">
 													<select name="miles">
-														<option value="0" selected disabled="">Select Miles</option>
+														<option value="0" <?php if ($miles == '0') { echo "selected=selected"; } ?>>+0 Miles</option>
 														<option value="5" <?php if ($miles == '5') { echo "selected=selected"; } ?>>+5 Mile</option>
 														<option value="10" <?php if ($miles == '10') { echo "selected=selected"; } ?>>+10 Miles</option>
 														<option value="15" <?php if ($miles == '15') { echo "selected=selected"; } ?>>+15 Miles</option>
