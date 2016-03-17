@@ -214,7 +214,7 @@
 										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="Hot Deals" title="deals Category">
 										<div class="overlay">
 											<h2>Hot Deals</h2>
-											<a class="info" href="hot-deal">View Details</a>
+											<a class="info" href="hot-deals">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -309,10 +309,10 @@
 											 foreach ($hot_deals as $hot_deals_val) {
 												/*currency symbol*/ 
 												if ($hot_deals_val->currency == 'pound') {
-													$currency = '£';
+													$currency = '<span class="pound_sym"></span>';
 												}
 												else if ($hot_deals_val->currency == 'euro') {
-													$currency = '€';
+													$currency = '<span class="euro_sym"></span>';
 												}
 											  if ($hot_deals_val->ad_type == 'business') { 
 												$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_person');
@@ -395,10 +395,10 @@
 						<?php foreach ($sig_show_all as $val){
 							/*currency symbol*/ 
 								if ($val->currency == 'pound') {
-									$currency = '£';
+									$currency = '<span class="pound_sym"></span>';
 								}
 								else if ($val->currency == 'euro') {
-									$currency = '€';
+									$currency = '<span class="euro_sym"></span>';
 								}
 							?>
 						<div class="col-sm-4 col-md-3 col-xs-12 showall">
@@ -483,10 +483,10 @@
 						<?php foreach ($sig_ads_services as $m_ads_services){
 							/*currency symbol*/ 
 														if ($m_ads_services->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($m_ads_services->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 services">
@@ -529,10 +529,10 @@
 						<?php foreach ($sig_ads_motor as $motor_val){
 							/*currency symbol*/ 
 														if ($motor_val->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($motor_val->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 motorpoint">
@@ -575,10 +575,10 @@
 						<?php foreach ($sig_ads_cloths as $cloth_val){
 							/*currency symbol*/ 
 														if ($cloth_val->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($cloth_val->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 cloths_lifestyles">
@@ -621,10 +621,10 @@
 						<?php foreach ($sig_ads_property as $prop_val){
 							/*currency symbol*/ 
 														if ($prop_val->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($prop_val->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 findproperty">
@@ -667,10 +667,10 @@
 						<?php foreach ($sig_ads_khome as $khome_val){
 							/*currency symbol*/ 
 														if ($khome_val->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($khome_val->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 homekitchen">
@@ -713,10 +713,10 @@
 						<?php foreach ($sig_ads_pets as $m_ads_pets){
 							/*currency symbol*/ 
 														if ($m_ads_pets->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($m_ads_pets->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 pets">
@@ -759,10 +759,10 @@
 						<?php foreach ($sig_ads_ezone as $m_ads_ezone){
 							/*currency symbol*/ 
 														if ($m_ads_ezone->currency == 'pound') {
-															$currency = '£';
+															$currency = '<span class="pound_sym"></span>';
 														}
 														else if ($m_ads_ezone->currency == 'euro') {
-															$currency = '€';
+															$currency = '<span class="euro_sym"></span>';
 														}	
 							?>
 						<div class="col-xs-12 col-sm-4 col-md-3 ezone">
@@ -827,10 +827,10 @@
 								<?php foreach ($mostvalued_ads as $b_ads) {
 									/*currency symbol*/ 
 										if ($b_ads->currency == 'pound') {
-											$currency = '£';
+											$currency = '<span class="pound_sym"></span>';
 										}
 										else if ($b_ads->currency == 'euro') {
-											$currency = '€';
+											$currency = '<span class="euro_sym"></span>';
 										}	
 									?>
 								<div>
@@ -910,10 +910,10 @@
 								<?php foreach ($business_ads as $b_ads) {
 									/*currency symbol*/ 
 										if ($b_ads->currency == 'pound') {
-											$currency = '£';
+											$currency = '<span class="pound_sym"></span>';
 										}
 										else if ($b_ads->currency == 'euro') {
-											$currency = '€';
+											$currency = '<span class="euro_sym"></span>';
 										}	
 									?>
 								<div>
@@ -997,10 +997,10 @@
 									foreach ($free_ads as $free_val) {
 										/*currency symbol*/ 
 											if ($free_val->currency == 'pound') {
-												$currency = '£';
+												$currency = '<span class="pound_sym"></span>';
 											}
 											else if ($free_val->currency == 'euro') {
-												$currency = '€';
+												$currency = '<span class="euro_sym"></span>';
 											}	
 									 ?>
 								<div>
