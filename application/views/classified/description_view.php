@@ -186,10 +186,10 @@
 				$urgent_pack = $ads_desc_val->urgent_package;
 				/*currency symbol*/ 
 					if ($ads_desc_val->currency == 'pound') {
-						$currency = '£';
+						$currency = '<span class="pound_sym"></span>';
 					}
 					else if ($ads_desc_val->currency == 'euro') {
-						$currency = '€';
+						$currency = '<span class="euro_sym"></span>';
 					}
 				$tag = $ads_desc_val->deal_tag;
 				$desc = $ads_desc_val->deal_desc;
@@ -795,10 +795,10 @@
 								<?php foreach ($recommanded_ads as $b_ads) {
 									/*currency symbol*/ 
 																if ($b_ads->currency == 'pound') {
-																	$currency = '£';
+																	$currency = '<span class="pound_sym"></span>';
 																}
 																else if ($b_ads->currency == 'euro') {
-																	$currency = '€';
+																	$currency = '<span class="euro_sym"></span>';
 																}	
 									?>
 								<div>

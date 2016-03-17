@@ -36,7 +36,7 @@
 						<div class="row"> 
 							<div class="col-sm-4">
 								<ul class="social">
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>hot-deal">Hot Deals</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>hot-deals">Hot Deals</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>e-zone">E-Zone</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>motor-point">Motor Point</a></li>
 								</ul>

@@ -167,11 +167,11 @@
 																<div class="inline-group">
 																	<label class="radio">
 																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" value="Yes">
-																	<i></i>£(Pound) 
+																	<i></i><span class="pound_sym"></span>(Pound) 
 																	</label>
 																	<label class="radio">
 																	<input type="radio" name="checkbox_toggle1"  value="No">
-																	<i></i> €(Euro)
+																	<i></i> <span class="euro_sym"></span>(Euro)
 																	</label>
 																</div>
 															</div>

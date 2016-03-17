@@ -1158,7 +1158,7 @@
 															</label>
 															<label class="radio">
 															<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
-															<i></i> € (Euro)
+															<i></i> <span class="euro_sym"></span> (Euro)
 															</label>
 														</div>
 													</div>
@@ -1269,7 +1269,7 @@
 																<h3 class="price_amt">£<?php echo $c_pund; ?></h3>
 															</div>
 															<div class="free_bg text_center free_euro" style="display:none;">
-																<h3 class="price_amt">€<?php echo $c_euro; ?></h3>
+																<h3 class="price_amt"><span class="euro_sym"></span><?php echo $c_euro; ?></h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
@@ -1312,7 +1312,7 @@
 																<h3 class="price_amt">£<?php echo $gc_pund; ?></h3>
 															</div>
 															<div class="gold_bg text_center free_euro" style="display:none;">
-																<h3 class="price_amt">€<?php echo $gc_euro; ?></h3>
+																<h3 class="price_amt"><span class="euro_sym"></span><?php echo $gc_euro; ?></h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
@@ -1353,7 +1353,7 @@
 																<h3 class="price_amt">£<?php echo $ptm_pound; ?></h3>
 															</div>
 															<div class="platinum_bg text_center free_euro" style="display:none;">
-																<h3 class="price_amt">€<?php echo $ptm_euro; ?></h3>
+																<h3 class="price_amt"><span class="euro_sym"></span><?php echo $ptm_euro; ?></h3>
 															</div>
 														</ul>
 														<div class="hot_deal_rad check">
@@ -1406,9 +1406,9 @@
 															</div>
 															<div class="promotion-box-info free_euro" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> €<?php echo $u_pkg_euro_cost1 ?>-<?php echo $u_pkg_days1 ?>Days (Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> <span class="euro_sym"></span><?php echo $u_pkg_euro_cost1 ?>-<?php echo $u_pkg_days1 ?>Days (Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">€<?php echo $u_pkg_euro_cost1 ?></h3>
+																		<h3 class="price_amt"><span class="euro_sym"></span><?php echo $u_pkg_euro_cost1 ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
@@ -1439,9 +1439,9 @@
 															</div>
 															<div class="promotion-box-info free_euro" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i> €1.97 -14 days (Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i> <span class="euro_sym"></span>1.97 -14 days (Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">€1.97</h3>
+																		<h3 class="price_amt"><span class="euro_sym"></span>1.97</h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">
@@ -1472,9 +1472,9 @@
 															</div>
 															<div class="promotion-box-info free_euro" style="display:none;">
 																<ul class="list-styles">
-																	<li><i class="fa fa-check"></i>€<?php echo $u_pkg_euro_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
+																	<li><i class="fa fa-check"></i><span class="euro_sym"></span><?php echo $u_pkg_euro_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
 																	<div class="free_bg text_center " >
-																		<h3 class="price_amt">€<?php echo $u_pkg_euro_cost3 ?></h3>
+																		<h3 class="price_amt"><span class="euro_sym"></span><?php echo $u_pkg_euro_cost3 ?></h3>
 																	</div>
 																</ul>
 																<div class="hot_deal_rad">

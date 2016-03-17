@@ -19,10 +19,10 @@
 			$city_name = $json_response['results'][0]['address_components'][2]['short_name'];
 		/*currency symbol*/ 
 		if ($pvalue->currency == 'pound') {
-			$currency = '£';
+			$currency = '<span class="pound_sym"></span>';
 		}
 		else if ($pvalue->currency == 'euro') {
-			$currency = '€';
+			$currency = '<span class="euro_sym"></span>';
 		}
 		if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package != '0') {
 		?>

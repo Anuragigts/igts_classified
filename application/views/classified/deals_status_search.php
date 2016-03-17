@@ -10,10 +10,10 @@
 
 		/*currency symbol*/ 
 			if ($m_details->currency == 'pound') {
-				$currency = '£';
+				$currency = '<span class="pound_sym"></span>';
 			}
 			else if ($m_details->currency == 'euro') {
-				$currency = '€';
+				$currency = '<span class="euro_sym"></span>';
 			}
 			?>
 		<?php

@@ -102,10 +102,10 @@
 										
                                     	/*currency symbol*/ 
                                     	if ($sval->currency == 'pound') {
-                                    		$currency = '£';
+                                    		$currency = '<span class="pound_sym"></span>';
                                     	}
                                     	else if ($sval->currency == 'euro') {
-                                    		$currency = '€';
+                                    		$currency = '<span class="euro_sym"></span>';
                                     	}
                                     	if (($sval->package_type == '6' || $sval->package_type == '3') && $sval->urgent_package != '0') { ?>
                                     <div class="col-md-12">
