@@ -319,36 +319,6 @@
 		right: 0;
 	}
 
-	.most_valued_badge{
-		height: 60px;
-		background: transparent url("../img/icons/reco.png") no-repeat;
-		position: absolute;
-		left: 156px;
-		top: 0;
-		z-index: 99;
-		right: 0;
-	}
-
-	.bus_rec_badge {
-		height: 60px;
-		background: transparent url("../img/icons/reco.png") no-repeat;
-		position: absolute;
-		left: 163px	;
-		top: 0;
-		z-index: 99;
-		right: 0;
-	}
-
-
-	.significant_badge {
-		height: 60px;
-		background: transparent url("../img/icons/reco.png") no-repeat;
-		position: absolute;
-		left: 232px;
-		top: 0;
-		z-index: 99;
-		right: 0;
-	}
 	.sort-by-container ul li {
 		padding: 0;
 		width: 100%;
@@ -380,6 +350,17 @@
 	}
 	.services-lines li{
 		width: 50%;
+	}
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.most_valued_badge{
+		left: 105px;
+	}
+	.bus_rec_badge {
+		margin-left: 151px;
+	}
+	.significant_badge {
+		margin-left: 246px;
 	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 360px) {
@@ -484,6 +465,16 @@
 		padding: 7px 10px;
 		height: 273px;
 	}
+	.most_valued_badge{
+		left: 156px;
+	}
+	.bus_rec_badge {
+		margin-left: 170px;
+	}
+	.significant_badge {
+		margin-left: 246px;
+	}
+	
 	/* .loca_pad {
 		padding: 0px 6px;
 	}
@@ -670,6 +661,7 @@
 		width: 719px;
 		height: 129px;
 	}
+	
 	/* .slider-horizontal{
 		width: 100px !important;
 	}

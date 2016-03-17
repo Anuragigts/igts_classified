@@ -4471,24 +4471,26 @@ a .login-op-btn:hover{
 }
 
 .bus_rec_badge {
-	height: 60px;
-	background: transparent url("../img/icons/reco.png") no-repeat;
+	width: 121px;
+	height: 87px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 5px;
 	position: absolute;
-	left: 162px;
-	top: 0;
+	margin-left: 168px;
+	top: -19px;
 	z-index: 99;
-	right: 0;
 }
 
 
 .significant_badge {
-    height: 60px;
-	background: transparent url("../img/icons/reco.png") no-repeat;
+    width: 116px;
+	height: 86px;
+	background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+	padding-top: 10px;
 	position: absolute;
-	left: 232px;
-	top: 0;
-	z-index: 99;
-	right: 0;
+	margin-left: 246px;
+	top: -20px;
+	z-index: 7;
 }
 
 
