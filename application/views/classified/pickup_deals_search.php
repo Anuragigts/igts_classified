@@ -514,7 +514,7 @@
 	<!-- gold package end -->
 	<!-- free+urgent package starts -->
 	<?php 
-		if (($pvalue->package_type == '1' || $pvalue->package_type == '4') && $pvalue->urgent_package != ''){
+		if (($pvalue->package_type == '1' || $pvalue->package_type == '4') && $pvalue->urgent_package != '0'){
 		 ?>
 	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 		<div class="first_list">
