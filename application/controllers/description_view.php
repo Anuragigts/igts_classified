@@ -184,10 +184,10 @@ class Description_view extends CI_Controller{
                     if ($value->category_id == '1') {
                         $detailed_jobs = $this->classifed_model->ads_detailed_jobs();
                         if ($value->currency == 'pound') {
-                            $currency = '£';
+                            $currency = '<span class="pound_sym"></span>';
                         }
                         else if($value->currency == 'euro'){
-                            $currency = '€';
+                            $currency = '<span class="euro_sym"></span>';
                         }
 
                                  foreach ($detailed_jobs as $val) {
