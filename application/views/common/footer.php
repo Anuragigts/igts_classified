@@ -32,7 +32,7 @@
 					</div>
 					
 					<div class="col-sm-6">
-						<h3>EXPLORE By CATEGORY</h3>
+						<h3>EXPLORE BY CATEGORY</h3>
 						<div class="row"> 
 							<div class="col-sm-4">
 								<ul class="social">
