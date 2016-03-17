@@ -39,6 +39,18 @@
 */
 
 $route['default_controller'] = "classified";
+$route['hot-deal'] = "deal_page";
+$route['e-zone'] = "ezone_view";
+$route['motor-point'] = "motor_view";
+$route['clothing-lifestyles'] = "clothing_lifestyles_view";
+$route['services'] = "services_view";
+$route['find-a-property'] = "residential_view";
+$route['home-kitchen'] = "home_kitchen_view";
+$route['pet-deals'] = "pets_view";
+$route['free-job-ads'] = "job_view";
+$route['home-page'] = "classified";
+
+
 $route['404_override'] = '';
 
 
