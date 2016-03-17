@@ -2612,10 +2612,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-size: 1.1rem;
 	float:right;
 }
-.info-gallery h3 span{
+/* .info-gallery h3 span{
 	font-size: 0.8rem;
 	color: #88C425;
-}
+} */
 .info-gallery p{
 	margin-bottom: 5px;
 	font-size: 0.85rem;
@@ -6031,3 +6031,10 @@ strong{
     outline-color: #5EC3A3;
 }
 
+
+.pound_sym:before {
+    content: '£';
+}
+.euro_sym:before {
+    content: '€';
+}
