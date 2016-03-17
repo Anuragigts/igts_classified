@@ -1,4 +1,4 @@
-	<title>Right Deals :: Kitchen Essentials View</title>
+	<title>Home And Kitchen Services Ads | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{

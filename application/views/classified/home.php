@@ -1,4 +1,4 @@
-	<title>Right Deals :: Home</title>
+	<title>Post Free Classified Ads | 99 Right Deals</title>
 	<style>
 		.img-hover img{
 		height:160px;
@@ -25,7 +25,7 @@
 		<div class="tp-banner" >
 			<ul>
 				<li data-transition="slidevertical">
-					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img img-responsive" alt="Slider1" title="Slider1">
+					<img src="<?php echo base_url(); ?>img/slide/all.jpg" class="img img-responsive" alt="Goods & Services" title="Slider1">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -46,7 +46,7 @@
 					</div>
 				</li>
 				<li data-transition="slidevertical">
-					<img src="<?php echo base_url(); ?>img/slide/1.jpg" class="img-responsive" alt="Slider2" title="Slider2">
+					<img src="<?php echo base_url(); ?>img/slide/1.jpg" class="img-responsive" alt="For Everything Tech" title="Slider2">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -68,7 +68,7 @@
 				</li>
 				
 				<li data-transition="slidevertical">
-					<img src="<?php echo base_url(); ?>img/slide/2.jpg" class="img-responsive" alt="Slider1" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
+					<img src="<?php echo base_url(); ?>img/slide/2.jpg" class="img-responsive" alt="Commendable Services" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -90,7 +90,7 @@
 				</li>
 				
 				<li data-transition="slidevertical" >
-					<img src="<?php echo base_url(); ?>img/slide/3.jpg" class="img-responsive" alt="Slider3" title="Slider3">
+					<img src="<?php echo base_url(); ?>img/slide/3.jpg" class="img-responsive" alt="The Look You Deserve" title="Slider3">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -112,7 +112,7 @@
 				</li>
 				
 				<li data-transition="slidevertical" >
-					<img src="<?php echo base_url(); ?>img/slide/5.jpg" class="img-responsive" alt="Slider3" title="Slider3">
+					<img src="<?php echo base_url(); ?>img/slide/5.jpg" class="img-responsive" alt="Helping You Find the Property" title="Slider3">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -211,28 +211,28 @@
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="deals" title="deals Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="Hot Deals" title="deals Category">
 										<div class="overlay">
 											<h2>Hot Deals</h2>
-											<a class="info" href="deal_page">View Details</a>
+											<a class="info" href="hot-deal">View Details</a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="ezone" title="ezone Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="E-Zone" title="ezone Category">
 										<div class="overlay">
 											<h2>E-Zone</h2>
-											<a class="info" href="ezone_view">View Details</a>
+											<a class="info" href="e-zone">View Details</a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="cars" title="cars Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="Motor Point" title="Motor Point Category">
 										<div class="overlay">
 											<h2>Motor Point</h2>
-											<a class="info" href="motor_view">View Details</a>
+											<a class="info" href="motor-point">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -240,28 +240,28 @@
 							<div class="row top_13">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing.jpg" alt="clothing" title="clothing Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing.jpg" alt="Clothing & LifeStyles" title="Clothing & LifeStyles">
 										<div class="overlay">
 											<h2>Clothing & LifeStyles</h2>
-											<a class="info" href="clothing_lifestyles_view">View Details</a>
+											<a class="info" href="clothing-lifestyles">View Details</a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="services" title="services Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="Services" title="Services Category">
 										<div class="overlay">
 											<h2>Services</h2>
-											<a class="info" href="services_view">View Details</a>
+											<a class="info" href="services">View Details</a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="property" title="property Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="Find a Property" title="Find a Property Category">
 										<div class="overlay">
 											<h2>Find a Property</h2>
-											<a class="info" href="residential_view">View Details</a>
+											<a class="info" href="find-a-property">View Details</a>
 										</div>
 									</div>
 								</div>
@@ -269,28 +269,28 @@
 							<div class="row top_13">
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen.jpg" alt="kitchen" title="kitchen Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen.jpg" alt="Home & Kitchen" title="Home & Kitchen Category">
 										<div class="overlay">
 											<h2>Home & Kitchen</h2>
-											<a class="info" href="home_kitchen_view">View Details</a>
+											<a class="info" href="home-kitchen">View Details</a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="pets" title="pets Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="Pets" title="Pets Category">
 										<div class="overlay">
 											<h2>Pets</h2>
-											<a class="info" href="pets_view">View Details</a>
+											<a class="info" href="pet-deals">View Details</a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 									<div class="hovereffect">
-										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg"  alt="jobs" title="jobs Category">
+										<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg"  alt="Jobs" title="Jobs Category">
 										<div class="overlay">
 											<h2>Jobs</h2>
-											<div><a class="info" href="job_view">View Details</a></div>
+											<div><a class="info" href="free-job-ads">View Details</a></div>
 										</div>
 									</div>
 								</div>
@@ -342,7 +342,7 @@
 												<?php if ($hot_deals_val->category_id != '1') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
 												<?php } ?>
-												<a href="javascript:void(0);" data-toggle="modal" data-target="#sendnow" id='<?php echo $hot_deals_val->ad_id; ?>'  class="btn_v btn-4 btn-4a fa fa-arrow-right fdk_ad"><span>Send Now</span></a>
+												<a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<?php  if ($hot_deals_val->ad_type == 'business') {
 													if ($hot_deals_val->bus_logo != '') {
 													?>

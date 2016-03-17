@@ -1,4 +1,4 @@
-	<title>Right Deals :: Services View</title>
+	<title>Services Classified Ads | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{

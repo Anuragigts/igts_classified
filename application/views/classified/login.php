@@ -137,12 +137,12 @@
 												<div class="row social_icons">
 													<div class="col-md-6">
 														<div class="login-options">
-															<a href="#" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
+															<a href="javascript: void(0);" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class=" login-options">
-															<a href="#" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+															<a href="javascript: void(0);" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
 														</div>
 													</div>
 												</div>
@@ -159,7 +159,14 @@
 	</section>
 	
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-	
+	<script type="text/javascript">
+	$(function(){
+		$('.fb').click(function(){
+			 window.open('<?php echo base_url(); ?>welcome/login', 'Facebook API','_blank',  "toolbar=yes, scrollbars=yes, resizable=yes, top=300, left=400,right=400, width=400, height=400");
+  				return false;
+		});
+	});
+	</script>
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();

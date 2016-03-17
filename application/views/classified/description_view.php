@@ -224,7 +224,7 @@
 				<div class="container pad_bott_50">
 					<div class="row">
 						<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 desc_top_img">
-							<img src="http://108right.igravitas.com/img/adds/c_top.jpg" alt="add" title="Adds">
+							<img src="http://99rightdeals.com/img/adds/c_top.jpg" alt="add" title="Adds">
 						</div>
 					</div>
 				</div>
@@ -417,31 +417,31 @@
 										<div class="post-footer">
 											<ul class="post-social tooltip-hover">
 												<li>
-													<a href="#" class="social-facebook" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
+													<a href="javascript:void(0);" class="social-facebook fb_share" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
 														<i class="fa fa-facebook"></i>
 														<i class="fa fa-facebook facebook"></i>
 													</a>
 												</li>
 												<li>
-													<a href="#" class="social-twitter" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
+													<a href="javascript:void(0);" class="social-twitter twitter_share" data-toggle="tooltip" title="" data-original-title="Share on Twitter">
 														<i class="fa fa-twitter"></i>
 														<i class="fa fa-twitter twitter"></i>
 													</a>
 												</li>
 												<li>
-													<a href="#" class="social-google-plus" data-toggle="tooltip" title="" data-original-title="Share on Google">
+													<a href="javascript:void(0);" class="social-google-plus gmail_share" data-toggle="tooltip" title="" data-original-title="Share on Google">
 														<i class="fa fa-google-plus"></i>
 														<i class="fa fa-google-plus google-plus"></i>
 													</a>
 												</li>
 												<li>
-													<a href="#" class="social-pinterest" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
+													<a href="javascript:void(0);" class="social-pinterest pin_share" data-toggle="tooltip" title="" data-original-title="Share on pinterest">
 														<i class="fa fa-pinterest"></i>
 														<i class="fa fa-pinterest pinterest"></i>
 													</a>
 												</li>
 												<li>
-													<a href="#" class="social-linkedin" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
+													<a href="javascript:void(0);" class="social-linkedin linkdin_share" data-toggle="tooltip" title="" data-original-title="Share on linkedin">
 														<i class="fa fa-linkedin"></i>
 														<i class="fa fa-linkedin linkedin"></i>
 													</a>
@@ -854,7 +854,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 desc_bot_img">
-							<img src="http://108right.igravitas.com/img/adds/c_top.jpg" alt="add" title="Adds">
+							<img src="http://99rightdeals.com/img/adds/c_top.jpg" alt="add" title="Adds">
 						</div>
 					</div>
 				</div>
@@ -908,4 +908,29 @@
 			 $(".alert").hide();
 		},5000);
 		
+	</script>
+
+	<script type="text/javascript">
+		$(function(){
+			/*facebook share*/
+			$(".fb_share").click(function(){
+				   window.open('http://www.facebook.com/share.php?u=<?php echo $req_url; ?>/&title=Deal Description', "Deal Description", '_blank', "width=400, height=400");
+			});
+			/*twitter_share share*/
+			$(".twitter_share").click(function(){
+				   window.open('http://twitter.com/home?status=Deal Description+<?php echo $req_url; ?>', "Deal Description", '_blank', "width=400, height=400");
+			});
+			/*gmail_share share*/
+			$(".gmail_share").click(function(){
+				   window.open('https://plus.google.com/share?url=<?php echo $req_url; ?>', "Deal Description", '_blank', "width=400, height=400");
+			});
+			/*pin_share share*/
+			$(".pin_share").click(function(){
+				   window.open('http://pinterest.com/pin/create/bookmarklet/?media=http://99rightdeals.com/img/99rightdeal.png&amp;url=<?php echo $req_url; ?>&amp;is_video=false&amp;description=Deal Description', "Deal Description", '_blank', "width=400, height=400");
+			});
+			/*linkdin_share share*/
+			$(".linkdin_share").click(function(){
+				   window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $req_url; ?>&amp;title=[Deal Description]&amp;source=[SOURCE/DOMAIN]', "Deal Description", '_blank', "width=400, height=400");
+			});
+		});
 	</script>

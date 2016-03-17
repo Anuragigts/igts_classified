@@ -1,4 +1,4 @@
-	<title>Right Deals :: Deal</title>
+	<title>Hot Deals | 99 Right Deals</title>
 	<style>
 		.section-title-01{
 		height: 220px;

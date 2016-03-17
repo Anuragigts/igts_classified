@@ -1,4 +1,4 @@
-	<title>Right Deals :: Jobs View</title>
+	<title>Free Job Ads | Jobs Classified Ads | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{

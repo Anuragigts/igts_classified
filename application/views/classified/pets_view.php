@@ -1,4 +1,4 @@
-	<title>Right Deals :: Pets View</title>
+	<title>Classified Pets & Pets care Ads In UK | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{

@@ -1,4 +1,4 @@
-	<title>Right Deals :: Residential View</title>
+	<title>Find A Property In UK | Furnished Apartments|Villas|Flats| In United Kingdom | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{
