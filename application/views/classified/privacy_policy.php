@@ -63,7 +63,7 @@
 						<div class="col-md-9">
 							<p>This privacy policy sets out how 99rightDeals uses and protects any information that you give 99rightDeals when you use this website.</p>
 							
-							<p>The term <strong>‘ 99rightDeals ’</strong> or ‘us’ or ‘we’ refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
+							<p>The term <strong>‘ 99rightDeals ’</strong>  refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
 							
 							<p><strong>PERSONAL INFORMATION</strong></p>
 							

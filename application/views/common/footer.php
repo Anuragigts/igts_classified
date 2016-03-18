@@ -97,7 +97,6 @@
 						<div class="top-head">
 							<ul class="social_footer ">
 								<li><a href="https://en-gb.facebook.com/people/Right-Deals/100011496817255" target="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="" target="_blank"><i class="fa fa-skype"></i></a></li>
 								<li><a href="https://twitter.com/99rightdealsuk" target="_blank"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
 								<li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>

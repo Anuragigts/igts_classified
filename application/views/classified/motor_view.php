@@ -231,14 +231,14 @@
 														$farmingcnt = $motor_sub1->farming;
 														$bloatscnt = $motor_sub1->bloats;
 													} ?>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cars_view"> Cars (<?php echo $carcnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>bikes_scoters_view"> Bikes & Scoters (<?php echo $bikescnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motorhomes_caravans_view"> Motorhomes & Caravans (<?php echo $motorhomescnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>vans_trunks_svu_view"> Vans,Trunks & SUV's (<?php echo $vanscnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>coaches_busses_view"> Coaches & Busses (<?php echo $busescnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plantmachinery_view"> Plant Machinery (<?php echo $plantscnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>farmingvehicles_view"> Farming Vehicles (<?php echo $farmingcnt; ?>)</a></li>
-													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>boats_view"> Boats (<?php echo $bloatscnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>car-services"> Cars (<?php echo $carcnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>bikes-scooters-services"> Bikes & Scoters (<?php echo $bikescnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motorhomes-caravans"> Motorhomes & Caravans (<?php echo $motorhomescnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>vans-trucks-suvs"> Vans,Trunks & SUV's (<?php echo $vanscnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>coaches-buses"> Coaches & Busses (<?php echo $busescnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plant-machinery"> Plant Machinery (<?php echo $plantscnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>farming-vehicles"> Farming Vehicles (<?php echo $farmingcnt; ?>)</a></li>
+													<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>boats-services"> Boats (<?php echo $bloatscnt; ?>)</a></li>
 												</ul>
 												</ul>
 											</div>

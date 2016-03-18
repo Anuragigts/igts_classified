@@ -1,12 +1,12 @@
 	<title>Right Deals :: Blog</title>
 	<style>
 		.section-title-01{
-		height: 220px;
-		background-color: #262626;
-		text-align: center;
-		position: relative;
-		width: 100%;
-		overflow: hidden;
+			height: 220px;
+			background-color: #262626;
+			text-align: center;
+			position: relative;
+			width: 100%;
+			overflow: hidden;
 		}
 	</style>
 

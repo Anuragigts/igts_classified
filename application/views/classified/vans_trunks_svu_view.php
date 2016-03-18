@@ -1,4 +1,4 @@
-	<title>Right Deals :: Cars View</title>
+	<title>New | Used | Second Hand | Vans Truck & SUV's For Sale | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{
