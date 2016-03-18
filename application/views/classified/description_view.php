@@ -193,14 +193,16 @@
 					}
 				$tag = $ads_desc_val->deal_tag;
 				$desc = $ads_desc_val->deal_desc;
-					if($ads_desc_val->ad_type == 'consumer'){
+					/*if($ads_desc_val->ad_type == 'consumer'){
 						$name = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'contact_name');
 						$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'mobile');
 					}
 					if($ads_desc_val->ad_type == 'business'){
 						$name = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'contact_person');
 						$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'mobile');
-					}
+					}*/
+					$name = @mysql_result(mysql_query("SELECT first_name FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '$ads_desc_val->ad_id')"), 0, 'first_name');
+					$mobile = @mysql_result(mysql_query("SELECT mobile FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '$ads_desc_val->ad_id')"), 0, 'mobile');
 					$posted_on = date("M d, Y H:i:s", strtotime($ads_desc_val->created_on));
 					$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
 					if ($catid !='1') {
@@ -794,12 +796,12 @@
 								<!-- Item carousel Boxed-->
 								<?php foreach ($recommanded_ads as $b_ads) {
 									/*currency symbol*/ 
-																if ($b_ads->currency == 'pound') {
-																	$currency = '<span class="pound_sym"></span>';
-																}
-																else if ($b_ads->currency == 'euro') {
-																	$currency = '<span class="euro_sym"></span>';
-																}	
+								if ($b_ads->currency == 'pound') {
+									$currency = '<span class="pound_sym"></span>';
+								}
+								else if ($b_ads->currency == 'euro') {
+									$currency = '<span class="euro_sym"></span>';
+								}	
 									?>
 								<div>
 									<?php if ($b_ads->urgent_package != '') { ?>
@@ -907,10 +909,9 @@
 		setTimeout(function(){
 			 $(".alert").hide();
 		},5000);
-		
 	</script>
 
-	<script type="text/javascript">
+		<script type="text/javascript">
 		$(function(){
 			/*facebook share*/
 			$(".fb_share").click(function(){

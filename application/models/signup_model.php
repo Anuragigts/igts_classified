@@ -14,9 +14,9 @@ class Signup_model extends CI_Model{
                  'smtp_user' => 'c.punnam@googlemail.com',
                  'smtp_pass' => '12chandru12',
                  );
-
+            $is_confirm = md5(rand(10000,99999));
             if($this->input->post('signup_type') == '7') {
-                    $is_confirm = md5(rand(10000,99999));
+                    $fname = $this->input->post('con_fname');
                     $mail = $this->input->post('con_email');
 
                     $login_data = array(
@@ -31,10 +31,11 @@ class Signup_model extends CI_Model{
                     $this->db->insert('login', $login_data);
             }
             else{
-                        $is_confirm = md5(rand(10000,99999));
+                        $fname = $this->input->post('bus_fname');
+                        $mail = $this->input->post('bus_email');
                         $data = array('user_type'=>6,
-                                    'login_email'=>$this->input->post('con_email'),
-                                    'login_password'=> md5($this->input->post('con_password')),
+                                    'login_email'=>$this->input->post('bus_email'),
+                                    'login_password'=> md5($this->input->post('bus_password')),
                                     'is_confirm'=>$is_confirm,
                                     'login_status'=>1,
                                     'first_name' => $this->input->post('bus_fname'),
@@ -51,9 +52,8 @@ class Signup_model extends CI_Model{
 
             $this->load->library('email', $config);
                  $this->email->set_newline("\r\n");
-                $this->email->from('test@igravitas.in', "99RightDeals");
+                $this->email->from('support@99rightdeals.com', "99RightDeals");
                 $this->email->to($mail);
-                // $this->email->cc("manasa.s@igravitas.in");
                 $this->email->subject("99 Right Deals Account Verification");
                 $message    =   "<div style='padding: 81px 150px;'>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
@@ -63,7 +63,7 @@ class Signup_model extends CI_Model{
 									<div style='margin-top:20px'></div>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
 										<h2>Account Confirmations</h2>
-										<h3>Hi ".$this->input->post('con_fname').",</h3>
+										<h3>Hi ".$fname.",</h3>
 										<p>Welcome to 99Rightdeals.com</p>
 										<p> To complete your registration please confirm that you have received this email by clicking below</p>
 										<a href='".base_url()."common/signup_activate/".$is_confirm."' style='color:#fff;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Activate your Account</a>
@@ -88,6 +88,67 @@ class Signup_model extends CI_Model{
            $login_qry = $this->db->query("SELECT COUNT(*) FROM login WHERE login_email = '$mail'");
             $result1 = $login_qry->row_array();
                 if($result1['COUNT(*)'] > 0){
+                        return 1;
+                }
+                else{
+                        return 0;
+                }
+        }
+
+        /*facebook login*/
+        public function fb_create(){
+             if($this->input->post('signup_type') == '7') {
+                    $mail = $this->input->post('con_email');
+
+                    $login_data = array(
+                                    'user_type'=>7,
+                                    'login_email'=>$this->input->post('con_email'),
+                                    'is_confirm'=>'confirm',
+                                    'login_status'=>1,
+                                    'first_name' => $this->input->post('con_fname'),
+                                    'lastname' => $this->input->post('con_lname'),
+                                    'mobile'=>$this->input->post('con_mobile'),
+                                    'fbid'=>$this->input->post('fbid'));
+                    $this->db->insert('login', $login_data);
+            }
+            else{
+                        $data = array('user_type'=>6,
+                                    'login_email'=>$this->input->post('con_email'),
+                                    'is_confirm'=>'confirm',
+                                    'login_status'=>1,
+                                    'first_name' => $this->input->post('bus_fname'),
+                                    'lastname' => $this->input->post('bus_lname'),
+                                    'mobile'=>$this->input->post('bus_mobile'),
+                                    'bus_name'=>$this->input->post('bus_name'),
+                                    'bus_addr'=>$this->input->post('bus_address'),
+                                    'vat_number'=> $this->input->post('vat_number'),
+                                    'fbid'=>$this->input->post('fbid'));
+                        $this->db->insert('login', $data);
+            }
+            $this->session->set_userdata('login_id',$this->db->insert_id());
+        }
+
+         public function fb_already(){
+                $fbid = $this->input->post('fbid');
+           $login_qry = $this->db->query("SELECT COUNT(*) FROM login WHERE fbid = '$fbid'");
+            $result1 = $login_qry->row_array();
+                if($result1['COUNT(*)'] > 0){
+                    $this->session->set_userdata('login_id',$result1['login_id']);
+                        return 1;
+                }
+                else{
+                        return 0;
+                }
+        }
+        public function onloadfb_already(){
+            $fbdata = $this->session->userdata('fb_data');
+            $login_qry = $this->db->query("SELECT COUNT(*) FROM login WHERE fbid = '".$fbdata['id']."'");
+            $login_qry1 = $this->db->query("SELECT * FROM login WHERE fbid = '".$fbdata['id']."'");
+            $result1 = $login_qry->row_array();
+            $result2 = $login_qry1->row_array();
+            // $this->db->last_query(); exit;
+                if($result1['COUNT(*)'] > 0){
+                    $this->session->set_userdata('login_id',$result2['login_id']);
                         return 1;
                 }
                 else{

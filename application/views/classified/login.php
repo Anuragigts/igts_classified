@@ -52,7 +52,11 @@
 	</div>
 	
 	<section class="content-central">
-		
+		<?php 
+		/*echo $this->session->userdata("login_id");
+		print_r($this->session->userdata("fb_data"));*/
+	// echo "<pre>"; print_r($user_profile); echo "</pre>";
+	 ?>
 		<div class="semiboxshadow text-center">
 			<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 		</div>
@@ -137,6 +141,7 @@
 												<div class="row social_icons">
 													<div class="col-md-6">
 														<div class="login-options">
+															<!-- <a href="javascript: void(0);" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a> -->
 															<a href="javascript: void(0);" class="login-op-btn grad-btn ln-tr fb">Login with Facebook</a>
 														</div>
 													</div>
@@ -162,11 +167,12 @@
 	<script type="text/javascript">
 	$(function(){
 		$('.fb').click(function(){
-			 window.open('<?php echo base_url(); ?>welcome/login', 'Facebook API','_blank',  "toolbar=yes, scrollbars=yes, resizable=yes, top=300, left=400,right=400, width=400, height=400");
+			 window.open('<?= $login_url ?>', 'Facebook API','_blank',  "toolbar=yes, scrollbars=yes, resizable=yes, top=300, left=400,right=400, width=400, height=400");
   				return false;
 		});
 	});
 	</script>
+
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();

@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Payment extends CI_Controller 
+class Payments extends CI_Controller 
 {
      function  __construct(){
         parent::__construct();
         $this->load->library('paypal_lib');
-		$this->load->model('Transaction_model');
+		$this->load->model('transaction_model');
 		$this->load->model('payment_model');
      }
      

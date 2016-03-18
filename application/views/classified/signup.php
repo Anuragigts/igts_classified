@@ -9,8 +9,8 @@
 					overflow: hidden;
 				}
 			</style>
-		<link rel="stylesheet" type="text/css" media="all" href="css/signreg.css">
-		<link rel="stylesheet" href="j-folder/css/j-forms.css">
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>css/signreg.css">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 		<script type="text/javascript">
         /*accept number only*/
     function isNumber(evt) {
@@ -273,10 +273,10 @@
                 <!-- End content info - page Fill with  --> 
 
             </section>
-	<script src="js/jquery.js"></script> 
+	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
     <script>
        setTimeout(function(){
             $(".alert").hide();
        },5000);
 	</script>
-	<script src="j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>

@@ -17,7 +17,7 @@ class Classified extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "home"
                 );
-                $lid = $this->session->userdata('login_id');
+                 $lid = $this->session->userdata('login_id');
                 
                                /* $news = array('Golders Green',
                                             '1 Bedroom Apartment with Patio in Central London',
