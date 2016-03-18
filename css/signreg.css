@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Laila:400,700);
 
 
-
+@import url(https://fonts.googleapis.com/css?family=Arvo);
 
 /** form field **/
 .log_form {
@@ -74,7 +74,7 @@ label > input {
   border: none;
   outline: none;
   color: #555;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Arvo";
   font-weight: bold;
   font-size: 14px;
   opacity: .6;
@@ -108,7 +108,7 @@ label > select {
   background: transparent;
   border: none;
   outline: none;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Arvo";
   font-size: 14px;
   opacity: .4;
   transition: all linear .3s;

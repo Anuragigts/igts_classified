@@ -1,4 +1,5 @@
 
+@import url(https://fonts.googleapis.com/css?family=Arvo);
 
 /*************************
 	-	CAPTIONS	-
@@ -830,7 +831,7 @@ border-style:none;
 font-size:52px !important;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+font-family: "Arvo";
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -942,7 +943,7 @@ border-style:none;
 font-size: 18px !important;
 line-height:28px;
 font-weight:300;
-font-family:"Open Sans";
+font-family: "Arvo";
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
