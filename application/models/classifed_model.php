@@ -460,7 +460,7 @@ Class Classifed_model extends CI_model{
 		return $res->result();
 	}
 	public function my_ads_user($data){
-		$this->db->select("ad.ad_id,ad.package_type,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data");
+		$this->db->select("ad.ad_id,ad.urgent_package,ad.package_type,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('ad_status as a_s','a_s.id = ad.ad_status','inner');
 		$this->db->join('catergory as cat','cat.category_id = ad.category_id','inner');

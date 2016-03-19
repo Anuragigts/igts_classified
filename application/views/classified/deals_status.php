@@ -182,7 +182,7 @@
 										<!-- <td><?php echo ucwords($ads->pkg_dur_name);?></td> -->
 										<td><?php if($ads->u_pkg_id == 0) echo 'No';else echo 'Yes';?></td>
 										<td><?php 
-										if ($ads->expire_data != '0000-00-00 00:00:00' && ($ads->package_type != 1 && $ads->package_type != 4)) {
+										if ($ads->expire_data != '0000-00-00 00:00:00') {
 											echo $exp_data = date("d-m-Y H:i:s", strtotime($ads->expire_data));
 										}
 										else{

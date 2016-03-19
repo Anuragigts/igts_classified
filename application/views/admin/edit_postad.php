@@ -116,6 +116,7 @@
 									<option value='<?php echo $lab->u_pkg_id; ?>'<?php if($ads_details->urgent_package == $lab->u_pkg_id)echo 'selected'?>><?php echo ucwords($lab->u_pkg_name); ?></option>
 									<?php }?>
 								</select>
+								<input type="hidden" name="urg_type" value="<?php echo $ads_details->urgent_package; ?>">
 							</div>
 						</div>
 						<div class="control-group">

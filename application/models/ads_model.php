@@ -106,7 +106,6 @@ class Ads_model extends CI_Model{
 			'web_link'			=>	$this->input->post('pkg_web_link'),
 			'category_id'		=>	$this->input->post('cat_type'),
 			'urgent_package'	=>	$this->input->post('urg_type'),
-			'deal_desc'			=>	$this->input->post('pkg_desc'),
 			'ad_status'			=>	$this->input->post('ad_status'),
 			'service_type'		=>	$this->input->post('service_type'),
 			'admin_comment'		=>	$admin_comment
