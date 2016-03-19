@@ -1,12 +1,3 @@
-/*
-* Author: ThemifyCloud
-* Template: Metro Admin Template - Bootstrap Theme
-* Version: 1.0.0
-* Bootstrap version: 2.3.1
-* Copyright 2013 Bootstrap Metro Dashboard
-* www: http://themifycloud.com
-* mail: support@themifycloud.com
-*/
 
 /* Import Section
 =================================================================== */
@@ -3005,3 +2996,9 @@ ul.messagesList li span.date {
 .navbar .brand{
 	font-size: 35px;
 }
+.add_desc{
+	padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+	word-wrap: break-word !important;
+}  
