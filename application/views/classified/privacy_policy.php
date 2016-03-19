@@ -61,15 +61,15 @@
 							</div>
 						</div>
 						<div class="col-md-9">
-							<p>This privacy policy sets out how 99rightDeals uses and protects any information that you give 99rightDeals when you use this website.</p>
+							<p>This privacy policy sets out how <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> uses and protects any information that you give <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> when you use this website.</p>
 							
-							<p>The term <strong>‘ 99rightDeals ’</strong>  refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
+							<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>  refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
 							
 							<p><strong>PERSONAL INFORMATION</strong></p>
 							
-							<p>99rightDeals is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.</p>
+							<p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.</p>
 							
-							<p>99rightDeals may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective from Monday, March 21, 2016.</p>
+							<p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective from Monday, March 21, 2016.</p>
 							
 							<p><strong>WHAT WE COLLECT</strong></p>
 							
@@ -134,7 +134,7 @@
 							
 							<p>We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen.</p>
 							
-							<p>You may request details of personal information which we hold about you as governed by the laws of United Kingdom.99rightdeals will always adhere to the UK Data protection Legislation. </p>
+							<p>You may request details of personal information which we hold about you as governed by the laws of United Kingdom.<strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will always adhere to the UK Data protection Legislation. </p>
 							
 							<p>If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.</p>
 							

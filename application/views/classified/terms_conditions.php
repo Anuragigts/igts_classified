@@ -61,13 +61,13 @@
 							   <span class="acc-trigger"><a href="#">INTRODUCTION</a></span>
 								<div class="acc-container">
 									<div class="content active">
-										<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use, which together with our privacy policy govern '99rightDeals’ relationship with you in relation to this website. These terms and conditions are effective from 1st March 2016 and form a legally binding agreement between you and 99rightDeals, any preceding terms and conditions will be superseded by this one. These terms shall take effect when you use the website for the first time. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+										<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use, which together with our privacy policy govern '99rightDeals’ relationship with you in relation to this website. These terms and conditions are effective from 1st March 2016 and form a legally binding agreement between you and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, any preceding terms and conditions will be superseded by this one. These terms shall take effect when you use the website for the first time. If you disagree with any part of these terms and conditions, please do not use our website.</p>
 							
-										<p>If you register with our website " <a href="" target="_blank"><strong>99rightDeals.com</strong></a> ", submit any material to our website or use any of our website services, we will ask you to expressly agree to these terms and conditions.</p>
+										<p>If you register with our website " <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> submit any material to our website or use any of our website services, we will ask you to expressly agree to these terms and conditions.</p>
 										
 										<p>You must be at least 18 years of age to use our website; and by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least 18 years of age.</p>
 										
-										<p>The term ‘ <a href="" target="_blank"><strong>99rightDeals</strong></a> ’ refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
+										<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
 									</div>
 								</div>
 							  
@@ -76,14 +76,14 @@
 									<div class="content">
 										<ul class="list-styles">
 											<li><i class="fa fa-circle"></i> "Content" means the information, data, text, messages, sounds, videos, adverts, screen names, files, details, photographs, graphics, software, static and mobile images and all other material published in the print publication on the Website.</li>
-											<li><i class="fa fa-circle"></i> " <a href="" target="_blank"><strong>99rightDeals.com</strong></a> " means 99rightDeals</li>
+											<li><i class="fa fa-circle"></i> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> " means 99rightDeals</li>
 											<li><i class="fa fa-circle"></i> "Items" means all goods or services offered for rent or sale posted on the website.</li>
 											<li><i class="fa fa-circle"></i> "Minor" means a person under the age of 18 years.</li>
 											<li><i class="fa fa-circle"></i> "Post" means display, exhibit, upload, distribute, transmit, publish and/or disclose and the words "Posted" and "Posting" shall be accordingly interpreted.</li>
 											<li><i class="fa fa-circle"></i> "User" means any individual who holds a user account, who print adverts or is an Advertiser.</li>
-											<li><i class="fa fa-circle"></i> "Services" means any or all services that we provide through www.99rightDeals.com, inclusive of, without limitation, our print publication and online marketplace.</li>
+											<li><i class="fa fa-circle"></i> "Services" means any or all services that we provide through <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> inclusive of, without limitation, our print publication and online marketplace.</li>
 											<li><i class="fa fa-circle"></i> "Terms" refers to Terms of Use, our Cookie Policy, our Privacy Policy and any documents referred to within.</li>
-											<li><i class="fa fa-circle"></i> "Website" or “site” means the web pages that are available under the domains <a href="" target="_blank"><strong>99rightDeals.com</strong></a> " and its related websites, applications and the services.</li>
+											<li><i class="fa fa-circle"></i> "Website" or “site” means the web pages that are available under the domains <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and its related websites, applications and the services.</li>
 										</ul>
 									</div>
 								</div>
@@ -113,7 +113,7 @@
 													<li><i class="fa fa-circle"></i> download pages from our website for caching in a web browser;</li>
 													<li><i class="fa fa-circle"></i> print pages from our website; </li>
 													<li><i class="fa fa-circle"></i> stream audio and video files from our website; and </li>
-													<li><i class="fa fa-circle"></i> use  "99rightdeals" services by means of a web browser, </li>
+													<li><i class="fa fa-circle"></i> use  <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> services by means of a web browser, </li>
 												</ul>
 											</div>
 										</div>
@@ -223,9 +223,9 @@
 								<span class="acc-trigger"><a href="#">INTELLECTUAL PROPERTY AND COPYRIGHT</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p> The names, logos, images which identify 99rightDeals, the Website or third parties and their products and services are subject to copyright, design rights and trademarks of 99rightDeals and/or third parties. No contents of these terms shall be in any way interpreted as conferring by implication, or otherwise any license or right to use any trademark, design right, patent or copyright of the Website, 99rightDeals, or any other third party.</p>
+										<p> The names, logos, images which identify <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, the Website or third parties and their products and services are subject to copyright, design rights and trademarks of <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and/or third parties. No contents of these terms shall be in any way interpreted as conferring by implication, or otherwise any license or right to use any trademark, design right, patent or copyright of the Website, <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, or any other third party.</p>
 							
-										<p> 99rightDeals owns the copyright and all other rights in the material on the Website or has the permission of the owner of the rights. The visitors on the website are allowed to download only a single copy of the material on a single computer for own and private viewing/ listening purposes only. Printouts of single pages on the Website may be taken only for the purposes of enabling the person printing the page to retain a copy for their own personal records. Copying or distribution of material on the Website for any commercial or business use is not permitted without our prior written consent. Photography, filming, broadcast, alteration or modification of the pages of the Website is not permitted without our prior written consent, except as may be reasonably necessary to use the Website in good faith. All rights in material on the Website are reserved to 99rightDeals, subject to this paragraph.</p>
+										<p> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> owns the copyright and all other rights in the material on the Website or has the permission of the owner of the rights. The visitors on the website are allowed to download only a single copy of the material on a single computer for own and private viewing/ listening purposes only. Printouts of single pages on the Website may be taken only for the purposes of enabling the person printing the page to retain a copy for their own personal records. Copying or distribution of material on the Website for any commercial or business use is not permitted without our prior written consent. Photography, filming, broadcast, alteration or modification of the pages of the Website is not permitted without our prior written consent, except as may be reasonably necessary to use the Website in good faith. All rights in material on the Website are reserved to <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, subject to this paragraph.</p>
 									</div>
 								</div>
 								
@@ -286,9 +286,9 @@
 										
 										<p> By choosing to post deal on the Website, you provide to us an irrevocable, worldwide, free from royalty and sub-licensable license, along with the right to use, distribute, copy and disclose such Content and Posts for any purpose.</p>
 										
-										<p> The rights (not the obligation) at its sole discretion, to review edit, move, remove or refuse any content that is posted on, or is available on the Website, completely belongs to 99rightDeals. There will be no need for 99rightDeals to give any kind of reasons for doing so.</p>
+										<p> The rights (not the obligation) at its sole discretion, to review edit, move, remove or refuse any content that is posted on, or is available on the Website, completely belongs to <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. There will be no need for <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> to give any kind of reasons for doing so.</p>
 										
-										<p> If you have objections to any Post or material displayed on the Website, please contact 99rightDeals. Unless specifically notified of the nature of the item, 99rightDeals will not review the material you or anyone else posts on the Website. Unless we are not notified about the same, assumptions of 99rightDeals’ awareness about it will be baseless.</p>
+										<p> If you have objections to any Post or material displayed on the Website, please contact <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. Unless specifically notified of the nature of the item, <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will not review the material you or anyone else posts on the Website. Unless we are not notified about the same, assumptions of <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> awareness about it will be baseless.</p>
 									</div>
 								</div>
 								
@@ -297,7 +297,7 @@
 									<div class="content">
 										<p> Our website includes hyperlinks to other websites owned and operated by third parties; only under the condition that you do it in a way that does not, in any way, damage our reputation and is fair and legal. Also, your link to the website must not suggest any form of association, approval or endorsement on our part when it’s non-existent.</p>
 										
-										<p> The framing of the Website should not be done on any other site of any kind. The rights to draw back permissions of linking will be reserves by 99rightDeals, without any notice. The compliance with our Terms should be taken care of, by the website from which you are linking.</p>
+										<p> The framing of the Website should not be done on any other site of any kind. The rights to draw back permissions of linking will be reserves by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, without any notice. The compliance with our Terms should be taken care of, by the website from which you are linking.</p>
 										
 										<p> We have no control over third party websites and their contents, and we accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
 										
@@ -312,29 +312,29 @@
 								<span class="acc-trigger"><a href="#">DISCLAIMER</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p> While there is a constant effort by 99rightDeals to ensure that the Website is available for the use 24 hours a day, due to the unpredictable and inherent nature of the Internet, errors, delays and interruptions might occur in the services at any point of time. The Website, accordingly, is provided on an “as-available ” and “as-is” basis, without any kinds of warranties. Any liability arising from any kind of interruption, error or delay in availability is not accepted by us. In case of maintenance, system failure or repairs or for any other reasonable cause, access to the Website may be suspended temporarily without any advance notice. Also, you understand and acknowledge that whilst 99rightDeals puts complete effort to ensure that all the information on the Website and any related data/material  to you by 99rightDeals, whether by email or otherwise (“the 99rightDeals Materials”) is complete and accurate, it is provided for general information only, is not aimed to address any particular requirement of yours and does not constitute any form of advice to you and cannot be taken as recommendation by 99rightDeals.</p>
+										<p> While there is a constant effort by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> to ensure that the Website is available for the use 24 hours a day, due to the unpredictable and inherent nature of the Internet, errors, delays and interruptions might occur in the services at any point of time. The Website, accordingly, is provided on an “as-available ” and “as-is” basis, without any kinds of warranties. Any liability arising from any kind of interruption, error or delay in availability is not accepted by us. In case of maintenance, system failure or repairs or for any other reasonable cause, access to the Website may be suspended temporarily without any advance notice. Also, you understand and acknowledge that whilst <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> puts complete effort to ensure that all the information on the Website and any related data/material  to you by 99rightDeals, whether by email or otherwise (“the <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> Materials”) is complete and accurate, it is provided for general information only, is not aimed to address any particular requirement of yours and does not constitute any form of advice to you and cannot be taken as recommendation by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>.</p>
 							
-										<p> You understand and acknowledge that third parties may supply some of the content and 99rightDeals will not have to check the completeness and accuracy of the same. 99rightDeals shall not accept any kind of liability for any omission or inaccuracy in the information provided on the 99rightDeals Materials or on the Website. All of the implied warranties are excluded from these Terms to the extent that they might be excluded as a matter of law.</p>
+										<p> You understand and acknowledge that third parties may supply some of the content and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will not have to check the completeness and accuracy of the same. <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> shall not accept any kind of liability for any omission or inaccuracy in the information provided on the <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> Materials or on the Website. All of the implied warranties are excluded from these Terms to the extent that they might be excluded as a matter of law.</p>
 										
 										<p> To the extent that our website and the information and services on our website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
 										
-										<p> "99rightdeals" will not be liable to you in respect of any losses arising out of any event or events beyond our reasonable control.</p>
+										<p> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will not be liable to you in respect of any losses arising out of any event or events beyond our reasonable control.</p>
 										
-										<p> "99rightdeals" will not be liable to you in respect of any business losses, including (without limitation) loss of or damage to profits, income, revenue, use, production, anticipated savings, business, contracts, commercial opportunities or goodwill.</p>
+										<p> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will not be liable to you in respect of any business losses, including (without limitation) loss of or damage to profits, income, revenue, use, production, anticipated savings, business, contracts, commercial opportunities or goodwill.</p>
 										
-										<p> "99rightdeals"  will not be liable to you in respect of any loss or corruption of any data, database or software, We will not be liable to you in respect of any special, indirect or consequential loss or damage</p>
+										<p> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>  will not be liable to you in respect of any loss or corruption of any data, database or software, We will not be liable to you in respect of any special, indirect or consequential loss or damage</p>
 										
-										<p> It is solely for your convenience that the links of the Website to the third party websites are provided. You leave the Website, if you use any of these links. 99rightDeals neither review these third party websites, nor control or hold responsibility for these websites, their content or availability. Therefore, 99rightDeals neither endorse, nor make any representations about them. Should you choose to access any of these third party websites that are linked to the Website, you do so completely at your own risk. Please note that there is no warranty given by 99rightDeals that links to third party sites on the website shall be marked as such.</p>
+										<p> It is solely for your convenience that the links of the Website to the third party websites are provided. You leave the Website, if you use any of these links. <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> neither review these third party websites, nor control or hold responsibility for these websites, their content or availability. Therefore, <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> neither endorse, nor make any representations about them. Should you choose to access any of these third party websites that are linked to the Website, you do so completely at your own risk. Please note that there is no warranty given by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> that links to third party sites on the website shall be marked as such.</p>
 										
-										<p> You may purchase items, or purchase items from third parties through the links to third party website, that the Website may contain. Users acknowledge that 99rightDeals will bear no liability for the contract you enter when making a purchase from a third party, on the Website or a third party website, you enter into a contract with that third party at your own risk. Please note that such shopping sites may get operated by third parties with reference to the name of the Website, but that does not mean that 99rightDeals will hold responsibility for their conduct or any contracts that you enter with them.</p>
+										<p> You may purchase items, or purchase items from third parties through the links to third party website, that the Website may contain. Users acknowledge that <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will bear no liability for the contract you enter when making a purchase from a third party, on the Website or a third party website, you enter into a contract with that third party at your own risk. Please note that such shopping sites may get operated by third parties with reference to the name of the Website, but that does not mean that <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will hold responsibility for their conduct or any contracts that you enter with them.</p>
 										
-										<p> Every now and then the Website may contain sponsorship and advertising. Be it the content of the material provided by such sponsors or Users or their compliance with voluntary or statuary codes or provisions, 99rightDeals is not responsible for it. In particular, no warranty can be provided by 99rightDeals that it will not take advertisements or sponsorships from your competitors.</p>
+										<p> Every now and then the Website may contain sponsorship and advertising. Be it the content of the material provided by such sponsors or Users or their compliance with voluntary or statuary codes or provisions, <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is not responsible for it. In particular, no warranty can be provided by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> that it will not take advertisements or sponsorships from your competitors.</p>
 										
-										<p> While every possible effort will be made to meet the wishes of Users, there will be no guarantee by 99rightDeals regarding the position, insertion, or the colour of any specific post or advertisement.</p>
+										<p> While every possible effort will be made to meet the wishes of Users, there will be no guarantee by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> regarding the position, insertion, or the colour of any specific post or advertisement.</p>
 										
-										<p> The rights to suspend, omit, or change the position of any advertisement, will be reserved by 99rightDeals, even if the advertisement has already been accepted for the publication. </p>
+										<p> The rights to suspend, omit, or change the position of any advertisement, will be reserved by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, even if the advertisement has already been accepted for the publication. </p>
 										
-										<p> No responsibility will be accepted by 99rightDeals for any damage or loss caused by the following reasons: </p>
+										<p> No responsibility will be accepted by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> for any damage or loss caused by the following reasons: </p>
 										
 										<div class="row top_10">
 											<div class="col-md-12">
@@ -346,14 +346,14 @@
 											</div>
 										</div>
 										
-										<p> The 99rightDeals will be indemnified by the Advertising Agency/User  in respect of all costs, in respect of all damages, costs, or other charges falling upon the Website as the  result of legal actions or threatened legal actions coming up due to the publication of the advertisement, or any one or more of the series of advertisements, published as per the copy instructions provided to the Website while pursuing the orders of the Adverting Agency or User.</p>
+										<p> The <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will be indemnified by the Advertising Agency/User  in respect of all costs, in respect of all damages, costs, or other charges falling upon the Website as the  result of legal actions or threatened legal actions coming up due to the publication of the advertisement, or any one or more of the series of advertisements, published as per the copy instructions provided to the Website while pursuing the orders of the Adverting Agency or User.</p>
 									</div>
 								</div>
 								
 								<span class="acc-trigger"><a href="#">VARIATION OF THESE TERMS OF USE</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p> These Terms of Use are subject to change from time to time and 99rightDeals reserves the rights of doing so. The changes or variations in the Terms of Use become effective immediately after they’re posted on the Website. You will be deemed to accept these variations by continuing to use the Website. It is advisable that you should keep a check on the Website from time to time to stay updated and review the current Terms., if you do not agree to the revised terms and conditions, you must stop using our website.</p>
+										<p> These Terms of Use are subject to change from time to time and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> reserves the rights of doing so. The changes or variations in the Terms of Use become effective immediately after they’re posted on the Website. You will be deemed to accept these variations by continuing to use the Website. It is advisable that you should keep a check on the Website from time to time to stay updated and review the current Terms., if you do not agree to the revised terms and conditions, you must stop using our website.</p>
 									</div>
 								</div>
 								
@@ -369,7 +369,7 @@
 								<span class="acc-trigger"><a href="#">LAW AND JURISDICTION</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p> These Terms shall be governed by, and construed in accordance with, English law and the courts of England and Wales shall have exclusive jurisdiction to settle any quarrel or dispute which may arise under, out of, or in connection with these Terms unless 99rightDeals shall choose to bring legal proceedings in the courts of principal place of business or of the user’s country where the user resides.</p>
+										<p> These Terms shall be governed by, and construed in accordance with, English law and the courts of England and Wales shall have exclusive jurisdiction to settle any quarrel or dispute which may arise under, out of, or in connection with these Terms unless <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> shall choose to bring legal proceedings in the courts of principal place of business or of the user’s country where the user resides.</p>
 							
 										<p> We will not file a copy of these terms and conditions specifically in relation to each user or customer and, if we update these terms and conditions, the version to which you originally agreed will no longer be available on our website. We recommend that you consider saving a copy of these terms and conditions for future reference.</p>
 							

@@ -103,11 +103,11 @@
 							<h3>Buying Safely</h3>
 							<p><strong>You should be well aware of the signs of a deceitful seller to buy safely online. Some of the things that you should look out for are:</strong></p> 	
 							<p>When the price of an item is way below the normal market price, you have a strong reason to double check everything.</p> 	
-							<p>The classified ads on 99rightdeals is required to have a valid phone number. In case of a valid phone number missing, send us an Email so that we can look into the matter for you.</p> 	
-							<p>99rightdeals provides service only to people living in U.K. Sellers from outside U.K. are not permitted to sell items on 99rightdeals.</p> 	
+							<p>The classified ads on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is required to have a valid phone number. In case of a valid phone number missing, send us an Email so that we can look into the matter for you.</p> 	
+							<p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> provides service only to people living in U.K. Sellers from outside U.K. are not permitted to sell items on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>.</p> 	
 							<p>It is important that you inspect the item before making any kind of payment to the seller, especially in case of expensive items like bikes cars and caravans. If, for whatever reasons, you are not able to do so, walk away from the deal.</p> 	
-							<p>Payment methods such as Wire cash transfer, including services like Money Gram and Western Union and transfers from overseas bank accounts are prohibited payment methods on 99rightdeals. We suggest that you should avoid using these services to make payments to other buyers and sellers. We discourage you to do so because after sending funds through these services, there is no way the money can be retrieved, in case if something goes wrong. It is better to pay through a familiar, safe and easily traceable payment method. PayPal can be used, however, they should be verified PayPal member and should have a positive online reputation. (Note: Do not fall under an assumption that a payment at PayPal is 100% safe. If you have not received an item, PayPal does not reimburse your money. However, it’s an exception if you buy an eligible item from eBay directly)</p> 	
-							<p>Neither 99rightdeals, nor Facebook or PayPal provides a service where your payments will be on hold until the item has been successfully shipped. There’s an option of escrow services, but that cannot be relied on either as scammers can sometimes pretend to be one, we suggest you research well on the escrow services before putting in your faith in it.</p> 	
+							<p>Payment methods such as Wire cash transfer, including services like Money Gram and Western Union and transfers from overseas bank accounts are prohibited payment methods on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. We suggest that you should avoid using these services to make payments to other buyers and sellers. We discourage you to do so because after sending funds through these services, there is no way the money can be retrieved, in case if something goes wrong. It is better to pay through a familiar, safe and easily traceable payment method. PayPal can be used, however, they should be verified PayPal member and should have a positive online reputation. (Note: Do not fall under an assumption that a payment at PayPal is 100% safe. If you have not received an item, PayPal does not reimburse your money. However, it’s an exception if you buy an eligible item from eBay directly)</p> 	
+							<p>Neither <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, nor Facebook or PayPal provides a service where your payments will be on hold until the item has been successfully shipped. There’s an option of escrow services, but that cannot be relied on either as scammers can sometimes pretend to be one, we suggest you research well on the escrow services before putting in your faith in it.</p> 	
 							
 							<h3>Seller Guide</h3>
 							<div class="accrodation">
@@ -137,7 +137,7 @@
 										<p><strong>Get ready for the negotiations</strong> – When you meet the buyer, the negotiation on the price of the item, and terms of transactions are bound to happen. Ensure that you know you’re the value of your item and where it stands in the market.</p>
 										<p><strong>When sold, remove it from the listings</strong> – It will save you and buyers a lot of time and energy if you remove the ad as soon as your item is sold. This will avoid buyer's wastage of time and you unwanted queries of the item you have sold already.</p>
 										<p>Ask the buyer to leave from your house if he/she seems suspicious, or makes you feel uncomfortable at any given point in the meeting, walk away if you’re meeting the buyer somewhere in public.</p>
-										<p>We, at 99rightdeals do not provide any kind of transaction assistance like “Bill Of Sale”. Though eBay does have a Vehicle Protection Program, but that is applicable to the items that are directly purchased from eBay.</p>
+										<p>We, at <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> do not provide any kind of transaction assistance like “Bill Of Sale”. Though eBay does have a Vehicle Protection Program, but that is applicable to the items that are directly purchased from eBay.</p>
 									</div>
 								</div>
 								
@@ -154,7 +154,7 @@
 							
 							<h3>Selling Safely</h3>
 							<p><strong>There are some common signs of a deceitful buyer, that you should always watch out for. Here are few of them:</strong></p>
-							<p>Buyers from outside U.K. are not allowed to use 99rightdeals. If a buyer from different part of the world contacts you, please report it to us along with the details. </p>
+							<p>Buyers from outside U.K. are not allowed to use <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. If a buyer from different part of the world contacts you, please report it to us along with the details. </p>
 							<p>If the buyer is too courteous and offers to pay more than what you asked, you have a big reason not to trust the buyer. </p>
 							<p>If the buyer can only be contacted through email and no other source, we suggest to avoid transacting. Often, sellers receive SMS from buyers with numbers that are invalid. You should be careful in such cases. </p>
 							<p>If you’re told by the buyer that payments has been made through PayPal, the best way to confirm it is by logging into your account and seeing it for yourself. Often, fake confirmation emails are created and sent to the seller to create the notion that payment has been made. Also, please be extra cautious when high value items like a bike or a car is involved, and when a buyer wants the item to be shipped overseas and wants you to pay for it. </p>
@@ -162,7 +162,7 @@
 							<p>Always be alert when it comes to check payments. Banks can take some time to notify you that the check you deposited was a fake one. To be on safer side you should go to the bank with the buyer and get the cashier’s check issued in person. Make sure you don’t send a portion of the money back to the shipping agent, buyer or any other person. </p>
 							
 							<h3>Reporting Scams</h3>
-							<p>If you find anything suspicious on 99rightdeals, send us an email. If you see an ad that looks fraud or a scam, if you receive a phishing email or if an overseas Buyer or Seller tried to contact you, it is best that you report it to us. If in case you have been cheated or have been a victim of a fraud, report it to us right away and also file a report to the police.</p>
+							<p>If you find anything suspicious on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, send us an email. If you see an ad that looks fraud or a scam, if you receive a phishing email or if an overseas Buyer or Seller tried to contact you, it is best that you report it to us. If in case you have been cheated or have been a victim of a fraud, report it to us right away and also file a report to the police.</p>
 							<div class="accrodation">
 								<span class="acc-trigger"><a href="#">Reporting a listing</a></span>
 								<div class="acc-container">
@@ -246,8 +246,8 @@
 								<div class="acc-container">
 									<div class="content">
 										<p>Another email scam where scammers emails you pretending to be a well established organisation. They send you a request email to verify your current details and ask you to click on the link that takes you to duplicate website, resembling to the website of the organisation they’re impersonating. Once the username and password has been filled up by you, that information will be used by scammers to access your actual account. In some cases, the emails contain programs that are designed to automatically install on your computer and record your username and passwords.</p>
-										<p><strong>Protecting yourself from such frauds</strong> – Be careful with the emails sent from unknown people. Do not follow links or open attachments of such emails. If you think there’s a genuine email from 99rightdeals and you need to login to the website. Instead of following that link in the email, open a fresh browser page and log in separately. There should be unique usernames and passwords for all your accounts.</p>
-										<p>99rightdeals never sends emails asking you to verify any kind of bank details, credit card information or any other bank information.</p>
+										<p><strong>Protecting yourself from such frauds</strong> – Be careful with the emails sent from unknown people. Do not follow links or open attachments of such emails. If you think there’s a genuine email from <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and you need to login to the website. Instead of following that link in the email, open a fresh browser page and log in separately. There should be unique usernames and passwords for all your accounts.</p>
+										<p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> never sends emails asking you to verify any kind of bank details, credit card information or any other bank information.</p>
 									</div>
 								</div>
 								
@@ -279,7 +279,7 @@
 													<li><i class="fa fa-circle"></i> These sellers will give you some or the other excuse to not show you the vehicle. (Usual excuses being, they have moved overseas and can’t register the vehicle.)</li>
 													<li><i class="fa fa-circle"></i> Scammers smarty copy the real ad and recreate the fake one with lesser price.</li>
 													<li><i class="fa fa-circle"></i> They ask you to deposit the money for the vehicle, but never intend to ship it.</li>
-													<li><i class="fa fa-circle"></i> They could tell you that they are using protection program. However, in reality, they are giving you fake email addresses and logos of other companies. (For example: 99rightdeals ‘Bill of Sale’, eBay vehicle protection., PayPal confirmation program)</li>
+													<li><i class="fa fa-circle"></i> They could tell you that they are using protection program. However, in reality, they are giving you fake email addresses and logos of other companies. (For example: <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> ‘Bill of Sale’, eBay vehicle protection., PayPal confirmation program)</li>
 												</ul>
 											</div>
 										</div>
@@ -454,7 +454,7 @@
 								<span class="acc-trigger"><a href="#">What needs to be done in case I suspect a fake or counterfeit item?</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p>The 99rightdeals team prohibits the advertisement of fake or counterfeit products. In case of suspicious products, please report to us by email. If proven fake, the product will be removed from the site and action will be taken against the seller.</p>
+										<p>The <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> team prohibits the advertisement of fake or counterfeit products. In case of suspicious products, please report to us by email. If proven fake, the product will be removed from the site and action will be taken against the seller.</p>
 									</div>
 								</div>
 							</div>
@@ -512,7 +512,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<ul class="list-styles">
-													<li><i class="fa fa-circle"></i> 99rightdeals explicitly states that all sellers must be based in the UK. Please don’t buy from sellers who ask you to send money overseas. Once sent, it cannot be traced.</li>
+													<li><i class="fa fa-circle"></i> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> explicitly states that all sellers must be based in the UK. Please don’t buy from sellers who ask you to send money overseas. Once sent, it cannot be traced.</li>
 													<li><i class="fa fa-circle"></i> Don’t fall for deals that seem to good to be true, scammers use such tactics to tempt buyers.</li>
 													<li><i class="fa fa-circle"></i> Regularly go through your credit card statements to ensure that all payments made are authorized by you.</li>
 												</ul>
@@ -566,10 +566,10 @@
 											<div class="col-md-12">
 												<ul class="list-styles">
 													<li><i class="fa fa-circle"></i> Before entering your personal information and passwords, double check the website address.</li>
-													<li><i class="fa fa-circle"></i> Never send your personal information like username or password in an email. If you're not completely sure that you're on the original 99rightdeals site, open a fresh browser window and type in www.99rightdeals.com into the address field.</li>
+													<li><i class="fa fa-circle"></i> Never send your personal information like username or password in an email. If you're not completely sure that you're on the original <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> site, open a fresh browser window and type in <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> into the address field.</li>
 													<li><i class="fa fa-circle"></i> It is not the best practice to use public computers to do monetary transactions online. The computers at libraries and internet cafés can save your passwords and other information, and have a risk of getting into the wrong hands. To use your credit card and enter personal information, it is quite important for you to use computers that are secured and trusted. </li>
 													<li><i class="fa fa-circle"></i> Your passwords need to be changed regularly.</li>
-													<li><i class="fa fa-circle"></i> The passwords you use for 99rightdeals and other websites needs to be different from each other.</li>
+													<li><i class="fa fa-circle"></i> The passwords you use for <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and other websites needs to be different from each other.</li>
 												</ul>
 											</div>
 										</div>
@@ -583,14 +583,14 @@
 								<span class="acc-trigger"><a href="#">Secure payment processing</a></span>
 								<div class="acc-container">
 									<div class="content active">
-										<p>We at 99rightdeals use SSL (Secured Sockets Layer) to make secure credit card payments. SSL is an encryption process used for sending secure information through the internet. It is a standard protocol used by us in order to transfer the confidential information. When a site uses SSL, a padlock image is displayed on the status bar of your browser which indicates that you are in a secure environment.</p>
+										<p>We at <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> use SSL (Secured Sockets Layer) to make secure credit card payments. SSL is an encryption process used for sending secure information through the internet. It is a standard protocol used by us in order to transfer the confidential information. When a site uses SSL, a padlock image is displayed on the status bar of your browser which indicates that you are in a secure environment.</p>
 									</div>
 								</div>
 								
 								<span class="acc-trigger"><a href="#">Storage security of your credit card details</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p>At 99rightdeals, all the credit card security processes are outsourced to PayPal. As per the latest government regulations your credit card details are directly collected by PayPal and we do not keep a record of your credit card information.</p>
+										<p>At <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, all the credit card security processes are outsourced to PayPal. As per the latest government regulations your credit card details are directly collected by PayPal and we do not keep a record of your credit card information.</p>
 										<p>PayPal helps organisations like ours to provide a secure environment to make online transactions by providing secure payment services online.</p>
 									</div>
 								</div>
@@ -598,7 +598,7 @@
 								<span class="acc-trigger"><a href="#"> International credit cards</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p><strong>International credit cards are not accepted at 99rightdeals.</strong></p>
+										<p><strong>International credit cards are not accepted at <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a></strong></p>
 									</div>
 								</div>
 							</div> 
@@ -622,10 +622,10 @@
 										</div>
 									</div>
 								</div>
-								<span class="acc-trigger"><a href="#">What 99rightdeals does to help you trade safely?</a></span>
+								<span class="acc-trigger"><a href="#">What <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> does to help you trade safely?</a></span>
 								<div class="acc-container">
 									<div class="content">
-										<p> A lot of security measure put into place in the 99rightdeals team. A detailed outline has been separately included (Link to trust and Safety)</p>
+										<p> A lot of security measure put into place in the <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> team. A detailed outline has been separately included (Link to trust and Safety)</p>
 									</div>
 								</div>
 							</div> 
