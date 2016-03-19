@@ -23,43 +23,6 @@ class Payment_model extends CI_Model{
 			$this->db->join("login as l","l.login_id = p.login_id","inner");
             $query = $this->db->get();
             $result_ad = $query->row();
-			
-			/*if($result_ad->urgent_package != ''){
-				$this->db->select();
-				$this->db->from('urgent_pkg_label as up');
-				$this->db->where('ad_id',$result_ad->urgent_package);
-				//$this->db->join("pkg_duration_list as pl","pl.pkg_dur_id = p.package_type","inner");
-				$query = $this->db->get();
-				$result_urg = $query->row_array();
-			}*/
-			/*
-			if(!empty($result_urg)){
-				if($c_type == 'pound'){
-					$pkg_amt = $result_urg->u_pkg__pound_cost+$result_ad->cost_pound;
-					//$currency_type= 'GBP';
-				}
-				else{
-					$pkg_amt = $result_urg->u_pkg_euro_cost+$result_ad->cost_euro;
-					//$currency_type= 'EUR';
-				}
-			}else{
-				if($c_type == 'pound'){
-					$pkg_amt = $result_ad->cost_pound;
-					//$currency_type= 'GBP';
-				}
-				else{
-					$pkg_amt = $result_ad->cost_euro;
-					//$currency_type= 'EUR';
-				}
-				//$pkg_amt_euro = $result_ad->cost_euro;
-				//$pkg_amt_pound = $result_ad->cost_pound;
-			}*/
-			/*$a = mt_rand(1000,9999); 
-				$c_code = 'COUP'.$a;
-				echo date('Ymdhis').'<br/>';
-				$t_id = date('Ymdhis').$a;
-				exit;
-				*/
 			$info = array(
 						'name' =>  $result_ad->deal_tag,
 						'ad_id' =>  $result_ad->ad_id,
@@ -78,11 +41,7 @@ class Payment_model extends CI_Model{
 		//echo $this->db->last_query();
         return !empty($result)?$result:false;
     }
-    //insert transaction data
-    /*public function insertTransaction($data = array()){
-        $insert = $this->db->insert('payments',$data);
-        return $insert?true:false;
-    }*/
+    
 	public function insert_tran($data = array()){
         $insert = $this->db->insert('payments',$data);
         return $insert?true:false;
@@ -111,10 +70,10 @@ class Payment_model extends CI_Model{
 		$this->db->where('p_ad.ad_id',$ad_id);
 		$this->db->join('ad_img as a_img', "a_img.ad_id = p_ad.ad_id", 'join');
 		$this->db->join('pkg_duration_list as p_list', "p_list.pkg_dur_id = p_ad.package_type", 'join');
-		$this->db->join('urgent_pkg_label as u_lab', "u_lab.u_pkg_id = p_ad.urgent_package", 'join');
+		$this->db->join('urgent_pkg_label as u_lab', "u_lab.u_pkg_id = p_ad.urgent_package", 'left');
+		$this->db->group_by('a_img.ad_id');
 		$this->db->from('postad as p_ad');
 		$p_details = $this->db->get()->row();
-		
 		return $p_details;
 	}
 }

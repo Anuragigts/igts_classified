@@ -46,3 +46,12 @@ if($this->session->userdata("chebox") == 1 && $this->session->userdata("info") !
     </h3>
 </div>
 <?php } ?>
+
+<?php if($this->session->flashdata("payment") != ""){ ?>
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
+    <h4>
+        <?php echo $this->session->flashdata("payment");?>
+    </h4>
+</div>
+<?php } ?>

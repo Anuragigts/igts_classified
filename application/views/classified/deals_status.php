@@ -155,8 +155,8 @@
 							</div>
 						</div>
 						<!-- End Item Table-->
-<?php //echo '<pre>';print_r($my_ads_details[2]);echo '</pre>';?>
 						<div class="col-md-9">
+							<?php echo $this->view("classified_layout/success_error"); ?>
 							<div class="row row-fluid">
 								<div class="col-sm-12">
 									<h2>Deals Status</h2>
@@ -168,33 +168,48 @@
 								<thead>
 									<tr>
 										<th>Deal Tag</th>
-										<th>Category</th>
-										<th>Package Type</th>
+										<!-- <th>Package Type</th> -->
 										<th>Urgent Label</th>
-										<th>Amount</th>
+										<th>Expiry Date</th>
 										<th>Ad Status</th>
-										<th>Payment Status</th>
+										<th>Ad Renewal</th>
 									</tr>
 								</thead>
 								<tbody>
 								<?php foreach($my_ads_details as $ads){?>
 									<tr>
 										<td><?php echo ucwords($ads->deal_tag);?></td>
-										<td><?php echo ucwords($ads->category_name);?></td>
-										<td><?php echo ucwords($ads->pkg_dur_name);?></td>
-										<td><?php if($ads->u_pkg_id == 0) echo 'Normal';else {echo ucwords($ads->u_pkg_name);}?></td>
-										<td><?php $t_cost = $ads->cost_pound+$ads->u_pkg__pound_cost;
-												echo $t_cost;//$ads->cost_pound.'&'.$ads->u_pkg__pound_cost.'&'.;?></td>
-										<td><?php echo ucwords($ads->status_name);?></td>
-										<td class="pay_btn">
-										<?php if($ads->payment_status == 1 || $t_cost == 0) echo "<span style='color:green;'>No Due</span>";else {?>
-										<a href="<?php base_url();?>payments/checkout/<?php echo $ads->ad_id;?>" title="Pay Now" >Pay Now</a>
-										<?php }?>
-										</td>
+										<!-- <td><?php echo ucwords($ads->pkg_dur_name);?></td> -->
+										<td><?php if($ads->u_pkg_id == 0) echo 'No';else echo 'Yes';?></td>
+										<td><?php 
+										if ($ads->expire_data != '0000-00-00 00:00:00' && ($ads->package_type != 1 && $ads->package_type != 4)) {
+											echo $exp_data = date("d-m-Y H:i:s", strtotime($ads->expire_data));
+										}
+										else{
+											echo $exp_data = '';
+										}
+
+										?></td>
+										<td><?php 
+										if ($ads->status_name == 'new') {
+											echo "Pending";
+										}
+										else{
+											echo ucwords($ads->status_name);
+										}
+										?></td>
+										<td class="pay_btn"><?php 
+										if ($ads->expire_data != '0000-00-00 00:00:00') {
+											?>
+										<a href="<?php base_url();?>payments/checkout/<?php echo $ads->ad_id;?>" title="Ad Renewal" >Ad Renewal</a>
+											<?php 
+											}
+										?></td>
 									</tr>
 								<?php }?>
 								</tbody>
 							</table>
+							<?php echo $paging_links; ?>
 						</div>
 					
 					</div>
@@ -275,6 +290,12 @@
 				}
         	});
 	});*/
+	</script>
+	<script>
+		setTimeout(function(){
+			 $(".alert").hide();
+		},15000);
+		
 	</script>
 
 	<!-- End Shadow Semiboxed -->

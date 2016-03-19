@@ -27,53 +27,20 @@ class Payments extends CI_Controller
 			$data['product_id'] = $post_paypal["item_number"];
 			$data['payment_date'] = date('Y-m-d H:i:s');
 		}
-		/*
-		$data['gross_amt'] = $post_paypal['mc_gross']; 
-        //$data['user_id'] = $post_paypal["payer_id"];
-        //$data['address_street'] = $post_paypal["address_street"];
-        //$data['payment_date'] = $post_paypal["payment_date"];
-        $data['payment_status'] = $post_paypal["payment_status"];
-		//$data['address_zip'] = $post_paypal['address_zip']; 
-        //$data['first_name'] = $post_paypal["first_name"];
-        //$data['mc_fee'] = $post_paypal["mc_fee"];
-        //$data['address_country_code'] = $post_paypal["address_country_code"];
-        //$data['address_name'] = $post_paypal["address_name"];
-		//$data['custom'] = $post_paypal['custom']; 
-        //$data['business'] = $post_paypal["business"];
-        //$data['address_country'] = $post_paypal["address_country"];
-        //$data['address_city'] = $post_paypal["address_city"];
-        //$data['quantity'] = $post_paypal["quantity"];
-		//$data['payer_email'] = $post_paypal['payer_email']; 
-        $data['txn_id'] = $post_paypal["txn_id"];
-        //$data['address_state'] = $post_paypal["address_state"];
-        //$data['receiver_email'] = $post_paypal["receiver_email"];
-        //$data['receiver_id'] = $post_paypal["receiver_id"];
-		//$data['txn_type'] = $post_paypal["txn_type"];
-		//$data['item_name'] = $post_paypal['item_name']; 
-        $data['currency_code'] = $post_paypal["mc_currency"];
-        $data['product_id'] = $post_paypal["item_number"];
-        //$data['residence_country'] = $post_paypal["residence_country"];
-        //$data['handling_amount'] = $post_paypal["handling_amount"];
-		//$data['shipping'] = $post_paypal["shipping"];
-		//$data['transaction_subject'] = $post_paypal["transaction_subject"];
-		*/
 		$coup_status  = $this->payment_model->update_coupon_status($data['product_id']);
 		$ins_status = $this->payment_model->insert_tran($data);
 		$ins_status = $this->payment_model->update_ad_pay_status($data['product_id'],$data['gross_amt']);
-		
+		$this->session->unset_userdata("last_insert_id");
 		$info   =   array(
                         "title"         	=>     "Classifieds ",
                         "content"       	=>     "tran_success",
 						"tran_details"     	=>  	$data,
 			);
-			$this->session->flashdata('msg','Your Payment has successfully Completed');
+			$this->session->set_flashdata('payment','Your Payment has successfully Completed');
 			redirect('deals_status');
-			// $this->load->view("classified_layout/inner_template",$info);
-        //$this->load->view('/success', $data);
      }
-     
      function cancel(){
-		$this->session->flashdata('msg','The Payment has been Cancled.');
+		$this->session->set_flashdata('payment','The Payment has been Cancled.');
 		redirect('deals_status');
        // $this->load->view('paypal/cancel');
      }
@@ -120,7 +87,12 @@ class Payments extends CI_Controller
 		//echo '<pre>';print_r($this->input->post());echo '</pre>';
 		$this->load->model('coupons_model');
 		$p_amt = $this->coupons_model->get_ad_amt($ad_id);
-		$amt = $p_amt->u_pkg__pound_cost+$p_amt->cost_pound;
+		if ($p_amt->u_pkg__pound_cost !='') {
+			$amt = $p_amt->u_pkg__pound_cost+$p_amt->cost_pound;
+		}
+		else{
+			$amt = $p_amt->cost_pound;
+		}
 		$c_info = $this->coupons_model->get_c_result($c_code);
 		//echo '<pre>';print_r($c_info);echo '</pre>';
 		if(count($c_info) == 1){
@@ -142,8 +114,8 @@ class Payments extends CI_Controller
         //Set variables for paypal form
         $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //test PayPal api url
         $paypalID = 'amanbabu-facilitator@gmail.com'; //business email
-        $returnURL = base_url().'payment/success'; //payment success url
-        $cancelURL = base_url().'payment/cancel'; //payment cancel url
+        $returnURL = base_url().'payments/success'; //payment success url
+        $cancelURL = base_url().'payments/cancel'; //payment cancel url
        // $notifyURL = base_url().'payment/ipn'; //ipn url
 		
         //get particular product data

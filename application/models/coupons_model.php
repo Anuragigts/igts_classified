@@ -66,11 +66,12 @@
 		function get_ad_amt($ad_id){
 			$this->db->select('u_lab.u_pkg__pound_cost, p_list.cost_pound');
 			$this->db->join("pkg_duration_list as p_list","p_list.pkg_dur_id = p_ad.package_type","inner");
-			$this->db->join("urgent_pkg_label as u_lab","u_lab.u_pkg_id = p_ad.urgent_package","inner");
+			$this->db->join("urgent_pkg_label as u_lab","u_lab.u_pkg_id = p_ad.urgent_package","left");
 			$this->db->where('p_ad.ad_id',$ad_id);
+			$this->db->group_by("p_ad.ad_id");
 			$this->db->from('postad as p_ad');
 			$c_info = $this->db->get('coupon_codes')->row();
-			//echo $this->db->last_query();
+			// echo $this->db->last_query();exit;
 			return $c_info;
 		}
 	}

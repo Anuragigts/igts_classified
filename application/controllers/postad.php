@@ -20,6 +20,19 @@ class Postad extends CI_Controller{
                 redirect("login");
             }
                 $plogin_id      =   $this->session->userdata("login_id");
+                $last_insert_id = $this->session->userdata("last_insert_id");
+                if (isset($last_insert_id) && $last_insert_id != '') {
+                    $query = $this->db->query("SELECT package_type,urgent_package FROM postad WHERE ad_id = '$last_insert_id'");
+                        $row = $query->row();
+                        if (($row->package_type == '1' || $row->package_type == '4') && $row->urgent_package == '0') {
+                          /* $this->session->set_userdata("postad_success","Ad Posted Successfully!!");
+                           $this->session->set_userdata("postad_time",time());
+                            redirect("postad");*/
+                        }
+                        else{
+                            redirect("payments/checkout/".$last_insert_id);
+                        }
+                }
                 $data = array(
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad"

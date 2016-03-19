@@ -432,7 +432,6 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
-		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
@@ -444,7 +443,6 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
-		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
@@ -456,27 +454,22 @@ Class Classifed_model extends CI_model{
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
-		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
-		// echo $this->db->last_query();
 		return $res->result();
 	}
 	public function my_ads_user($data){
-		$this->db->select("ad.ad_id,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data");
+		$this->db->select("ad.ad_id,ad.package_type,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
-		//$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('ad_status as a_s','a_s.id = ad.ad_status','inner');
 		$this->db->join('catergory as cat','cat.category_id = ad.category_id','inner');
-		$this->db->join('urgent_pkg_label as u_lab','u_lab.u_pkg_id = ad.urgent_package','inner');
+		$this->db->join('urgent_pkg_label as u_lab','u_lab.u_pkg_id = ad.urgent_package','left');
 		$this->db->join('pkg_duration_list as pl','pl.pkg_dur_id = ad.package_type','inner');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
-		$this->db->where("ad.ad_status", "1");
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
-		// echo $this->db->last_query();//exit;
 		return $res->result();
 	}
 	public function my_ads_box(){

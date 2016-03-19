@@ -8,11 +8,19 @@
 class Signup_model extends CI_Model{
         public function create(){
             $config = Array(
-                 'protocol' => 'smtp',
-                 'smtp_host' => 'ssl://smtp.googlemail.com',
+               'protocol' => 'smtp',
+                'smtp_host' => 'tls://rep.tnphost.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'admin@99rightdeals.com',
+                'smtp_pass' => 'Admin@123',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+
+                 /*'protocol' => 'smtp',
+                 'smtp_host' => 'ssl://rep.tnphost.com',
                  'smtp_port' => 465,
-                 'smtp_user' => 'c.punnam@googlemail.com',
-                 'smtp_pass' => '12chandru12',
+                 'smtp_user' => 'admin@99rightdeals.com',
+                 'smtp_pass' => 'Admin@123',*/
                  );
             $is_confirm = md5(rand(10000,99999));
             if($this->input->post('signup_type') == '7') {
@@ -50,8 +58,8 @@ class Signup_model extends CI_Model{
 
 
 
-            $this->load->library('email', $config);
-                 $this->email->set_newline("\r\n");
+                $this->load->library('email', $config);
+                $this->email->set_newline("\r\n");
                 $this->email->from('support@99rightdeals.com', "99RightDeals");
                 $this->email->to($mail);
                 $this->email->subject("99 Right Deals Account Verification");
@@ -74,8 +82,11 @@ class Signup_model extends CI_Model{
 									</div>
 								</div>";
                 $this->email->message($message);
-                $this->email->send();
-           
+                //$this->email->send();
+                if (!$this->email->send()) {
+                // Raise error message
+                show_error($this->email->print_debugger());
+                    }
         }
 
         public function already(){

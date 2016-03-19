@@ -80,7 +80,7 @@ class Postad_kitchen_model extends CI_Model{
                     $this->db->insert('postad', $data);
 
                        $insert_id = $this->db->insert_id();
-
+                       $this->session->set_userdata("last_insert_id", $insert_id);
                       
                        /*location map*/
                     $loc = array('ad_id' => $insert_id,

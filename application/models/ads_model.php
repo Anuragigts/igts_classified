@@ -74,71 +74,11 @@ class Ads_model extends CI_Model{
 		
 		$prev_ad_details = $this->get_postad($this->input->post('ad_id'));
 		$prev_ad_status = $prev_ad_details->ad_status;
-		//echo $prev_ad_status.'----'.$this->input->post('ad_id').'----'.$this->input->post('ad_status');
-		/*
-		$active_ad = $this->session->userdata('active_ad');
-		$new = $this->session->userdata('new');
-		$ad_hold = $this->session->userdata('ad_hold');
-		$ad_pending = $this->session->userdata('ad_pending');
-		$ad_reject = $this->session->userdata('ad_reject');
-		
-		if($prev_ad_status == 1){
-			$active_ad = $active_ad--;
-			$this->session->unset_userdata('active_ad');
-			$this->session->set_userdata('active_ad',$active_ad);
-		}else if($prev_ad_status == 0){
-			$new = $new--;
-			$this->session->unset_userdata('new');
-			$this->session->set_userdata('new',$new);
-		}else if($prev_ad_status == 2){
-			$ad_hold = $ad_hold--;
-			$this->session->unset_userdata('ad_hold');
-			$this->session->set_userdata('ad_hold',$ad_hold);
-		}else if($prev_ad_status == 3){
-			$ad_pending = $ad_pending--;
-			$this->session->unset_userdata('ad_pending');
-			$ad_pending = $ad_pending--;
-			$this->session->set_userdata('ad_pending',$ad_pending);
-		}else{
-			$this->session->unset_userdata('ad_reject');
-			$ad_reject = $ad_reject--;
-			$this->session->set_userdata('ad_reject',$ad_reject);
-		}
-	 
-	
-		if($this->input->post('ad_status') == 1){
-			$active_ad = $active_ad++;
-			$this->session->unset_userdata('active_ad');
-			$this->session->set_userdata('active_ad',$active_ad);
-		}
-		else if($this->input->post('ad_status') == 2){
-			$ad_hold = $ad_hold++;
-			$this->session->unset_userdata('ad_hold');
-			$this->session->set_userdata('ad_hold',$ad_hold);
-		}
-		else if($this->input->post('ad_status') == 3){
-			$ad_pending = $ad_pending++;
-			$this->session->unset_userdata('ad_pending');
-			$this->session->set_userdata('ad_pending',$ad_pending);
-		}
-		else if($this->input->post('ad_status') == 4){
-			$ad_reject = $ad_reject++;
-			$this->session->unset_userdata('ad_reject');
-			$this->session->set_userdata('ad_reject',$ad_reject);
-		}
-		else if($this->input->post('ad_status') == 0){
-			$new = $new++;
-			$this->session->unset_userdata('new');
-			$this->session->set_userdata('new',$new);
-		}
-		*/
-		//exit;
 		$this->db->select();
 			$this->db->where('u_pkg_id',$this->input->post('urg_type'));
 			$this->db->from('urgent_pkg_label');
 			$urg_pkg_details = $this->db->get()->row();
 			
-		
 			$this->db->select();
 			$this->db->where('pkg_dur_id',$this->input->post('pkg_type'));
 			$this->db->from('pkg_duration_list');
