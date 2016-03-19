@@ -120,7 +120,7 @@
 											   Find a wide variety of airline tickets and cheap flights, hotels, tour packages, car rentals, cruises and more in travelia.com.You can choose your favorite destination and start planning your long-awaited vacation.
 											</p>
 											<div class="row">
-												<div class="col-sm-12 unit">
+												<div class="col-sm-6 unit">
 													<div class="input">
 														<label class="icon-right" for="contact_name">
 															<i class="fa fa-user"></i>
@@ -128,7 +128,7 @@
 														<input type="text" id="contact_name" name="contact_name" placeholder="Enter Your Name"  >
 													</div>
 												</div>
-												<div class="col-sm-12 unit">
+												<div class="col-sm-6 unit">
 													<div class="input">
 														<label class="icon-right" for="contact_email">
 															<i class="fa fa-envelope-o"></i>
