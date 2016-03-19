@@ -90,7 +90,7 @@ class Ads_model extends CI_Model{
 			$urg_type=array(
 						'ad_id'			=>	$this->input->post('ad_id'),
 						'valid_from'	=>	$date,
-						'valid_to'		=>	date('Y-m-d H:i:s', strtotime($date. ' + '.$urg_pkg_details->u_pkg_days.' day')),
+						'valid_to'		=>	date('Y-m-d H:i:s', strtotime($date.' + '.$urg_pkg_details->u_pkg_days.' days')),
 						'no_ofdays'		=>	$urg_pkg_details->u_pkg_days,
 						'status'		=>	1,
 						);
@@ -101,11 +101,9 @@ class Ads_model extends CI_Model{
 		$data=array(
 			'approved_by'		=>	$this->session->userdata('login_id'),
 			'approved_on'		=>	$date,
-			'expire_data'		=>	date('Y-m-d H:i:s', strtotime($date. ' + '.$pkg_details->dur_days.' day')),
-			'package_type'		=>	$this->input->post('pkg_type'),
+			'expire_data'		=>	date('Y-m-d H:i:s', strtotime($date. ' + '.$pkg_details->dur_days.' days')),
 			'web_link'			=>	$this->input->post('pkg_web_link'),
 			'category_id'		=>	$this->input->post('cat_type'),
-			'urgent_package'	=>	$this->input->post('urg_type'),
 			'ad_status'			=>	$this->input->post('ad_status'),
 			'service_type'		=>	$this->input->post('service_type'),
 			'admin_comment'		=>	$admin_comment

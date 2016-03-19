@@ -29,7 +29,7 @@
 	</div>
 	<br>
 	<?php }?>
-	<?php //echo '<pre>';print_r($ads_details);echo '</pre>';?>
+	
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
@@ -63,11 +63,12 @@
 						<div class="control-group">
 							<label class="control-label" for="pkg_type">Package Type</label>
 							<div class="controls">
-								<select id="pkg_type" name='pkg_type'>
+								<select id="pkg_type" name='pkg_type' disabled>
 									<?php foreach($packages_details as $pkg){?>
 									<option value='<?php echo $pkg->pkg_dur_id; ?>' <?php if($pkg->status !=1 )echo 'disabled="true"'; if($pkg->pkg_dur_id == $ads_details->package_type)echo 'selected'; ?>><?php echo ucwords($pkg->pkg_dur_name); ?></option>
 									<?php }?>
 								</select>
+								<input type='hidden' name='pkg_type' value="<?php echo $ads_details->package_type; ?>">
 							</div>
 						</div>
 						<div class="control-group">
