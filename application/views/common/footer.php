@@ -99,7 +99,7 @@
 								<li><a href="https://en-gb.facebook.com/people/Right-Deals/100011496817255" target="_blank" class="facebook-big"> Like</a></li>
 								<li><a href="https://twitter.com/99rightdealsuk" target="_blank" class="twitter-big"> Tweet</a></li>
 								<li><a href="https://plus.google.com/105335235432554926026" target="_blank" class="gplus-big"> GPlus</a></li>
-								<li><a href="#" target="_blank" class="linkedin-big"> Link In</a></li>
+								<li><a href="" target="_blank" class="linkedin-big"> Link In</a></li>
 								<li><a href="https://in.pinterest.com/99rightdealslim/" target="_blank" class="pinterest-big"> Pin It</a></li>
 							</ul>
 						</div>

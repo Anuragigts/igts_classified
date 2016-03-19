@@ -152,7 +152,7 @@
 					<input type='hidden' name='latt' id='latt' value='' >
 					<input type='hidden' name='longg' id='longg' value='' >
 					<i class="fa fa-map-marker fa-2x loca_pad"></i>
-					<input type="text" id="ex5a" class="form-control" name="miles" type="text"/>
+					<input type="text" id="ex5a" class="form-control" name="miles" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="5" data-slider-value="0"/>
 					<input type="submit" class="pull-right" value="Search">
 				</form>
 			</div>
@@ -1111,7 +1111,7 @@
 	<script src="<?php echo base_url(); ?>modern-ticker/js/jquery.modern-ticker.min.js" type="text/javascript"></script> 
 	
 	<script>$(function(){$(".ticker1").modernTicker({effect:"scroll",scrollType:"continuous",scrollStart:"inside",scrollInterval:20,transitionTime:500,autoplay:true});$(".ticker2").modernTicker({effect:"fade",displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker3").modernTicker({effect:"type",typeInterval:10,displayTime:4e3,transitionTime:300,autoplay:true});$(".ticker4").modernTicker({effect:"slide",slideDistance:100,displayTime:4e3,transitionTime:350,autoplay:true})})</script>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
+	
 	<script src="<?php echo base_url(); ?>js/box-slider-all.jquery.min.js"></script>
 	
 	<script>
@@ -1196,122 +1196,11 @@
 	<script src="<?php echo base_url(); ?>js/bootstrap-slider.js"></script>
 	
 	<script>
-		$("#ex5a").slider({ id: "slider5a", min: 0, max: 50,step: 5, value: 0 });
-	</script>
-	
-	<script type="text/javascript">
-		$(function(){
-			$("#feedbackads").validate({
-					// Specify the validation rules
-				rules: {
-					fbkcontname: {
-						required: true
-					},
-					feedbackmsg: {
-						required: true,
-						minlength: 60
-					},
-					busemail: {
-						required: true,
-						email: true
-					},
-					feedbackno: {
-						required: true
-					}
-				},
-				
-				// Specify the validation error messages
-				messages: {
-					fbkcontname: {
-						required: "Please Enter contact name"
-					},
-					feedbackmsg: {
-						required: "Please Enter feedback message",
-						minlength: "message contains atleast 60 characters"
-					},
-					busemail: {
-						required: "Please Enter valid mail id"
-					},
-					feedbackno: {
-						required: "Please Enter Mobile Number"
-					}
-				},
-				
-				submitHandler: function(form) {
-					return true;
-				}
-			});
+		var slider = new Slider('#ex5a', {
+			formatter: function(value) {
+				return  value + 'mi';
+			}
 		});
 	</script>
 	
-	<!-- Modal -->
-	<div class="modal dialog1 fade" id="sendnow" role="dialog">
-		<div class="modal-dialog1">
-			<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms" id="feedbackads" >
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Send <span>NOW </span></h2>
-					</div>
-					<div class="modal-body">
-						<div class="j-row">
-							<div class="unit">
-								<label class="label">Contact Name
-								<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
-								<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-								</sup>
-								</label>
-								<div class="input">
-									<label class="icon-right" for="name">
-									<i class="fa fa-user"></i>
-									</label>
-									<input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name ">
-									<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
-									<input type="hidden" name="ad_id" id='fdbkads' value="">
-								</div>
-							</div>
-							<div class="unit">
-								<label class="label">Mobile Number
-								<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
-								<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-								</sup>
-								</label>
-								<div class="input">
-									<label class="icon-right" for="phone">
-									<i class="fa fa-phone"></i>
-									</label>
-									<input type="text" id="feedbackno" name="feedbackno" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
-								</div>
-							</div>
-							<div class="unit">
-								<label class="label">Email
-								<sup data-toggle="tooltip" title="" data-original-title="Email">
-								<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-								</sup>
-								</label>
-								<div class="input">
-									<label class="icon-right" for="email">
-									<i class="fa fa-envelope-o"></i>
-									</label>
-									<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
-								</div>
-							</div>
-							<div class="unit">
-								<label class="label">Message
-								<sup data-toggle="tooltip" title="" data-original-title="Message">
-								<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-								</sup>
-								</label>
-								<div class="input">
-									<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea>
-								</div>
-							</div>
-							<div class="unit">													
-								<button class="btn btn-primary " id='change_pwd'>Send Now</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	

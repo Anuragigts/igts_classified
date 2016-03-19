@@ -552,7 +552,7 @@
 			</div>
 		</div>
 	</section>
-	
+	<script src="<?php echo base_url();?>js/jquery.js"></script> 
 	<script>
 		setTimeout(function(){
 			 $(".alert").hide();

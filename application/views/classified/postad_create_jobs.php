@@ -5,9 +5,9 @@
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/gold.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/goldurgent.css' />
 	<link rel='stylesheet' type='text/css' href='<?php echo base_url();?>imgupload/platinum.css' />
-	<script src="<?php echo base_url(); ?>imgupload/jquery.fancybox.min.js"></script>
+	<script src="<?php echo base_url(); ?>js/fancybox/jquery.fancybox.js"></script>
 	<script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
-	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+	
 	<script type="text/javascript">
 		/*packages selection */
 		$(function(){
@@ -169,7 +169,7 @@
 		
 		
 				$(new Image()).on('load', function(e) {
-		console.log('imgobj',e)
+					console.log('imgobj',e)
 					var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free ul');
 					$('.imagedelete',$wrapper).one('click',function(e) {
 		
@@ -1760,11 +1760,11 @@
 	<script src="<?php echo base_url();?>js/jquery.js"></script> 
 	<script src="<?php echo base_url();?>j-folder/js/jquery.maskedinput.min.js"></script>
 	<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
-	<script src="<?php echo base_url();?>j-folder/js/additional-methods.min.js"></script>
 	<script src="<?php echo base_url();?>j-folder/js/jquery.form.min.js"></script>
 	<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
 	<script src="<?php echo base_url();?>js/jquery.cleditor.min.js"></script>
-	<script src="<?php echo base_url();?>js/jquery.cleditor.js"></script>
+	
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 	
 	<script>
 		$(document).ready(function () { 

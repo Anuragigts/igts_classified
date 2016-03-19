@@ -658,11 +658,11 @@
 							<aside class="widget view_sidebar text_center">
 								<?php if ($isbustype == 'business') { 
 									if ($busimg != '') { ?>
-								<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $busimg; ?>" alt="" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $busimg; ?>" alt="<?php echo $busimg; ?>" class="img-responsive business_logo_height">
 								<hr>
 								<?php }
 									else{ ?>
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader" class="img-responsive business_logo_height">
 								<hr>
 								<?php }
 									?>

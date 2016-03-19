@@ -240,69 +240,69 @@
 	<div class="modal dialog3" id="feedback_1" role="dialog">
 		<div class="modal-dialog3">
 			<script type="text/javascript">
-			$(function(){
-				 $("#site_feedback").validate({
-			
-				// Specify the validation rules
-				rules: {
-					category: {
-						required: true
-					},
-					return_site: {
-						required: true
-					},
-					frnd_ref:{
-						required: true
-					},
-					fdbk_mail: {
-						required: true,
-						email: true
-					},
-					Feedback:{
-						required: true
-					},
-					fdbk_mobile:{
-						required: true
-					},
-				},
+				$(function(){
+					$("#site_feedback").validate({
 				
-				// Specify the validation error messages
-				messages: {
-					category: {
-						required: 'Please select category'
-					},
-					return_site: {
-						required: 'Please select option'
-					},
-					frnd_ref:{
-						required: 'Please select option'
-					},
-					fdbk_mail: {
-						required: 'Enter email id',
-						email: 'Please enter a valid email id'
-					},
-					Feedback:{
-						required: 'Enter feedback message'
-					},
-					fdbk_mobile:{
-						required: 'Enter Mobile number'
-					},
-				},
-				
-				submitHandler: function(form) {
+						// Specify the validation rules
+						rules: {
+							category: {
+								required: true
+							},
+							return_site: {
+								required: true
+							},
+							frnd_ref:{
+								required: true
+							},
+							fdbk_mail: {
+								required: true,
+								email: true
+							},
+							Feedback:{
+								required: true
+							},
+							fdbk_mobile:{
+								required: true
+							},
+						},
+						
+						// Specify the validation error messages
+						messages: {
+							category: {
+								required: 'Please select category'
+							},
+							return_site: {
+								required: 'Please select option'
+							},
+							frnd_ref:{
+								required: 'Please select option'
+							},
+							fdbk_mail: {
+								required: 'Enter email id',
+								email: 'Please enter a valid email id'
+							},
+							Feedback:{
+								required: 'Enter feedback message'
+							},
+							fdbk_mobile:{
+								required: 'Enter Mobile number'
+							},
+						},
+						
+						submitHandler: function(form) {
+							return true;
+							//form.submit();
+						}
+					});
+				});
+				function isNumber(evt) {
+					evt = (evt) ? evt : window.event;
+					var charCode = (evt.which) ? evt.which : evt.keyCode;
+					if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+						return false;
+					}
 					return true;
-					//form.submit();
 				}
-			});
-			});
-		function isNumber(evt) {
-	    evt = (evt) ? evt : window.event;
-	    var charCode = (evt.which) ? evt.which : evt.keyCode;
-	    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-	        return false;
-	    }
-	    return true;
-	}
 			</script>
 			<!-- Modal content-->
 			<form action="<?php echo base_url(); ?>classified/feedback_site" method="post" id='site_feedback' class="j-forms tooltip-hover" >
