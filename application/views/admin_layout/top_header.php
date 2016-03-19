@@ -22,7 +22,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
 	
-	<link rel="shortcut icon" href="<?php echo base_url();?>admin_template_files/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo base_url();?>img/icons/icon.png">
 <style>
 //.name,.welcome {align:center;color:#ffffff;}
 .name,.side-user .welcome {
@@ -84,7 +84,7 @@ td a.btn{line-height:15px;}
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand"  style='padding: 0px 20px;' href="<?php echo base_url()?>admin_dashboard"><span><img src='<?php echo base_url()?>img/99_logo.png'></img></span></a>
+				<a class="brand"  style='padding: 0px 20px;' href="<?php echo base_url()?>admin_dashboard"><span><img src='<?php echo base_url()?>img/99_logo.png' alt="99 RightDeals" title="99 RightDeals"></img></span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">

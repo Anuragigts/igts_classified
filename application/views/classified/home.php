@@ -1,20 +1,20 @@
 	<title>Free Classified Ads| Free Ads | In UK | 99 Right Deals</title>
 	<style>
 		.img-hover img{
-		height:160px;
-		border-top: 1px solid #f4f4f4;
-		border-left: 1px solid #f4f4f4;
-		border-right: 1px solid #f4f4f4;
+			height:160px;
+			border-top: 1px solid #f4f4f4;
+			border-left: 1px solid #f4f4f4;
+			border-right: 1px solid #f4f4f4;
 		}
 		#slider5a .slider-track-high, #slider5c .slider-track-high {
 		background: green;
 		}
 		.slider-horizontal{
-		width: 170px;
+			width: 170px;
 		}
 		.tooltip.top {
-		padding: 5px 0;
-		margin-top: -32px;
+			padding: 5px 0;
+			margin-top: -32px;
 		}
 	</style>
 	

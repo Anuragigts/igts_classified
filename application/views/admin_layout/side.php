@@ -6,7 +6,7 @@
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 					 <li class="side-user hidden-xs text-center">
-							<img class="img-circle" src="<?php echo base_url();?>profiles/<?php echo $this->session->userdata("profile_img");?>" alt="">
+							<img class="img-circle" src="<?php echo base_url();?>img/icons/user_pro.png" alt="user_pro" title="user_pro">
 							<p class="welcome text-center">
 								<i class="icon-key"></i> Logged in as
 							</p>

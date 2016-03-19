@@ -115,7 +115,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text_center">
-				   <p>Copyright @ 2016.All Right Reserved to 99 Right Deals</p>
+				   <p>Copyright @ 2016.All Right Reserved to <strong> <a href="http://99rightdeals.com/" target="_blanks">99 Right Deals</a> </strong></p>
 				</div>
 			</div>
 		</div>
