@@ -8,7 +8,7 @@ Class Classifed_model extends CI_model{
 		$this->db->select("pads.marquee, ad.ad_id");
 		$this->db->from("postad as ad");
 		$this->db->join("platinum_ads as pads", "pads.ad_id = ad.ad_id","join");
-		$this->db->where('ad.status', "1");
+		$this->db->where('ad.ad_status', 1);
 		$this->db->order_by('ad.ad_id', "DESC");
 		$rs = $this->db->get();
 		return $rs->result();
