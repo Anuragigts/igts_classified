@@ -5816,12 +5816,30 @@ strong{
 	font-size: 24px;
 	float:right;
 }
+.check_out{
+	padding-top:30px;
+}
 .check_out .table > thead > tr > th {
   border-bottom: 1px solid #ddd; 
   vertical-align: top;
 }
 .tot_top{
 	padding-top: 16px !important;
+}
+.cart_image img{
+	width: 156px;
+	height: 139px;
+}
+.checkout_h3 h2{
+	text-align: center;
+	background-color: rgb(94, 195, 163);
+	color: rgb(255, 255, 255);
+	padding-bottom: 10px;
+	border: 1px solid rgb(94, 195, 163);
+	margin-bottom:20px;
+}
+.dis_width{
+	width:150px;
 }
  .cart_image img{
 	width: 200px;
@@ -6055,7 +6073,10 @@ strong{
 
 /* ----Social Like System ----*/
 
-.set-2 ul li{display:inline-block;margin-left:10px;}
+.set-2 ul li{
+	display:inline-block;
+	margin-right: 15px;
+}
 
 
 .set-2 a:active {

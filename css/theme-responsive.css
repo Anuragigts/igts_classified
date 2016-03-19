@@ -474,6 +474,9 @@
 	.significant_badge {
 		margin-left: 246px;
 	}
+	tr .preview{
+		display:none;
+	}
 	
 	/* .loca_pad {
 		padding: 0px 6px;
