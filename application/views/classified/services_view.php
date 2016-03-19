@@ -1,4 +1,4 @@
-	<title>Services Classified Ads | 99 Right Deals</title>
+	<title>Services Classified Ads In UK | 99 Right Deals</title>
 	
 	<style>
 		.section-title-01{
@@ -156,7 +156,7 @@
 							<div class="col-md-3 col-sm-3">
 								<div class="container-by-widget-filter bg-dark color-white">
 									<!-- Widget Filter -->
-									<h3 class="title-widget">Services Filter</h3>
+									<a href="<?php echo base_url(); ?>services"><h3 class="title-widget">Services Filter</h3></a>
 									<div class="cd-filter-block">
 										<h4 class="title-widget">Professional</h4>
 										<div class="cd-filter-content">

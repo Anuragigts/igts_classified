@@ -1,4 +1,4 @@
-	<title>Hot Deals | 99 Right Deals</title>
+	<title>Hot Deals In UK | 99 Right Deals</title>
 	<style>
 		.section-title-01{
 		height: 220px;
@@ -31,7 +31,7 @@
 	
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 	<script type="text/javascript">
-	google.maps.event.addDomListener(window, 'load', function () {
+		google.maps.event.addDomListener(window, 'load', function () {
             var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
             google.maps.event.addListener(places, 'place_changed', function () {
                 var place = places.getPlace();
@@ -45,50 +45,38 @@
 	</script>
     <script type="text/javascript">
 		$(document).ready(
-			    function()
-			    {
-			        $("input:checkbox").change(
-			            function()
-			            {
-			                    $("form.jforms").submit();
-			            }
-			        )
-			        /*$('input:radio').click(function() {
+			function()
+			{
+				$("input:checkbox").change(
+					function()
+					{
 							$("form.jforms").submit();
-			            }*/
-			        )
-			        $('.dealtitle_sort').change(function() {
-							$("form.jforms").submit();
-			            }
-			        )
-			        $('.price_sort').change(function() {
-							$("form.jforms").submit();
-			            }
-			        )
-			        $('.recentdays_sort').change(function() {
-							$("form.jforms").submit();
-			            }
-			        )
-			        $("#find_deal").click(function(){
-			        	$("form.jforms").submit();
-			        });
-			    }
-			);
-		</script>
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-		<script type="text/javascript">
-		google.maps.event.addDomListener(window, 'load', function () {
-	            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
-	            google.maps.event.addListener(places, 'place_changed', function () {
-	                var place = places.getPlace();
-	                var address = place.formatted_address;
-	                var latitude = place.geometry.location.lat();
-	                var longitude = place.geometry.location.lng();
-	                $("#latt").val(latitude);
-	                $("#longg").val(longitude);
-	            });
-	        });
-		</script>
+					}
+				)
+				/*$('input:radio').click(function() {
+						$("form.jforms").submit();
+					}*/
+				)
+				$('.dealtitle_sort').change(function() {
+						$("form.jforms").submit();
+					}
+				)
+				$('.price_sort').change(function() {
+						$("form.jforms").submit();
+					}
+				)
+				$('.recentdays_sort').change(function() {
+						$("form.jforms").submit();
+					}
+				)
+				$("#find_deal").click(function(){
+					$("form.jforms").submit();
+				});
+			}
+		);
+	</script>
+	
+	
 		<?php 
 		foreach ($busconcount as $countval) {
 		  	$allbustype = $countval->allbustype;
@@ -114,8 +102,8 @@
 		$longg = $this->session->userdata('longg');
 		 ?>
 
-		 <!-- map on model -->
-	   <script type="text/javascript">
+	<!-- map on model -->
+	<script type="text/javascript">
 		$(function(){
 			$(".loc_map").click(function(){
 				var val = $(".loc_map").attr("id");
@@ -123,9 +111,9 @@
 				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
 			});
 		});
-		</script>
-	  <link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
+	</script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 	
 	<!-- Section Title-->    

@@ -49,10 +49,10 @@ class Login extends CI_Controller{
 					
 								$ins    = $this->login_model->check();
 								if($ins>0){
-										redirect("postad");
+										redirect("post-a-deal");
 								}else{
 										$this->session->set_flashdata("err","Login Failed : Please Check your Email Id or Password");
-										redirect("login");                                        
+										redirect("post-a-deal");                                        
 								}
                 }
                 $this->load->view("classified_layout/inner_template",$data);

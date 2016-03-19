@@ -706,7 +706,7 @@
 								<form action="<?php echo base_url(); ?>postad_create_cloths" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
 
 									<div class="header">
-										<a href="postad" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a><p>Post a Deal</p>
+										<a href="<?php echo base_url(); ?>post-a-deal" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a><p>Post a Deal</p>
 									</div>
 									 <!--end /.header-->
 
@@ -869,458 +869,149 @@
 											<!-- end Business Logo -->
 											
 											<div class="post_deal_bor top_10" style='margin-top: 20px;'>	
-												<div class="j-row">
-													<div class="span12 unit">
-														<div class="unit check logic-block-radio">
-															<div class="inline-group">
-																<label class="radio">
-																	<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Seller">
-																	<i></i>Seller
-																	<sup data-toggle="tooltip" title="" data-original-title="Seller">
-																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																	</sup>
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_wmcloth"  value="Needed">
-																	<i></i>Needed
-																	<sup data-toggle="tooltip" title="" data-original-title="Needed">
-																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																	</sup>
-																</label>
-																<label class="radio">
-																	<input type="radio" name="checkbox_wmcloth"  value="Charity">
-																	<i></i>Charity
-																	<sup data-toggle="tooltip" title="" data-original-title="Charity">
-																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																	</sup>
-																</label>
+													<div class="j-row">
+														<div class="span12 unit">
+															<div class="unit check logic-block-radio">
+																<div class="inline-group">
+																	<label class="radio">
+																		<input type="radio" name="checkbox_wmcloth" id="next-step-radio" value="Seller">
+																		<i></i>Seller
+																		<sup data-toggle="tooltip" title="" data-original-title="Seller">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="checkbox_wmcloth"  value="Needed">
+																		<i></i>Needed
+																		<sup data-toggle="tooltip" title="" data-original-title="Needed">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<label class="radio">
+																		<input type="radio" name="checkbox_wmcloth"  value="Charity">
+																		<i></i>Charity
+																		<sup data-toggle="tooltip" title="" data-original-title="Charity">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="j-row">
-													<div class="span6 unit"><!-- start Deal Tag -->
-														<label class="label">Deal Tag / Caption 
-															<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="dealtag">
-																<img src="<?php echo base_url(); ?>j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
-															</label>
-															<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
-														</div>
-													</div><!-- end Deal Tag -->
-												</div>
-												
-												<div class="j-row">
-													<div class="span12 unit"><!-- start Deal Description -->
-														<label class="label">Deal Description 
-															<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<textarea type="text" id="dealdescription" name="dealdescription" cols="40" placeholder="Enter Deal Description"></textarea>
-															<input type='hidden' name='text_hide' id='text_hide' value='' />
-														</div>
-													</div><!-- end Deal Description -->
-												</div>
-												
-												<?php if (@$sub_sub_name == 'Clothing') { ?>
-													<div id="women_cloths">
 													<div class="j-row">
 														<div class="span6 unit"><!-- start Deal Tag -->
-															<label class="label">Size 
-																<sup data-toggle="tooltip" title="" data-original-title="Size">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<label class="input select">
-																<?php if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																	<input type="text" id="Size" name="Size" placeholder="Enter Size" onkeypress="return isNumber(event)">
-															<?php	}
-															if (@$sub_sub_id == '359') { ?>
-															<select name="Size">
-																	<option value="none" selected disabled="">Select Size</option>
-																	<option value="1size">1 Size</option>
-																	<option value="2size">2 Size</option>
-																	<option value="4size">4 Size</option>
-																	<option value="6size">6 Size</option>
-																	<option value="8size">8 Size</option>
-																	<option value="10size">10 Size</option>
-																	<option value="12size">12 Size</option>
-																	<option value="14size">14 Size</option>
-																	<option value="16size">16 Size</option>
-																	<option value="18size">18 Size</option>
-																	<option value="20size">20 Size</option>
-																	<option value="21size">22 Size</option>
-																	<option value="24size">24 Size</option>
-																	<option value="26size">26 Size</option>
-																	<option value="8lsize">8L Size</option>
-																	<option value="10lsize">10L Size</option>
-																	<option value="12lsize">12L Size</option>
-																	<option value="14lsize">14L Size</option>
-																	<option value="16lsize">16L Size</option>
-																	<option value="18lsize">18L Size</option>
-																	<option value="xsmallsize">X-Small Size</option>
-																	<option value="smallsize">Small Size</option>
-																	<option value="largesize">Large Size</option>
-																	<option value="xlargesize">X-large Size</option>
-																	<option value="mediumsize">Medium Size</option>
-																	<option value="othersize">Other</option>
-																</select>
-																<i></i>
-														<?php	}
-															 ?>
-																
-															</label>
-														</div>
-														<div class="span6 unit">
-															<label class="label">Colour 
-																<sup data-toggle="tooltip" title="" data-original-title="Colour">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<label class="input select">
-																<select name="color">
-																	<option value="none" selected disabled="">Select Colour</option>
-																	<option value="Brown">Brown Colour</option>
-																	<option value="Gray">Gray Colour</option>
-																	<option value="Green">Green Colour</option>
-																	<option value="Cream">Cream Colour</option>
-																	<option value="White">White Colour</option>
-																	<option value="Navy">Navy Colour</option>
-																	<option value="Pink">Pink Colour</option>
-																	<option value="Red">Red Colour</option>
-																	<option value="Natural">Natural Colour</option>
-																	<option value="Tan">Tan Colour</option>
-																	<option value="Orange">Orange Colour</option>
-																	<option value="Yellow">Yellow Colour</option>
-																	<option value="Bronze">Bronze Colour</option>
-																	<option value="Nude">Nude Colour</option>
-																	<option value="Purple">Purple Colour</option>
-																	<option value="teal">teal Colour</option>
-																	<option value="Others">Other Colour</option>
-																</select>
-																<i></i>
-															</label>
-														</div>
-													</div>
-													
-													<div class="j-row">
-														<div class="span6 unit">
-															<label class="label">Brand Name 
-																<sup data-toggle="tooltip" title="" data-original-title="Brand">
+															<label class="label">Deal Tag / Caption 
+																<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
 																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
 															<div class="input">
-																<label class="icon-right" for="Brand">
-																	<img src="<?php echo base_url(); ?>j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+																<label class="icon-right" for="dealtag">
+																	<img src="<?php echo base_url(); ?>j-folder/img/dealtag.png" alt="dealtag" title="Dealtag">
 																</label>
-																<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+																<input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 															</div>
-														</div>
-														<div class="span6 unit">
-															<label class="label">No of Items 
-																<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+														</div><!-- end Deal Tag -->
+													</div>
+													
+													<div class="j-row">
+														<div class="span12 unit"><!-- start Deal Description -->
+															<label class="label">Deal Description 
+																<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
 																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 																</sup>
 															</label>
 															<div class="input">
-																<label class="icon-right" for="Items">
-																	<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-																</label>
-																<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+																<textarea type="text" id="dealdescription" name="dealdescription" cols="40" placeholder="Enter Deal Description"></textarea>
+																<input type='hidden' name='text_hide' id='text_hide' value='' />
 															</div>
-														</div>
+														</div><!-- end Deal Description -->
 													</div>
 													
-													<div class="j-row">
-														<div class="span6 unit">
-															<label class="label">Fit 
-																<sup data-toggle="tooltip" title="" data-original-title="Fit">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<label class="input select">
-																<!-- women clothing -->
-																<?php if (@$sub_sub_id == '359') { ?>
-																<select name="Fit">
-																	<option value="none" selected disabled="">Select Fit</option>
-																	<option value="Regular">Regular</option>
-																	<option value="Slim-fit">Slim-fit</option>
-																	<option value="Long-line">Long-line</option>
-																	<option value="Tailored">Tailored</option>
-																	<option value="Baggy">Baggy</option>
-																	<option value="Oversize">Oversize</option>
-																	<option value="Other">Other</option>
-																</select>
-																<i></i>
-																<?php }
-																/*men, boy, girl, kid boy, kid girl*/
-																if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																	<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" onKeyPress="return ValidateAlpha(event);">
+													<?php if (@$sub_sub_name == 'Clothing') { ?>
+														<div id="women_cloths">
+														<div class="j-row">
+															<div class="span6 unit"><!-- start Deal Tag -->
+																<label class="label">Size 
+																	<sup data-toggle="tooltip" title="" data-original-title="Size">
+																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																	</sup>
+																</label>
+																<label class="input select">
+																	<?php if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
+																		<input type="text" id="Size" name="Size" placeholder="Enter Size" onkeypress="return isNumber(event)">
+																<?php	}
+																if (@$sub_sub_id == '359') { ?>
+																<select name="Size">
+																		<option value="none" selected disabled="">Select Size</option>
+																		<option value="1size">1 Size</option>
+																		<option value="2size">2 Size</option>
+																		<option value="4size">4 Size</option>
+																		<option value="6size">6 Size</option>
+																		<option value="8size">8 Size</option>
+																		<option value="10size">10 Size</option>
+																		<option value="12size">12 Size</option>
+																		<option value="14size">14 Size</option>
+																		<option value="16size">16 Size</option>
+																		<option value="18size">18 Size</option>
+																		<option value="20size">20 Size</option>
+																		<option value="21size">22 Size</option>
+																		<option value="24size">24 Size</option>
+																		<option value="26size">26 Size</option>
+																		<option value="8lsize">8L Size</option>
+																		<option value="10lsize">10L Size</option>
+																		<option value="12lsize">12L Size</option>
+																		<option value="14lsize">14L Size</option>
+																		<option value="16lsize">16L Size</option>
+																		<option value="18lsize">18L Size</option>
+																		<option value="xsmallsize">X-Small Size</option>
+																		<option value="smallsize">Small Size</option>
+																		<option value="largesize">Large Size</option>
+																		<option value="xlargesize">X-large Size</option>
+																		<option value="mediumsize">Medium Size</option>
+																		<option value="othersize">Other</option>
+																	</select>
+																	<i></i>
 															<?php	}
 																 ?>
-																
-															</label>
-														</div>
-														<div class="span6 unit">
-															<label class="label">Made In 
-																<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<div class="input">
-																<label class="icon-right" for="Made In">
-																	<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+																	
 																</label>
-																<input type="text" id="madein" name="madein" placeholder="Enter Made in">
 															</div>
-														</div>
-													</div>
-													
-													<div class="j-row">
-														<div class="span6 unit">
-															<label class="label">Material
-																<sup data-toggle="tooltip" title="" data-original-title="Material">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<div class="input">
-																<label class="icon-right" for="Material">
-																	<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-																</label>
-																<input type="text" id="material" name="material" placeholder="Enter Material">
-															</div>
-														</div>
-														<div class="span6 unit">
-															<label class="label">Washing Instructions 
-																<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<div class="input">
-																<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
-															</div>
-														</div>
-													</div>
-													<div class="j-row">
-														<div class="span6 unit">
-															<label class="label">Length
-																<sup data-toggle="tooltip" title="" data-original-title="Length">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<div class="input">
-																<label class="icon-right" for="Length">
-																	<img src="<?php echo base_url(); ?>j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
-																</label>
-																<input type="text" id="length" name="length" placeholder="Enter Length" onkeypress="return isNumber(event)">
-															</div>
-														</div>
-													</div>
-												</div>
-											<?php	} ?>
-												
-											<?php if (@$sub_sub_name == 'Shoes') { ?>
-												<div id="women_shoes">
-											<div class="j-row">
-												<div class="span6 unit"><!-- start Deal Tag -->
-													<label class="label">Size 
-														<sup data-toggle="tooltip" title="" data-original-title="Size">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Size">
-															<img src="<?php echo base_url(); ?>j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
-														</label>
-														<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
-													</div>
-												</div>
-												<div class="span6 unit">
-													<label class="label">Colour 
-														<sup data-toggle="tooltip" title="" data-original-title="Colour">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="input select">
-															<select name="color">
-																<option value="none" selected disabled="">Select Colour</option>
-																<option value="Brown">Brown Colour</option>
-																<option value="Gray">Gray Colour</option>
-																<option value="Green">Green Colour</option>
-																<option value="Cream">Cream Colour</option>
-																<option value="White">White Colour</option>
-																<option value="Navy">Navy Colour</option>
-																<option value="Pink">Pink Colour</option>
-																<option value="Red">Red Colour</option>
-																<option value="Natural">Natural Colour</option>
-																<option value="Tan">Tan Colour</option>
-																<option value="Orange">Orange Colour</option>
-																<option value="Yellow">Yellow Colour</option>
-																<option value="Bronze">Bronze Colour</option>
-																<option value="Nude">Nude Colour</option>
-																<option value="Purple">Purple Colour</option>
-																<option value="teal">teal Colour</option>
-																<option value="Others">Other Colour</option>
-															</select>
-															<i></i>
-														</label>
-													</div>
-												</div>
-												
-											</div>
-											
-											<div class="j-row">
-												<div class="span6 unit">
-													<label class="label">Brand Name
-														<sup data-toggle="tooltip" title="" data-original-title="Brand">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Brand">
-															<img src="<?php echo base_url(); ?>j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
-														</label>
-														<input type="text" id="brand" name="brand" placeholder="Enter Brand">
-													</div>
-												</div>
-												<div class="span6 unit">
-													<label class="label">No of Items 
-														<sup data-toggle="tooltip" title="" data-original-title="No of Items">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Items">
-															<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
-														</label>
-														<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
-													</div>
-												</div>
-												
-											</div>
-											
-											<div class="j-row">
-												<div class="span6 unit">
-													<label class="label">Shoes Material 
-														<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Shoes">
-															<img src="<?php echo base_url(); ?>j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-														</label>
-														<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-													</div>
-												</div>
-												<div class="span6 unit">
-													<label class="label">Shoes Styles 
-														<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Shoes">
-															<img src="<?php echo base_url(); ?>j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
-														</label>
-														<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
-													</div>
-												</div>
-												
-											</div>	
-
-											<div class="j-row">
-
-												<div class="span6 unit">
-														<label class="label">Made In 
-															<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="Made In">
-																<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-															</label>
-															<input type="text" id="madein" name="madein" placeholder="Enter Made in">
-														</div>
-												</div>
-
-												<?php if (@$sub_sub_id == '360') { ?>
-													<div class="span6 unit">
-													<label class="label">Heel Details 
-														<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-														</sup>
-													</label>
-													<div class="input">
-														<label class="icon-right" for="Heel details">
-															<img src="<?php echo base_url(); ?>j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
-														</label>
-														<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
-													</div>
-												</div>
-											<?php	}
-											else{ ?>
-											<div class="span6 unit">
-													<div class="input">
-														<input type="hidden" id="Heeldetails" name="Heeldetails" value='' placeholder="Enter Heel Details">
-													</div>
-												</div>
-										<?php	} ?>
-												
-												
-												
-											</div>
-
-												
-
-												</div>
-												<?php } ?>
-										<?php if (@$sub_sub_name == 'Accessories') { ?>		
-												<div id="women_accessories">
-														<div class="j-row">
 															<div class="span6 unit">
 																<label class="label">Colour 
 																	<sup data-toggle="tooltip" title="" data-original-title="Colour">
 																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 																	</sup>
 																</label>
-																<div class="input">
-																	<label class="input select">
-																<select name="color">
-																	<option value="none" selected disabled="">Select Colour</option>
-																	<option value="Brown">Brown Colour</option>
-																	<option value="Gray">Gray Colour</option>
-																	<option value="Green">Green Colour</option>
-																	<option value="Cream">Cream Colour</option>
-																	<option value="White">White Colour</option>
-																	<option value="Navy">Navy Colour</option>
-																	<option value="Pink">Pink Colour</option>
-																	<option value="Red">Red Colour</option>
-																	<option value="Natural">Natural Colour</option>
-																	<option value="Tan">Tan Colour</option>
-																	<option value="Orange">Orange Colour</option>
-																	<option value="Yellow">Yellow Colour</option>
-																	<option value="Bronze">Bronze Colour</option>
-																	<option value="Nude">Nude Colour</option>
-																	<option value="Purple">Purple Colour</option>
-																	<option value="teal">teal Colour</option>
-																	<option value="Others">Other Colour</option>
-																</select>
-																<i></i>
-															</label>
-																</div>
+																<label class="input select">
+																	<select name="color">
+																		<option value="none" selected disabled="">Select Colour</option>
+																		<option value="Brown">Brown Colour</option>
+																		<option value="Gray">Gray Colour</option>
+																		<option value="Green">Green Colour</option>
+																		<option value="Cream">Cream Colour</option>
+																		<option value="White">White Colour</option>
+																		<option value="Navy">Navy Colour</option>
+																		<option value="Pink">Pink Colour</option>
+																		<option value="Red">Red Colour</option>
+																		<option value="Natural">Natural Colour</option>
+																		<option value="Tan">Tan Colour</option>
+																		<option value="Orange">Orange Colour</option>
+																		<option value="Yellow">Yellow Colour</option>
+																		<option value="Bronze">Bronze Colour</option>
+																		<option value="Nude">Nude Colour</option>
+																		<option value="Purple">Purple Colour</option>
+																		<option value="teal">teal Colour</option>
+																		<option value="Others">Other Colour</option>
+																	</select>
+																	<i></i>
+																</label>
 															</div>
+														</div>
+														
+														<div class="j-row">
 															<div class="span6 unit">
-																<label class="label">Brand Name
+																<label class="label">Brand Name 
 																	<sup data-toggle="tooltip" title="" data-original-title="Brand">
 																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 																	</sup>
@@ -1332,9 +1023,6 @@
 																	<input type="text" id="brand" name="brand" placeholder="Enter Brand">
 																</div>
 															</div>
-														</div>
-														
-														<div class="j-row">
 															<div class="span6 unit">
 																<label class="label">No of Items 
 																	<sup data-toggle="tooltip" title="" data-original-title="No of Items">
@@ -1348,22 +1036,38 @@
 																	<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
 																</div>
 															</div>
-															<div class="span6 unit">
-																<label class="label">Material 
-																	<sup data-toggle="tooltip" title="" data-original-title="Material">
-																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																	</sup>
-																</label>
-																<div class="input">
-																	<label class="icon-right" for="material">
-																		<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
-																	</label>
-																	<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
-																</div>
-															</div>														
 														</div>
 														
 														<div class="j-row">
+															<div class="span6 unit">
+																<label class="label">Fit 
+																	<sup data-toggle="tooltip" title="" data-original-title="Fit">
+																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																	</sup>
+																</label>
+																<label class="input select">
+																	<!-- women clothing -->
+																	<?php if (@$sub_sub_id == '359') { ?>
+																	<select name="Fit">
+																		<option value="none" selected disabled="">Select Fit</option>
+																		<option value="Regular">Regular</option>
+																		<option value="Slim-fit">Slim-fit</option>
+																		<option value="Long-line">Long-line</option>
+																		<option value="Tailored">Tailored</option>
+																		<option value="Baggy">Baggy</option>
+																		<option value="Oversize">Oversize</option>
+																		<option value="Other">Other</option>
+																	</select>
+																	<i></i>
+																	<?php }
+																	/*men, boy, girl, kid boy, kid girl*/
+																	if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
+																		<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" onKeyPress="return ValidateAlpha(event);">
+																<?php	}
+																	 ?>
+																	
+																</label>
+															</div>
 															<div class="span6 unit">
 																<label class="label">Made In 
 																	<sup data-toggle="tooltip" title="" data-original-title="Made In ">
@@ -1377,13 +1081,55 @@
 																	<input type="text" id="madein" name="madein" placeholder="Enter Made in">
 																</div>
 															</div>
-														</div>		
-												</div>
-												<?php } ?>
-												<?php if (@$sub_sub_name == 'Wedding') { ?>
-											<div id="women_Wedding">
+														</div>
+														
+														<div class="j-row">
+															<div class="span6 unit">
+																<label class="label">Material
+																	<sup data-toggle="tooltip" title="" data-original-title="Material">
+																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																	</sup>
+																</label>
+																<div class="input">
+																	<label class="icon-right" for="Material">
+																		<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+																	</label>
+																	<input type="text" id="material" name="material" placeholder="Enter Material">
+																</div>
+															</div>
+															<div class="span6 unit">
+																<label class="label">Washing Instructions 
+																	<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
+																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																	</sup>
+																</label>
+																<div class="input">
+																	<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
+																</div>
+															</div>
+														</div>
+														<div class="j-row">
+															<div class="span6 unit">
+																<label class="label">Length
+																	<sup data-toggle="tooltip" title="" data-original-title="Length">
+																		<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																	</sup>
+																</label>
+																<div class="input">
+																	<label class="icon-right" for="Length">
+																		<img src="<?php echo base_url(); ?>j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
+																	</label>
+																	<input type="text" id="length" name="length" placeholder="Enter Length" onkeypress="return isNumber(event)">
+																</div>
+															</div>
+														</div>
+													</div>
+												<?php	} ?>
+													
+												<?php if (@$sub_sub_name == 'Shoes') { ?>
+													<div id="women_shoes">
 												<div class="j-row">
-													<div class="span6 unit">
+													<div class="span6 unit"><!-- start Deal Tag -->
 														<label class="label">Size 
 															<sup data-toggle="tooltip" title="" data-original-title="Size">
 																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
@@ -1460,49 +1206,303 @@
 													</div>
 													
 												</div>
+												
 												<div class="j-row">
 													<div class="span6 unit">
-														<label class="label">Material
-															<sup data-toggle="tooltip" title="" data-original-title="Material">
+														<label class="label">Shoes Material 
+															<sup data-toggle="tooltip" title="" data-original-title="Shoes Material">
 																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
 														<div class="input">
-															<label class="icon-right" for="Material">
-																<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+															<label class="icon-right" for="Shoes">
+																<img src="<?php echo base_url(); ?>j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
 															</label>
-															<input type="text" id="material" name="material" placeholder="Enter Material">
+															<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
 														</div>
 													</div>
 													<div class="span6 unit">
-														<label class="label">Washing Instructions 
-															<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
+														<label class="label">Shoes Styles 
+															<sup data-toggle="tooltip" title="" data-original-title="Shoes Styles">
 																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 														</label>
 														<div class="input">
-															<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
+															<label class="icon-right" for="Shoes">
+																<img src="<?php echo base_url(); ?>j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
+															</label>
+															<input type="text" id="shoestyle" name="shoestyle" placeholder="Enter Shoes Styles">
 														</div>
 													</div>
+													
+												</div>	
+
+												<div class="j-row">
+
+													<div class="span6 unit">
+															<label class="label">Made In 
+																<sup data-toggle="tooltip" title="" data-original-title="Made In ">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="Made In">
+																	<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+																</label>
+																<input type="text" id="madein" name="madein" placeholder="Enter Made in">
+															</div>
+													</div>
+
+													<?php if (@$sub_sub_id == '360') { ?>
+														<div class="span6 unit">
+														<label class="label">Heel Details 
+															<sup data-toggle="tooltip" title="" data-original-title="Heel Details">
+																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<div class="input">
+															<label class="icon-right" for="Heel details">
+																<img src="<?php echo base_url(); ?>j-folder/img/heeldetails.png" alt="Heel details" title="Heel details Icon" class="img-responsive">
+															</label>
+															<input type="text" id="Heeldetails" name="Heeldetails" placeholder="Enter Heel Details">
+														</div>
+													</div>
+												<?php	}
+												else{ ?>
+												<div class="span6 unit">
+														<div class="input">
+															<input type="hidden" id="Heeldetails" name="Heeldetails" value='' placeholder="Enter Heel Details">
+														</div>
+													</div>
+											<?php	} ?>
+													
+													
+													
 												</div>
-												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Length
-															<sup data-toggle="tooltip" title="" data-original-title="Length">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="Length">
-																<img src="<?php echo base_url(); ?>j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
+
+													
+
+													</div>
+													<?php } ?>
+											<?php if (@$sub_sub_name == 'Accessories') { ?>		
+													<div id="women_accessories">
+															<div class="j-row">
+																<div class="span6 unit">
+																	<label class="label">Colour 
+																		<sup data-toggle="tooltip" title="" data-original-title="Colour">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<div class="input">
+																		<label class="input select">
+																	<select name="color">
+																		<option value="none" selected disabled="">Select Colour</option>
+																		<option value="Brown">Brown Colour</option>
+																		<option value="Gray">Gray Colour</option>
+																		<option value="Green">Green Colour</option>
+																		<option value="Cream">Cream Colour</option>
+																		<option value="White">White Colour</option>
+																		<option value="Navy">Navy Colour</option>
+																		<option value="Pink">Pink Colour</option>
+																		<option value="Red">Red Colour</option>
+																		<option value="Natural">Natural Colour</option>
+																		<option value="Tan">Tan Colour</option>
+																		<option value="Orange">Orange Colour</option>
+																		<option value="Yellow">Yellow Colour</option>
+																		<option value="Bronze">Bronze Colour</option>
+																		<option value="Nude">Nude Colour</option>
+																		<option value="Purple">Purple Colour</option>
+																		<option value="teal">teal Colour</option>
+																		<option value="Others">Other Colour</option>
+																	</select>
+																	<i></i>
+																</label>
+																	</div>
+																</div>
+																<div class="span6 unit">
+																	<label class="label">Brand Name
+																		<sup data-toggle="tooltip" title="" data-original-title="Brand">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="Brand">
+																			<img src="<?php echo base_url(); ?>j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+																		</label>
+																		<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+																	</div>
+																</div>
+															</div>
+															
+															<div class="j-row">
+																<div class="span6 unit">
+																	<label class="label">No of Items 
+																		<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="Items">
+																			<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
+																		</label>
+																		<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+																	</div>
+																</div>
+																<div class="span6 unit">
+																	<label class="label">Material 
+																		<sup data-toggle="tooltip" title="" data-original-title="Material">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="material">
+																			<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+																		</label>
+																		<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
+																	</div>
+																</div>														
+															</div>
+															
+															<div class="j-row">
+																<div class="span6 unit">
+																	<label class="label">Made In 
+																		<sup data-toggle="tooltip" title="" data-original-title="Made In ">
+																			<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																		</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="Made In">
+																			<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+																		</label>
+																		<input type="text" id="madein" name="madein" placeholder="Enter Made in">
+																	</div>
+																</div>
+															</div>		
+													</div>
+													<?php } ?>
+													<?php if (@$sub_sub_name == 'Wedding') { ?>
+												<div id="women_Wedding">
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Size 
+																<sup data-toggle="tooltip" title="" data-original-title="Size">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
 															</label>
-															<input type="text" id="length" name="length" placeholder="Enter Length">
+															<div class="input">
+																<label class="icon-right" for="Size">
+																	<img src="<?php echo base_url(); ?>j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
+																</label>
+																<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">Colour 
+																<sup data-toggle="tooltip" title="" data-original-title="Colour">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="input select">
+																	<select name="color">
+																		<option value="none" selected disabled="">Select Colour</option>
+																		<option value="Brown">Brown Colour</option>
+																		<option value="Gray">Gray Colour</option>
+																		<option value="Green">Green Colour</option>
+																		<option value="Cream">Cream Colour</option>
+																		<option value="White">White Colour</option>
+																		<option value="Navy">Navy Colour</option>
+																		<option value="Pink">Pink Colour</option>
+																		<option value="Red">Red Colour</option>
+																		<option value="Natural">Natural Colour</option>
+																		<option value="Tan">Tan Colour</option>
+																		<option value="Orange">Orange Colour</option>
+																		<option value="Yellow">Yellow Colour</option>
+																		<option value="Bronze">Bronze Colour</option>
+																		<option value="Nude">Nude Colour</option>
+																		<option value="Purple">Purple Colour</option>
+																		<option value="teal">teal Colour</option>
+																		<option value="Others">Other Colour</option>
+																	</select>
+																	<i></i>
+																</label>
+															</div>
+														</div>
+														
+													</div>
+													
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Brand Name
+																<sup data-toggle="tooltip" title="" data-original-title="Brand">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="Brand">
+																	<img src="<?php echo base_url(); ?>j-folder/img/brand.png" alt="Brand" title="Brand Icon" class="img-responsive">
+																</label>
+																<input type="text" id="brand" name="brand" placeholder="Enter Brand">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">No of Items 
+																<sup data-toggle="tooltip" title="" data-original-title="No of Items">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="Items">
+																	<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
+																</label>
+																<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+															</div>
+														</div>
+														
+													</div>
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Material
+																<sup data-toggle="tooltip" title="" data-original-title="Material">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="Material">
+																	<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
+																</label>
+																<input type="text" id="material" name="material" placeholder="Enter Material">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">Washing Instructions 
+																<sup data-toggle="tooltip" title="" data-original-title="Washing Instructions ">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<textarea type="text" id="washinst" name="washinst" placeholder="Enter Washing Instructions"></textarea>
+															</div>
 														</div>
 													</div>
-												</div>		
-											</div>
-											<?php } ?>
-											<div class="j-row">
+													<div class="j-row">
+														<div class="span6 unit">
+															<label class="label">Length
+																<sup data-toggle="tooltip" title="" data-original-title="Length">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="Length">
+																	<img src="<?php echo base_url(); ?>j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
+																</label>
+																<input type="text" id="length" name="length" placeholder="Enter Length">
+															</div>
+														</div>
+													</div>		
+												</div>
+												<?php } ?>
+												<div class="j-row">
 													<div class="span6 unit">
 														<label class="label">Price 
 															<sup data-toggle="tooltip" title="" data-original-title="Price">
@@ -1515,10 +1515,10 @@
 																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
 																	<i></i> <span class="pound_sym"></span> (Pound) 
 																</label>
-																<label class="radio">
+																<!--label class="radio">
 																	<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
 																	<i></i> <span class="euro_sym"></span> (Euro)
-																</label>
+																</label-->
 															</div>
 														</div>
 													</div>
@@ -1551,7 +1551,7 @@
 													
 													</div>
 												</div>
-									</div>
+											</div>
 										</fieldset>
 
 										<fieldset>
@@ -2241,7 +2241,7 @@
 															<label class="checkbox">
 																<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
 																<i></i>
-																I accept Terms & Conditions 
+																I accept <a href="<?php echo base_url(); ?>terms_conditions" target="_blank">Terms & Conditions</a>  
 															</label>
 														</div>
 													</div>

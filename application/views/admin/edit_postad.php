@@ -92,8 +92,7 @@
 						<div class="control-group">
 							<label class="control-label" for="pkg_desc">Description</label>
 							<div class="controls">
-								<textarea style='width: 300px;height:100px;' name='pkg_desc'><?php echo $ads_details->deal_desc; ?>
-								</textarea>
+								<div align="justify" class="add_desc"><?php echo $ads_details->deal_desc; ?></div>
 							</div>
 						</div>
 						<div class="control-group">

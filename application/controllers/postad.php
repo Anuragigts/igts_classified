@@ -205,10 +205,10 @@ class Postad extends CI_Controller{
                                         if($in == 1){
                                                 $this->session->set_flashdata("msg","Your Ad has been Created Successfully. Your Ad will be displayed after 2 hours of posting or after verifying of ads.");
                                                 $this->session->set_userdata("info","Alert check");
-                                                redirect("postad");
+                                                redirect("post-a-deal");
                                         }else{
                                                 $this->session->set_flashdata("err","Internal error occurred while posting your Ad");
-                                                redirect("postad");
+                                                redirect("post-a-deal");
                                         }
                                 }
                                  
@@ -225,7 +225,7 @@ class Postad extends CI_Controller{
                 }
                 else{
                          $this->load->view("classified_layout/inner_template",$data);
-                        // redirect("postad");
+                        // redirect("post-a-deal");
                 }
         }
         public function do_upla($file,$fp){

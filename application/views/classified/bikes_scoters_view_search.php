@@ -113,7 +113,7 @@
 															<?php 
 															$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->ad_id'");
 															while ($res = mysql_fetch_object($pic)) { ?>
-															<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 															<?php	
 																}
 															 ?>
@@ -255,7 +255,7 @@
 															<?php 
 															$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->ad_id'");
 															while ($res = mysql_fetch_object($pic)) { ?>
-															<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+															<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 															<?php	
 																}
 															 ?>
@@ -395,7 +395,7 @@
 														
 													</div>
 													<div class="img-hover view_img">
-														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -518,7 +518,7 @@
 											<div class="row">
 												<div class="col-sm-4 ">
 													<div class="img-hover view_img">
-														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 													<div class="">
@@ -644,7 +644,7 @@
 														
 													</div>
 													<div class="img-hover">
-														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>
@@ -761,7 +761,7 @@
 											<div class="row">
 												<div class="col-sm-4 view_img">
 													<div class="img-hover">
-														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $sval->img_name; ?>">
+														<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 														<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 													</div>
 												</div>

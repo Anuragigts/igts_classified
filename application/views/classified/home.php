@@ -1,4 +1,4 @@
-	<title>Post Free Classified Ads | 99 Right Deals</title>
+	<title>Free Classified Ads| Free Ads | In UK | 99 Right Deals</title>
 	<style>
 		.img-hover img{
 		height:160px;
@@ -25,7 +25,7 @@
 		<div class="tp-banner" >
 			<ul>
 				<li data-transition="slidevertical">
-					<img src="img/slide/all.jpg" class="img img-responsive" alt="Goods & Services" title="Slider1">
+					<img src="img/slide/all.jpg" class="img img-responsive" alt="Goods & Services" title="Goods & Services">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -68,7 +68,7 @@
 				</li>
 				
 				<li data-transition="slidevertical">
-					<img src="img/slide/2.jpg" class="img-responsive" alt="Commendable Services" title="Slider1" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
+					<img src="img/slide/2.jpg" class="img-responsive" alt="Commendable Services" title="Commendable Services" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -90,7 +90,7 @@
 				</li>
 				
 				<li data-transition="slidevertical" >
-					<img src="img/slide/3.jpg" class="img-responsive" alt="The Look You Deserve" title="Slider3">
+					<img src="img/slide/3.jpg" class="img-responsive" alt="The Look You Deserve" title="The Look You Deserve">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -112,7 +112,7 @@
 				</li>
 				
 				<li data-transition="slidevertical" >
-					<img src="img/slide/5.jpg" class="img-responsive" alt="Helping You Find the Property" title="Slider3">
+					<img src="img/slide/5.jpg" class="img-responsive" alt="Helping You Find the Property" title="Helping You Find the Property">
 					<div class="tp-caption large_bold_white sft stb"
 						data-x="center"
 						data-y="260"
@@ -242,7 +242,7 @@
 									<div class="hovereffect">
 										<img class="img-responsive" src="img/featured/clothing.jpg" alt="Clothing & LifeStyles" title="Clothing & LifeStyles">
 										<div class="overlay">
-											<h2>Clothing & LifeStyles</h2>
+											<h2 class="cloth_head_font">Clothing & LifeStyles</h2>
 											<a class="info" href="clothing-lifestyles">View Details</a>
 										</div>
 									</div>

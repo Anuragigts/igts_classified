@@ -38,7 +38,7 @@ class Postad_create_cloths extends CI_Controller{
              $sub_sub_name = @mysql_result(mysql_query("SELECT * FROM `sub_subcategory` WHERE `sub_subcategory_id` = '$sub_sub_cat'"), 0, 'sub_subcategory_name');
 
             if($sub_name == ''){
-                redirect('postad');
+                redirect('post-a-deal');
             }
              $data['cat'] = $cat;   
              $data['sub_name'] = $sub_name;

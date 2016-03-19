@@ -34,7 +34,7 @@ class Postad_create_jobs extends CI_Controller{
 
 
             if($sub_name == ''){
-                redirect('postad');
+                redirect('post-a-deal');
             }
              $data['cat'] = $cat;   
              $data['sub_name'] = $sub_name;

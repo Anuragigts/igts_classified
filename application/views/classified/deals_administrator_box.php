@@ -1,4 +1,5 @@
 	<title>Right Deals :: Deals Administrator</title>
+	
 	<style>
 		.section-title-01{
 		height: 220px;
@@ -10,43 +11,41 @@
 		}
 	</style>
 	
-	
-
 	<script type="text/javascript">
-	$(function(){
-		/*search ato z / A to Z*/
-			$(".dealtitle_sort").change(function(){
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-				var dealprice = $(".price_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deals_administrator_box/my_ads_search",
-					data: {
-						dealtitle: dealtitle,
-						dealprice: dealprice
-					},
-					success: function (data) {
-						$(".deals_search_result").html(data);
-					}
-				})
-        	});
-		/*search price asc / desc*/
-			$(".price_sort").change(function(){
-				var dealprice = $(".price_sort option:selected").val();
-				var dealtitle = $(".dealtitle_sort option:selected").val();
-        		$.ajax({
-					type: "POST",
-					url: "<?php echo base_url();?>deals_administrator_box/my_ads_search",
-					data: {
-						dealtitle: dealtitle,
-						dealprice: dealprice
-					},
-					success: function (data) {
-						$(".deals_search_result").html(data);
-					}
-				})
-        	});
-	});
+		$(function(){
+			/*search ato z / A to Z*/
+				$(".dealtitle_sort").change(function(){
+					var dealtitle = $(".dealtitle_sort option:selected").val();
+					var dealprice = $(".price_sort option:selected").val();
+					$.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>deals_administrator_box/my_ads_search",
+						data: {
+							dealtitle: dealtitle,
+							dealprice: dealprice
+						},
+						success: function (data) {
+							$(".deals_search_result").html(data);
+						}
+					})
+				});
+			/*search price asc / desc*/
+				$(".price_sort").change(function(){
+					var dealprice = $(".price_sort option:selected").val();
+					var dealtitle = $(".dealtitle_sort option:selected").val();
+					$.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>deals_administrator_box/my_ads_search",
+						data: {
+							dealtitle: dealtitle,
+							dealprice: dealprice
+						},
+						success: function (data) {
+							$(".deals_search_result").html(data);
+						}
+					})
+				});
+		});
 	</script>
 	
 	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
@@ -170,11 +169,5 @@
 	</section>
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-	
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/additional-methods.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 	
 	

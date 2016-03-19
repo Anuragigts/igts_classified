@@ -701,7 +701,7 @@
 						<div class="wrapper wrapper-640" style="padding-top: 0px;">
 							<form action="<?php echo base_url(); ?>postad_create_property" method="post" class="j-forms j-multistep tooltip-hover" id="j-forms" enctype="multipart/form-data" novalidate>
 								<div class="header">
-									<a href="postad" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a>
+									<a href="<?php echo base_url(); ?>post-a-deal" class="pull-left post_ad_back"><i class="fa fa-mail-reply-all fa-3x"></i></a>
 									<p>Post a Deal</p>
 								</div>
 								<!--end /.header-->
@@ -1156,10 +1156,10 @@
 															<input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
 															<i></i> £ (Pound) 
 															</label>
-															<label class="radio">
-															<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
-															<i></i> <span class="euro_sym"></span> (Euro)
-															</label>
+															<!--label class="radio">
+																<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
+																<i></i> <span class="euro_sym"></span> (Euro)
+															</label-->
 														</div>
 													</div>
 												</div>
@@ -1862,7 +1862,7 @@
 													<label class="checkbox">
 													<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
 													<i></i>
-													I accept Terms & Conditions 
+													I accept <a href="<?php echo base_url(); ?>terms_conditions" target="_blank">Terms & Conditions</a> 
 													</label>
 												</div>
 												<div class="alert alert-danger terms_error" style='display:none'; >

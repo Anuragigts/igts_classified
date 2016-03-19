@@ -39,7 +39,7 @@
 							<?php 
 								$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->ad_id'");
 								while ($res = mysql_fetch_object($pic)) { ?>
-							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
 								}
 								?>
@@ -168,7 +168,7 @@
 							<?php 
 								$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->ad_id'");
 								while ($res = mysql_fetch_object($pic)) { ?>
-							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="Slider1" title="<?php echo $res->img_name; ?>"></li>
+							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
 								}
 								?>
