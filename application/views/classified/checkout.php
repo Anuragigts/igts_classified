@@ -51,7 +51,7 @@
 									<tbody>
 										<tr>
 											<td class="preview cart_image">
-												<img src="<?php echo base_url(); ?>img/<?php echo $tran_details->img_name; ?>"  alt="image" title="Image">
+												<img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>">
 											</td>
 											<td class="product">
 												<?php echo ucwords($tran_details->deal_tag); ?>

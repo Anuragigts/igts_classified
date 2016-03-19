@@ -85,7 +85,7 @@ class Ads_model extends CI_Model{
 			$pkg_details = $this->db->get()->row();
 			
 			$date = date('Y-m-d H:i:s');
-		if($this->input->post('urg_type') != ''){
+		if($this->input->post('urg_type') != '0'){
 			
 			$urg_type=array(
 						'ad_id'			=>	$this->input->post('ad_id'),
@@ -93,7 +93,7 @@ class Ads_model extends CI_Model{
 						'valid_to'		=>	date('Y-m-d H:i:s', strtotime($date. ' + '.$urg_pkg_details->u_pkg_days.' day')),
 						'no_ofdays'		=>	$urg_pkg_details->u_pkg_days,
 						'status'		=>	1,
-					);
+						);
 			
 			$this->db->insert('urgent_details',$urg_type);
 		}

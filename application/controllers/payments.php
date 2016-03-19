@@ -5,7 +5,7 @@ class Payments extends CI_Controller
         parent::__construct();
         $this->load->library('paypal_lib');
 		$this->load->model('transaction_model');
-		$this->load->model('payment_model');
+		$this->load->model('payment_models');
      }
      
      function success(){
@@ -27,9 +27,9 @@ class Payments extends CI_Controller
 			$data['product_id'] = $post_paypal["item_number"];
 			$data['payment_date'] = date('Y-m-d H:i:s');
 		}
-		$coup_status  = $this->payment_model->update_coupon_status($data['product_id']);
-		$ins_status = $this->payment_model->insert_tran($data);
-		$ins_status = $this->payment_model->update_ad_pay_status($data['product_id'],$data['gross_amt']);
+		$coup_status  = $this->payment_models->update_coupon_status($data['product_id']);
+		$ins_status = $this->payment_models->insert_tran($data);
+		$ins_status = $this->payment_models->update_ad_pay_status($data['product_id'],$data['gross_amt']);
 		$this->session->unset_userdata("last_insert_id");
 		$info   =   array(
                         "title"         	=>     "Classifieds ",
@@ -64,7 +64,7 @@ class Payments extends CI_Controller
         //check whether the payment is verified
         if(eregi("VERIFIED",$result)){
             //insert the transaction data into the database
-            $this->payment_model->insertTransaction($data);
+            $this->payment_models->insertTransaction($data);
         }
     }
 	function Transactions(){
@@ -119,7 +119,7 @@ class Payments extends CI_Controller
        // $notifyURL = base_url().'payment/ipn'; //ipn url
 		
         //get particular product data
-        $ad_info = $this->payment_model->getRows($ad_id, $c_code);
+        $ad_info = $this->payment_models->getRows($ad_id, $c_code);
 		if(empty($ad_info)){
 			redirect('deals_status');
 		}else{
@@ -146,7 +146,7 @@ class Payments extends CI_Controller
     }
 	function checkout(){
 		$ad_id = $this->uri->segment(3);
-        $ins_status = $this->payment_model->get_ad_details($ad_id);
+        $ins_status = $this->payment_models->get_ad_details($ad_id);
 		$data   =   array(
                         "title"         	=>     "Classifieds :: Admin Category",
                         "metadesc"     		=>     "Classifieds :: Admin Category",

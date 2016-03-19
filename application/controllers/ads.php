@@ -63,6 +63,7 @@ class Ads extends CI_Controller {
 					}else{
 						$data['ads_list'] = $this->ads_model->get_allpostads();
 					}
+					$data['urgent_label'] = $this->ads_model->get_urgent_labelview();
 				}
 				//echo '<pre>';print_r($data['packages_details']);echo '</pre>';exit;
                 $this->load->view("admin_layout/inner_template",$data);
