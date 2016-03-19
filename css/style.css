@@ -348,7 +348,7 @@ hr.tall {
 }
 .filters_categories .list-styles li a,
 .filters_categories .list-styles li{
-	font-size: 16px;
+	font-size: 15px;
 	color:#777;
 }
 .filters_categories .list-styles li .cat_color_filter{
@@ -2206,8 +2206,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 #newsletterForm .btn{
 	border-radius: 3px;
-	width: 100%;
+	/* width: 100%; */
 	background: #88C425 none repeat scroll 0% 0% !important;
+	line-height: 17px;
 }
 #result-newsletter .alert{
 	margin: 0;
@@ -5162,7 +5163,7 @@ h4 a:hover{
 .btn_v span{
 	font-family: "Arvo" !important;
 	color:#fff;
-	font-weight:bold;
+	font-weight:normal;
 }
 
 /* Button 4 */
@@ -6044,3 +6045,120 @@ strong{
 .view_sidebar1 p{
 	font-size: 12px;
 }
+.cloth_h3 h3{
+	font-size:20px;
+}
+.cloth_head_font{
+	font-size:18px;
+}
+
+
+/* ----Social Like System ----*/
+
+.set-2 ul li{display:inline-block;margin-left:10px;}
+
+
+.set-2 a:active {
+   -webkit-transform: translate(0, 3px);
+	-moz-transform: translate(0, 3px);
+	transform: translate(0, 3px);
+}
+
+.set-2 a {
+	position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Auro';
+    display: block;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+
+	font-size:16px;
+	padding: 0px 17px 0px 35px;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	transform: translate(0, 0);
+
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+a.twitter-big{background:#2CA9E1;}
+
+a.twitter-small:active, a.twitter-big:active{ -webkit-box-shadow: 0px 2px 0px #2695BC;
+    -moz-box-shadow: 0px 2px 0px #2695BC;
+    box-shadow: 0px 2px 0px #2695BC;
+}
+
+a.twitter-big:before{background: url("../img/social/twitter.png") no-repeat center center;
+content:"";
+width:25px;
+height:25px;
+position:absolute;
+left:5px;
+top:18%;
+}
+a.facebook-big{background:#3B5997;}
+
+a.facebook-small:active, a.facebook-big:active{ -webkit-box-shadow: 0px 2px 0px #293F63;
+    -moz-box-shadow: 0px 2px 0px #293F63;
+    box-shadow: 0px 2px 0px #293F63;
+}
+
+a.facebook-big:before{background: url("../img/social/facebook.png") no-repeat center center;
+content:"";
+width:25px;
+height:25px;
+position:absolute;
+left:5px;
+top:18%;
+}
+a.pinterest-big{background:#CD1D1F}
+
+a.pinterest-small:active, a.pinterest-big:active{ -webkit-box-shadow: 0px 2px 0px #8C151B;
+    -moz-box-shadow: 0px 2px 0px #8C151B;
+    box-shadow: 0px 2px 0px #8C151B;
+}
+a.pinterest-big:before{background: url("../img/social/pinterest.png") no-repeat center center;
+content:"";
+width:25px;
+height:25px;
+position:absolute;
+left:5px;
+top:18%;
+}
+
+a.gplus-big{background:#353631;}
+a.gplus-small:active, a.gplus-big:active{ -webkit-box-shadow: 0px 2px 0px #141412;
+    -moz-box-shadow: 0px 2px 0px #141412;
+    box-shadow: 0px 2px 0px #141412;
+}
+a.gplus-big:before{background: url("../img/social/gplus.png") no-repeat center center;
+content:"";
+width:25px;
+height:25px;
+position:absolute;
+left:5px;
+top:18%;
+}
+a.linkedin-big{background:#0073B2;}
+a.linkedin-small:active, a.linkedin-big:active{ -webkit-box-shadow: 0px 2px 0px #005377;
+    -moz-box-shadow: 0px 2px 0px #005377;
+    box-shadow: 0px 2px 0px #005377;
+}
+a.linkedin-big:before{background: url("../img/social/linkedin.png") no-repeat center center;
+content:"";
+width:25px;
+height:20px;
+position:absolute;
+left:5px;
+top:20%;
+}
+
+
+
+
