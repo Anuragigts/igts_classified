@@ -191,7 +191,7 @@
 									<div class="col-sm-6">
 										<div class="row">
 											<div class="col-sm-12 unit">
-												<h3>Update Profile</h3>
+												<h3>Change Profile</h3>
 												<label class="label">First Name 
 												<sup data-toggle="tooltip" title="" data-original-title="First Name">
 												<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
