@@ -43,14 +43,21 @@
 		}
 		public function AddCoupon(){
 			if($this->input->post()){
-				$this->form_validation->set_rules("c_value","Coupon Code","required");
-				$this->form_validation->set_rules("c_prefix","Coupon Prefix","required");
+				$this->form_validation->set_rules("c_value","Coupon Value","required");
+				$this->form_validation->set_rules("c_prefix","Coupon Code","required");
 				$this->form_validation->set_rules("c_status","Coupon Status","required");
+				// $cval = $this->input->post("c_value");
 				if($this->form_validation->run() == TRUE){
-					echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
+					$couponexist = $this->coupons_model->couponexist($this->input->post("c_prefix")); 
+					if ($couponexist == 1) {
+						$this->session->set_flashdata('err','Coupon Code is already exist');
+						redirect('coupons/AddCoupon');
+					}
+					else{
 					$this->session->set_flashdata('msg','Coupon Code is Successfully Inserted');
 					 $ins_status = $this->coupons_model->add_new_coupon();	
 					 redirect('coupons/ListCoupons');
+					}
 				}
 				else{
 					$this->session->set_flashdata('err','Some details are not valid, Please try again');
@@ -166,6 +173,17 @@
 			}
 			else{
 				$this->session->set_userdata("cancelad", "Inter error occured");
+				echo 0;
+			}
+		}
+
+		public function coupon_codeexist(){
+			$cval = $this->input->post("cval");
+			$couponexist = $this->coupons_model->couponexist($cval);
+			if ($couponexist == 1) {
+				echo 1;
+			}
+			else{
 				echo 0;
 			}
 		}

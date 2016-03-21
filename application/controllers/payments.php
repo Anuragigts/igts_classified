@@ -4,7 +4,7 @@ class Payments extends CI_Controller
      function  __construct(){
         parent::__construct();
         $this->load->library('paypal_lib');
-		$this->load->model('transaction_model');
+		$this->load->model('transaction_models');
 		$this->load->model('payment_models');
 		$this->load->helper('url');
      }
@@ -68,9 +68,9 @@ class Payments extends CI_Controller
             $this->payment_models->insertTransaction($data);
         }
     }
-	function Transactions(){
+	function transactions(){
         //paypal return transaction details array
-		$ins_status = $this->Transaction_model->get_Transactions();
+		$ins_status = $this->transaction_models->get_Transactions();
 		$data   =   array(
                         "title"         	=>     "Classifieds :: Admin Category",
                         "metadesc"     		=>     "Classifieds :: Admin Category",

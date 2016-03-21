@@ -47,7 +47,9 @@
 						<div class="control-group">
 							<label class="control-label" for="c_value"> Coupon Prefix</label>
 							<div class="controls">
-								<input type="text" id="c_prefix" name="c_prefix" value='<?php echo set_value('c_prefix'); ?>'maxlength = "6" style="text-transform:uppercase" ><span><?php echo form_error('c_prefix'); ?></span>
+								<input type="text" id="c_prefix" name="c_prefix" value='<?php echo set_value('c_prefix'); ?>'maxlength = "6" style="text-transform:uppercase" >
+								<span class="code_exist error"></span>
+								<span><?php echo form_error('c_prefix'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">
@@ -66,7 +68,7 @@
 							</div>
 						</div>
 						<div class="form-actions">
-							<input type="submit" class="btn btn-primary" name='new_coupon' value='Create'>
+							<input type="submit" class="btn btn-primary coupon_exist" name='new_coupon' value='Create'>
 							<a href='<?php base_url()?>ListCoupons' class="btn">Cancel</a>
 						</div>
 					</fieldset>
@@ -87,4 +89,56 @@
 	    return true;
 	}
 	
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		/*$("#c_prefix").change(function(){
+			var cval = $("#c_prefix").val();
+			if (cval != '') {
+					 $.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>coupons/coupon_codeexist",
+					data: {
+						cval : cval
+					},
+					success: function (data) {
+						if (data == 1) {
+							$(".code_exist").html("Coupon code is Already Exist");
+							return false;
+						}
+						else{
+							$(".code_exist").html("");
+							return true;
+						}
+					}
+	    		});
+			};
+			
+		});*/
+
+		/*$(".coupon_exist").click(function(){
+			var cval = $("#c_prefix").val();
+			if (cval != '') {
+					 $.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>coupons/coupon_codeexist",
+					data: {
+						cval : cval
+					},
+					success: function (data) {
+						if (data == 1) {
+							$(".code_exist").html("Coupon code is Already Exist");
+							return false;
+						}
+						else{
+							$(".code_exist").html("");
+							return true;
+						}
+					}
+	    		});
+			};
+			
+		});*/
+	});
 </script>

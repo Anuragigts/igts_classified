@@ -28,17 +28,12 @@
 			<div class="content_info">
 				<div class="paddings">
 					<div class="container about_text">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="titles">
-									<h2>Checkout <span> </span></h2>
-									<hr class="tall">
-								</div>
-							</div>
-						</div>
 						<?php //echo '<pre>';print_r($tran_details);echo '</pre>';?>
 						<div class="row check_out">
-							<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 col-xs-offset-0">
+							<div class="col-md-8 col-sm-10 col-xs-10 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
+								<div class="checkout_h3">
+									<h2>Checkout</h2>
+								</div>
 								<table class="table table-responsive">
 									<thead>
 										<tr>
@@ -54,7 +49,10 @@
 												<img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>">
 											</td>
 											<td class="product">
-												<?php echo ucwords($tran_details->deal_tag); ?>
+												<h4><?php echo substr(ucwords($tran_details->deal_tag),0,20); ?></h4>
+												<p align="justify">
+													<?php echo substr(strip_tags(ucwords($tran_details->deal_desc)), 0,46); ?>
+												</p>
 											</td>
 											<td class="price">
 												<?php echo $tran_details->cost_pound+$tran_details->u_pkg__pound_cost; ?>
@@ -65,25 +63,41 @@
 										</tr>
 									</tbody>
 									<thead>
-										<tr class='disc_info'>
+										<?php if (!(($tran_details->package_type == '1' || $tran_details->package_type == '4') && $tran_details->urgent_package == '0')) {
+												?>
+										<tr>
 											<th colspan="2">&nbsp;</th>
-											<th>VAT TAX :</th>
+											<th class="dis_width">VAT TAX</th>
 											<th><?php echo "+".round(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100),2); ?></th>
 										</tr>
-										<tr class='disc_info'>
+										<tr>
 											<th colspan="2">&nbsp;</th>
-											<th>Discount :</th>
+											<th class="dis_width">Discount</th>
 											<th class='disc_val'>0.00</th>
 										</tr>
+										<?php } ?>
 										<tr>
+											<?php if (!(($tran_details->package_type == '1' || $tran_details->package_type == '4') && $tran_details->urgent_package == '0')) {
+												?>
+												<th colspan="2">
+													<div class="input pull-left">
+														<input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
+														<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id;?>' >
+														<input type="hidden" id="pkg_disc_amt" value='' >
+													</div>
+													<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
+												</th>
+												<?php
+											}
+											else{ ?>
 											<th colspan="2">
 												<div class="input pull-left">
-													<input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
+													<input type="hidden" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
 													<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id;?>' >
 													<input type="hidden" id="pkg_disc_amt" value='' >
 												</div>
-												<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
 											</th>
+											<?php } ?>
 											<th class="tot_top">Total :</th>
 											<th class="tot_top total_amt"><?php echo round(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)+(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100)),2); ?></th>
 										</tr>
@@ -95,9 +109,9 @@
 							</div>
 						</div>
 						<div class="row top_20">
-							<div class="col-md-8 col-sm-10 col-md-offset-2 col-sm-offset-1">
+							<div class="col-md-8 col-sm-10 col-md-offset-2 col-sm-offset-1 cancel_ahover">
 								<button class="btn btn-primary btn1 pull-right chck_bg_clr" type='submit'>Checkout</button>
-								<button class="btn btn-primary btn1 pull-right">Cancel</button>
+								<a class="btn btn-primary btn1 pull-right cancel_ad" href="javascript:void(0);">Cancel</a>
 							</div>
 						</div>
 					</div>
@@ -136,5 +150,25 @@
 				}
         	});
 	});
+
+	$(function(){
+		$(".cancel_ad").click(function(){
+			alert()
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url();?>coupons/cancel_adv",
+				data: {
+					ad_id: $("#ad_id").val()
+				},
+					success: function (data) {
+						alert(data);
+						if (data == 1) {
+						window.location.href= "<?php echo base_url(); ?>post-a-deal";	
+					}
+				}
+			})
+		});
+	});
 	</script>
+
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script>

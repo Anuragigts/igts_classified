@@ -66,13 +66,15 @@
 							<td><?php echo $coup->c_value;?></td>
 							<!--<td><?php echo $coup->max_disc;?></td>-->
 							<td id='act_status<?php echo $coup->c_id;?>'><?php if($coup->c_status == 1)echo 'Active'; else echo 'In-Active';?></td>
+							<?php if($coup->c_status == 1){?>
 							<td id='status<?php echo $coup->c_id; ?>'>
-								<?php if($coup->c_status == 1){?><span class='btn btn-success'><i class="halflings-icon minus-sign active_coupon  white" id='coupon_<?php echo $coup->c_id; ?>'title="In-Activate Coupon "></i></span>
-								<?php }else{?>
-								<span class='btn btn-danger'><i class="halflings-icon plus-sign inactive_coupon white" id='coupon_<?php echo $coup->c_id; ?>'title="Activate Coupon "></i></span>
-								<?php }?>
-								&nbsp;
+								<span class='btn btn-success'><i class="halflings-icon minus-sign active_coupon  white" id='coupon_<?php echo $coup->c_id; ?>'title="In-Activate Coupon "></i></span>
 							</td>
+							<?php }else{?>
+							<td id='status<?php echo $coup->c_id; ?>'>
+							<span class='btn btn-danger'><i class="halflings-icon plus-sign inactive_coupon white" id='coupon_<?php echo $coup->c_id; ?>'title="Activate Coupon "></i></span>
+							</td>
+							<?php }?>
 						</tr>
 						<?php } ?>
 					</tbody>

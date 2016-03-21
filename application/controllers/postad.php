@@ -38,6 +38,7 @@ class Postad extends CI_Controller{
                     $new_time = time() - $this->session->userdata("cance_time");
                     if ($new_time > 10) {
                         $this->session->unset_userdata('cancelad');
+                        $this->session->unset_userdata("cance_time");
                     }
                 }
                 /*pets categories*/

@@ -802,9 +802,9 @@
 						</div>
 						<?php } ?>
 					</div>
-					<div class="row text_center">
+					<!-- <div class="row text_center">
 						<a href="significant_deals_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>VIEW ALL SIGNIFICANT DEALS</span></a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -819,7 +819,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
-							<a href="mostvalued_deals_view">
+							<a href="#">
 							<img src="img/most_value.jpg" alt="most_value" title="Most Value Deals" class="recentad_heig img-responsive">
 							</a>
 						</div>
@@ -901,7 +901,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3 col-xs-12">
-							<a href="business_deals_view">
+							<a href="#">
 							<img src="img/business_deals.jpg" alt="business_deals" title="Business Deals" class="recentad_heig img-responsive">
 							</a>
 						</div>
@@ -987,7 +987,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3 col-xs-12">
-							<a href="recent_deals_view">
+							<a href="#">
 							<img src="img/recentad.jpg" alt="recentad" title="Recent Deals" class="recentad_heig img-responsive">
 							</a>
 						</div>

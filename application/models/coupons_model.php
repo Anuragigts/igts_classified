@@ -24,19 +24,17 @@
 		}
 		function add_new_coupon(){
 			$c_count = $this->input->post('c_count');
-			$c_prefix = $this->input->post('c_prefix');
-			$c_code = strtoupper($c_prefix);
-				$coupon_info = array(
+			$c_code = strtoupper($this->input->post('c_prefix'));
+			$coupon_info = array(
 								'added_on'				=>	date('Y-m-d H:i:s'),
 								'added_by' 				=>	$this->session->userdata('login_id'),
 								'c_status'				=>	$this->input->post('c_status'),
 								'c_type_percent_cash'	=>	$this->input->post('c_type_percent_cash'),
 								'c_value'				=>	$this->input->post('c_value'),
-								'max_disc'				=>	$this->input->post('max_disc'),
+								// 'max_disc'				=>	$this->input->post('max_disc'),
 								'c_code'				=>	$c_code
 								);
 				$this->db->insert('coupon_codes',$coupon_info);
-				// echo $this->db->last_query().'<br/>';
 			if($this->db->affected_rows() > 0){
 				 return true;
 			 }else
@@ -112,6 +110,17 @@
 			$this->db->delete('ad_img', array('ad_id' => $id));
 			$this->db->delete('location', array('ad_id' => $id));
 			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+		}
+
+		public function couponexist($code){
+			$query = $this->db->query("SELECT * FROM coupon_codes 
+			WHERE c_code = '$code'");
+			if ($query->num_rows() > 0) {
 				return 1;
 			}
 			else{
