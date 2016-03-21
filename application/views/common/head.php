@@ -1,26 +1,6 @@
 
-		<meta name="identifier-url" content="http://class.igravitas.in" />
-		<meta name="title" content="99 Right Deals" />
-		<meta name="description" content="365 Great Deals is a marketplace where users come and post about their unwanted/used goods which the needy buyers keep looking at." />
-		<meta name="abstract" content="365 Great Deals is a marketplace where users come and post about their unwanted/used goods which the needy buyers keep looking at." />
-		<meta name="keywords" content="Hot deals, E-Zone, Motor Point, Clothing & LifeStyles , Services, Find a Property, Home & Kitchen, Pets, Jobs" />
-		<meta name="author" content="iGravitas" />
-		<meta name="revisit-after" content="1" />
-		<meta name="language" content="EN" />
-		<meta name="copyright" content="© 2016, All right reserved." />
-		<meta name="robots" content="All" />
-		<!-- Mobile Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="identifier-url" content="http://class.igravitas.in" />
-		<meta name="title" content="99 Right Deals" />
-		<meta name="description" content="365 Great Deals is a marketplace where users come and post about their unwanted/used goods which the needy buyers keep looking at." />
-		<meta name="abstract" content="365 Great Deals is a marketplace where users come and post about their unwanted/used goods which the needy buyers keep looking at." />
-		<meta name="keywords" content="Hot deals, E-Zone, Motor Point, Clothing & LifeStyles , Services, Find a Property, Home & Kitchen, Pets, Jobs" />
-		<meta name="author" content="iGravitas" />
-		<meta name="revisit-after" content="1" />
-		<meta name="language" content="EN" />
-		<meta name="copyright" content="© 2016, All right reserved." />
-		<meta name="robots" content="All" />
+		<link rel="shortcut icon" href="<?php echo base_url(); ?>img/icons/icon.png" type="image/x-icon">
+	
         <!-- Theme CSS -->
         <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen"/>
         <!-- Responsive CSS -->

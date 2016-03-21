@@ -492,21 +492,6 @@
 													<div class="top_bar_top">
 														<label class="input select">
 															<select name="star">
-																<option value="none" selected disabled="">Select Star</option>
-																<option value="5">5 Starts</option>
-																<option value="4">4 Starts</option>
-																<option value="3">3 Starts</option>
-																<option value="2">2 Starts</option>
-																<option value="1">1 Starts</option>
-															</select>
-															<i></i>
-														</label>
-													</div>
-                                                </li>
-												<li>
-													<div class="top_bar_top">
-														<label class="input select">
-															<select name="star">
 																<option value="none" selected disabled="">Select Name</option>
 																<option value="5">A to Z</option>
 																<option value="4">Z to A</option>

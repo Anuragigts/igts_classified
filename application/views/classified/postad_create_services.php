@@ -1648,13 +1648,16 @@
 			</div>
 		</div>
 	</section>
-	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
-	<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
-	<script src="<?php echo base_url(); ?>js/jquery.cleditor.min.js"></script>
-	<script src="<?php echo base_url(); ?>js/jquery.cleditor.js"></script>
+	
+	<script src="<?php echo base_url();?>js/jquery.js"></script> 
+	<script src="<?php echo base_url();?>j-folder/js/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/additional-methods.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/jquery.form.min.js"></script>
+	<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.cleditor.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.cleditor.js"></script>
+	
 	<script>
 		$(document).ready(function () { 
 		$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 

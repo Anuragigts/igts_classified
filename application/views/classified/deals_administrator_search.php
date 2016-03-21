@@ -302,7 +302,7 @@
 			<div class="row">
 				<div class="col-sm-4 ">
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="<?php echo $m_details->img_name; ?>" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
@@ -416,7 +416,7 @@
 					<div class="featured-badge">
 					</div>
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="<?php echo $m_details->img_name; ?>" title="<?php echo $m_details->img_name; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
@@ -528,7 +528,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="<?php echo $m_details->img_name; ?>" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
@@ -636,7 +636,7 @@
 					<div class="featured-badge">
 					</div>
 					<div class="img-hover view_img">
-						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="img_1" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
+						<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="<?php echo $m_details->img_name; ?>" title="<?php echo $m_details->deal_tag; ?>" class="img-responsive">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>

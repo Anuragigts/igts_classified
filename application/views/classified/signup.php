@@ -196,7 +196,7 @@
 												</div>
 												<div class="col-1">
 													<label>Phone Number <sup style='color:red;'>*</sup>
-														<input placeholder="Enter Mobile number" id="con_mobile" name="con_mobile" tabindex="5" maxlength='10' onkeypress="return isNumber(event)" >
+														<input placeholder="Enter Mobile number" id="con_mobile" name="con_mobile" tabindex="5" maxlength='11' onkeypress="return isNumber(event)" >
 														
 													</label>
 												</div>
@@ -235,7 +235,7 @@
 												</div>
 												<div class="col-2">
 													<label>Phone Number <sup style='color:red;'>*</sup>
-														<input placeholder="Enter Mobile number" id="bus_mobile" name="bus_mobile"  maxlength='10' onkeypress="return isNumber(event)" tabindex="7">
+														<input placeholder="Enter Mobile number" id="bus_mobile" name="bus_mobile"  maxlength='11' onkeypress="return isNumber(event)" tabindex="7">
 													</label>
 												</div>
 												<div class="col-2">

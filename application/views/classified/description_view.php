@@ -727,7 +727,7 @@
 												<label class="icon-right" for="phone">
 													<i class="fa fa-phone"></i>
 												</label>
-												<input type="text" id="feedbackno" name="feedbackno" maxlength='10' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
+												<input type="text" id="feedbackno" name="feedbackno" maxlength='11' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number ">
 											</div>
 										</div>
 										<div class="unit">
