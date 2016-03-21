@@ -25,9 +25,7 @@
 		function add_new_coupon(){
 			$c_count = $this->input->post('c_count');
 			$c_prefix = $this->input->post('c_prefix');
-			//for($i= 0; $i< $c_count; $i++){
-				$a = mt_rand(10000,99999); 
-				$c_code = strtoupper($c_prefix).$a;
+			$c_code = strtoupper($c_prefix);
 				$coupon_info = array(
 								'added_on'				=>	date('Y-m-d H:i:s'),
 								'added_by' 				=>	$this->session->userdata('login_id'),
@@ -38,10 +36,8 @@
 								'c_code'				=>	$c_code
 								);
 				$this->db->insert('coupon_codes',$coupon_info);
-				echo $this->db->last_query().'<br/>';
-			//}
-			//exit;
-			 if($this->db->affected_rows() > 0){
+				// echo $this->db->last_query().'<br/>';
+			if($this->db->affected_rows() > 0){
 				 return true;
 			 }else
 			return false;
@@ -73,6 +69,54 @@
 			$c_info = $this->db->get('coupon_codes')->row();
 			// echo $this->db->last_query();exit;
 			return $c_info;
+		}
+		public function cancel_adv($id){
+			$qry = $this->db->query("SELECT * FROM postad WHERE ad_id = '$id'");
+			$category = $qry->row();
+			/*jobs*/
+			if ($category->category_id == 1) {
+				$this->db->delete('job_details', array('ad_id' => $id));
+			}
+			/*motor point*/
+			else if ($category->category_id == 3) {
+				$this->db->delete('motor_bike_ads', array('ad_id' => $id));
+				$this->db->delete('motor_boats', array('ad_id' => $id));
+				$this->db->delete('motor_car_van_bus_ads', array('ad_id' => $id));
+				$this->db->delete('motor_home_ads', array('ad_id' => $id));
+				$this->db->delete('motor_plant_farming', array('ad_id' => $id));
+			}
+			/*find a property*/
+			else if ($category->category_id == 4) {
+				$this->db->delete('property_resid_commercial', array('ad_id' => $id));
+			}
+			/*pets*/
+			else if ($category->category_id == 5) {
+				$this->db->delete('pets_details', array('ad_id' => $id));
+			}
+			/*cloths*/
+			else if ($category->category_id == 6) {
+				$this->db->delete('lifestyle_accessories', array('ad_id' => $id));
+				$this->db->delete('lifestyle_clothing', array('ad_id' => $id));
+				$this->db->delete('lifestyle_shoes', array('ad_id' => $id));
+				$this->db->delete('lifestyle_wedding', array('ad_id' => $id));
+			}
+			/*home kitchen*/
+			else if ($category->category_id == 7) {
+				$this->db->delete('kitchenhome_ads', array('ad_id' => $id));
+			}
+			/*Ezone*/
+			else if ($category->category_id == 8) {
+				$this->db->delete('ezone_details', array('ad_id' => $id));
+			}
+			$this->db->delete('postad', array('ad_id' => $id));
+			$this->db->delete('ad_img', array('ad_id' => $id));
+			$this->db->delete('location', array('ad_id' => $id));
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
 		}
 	}
 ?>

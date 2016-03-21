@@ -43,14 +43,11 @@
 		}
 		public function AddCoupon(){
 			if($this->input->post()){
-				//echo '<pre>';print_r($this->input->post());echo '</pre>';//exit;
 				$this->form_validation->set_rules("c_value","Coupon Code","required");
 				$this->form_validation->set_rules("c_prefix","Coupon Prefix","required");
-				//$this->form_validation->set_rules("max_disc","Maximum Discount","required");
-				//$this->form_validation->set_rules("c_type","Coupon Type ","required");
-				//$this->form_validation->set_rules("c_count","Coupon Count","required");
 				$this->form_validation->set_rules("c_status","Coupon Status","required");
 				if($this->form_validation->run() == TRUE){
+					echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
 					$this->session->set_flashdata('msg','Coupon Code is Successfully Inserted');
 					 $ins_status = $this->coupons_model->add_new_coupon();	
 					 redirect('coupons/ListCoupons');
@@ -86,7 +83,13 @@
 				$ad_id = $this->input->post('ad_id');
 				$p_amt = $this->coupons_model->get_ad_amt($ad_id);
 				//echo '<pre>';print_r($p_amt);echo '</pre>';
-				$amt = $p_amt->u_pkg__pound_cost+$p_amt->cost_pound;
+				if ($p_amt->u_pkg__pound_cost !='') {
+					$amt1 = $p_amt->u_pkg__pound_cost+$p_amt->cost_pound;
+				}
+				else{
+					$amt1 = $p_amt->cost_pound;
+				}
+				$amt = round((($amt1)+($amt1)*(0.2)), 2);
 				$c_info = $this->coupons_model->get_c_result($c_code);
 				if(count($c_info) == 1){
 					$disc = $amt*($c_info->c_value)/100;
@@ -147,6 +150,23 @@
 						$info = json_encode($c_details);
 						echo $info;
 				}
+			}
+		}
+
+		public function cancel_adv(){
+			$adid = $this->input->post('ad_id');
+			$removead = $this->coupons_model->cancel_adv($adid);
+			if ($removead == 1) {
+				$this->session->unset_userdata("postad_time");
+				$this->session->unset_userdata("postad_success");
+				$this->session->unset_userdata("last_insert_id");
+				$this->session->set_userdata("cancelad", "Your Ad is cancelled");
+				$this->session->set_userdata("cance_time", time());
+				echo 1;
+			}
+			else{
+				$this->session->set_userdata("cancelad", "Inter error occured");
+				echo 0;
 			}
 		}
 	}

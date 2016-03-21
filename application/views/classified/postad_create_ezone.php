@@ -639,15 +639,16 @@
 		}
 		
 		function address(latt, long1){
-		$.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
-		success: function(data){
-		$('#location').val(data.results[0].formatted_address);
-		$('#lattitude').val(latt);
-		$('#longtitude').val(long1);
-		
-		   /*or you could iterate the components for only the city and state*/
-		}
-		});
+			$.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
+			success: function(data){
+				alert(data.results[0].formatted_address); return false;
+			$('#location').val(data.results[0].formatted_address);
+			$('#lattitude').val(latt);
+			$('#longtitude').val(long1);
+			
+			   /*or you could iterate the components for only the city and state*/
+			}
+			});
 		}
 		
 		window.onload = function() {
@@ -656,7 +657,7 @@
 		  document.getElementById("postalcode").onchange = function() {
 			getPosition(function(position){
 			  setup_map(position.latt, position.lng);
-		address(position.latt, position.lng);
+			address(position.latt, position.lng);
 			});
 		  }
 		}

@@ -55,3 +55,12 @@ if($this->session->userdata("chebox") == 1 && $this->session->userdata("info") !
     </h4>
 </div>
 <?php } ?>
+
+<?php if($this->session->userdata("cancelad") != ""){ ?>
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
+    <h4>
+        <?php echo $this->session->userdata("cancelad");?>
+    </h4>
+</div>
+<?php } ?>

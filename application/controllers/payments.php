@@ -6,6 +6,7 @@ class Payments extends CI_Controller
         $this->load->library('paypal_lib');
 		$this->load->model('transaction_model');
 		$this->load->model('payment_models');
+		$this->load->helper('url');
      }
      
      function success(){
@@ -79,12 +80,19 @@ class Payments extends CI_Controller
 			);
 			$this->load->view("admin_layout/inner_template",$data);	
     }
-	public function Pay(){
+	public function pay(){
 		$ad_id 			= 	$this->input->post('ad_id');
+		$query = $this->db->query("SELECT package_type,urgent_package FROM postad WHERE ad_id = '$ad_id'");
+	    $row = $query->row();
+	    if (($row->package_type == 1 || $row->package_type == 4) && $row->urgent_package == 0) {
+	    	$this->session->set_flashdata('payment','Your Ad Created Successfully');
+	    	$this->session->unset_userdata("last_insert_id");
+	      	redirect('deals_status');
+	    }
 		$post_ad_amt 	= 	$this->input->post('post_ad_amt');
 		$coup_ad_amt 	= 	$this->input->post('coup_ad_amt');
 		$c_code 		= 	$this->input->post('c_code');
-		//echo '<pre>';print_r($this->input->post());echo '</pre>';
+		
 		$this->load->model('coupons_model');
 		$p_amt = $this->coupons_model->get_ad_amt($ad_id);
 		if ($p_amt->u_pkg__pound_cost !='') {
@@ -93,24 +101,26 @@ class Payments extends CI_Controller
 		else{
 			$amt = $p_amt->cost_pound;
 		}
+		$amt1 = round((($amt)+($amt)*(0.2)), 2);
 		$c_info = $this->coupons_model->get_c_result($c_code);
 		//echo '<pre>';print_r($c_info);echo '</pre>';
 		if(count($c_info) == 1){
-			$disc_aamt = $amt*$c_info->c_value.'<br/>';
+			$disc_aamt = $amt1*$c_info->c_value.'<br/>';
 			//echo round($disc_aamt, 2).'<br/>';
-			$pkg_disc_amt =  round($amt-(round($disc_aamt, 2))/100,2);
+			$pkg_disc_amt =  round($amt1-(round($disc_aamt, 2))/100,2);
 			//$payment = $amt*($c_info->c_value)/100;
 		}else{
-			$pkg_disc_amt = $amt;
+			$pkg_disc_amt = $amt1;
 		}
-		//echo $pkg_disc_amt;
-		//exit;
+		$t_amt = round($pkg_disc_amt, 2);
+		// exit;
 		
-		if($coup_ad_amt < $post_ad_amt && $coup_ad_amt !=0 ){
+		/*if($coup_ad_amt < $post_ad_amt && $coup_ad_amt !=0 ){
 			$amt = $coup_ad_amt;
 		}else{
-			$amt = $post_ad_amt;
-		}
+			 $amt = $post_ad_amt;
+		}*/
+
         //Set variables for paypal form
         $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //test PayPal api url
         $paypalID = 'amanbabu-facilitator@gmail.com'; //business email
@@ -138,7 +148,7 @@ class Payments extends CI_Controller
 			//$this->paypal_lib->add_field('currencyCode', $ad_info['currency_type']);
 			$this->paypal_lib->add_field('custom', $ad_info['user_id']);
 			$this->paypal_lib->add_field('item_number',  $ad_info['ad_id']);
-			$this->paypal_lib->add_field('amount', $pkg_disc_amt);        
+			$this->paypal_lib->add_field('amount', $t_amt);        
 			$this->paypal_lib->image($logo);
 			
 			$this->paypal_lib->paypal_auto_form();

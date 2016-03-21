@@ -317,23 +317,115 @@ Class Classifed_model extends CI_model{
 
 	/*hot_deals in home page 3D */
 	public function hot_deals(){
-		$this->db->select("ads.*, img.*");
-		$this->db->select("DATE_FORMAT(STR_TO_DATE(ads.created_on,
-  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-		$this->db->from("postad as ads");
-		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
-		$this->db->where("ads.package_type", "3");
-		$this->db->where("ads.ad_status", "1");
-		$this->db->group_by('img.ad_id');
-		$this->db->order_by('dtime', 'DESC');
-		$m_res = $this->db->get();
-
-		if($m_res->num_rows() > 0){
-			return $m_res->result();
-		}
-		else{
-			return array();
-		}
+		$query = $this->db->query("/*jobs*/
+(SELECT *FROM postad AS ad
+JOIN ad_img AS img ON img.ad_id = ad.ad_id
+ WHERE ad.`category_id` = 1 AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+((ad.package_type = 3) AND ad.urgent_package != 0)OR
+((ad.package_type = 3) AND ad.urgent_package = 0)OR
+((ad.package_type = 2)AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id
+ORDER BY ad.expire_data DESC LIMIT 2) UNION
+/*services*/
+(SELECT *FROM postad AS ad 
+JOIN ad_img AS img ON img.ad_id = ad.ad_id
+WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+((ad.package_type = 3) AND ad.urgent_package != 0)OR
+((ad.package_type = 3) AND ad.urgent_package = 0)OR
+((ad.package_type = 2)AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id
+ORDER BY ad.expire_data DESC LIMIT 2) UNION
+/*motor point*/
+(SELECT *FROM postad AS ad 
+JOIN ad_img AS img ON img.ad_id = ad.ad_id
+WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+((ad.package_type = 3) AND ad.urgent_package != 0)OR
+((ad.package_type = 3) AND ad.urgent_package = 0)OR
+((ad.package_type = 2)AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id
+ORDER BY ad.expire_data DESC LIMIT 2) UNION
+/*find a property*/
+(SELECT *FROM postad AS ad
+JOIN ad_img AS img ON img.ad_id = ad.ad_id
+WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+((ad.package_type = 3) AND ad.urgent_package != 0)OR
+((ad.package_type = 3) AND ad.urgent_package = 0)OR
+((ad.package_type = 2)AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id
+ORDER BY ad.expire_data DESC LIMIT 2)UNION
+/*pets*/
+(SELECT * FROM postad AS ad
+JOIN ad_img AS img ON img.ad_id = ad.ad_id
+ WHERE ad.`category_id` = 5 AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+ ((ad.package_type = 6) AND ad.urgent_package != 0)OR
+ ((ad.package_type = 6) AND ad.urgent_package = 0)OR
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id
+ORDER BY ad.expire_data DESC LIMIT 2) UNION
+ /*cloths*/
+ (SELECT * FROM postad AS ad 
+JOIN ad_img AS img ON img.ad_id = ad.ad_id 
+ WHERE ad.`category_id` = 6 AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+ ((ad.package_type = 6) AND ad.urgent_package != 0)OR
+ ((ad.package_type = 6) AND ad.urgent_package = 0)OR
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id 
+ ORDER BY ad.expire_data DESC LIMIT 2) UNION
+ /*home and kitchen*/
+ (SELECT * FROM postad AS ad 
+ JOIN ad_img AS img ON img.ad_id = ad.ad_id 
+ WHERE ad.`category_id` = 7
+ AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+ ((ad.package_type = 6) AND ad.urgent_package != 0)OR
+ ((ad.package_type = 6) AND ad.urgent_package = 0)OR
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id 
+ ORDER BY ad.expire_data DESC LIMIT 2) UNION
+ /*ezone*/
+ (SELECT * FROM postad AS ad 
+JOIN ad_img AS img ON img.ad_id = ad.ad_id 
+WHERE ad.`category_id` = 8
+ AND ad.`ad_status` = 1 AND
+/*ad.expire_data >= NOW() AND*/
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+ ((ad.package_type = 6) AND ad.urgent_package != 0)OR
+ ((ad.package_type = 6) AND ad.urgent_package = 0)OR
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+GROUP BY img.ad_id 
+ ORDER BY ad.expire_data DESC LIMIT 2) 
+ 
+ ");
+	return $query->result();
 	}
 
 	/*most valued ads in home page*/

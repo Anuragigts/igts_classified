@@ -67,20 +67,25 @@
 									<thead>
 										<tr class='disc_info'>
 											<th colspan="2">&nbsp;</th>
+											<th>VAT TAX :</th>
+											<th><?php echo "+".round(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100),2); ?></th>
+										</tr>
+										<tr class='disc_info'>
+											<th colspan="2">&nbsp;</th>
 											<th>Discount :</th>
 											<th class='disc_val'>0.00</th>
 										</tr>
 										<tr>
 											<th colspan="2">
 												<div class="input pull-left">
-													<input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="COUP9176" >
+													<input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
 													<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id;?>' >
 													<input type="hidden" id="pkg_disc_amt" value='' >
 												</div>
 												<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
 											</th>
 											<th class="tot_top">Total :</th>
-											<th class="tot_top total_amt"><?php echo $tran_details->cost_pound+$tran_details->u_pkg__pound_cost; ?></th>
+											<th class="tot_top total_amt"><?php echo round(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)+(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100)),2); ?></th>
 										</tr>
 										<tr>
 											<td  colspan='4'class='response_coupon'></td>

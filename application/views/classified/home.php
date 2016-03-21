@@ -158,7 +158,8 @@
 			</div>
 		</div>
 	</section>
-	
+	<?php //echo "<pre>"; print_r($hot_deals); echo "</pre>";
+	 ?>
 	<section class="content-central">
 		<div class="semiboxshadow text-center">
 			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
@@ -314,14 +315,14 @@
 												else if ($hot_deals_val->currency == 'euro') {
 													$currency = '<span class="euro_sym"></span>';
 												}
-											  if ($hot_deals_val->ad_type == 'business') { 
+											  /*if ($hot_deals_val->ad_type == 'business') { 
 												$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_person');
 												$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
 											  }
 											  else if ($hot_deals_val->ad_type == 'consumer') { 
 												$person = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_name');
 												$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
-											  }
+											  }*/
 											
 											  ?>
 										<figure class="slide jbs-current">

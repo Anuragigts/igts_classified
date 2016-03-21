@@ -658,7 +658,7 @@
 		
 		  document.getElementById("postalcode").onchange = function() {
 			getPosition(function(position){
-			  setup_map(position.latt, position.lng);
+			    setup_map(position.latt, position.lng);
 				address(position.latt, position.lng);
 			});
 		  }
