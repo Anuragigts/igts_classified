@@ -6182,4 +6182,6 @@ top:20%;
 
 
 
-
+.cancel_ahover a:hover{
+	color: #fff !important;
+}
