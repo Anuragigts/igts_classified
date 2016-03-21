@@ -6,7 +6,14 @@
 
 <!DOCTYPE html>
 <html>
-
+<head>
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>img/icons/icon.png" type="image/x-icon">
+	
+    <!-- xxx Head Content xxx -->
+    <?php echo $this->load->view('common/head');?> 
+    <!-- xxx End xxx -->
+  
+</head>
 <body id="home">
 	<!--Preloader-->
 	<div class="preloader">

@@ -1,6 +1,5 @@
 
-		<link rel="shortcut icon" href="<?php echo base_url(); ?>img/icons/icon.png" type="image/x-icon">
-	
+		
         <!-- Theme CSS -->
         <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen"/>
         <!-- Responsive CSS -->
