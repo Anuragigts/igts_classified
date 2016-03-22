@@ -102,7 +102,7 @@
 					$disc = $amt*($c_info->c_value)/100;
 					if($c_info->max_cus == 0){
 						
-						$pkg_disc_amt = $amt-(($amt*($disc)/100));
+						$pkg_disc_amt = $amt-$disc;
 						//echo $pkg_disc_amt ;
 						$c_details = array(
 										'c_code'		=>		$c_info->c_code,

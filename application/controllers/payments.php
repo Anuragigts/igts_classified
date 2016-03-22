@@ -32,11 +32,11 @@ class Payments extends CI_Controller
 		$ins_status = $this->payment_models->insert_tran($data);
 		$ins_status = $this->payment_models->update_ad_pay_status($data['product_id'],$data['gross_amt']);
 		$this->session->unset_userdata("last_insert_id");
-		$info   =   array(
+		/*$info   =   array(
                         "title"         	=>     "Classifieds ",
                         "content"       	=>     "tran_success",
 						"tran_details"     	=>  	$data,
-			);
+			);*/
 			$this->session->set_flashdata('payment','Your Payment has successfully Completed');
 			redirect('deals_status');
      }
@@ -105,7 +105,7 @@ class Payments extends CI_Controller
 		$c_info = $this->coupons_model->get_c_result($c_code);
 		//echo '<pre>';print_r($c_info);echo '</pre>';
 		if(count($c_info) == 1){
-			$disc_aamt = $amt1*$c_info->c_value.'<br/>';
+			$disc_aamt = $amt1*$c_info->c_value;
 			//echo round($disc_aamt, 2).'<br/>';
 			$pkg_disc_amt =  round($amt1-(round($disc_aamt, 2))/100,2);
 			//$payment = $amt*($c_info->c_value)/100;

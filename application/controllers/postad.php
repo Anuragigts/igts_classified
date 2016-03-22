@@ -24,10 +24,7 @@ class Postad extends CI_Controller{
                 if (isset($last_insert_id) && $last_insert_id != '') {
                    redirect("payments/checkout/".$last_insert_id);
                 }
-                $data = array(
-                                "title"     =>  "Classifieds",
-                                "content"   =>  "postad"
-                        );
+               
                 if ($this->session->userdata("postad_time") != '') {
                     $new_time = time() - $this->session->userdata("postad_time");
                     if ($new_time > 10) {
@@ -41,6 +38,10 @@ class Postad extends CI_Controller{
                         $this->session->unset_userdata("cance_time");
                     }
                 }
+                 $data = array(
+                                "title"     =>  "Classifieds",
+                                "content"   =>  "postad"
+                        );
                 /*pets categories*/
                 $data['pets_sub_cat'] = $this->category_model->pets_sub_cat();
                 $data['pets_big_animal'] = $this->category_model->pets_big_animal();
@@ -121,95 +122,6 @@ class Postad extends CI_Controller{
 
 
                 if($plogin_id != ""){
-                        /*$data = array(
-                                "title"     =>  "Classifieds",
-                                "content"   =>  "postad"
-                        );*/
-                        if($this->input->post("postad")){
-                                // echo "<pre>"; print_r($_POST);exit;
-                                $files1 = "";$files2 = "";$files3="";$files4="";$files5="";
-                                $files6="";$files7="";$files8="";$files9="";
-                                $this->form_validation->set_rules("cat",'Category',"required");
-                                $this->form_validation->set_rules("scat",'Sub Category',"required");
-                                $this->form_validation->set_rules("sscat",'Sub Sub Category',"required");
-                                $this->form_validation->set_rules("ad_title",'Ad Title',"required");
-                                $this->form_validation->set_rules("desc",'Ad Description',"required");
-                                $this->form_validation->set_rules("price",'Ad Price',"required");
-                                $this->form_validation->set_rules("seller-email",'Email',"required");
-                                //$this->form_validation->set_rules("seller-number",'Phone Number',"required");
-                                $this->form_validation->set_rules("zipcode",'Zip Code',"required");
-                                $this->form_validation->set_rules("city",'City',"required");
-                                $this->form_validation->set_rules("state",'State',"required");
-                                $this->form_validation->set_rules("cty",'Country',"required");
-                                $this->form_validation->set_rules("pay_check[]",'Ad Premium',"required"); 
-                                
-                                if($_FILES["files1"]["name"] != ""){
-                                        $files1 = $this->do_upla($_FILES['files1'],"F1");
-                                        if(!$this->upload->do_upload('files1')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files2"]["name"] != ""){
-                                        $files2 = $this->do_upla($_FILES['files2'],"F2");
-                                        if(!$this->upload->do_upload('files2')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files3"]["name"] != ""){
-                                        $files3 = $this->do_upla($_FILES['files3'],"F3");
-                                        if(!$this->upload->do_upload('files3')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files4"]["name"] != ""){
-                                        $files4 = $this->do_upla($_FILES['files4'],"F4");
-                                        if(!$this->upload->do_upload('files4')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files5"]["name"] != ""){
-                                        $files5 = $this->do_upla($_FILES['files5'],"F5");
-                                        if(!$this->upload->do_upload('files5')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files6"]["name"] != ""){
-                                        $files6 = $this->do_upla($_FILES['files6'],"F6");
-                                        if(!$this->upload->do_upload('files6')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files7"]["name"] != ""){
-                                        $files7 = $this->do_upla($_FILES['files7'],"F7");
-                                        if(!$this->upload->do_upload('files7')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files8"]["name"] != ""){
-                                        $files8 = $this->do_upla($_FILES['files8'],"F8");
-                                        if(!$this->upload->do_upload('files8')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                }
-                                if($_FILES["files9"]["name"] != ""){
-                                        $files9 = $this->do_upla($_FILES['files9'],"F9");
-                                        if(!$this->upload->do_upload('files9')){
-                                                print_r($this->upload->display_errors());
-                                        }
-                                } 
-                                if($this->form_validation->run() == TRUE){
-                                        $in = $this->postad_model->ad_insert($files1,$files2,$files3,$files4,$files5,$files6,$files7,$files8,$files9);
-                                        if($in == 1){
-                                                $this->session->set_flashdata("msg","Your Ad has been Created Successfully. Your Ad will be displayed after 2 hours of posting or after verifying of ads.");
-                                                $this->session->set_userdata("info","Alert check");
-                                                redirect("post-a-deal");
-                                        }else{
-                                                $this->session->set_flashdata("err","Internal error occurred while posting your Ad");
-                                                redirect("post-a-deal");
-                                        }
-                                }
-                                 
-                        }
                         $data["cat"]        =       $this->common_model->view_cat();
                         $data["scat"]       =       $this->common_model->view_scat();
                         $data["sscat"]      =       $this->common_model->view_sscat();
@@ -222,7 +134,6 @@ class Postad extends CI_Controller{
                 }
                 else{
                          $this->load->view("classified_layout/inner_template",$data);
-                        // redirect("post-a-deal");
                 }
         }
         public function do_upla($file,$fp){

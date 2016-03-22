@@ -60,7 +60,7 @@ class Signup_model extends CI_Model{
 
                 $this->load->library('email', $config);
                 $this->email->set_newline("\r\n");
-                $this->email->from('support@99rightdeals.com', "99RightDeals");
+                $this->email->from('test@igravitas.in', "99RightDeals");
                 $this->email->to($mail);
                 $this->email->subject("99 Right Deals Account Verification");
                 $message    =   "<div style='padding: 81px 150px;'>
