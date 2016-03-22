@@ -1,17 +1,21 @@
-	<title>Right Deals :: Motor View</title>
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<title>Right Deals :: Motor View</title>
+		
+		<!-- xxx Head Content xxx -->
+		<?php echo $this->load->view('common/head');?> 
+		<!-- xxx End xxx -->
+		
+		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery.cleditor.css" />
+		
+		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	
-	<style>
-		.section-title-01{
-			height: 220px;
-			background-color: #262626;
-			text-align: center;
-			position: relative;
-			width: 100%;
-			overflow: hidden;
-		}
-	</style>
-	
-	<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  $('.cd-filter-content').niceScroll({
@@ -23,10 +27,6 @@
 		  });
 		});
 	</script>
-	
-	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-	
-	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 	
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 	<script type="text/javascript">
@@ -42,7 +42,7 @@
             });
         });
 	</script>
-	<!-- map on model -->
+	
 	<script type="text/javascript">
 		$(function(){
 			$(".loc_map").click(function(){
@@ -111,227 +111,242 @@
 			$latt = $this->session->userdata('s_latt');
 			$longg = $this->session->userdata('s_longg');
 	   ?>
-	  
-	<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
+	</head>
 	
-	<!-- Section Title-->    
-	<div class="section-title-01">
-		<!-- Parallax Background -->
-		<div class="bg_parallax image_01_parallax"></div>
-	</div>   
-	<!-- End Section Title-->
-	
-	<!--Content Central -->
-	<section class="content-central">
-		<!-- Shadow Semiboxed -->
-		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
-		</div>
-		<form id="j-forms2" action="<?php echo base_url(); ?>searchview/index" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
-			<div class="content_info">
-				<div class="paddings">
-					<div class="container pad_bott_50">
-						<div class="row">
-							<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu">
+	<body id="home">
+		
+		<!--Preloader-->
+		<div class="preloader">
+			<div class="status">&nbsp;</div>
+		</div> 
+			   
+		<!-- Start Entire Wrap-->
+		<div id="layout">
+			
+			<!-- xxx tophead Content xxx -->
+			<?php echo $this->load->view('common/tophead'); ?> 
+			<!-- xxx End tophead xxx -->
+			
+			<!-- Inner Page Content Start-->
+			<div class="section-title-01">
+				<div class="bg_parallax image_01_parallax"></div>
+			</div>   
+			
+			<!--Content Central -->
+			<section class="content-central">
+				<div class="semiboxshadow text-center">
+					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+				</div>
+				<form id="j-forms2" action="<?php echo base_url(); ?>searchview/index" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+					<div class="content_info">
+						<div class="paddings">
+							<div class="container pad_bott_50">
 								<div class="row">
-									<div class="col-md-3 col-sm-6 col-xs-12">
-										<div class="input">
-											<label class="icon-left" for="">
-												<i class="fa fa-search"></i>
-											</label>
-											<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6 col-xs-12">
-										<label class="input select">
-											<select class="guests-input" name="category_name">
-												<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
-												<?php foreach ($show_all as $show_val) { ?>
-												<option value="<?php echo $show_val->category_id; ?>" <?php if ($cat_id == $show_val->category_id) { echo "selected=selected"; } ?>><?php echo ucwords($show_val->category_name); ?></option>
-												<?php	} ?>
-											</select>
-											<i></i>
-										</label>
-									</div>
-
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<div class="input">
-											<label class="icon-left" for="">
-												<i class="fa fa-search"></i>
-											</label>
-											<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
-											<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
-											<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
-										</div>
-									</div>
-									
-									<div class="col-md-3 col-sm-8 col-xs-12">
+									<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu">
 										<div class="row">
-											<div class="col-md-7 col-sm-9 col-xs-12">
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<div class="input">
+													<label class="icon-left" for="">
+														<i class="fa fa-search"></i>
+													</label>
+													<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
+												</div>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
 												<label class="input select">
-													<select name="miles">
-														<option value="0" <?php if ($miles == '0') { echo "selected=selected"; } ?>>+0 Miles</option>
-														<option value="5" <?php if ($miles == '5') { echo "selected=selected"; } ?>>+5 Mile</option>
-														<option value="10" <?php if ($miles == '10') { echo "selected=selected"; } ?>>+10 Miles</option>
-														<option value="15" <?php if ($miles == '15') { echo "selected=selected"; } ?>>+15 Miles</option>
-														<option value="20" <?php if ($miles == '20') { echo "selected=selected"; } ?>>+20 Miles</option>
-														<option value="25" <?php if ($miles == '25') { echo "selected=selected"; } ?>>+25 Miles</option>
-														<option value="30" <?php if ($miles == '30') { echo "selected=selected"; } ?>>+30 Miles</option>
-														<option value="35" <?php if ($miles == '35') { echo "selected=selected"; } ?>>+35 Miles</option>
-														<option value="40" <?php if ($miles == '40') { echo "selected=selected"; } ?>>+40 Miles</option>
-														<option value="45" <?php if ($miles == '45') { echo "selected=selected"; } ?>>+45 Miles</option>
-														<option value="50" <?php if ($miles == '50') { echo "selected=selected"; } ?>>+50 Miles</option>
+													<select class="guests-input" name="category_name">
+														<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
+														<?php foreach ($show_all as $show_val) { ?>
+														<option value="<?php echo $show_val->category_id; ?>" <?php if ($cat_id == $show_val->category_id) { echo "selected=selected"; } ?>><?php echo ucwords($show_val->category_name); ?></option>
+														<?php	} ?>
 													</select>
 													<i></i>
 												</label>
 											</div>
-											<div class="col-md-5 col-sm-3 col-xs-12">
-												<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
+
+											<div class="col-md-3 col-sm-4 col-xs-12">
+												<div class="input">
+													<label class="icon-left" for="">
+														<i class="fa fa-search"></i>
+													</label>
+													<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
+													<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
+													<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
+												</div>
+											</div>
+											
+											<div class="col-md-3 col-sm-8 col-xs-12">
+												<div class="row">
+													<div class="col-md-7 col-sm-9 col-xs-12">
+														<label class="input select">
+															<select name="miles">
+																<option value="0" <?php if ($miles == '0') { echo "selected=selected"; } ?>>+0 Miles</option>
+																<option value="5" <?php if ($miles == '5') { echo "selected=selected"; } ?>>+5 Mile</option>
+																<option value="10" <?php if ($miles == '10') { echo "selected=selected"; } ?>>+10 Miles</option>
+																<option value="15" <?php if ($miles == '15') { echo "selected=selected"; } ?>>+15 Miles</option>
+																<option value="20" <?php if ($miles == '20') { echo "selected=selected"; } ?>>+20 Miles</option>
+																<option value="25" <?php if ($miles == '25') { echo "selected=selected"; } ?>>+25 Miles</option>
+																<option value="30" <?php if ($miles == '30') { echo "selected=selected"; } ?>>+30 Miles</option>
+																<option value="35" <?php if ($miles == '35') { echo "selected=selected"; } ?>>+35 Miles</option>
+																<option value="40" <?php if ($miles == '40') { echo "selected=selected"; } ?>>+40 Miles</option>
+																<option value="45" <?php if ($miles == '45') { echo "selected=selected"; } ?>>+45 Miles</option>
+																<option value="50" <?php if ($miles == '50') { echo "selected=selected"; } ?>>+50 Miles</option>
+															</select>
+															<i></i>
+														</label>
+													</div>
+													<div class="col-md-5 col-sm-3 col-xs-12">
+														<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<!-- Item Table-->
-							<div class="col-md-3 col-sm-3">
-								<div class="container-by-widget-filter bg-dark color-white cloth_h3">
-									<!-- Widget Filter -->
-									<a href="<?php echo base_url(); ?>home-page"><h3 class="title-widget">Home Search Filter</h3></a>
-									<div class="cd-filter-block">
-										<h4 class="title-widget closed">Deal Type</h4>
+							<div class="container">
+								<div class="row">
+									<!-- Item Table-->
+									<div class="col-md-3 col-sm-3">
+										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
+											<!-- Widget Filter -->
+											<a href="<?php echo base_url(); ?>home-page"><h3 class="title-widget">Home Search Filter</h3></a>
+											<div class="cd-filter-block">
+												<h4 class="title-widget closed">Deal Type</h4>
 
-										<div class="cd-filter-content" style="overflow: hidden; display: none;">
-											<div>
-												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
-													<i></i> All (<?php echo $allbustype; ?>)
-												</label>
-												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
-													<i></i> Business (<?php echo $business; ?>)
-												</label>
-												<label class="radio">
-													<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
-													<i></i> Consumer (<?php echo $consumer; ?>)
-												</label>
+												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+													<div>
+														<label class="radio">
+															<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
+															<i></i> All (<?php echo $allbustype; ?>)
+														</label>
+														<label class="radio">
+															<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
+															<i></i> Business (<?php echo $business; ?>)
+														</label>
+														<label class="radio">
+															<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
+															<i></i> Consumer (<?php echo $consumer; ?>)
+														</label>
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
 
-											<?php 
-												if ($cat_id) {
-												if ($cat_id != 'all') { ?>
-												 <div class="cd-filter-block">
-													<h4 class="title-widget">Search Filters</h4>
+													<?php 
+														if ($cat_id) {
+														if ($cat_id != 'all') { ?>
+														 <div class="cd-filter-block">
+															<h4 class="title-widget">Search Filters</h4>
 
-													<div class="cd-filter-content">
-														<?php if ($cat_id != '2' && $cat_id != '4' && $cat_id != '7') { ?>
-														<div id='limit_scrol'>
-															<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
-																<label class="checkbox">
-																	<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
-																	<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
-																</label>
-															<?php } ?>
-														</div>
-														<?php }
-														else{ ?>
-															<div>
-																<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
-																	<label class="checkbox">
-																		<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
-																		<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
-																	</label>
+															<div class="cd-filter-content">
+																<?php if ($cat_id != '2' && $cat_id != '4' && $cat_id != '7') { ?>
+																<div id='limit_scrol'>
+																	<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																		<label class="checkbox">
+																			<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																			<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																		</label>
+																	<?php } ?>
+																</div>
+																<?php }
+																else{ ?>
+																	<div>
+																		<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
 																<?php } ?>
 															</div>
-														<?php } ?>
-													</div>
-												</div> 
-												<?php  }
-													}
-											 ?>
-									
-								</div>
-								<div class="row top_20">
-									<div class="col-sm-12 add_left">
-										<?php echo $left_ad1; ?>
+														</div> 
+														<?php  }
+															}
+													 ?>
+											
+										</div>
+										<div class="row top_20">
+											<div class="col-sm-12 add_left">
+												<?php echo $left_ad1; ?>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-							<!-- End Item Table-->
+									<!-- End Item Table-->
 
-							<!-- Item Table-->
-							<div class="col-md-9 col-sm-9">
-                                <div class="sort-by-container tooltip-hover">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <strong>Sort by:</strong>
-                                            <ul>                            
-                                                <li>
-													<div class="top_bar_top">
-														<label class="input select">
-															<select name="dealtitle_sort" class="dealtitle_sort">
-																<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
-																<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
-																<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
-															</select>
-															<i></i>
-														</label>
-													</div>
-                                                </li>
-												<li>
-													<div class="top_bar_top">
-														<label class="input select">
-															<select name="price_sort" class="price_sort">
-																<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
-																<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
-																<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
-															</select>
-															<i></i>
-														</label>
-													</div>
-                                                </li>
-                                                <li>
-													<div class="top_bar_top">
-														<label class="input select">
-																<select name="recentdays_sort" class="recentdays_sort">
-																	<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
-																	<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
-																	<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
-																	<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
-																	<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
-																	<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
-																</select>
-																<i></i>
-															</label>
-													</div>
-												</li>
-											</ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- sort-by-container-->
-								
-								<div class="row list_view_searches motor_result">
-									<?php echo $this->load->view("classified/searchview_search"); ?>
+									<!-- Item Table-->
+									<div class="col-md-9 col-sm-9">
+										<div class="sort-by-container tooltip-hover">
+											<div class="row">
+												<div class="col-md-12">
+													<strong>Sort by:</strong>
+													<ul>                            
+														<li>
+															<div class="top_bar_top">
+																<label class="input select">
+																	<select name="dealtitle_sort" class="dealtitle_sort">
+																		<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																		<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																		<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
+																	</select>
+																	<i></i>
+																</label>
+															</div>
+														</li>
+														<li>
+															<div class="top_bar_top">
+																<label class="input select">
+																	<select name="price_sort" class="price_sort">
+																		<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+																		<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+																		<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
+																	</select>
+																	<i></i>
+																</label>
+															</div>
+														</li>
+														<li>
+															<div class="top_bar_top">
+																<label class="input select">
+																		<select name="recentdays_sort" class="recentdays_sort">
+																			<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																			<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																			<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																			<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																			<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																			<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+																		</select>
+																		<i></i>
+																	</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<!-- sort-by-container-->
+										
+										<div class="row list_view_searches motor_result">
+											<?php echo $this->load->view("classified/searchview_search"); ?>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</form>
-	</section>
-
-	<!--MAP Modal -->
-	<div class="modal fade" id="map_location" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<!-- <form action="#" method="post" class="j-forms " > -->
+				</form>
+			</section>
+			<!-- Inner Page Content End-->
+		
+			<!-- xxx footer Content xxx -->
+			<?php echo $this->load->view('common/footer');?> 
+			<!-- xxx footer End xxx -->
+			
+		</div>
+		<!-- End Entire Wrap -->
+		
+		<div class="modal fade" id="map_location" role="dialog">
+			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -341,20 +356,26 @@
 						
 					</div>
 				</div>
-			<!-- </form> -->
+			</div>
 		</div>
-	</div>
-	
-	<!-- End Shadow Semiboxed -->
-	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-	
-	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-	
-	<script>
-		$('.xuSlider').xuSlider();
-	</script>
-	
-	<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
+		
+		<!-- End Shadow Semiboxed -->
+		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+		
+		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
+		
+		<script>
+			$('.xuSlider').xuSlider();
+		</script>
+		
+		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-	<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
-	<script src="<?php echo base_url(); ?>libs/main.js"></script>	
+		<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+		<script src="<?php echo base_url(); ?>libs/main.js"></script>
+		
+		<!-- xxx footerscript Content xxx -->
+		<?php echo $this->load->view('common/footerscript');?> 
+		<!-- xxx footerscript End xxx -->
+			
+	</body>
+</html>

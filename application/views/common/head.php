@@ -1,36 +1,30 @@
 
 		
-        <!-- Theme CSS -->
-        <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen"/>
-        <!-- Responsive CSS -->
+		<link rel="shortcut icon" href="<?php echo base_url(); ?>img/icons/icon.png" type="image/x-icon">
+		<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen"/>
         <link href="<?php echo base_url(); ?>css/theme-responsive.css" rel="stylesheet" media="screen">
-        <!-- Skins Theme -->
-        
-		       
         <script src="<?php echo base_url(); ?>js/modernizr.js"></script>
-		
 		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		
-		<!-- character only -->
 		<script type="text/javascript">
 
-		/*currency change*/
-		$(function(){
-			$(".currency").change(function(){
-				var cur = $(this).val();
-				// alert(cur);
-				if (cur == 'euro') {
-					$(".free_euro").css('display', 'block');
-					$(".free_pound").css('display', 'none');
-				}
-				else if (cur == 'pound'){
-					$(".free_pound").css('display', 'block');
-					$(".free_euro").css('display', 'none');
-				}
+			/*currency change*/
+			$(function(){
+				$(".currency").change(function(){
+					var cur = $(this).val();
+					// alert(cur);
+					if (cur == 'euro') {
+						$(".free_euro").css('display', 'block');
+						$(".free_pound").css('display', 'none');
+					}
+					else if (cur == 'pound'){
+						$(".free_pound").css('display', 'block');
+						$(".free_euro").css('display', 'none');
+					}
+				});
 			});
-		});
 
-		/*video upload platinum*/
+			/*video upload platinum*/
 			$(document).ready(function(){    
 				$("#file_video_platinum").change(function(e){    
 				var file = e.currentTarget.files[0];    
@@ -96,7 +90,7 @@
 
 				/*signup type*/
 				$(function(){
-        	$('.sign_type').click(function(){
+					$('.sign_type').click(function(){
                         var ch = $("input[name='signup_type']:checked").val();
                         if(ch == 'business'){
                             $("#signup_business").css('display', 'block');
@@ -106,9 +100,9 @@
                             $("#signup_consumer").css('display', 'block');
 	                        }
 	                });
-	        });
+				});
 				
-			 $('#bus_fname').keydown(function (e) {
+				$('#bus_fname').keydown(function (e) {
                     if (e.shiftKey || e.ctrlKey || e.altKey) {
                     e.preventDefault();
                     } else {
@@ -119,7 +113,7 @@
                     }
                 });
 
-             $('#bus_lname').keydown(function (e) {
+				$('#bus_lname').keydown(function (e) {
                     if (e.shiftKey || e.ctrlKey || e.altKey) {
                     e.preventDefault();
                     } else {
@@ -130,7 +124,7 @@
                     }
                 });
 
-             $('#bus_name').keydown(function (e) {
+				$('#bus_name').keydown(function (e) {
                     if (e.shiftKey || e.ctrlKey || e.altKey) {
                     e.preventDefault();
                     } else {
@@ -141,7 +135,7 @@
                     }
                 });
 
-             $('#bus_address').keydown(function (e) {
+				$('#bus_address').keydown(function (e) {
                     if (e.shiftKey || e.ctrlKey || e.altKey) {
                     e.preventDefault();
                     } else {
@@ -164,17 +158,17 @@
 					// alert('hihi'); return false;
 					var regPostcode = /^([a-zA-Z]){1}([0-9][0-9]|[0-9]|[a-zA-Z][0-9][a-zA-Z]|[a-zA-Z][0-9][0-9]|[a-zA-Z][0-9]){1}([ ])([0-9][a-zA-z][a-zA-z]){1}$/;
 					var postcode = $("#postalcode").val();
-			if(regPostcode.test(postcode) == false)
-			{
-			//document.getElementById("status").innerHTML = "Postcode is not yet valid.";
-			return false;
-			}
-			else
-			{
+					if(regPostcode.test(postcode) == false)
+					{
+					//document.getElementById("status").innerHTML = "Postcode is not yet valid.";
+					return false;
+					}
+					else
+					{
 
-			// document.getElementById("status").innerHTML = ""; 
-			return true;
-			}
+					// document.getElementById("status").innerHTML = ""; 
+					return true;
+					}
 				
 				});
 			});
@@ -186,7 +180,7 @@
 		<!-- postad validation number only-->
 
 		<script type="text/javascript">
-		$(document).ready(function(){
+			$(document).ready(function(){
 				$("#free_package").click(function(){
 					 var ch = document.getElementById('free_package').checked;
 					 if (ch) {
