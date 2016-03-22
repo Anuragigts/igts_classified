@@ -46,7 +46,7 @@
 					<div class="paddings">
 						<div class="container">
 							<div class="row">
-								<form action="<?php echo  base_url(); ?>update_profile/re_activate" method="post" class="j-forms tooltip-hover" >
+								<form action="<?php echo  base_url(); ?>update-profile/re_activate" method="post" class="j-forms tooltip-hover" >
 									<div class="col-md-6 col-md-offset-3 activate_bor">
 										<div class="j-row">
 											<div class="span12 unit">

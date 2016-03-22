@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Contact us</title>
+		<title>Contact US | 99 Right Deals</title>
+		
+		<meta name="description" content="99 Right Deals dedicated to our client or customer care services 24 x 7. How Can I Assist You." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

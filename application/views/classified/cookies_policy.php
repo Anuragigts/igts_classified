@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Cookies Policy</title>
+		<title>Cookies Policy | 99 Right Deals</title>
 			
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -58,9 +58,9 @@
 								<div class="col-md-3 col-sm-3 col-xs-12">
 									<div class="item_subpages">
 										<ul class="">
-											<li><a href='assistance'>Safety Tips</a></li>
-											<li class="active_page"><a href='cookies_policy'>Cookies Policy</a></li>
-											<li><a href=''>Privacy Policy</a></li>
+											<li><a href='safety-tips'>Safety Tips</a></li>
+											<li class="active_page"><a href='cookies-policy'>Cookies Policy</a></li>
+											<li><a href='privacy-policy'>Privacy Policy</a></li>
 											<li><a href=''>Faq</a></li>
 										</ul>
 									</div>

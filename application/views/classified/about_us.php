@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: About us</title>
+		<title>About US | 99 Right Deals</title>
+		
+		<meta name="description" content="99 Right Deals provides free classifieds ads for new or used and buy or sell goods or products and services in United Kingdom. And create own free ads on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -59,10 +61,10 @@
 								<div class="col-sm-3">
 									<div class="item_subpages">
 										<ul class="">
-											<li class="active_page"><a href='about_us'>About US</a></li>
-											<li><a href='contact_us'>Contact US</a></li>
-											<li><a href='terms_conditions'>Terms & Conditions</a></li>
-											<li><a href='privacy_policy'>Privacy Policy</a></li>
+											<li class="active_page"><a href='about-us'>About US</a></li>
+											<li><a href='contact-us'>Contact US</a></li>
+											<li><a href='terms-conditions'>Terms & Conditions</a></li>
+											<li><a href='privacy-policy'>Privacy Policy</a></li>
 											<li><a href=''>Refund Policy</a></li>
 										</ul>
 									</div>

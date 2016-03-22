@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: How It Works</title>
+		<title>How It Work | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

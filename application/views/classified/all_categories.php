@@ -326,12 +326,12 @@
                                         <div class="col-md-3">
                                             <ul class="style-view">
                                                 <li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-                                                    <a href="deals_administrator_box">
+                                                    <a href="deals-administrator-box">
                                                         <i class="fa fa-th-large"></i>
                                                     </a>
                                                 </li>
                                                 <li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-                                                    <a href="deals_administrator">
+                                                    <a href="deals-administrator">
                                                         <i class="fa fa-list"></i>
                                                     </a>
                                                 </li> 

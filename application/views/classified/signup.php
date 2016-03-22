@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: SignUp</title>
+		<title>Sign UP | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

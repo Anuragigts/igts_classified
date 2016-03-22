@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Forgot Password</title>
+		<title>Forgot Password | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

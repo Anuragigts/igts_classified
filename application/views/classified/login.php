@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Login</title>
+		<title>Login | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -150,7 +150,7 @@
 															</div>
 															<div class="col-submit">
 																<input type='submit' id="submit" name='submit' class="pull-left btn btn-primary" value='Login' />
-																<h4 class="log_side pull-right"><a href="forgot_password" class="signup_clr">Forgot Password</a></h4>
+																<h4 class="log_side pull-right"><a href="forgot-password" class="signup_clr">Forgot Password</a></h4>
 															</div>
 														</form>
 														<div class="row social_icons">

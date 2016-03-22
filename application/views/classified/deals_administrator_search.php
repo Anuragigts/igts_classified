@@ -718,7 +718,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<div class="post-meta list_view_bottom" >
+				<div class="post-meta list_view_bottom">
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $m_details->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
@@ -734,4 +734,10 @@
 	<?php 
 		}
 		} ?>
+	
+	<div class=''>
+		<div class='col-md-12'>
+			<?php echo $paging_links; ?>
+		</div>
+	</div>
 	<!-- free+urgent package ends -->

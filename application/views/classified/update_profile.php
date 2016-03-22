@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>99 Right Deals :: Deals Administrator</title>
+		<title>Update Profile | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -55,11 +55,11 @@
 					// var coll = new Array(fname : fname, lname : lname, mobile : mobile);
 					  $.ajax({
 					  type : 'post',
-					  url  : '<?php echo base_url()?>update_profile/up_profile',
+					  url  : '<?php echo base_url()?>update-profile/up_profile',
 					  data : {prof_id1: prof_id, fname1 : fname, lname1 : lname, mobile1 : mobile},
 					  dataType : 'json',
 					  success : function(res) {
-					   window.location.href = "<?php echo base_url(); ?>update_profile";
+					   window.location.href = "<?php echo base_url(); ?>update-profile";
 					  }
 					});
 				});
@@ -97,11 +97,11 @@
 					if(hasError == true){
 					  $.ajax({
 					  type : 'post',
-					  url  : '<?php echo base_url()?>update_profile/change_pwd',
+					  url  : '<?php echo base_url()?>update-profile/change_pwd',
 					  data : {cur_pwd1: cur_pwd, pwd1 : pwd, conf_pwd1 : conf_pwd, prof_id1: prof_id},
 					  dataType : 'json',
 					  success : function(res) {
-					   window.location.href = "<?php echo base_url(); ?>update_profile";
+					   window.location.href = "<?php echo base_url(); ?>update-profile";
 					  }
 					});
 				}
@@ -116,7 +116,7 @@
 					var mail = $('#email').val();
 					$.ajax({
 					  type : 'post',
-					  url  : '<?php echo base_url()?>update_profile/deactivate_account',
+					  url  : '<?php echo base_url()?>update-profile/deactivate_account',
 					  data : {mail: mail},
 					  dataType : 'json',
 					  success : function(res) {
@@ -124,7 +124,7 @@
 					window.location.href = "<?php echo base_url(); ?>login";
 						}
 						else{
-				window.location.href = "<?php echo base_url(); ?>update_profile";      		
+				window.location.href = "<?php echo base_url(); ?>update-profile";      		
 						}
 					   
 					  }
@@ -177,10 +177,10 @@
 										</div>
 										<ul class="dashboard_tag">
 											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals_status'>Deals Status</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin"><a href='deals_administrator'>Deals Administrator</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup"><a href='pickup_deals'>Pickup deals</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin"><a href='deals-administrator'>Deals Administrator</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup"><a href='pickup-deals'>Pickup deals</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites"><a href='reserved_searches'>My Wishes</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="Update Profile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="Update Profile" title="updateprofile image"> <a href='update-profile'>Update Profile</a></li>
 										</ul>
 										<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 									</div>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Deals Status</title>
+		<title>Deals Status | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -97,9 +97,9 @@
 										<ul class="dashboard_tag">
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_status'>Deals Status</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>My Wishes</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup-deals'>Pickup deals</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='my-wishes'>My Wishes</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update-profile'>Update Profile</a></li>
 										</ul>
 										<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 									</div>

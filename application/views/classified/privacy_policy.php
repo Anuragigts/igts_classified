@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Privacy Policy</title>
+		<title>Privacy Policy | 99 Right Deals</title>
+		
+		<meta name="description" content="99 Right Deals website will take care of all your personal information related to email, mobile phone and so on. " />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -69,10 +71,10 @@
 								<div class="col-sm-3">
 									<div class="item_subpages">
 										<ul class="">
-											<li><a href='about_us'>About US</a></li>
-											<li><a href='contact_us'>Contact US</a></li>
-											<li><a href='terms_conditions'>Terms & Conditions</a></li>
-											<li class="active_page"><a href='privacy_policy'>Privacy Policy</a></li>
+											<li><a href='about-us'>About US</a></li>
+											<li><a href='contact-us'>Contact US</a></li>
+											<li><a href='terms-conditions'>Terms & Conditions</a></li>
+											<li class="active_page"><a href='privacy-policy'>Privacy Policy</a></li>
 											<li><a href=''>Refund Policy</a></li>
 										</ul>
 									</div>

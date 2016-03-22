@@ -65,9 +65,9 @@
 								<div class="col-sm-3">
 									<div class="item_subpages">
 										<ul class="">
-											<li class="active_page"><a href='assistance'>Safety Tips</a></li>
-											<li><a href='cookies_policy'>Cookies Policy</a></li>
-											<li><a href=''>Privacy Policy</a></li>
+											<li class="active_page"><a href='safety-tips'>Safety Tips</a></li>
+											<li><a href='cookies-policy'>Cookies Policy</a></li>
+											<li><a href='privacy-policy'>Privacy Policy</a></li>
 											<li><a href=''>Faq</a></li>
 										</ul>
 									</div>

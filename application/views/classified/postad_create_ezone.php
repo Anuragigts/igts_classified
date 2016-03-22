@@ -1766,7 +1766,7 @@
 															<label class="checkbox">
 															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
 															<i></i>
-															I accept <a href="<?php echo base_url(); ?>terms_conditions" target="_blank">Terms & Conditions</a> 
+															I accept <a href="<?php echo base_url(); ?>terms-conditions" target="_blank">Terms & Conditions</a> 
 															</label>
 														</div>
 														<div class="alert alert-danger terms_error" style='display:none'; >

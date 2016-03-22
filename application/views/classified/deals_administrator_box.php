@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Deals Administrator</title>
+		<title>My Dashboard | 99 Right Deals</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -19,7 +19,7 @@
 						var dealprice = $(".price_sort option:selected").val();
 						$.ajax({
 							type: "POST",
-							url: "<?php echo base_url();?>deals_administrator_box/my_ads_search",
+							url: "<?php echo base_url();?>deals-administrator-box/my_ads_search",
 							data: {
 								dealtitle: dealtitle,
 								dealprice: dealprice
@@ -35,7 +35,7 @@
 						var dealtitle = $(".dealtitle_sort option:selected").val();
 						$.ajax({
 							type: "POST",
-							url: "<?php echo base_url();?>deals_administrator_box/my_ads_search",
+							url: "<?php echo base_url();?>deals-administrator-box/my_ads_search",
 							data: {
 								dealtitle: dealtitle,
 								dealprice: dealprice
@@ -88,10 +88,10 @@
 										</div>
 										<ul class="dashboard_tag">
 											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals_status'>Deals Status</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>My Wishes</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals-administrator'>Deals Administrator</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup-deals'>Pickup deals</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='my-wishes'>My Wishes</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update-profile'>Update Profile</a></li>
 										</ul>
 										<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 									</div>
@@ -157,12 +157,12 @@
 												<div class="col-md-3">
 													<ul class="style-view">
 														<li data-toggle="tooltip" title="" data-original-title="BOX VIEW">
-															<a href="deals_administrator_box">
+															<a href="deals-administrator-box">
 															<i class="fa fa-th-large"></i>
 															</a>
 														</li>
 														<li data-toggle="tooltip" title="" data-original-title="LIST VIEW" class="active">
-															<a href="deals_administrator">
+															<a href="deals-administrator">
 															<i class="fa fa-list"></i>
 															</a>
 														</li>

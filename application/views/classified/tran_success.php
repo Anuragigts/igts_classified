@@ -47,7 +47,7 @@
 						var dealtitle = $(".dealtitle_sort option:selected").val();
 						$.ajax({
 							type: "POST",
-							url: "<?php echo base_url();?>deals_administrator/my_ads_search",
+							url: "<?php echo base_url();?>deals-administrator/my_ads_search",
 							data: {
 								dealtitle: dealtitle,
 								dealprice: dealprice
@@ -98,9 +98,9 @@
 										<ul class="dashboard_tag">
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_Status'>Deals Status</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup_deals'>Pickup deals</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='reserved_searches'>Reserved Searches</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update_profile'>Update Profile</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup-deals'>Pickup deals</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='my-wishes'>Reserved Searches</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="updateprofile" title="updateprofile image"> <a href='update-profile'>Update Profile</a></li>
 										</ul>
 										<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 									</div>
