@@ -126,7 +126,7 @@
 				</div>   
 				<!-- End content info -->
 			</section>
-		<!-- End Shadow Semiboxed -->
+			<!-- End Shadow Semiboxed -->
 		
 			<!-- xxx footer Content xxx -->
 			<?php echo $this->load->view('common/footer');?> 

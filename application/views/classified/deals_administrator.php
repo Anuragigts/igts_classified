@@ -4,6 +4,9 @@
 		
 		<title>Right Deals :: Deals Administrator</title>
 		
+		<meta name="description" content="365" />
+		<meta name="keywords" content="Hot" />
+		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->
@@ -204,18 +207,15 @@
 		<!--MAP Modal -->
 		<div class="modal fade" id="map_location" role="dialog">
 			<div class="modal-dialog">
-				<!-- Modal content-->
-				<!-- <form action="#" method="post" class="j-forms " > -->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h2>Map Location</h2>
-						</div>
-						<div class="modal-body map_show">
-							
-						</div>
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Map Location</h2>
 					</div>
-				<!-- </form> -->
+					<div class="modal-body map_show">
+						
+					</div>
+				</div>
 			</div>
 		</div>
 		

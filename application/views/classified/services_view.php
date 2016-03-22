@@ -4,8 +4,8 @@
 		
 		<title>Services Classified Ads In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Post free ads for finding service experts in Business Development, Interior Designing, electronic and home appliances repairs and services, Beauty and Hair care experts, Events Managing experts and top service proviers." />
-		<meta name="keywords" content="free business services ads, lease and loan insurance services uk, beauty & hair care services, event management services, courier delivery services, home based services ads, housekeeping classified ads,cleaning services classified ads,legal advisor financial services" />
+		<meta name="description" content="365" />
+		<meta name="keywords" content="Hot" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -13,10 +13,10 @@
 		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery.cleditor.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
+		
 		<script type="text/javascript">
 			$(document).ready(function() {
 			  $('.cd-filter-content').niceScroll({
@@ -28,6 +28,7 @@
 			  });
 			});
 		</script>
+		
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 		<script type="text/javascript">
 			google.maps.event.addDomListener(window, 'load', function () {
@@ -48,7 +49,7 @@
 			$mid_ad = $publicview->mid_ad;
 		  }
 		   ?>
-		  <!-- map on model -->
+		 
 		<script type="text/javascript">
 			$(function(){
 				$(".loc_map").click(function(){
@@ -60,38 +61,38 @@
 		</script>
 		<script type="text/javascript">
 			$(document).ready(
-					function()
-					{
-						$("input:checkbox").change(
-							function()
-							{
-									$("form.jforms").submit();
-							}
-						)
-						$('input:radio').click(function() {
+				function()
+				{
+					$("input:checkbox").change(
+						function()
+						{
 								$("form.jforms").submit();
-							}
-						)
-						$('.dealtitle_sort').change(function() {
-								$("form.jforms").submit();
-							}
-						)
-						$('.price_sort').change(function() {
-								$("form.jforms").submit();
-							}
-						)
-						$('.recentdays_sort').change(function() {
-								$("form.jforms").submit();
-							}
-						)
-						$(".clear_location").click(function(){
-							$('#latt').val('');
-							$('#longg').val('');
-							$('#find_loc').val('');
+						}
+					)
+					$('input:radio').click(function() {
 							$("form.jforms").submit();
-						});
-					}
-				);
+						}
+					)
+					$('.dealtitle_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$('.price_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$('.recentdays_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$(".clear_location").click(function(){
+						$('#latt').val('');
+						$('#longg').val('');
+						$('#find_loc').val('');
+						$("form.jforms").submit();
+					});
+				}
+			);
 		</script>
 			<?php 
 				$prof_service = $this->session->userdata('prof_service');
@@ -351,6 +352,7 @@
 		</div>
 		<!-- End Entire Wrap -->
 		
+		<!--MAP Modal -->
 		<div class="modal fade" id="map_location" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -365,7 +367,9 @@
 			</div>
 		</div>
 		
+		<!-- End Shadow Semiboxed -->
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+		
 		
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 		<script>
