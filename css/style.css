@@ -6185,3 +6185,6 @@ top:20%;
 .cancel_ahover a:hover{
 	color: #fff !important;
 }
+.package_ckech label{
+	width:200px;
+}

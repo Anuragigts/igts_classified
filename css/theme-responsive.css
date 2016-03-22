@@ -474,8 +474,11 @@
 	.significant_badge {
 		margin-left: 246px;
 	}
-	tr .preview{
-		display:none;
+	tr .preview img{
+		width:80px;
+	}
+	.package_ckech label{
+		width:80px;
 	}
 	
 	/* .loca_pad {
@@ -506,6 +509,12 @@
 	.post-header1 {
 		padding: 5px 33px 22px 36px;
 		float: right;
+	}
+	tr .preview img{
+		width:100px;
+	}
+	.package_ckech label{
+		width:100px;
 	}
 }
 /* @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
