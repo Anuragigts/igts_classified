@@ -128,7 +128,6 @@
 					$.ajax({
 						type: "POST",
 						url: "<?php echo base_url();?>coupons/get_c_result",
-						// dataType: "json",
 						data: {
 							c_code: c_code,
 							ad_id: ad_id
