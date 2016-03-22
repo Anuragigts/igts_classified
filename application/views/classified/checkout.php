@@ -123,19 +123,17 @@
 		$(function(){
 			$(".c_check").click(function(){
 				var c_code = $(".c_code").val();
-				//var post_ad_amt = $("#post_ad_amt").val();
 				var ad_id = $("#ad_id").val();
 				if(c_code != ''){
-
 					$.ajax({
 						type: "POST",
 						url: "<?php echo base_url();?>coupons/get_c_result",
+						dataType: "jsonp",
 						data: {
 							c_code: c_code,
 							ad_id: ad_id
 						},
 						success: function (data) {
-							//alert(data);
 							var c_details = JSON.parse(data);
 							var c_value = c_details['c_value'];
 							var pkg_disc_amt = c_details['pkg_disc_amt'];
@@ -149,11 +147,8 @@
 					alert('Please Enter Coupoun Code If Any');
 				}
         	});
-	});
-
-	$(function(){
+	
 		$(".cancel_ad").click(function(){
-			alert()
 			$.ajax({
 				type: "POST",
 				url: "<?php echo base_url();?>coupons/cancel_adv",
@@ -161,7 +156,6 @@
 					ad_id: $("#ad_id").val()
 				},
 					success: function (data) {
-						alert(data);
 						if (data == 1) {
 						window.location.href= "<?php echo base_url(); ?>post-a-deal";	
 					}
