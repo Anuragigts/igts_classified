@@ -85,7 +85,7 @@
 														<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id;?>' >
 														<input type="hidden" id="pkg_disc_amt" value='' >
 													</div>
-													<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
+													<span class="btn btn-primary btn1 pull-left c_check" >Apply</span>
 												</th>
 												<?php
 											}
