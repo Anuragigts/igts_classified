@@ -95,7 +95,7 @@ class Profile_model extends CI_Model{
                 $pid    =       $this->session->userdata("login_id");
                 $uid    =       $this->session->userdata("user_type");
                 
-            $message   .=   "<a href='".base_url()."update_profile/re_activate/".$rand_val."/".$login_id."'>Click Here To Re-Activate your Account</a>";
+            $message   .=   "<a href='".base_url()."update-profile/re_activate/".$rand_val."/".$login_id."'>Click Here To Re-Activate your Account</a>";
                     $this->email->message($message);
                      $this->email->send();
 
