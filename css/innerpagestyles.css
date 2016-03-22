@@ -1,0 +1,46 @@
+
+.section-title-01{
+	height: 220px;
+}
+
+/* ---Activate---*/
+.activate_bor{
+	border: 1px solid rgb(244, 244, 244) !important;
+	padding: 51px !important;
+}
+
+
+
+#scroll_area1 {
+	height: 200px !important;
+}
+#scroll_area2{
+	height: 200px !important;
+}
+
+/* ---Post-a Deal---*/
+.nav-tabs li a {
+	border: 0px none !important;
+	padding: 12px 13px !important;
+	background: #3A4749 none repeat scroll 0% 0% !important;
+	color: #FFF !important;
+}
+
+/* ---Post-a Deal Create Form ---*/
+ul#free,
+ul#free li {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+ul#free li {
+	display: inline-block !important;
+	vertical-align: top !important;
+	margin-left: 10px !important;
+}
+.nav-tabs li a {
+	border: 0px none !important;
+	padding: 12px 13px !important;
+	background: #3A4749 none repeat scroll 0% 0% !important;
+	color: #FFF !important;
+}
