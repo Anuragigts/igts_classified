@@ -40,7 +40,7 @@ class Description_view extends CI_Controller{
                     }
                 }
             if ($this->uri->segment(3) == '') {
-                   redirect('deals_administrator');
+                   redirect('deals-administrator');
                 }
                  /*category wise display*/
                 $detailed_desc = $this->classifed_model->ads_description_details();
