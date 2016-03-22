@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>Used | New | Buses and Coaches For Sale in United Kingdom | 99 Right Deals</title>
+		<title>Used | New | Buses and Coaches For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find and search new or second hand or used buses and coaches for buying and selling in United Kingdom with hot deals on 99 Right Deals." />
+		<meta name="keywords" content="used buses for sale, used coaches for sale, buses and coaches for sale, new buses for sale, new coaches for sale, school bus for sale, buses for sale uk, bus and coach sales, mini coaches for sale, bus and coach sales uk, double decker bus for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

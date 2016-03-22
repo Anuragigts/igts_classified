@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>New | Used | Second Hand | Vans Truck & SUV's For Sale | 99 Right Deals</title>
+		<title>New | Used | Vans Truck & SUV's For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find the used or second hand and new commercial vehicles, trucks, vans ans SUV's in United Kingdom with affordable price and get the hot deals on 99 Right Deals." />
+		<meta name="keywords" content="used trucks for sale, used vans for sale, used suvs for sale, new vans for sale, used trucks for sale in uk, used commercial vehicles for sale, used suvs for sale uk, semi trucks for sale, cheap vans for sale, commercial trucks for sale, suvs for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

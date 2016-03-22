@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>Used | New | Boats For Sale in United Kingdom | 99 Right Deals</title>
+		<title>Used | New | Boats For Sale in UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Search and Find the new or used boat for sale in United Kingdom. And compare wide range and price of boats services at affordable price on 99 Right Deals." />
+		<meta name="keywords" content="used boats for sale, boats for sale uk, small boats for sale, new boats for sale, used boats for sale uk, fishing boats for sale, canal boats for sale, wooden boats for sale, motor boats for sale, used houseboats for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

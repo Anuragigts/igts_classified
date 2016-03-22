@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>New | Used | Bikes & Scooters For Sale in United Kingdom | 99 Right Deals</title>
+		<title>New | Used | Bikes & Scooters For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find the latest new and used bike for sales at best price in United Kingdom on 99 Right Deals. And get the hot deals & compare price to other website." />
+		<meta name="keywords" content="new bikes, used bikes, new scooters, used scooters,used bikes for sale,used motorcycles for sale,second hand bikes for sale, online used bikes,scooters for sale,cheapest scooters for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

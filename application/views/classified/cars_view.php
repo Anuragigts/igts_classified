@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>New | Second Hand | Cars For Sale in United Kingdom | 99 Right Deals</title>
+		<title>New | Second Hand | Cars For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find the New and Used Cars for sales in United Kingdom at affordable price. And post free ads for buy and sell cars on 99 Right Deals." />
+		<meta name="keywords" content="free car ads,used car ads,buying a used car,cheap used cars for sale,second hand car,new cars for sale,used cars online,best new car deals,sell my car online,used car websites" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

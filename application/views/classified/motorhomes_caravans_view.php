@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>Used Motorhomes & Caravans For Sale In United Kingdom | 99 Right Deals </title>
+		<title>New | Used | Motorhomes & Caravans For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find the hot deals on new or used motorhomes and caravans for sale in United Kingdom at affordable price on  99 Right Deals. And get the latest model and spare part for sales." />
+		<meta name="keywords" content="used motorhomes for sale,used caravans for sale,used motorhomes for sale by owner,second hand motorhomes for sale,new motorhomes for sale,second hand motorhomes for sale uk,new and used caravans for sale,buy new and used motorhomes for sale,motorhomes for sale uk,used touring caravans for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
