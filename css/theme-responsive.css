@@ -405,7 +405,7 @@
 		margin-top: -17px !important;
 	}
 	.recentad_heig{
-		display:none;
+		padding-bottom:20px;
 	}
 	.des_rec_heig, #aa, .top_head{
 		display:none;
@@ -480,7 +480,9 @@
 	.package_ckech label{
 		width:80px;
 	}
-	
+	.set-2 ul li{
+		padding-bottom: 10px;
+	}
 	/* .loca_pad {
 		padding: 0px 6px;
 	}
@@ -686,11 +688,11 @@
 @media screen and (max-width: 1037px){
 	
 	.tp-caption.large_bold_white {
-		font-size: 28px !important;
+		/* font-size: 28px !important; */
 		top: 142.649px !important;
 	}
 	.tp-caption.small_light_white {
-		font-size: 22px !important;
+		/* font-size: 22px !important; */
 		top: 152.649px !important;
 	}
 	.filter-title {
