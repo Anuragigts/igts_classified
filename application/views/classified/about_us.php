@@ -70,6 +70,7 @@
 									</div>
 								</div>
 								<div class="col-md-9">
+									<p>Welcome to <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> limited, One of the fastest growing free classified deals company  in UK and in local area. This is free safe display place for who want to publish their classified deals to sell, buy, charity new, unused, used/unwanted items. We also provide a virtual business exposition for smaller businesses to showcase their newest products on offer.</p>
 									<p>There are few platforms that allow anyone to be an entrepreneur, any business to expand their sales and any person to clear out their house items, all in the same place. Classifieds, on the other hand, help every one of them.</p>
 									<p>Classified adverts have provided these functions for years, cementing their place in the back pages of newspapers and magazines for decades before finding their way on to the internet.</p>
 									<p>Their brief, convenient format will always have its place in the small-scale sales industry and<strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is here to make sure that legacy lives on.</p>

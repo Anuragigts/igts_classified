@@ -10,22 +10,22 @@
 							<div class="col-sm-4">
 								<ul class="social">
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>home-page">Home</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about_us">About US</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>terms_conditions">Terms & Conditions</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>about-us">About US</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>terms-conditions">Terms & Conditions</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-4">
 								<ul class="social">
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>cookies_policy">Cookies Policy</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>privacy_policy">Privacy Policy</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>cookies-policy">Cookies Policy</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>privacy-policy">Privacy Policy</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>blog">Blog</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-4">
 								<ul class="social">
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>assistance">Assistance</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>safety-tips">Assistance</a></li>
 									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>">Faq</a></li>
-									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact_us">Contact us</a></li>
+									<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>contact-us">Contact us</a></li>
 								</ul>
 							</div>
 						</div>
