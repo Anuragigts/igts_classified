@@ -144,7 +144,7 @@ class Postad_ezone_model extends CI_Model{
                     }
 
                     /*ezone details*/
-                    if ($this->input->post('category_id') == 'ezone') {
+                    if ($this->input->post('category_id') == '8') {
                         $pets_details = array('ad_id' => $insert_id,
                                     'brand_name' => $this->input->post('brandname'),
                                     'size' => $this->input->post('screensize'),

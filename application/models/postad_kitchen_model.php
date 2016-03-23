@@ -145,7 +145,7 @@ class Postad_kitchen_model extends CI_Model{
 
                     
                     /*kitchen details insertion*/
-                    if ($this->input->post('category_id') == 'kitchenhome') {
+                    if ($this->input->post('category_id') == '7') {
                         $pets_details = array('ad_id' => $insert_id,
                                     'brand_name' => $this->input->post('brandname'),
                                     'material' => $this->input->post('material'),

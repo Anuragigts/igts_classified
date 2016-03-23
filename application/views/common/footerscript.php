@@ -569,7 +569,7 @@
 	<!-- Modal -->
 	<div class="modal dialog1 fade" id="sendnow" role="dialog">
 		<div class="modal-dialog1">
-			<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms" id="feedbackads" >
+			<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="feedbackads" >
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -637,3 +637,56 @@
 			</form>
 		</div>
 	</div>
+	
+	<!--<div class="modal dialog1 fade" id="youtube_link" role="dialog">
+		<div class="modal-dialog1">
+			<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="tooltip-hover" id="feedbackads" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>You Tube <span>URL </span></h2>
+					</div>
+					<div class="modal-body">
+						<div class="j-row">
+							<div class="unit">
+								<label class="label">YouTube Video Link
+									<sup data-toggle="tooltip" title="" data-original-title="YouTube Video Link">
+										<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+									</sup>
+								</label>
+								<div class="input">
+									<label class="icon-right" for="Video">
+									<i class="fa fa-video-camera"></i>
+									</label>
+									<textarea type="text" id="file_video_platinum" name="file_video_platinum" placeholder="Enter YouTube Video Link"></textarea>
+								</div>
+							</div>
+							<div class="unit">													
+								<a href="javascript:void(0);" class="you_tube_link" name=''>Add URL</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-12 unit">
+		<div class="row">
+			<div class="span10 unit">
+				<label class="label">YouTube Video Link
+					<sup data-toggle="tooltip" title="" data-original-title="YouTube Video Link">
+						<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+					</sup>
+				</label>
+				<div class="input">
+					<label class="icon-right" for="Video">
+					<i class="fa fa-video-camera"></i>
+					</label>
+					<input type="text" id="file_video_platinum" name="file_video_platinum" placeholder="Enter YouTube Video Link">
+				</div>
+			</div>
+			<div class="span2 top_35">
+				<a href="javascript:void(0);" data-toggle="modal" data-target="#youtube_link" class="you_tube_link" name=''>Add URL</a>
+			</div>
+		</div>
+	</div>-->
