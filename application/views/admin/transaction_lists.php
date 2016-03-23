@@ -64,7 +64,7 @@
 								<td> <?php echo ucwords($users->deal_tag);?></td>
 								<td> <?php echo $users->login_id;?></td>
 								<td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
-								<td><?php echo$users->payment_date;?></td>
+								<td><?php echo date("d-m-Y H:i:s", strtotime($users->payment_date));?></td>
 								<td><?php echo $users->login_email;?></td>
 								<td><?php echo $users->gross_amt;?></td>
 								<!--<td><?php echo $users->mc_fee;?></td>-->

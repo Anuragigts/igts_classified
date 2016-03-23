@@ -78,7 +78,7 @@
 											<h2><?php echo @$log_name; ?></h2> 
 										</div>
 										<ul class="dashboard_tag">
-											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals_status'>Deals Status</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals-status'>Deals Status</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin"><a href='deals-administrator'>Deals Administrator</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup"><a href='pickup-deals'>Pickup deals</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites"><a href='my-wishes'>My Wishes</a></li>

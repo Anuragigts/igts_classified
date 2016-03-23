@@ -27,7 +27,7 @@ class Ads_model extends CI_Model{
 			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name');
 			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
-			//$this->db->order_by('p_add.updated_on', 'desc');
+			$this->db->order_by('p_add.ad_id', 'desc');
 			if($this->session->userdata('user_type') != 1){
 				$cats_list = explode(',',$cats->cat_ids);		
 				$this->db->where_in('p_add.category_id',$cats_list);
@@ -74,7 +74,7 @@ class Ads_model extends CI_Model{
 		
 		$prev_ad_details = $this->get_postad($this->input->post('ad_id'));
 		$prev_ad_status = $prev_ad_details->ad_status;
-		$this->db->select();
+			$this->db->select();
 			$this->db->where('u_pkg_id',$this->input->post('urg_type'));
 			$this->db->from('urgent_pkg_label');
 			$urg_pkg_details = $this->db->get()->row();

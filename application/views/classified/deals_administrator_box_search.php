@@ -5,14 +5,6 @@
 	<div class="row">
 		<?php
 		 foreach ($my_ads_details as $m_details) {
-		/*person name*/
-		if ($m_details->ad_type == 'business') {
-		$person_name = @mysql_result(mysql_query("SELECT `contact_person` FROM `contactinfo_business` WHERE ad_id = '$m_details->ad_id'"), 0,'contact_person');
-		}
-		else if ($m_details->ad_type == 'consumer') {
-		$person_name = @mysql_result(mysql_query("SELECT `contact_name` FROM `contactinfo_consumer` WHERE ad_id = '$m_details->ad_id'"), 0,'contact_name');
-		}
-
 		/*currency symbol*/ 
 		if ($m_details->currency == 'pound') {
 			$currency = '<span class="pound_sym"></span>';
@@ -20,10 +12,14 @@
 		else if ($m_details->currency == 'euro') {
 			$currency = '<span class="euro_sym"></span>';
 		}
+
+		if ($m_details->category_id == '1') {
+			$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$m_details->ad_id'"),0,'jobtype');
+		}
 	?>
 		<!-- platinum+urgent starts -->
 		<?php 
-		if ($m_details->package_type == '3' && $m_details->urgent_package != '0') {
+		if (($m_details->package_type == '3' || $m_details->package_type == '6') && $m_details->urgent_package != '0') {
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="featured-badge">
@@ -52,14 +48,13 @@
 				</div>	
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo $m_details->deal_tag; ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 				<hr class="separator">
-				<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 				<?php }
 				else{ ?>
-					<h3 class="home_price"></h3>		
+					<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 				<?php	}
 				?>
 				<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -73,7 +68,7 @@
 		
 		<!-- platinum starts -->
 		<?php 
-		if ($m_details->package_type == 3 && $m_details->urgent_package == 0) {
+		if (($m_details->package_type == 3 || $m_details->package_type == 6) && $m_details->urgent_package == 0) {
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="xuSlider xuSlider_plat">
@@ -99,14 +94,13 @@
 				</div>	
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo $m_details->deal_tag; ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 				<hr class="separator">
-				<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 				<?php }
 				else{ ?>
-					<h3 class="home_price"></h3>		
+					<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 				<?php	}
 				?>
 				<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -120,7 +114,7 @@
 		
 		<!-- gold+urgent starts -->
 		<?php 
-		if ($m_details->package_type == 2 && $m_details->urgent_package != 0) {
+		if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_details->urgent_package != 0) {
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="featured-badge">
@@ -133,14 +127,13 @@
 				</div>
 			</div>
 			<div class="info-gallery gold_bgcolor">
-				<h3><?php echo $m_details->deal_tag; ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 				<hr class="separator">
-				<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 				<?php }
 				else{ ?>
-					<h3 class="home_price"></h3>		
+					<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 				<?php	}
 				?>
 				<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -154,7 +147,7 @@
 	
 		<!-- gold starts -->
 		<?php 
-	if ($m_details->package_type == 2 && $m_details->urgent_package == 0) {
+	if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_details->urgent_package == 0) {
 	 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="img-hover box_img">
@@ -164,14 +157,13 @@
 				</div>
 			</div>
 			<div class="info-gallery gold_bgcolor">
-				<h3><?php echo $m_details->deal_tag; ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 				<hr class="separator">
-				<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 				<?php }
 				else{ ?>
-					<h3 class="home_price"></h3>		
+					<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 				<?php	}
 				?>
 				<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -185,7 +177,7 @@
 		
 		<!-- free+urgent starts-->
 		<?php 
-	if ($m_details->package_type == 1 && $m_details->urgent_package != 0) {
+	if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_details->urgent_package != 0) {
 	 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="featured-badge">
@@ -198,14 +190,13 @@
 				</div>
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo $m_details->deal_tag; ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 				<hr class="separator">
-				<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 				<?php }
 				else{ ?>
-					<h3 class="home_price"></h3>		
+					<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 				<?php	}
 				?>
 				<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -216,7 +207,7 @@
 		
 		<!-- free starts-->
 		<?php 
-	if ($m_details->package_type == 1 && $m_details->urgent_package == 0) {
+	if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_details->urgent_package == 0) {
 	 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="img-hover box_img">
@@ -226,14 +217,13 @@
 				</div>
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo $m_details->deal_tag; ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 				<hr class="separator">
-				<p><?php echo substr(strip_tags($m_details->deal_desc), 0, 39); ?></p>
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 				<?php }
 				else{ ?>
-					<h3 class="home_price"></h3>		
+					<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 				<?php	}
 				?>
 				<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -242,6 +232,12 @@
 		<?php } ?>
 		<!-- free ends-->
 		<?php } ?>
+
+		<div class=''>
+			<div class='col-md-12'>
+				<?php echo $paging_links; ?>
+			</div>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>

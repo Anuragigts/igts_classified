@@ -177,6 +177,11 @@
 			}
 		}
 
+		public function adrenewal_cancelad(){
+			$this->session->set_flashdata("err", "Your Ad Renewal has been cancelled");
+			echo 1;
+		}
+
 		public function coupon_codeexist(){
 			$cval = $this->input->post("cval");
 			$couponexist = $this->coupons_model->couponexist($cval);

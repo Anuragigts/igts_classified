@@ -95,7 +95,7 @@
 											<h2><?php echo @$log_name; ?></h2> 
 										</div>
 										<ul class="dashboard_tag">
-											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_status'>Deals Status</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals-status'>Deals Status</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals_administrator'>Deals Administrator</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup-deals'>Pickup deals</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='my-wishes'>My Wishes</a></li>
@@ -151,7 +151,7 @@
 												<td class="pay_btn"><?php 
 												if ($ads->expire_data != '0000-00-00 00:00:00') {
 													?>
-												<a href="<?php base_url();?>payments/checkout/<?php echo $ads->ad_id;?>" title="Ad Renewal" >Ad Renewal</a>
+												<a href="<?php base_url();?>payments/adrenewal/<?php echo $ads->ad_id;?>" class='adrenewal' title="Ad Renewal" >Ad Renewal</a>
 													<?php 
 													}
 												?></td>
@@ -162,39 +162,6 @@
 									<?php echo $paging_links; ?>
 								</div>
 							
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal modal-flex fade" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close md-close edit_close2" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 class="modal-title" id="flexModalLabel">Pay for Posting Ad</h4>
-							</div>
-							<div class="modal-body">
-								<form class="form-horizontal" method="post" action ='<?php echo base_url()?>payments/Pay'>
-									<div class="htname">
-										<input type='hidden' id='post_ad_id' name='post_ad_id'>
-										<input type='hidden' id='post_ad_amt' name='post_ad_amt'>
-										<input type='text' id='coup_ad_amt' name='coup_ad_amt'>
-									</div>                    
-									<div class="form-group">
-										<div class="span4"></div>
-										<div class="span4">
-										<label for ='c_code'>Coupon Code</label>
-										<input type='text' name='c_code' class='c_code' value='COUP7303' placeholder = 'Coupon Code'  ><span class='c_check'>Apply</span><span class='c_responce' style='color:green'></span>
-										</div>                       
-									</div>
-									<div class="form-group">
-										<div class="span4"></div>
-										<div class="span4">
-											<button type="submit" class="btn btn-default update_cad btn_cat" >Pay Now</button>
-										</div>
-										<div class="span4"></div>                        
-									</div>
-								</form>
 							</div>
 						</div>
 					</div>
@@ -212,24 +179,22 @@
 		<!-- End Entire Wrap -->
 		
 		<script>
-			$('.paynow').click(function(){
-				var ad_cost = $( this ).attr( "ad_cost" );
-					var ad_id = $( this ).attr( "ad_id" );
-				document.getElementById('post_ad_id').value = ad_id;
-				document.getElementById('post_ad_amt').value = ad_cost;
-				$(".c_responce").html('');
-			});
-			function paynow(adid, cost){
-				alert(adid+'----'+cost);
-				document.getElementById('post_ad_id').value = adid;
-				document.getElementById('post_ad_amt').value = cost;
-			}
-		</script>
-		<script>
 			setTimeout(function(){
 				 $(".alert").hide();
 			},15000);
 			
+		</script>
+
+		<script type="text/javascript">
+		$(function(){
+			$(".adrenewal").click(function(){
+				function sendajax() {
+				    $.post('<?php echo base_url();?>coupons/adrenewalsession', {}, function(response) {
+				        console.log(response);
+				    });
+				}
+			});
+		});
 		</script>
 
 		<!-- End Shadow Semiboxed -->

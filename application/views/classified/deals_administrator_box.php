@@ -10,7 +10,7 @@
 		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
-		
+		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 		<script type="text/javascript">
 			$(function(){
 				/*search ato z / A to Z*/
@@ -87,7 +87,7 @@
 											<h2><?php echo @$log_name; ?></h2>
 										</div>
 										<ul class="dashboard_tag">
-											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals_status'>Deals Status</a></li>
+											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='deals-status'>Deals Status</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="admin image"><a href='deals-administrator'>Deals Administrator</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="pickup image"><a href='pickup-deals'>Pickup deals</a></li>
 											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="seaked" title="seaked image"><a href='my-wishes'>My Wishes</a></li>
@@ -190,6 +190,16 @@
 		<!-- End Entire Wrap -->
 		
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+		
+		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
+		<script>
+			$('.xuSlider').xuSlider();
+		</script>
+		
+		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
+
+		<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
+		<script src="<?php echo base_url(); ?>libs/main.js"></script>	
 		
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 

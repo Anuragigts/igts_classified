@@ -13,8 +13,8 @@
 			$this->db->join('login as l', "l.login_id = p_ad.login_id", 'join');
 			$this->db->order_by('p.payment_date','desc');
 			$this->db->from('payments p');
-			
 			$transactions = $this->db->get()->result();
+			// echo $this->db->last_query();exit;
 			return $transactions;
 		}
 	}

@@ -44,16 +44,13 @@ class Login extends CI_Controller{
                                  ));
                         }
                 if($this->input->post("submit")){
-
-					$this->form_validation->set_rules("email","Email Id","required|valid_email");
-					
-								$ins    = $this->login_model->check();
-								if($ins>0){
-										redirect("post-a-deal");
-								}else{
-										$this->session->set_flashdata("err","Login Failed : Please Check your Email Id or Password");
-										redirect("post-a-deal");                                        
-								}
+                    $ins    = $this->login_model->check();
+    				if($ins>0){
+    						redirect("post-a-deal");
+    				}else{
+    						$this->session->set_flashdata("err","Login Failed : Please Check your Email Id or Password");
+    						redirect("login");                                        
+    				}
                 }
                 $this->load->view("classified_layout/inner_template",$data);
         }
