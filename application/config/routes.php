@@ -63,6 +63,22 @@ $route['farming-vehicles'] = "farmingvehicles_view";
 $route['boats-services'] = "boats_view";
 
 
+/* Inner Pages Links */
+$route['deals-administrator'] = "deals_administrator";
+$route['deals-administrator-box'] = "deals_administrator_box";
+$route['how-it-works'] = "how_it_works";
+$route['pickup-deals'] = "pickup_deals";
+$route['my-wishes'] = "reserved_searches";
+$route['update-profile'] = "update_profile";
+$route['terms-conditions'] = "terms_conditions";
+$route['contact-us'] = "contact_us";
+$route['about-us'] = "about_us";
+$route['privacy-policy'] = "privacy_policy";
+$route['cookies-policy'] = "cookies_policy";
+$route['forgot-password'] = "forgot_password";
+$route['safety-tips'] = "assistance";
+
+
 $route['404_override'] = '';
 
 
