@@ -19,7 +19,7 @@
 		<li><a href="#">Dashboard</a></li>
 	</ul>
 	<div class="row-fluid">
-		<?php //echo '<pre>';print_r($monthly_ads[0]);echo '</pre>';
+		<?php //echo '<pre>';print_r($latest_ads);echo '</pre>';
 			$today = date('d');
 			$free_count=[];
 			$gold_count=[];
@@ -103,11 +103,6 @@
 								$array_date[] = $c_month;
 								$revenue_count[$c_month] = round($m_ads->t_paid,2);
 							}
-								
-			/*echo '<pre>'.'monthly_ads';print_r($monthly_ads);echo '</pre>';
-			echo '<pre>'.'revenue_count';print_r($revenue_count);echo '</pre>';
-			echo '<pre>'.'array_date';print_r($array_date);echo '</pre>';
-			*/
 			?>
 		<?php foreach($no_of_ads as $p_ads){
 			if($p_ads->package_type == 1) {
@@ -166,58 +161,7 @@
 						<div class="title"><?php echo substr($month_date,0,3) .'<br/>'.$year_date; ?></div>
 					</div>
 				<?php }
-				/*$time=strtotime($m_ads->dtime);
-				$month=date("F",$time);
-				$year=date("Y",$time);
-				$c_month = substr($month,0,3).'-'.$year;
-							
-							
-				$date = strtotime($c_date. -$d.' months');
-				*/
-				
-				//$c_date = date('Y-m-d');
-				//echo $time_date = strtotime(strtotime($c_date). -$d.' months');
-			}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					/*$array_date=array();
-						foreach($monthly_ads as $m_ads){
-							$time=strtotime($m_ads->dtime);
-							$month=date("F",$time);
-							$year=date("Y",$time);
-							$c_month = substr($month,0,3).'-'.$year;
-							if(!in_array($c_month ,$array_date) && ($m_ads->payment_status == 1)){
-								$array_date[] = $c_month;?>
-					<div class="singleBar">
-						<div class="bar">
-							<div class="value">
-								<span style='color:black;'><?php echo round($m_ads->t_paid,2); ?></span>
-							</div>
-						</div>
-						<div class="title"><?php echo substr($month,0,3) .'<br/>'.$year; ?></div>
-					</div>
-					<?php }elseif(!in_array($c_month ,$array_date)){
-						$array_date[] = $c_month;?>
-					<div class="singleBar">
-						<div class="bar">
-							<div class="value">
-								<span>0</span>
-							</div>
-						</div>
-						<div class="title"><?php echo substr($month,0,3) .'<br/>'.$year; ?></div>
-					</div>
-					<?php }	?>
-					<?php } */?>
+				}?>
 					<div class="clearfix"></div>
 				</div>
 			</div>
@@ -234,7 +178,9 @@
 			<div class="box-content">
 				<div class="todo metro">
 					<ul class="todo-list">
-						<?php foreach($latest_ads as $l_ads){
+						<?php
+						$li_class = '';
+						 foreach($latest_ads as $l_ads){
 							if($l_ads->package_type == 3){$li_class = 'blue';}
 							else if($l_ads->package_type == 2){$li_class = 'yellow';}
 							else if($l_ads->package_type == 1){$li_class = 'green';}
