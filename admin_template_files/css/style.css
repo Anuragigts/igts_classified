@@ -3003,6 +3003,9 @@ ul.messagesList li span.date {
 	word-wrap: break-word !important;
 	width: 397px;
 }  
-.controls .error{
+.controls .error,.text-red{
 color: red !important;
+}
+.text-red{
+	color: red !important;
 }
