@@ -4446,7 +4446,7 @@ a .login-op-btn:hover{
 
 .featured_badge_view {
     width: 136px;
-	height: 86px;
+	height: 48px;
 	background: transparent url("../img/icons/reco.png") no-repeat;
 	position: absolute;
 	top: 0;
@@ -6187,4 +6187,16 @@ top:20%;
 }
 .package_ckech label{
 	width:200px;
+}
+.top_35{
+	padding-top:35px !important;
+}
+.you_tube_link{
+	color: rgb(255, 255, 255);
+	background-color: rgb(70, 179, 140);
+	padding: 14px 31px;
+	border-radius: 7px;
+}
+.you_tube_link:hover{
+	color:#fff !important;
 }
