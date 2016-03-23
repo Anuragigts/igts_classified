@@ -64,6 +64,7 @@ $route['boats-services'] = "boats_view";
 
 
 /* Inner Pages Links */
+$route['deals-status'] = "deals_status";
 $route['deals-administrator'] = "deals_administrator";
 $route['deals-administrator-box'] = "deals_administrator_box";
 $route['how-it-works'] = "how_it_works";
