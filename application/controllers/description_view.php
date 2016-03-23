@@ -11,6 +11,8 @@ class Description_view extends CI_Controller{
                 $this->load->model("classifed_model");
                }
         public function index(){
+            $this->session->unset_userdata("cancelad");
+            $this->session->unset_userdata('postad_success');
             if ($this->session->userdata('login_id') == '') {
                    redirect('login');
                 }

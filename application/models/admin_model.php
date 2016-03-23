@@ -287,12 +287,18 @@ class Admin_model extends CI_Model{
 			
 			$this->db->from('postad as p_ad');
 			if($this->session->userdata('user_type') != 1){
-				$cats_list = explode(',',$cats->cat_ids);		
-				$this->db->where_in('category_id',$cats_list);
+				if (!empty($cats)) {
+					$cats_list = explode(',',$cats->cat_ids);		
+					$this->db->where_in('category_id',$cats_list);
+				}
+				else{
+					$this->db->where_in('category_id',0);
+				}
 			}
-			$this->db->where_in('pkg_l.status',1);
+			$this->db->where('pkg_l.status',1);
+			$this->db->where('p_ad.ad_status',1);
 			$this->db->join("pkg_duration_list as pkg_l","p_ad.package_type = pkg_l.pkg_dur_id","inner");
-			$this->db->group_by('p_ad.package_type');
+			$this->db->group_by('pkg_l.pkg_dur_name');
 			
 			$count_ads = $this->db->get()->result();
 			//echo $this->db->last_query();//exit;

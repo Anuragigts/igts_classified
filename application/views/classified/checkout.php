@@ -86,7 +86,10 @@
 												<tr>
 													<th colspan="2">&nbsp;</th>
 													<th class="dis_width">VAT TAX</th>
-													<th><?php echo "+".round(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100),2); ?></th>
+													<th><?php
+													$vat = ($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100);
+													echo "+".substr($vat,0,strpos($vat,".") + 3);
+													 ?></th>
 												</tr>
 												<tr>
 													<th colspan="2">&nbsp;</th>
@@ -117,7 +120,10 @@
 													</th>
 													<?php } ?>
 													<th class="tot_top">Total :</th>
-													<th class="tot_top total_amt"><?php echo round(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)+(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100)),2); ?></th>
+													<th class="tot_top total_amt"><?php 
+													 $t_amt = ($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)+(($tran_details->cost_pound+$tran_details->u_pkg__pound_cost)*(20/100));
+													 echo substr($t_amt, 0, strpos($t_amt, ".")+3);
+													  ?></th>
 												</tr>
 												<tr>
 													<td  colspan='4'class='response_coupon'></td>

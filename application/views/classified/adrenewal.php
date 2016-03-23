@@ -108,7 +108,7 @@
 														</label>
 													</td>
 													<th>VAT</th>
-													<th class='vat_tax'><?php echo round($vat,2); ?></th>
+													<th class='vat_tax'><?php echo substr($vat, 0,strpos($vat,".")+3); ?></th>
 												</tr>
 											</tbody>
 											<thead>
@@ -127,7 +127,7 @@
 														<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
 													</th>
 													<th class="tot_top">Total :</th>
-													<th class="tot_top total_amt"><?php echo round($price1,2); ?></th>
+													<th class="tot_top total_amt"><?php echo substr($price1, 0,strpos($price1,".")+3); ?></th>
 												</tr>
 												<tr>
 													<td  colspan='4'class='response_coupon'></td>

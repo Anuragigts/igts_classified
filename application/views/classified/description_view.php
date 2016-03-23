@@ -72,8 +72,8 @@
 				}
 				
 				$(".favourite_label").click(function(){
-					var log = $("#login_status").val();
-					if (log == 'no') {
+					var log = $("#login_id").val();
+					if (log == '') {
 						window.location.href = "<?php echo base_url(); ?>login";
 					}
 					var val = $(".favourite_label1").hasClass('active');
@@ -88,9 +88,10 @@
 						},
 						
 						success: function (data) {
+							$(".favourite_label1").addClass('active');
 						}
 					})
-						$(".favourite_label1").addClass('active');
+						
 					}
 					else{
 						
@@ -103,9 +104,10 @@
 						},
 						
 						success: function (data) {
+							$(".favourite_label1").removeClass('active');
 						}
 					})
-						$(".favourite_label1").removeClass('active');
+						
 					}
 				});
 				function rgb2hex(rgb){
@@ -116,8 +118,8 @@
 				  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 				}
 				$('.bg_clr1').click( function() {
-					var log = $("#login_status").val();
-					if (log == 'no') {
+					var log = $("#login_id").val();
+					if (log == '') {
 						window.location.href = "<?php echo base_url(); ?>login";
 					}
 					if (rgb2hex($(this).css('color')) == '#727272') {

@@ -97,18 +97,6 @@
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="pkg_web_link">WebLink</label>
-							<div class="controls">
-								<input type="text" name='pkg_web_link' id="pkg_web_link" value='<?php echo $ads_details->web_link; ?>' readonly>
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="service_type">Service Type</label>
-							<div class="controls">
-								<input type="text" id="service_type" name="service_type" value='<?php echo $ads_details->service_type; ?>'>
-							</div>
-						</div>
-						<div class="control-group">
 							<label class="control-label" for="urg_type">Urgent Label Type</label>
 							<div class="controls">
 								<select id="urg_type" name="urg_type" disabled>

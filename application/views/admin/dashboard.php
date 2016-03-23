@@ -105,11 +105,11 @@
 							}
 			?>
 		<?php foreach($no_of_ads as $p_ads){
-			if($p_ads->package_type == 1) {
+			if($p_ads->package_type == 1 || $p_ads->package_type == 4) {
 				$list_of_count =$free_list;
-			}else if($p_ads->package_type == 2){
+			}else if($p_ads->package_type == 2 || $p_ads->package_type == 5){
 				$list_of_count =$gold_list;
-			}else if($p_ads->package_type == 3){
+			}else if($p_ads->package_type == 3 || $p_ads->package_type == 6){
 				$list_of_count =$platinum_list;
 			}
 			?>

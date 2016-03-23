@@ -124,10 +124,13 @@ class Ads_model extends CI_Model{
 				$ad_type = $this->uri->segment(3);
 				if($ad_type == 'platinum'){
 					$this->db->where('p_add.package_type','3');
+					$this->db->or_where('p_add.package_type','6');
 				}else if($ad_type == 'gold'){
 					$this->db->where('p_add.package_type','2');
+					$this->db->or_where('p_add.package_type','5');
 				}else{
 					$this->db->where('p_add.package_type','1');
+					$this->db->or_where('p_add.package_type','4');
 				}
 			}
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');

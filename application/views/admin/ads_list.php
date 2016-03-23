@@ -109,7 +109,7 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Adds</h2>
+				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Ads</h2>
 				<div class="box-icon">
 					<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -139,7 +139,13 @@
 						<tr class="odd gradeX">
 							<td><?php if($ads->ad_status != 1){?><input type='checkbox' name='deal_id[]' class='deal_id' id='deal_id<?php echo $ads->ad_id; ?>' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'><?php }?></td>
 							<td><?php echo ucwords($ads->deal_tag);?></td>
-							<td><?php echo ucwords($ads->pkg_name);?></td>
+							<?php if ($ads->urgent_package != 0) { ?>
+								<td><?php echo ucwords($ads->pkg_name)."+ Urgent";?></td>
+							<?php }
+							else{ ?>
+								<td><?php echo ucwords($ads->pkg_name);?></td>
+							<?php } ?>
+							
 							<td><?php echo ucwords($ads->category_name);?></td>
 							<td><?php echo $ads->price;?></td>
 							<td><?php echo $ads->created_on;?></td>

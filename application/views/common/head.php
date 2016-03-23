@@ -102,7 +102,7 @@
 	                });
 				});
 				
-				$('#bus_fname').keydown(function (e) {
+				/*$('#bus_fname').keydown(function (e) {
                     if (e.shiftKey || e.ctrlKey || e.altKey) {
                     e.preventDefault();
                     } else {
@@ -144,7 +144,7 @@
                         e.preventDefault();
                         }
                     }
-                });
+                });*/
 
 
 			});

@@ -101,26 +101,19 @@ class Payments extends CI_Controller
 		else{
 			$amt = $p_amt->cost_pound;
 		}
-		$amt1 = round((($amt)+($amt)*(0.2)), 2);
+		$amt1 = (($amt)+($amt)*(0.2));
 		$c_info = $this->coupons_model->get_c_result($c_code);
 		//echo '<pre>';print_r($c_info);echo '</pre>';
 		if(count($c_info) == 1){
 			$disc_aamt = $amt1*$c_info->c_value;
 			//echo round($disc_aamt, 2).'<br/>';
-			$pkg_disc_amt =  round($amt1-(round($disc_aamt, 2))/100,2);
+			$pkg_disc_amt =  $amt1-($disc_aamt)/100;
 			//$payment = $amt*($c_info->c_value)/100;
 		}else{
 			$pkg_disc_amt = $amt1;
 		}
-		$t_amt = round($pkg_disc_amt, 2);
-		// exit;
+		 $t_amt = substr($pkg_disc_amt, 0, strpos($pkg_disc_amt, ".")+3);
 		
-		/*if($coup_ad_amt < $post_ad_amt && $coup_ad_amt !=0 ){
-			$amt = $coup_ad_amt;
-		}else{
-			 $amt = $post_ad_amt;
-		}*/
-
         //Set variables for paypal form
         $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //test PayPal api url
         $paypalID = 'amanbabu-facilitator@gmail.com'; //business email
@@ -202,10 +195,12 @@ class Payments extends CI_Controller
      		$urgprice = 0;	
      	}
      	$rs = $this->payment_models->pckcost($pckid);
+     	$cost1 = (($rs->cost_pound + $urgprice) + (($rs->cost_pound + $urgprice)*0.2));
+     	$vat = (($rs->cost_pound + $urgprice)*0.2);
      	echo json_encode(
      		array('cost' => ($rs->cost_pound + $urgprice),
-     			'cost1' => round((($rs->cost_pound + $urgprice) + (($rs->cost_pound + $urgprice)*0.2)),2),
-     			'vat_tax' => round((($rs->cost_pound + $urgprice)*0.2),2)
+     			'cost1' => substr($cost1,0,strpos($cost1,".")+3),
+     			'vat_tax' => substr($vat,0,strpos($vat,".")+3)
      			));
      }
 
@@ -221,10 +216,12 @@ class Payments extends CI_Controller
      	}
 
      	$rs = $this->payment_models->pckcost($pckid);
+     	$cost1 = (($rs->cost_pound + $urgprice) + (($rs->cost_pound + $urgprice)*0.2));
+     	$vat = (($rs->cost_pound + $urgprice)*0.2);
      	echo json_encode(
 			array('cost' => ($rs->cost_pound + $urgprice),
-				'cost1' => round((($rs->cost_pound + $urgprice) + (($rs->cost_pound + $urgprice)*0.2)),2),
-				'vat_tax' => round((($rs->cost_pound + $urgprice)*0.2),2)
+				'cost1' => substr($cost1,0,strpos($cost1,".")+3),
+     			'vat_tax' => substr($vat,0,strpos($vat,".")+3) 
 				));
      }
 
@@ -254,9 +251,9 @@ class Payments extends CI_Controller
 								'c_value' 		=>		$c_info->c_value,
 								'max_cus' 		=>		$c_info->max_cus,
 								'used_count' 	=>		$c_info->used_count,
-								'pkg_disc_amt'	=>		round($pkg_disc_amt,2),
-								'disc'			=>		round($disc,2),
-								'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b>$c_info->c_code </b>, The Amount to be paid is ".round($pkg_disc_amt, 2)."</span>"
+								'pkg_disc_amt'	=>		substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3),
+								'disc'			=>		substr($disc, 0,strpos($disc, ".")+3),
+								'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b>$c_info->c_code </b>, The Amount to be paid is ".substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3)."</span>"
 					); 
 					$info = json_encode($c_details);
 					echo $info;
@@ -270,9 +267,9 @@ class Payments extends CI_Controller
 								'c_value' 		=>		$c_info->c_value,
 								'max_cus' 		=>		$c_info->max_cus,
 								'used_count' 	=>		$c_info->used_count,
-								'pkg_disc_amt'	=>		round($pkg_disc_amt, 2),
-								'disc'			=>		round($disc,2),
-								'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b> $c_info->c_code </b>, The Amount to be paid is ".round($pkg_disc_amt, 2)."</span>"
+								'pkg_disc_amt'	=>		substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3),
+								'disc'			=>		substr($disc, 0,strpos($disc, ".")+3),
+								'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b> $c_info->c_code </b>, The Amount to be paid is ".substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3)."</span>"
 					); 
 					$info = json_encode($c_details);
 					echo $info;
@@ -282,7 +279,7 @@ class Payments extends CI_Controller
 								'c_value' 		=>		0,
 								'max_cus' 		=>		0,
 								'used_count' 	=>		$c_info->used_count,
-								'pkg_disc_amt'	=>		round($amt, 2),
+								'pkg_disc_amt'	=>		substr($amt, 0,strpos($amt,".")+3),
 								'disc'			=>		0.00,
 								'c_responce'	=>		"<span style='color:red'>The Coupon Code you have added is Expired or Invalid.</span>" 
 					); 
@@ -329,18 +326,16 @@ class Payments extends CI_Controller
      	}
      	$rs = $this->payment_models->pckcost($pcktype);
      	$price = $rs->cost_pound + $urgprice;
-		$amt1 = round(($price+($price)*(0.2)), 2);
+		$amt1 = ($price+($price)*(0.2));
 		$c_info = $this->coupons_model->get_c_result($c_code);
-		//echo '<pre>';print_r($c_info);echo '</pre>';
 		if(count($c_info) == 1){
 			$disc_aamt = $amt1*$c_info->c_value;
-			$pkg_disc_amt =  round($amt1-(round($disc_aamt, 2))/100,2);
+			$pkg_disc_amt =  $amt1-($disc_aamt)/100;
 		}else{
 			$pkg_disc_amt = $amt1;
 		}
-		$t_amt = round($pkg_disc_amt, 2);
+		$t_amt = substr($pkg_disc_amt, 0,strpos($pkg_disc_amt,".")+3);
 		
-
         //Set variables for paypal form
         $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //test PayPal api url
         $paypalID = 'amanbabu-facilitator@gmail.com'; //business email

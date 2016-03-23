@@ -96,7 +96,7 @@
 				else{
 					$amt1 = $p_amt->cost_pound;
 				}
-				$amt = round((($amt1)+($amt1)*(0.2)), 2);
+				$amt = (($amt1)+($amt1)*(0.2));
 				$c_info = $this->coupons_model->get_c_result($c_code);
 				if(count($c_info) == 1){
 					$disc = $amt*($c_info->c_value)/100;
@@ -109,9 +109,9 @@
 										'c_value' 		=>		$c_info->c_value,
 										'max_cus' 		=>		$c_info->max_cus,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		round($pkg_disc_amt,2),
-										'disc'			=>		round($disc,2),
-										'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b>$c_info->c_code </b>, The Amount to be paid is ".round($pkg_disc_amt, 2)."</span>"
+										'pkg_disc_amt'	=>		substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3),
+										'disc'			=>		substr($disc, 0,strpos($disc, ".")+3),
+										'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b>$c_info->c_code </b>, The Amount to be paid is ".substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3)."</span>"
 							); 
 							$info = json_encode($c_details);
 							echo $info;
@@ -124,9 +124,9 @@
 										'c_value' 		=>		$c_info->c_value,
 										'max_cus' 		=>		$c_info->max_cus,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		round($pkg_disc_amt, 2),
-										'disc'			=>		round($disc,2),
-										'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b> $c_info->c_code </b>, The Amount to be paid is ".round($pkg_disc_amt, 2)."</span>"
+										'pkg_disc_amt'	=>		substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3),
+										'disc'			=>		substr($disc, 0,strpos($disc, ".")+3),
+										'c_responce'	=>		"<span style='color:green'>After Applying the Coupon <b> $c_info->c_code </b>, The Amount to be paid is ".substr($pkg_disc_amt,0,strpos($pkg_disc_amt, ".")+3)."</span>"
 							); 
 							$info = json_encode($c_details);
 							echo $info;
@@ -136,7 +136,7 @@
 										'c_value' 		=>		0,
 										'max_cus' 		=>		0,
 										'used_count' 	=>		$c_info->used_count,
-										'pkg_disc_amt'	=>		round($amt, 2),
+										'pkg_disc_amt'	=>		substr($amt, 0,strpos($amt,".")+3),
 										'disc'			=>		0.00,
 										'c_responce'	=>		"<span style='color:red'>The Coupon Code you have added is Expired or Invalid.</span>" 
 							); 
@@ -150,7 +150,7 @@
 									'c_value' 		=>		0,
 									'max_cus' 		=>		0,
 									'used_count' 	=>		0,
-									'pkg_disc_amt'	=>		round($amt, 2),
+									'pkg_disc_amt'	=>		$amt,
 									'disc'			=>		0.00,
 									'c_responce'	=>		"<span style='color:red'>The Coupon Code you have added is Expired or Invalid.</span>" 
 						); 

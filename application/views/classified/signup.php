@@ -62,9 +62,18 @@
 						required: true,
 						email: true
 					},
-					bus_fname: "required",
-					bus_lname: "required",
-					bus_name: "required",
+					bus_fname: {
+						required: true,
+						character:true
+					},
+					bus_lname: {
+						required: true,
+						character:true
+					},
+					bus_name: {
+						required: true,
+						character:true
+					},
 					bus_address: "required",
 					bus_mobile: "required",
 					bus_email: {
@@ -73,12 +82,6 @@
 					},
 					bus_password: {
 						required: true,
-						// minlength: 8,
-						pwcheck: true
-					},
-					con_password: {
-						required: true,
-						// minlength: 8,
 						pwcheck: true
 					},
 				},
@@ -86,19 +89,28 @@
 				// Specify the validation error messages
 				messages: {
 					con_fname: {
-						required: "Please enter your first name",
+						required: "Please enter your First name",
 						character: "please Enter characters"
 					},
 					con_lname: {
-						required: "Please enter your first name",
+						required: "Please enter your Last name",
 						character: "please Enter characters"
 					},
-					con_mobile: "Please enter your 10 Digit Mobile No",
-					bus_fname: "Please enter your first name",
-					bus_lname: "Please enter your last name",
-					bus_name: "Please enter your Business name",
+					con_mobile: "Please enter your 11 Digit Mobile No",
+					bus_fname: {
+						required: "Please enter your First name",
+						character: "please Enter characters"
+					},
+					bus_lname: {
+						required: "Please enter your Last name",
+						character: "please Enter characters"
+					},
+					bus_name: {
+						required: "Please enter your Business name",
+						character: "please Enter characters"
+					},
 					bus_address: "Please enter your Business Address",
-					bus_mobile: "Please enter your 10 Digit Mobile No",
+					bus_mobile: "Please enter your 11 Digit Mobile No",
 					bus_password: {
 						required: "Please provide a password",
 						// minlength: "Your password must be at least 8 characters long",

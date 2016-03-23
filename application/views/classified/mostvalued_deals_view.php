@@ -53,7 +53,7 @@
 											</div>
 										</div>
 										
-										<div class="sort-by-container tooltip-hover">
+										<!-- <div class="sort-by-container tooltip-hover">
 											<div class="row">
 												<div class="col-md-12">
 													<strong>Sort by:</strong>
@@ -85,7 +85,7 @@
 													</ul>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										
 										<div class="row">
 										

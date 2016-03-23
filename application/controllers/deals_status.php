@@ -12,6 +12,7 @@ class  Deals_status extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
+            $this->session->unset_userdata("cancelad");
             $this->session->unset_userdata('postad_success');
             $config = array();
             $config['base_url'] = base_url().'deals_status/index';
