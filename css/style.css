@@ -3365,11 +3365,18 @@ hr.separator:before {
     padding: 22px 28px 0px;
     margin-top: 20px;
 }
+<<<<<<< .mine
+.view_sidebar1{
+	background: transparent url("../img/icons/imp.png") no-repeat scroll center center;
+	padding: 39px 30px 0px;
+	height:320px;
+=======
 .view_sidebar1 {
     background: transparent url("../img/icons/imp.png") no-repeat scroll center center;
     padding: 39px 30px 0px;
     height: 300px;
     margin-top: 20px;
+>>>>>>> .r1095
 }
 .phn {
     font-size: 1.2rem !important;
@@ -6038,8 +6045,9 @@ strong {
 .euro_sym:before {
     content: '€';
 }
-.view_sidebar1 p {
-    font-size: 12px;
+
+.view_sidebar1 p{
+	font-size: 15px;
 }
 .cloth_h3 h3 {
     font-size: 20px;
