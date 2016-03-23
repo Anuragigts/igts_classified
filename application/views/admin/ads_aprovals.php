@@ -130,7 +130,7 @@
 							<th>Price</th>
 							<th>Posted On</th>
 							<th>Expire On</th>
-							<th>Gallery</th>
+							<!-- <th>Gallery</th> -->
 							<th>Status</th>
 							<th>View</th>
 							<th style='width:55px;'>Action</th>
@@ -150,7 +150,7 @@
 							<td><?php echo $ads->created_on;?></td>
 							<td><?php echo $ads->expire_data;?></td>
 							<!--<td title ='<?php echo $ads->deal_desc?>'><?php echo substr($ads->deal_desc, '0', '20');?></td>-->
-							<td><a href='<?php echo base_url();?>ads/multimedia/<?php echo $ads->ad_id.'/';?>'>Images</a>
+							<!-- <td><a href='<?php echo base_url();?>ads/multimedia/<?php echo $ads->ad_id.'/';?>'>Images</a></td> -->
 							<td><?php if($ads->ad_status == 1)echo 'Approved'; 
 								else if($ads->ad_status == 0)echo 'New';
 								else if($ads->ad_status == 2)echo 'InProgress';

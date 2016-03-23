@@ -56,7 +56,7 @@
 											<thead>
 												<tr>
 													<th class="preview">Preview</th>
-													<th class="product">Add Title</th>
+													<th class="product">Ad Title</th>
 													<th class="price">Price</th>
 													<th class="total">Total</th>
 												</tr>

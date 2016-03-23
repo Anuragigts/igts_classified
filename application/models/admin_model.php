@@ -306,14 +306,14 @@ class Admin_model extends CI_Model{
 			return $pkg_details;
 		}
 		function get_latest_ads(){
-			$this->db->select();
-			$this->db->where('created_on <', date('Y-m-d'));
-			//$this->db->from('postad');
-			$this->db->order_by('created_on','desc');
-			$latest_ads = $this->db->get('postad',10,5)->result();
-			//echo '<pre>';print_r($latest_ads);echo '</pre>';
-			//echo $this->db->last_query();exit;
-			return $latest_ads;
+			$date = date('Y-m-d H:i:s');
+			$qry = $this->db->query("SELECT *, DATE_FORMAT(STR_TO_DATE(created_on,
+			'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') AS n FROM (`postad`)
+			WHERE DATE_FORMAT(STR_TO_DATE(created_on,
+			'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') < '$date'
+			ORDER BY n DESC LIMIT 10");
+			$qry1 = $qry->result();
+			return $qry1;
 		}
 		function get_profile_details(){
 			$this->db->select();

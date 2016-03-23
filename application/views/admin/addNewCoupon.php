@@ -19,7 +19,7 @@
 	</div>
 	<br>
 	<?php }?>
-	<?php if($this->session->flashdata('msg') != ''){?>
+	<?php if($this->session->flashdata('msg') != ''){ ?>
 	<div class="alert alert-block alert-info fade in no-margin">
 		<button data-dismiss="alert" class="close" type="button">
 		×
@@ -30,9 +30,6 @@
 	</div>
 	<br>
 	<?php }?>
-	<?php //echo '<pre>';print_r($staff_type);echo '</pre>';?>
-	<?php //echo '<pre>';print_r($urgent_label);echo '</pre>';?>
-	<?php //echo '<pre>';print_r($category_list[0]);echo '</pre>';?>
 	<div class="row-fluid ">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
@@ -49,13 +46,13 @@
 							<div class="controls">
 								<input type="text" id="c_prefix" name="c_prefix" value='<?php echo set_value('c_prefix'); ?>'maxlength = "6" style="text-transform:uppercase" >
 								<span class="code_exist error"></span>
-								<span><?php echo form_error('c_prefix'); ?></span>
+								<span class="error"><?php echo form_error('c_prefix'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="c_value"> Coupon Value</label>
 							<div class="controls">
-								<input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'onkeypress="return isNumber(event)" maxlength = "2"><span><?php echo form_error('c_value'); ?></span>
+								<input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'onkeypress="return isNumber(event)" maxlength = "2"><span class="error"><?php echo form_error('c_value'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">
@@ -89,4 +86,10 @@
 	    return true;
 	}
 	
+</script>
+
+<script type="text/javascript">
+	setTimeout(function(){
+		 $(".alert").hide();
+	},4000);
 </script>

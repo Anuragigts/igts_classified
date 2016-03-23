@@ -181,9 +181,9 @@
 						<?php
 						$li_class = '';
 						 foreach($latest_ads as $l_ads){
-							if($l_ads->package_type == 3){$li_class = 'blue';}
-							else if($l_ads->package_type == 2){$li_class = 'yellow';}
-							else if($l_ads->package_type == 1){$li_class = 'green';}
+							if($l_ads->package_type == 3 || $l_ads->package_type == 6){$li_class = 'blue';}
+							else if($l_ads->package_type == 2 || $l_ads->package_type == 5){$li_class = 'yellow';}
+							else if($l_ads->package_type == 1 || $l_ads->package_type == 4){$li_class = 'green';}
 							?>
 						<li class="<?php echo $li_class; ?>">
 							<?php echo ucwords($l_ads->deal_tag);?>	
