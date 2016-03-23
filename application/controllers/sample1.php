@@ -20,7 +20,9 @@ class Sample1 extends CI_Controller{
         }
 
         public function json_demo(){
-                $url = "http://esytopup.co.in/testing/test1/flight/test_json";
+                $vrm = $this->input->post('vrm');
+                // $url = "https://api.vehicleis.uk/vehicle-search/?vrm=".$vrm."&api_key=2139ed51b08fe88dab91aff8dd2c3be0";
+                $url = "http://phpmail.local/json_view.php";
                 $ch = curl_init();
                 // Disable SSL verification
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -39,9 +41,9 @@ class Sample1 extends CI_Controller{
                         'colour'=>$json_response['data']['vehicle_information']['colour'],
                         'manufacture_year'=>$json_response['data']['vehicle_information']['manufacture_year'],
                         'fuel_type'=>$json_response['data']['vehicle_information']['fuel_type'],
-                        'engine_size'=>$json_response['data']['vehicle_information']['engine_size'],
+                        'engine_size'=>$json_response['data']['vehicle_information']['engine_size']/*,
                         'no_miles'=>$json_response['data']['mot_history']['odometer_reading'],
-                        'status'=>$json_response['data']['mot_history']['test_result']
+                        'status'=>$json_response['data']['mot_history']['test_result']*/
                         );
                 echo json_encode($res_array);
         }
