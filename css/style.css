@@ -339,7 +339,7 @@ hr.tall {
 }
 .list-styles li a,
 .list-styles li {
-    font-size: 13px;
+    font-size: 12px;
 }
 .list-styles li i {
     border-radius: 50%;
@@ -5630,7 +5630,7 @@ img::-moz-selection {
     color: #fff;
 }
 .list-styles {
-    padding-left: 20px;
+    padding-left: 15px;
 }
 .list-styles li i {
     margin-left: -20px;
