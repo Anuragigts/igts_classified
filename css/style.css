@@ -5827,10 +5827,7 @@ strong {
 .dis_width {
     width: 150px;
 }
-.cart_image img {
-    width: 200px;
-    height: 110px;
-}
+
 .chck_bg_clr {
     background-color: #E95413;
 }
@@ -6187,3 +6184,6 @@ a.linkedin-big:before {
 .you_tube_link:hover{
 	color:#fff !important;
 }
+/* .chech_desc_wid{
+	width:300px;
+} */

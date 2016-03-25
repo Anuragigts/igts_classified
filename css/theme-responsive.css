@@ -374,8 +374,8 @@
 	}
 	.post_deal_bor {
 		border: 2px solid rgb(155, 147, 147);
-		padding: 11px 7px 0px;
 		width: 256px;
+		padding: 0px 6px 0px;
 	}
 	.selector1 select {
 		height: 50px;
@@ -482,6 +482,9 @@
 	}
 	.set-2 ul li{
 		padding-bottom: 10px;
+	}
+	.product{
+		display:none;
 	}
 	/* .loca_pad {
 		padding: 0px 6px;
