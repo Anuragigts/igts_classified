@@ -471,9 +471,6 @@
 	.bus_rec_badge {
 		margin-left: 170px;
 	}
-	.significant_badge {
-		margin-left: 246px;
-	}
 	tr .preview img{
 		width:80px;
 	}
@@ -485,6 +482,17 @@
 	}
 	.product{
 		display:none;
+	}
+	.significant_ad img {
+		width: 318px !important;
+		height: 232px !important;
+	}
+	.significant_badge {
+		margin-left: 206px;
+	}
+	.j-forms {
+		background-color: none !important;
+		box-shadow: none !important;
 	}
 	/* .loca_pad {
 		padding: 0px 6px;

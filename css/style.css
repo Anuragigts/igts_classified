@@ -216,7 +216,7 @@ h6,
 p {
     margin: 0px 0px 20px;
     color: #777;
-    font-size: 0.875rem;
+    font-size: 0.905rem;
     line-height: 1.5rem;
     word-wrap: break-word !important;
 }
@@ -2441,7 +2441,7 @@ hr.separator:before {
     padding: 15px 20px 11px 44px;
     text-decoration: none;
     border: solid 1px #dedede;
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #232323;
     margin-bottom: 5px;
 }
@@ -2451,7 +2451,7 @@ hr.separator:before {
 .acc-trigger a:hover,
 .acc-trigger.active a,
 .acc-trigger.active a:hover {
-    color: #2F92EE;
+    color: #46B38C;
 }
 .acc-trigger.active {
     cursor: default;
@@ -4046,10 +4046,10 @@ address strong {
 .item-service-line h5 {
     font-size: 19px;
 }
-.significant_ad img {
+/* .significant_ad img {
     width: 400px;
     height: 348px;
-}
+} */
 .top_10 {
     padding-top: 10px !important;
 }
@@ -6187,3 +6187,6 @@ a.linkedin-big:before {
 /* .chech_desc_wid{
 	width:300px;
 } */
+.dashboard_tag li a {
+    text-transform: uppercase;
+}
