@@ -72,7 +72,7 @@
 								<div class="col-md-9">
 									
 									<div class="accrodation">
-									   <span class="acc-trigger"><a href="#">INTRODUCTION</a></span>
+										<span class="acc-trigger"><a href="#">INTRODUCTION</a></span>
 										<div class="acc-container">
 											<div class="content active">
 												<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use, which together with our privacy policy govern '99rightDeals’ relationship with you in relation to this website. These terms and conditions are effective from 1st March 2016 and form a legally binding agreement between you and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, any preceding terms and conditions will be superseded by this one. These terms shall take effect when you use the website for the first time. If you disagree with any part of these terms and conditions, please do not use our website.</p>

@@ -189,149 +189,147 @@
 								<!-- Item Table-->
 								<form id="j-forms" action="#" class="j-forms tooltip-hover change_pwd" method="post">
 									<div class="col-sm-9">
-										<div class="row">
-											<div class="col-sm-12">
-												<h2>Update Profile</h2>
-												<hr>
-											</div>
-										</div>
-										<?php echo $this->view("classified_layout/success_error"); ?>		
-										<div class="row">
-											<!-- contact details-->
-											<div class="col-sm-6">
-												<div class="row">
-													<div class="col-sm-12 unit">
-														<h3>Change Profile</h3>
-														<label class="label">First Name 
-														<sup data-toggle="tooltip" title="" data-original-title="First Name">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
-														</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="firstnamepost">
-															<i class="fa fa-user"></i>
-															</label>
-															<input type="hidden" id="profile_id" name="profile_id" value="<?php echo $prof_id; ?>"  >
-															<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" value="<?php echo $fname; ?>"  >
+										<div class="accrodation">
+											<span class="acc-trigger"><a href="#">UPDATE PROFILE</a></span>
+											<div class="acc-container">
+												<div class="active">
+													<?php echo $this->view("classified_layout/success_error"); ?>		
+													<div class="row top_20">
+														<!-- contact details-->
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-sm-12 unit">
+																	<h3>Change Profile</h3>
+																	<label class="label">First Name 
+																	<sup data-toggle="tooltip" title="" data-original-title="First Name">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+																	</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="firstnamepost">
+																		<i class="fa fa-user"></i>
+																		</label>
+																		<input type="hidden" id="profile_id" name="profile_id" value="<?php echo $prof_id; ?>"  >
+																		<input type="text" id="firstnamepost" name="firstnamepost" placeholder="Enter First Name" value="<?php echo $fname; ?>"  >
+																	</div>
+																</div>
+																<div class="col-sm-12 unit">
+																	<label class="label">Last Name 
+																	<sup data-toggle="tooltip" title="" data-original-title="Last Name">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+																	</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="lastnamepost">
+																		<i class="fa fa-user"></i>
+																		</label>
+																		<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" value="<?php echo $lname; ?>" >
+																	</div>
+																</div>
+																<div class="col-sm-12 unit">
+																	<label class="label">Contact Number 
+																	<sup data-toggle="tooltip" title="" data-original-title="Contact Number">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+																	</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="phone">
+																		<i class="fa fa-phone"></i>
+																		</label>
+																		<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='10' onkeypress="return isNumber(event)" >
+																	</div>
+																</div>
+																<div class="col-sm-12 unit">													
+																	<button class="btn btn-primary " id='save_changes' >Save Changes</button>
+																</div>
+															</div>
 														</div>
-													</div>
-													<div class="col-sm-12 unit">
-														<label class="label">Last Name 
-														<sup data-toggle="tooltip" title="" data-original-title="Last Name">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
-														</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="lastnamepost">
-															<i class="fa fa-user"></i>
-															</label>
-															<input type="text" id="lastnamepost" name="lastnamepost" placeholder="Enter Last Name" value="<?php echo $lname; ?>" >
+														<!-- Change password-->
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-sm-12 unit">
+																	<h3>Change password</h3>
+																	<label class="label">Current Password 
+																	<sup data-toggle="tooltip" title="" data-original-title="Current Password ">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+																	</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="currentpasspost">
+																		<i class="fa fa-lock"></i>
+																		</label>
+																		<input type="password" id="currentpasspost" name="currentpasspost" placeholder="Enter Current Password" >
+																		<?php echo form_error("currentpasspost");?>
+																	</div>
+																</div>
+																<div class="col-sm-12 unit">
+																	<label class="label">New password 
+																	<sup data-toggle="tooltip" title="" data-original-title="Atleast 8 characters, one uppercase, one lowercase and one special character">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+																	</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="newpasspost">
+																		<i class="fa fa-lock"></i>
+																		</label>
+																		<input type="password" id="newpasspost" name="newpasspost" placeholder="Enter New password" >
+																		<?php echo form_error("newpasspost");?>
+																	</div>
+																</div>
+																<div class="col-sm-12 unit">
+																	<label class="label">Confirm password 
+																	<sup data-toggle="tooltip" title="" data-original-title="Should match with new password">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+																	</sup>
+																	</label>
+																	<div class="input">
+																		<label class="icon-right" for="confirmpasspost">
+																		<i class="fa fa-lock"></i>
+																		</label>
+																		<input type="password" id="confirmpasspost" name="confirmpasspost" placeholder="Enter Confirm password" >
+																		<?php echo form_error("confirmpasspost");?>
+																	</div>
+																</div>
+																<div class="col-sm-12 unit">													
+																	<button class="btn btn-primary " id='change_pwd'>Change Password</button>
+																</div>
+															</div>
 														</div>
-													</div>
-													<div class="col-sm-12 unit">
-														<label class="label">Contact Number 
-														<sup data-toggle="tooltip" title="" data-original-title="Contact Number">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
-														</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="phone">
-															<i class="fa fa-phone"></i>
-															</label>
-															<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='10' onkeypress="return isNumber(event)" >
-														</div>
-													</div>
-													<div class="col-sm-12 unit">													
-														<button class="btn btn-primary " id='save_changes' >Save Changes</button>
 													</div>
 												</div>
 											</div>
-											<!-- Change password-->
-											<div class="col-sm-6">
-												<div class="row">
-													<div class="col-sm-12 unit">
-														<h3>Change password</h3>
-														<label class="label">Current Password 
-														<sup data-toggle="tooltip" title="" data-original-title="Current Password ">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
-														</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="currentpasspost">
-															<i class="fa fa-lock"></i>
+											<span class="acc-trigger"><a href="#">DEACTIVATE ACCOUNT</a></span>
+											<div class="acc-container">
+												<div class="active top_20">
+													<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use,</p>
+													<div class="row">
+														<div class="col-sm-8 unit">
+															<label class="input select">
+																<select name="">
+																	<option value="none" selected disabled="">Select Option</option>
+																	<option value="" class="remove_text_box"> I Found My deals with another website. (one message box will open to specify the URL)</option>
+																	<option value="" class="remove_text_box">I am unhappy about services (one message box will open to specify the reason for unhappy)</option>
+																	<option value="" id="other_reason_show">Other Reasons </option>
+																</select>
+																<i></i>
 															</label>
-															<input type="password" id="currentpasspost" name="currentpasspost" placeholder="Enter Current Password" >
-															<?php echo form_error("currentpasspost");?>
+															<div class="unit" id="other_reason_hide" style="display:none;">
+																<div class="input">
+																	<label for="newpasspost">
+																	</label>
+																	<textarea type="password" id="" name="newpasspost" placeholder="Enter Your Reason" ></textarea>
+																</div>
+															</div>
 														</div>
 													</div>
-													<div class="col-sm-12 unit">
-														<label class="label">New password 
-														<sup data-toggle="tooltip" title="" data-original-title="Atleast 8 characters, one uppercase, one lowercase and one special character">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
-														</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="newpasspost">
-															<i class="fa fa-lock"></i>
-															</label>
-															<input type="password" id="newpasspost" name="newpasspost" placeholder="Enter New password" >
-															<?php echo form_error("newpasspost");?>
+													<div class="row">
+														<div class="col-sm-6">
+															<button class="btn btn-primary " id='deactivate_account'>Deactivate Account</button>
 														</div>
-													</div>
-													<div class="col-sm-12 unit">
-														<label class="label">Confirm password 
-														<sup data-toggle="tooltip" title="" data-original-title="Should match with new password">
-														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
-														</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="confirmpasspost">
-															<i class="fa fa-lock"></i>
-															</label>
-															<input type="password" id="confirmpasspost" name="confirmpasspost" placeholder="Enter Confirm password" >
-															<?php echo form_error("confirmpasspost");?>
-														</div>
-													</div>
-													<div class="col-sm-12 unit">													
-														<button class="btn btn-primary " id='change_pwd'>Change Password</button>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="separator">
-										<div class="row">
-											<div class="col-sm-12 unit">
-												<h3>Deactivate account</h3>
-												<div class="unit check">
-													<p><strong>Please don't leave us! </strong></p>
-													<p><strong>Every time an account is deactivated, one of the team cries and it takes hours to get them talking again :</strong></p>
-													<p><strong>If you 're really sure...</strong></p>
-													<p><strong>Please help us improve Classified by letting us know why you're leaving:</strong></p>
-													<label class="radio">
-													<input type="radio" name="you_make_it" value="Yeah" checked="">
-													<i></i>I don't have any more stuff to put on Classified
-													</label>
-													<label class="radio">
-													<input type="radio" name="you_make_it" value="Maybe">
-													<i></i>I didn't get enough response to my Deals on Classified
-													</label>
-													<label class="radio">
-													<input type="radio" name="you_make_it" value="I can't">
-													<i></i>I got too many spam emails from my Deals
-													</label>
-													<label class="radio">
-													<input type="radio" name="you_make_it" value="I can't">
-													<i></i>I'd rather not say
-													</label>
-													<label class="radio">
-													<input type="radio" name="you_make_it" value="I can't">
-													<i></i>Other
-													</label>
-												</div>
-												<button class="btn btn-primary " id='deactivate_account'>Deactivate Account</button>
-											</div>
-										</div>
-										<hr class="separator">
 									</div>
 								</form>
 							</div>

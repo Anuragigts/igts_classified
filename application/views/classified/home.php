@@ -231,7 +231,7 @@
 					<div class="">
 						<div class="container">
 							<div class="row">
-								<div class="col-sm-8">
+								<div class="col-md-8 col-sm-12 col-xs-12">
 									<div class="titles">
 										<h2>TOP <span>CATEGORIES </span></h2>
 										<hr class="tall">
@@ -324,7 +324,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-8 col-xs-12">
+								<div class="col-md-4 col-sm-4 col-xs-12 ">
 									<div class="titles">
 										<h2><span>HOT </span>DEALS</h2>
 										<hr class="tall">

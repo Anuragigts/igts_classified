@@ -241,6 +241,14 @@
 
 				});
 				
+				$("#other_reason_show").click(function(){
+					 $("#other_reason_hide").show(1000);
+				});
+				$(".remove_text_box").click(function(){
+					 $("#other_reason_hide").hide(1000);
+				});
+
+				
 				$("#pec_goldur_package").click(function(){
 					 var ch = document.getElementById('pec_goldur_package').checked;
 					 if (ch) {
