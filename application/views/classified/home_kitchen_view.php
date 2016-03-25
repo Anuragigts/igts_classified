@@ -70,6 +70,7 @@
 			  foreach ($sellerneededcount as $sncnt) {
 				$seller = $sncnt->seller;
 				$needed = $sncnt->needed;
+				$charity = $sncnt->charity; 
 			  }
 				$kitchen_sub = $this->session->userdata('kitchen_search');
 				$seller_deals = $this->session->userdata('seller_deals');
@@ -214,6 +215,10 @@
 														<label class="checkbox">
 															<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> >
 															<i></i> Needed Deals (<?php echo $needed; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Charity" <?php if(isset($seller_deals) && in_array('Charity',$seller_deals)) echo 'checked = checked';?> >
+															<i></i> Charity Deals (<?php echo $charity; ?>)
 														</label>
 													</div>
 												</div> 

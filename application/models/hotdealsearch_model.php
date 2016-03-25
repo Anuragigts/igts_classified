@@ -8280,8 +8280,8 @@ class hotdealsearch_model extends CI_Model{
 				}
 				elseif ($cat_id == '2') {
 					/*services*/
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider') AS Provided,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed') AS Needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider') AS Serviceprovided,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed') AS Serviceneeded");
         	$rs = $this->db->get();
         	return $rs->result_array();
 				}
