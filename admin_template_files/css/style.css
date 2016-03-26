@@ -3009,3 +3009,7 @@ color: red !important;
 .text-red{
 	color: red !important;
 }
+.review_desc {
+        width: 150px !important;
+        word-wrap: break-word !important;
+}
