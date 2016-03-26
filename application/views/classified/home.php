@@ -165,7 +165,7 @@
 				
 				<div class="filter-title">
 					<div class="filter-header">
-						<form action="<?php echo base_url(); ?>searchview" method="post">
+						<form action="<?php echo base_url(); ?>searchview" method="get">
 							<input type="text" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
 							<div class="selector1">
 								<select class="guests-input" name="category_name">
@@ -1279,6 +1279,20 @@
 				}
 			});
 		</script>
+		<script type="text/javascript">
+            jQuery(document).ready(function() {
+                jQuery('.tp-banner').show().revolution({
+                    dottedOverlay:"none",
+                    delay:5000,
+                    startwidth:1170,
+                    startheight:925,
+                    minHeight:500,
+                    navigationType:"none",
+                    navigationArrows:"solo",
+                    navigationStyle:"preview1"
+                });             
+            }); 
+        </script>
 		
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
