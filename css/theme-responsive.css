@@ -360,7 +360,7 @@
 		margin-left: 151px;
 	}
 	.significant_badge {
-		margin-left: 246px;
+		right: 0px;
 	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 360px) {
@@ -493,6 +493,9 @@
 	.j-forms {
 		background-color: none !important;
 		box-shadow: none !important;
+	}
+	.section-title-01{
+		height: 120px !important;
 	}
 	/* .loca_pad {
 		padding: 0px 6px;

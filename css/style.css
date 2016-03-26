@@ -4500,7 +4500,7 @@ a .login-op-btn:hover {
 }
 .featured-badge {
     width: 136px;
-    height: 86px;
+    height: 50px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
     top: 0;
@@ -4508,7 +4508,7 @@ a .login-op-btn:hover {
     right: 0;
 }
 .most_valued_badge {
-    height: 60px;
+    height: 50px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
     left: 150px;
@@ -4518,23 +4518,23 @@ a .login-op-btn:hover {
 }
 .bus_rec_badge {
     width: 121px;
-    height: 87px;
-    background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+    height: 50px;
+     background: transparent url("../img/icons/reco.png") no-repeat;
     padding-top: 5px;
     position: absolute;
     margin-left: 168px;
-    top: -19px;
+    top: 0px;
     z-index: 99;
 }
 .significant_badge {
-    width: 116px;
-    height: 86px;
-    background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
-    padding-top: 10px;
+    width: 121px;
+    height: 50px;
+    background: transparent url("../img/icons/reco.png") no-repeat;
+    padding-top: 5px;
     position: absolute;
-    margin-left: 246px;
-    top: -20px;
-    z-index: 7;
+    top: 0px;
+    z-index: 99;
+    right: 0px;
 }
 .serch_bus_logo img {
     height: 60px;
@@ -6193,4 +6193,11 @@ a.linkedin-big:before {
 .business_logo_height{
 	height:70px;
 	width: 163px;
+}
+.like_symbol_size{
+    font-size: 24PX;
+    padding-top: 6px;
+}
+.nav-bottom .fade{
+    display:none;
 }
