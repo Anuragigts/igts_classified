@@ -4500,7 +4500,7 @@ a .login-op-btn:hover {
 }
 .featured-badge {
     width: 136px;
-    height: 50px;
+    height: 86px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
     top: 0;
@@ -4508,7 +4508,7 @@ a .login-op-btn:hover {
     right: 0;
 }
 .most_valued_badge {
-    height: 50px;
+    height: 60px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
     left: 150px;
@@ -4518,23 +4518,23 @@ a .login-op-btn:hover {
 }
 .bus_rec_badge {
     width: 121px;
-    height: 50px;
-     background: transparent url("../img/icons/reco.png") no-repeat;
+    height: 87px;
+    background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
     padding-top: 5px;
     position: absolute;
     margin-left: 168px;
-    top: 0px;
+    top: -19px;
     z-index: 99;
 }
 .significant_badge {
-    width: 121px;
-    height: 50px;
-    background: transparent url("../img/icons/reco.png") no-repeat;
-    padding-top: 5px;
+    width: 116px;
+    height: 86px;
+    background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+    padding-top: 10px;
     position: absolute;
-    top: 0px;
-    z-index: 99;
-    right: 0px;
+    margin-left: 246px;
+    top: -20px;
+    z-index: 7;
 }
 .serch_bus_logo img {
     height: 60px;
@@ -6175,14 +6175,18 @@ a.linkedin-big:before {
 .top_35{
 	padding-top:35px !important;
 }
-.you_tube_link{
+.saved_link{
 	color: rgb(255, 255, 255);
 	background-color: rgb(70, 179, 140);
-	padding: 14px 31px;
+	padding: 11px 9px 10px;
 	border-radius: 7px;
 }
-.you_tube_link:hover{
+.saved_link:hover{
+    background-color: #EC662B !important;
 	color:#fff !important;
+}
+.saved_link1{
+    padding-top: 17px;
 }
 /* .chech_desc_wid{
 	width:300px;
@@ -6194,10 +6198,32 @@ a.linkedin-big:before {
 	height:70px;
 	width: 163px;
 }
-.like_symbol_size{
-    font-size: 24PX;
-    padding-top: 6px;
+
+.my_wish_delete a {
+    position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Auro';
+    display: block;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 0px 17px 0px 54px;
 }
-.nav-bottom .fade{
-    display:none;
+.my_wish_delete a:hover {
+    color: #F1E4E4 !important;
+}
+a.delete-bg {
+    background: #2CA9E1;
+    line-height: 40px;
+    font-weight: normal;
+    font-size: 16px;
+}
+a.delete-bg:before {
+    background: url("../img/social/delete.png") no-repeat center center;
+    content: "";
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    left: 15px;
+    top: 18%;
 }
