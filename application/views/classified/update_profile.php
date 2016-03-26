@@ -345,7 +345,7 @@
 													</div>
 													<div class="row">
 														<div class="col-sm-6">
-															<button class="btn btn-primary " id='deactivate_account'>Deactivate Account</button>
+															<button class="btn btn-primary" id='deactivate_account'>Deactivate Account</button>
 														</div>
 													</div>
 												</div>

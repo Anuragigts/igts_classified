@@ -242,7 +242,7 @@
 															</div>
 															<?php }
 															else{ ?>
-																<div>
+																<div id="limit_scrol">
 																	<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
 																		<label class="checkbox">
 																			<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
