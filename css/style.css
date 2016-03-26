@@ -6190,3 +6190,7 @@ a.linkedin-big:before {
 .dashboard_tag li a {
     text-transform: uppercase;
 }
+.business_logo_height{
+	height:70px;
+	width: 163px;
+}
