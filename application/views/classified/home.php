@@ -435,6 +435,10 @@
 										else if ($val->currency == 'euro') {
 											$currency = '<span class="euro_sym"></span>';
 										}
+
+										if ($val->category_id == '1') {
+											$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$val->ad_id'"),0,'jobtype');
+										}
 									?>
 								<div class="col-sm-4 col-md-3 col-xs-12 showall">
 									<?php if ($val->urgent_package != 0) { ?>
@@ -451,7 +455,10 @@
 										<hr class="separator">
 										<?php if ($val->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
-										<?php }?>
+										<?php }
+										else{?>
+										<h3 class="home_price"><?php echo $jobtype; ?></h3>
+										<?php } ?>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<?php
 											if($val->ad_type == 'business'){
@@ -478,6 +485,10 @@
 								
 								<!-- most valued ads for jobs -->
 								<?php foreach ($sig_ads_jobs as $m_ads){
+									if ($m_ads->category_id == '1') {
+										$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$m_ads->ad_id'"),0,'jobtype');
+									}
+
 									?>
 								<div class="col-xs-12 col-sm-4 col-md-3 jobs">
 									<?php if ($m_ads->urgent_package != 0) { ?>
@@ -491,6 +502,7 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
+										<h3 class="home_price"><?php echo $jobtype; ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<?php
 											if($m_ads->ad_type == 'business'){
@@ -866,7 +878,12 @@
 												}
 												else if ($b_ads->currency == 'euro') {
 													$currency = '<span class="euro_sym"></span>';
-												}	
+												}
+
+												if ($b_ads->category_id == '1') {
+														$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'jobtype');
+													}
+
 											?>
 										<div>
 											<?php if ($b_ads->urgent_package != 0) { ?>
@@ -898,6 +915,9 @@
 												<?php	 } ?>
 												<?php if ($b_ads->category_id != '1') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+												<?php }
+												else{ ?>
+												<h3 class="home_price"><?php echo $jobtype; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
@@ -950,6 +970,10 @@
 												else if ($b_ads->currency == 'euro') {
 													$currency = '<span class="euro_sym"></span>';
 												}	
+
+												if ($b_ads->category_id == '1') {
+														$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'jobtype');
+													}
 											?>
 										<div>
 											<?php if ($b_ads->urgent_package != '0') { ?>
@@ -979,6 +1003,9 @@
 												<?php	 } ?>
 												<?php if ($b_ads->category_id != '1') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+												<?php }
+												else{ ?>
+												<h3 class="home_price"><?php echo $jobtype; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
@@ -1037,6 +1064,10 @@
 													else if ($free_val->currency == 'euro') {
 														$currency = '<span class="euro_sym"></span>';
 													}	
+
+													if ($free_val->category_id == '1') {
+														$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$free_val->ad_id'"),0,'jobtype');
+													}
 											 ?>
 										<div>
 											<?php if ($free_val->urgent_package != 0) { ?>
@@ -1053,6 +1084,9 @@
 												<hr class="separator">
 												<?php if ($free_val->category_id != '1') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
+												<?php }
+												else{ ?>
+												<h3 class="home_price"><?php echo $jobtype; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">

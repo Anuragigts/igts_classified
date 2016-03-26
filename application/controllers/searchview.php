@@ -13,9 +13,6 @@ class  Searchview extends CI_Controller{
                 $this->load->library('pagination');
         }
          public function index(){
-            print_r($this->input->get());
-            exit;
-
              if($this->input->post()){
                 $this->session->unset_userdata('miles');
                 $this->session->unset_userdata('s_cat_id');
