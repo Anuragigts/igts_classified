@@ -51,11 +51,9 @@
 					var fname = $("#firstnamepost").val();
 					var lname = $("#lastnamepost").val();
 					var mobile = $("#contactnopost").val();
-					// alert(fname+'-'+lname+'-'+mobile);
-					// var coll = new Array(fname : fname, lname : lname, mobile : mobile);
 					  $.ajax({
 					  type : 'post',
-					  url  : '<?php echo base_url()?>update-profile/up_profile',
+					  url  : '<?php echo base_url()?>update_profile/up_profile',
 					  data : {prof_id1: prof_id, fname1 : fname, lname1 : lname, mobile1 : mobile},
 					  dataType : 'json',
 					  success : function(res) {
@@ -97,7 +95,7 @@
 					if(hasError == true){
 					  $.ajax({
 					  type : 'post',
-					  url  : '<?php echo base_url()?>update-profile/change_pwd',
+					  url  : '<?php echo base_url()?>update_profile/change_pwd',
 					  data : {cur_pwd1: cur_pwd, pwd1 : pwd, conf_pwd1 : conf_pwd, prof_id1: prof_id},
 					  dataType : 'json',
 					  success : function(res) {
@@ -113,11 +111,29 @@
 				$("#deactivate_account").click(function(){
 					 $("#deactivate_account").text("Please Wait");
 					$('#deactivate_account').attr("disabled", true);
+					var reason_msg;
 					var mail = $('#email').val();
+					var id = $('#profile_id').val();
+					var fname = $("#firstnamepost").val();
+					var reasonname = $(".reasonname").val();
+					if (reasonname == 'I_Found_My_deals_with_another_website') {
+						reason_msg = $("#reasonurl").val();
+					}
+					else if (reasonname == 'I_am_unhappy_about_services' || reasonname == 'Other_Reasons'){
+						reason_msg = $("#reason").val();
+					}
+					else{
+						reason_msg = '';
+					}
 					$.ajax({
 					  type : 'post',
-					  url  : '<?php echo base_url()?>update-profile/deactivate_account',
-					  data : {mail: mail},
+					  url  : '<?php echo base_url()?>update_profile/deactivate_account',
+					  data : {
+						  	mail: mail,
+						  	id: id,
+						  	fname: fname,
+						  	reasonname: reasonname,
+						  	reason_msg: reason_msg},
 					  dataType : 'json',
 					  success : function(res) {
 						if (res == 0){
@@ -189,11 +205,11 @@
 								<!-- Item Table-->
 								<form id="j-forms" action="#" class="j-forms tooltip-hover change_pwd" method="post">
 									<div class="col-sm-9">
+										<?php echo $this->view("classified_layout/success_error"); ?>		
 										<div class="accrodation">
 											<span class="acc-trigger"><a href="#">UPDATE PROFILE</a></span>
 											<div class="acc-container">
 												<div class="active">
-													<?php echo $this->view("classified_layout/success_error"); ?>		
 													<div class="row top_20">
 														<!-- contact details-->
 														<div class="col-sm-6">
@@ -236,7 +252,7 @@
 																		<label class="icon-right" for="phone">
 																		<i class="fa fa-phone"></i>
 																		</label>
-																		<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='10' onkeypress="return isNumber(event)" >
+																		<input type="text" id="contactnopost" name="contactnopost" placeholder="Enter Contact Number" value="<?php echo $mobile; ?>" maxlength='11' onkeypress="return isNumber(event)" >
 																	</div>
 																</div>
 																<div class="col-sm-12 unit">													
@@ -301,23 +317,28 @@
 											<span class="acc-trigger"><a href="#">DEACTIVATE ACCOUNT</a></span>
 											<div class="acc-container">
 												<div class="active top_20">
-													<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use,</p>
+													<p>Please don't leave us!</p>
+														<p>Every time an account is deactivated, one of the team cries and it takes hours to get them talking again :</p>
 													<div class="row">
 														<div class="col-sm-8 unit">
 															<label class="input select">
-																<select name="">
-																	<option value="none" selected disabled="">Select Option</option>
-																	<option value="" class="remove_text_box"> I Found My deals with another website. (one message box will open to specify the URL)</option>
-																	<option value="" class="remove_text_box">I am unhappy about services (one message box will open to specify the reason for unhappy)</option>
-																	<option value="" id="other_reason_show">Other Reasons </option>
+																<select name="reasonname" class="reasonname">
+																	<option value="I_found_my_deal_with_99_Right_Deals" class="remove_text_box">I found my deal with 99 Right Deals.</option>
+																	<option value="I_Found_My_deals_with_another_website" class="other_reasonurl_show">I Found My deals with another website</option>
+																	<option value="I_am_unhappy_about_services" class="other_reason_show">I am unhappy about services</option>
+																	<option value="Other_Reasons" class="other_reason_show">Other Reasons</option>
 																</select>
+																<input type="hidden" id="email" name="email" value="<?php echo $mail_id; ?>" >
 																<i></i>
 															</label>
 															<div class="unit" id="other_reason_hide" style="display:none;">
 																<div class="input">
-																	<label for="newpasspost">
-																	</label>
-																	<textarea type="password" id="" name="newpasspost" placeholder="Enter Your Reason" ></textarea>
+																	<textarea type="text" id="reason" name="reason" placeholder="Enter Your Reason" ></textarea>
+																</div>
+															</div>
+															<div class="unit" id="other_reasonurl_hide" style="display:none;">
+																<div class="input top_10">
+																	<input type="text" id="reasonurl" name="reasonurl" placeholder="Enter Your URL" >
 																</div>
 															</div>
 														</div>

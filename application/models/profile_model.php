@@ -81,26 +81,38 @@ class Profile_model extends CI_Model{
                  'smtp_pass' => '12chandru12',
                  );
 
-             $s_email = $this->input->post('mail');
-             $login_id = $this->session->userdata('login_id');
+                 $s_email = $this->input->post('mail');
+                 $login_id = $this->session->userdata('login_id');
                  $this->load->library('email', $config);
                  $this->email->set_newline("\r\n");
-                $this->email->from('test@igravitas.in', "Admin Team");
+                $this->email->from('test@igravitas.in', "99RightDeals");
                 $this->email->to($s_email);
                 // $this->email->cc("manasa.s@igravitas.in");
-                $this->email->subject("Classifieds");
-                $message    =   "
-                <p>Your account successfully Deactivated!!!</p>
-                <h1 style='color:16A085;'>Re-Activate Account</h1>";
-                $pid    =       $this->session->userdata("login_id");
-                $uid    =       $this->session->userdata("user_type");
-                
-            $message   .=   "<a href='".base_url()."update-profile/re_activate/".$rand_val."/".$login_id."'>Click Here To Re-Activate your Account</a>";
+                $this->email->subject("Deactivated 99RightDeals Account");
+                $message    =   "<div style='padding: 81px 150px;'>
+                                    <div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
+                                        <h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
+                                        <img src='http://99rightdeals.com/img/maillogo.png'>
+                                    </div>
+                                    <div style='margin-top:20px'></div>
+                                    <div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
+                                        <h3>Hi ".$this->input->post('fname').",</h3>
+                                        <p>Your account successfully Deactivated!!!</p>
+                                        <a href='".base_url()."update_profile/re_activate/".$rand_val."/".$login_id."' style='color:#fff;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Re-Activate your Account</a>
+                                        <div style='margin-top:20px'></div>
+                                        <p>Best Wishes,</p>
+                                        <p>The <a href=''><strong style='color:#9FC955;'>99RightDeals </strong></a>Team</p>
+                                    </div>
+                                </div>";
                     $this->email->message($message);
-                     $this->email->send();
+                    $this->email->send();
+                    $ins = array('login_id' =>  $this->input->post('id'), 
+                                'reason_title' => $this->input->post('reasonname'),
+                                'msg_url' => $this->input->post('reason_msg'),
+                                'deactived_on' => date("Y-m-d H:i:s"));
+                    $this->db->insert("deactive_accounts",$ins);
 
-
-                $this->db->update("login",$dtr,array("login_email" => $s_email));
+                $this->db->update("login",$dtr,array("login_id" => $this->input->post('id')));
                 if($this->db->affected_rows() > 0){
                         return 1;
                 }else{

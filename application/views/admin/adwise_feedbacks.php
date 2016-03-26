@@ -5,7 +5,7 @@
 			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="">Add Wise Report List</a></li>
+		<li><a href="">Add Wise Feedback List</a></li>
 	</ul>
 	<?php if($this->session->flashdata('err') != ''){?>
 	<div class="alert alert-block alert-danger fade in">
@@ -33,7 +33,7 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white user"></i><span class="break"></span>Reviews by Ads</h2>
+				<h2><i class="halflings-icon white user"></i><span class="break"></span>Feedback by Ads</h2>
 				<div class="box-icon">
 				
 				</div>

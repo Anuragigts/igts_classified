@@ -63,7 +63,7 @@
 							<td><?php echo ucwords($coup->first_name).'&nbsp;'.ucwords($coup->lastname);?></td>
 							<td><?php echo $coup->added_on;?></td>
 							<!--<td><?php if($coup->c_type_percent_cash == 'p')echo 'Percentage'; else echo 'Amount';?></td>-->
-							<td><?php echo $coup->c_value;?></td>
+							<td><?php echo $coup->c_value."%";?></td>
 							<!--<td><?php echo $coup->max_disc;?></td>-->
 							<td id='act_status<?php echo $coup->c_id;?>'><?php if($coup->c_status == 1)echo 'Active'; else echo 'In-Active';?></td>
 							<?php if($coup->c_status == 1){?>
@@ -100,7 +100,8 @@
 					success: function (data) {
 						$('#status'+coupon).html(data);
 						$('#act_status'+coupon).html('In-Active');
-						$('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully InActivated </p></div>');   
+						// $('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully InActivated </p></div>');   
+						window.location.reload();
 	                }
 					
 	});
@@ -119,8 +120,15 @@
 			success: function (data) {
 				$('#status'+coupon).html(data);
 				$('#act_status'+coupon).html('Active');
-				$('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully Activated </p></div>');   
+				// $('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully Activated </p></div>');   
+				window.location.reload();
 			}
 		});
 	});
+</script>
+
+<script type="text/javascript">
+	setTimeout(function(){
+		 $(".alert").hide();
+	},5000);
 </script>

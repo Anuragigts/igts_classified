@@ -241,13 +241,21 @@
 
 				});
 				
-				$("#other_reason_show").click(function(){
-					 $("#other_reason_hide").show(1000);
+				$(".reasonname").change(function(){
+					var val = $(this).val();
+					if (val == 'I_found_my_deal_with_99_Right_Deals') {
+						$("#other_reason_hide").hide(1000);
+					 	$("#other_reasonurl_hide").hide(1000);
+					}
+					else if (val == 'I_Found_My_deals_with_another_website') {
+						$("#other_reasonurl_hide").show(1000);
+					 	$("#other_reason_hide").hide(1000);
+					}
+					else if (val == 'I_am_unhappy_about_services' || val == 'Other_Reasons')  {
+						$("#other_reason_hide").show(1000);
+					 	$("#other_reasonurl_hide").hide(1000);
+					}
 				});
-				$(".remove_text_box").click(function(){
-					 $("#other_reason_hide").hide(1000);
-				});
-
 				
 				$("#pec_goldur_package").click(function(){
 					 var ch = document.getElementById('pec_goldur_package').checked;

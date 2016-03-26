@@ -108,7 +108,6 @@
 			  foreach ($sellerneededcount as $sncnt) {
 			  	$seller = $sncnt->seller;
 			  	$needed = $sncnt->needed;
-			  	$forhire = $sncnt->forhire;
 			  }
 	  		$seller_deals = $this->session->userdata('seller_deals');
 			$dealurgent = $this->session->userdata('dealurgent');
@@ -205,10 +204,6 @@
 														<label class="checkbox">
 															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
 															<i></i> Needed Deals (<?php echo $needed; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('ForHire',$seller_deals)) echo 'checked = checked';?> value="ForHire" >
-															<i></i> ForHire Deals (<?php echo $forhire; ?>)
 														</label>
 													</div>
 												</div> 

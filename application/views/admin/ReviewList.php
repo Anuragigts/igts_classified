@@ -33,7 +33,7 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of User Ads</h2>
+				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Reviews</h2>
 				<div class="box-icon">
 				
 				</div>
@@ -62,8 +62,12 @@
 							<td><?php echo ucwords($ads->review_name);?></td>
 							<td><?php echo $ads->rating;?></td>
 							<td><?php echo $ads->review_time;?></td>
-							<td title='<?php echo $ads->review_msg;?>'><?php echo substr($ads->review_msg,0,25); ?></td>
-							<td id='act_status<?php echo $ads->id;?>'><?php if($ads->status == 1)echo 'Active'; 
+							<td title='<?php echo $ads->review_msg;?>'>
+								<div class="review_desc">
+									<?php echo substr($ads->review_msg,0,25); ?>
+								</div>
+							</td>
+							<td id='act_status<?php echo $ads->id;?>' style="width:150px !important;"><?php if($ads->status == 1)echo 'Active'; 
 								else echo 'InActive';?>
 							</td>
 							<td id='status<?php echo $ads->id; ?>'>
@@ -99,6 +103,7 @@
 				$('#status'+review).html(data);
 				$('#act_status'+review).html('Active');
 				$('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully Activated </p></div>');   
+				window.location.reload();
 			}
 		});
 	});
@@ -117,6 +122,7 @@
 				$('#status'+review).html(data);
 				$('#act_status'+review).html('InActive');
 				$('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully De-Activated </p></div>');   
+				window.location.reload();
 			}
 		});
 	});

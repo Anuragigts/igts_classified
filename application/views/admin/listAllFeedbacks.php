@@ -9,7 +9,7 @@
 			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="">Reports for Ads</a></li>
+		<li><a href="">Feedback for Ads</a></li>
 	</ul>
 	<?php if($this->session->flashdata('err') != ''){?>
 	<div class="alert alert-block alert-danger fade in">
@@ -39,7 +39,7 @@
 	<div class="row-fluid sortable2">
 		<div class="box span12">
 			<div class="box-header" data-original-title style='height:32px;padding:5px;'>
-				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Reports</h2>
+				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Feedbacks</h2>
 				<div class="box-icon" >
 					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 					<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>

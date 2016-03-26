@@ -350,6 +350,10 @@
 														$person = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_name');
 														$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
 													  }
+
+													  if ($hot_deals_val->category_id == '1') {
+															$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'jobtype');
+														}
 													
 													  ?>
 												<figure class="slide jbs-current">
@@ -369,6 +373,9 @@
 														<hr class="separator">
 														<?php if ($hot_deals_val->category_id != '1') { ?>
 														<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
+														<?php }
+														else{ ?>
+														<h3 class="home_price"><?php echo $jobtype; ?></h3>
 														<?php } ?>
 														<a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 														<?php  if ($hot_deals_val->ad_type == 'business') {

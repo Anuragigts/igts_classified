@@ -322,9 +322,9 @@ Class Classifed_model extends CI_model{
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
  WHERE ad.`category_id` = 1 AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -335,9 +335,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -348,9 +348,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -361,9 +361,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -374,9 +374,9 @@ ORDER BY ad.expire_data DESC LIMIT 2)UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
  WHERE ad.`category_id` = 5 AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -387,9 +387,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id 
  WHERE ad.`category_id` = 6 AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -401,9 +401,9 @@ GROUP BY img.ad_id
  WHERE ad.`category_id` = 7
  AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -415,9 +415,9 @@ JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 8
  AND ad.`ad_status` = 1 AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 75)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 50)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 25)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -847,7 +847,8 @@ GROUP BY img.ad_id
 						'review_msg'	=> $this->input->post('review_msg'),
 						'review_name'	=> $this->input->post('review_name'),
 						'rating'		=> $this->input->post('user_rating'),
-						'review_time'	=> date("d-m-Y H:i:s")
+						'review_time'	=> date("d-m-Y H:i:s"),
+						'status' => 1
 			);
 			$this->db->insert("review_rating", $data);
 			if ($this->db->affected_rows() > 0) {
@@ -954,6 +955,7 @@ GROUP BY img.ad_id
 		$this->db->select("*");
 		$this->db->from("review_rating");
 		$this->db->where('ad_id', $this->uri->segment(3));
+		$this->db->where('status', 1);
 		$res = $this->db->get();
 		return $res->result();
 	}
@@ -987,6 +989,13 @@ GROUP BY img.ad_id
 		$this->db->where('login_id', $this->session->userdata('login_id'));
 		$res = $this->db->get();
 		return $res->result();
+	}
+
+	public function likes_total(){
+		$this->db->select("*");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get("postad");
+		return $res->row("likes_count");
 	}
 
 	/*recommanded ads*/
@@ -1101,7 +1110,6 @@ GROUP BY img.ad_id
 			$this->db->insert("likes_deals", $data);
 			if ($this->db->affected_rows() > 0) {
 				$this->db->where('ad_id', $this->input->post('ad_id'));
-				$this->db->where('login_id', $this->input->post('login_id'));
 				$this->db->set('likes_count', 'likes_count+1', FALSE);
 				$this->db->update('postad');
 				return 1;
@@ -1120,7 +1128,6 @@ GROUP BY img.ad_id
 			$this->db->delete("likes_deals", $wr);
 			if ($this->db->affected_rows() > 0) {
 				$this->db->where('ad_id', $this->input->post('ad_id'));
-				$this->db->where('login_id', $this->input->post('login_id'));
 				$this->db->set('likes_count', 'likes_count-1', FALSE);
 				$this->db->update('postad');
 				return 1;
@@ -1128,6 +1135,13 @@ GROUP BY img.ad_id
 			else{
 				return 0;
 			}
+	}
+
+	/*likes count*/
+	public function likes_count(){
+		$qry = $this->db->query("SELECT * FROM postad WHERE ad_id = '".$this->input->post('ad_id')."'");
+		$qry1 = $qry->row();
+		return $qry1->likes_count;
 	}
 
 	/*ads for services in services search */

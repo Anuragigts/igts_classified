@@ -30,9 +30,9 @@ class Settings extends CI_Controller {
 				if($this->form_validation->run() == TRUE){
 					$upd    =   $this->settings_model->change();
 					if($upd == 1){
-						redirect('admin/logout');
-						//$this->session->set_flashdata("msg","Password has been updated Successfully");
-						//redirect("settings/change_password");
+						// redirect('admin/logout');
+						$this->session->set_flashdata("msg","Password has been updated Successfully");
+						redirect("settings/change_password");
 					}else if($upd == 'wrong'){
 						$this->session->set_flashdata("err","The Old Password you entered is incorrect");
 						redirect("settings/change_password");

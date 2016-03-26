@@ -125,15 +125,17 @@
 					if (rgb2hex($(this).css('color')) == '#727272') {
 						$(this).css('color', '#E24A14');
 						$.ajax({
-						type: "POST",
-						url: "<?php echo base_url();?>description_view/add_likes",
-						data: {
-							ad_id: $("#ad_id").val(), 
-							login_id: $("#login_id").val()
-						},
-						
-						success: function (data) {}
-					})
+							type: "POST",
+							url: "<?php echo base_url();?>description_view/add_likes",
+							data: {
+								ad_id: $("#ad_id").val(), 
+								login_id: $("#login_id").val()
+							},
+							
+							success: function (data) {
+								$(".likes_count").html(data);
+							}
+						})
 					}
 					else{
 						$.ajax({
@@ -144,7 +146,9 @@
 							login_id: $("#login_id").val()
 						},
 						
-						success: function (data) {}
+						success: function (data) {
+							$(".likes_count").html(data);
+						}
 					})
 						$(this).css('color', '#727272');
 					}
@@ -207,7 +211,8 @@
 						$catid = $ads_desc_val->category_id;
 						$ad_id_no = $ads_desc_val->ad_id;
 						$isbustype = $ads_desc_val->ad_type;
-						
+						/*like count*/
+						$likes_count = $ads_desc_val->likes_count;
 						
 						$package_type = $ads_desc_val->package_type;
 						$urgent_pack = $ads_desc_val->urgent_package;
@@ -220,14 +225,6 @@
 							}
 						$tag = $ads_desc_val->deal_tag;
 						$desc = $ads_desc_val->deal_desc;
-							/*if($ads_desc_val->ad_type == 'consumer'){
-								$name = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'contact_name');
-								$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'mobile');
-							}
-							if($ads_desc_val->ad_type == 'business'){
-								$name = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'contact_person');
-								$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id = '$ads_desc_val->ad_id'"), 0, 'mobile');
-							}*/
 							$name = @mysql_result(mysql_query("SELECT first_name FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '$ads_desc_val->ad_id')"), 0, 'first_name');
 							$mobile = @mysql_result(mysql_query("SELECT mobile FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '$ads_desc_val->ad_id')"), 0, 'mobile');
 							$posted_on = date("M d, Y H:i:s", strtotime($ads_desc_val->created_on));
@@ -273,12 +270,12 @@
 												</div>
 												<?php	} ?>
 												<div class="post-header">
-													<?php if ($package_type == 3) { ?>
+													<?php if ($package_type == 3 || $package_type == 6) { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
 														<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Best Deal">
 													</div>
 													<?php	} ?>
-													<?php if ($package_type == 2) { ?>
+													<?php if ($package_type == 2 || $package_type == 5) { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
 														<img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal">
 													</div>
@@ -312,14 +309,14 @@
 													</a>
 												</div>
 												<div class="pull-right">
-													<i class="fa fa-thumbs-o-up fa-2x bg_clr1" title="Like Ad" ></i>
+													<i class="fa fa-thumbs-o-up fa-2x bg_clr1" title="Like Ad" ></i> <span class="likes_count" ><?php echo $total_likes; ?></span>
 												</div>
 											</div>
 											
 											<div class="col-sm-12 col-xs-12">
 												<script type="text/javascript">
 													$( function() {
-														$( '#gallery' ).jGallery();
+														$( '#gallery').jGallery();
 													} );
 												</script>
 												<div id="gallery">
@@ -504,11 +501,13 @@
 												rules: {
 													review_title: {
 														required: true,
-														minlength: 20
+														minlength: 5,
+														maxlength: 25
 													},
 													review_msg: {
 														required: true,
-														minlength: 60
+														minlength: 12,
+														maxlength: 60
 													},
 													review_name: {
 														required: true
@@ -521,11 +520,13 @@
 												messages: {
 													review_title: {
 														required: "Please Enter review title",
-														minlength: "Title contains atleast 20 characters"
+														minlength: "Title contains atleast 5 characters",
+														maxlength: "Title contains maximum 25 characters"
 													},
 													review_msg: {
 														required: "Please Enter review message",
-														minlength: "Title contains atleast 60 characters"
+														minlength: "Title contains atleast 12 characters",
+														maxlength: "Title contains maximum 60 characters"
 													},
 													review_name: {
 														required: "Please Enter review name"
@@ -851,16 +852,16 @@
 												<?php	}
 													}
 													 ?>
-												<?php if ($b_ads->package_type == 'platinum') { ?>
+												<?php if ($b_ads->package_type == '3' || $b_ads->package_type == '6') { ?>
 												<div class="business_crown">
 													<span></span><b>
 													<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 												</div>
 												<?php	 } ?>
-												<?php if ($b_ads->package_type == 'gold') { ?>
+												<?php if ($b_ads->package_type == '2' || $b_ads->package_type == '5') { ?>
 												<div class="business_crown">
 													<span></span><b>
-													<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Crown" title="Right Deal"></b>
+													<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Thumb" title="Right Deal"></b>
 												</div>
 												<?php	 } ?>
 												<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>

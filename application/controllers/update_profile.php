@@ -16,7 +16,7 @@ class Update_profile extends CI_Controller{
                    redirect('login');
                 }
 				
-				$log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."')  "), 0, 'first_name');
+				$log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."'"), 0, 'first_name');
 
                 if ($this->session->userdata("postad_time") != '') {
                     $new_time = time() - $this->session->userdata("postad_time");
@@ -45,7 +45,7 @@ class Update_profile extends CI_Controller{
             $mobile1 = $this->input->post('mobile1');
 
             
-            if ($fname1 == '' || $lname1 == '' || $mobile1 == '' || strlen($mobile1) != 10 ) {
+            if ($fname1 == '' || $lname1 == '' || $mobile1 == '' || strlen($mobile1) != 11 ) {
                  $this->session->set_flashdata("err","Invalid inputs");
                  echo json_encode('1');
             }
@@ -91,7 +91,6 @@ class Update_profile extends CI_Controller{
 
         /*deactivate account*/
         public function deactivate_account(){
-            $mail = $this->input->post('mail');
             $rand_val = md5(rand(10000,99999));
             $inp            =       $this->profile_model->deactivate($rand_val);
             if ($inp == 1) {

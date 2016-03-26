@@ -7,20 +7,27 @@
  */
 class Reviews_model extends CI_Model{
 	public function get_reviews(){
-		$this->db->select();
+		$this->db->select("*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(rr.review_time,
+  				'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') AS dtime", FALSE);
 		$this->db->from('review_rating as rr');
 		$this->db->join('postad as p','rr.ad_id = p.ad_id','inner');
+		$this->db->order_by("dtime", 'Desc');
 		$reviews = $this->db->get()->result();
 		return $reviews;	
 	}
 	public function get_reviewByAd(){
 		$this->db->select('rr.ad_id as ad_id, count(*) as review_count,p.login_id,p.deal_tag,p.deal_desc,p.ad_status,p.package_type,p.category_id,cat.category_name,pd.pkg_dur_name');
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(rr.review_time,
+  				'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') AS dtime", FALSE);
 		$this->db->from('review_rating as rr');
 		$this->db->group_by('rr.ad_id');
 		$this->db->join('postad as p','rr.ad_id = p.ad_id','inner');
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->join('pkg_duration_list as pd','pd.pkg_dur_id = p.package_type','inner');
+		$this->db->order_by("dtime", 'Desc');
 		$reviews = $this->db->get()->result();
+		// echo $this->db->last_query();exit;
 		return $reviews;	
 	}
 	public function get_Adreview($a_id){

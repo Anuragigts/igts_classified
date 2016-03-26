@@ -318,6 +318,8 @@ class Description_view extends CI_Controller{
                                         'Size'=>$val->size,
                                         'Color'=>$val->color,
                                         'Model name'=>$val->model_name,
+                                        'Operating system'=>$val->operating_system,
+                                        'Storage'=>$val->storage,
                                         'Made in'=>$val->made_in,
                                         'Warranty'=>$val->warranty,
                                         'Manufacture'=>$val->manufacture
@@ -379,6 +381,8 @@ class Description_view extends CI_Controller{
                 $ads_favourite = $this->classifed_model->ads_favourite();
                 /*ads likes ad or not*/
                 $ads_likes = $this->classifed_model->ads_likes();
+                /*total likes*/
+                $total_likes = $this->classifed_model->likes_total();
                 /*recommanded ads*/
                 $recommanded_ads = $this->classifed_model->recommanded_ads();
 				// echo "<pre>"; print_r($this);
@@ -394,6 +398,7 @@ class Description_view extends CI_Controller{
                         "ads_review"=>$ads_review,
                         "ads_favourite"=>$ads_favourite,
                         "ads_likes"=>$ads_likes,
+                        "total_likes"=>$total_likes,
                         "login_status"=>$login_status,
                         "login"=>$login,
                         'req_url'=> base_url()."description_view/details/".$id
@@ -457,7 +462,8 @@ class Description_view extends CI_Controller{
                 }
             $fav = $this->classifed_model->add_likes();
             if ($fav == 1) {
-                echo '1';
+                $fav = $this->classifed_model->likes_count();
+                echo $fav;
             }
             else{
                 echo '0';
@@ -471,7 +477,8 @@ class Description_view extends CI_Controller{
                 }
             $fav = $this->classifed_model->remove_likes();
             if ($fav == 1) {
-                echo '1';
+                $fav = $this->classifed_model->likes_count();
+                echo $fav;
             }
             else{
                 echo '0';

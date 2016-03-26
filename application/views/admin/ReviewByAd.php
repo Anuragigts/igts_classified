@@ -46,7 +46,7 @@
 							<th>Category Name</th>
 							<th>Package </th>
 							<th>Count</th>
-							<th>Description</th>
+							<!-- <th>Description</th> -->
 							<th>Status</th>
 							<th>View</th>
 						</tr>
@@ -59,7 +59,7 @@
 							<td><?php echo ucwords($ads->category_name);?></td>
 							<td><?php echo $ads->pkg_dur_name;?></td>
 							<td><?php echo $ads->review_count;?></td>
-							<td title='<?php echo $ads->deal_desc;?>'><?php echo substr($ads->deal_desc,0,25); ?></td>
+							<!-- <td title='<?php echo $ads->deal_desc;?>'><?php echo substr($ads->deal_desc,0,25); ?></td> -->
 							<td><?php if($ads->ad_status == 1)echo 'Active'; 
 								else echo 'InActive';?>
 							</td>

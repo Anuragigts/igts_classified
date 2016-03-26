@@ -52,7 +52,7 @@
 						<div class="control-group">
 							<label class="control-label" for="c_value"> Coupon Value</label>
 							<div class="controls">
-								<input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'onkeypress="return isNumber(event)" maxlength = "2"><span class="error"><?php echo form_error('c_value'); ?></span>
+								<input type="text" id="c_value" name="c_value" value='<?php echo set_value('c_value'); ?>'onkeypress="return isNumber(event)" maxlength = "2"> %<span class="error"><?php echo form_error('c_value'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">

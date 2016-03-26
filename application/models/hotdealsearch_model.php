@@ -8273,8 +8273,7 @@ class hotdealsearch_model extends CI_Model{
 				elseif ($cat_id == '8') {
 					/*ezone*/
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller') AS Seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed') AS Needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'ForHire') AS Forhire");
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed') AS Needed");
         	$rs = $this->db->get();
         	return $rs->result_array();
 				}
@@ -8338,8 +8337,7 @@ class hotdealsearch_model extends CI_Model{
         }
         public function sellerneeded_ezone(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'ForHire') AS forhire");
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
