@@ -698,9 +698,12 @@
 										<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="user_pro" class="img-responsive pvt-no-img1">
 										<h3> <?php echo $name; ?></h3>
 										<hr>
-										<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php foreach ($ads_loc as $ads_loc_val) {
-											echo implode(",", array_slice(explode(",", $ads_loc_val->loc_name),0,2));
-											} ?></i></h4>
+										<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php 
+										foreach ($ads_loc as $ads_loc_val) {
+											// echo $ads_loc_val->loc_name;
+											echo implode(",", array_slice(explode(",", $ads_loc_val->loc_name),1,2));
+											} 
+											?></i></h4>
 										<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 										<ul class="list-styles contact_now_hide" style="display:none;">
 											<li><i class="fa fa-phone phn"></i><strong> <?php echo $mobile; ?></strong></li>
@@ -789,7 +792,7 @@
 									</form>
 									<aside class="widget top_20">
 										<p>
-											<?php  if($package_type == 'platinum' && $ad_video->video_name != ''){
+											<?php  if(($package_type == '3' || $package_type == '6') && $ad_video->video_name != ''){
 												?>
 											<iframe height="215" src="https://www.youtube.com/embed/<?php echo $video_name[1]; ?>" frameborder="0" allowfullscreen></iframe>
 											<?php } ?>

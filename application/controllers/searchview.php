@@ -13,7 +13,12 @@ class  Searchview extends CI_Controller{
                 $this->load->library('pagination');
         }
          public function index(){
-             if($this->input->post()){
+
+                if ((time() - $this->session->userdata('saved_time')) > 5 ){
+                   $this->session->unset_userdata('saved_time');
+                   $this->session->unset_userdata('saved_msg');
+                }
+             if($this->input->get()){
                 $this->session->unset_userdata('miles');
                 $this->session->unset_userdata('s_cat_id');
                 $this->session->unset_userdata('s_looking_search'); 
@@ -26,57 +31,57 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('s_location');
                 $this->session->unset_userdata('s_latt');
                 $this->session->unset_userdata('s_longg');
-                if($this->input->post('miles')){
-                     $this->session->set_userdata('miles',$this->input->post('miles'));
+                if($this->input->get('miles')){
+                     $this->session->set_userdata('miles',$this->input->get('miles'));
                 }
-                if($this->input->post('category_name')){
-                     $this->session->set_userdata('s_cat_id',$this->input->post('category_name'));
+                if($this->input->get('category_name')){
+                     $this->session->set_userdata('s_cat_id',$this->input->get('category_name'));
                 }
-                if($this->input->post('looking_search')){
-                       $this->session->set_userdata('s_looking_search',$this->input->post('looking_search'));
+                if($this->input->get('looking_search')){
+                       $this->session->set_userdata('s_looking_search',$this->input->get('looking_search'));
                 }else{
                      $this->session->set_userdata('s_looking_search','');
                 }
-                if($this->input->post('search_sub')){
-                     $this->session->set_userdata('s_search_sub',$this->input->post('search_sub'));
+                if($this->input->get('search_sub')){
+                     $this->session->set_userdata('s_search_sub',$this->input->get('search_sub'));
                 }
                 else{
                     $this->session->set_userdata('s_search_sub',array());
                 }
-                 if($this->input->post('dealurgent')){
-                       $this->session->set_userdata('s_dealurgent' ,$this->input->post('dealurgent'));
+                 if($this->input->get('dealurgent')){
+                       $this->session->set_userdata('s_dealurgent' ,$this->input->get('dealurgent'));
                 }else{
                      $this->session->set_userdata('s_dealurgent',array());
                 }
-                 if($this->input->post('search_bustype')){
-                       $this->session->set_userdata('s_search_bustype',$this->input->post('search_bustype'));
+                 if($this->input->get('search_bustype')){
+                       $this->session->set_userdata('s_search_bustype',$this->input->get('search_bustype'));
                 }else{
                      $this->session->set_userdata('s_search_bustype','all');
                 }
-                if($this->input->post('dealtitle_sort')){
-                       $this->session->set_userdata('s_dealtitle',$this->input->post('dealtitle_sort'));
+                if($this->input->get('dealtitle_sort')){
+                       $this->session->set_userdata('s_dealtitle',$this->input->get('dealtitle_sort'));
                 }else{
                      $this->session->set_userdata('s_dealtitle','Any');
                 }
-                if($this->input->post('price_sort')){
-                       $this->session->set_userdata('s_dealprice',$this->input->post('price_sort'));
+                if($this->input->get('price_sort')){
+                       $this->session->set_userdata('s_dealprice',$this->input->get('price_sort'));
                 }else{
                      $this->session->set_userdata('s_dealprice','Any');
                 }
-                if($this->input->post('recentdays_sort')){
-                       $this->session->set_userdata('s_recentdays',$this->input->post('recentdays_sort'));
+                if($this->input->get('recentdays_sort')){
+                       $this->session->set_userdata('s_recentdays',$this->input->get('recentdays_sort'));
                 }else{
                      $this->session->set_userdata('s_recentdays','Any');
                 }
-                if($this->input->post('latt')){
-                    $this->session->set_userdata('s_location',$this->input->post('find_loc'));
-                       $this->session->set_userdata('s_latt',$this->input->post('latt'));
+                if($this->input->get('latt')){
+                    $this->session->set_userdata('s_location',$this->input->get('find_loc'));
+                       $this->session->set_userdata('s_latt',$this->input->get('latt'));
                 }else{
                     $this->session->set_userdata('s_location','');
                      $this->session->set_userdata('s_latt','');
                 }
-                if($this->input->post('longg')){
-                       $this->session->set_userdata('s_longg',$this->input->post('longg'));
+                if($this->input->get('longg')){
+                       $this->session->set_userdata('s_longg',$this->input->get('longg'));
                 }else{
                      $this->session->set_userdata('s_longg','');
                 }
@@ -115,6 +120,7 @@ class  Searchview extends CI_Controller{
                         $loginid = $sview->login_id;
                     }
              }
+             $this->session->set_userdata("saved_search", $this->current_url());
               $result   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "searchview");
@@ -132,11 +138,52 @@ class  Searchview extends CI_Controller{
               /*business and consumer count for pets*/
                $result['subcat_cnt'] = $this->hotdealsearch_model->subcat_searchdeals();
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_search();
+                $result['login_id'] = $this->session->userdata('login_id');
                  /*seller and needed count for pets*/
                 // $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_search();
                  /*packages count*/
                 $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_search();
             $this->load->view("classified_layout/inner_template",$result);
+        }
+
+        public function current_url()
+        {
+            $CI =& get_instance();
+
+            $url = $CI->config->site_url($CI->uri->uri_string());
+            return $_SERVER['QUERY_STRING'] ? $url.'?'.$_SERVER['QUERY_STRING'] : $url;
+        }
+
+        public function addsave_search(){
+            $save = $this->classifed_model->addsaved_search();
+            if ($save == 1) {
+                $this->session->set_userdata('saved_msg', 'Your search is saved');
+                $this->session->set_userdata('saved_time', time());
+                echo 1;
+            }
+            else{
+                echo 0;
+            }
+        }
+
+        public function deletesave_search(){
+            $delete = $this->classifed_model->deletesave_search();
+            if ($delete == 1) {
+                echo 1;
+            }
+            else{
+                echo 0;
+            }
+        }
+
+        public function subscribe_news(){
+            $emailexist = $this->classifed_model->subscribe_news();
+            if ($emailexist == 1) {
+                echo 1;
+            }
+            else{
+                echo 0;
+            }
         }
         
 }

@@ -11,35 +11,6 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 		
-		<script>
-			$(document).ready(function(){
-				$(".remove1").click(function(){
-					$("#div1").remove();
-				});
-			});
-		</script>
-		<script>
-			$(document).ready(function(){
-				$(".remove2").click(function(){
-					$("#div2").remove();
-				});
-			});
-		</script>
-		<script>
-			$(document).ready(function(){
-				$(".remove3").click(function(){
-					$("#div3").remove();
-				});
-			});
-		</script>
-		<script>
-			$(document).ready(function(){
-				$(".remove4").click(function(){
-					$("#div4").remove();
-				});
-			});
-		</script>
-		
 	</head>
 	
 	<body id="home">
@@ -94,53 +65,24 @@
 										<div class="row">
 											<div class="col-sm-12">
 												<h2>My Wishes</h2>
-												<label>Hi User Name, you have 0 Reserved Deals</label>
+												<label>Hi <?php echo @$log_name; ?>, you have <?php echo $search_count; ?> Reserved Deals</label>
 												<hr>
 												<!-- start cloned right side buttons element -->
-												<div id="div1">
-													<div class="row">
-														<div class="col-sm-10">
-															<h5>Puppies in Pets for Sale</h5>
-															<p>Berkshire</p>
-														</div>
-														<div class="col-sm-2">
-															<div class="dele_te remove1"><i class="fa fa-cut   pull-right"></i> Delete</div>
-														</div>
-													</div><hr class="separator">
-												</div>
-												<div id="div2">
-													<div class="row">
-														<div class="col-sm-10">
-															<h5>Cloths</h5>
-															<p>Hyderabad</p>
-														</div>
-														<div class="col-sm-2">
-															<div class="dele_te remove2"><i class="fa fa-cut   pull-right"></i> Delete</div>
-														</div>
-													</div><hr class="separator">
-												</div>
-												<div id="div3">
-													<div class="row">
-														<div class="col-sm-10">
-															<h5>Bikes</h5>
-															<p>Bangalore</p>
-														</div>
-														<div class="col-sm-2">
-															<div class="dele_te remove3"><i class="fa fa-cut   pull-right"></i> Delete</div>
-														</div>
-													</div><hr class="separator">
-												</div>
-												<div id="div4">
-													<div class="row">
-														<div class="col-sm-10">
-															<h5>Cars</h5>
-															<p>London</p>
-														</div>
-														<div class="col-sm-2">
-															<div class="dele_te remove4"><i class="fa fa-cut   pull-right"></i> Delete</div>
-														</div>
-													</div><hr class="separator">
-												</div>
+												<?php foreach ($search_list as $search_listval) { ?>
+													<div id="div1" class="<?php echo "del".$search_listval->id.$search_listval->login_id; ?>">
+														<div class="row">
+															<div class="col-sm-10">
+																<h5><a href="<?php echo $search_listval->save_search; ?>"><?php echo $search_listval->search_title; ?></a></h5>
+																<p><?php echo $search_listval->search_loc; ?></p>
+															</div>
+															<div class="col-sm-2">
+																<div class="my_wish_delete">
+																	<a href="javascript:void(0);" id="<?php echo $search_listval->id.",".$search_listval->login_id; ?>"  class="delete-bg"> Delete</a>
+																</div>
+															</div>
+														</div><hr class="separator">
+													</div>
+												<?php } ?>
 											</div>
 										</div>
 									</div>
@@ -160,6 +102,26 @@
 		<!-- End Entire Wrap -->
 		
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+
+		<script type="text/javascript">
+		$(function(){
+			$(".delete-bg").click(function(){
+				var id = $(this).attr('id');
+				var id1 = id.split(',');
+					$.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>searchview/deletesave_search",
+						data: {
+							s_id: id1[0], 
+							login_id: id1[1]
+						},
+						success: function (data) {
+								$("div .del"+id1[0]+id1[1]).remove();
+						}
+					});
+			});
+		});
+	</script>
 		
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 

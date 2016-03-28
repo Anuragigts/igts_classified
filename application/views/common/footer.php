@@ -65,31 +65,42 @@
 					<!-- Newsletter-->
 					<div class="col-md-6">
 						<h3>NEWSLETTER SIGN UP</h3>  
-						<form id="newsletterForm" action="http://html.iwthemes.com/travelia/run/php/mailchip/newsletter-subscribe.php">
+						<!-- <form id="newsletterForm" action="http://html.iwthemes.com/travelia/run/php/mailchip/newsletter-subscribe.php"> -->
 							<div class="row">
 								<div class="col-md-4">
 									<div class="input-group">
 										<span class="input-group-addon">
 											<i class="fa fa-user"></i>
 										</span>
-										<input class="form-control" placeholder="Your Name" name="name" type="text" required="required">
+										<input class="form-control" placeholder="Your Name" name="name" id="name" type="text" onkeypress="isChar(evt);">
 									</div>
+									<div class="error letter_name" style="display:none;">Enter Your Name</div>
 								</div>
 								<div class="col-md-4">
 									<div class="input-group">
 										<span class="input-group-addon">
 											<i class="fa fa-envelope"></i>
 										</span>
-										<input class="form-control" placeholder="Your  Email" name="email" type="email" required="required">
+										<input class="form-control" placeholder="Your  Email" name="email" id="email" type="text">
+										<input name="result" class='result' type="hidden">
 									</div>
+									<div class="error letter_email" style="display:none;">Enter A valid Email ID</div>
 								</div>
 								<div class="col-md-2">
 									<span class="input-group-btn">
-										<button class="btn btn-primary" type="submit" name="subscribe">SIGN UP</button>
+										<button class="btn btn-primary newsletter" type="button" name="subscribe">SIGN UP</button>
 									</span>
 								</div>
 							</div>
-						</form>   
+							<div class="row">
+								<div class="col-md-12 error letter_success" style="display:none;" >
+									You have subscribed Successfully
+								</div>
+								<div class="col-md-12 error letter_emailerr" style="display:none;" >
+									Email Id Already Exist
+								</div>
+							</div>
+						<!-- </form>    -->
 						<div id="result-newsletter"></div>
 					</div>
 					<div class="col-md-6">
@@ -123,3 +134,86 @@
 	<!-- footer Down-->
 </footer>      
 <!-- End footer-->
+
+<script type="text/javascript">
+		$(function(){
+			$(".newsletter").click(function(){
+				var name = $("#name").val();
+				var email = $("#email").val();
+				if (name == '') {
+					$(".letter_name").show();
+					$(".letter_success").hide();
+					$(".letter_emailerr").hide();
+					$(".result").val(1);
+					return false;
+				}
+
+				if (name != '') {
+					$(".letter_name").hide();
+					$(".letter_success").hide();
+					$(".letter_emailerr").hide();
+					$(".result").val(0);
+				}
+
+				if (email == '') {
+					$(".letter_email").show();
+					$(".letter_success").hide();
+					$(".letter_emailerr").hide();
+					$(".result").val(1);
+					return false;
+				}
+				if (email != '') {
+					var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+					if (pattern.test(email)) {
+						$(".letter_email").hide();
+						$(".letter_success").hide();
+						$(".letter_emailerr").hide();
+						$(".result").val(0);
+					}
+					else{
+						$(".letter_email").show();
+						$(".letter_success").hide();
+						$(".letter_emailerr").hide();
+						$(".result").val(1);
+					}					
+				}
+
+				if ($(".result").val() == 0) {
+					$.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>searchview/subscribe_news",
+						data: {
+							name : name,
+							email : email
+						},
+						success: function (data) {
+							if (data == 0) {
+								/*success*/
+								$(".letter_success").show();
+								$(".letter_emailerr").hide();
+							}
+							else if(data == 1){
+								/*email exists*/
+								$(".letter_emailerr").show();
+								$(".letter_success").hide();
+							}
+						}
+					});
+				}
+				
+			});
+			$('#name').keydown(function (e) {
+				if (e.shiftKey || e.ctrlKey || e.altKey) {
+				e.preventDefault();
+				} else {
+				var key = e.keyCode;
+					if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+					e.preventDefault();
+					}
+				}
+			});
+		});
+
+
+		
+</script>

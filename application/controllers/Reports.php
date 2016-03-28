@@ -61,7 +61,8 @@ class Reports extends CI_Controller {
 		public function Get_report(){
 			 $this->load->helper('php-excel');
 			 $result = $this->report_model->get_list_ads();
-			 $data_array[] = array( "PostAd Id","Deal Name","Package Name", "Email id","Service Type","Login Id", "Services", "Expire Date",);
+			 $data_array[] = array( "PostAd Id","Deal Name","Package Name", 
+			 	"Email id","Service Type","Login Id", "Services", "Expire Date",);
 			 foreach($result as $list){
 				  //if($list->trans_no != ''){$val = "Success";}else{$val = "Fail";}
                     $data_array[] = array(
@@ -78,6 +79,21 @@ class Reports extends CI_Controller {
 			  $xls = new Excel_XML;
             $xls->addArray ($data_array);
             $xls->generateXML ( "ads_list" );
+		}
+
+		public function get_newsletterreport(){
+			$this->load->helper('php-excel');
+			 $result = $this->report_model->get_newsletters();
+			 /*$data_array[] = array( "PostAd Id","Deal Name","Package Name", 
+			 	"Email id","Service Type","Login Id", "Services", "Expire Date",);*/
+			 foreach($result as $list){
+                    $data_array[] = array(
+							$list->nl_email, 
+							);
+			 }
+			  $xls = new Excel_XML;
+            $xls->addArray ($data_array);
+            $xls->generateXML (time());
 		}
 		
 }

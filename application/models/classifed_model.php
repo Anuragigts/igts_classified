@@ -2421,6 +2421,69 @@ GROUP BY img.ad_id
 			return $m_res->result();
 	}
 
+	public function addsaved_search(){
+		$data = array(
+					  'login_id' => $this->input->post("login_id"),
+					  'search_title' => $this->input->post("search_title"),
+					  'search_cat' => $this->input->post("search_cat"),
+					  'save_search' => $this->session->userdata("saved_search"),
+					  'search_loc' => $this->input->post("search_loc"),
+					  'saved_on' => date("Y-m-d H:i:s"));
+		$this->db->insert("saved_searchs", $data);
+		if ($this->db->affected_rows() > 0) {
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+
+	public function savedsearch_count(){
+		$this->db->where("login_id", $this->session->userdata("login_id"));
+		$rs = $this->db->count_all_results("saved_searchs");
+		return $rs;
+	}
+
+	public function savedsearch_list(){
+		$this->db->select();
+		$this->db->from("saved_searchs");
+		$this->db->where("login_id", $this->session->userdata("login_id"));
+		$rs = $this->db->get();
+		return $rs->result();
+	}
+
+	public function deletesave_search(){
+			$wr = array(
+			'id'=> $this->input->post('s_id'),
+			'login_id'	=> $this->input->post('login_id')
+			);
+			$this->db->delete("saved_searchs", $wr);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+		public function subscribe_news(){
+				$this->db->where("nl_email", $this->input->post("email"));
+				$rs = $this->db->count_all_results("newsletter");
+				if ($rs > 0) {
+					return 1;
+				}
+				else{
+					$ins = array(
+					'nl_name'=> $this->input->post('name'),
+					'nl_email'	=> $this->input->post('email'),
+					'created_on' => date("Y-m-d H:i:s"),
+					'status' =>1
+					);
+					$this->db->insert("newsletter", $ins);
+					return 0;
+				}
+		}
+
 
 
 }

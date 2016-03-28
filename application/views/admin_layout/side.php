@@ -204,6 +204,8 @@
 								</li>
 							</ul>	
 						</li>
+						<li><a href="<?php echo base_url()?>settings/newsletter"><i class="icon-cogs"></i><span class="hidden-tablet"> News Letter</span></a></li>
+						<li><a href="<?php echo base_url()?>settings/deactivated_acnts"><i class="icon-cogs"></i><span class="hidden-tablet"> De-activated Accounts</span></a></li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> User Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green'>

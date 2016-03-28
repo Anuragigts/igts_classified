@@ -56,5 +56,22 @@ class Settings_model extends CI_Model{
 			$up_status = $this->db->update('publicads_searchview', $update);
 			return $up_status;
 	}
+
+	public function get_newletters(){
+		$this->db->select();
+		$this->db->from("newsletter");
+		$this->db->where("status",1);
+		$rs = $this->db->get()->result();
+		return $rs;
+	}
+
+	public function get_deactivatedacnts(){
+		$this->db->select();
+		$this->db->from("deactive_accounts AS dact");
+		$this->db->join("login lg","lg.login_id= dact.login_id");
+		$this->db->where("lg.is_confirm !=","confirm");
+		$rs = $this->db->get()->result();
+		return $rs;
+	}
 }
 ?>

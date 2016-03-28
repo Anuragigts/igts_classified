@@ -88,6 +88,17 @@
 			}
 		);
 	</script>
+
+	<script type="text/javascript">
+	$("form").submit(function(){
+	    var uri = window.location.toString();
+		if (uri.indexOf("?") > 0) {
+		    var clean_uri = uri.substring(0, uri.indexOf("?"));
+		    window.history.replaceState({}, document.title, clean_uri);
+		}
+	});
+		
+	</script>
 			  <?php
 			  foreach ($busconcount as $countval) {
 			  	$allbustype = $countval->allbustype;
@@ -137,7 +148,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>searchview/index" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="" method='get' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -273,12 +284,20 @@
 										</div>
 									</div>
 									<!-- End Item Table-->
-
 									<!-- Item Table-->
 									<div class="col-md-9 col-sm-9">
+										<?php if ($this->session->userdata("saved_msg")) { ?>
+											<div class="alert alert-success">
+											    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
+											    <h4>
+											        <?php echo $this->session->userdata("saved_msg");?>
+											    </h4>
+											</div>
+										<?php } ?>
+										
 										<div class="sort-by-container tooltip-hover">
 											<div class="row">
-												<div class="col-md-12">
+												<div class="col-sm-10">
 													<strong>Sort by:</strong>
 													<ul>                            
 														<li>
@@ -308,19 +327,26 @@
 														<li>
 															<div class="top_bar_top">
 																<label class="input select">
-																		<select name="recentdays_sort" class="recentdays_sort">
-																			<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
-																			<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
-																			<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
-																			<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
-																			<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
-																			<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
-																		</select>
-																		<i></i>
-																	</label>
+																	<select name="recentdays_sort" class="recentdays_sort">
+																		<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+																		<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+																		<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+																		<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+																		<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+																		<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+																	</select>
+																	<i></i>
+																</label>
 															</div>
 														</li>
 													</ul>
+												</div>
+												<div class="col-md-2 saved_link1">
+													<a class="saved_link" style="margin:0px;" href="javascript:void(0);">Save Search</a>
+													<!-- <input type="hidden" name="login_id" id="login_id"	value="<?php echo $login_id; ?>"> -->
+													<input type="hidden" name="search_title" id="search_title"	value="<?php echo $looking_search; ?>">
+													<input type="hidden" name="search_cat" id="search_cat"	value="<?php echo $cat_id; ?>">
+													<input type="hidden" name="search_loc" id="search_loc"	value="<?php echo $location; ?>">
 												</div>
 											</div>
 										</div>
@@ -361,6 +387,42 @@
 		
 		<!-- End Shadow Semiboxed -->
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+
+		<script type="text/javascript">
+			$(function(){
+				$(".saved_link").click(function(){
+					var login_id = <?php if ($this->session->userdata('login_id')){ echo $this->session->userdata('login_id'); }else{ echo 0; } ?>;
+					alert(login_id);
+					if (login_id == '' || login_id == 0) {
+						window.location.href = '<?php echo base_url(); ?>login';
+						return false;
+					}
+					else{
+						$.ajax({
+							type: "POST",
+							url: "<?php echo base_url();?>searchview/addsave_search",
+							data: {
+								login_id: login_id,
+								search_title: $("#search_title").val(),
+								search_cat: $("#search_cat").val(),
+								search_loc: $("#search_loc").val()
+							},
+							success: function (data) {
+								if (data == 1) {
+									window.location.reload();
+								};
+							}
+						})
+					}
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+		setTimeout(function(){
+			$(".alert").hide();
+		}, 5000);
+		</script>
 		
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 		

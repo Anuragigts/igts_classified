@@ -60,5 +60,13 @@ class Report_model extends CI_Model{
 			$result = $this->db->get()->result();
 			return $result;
         }
+
+        public function get_newsletters(){
+                $this->db->select();
+                $this->db->from("newsletter");
+                $this->db->where("status",1);
+                $rs = $this->db->get()->result();
+                return $rs;
+        }
 }
 ?>

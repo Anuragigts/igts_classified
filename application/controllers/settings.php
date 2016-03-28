@@ -79,8 +79,32 @@ class Settings extends CI_Controller {
 			$this->load->view("admin_layout/inner_template",$data);
 			}else
 				redirect('settings/list_banners');
-			
 		}
+	}
+
+	public function newsletter(){
+		$nl_data = $this->settings_model->get_newletters();
+		$data   =   array(
+							"title"         =>     "Classifieds :: Admin News Letter",
+							"metadesc"      =>     "Classifieds :: Admin News Letter",
+							"metakey"       =>     "Classifieds :: Admin News Letter",
+							"content"       =>     "newsletter",
+							'nl_data'		=>		$nl_data
+				);
+			$this->load->view("admin_layout/inner_template",$data);
+	}
+
+	
+	public function deactivated_acnts(){
+		$nl_data = $this->settings_model->get_deactivatedacnts();
+		$data   =   array(
+							"title"         =>     "Classifieds :: Admin de-activated accounts",
+							"metadesc"      =>     "Classifieds :: Admin de-activated accounts",
+							"metakey"       =>     "Classifieds :: Admin de-activated accounts",
+							"content"       =>     "deactivated_acnts",
+							'nl_data'		=>		$nl_data
+					);
+			$this->load->view("admin_layout/inner_template",$data);
 	}
 }
 ?>

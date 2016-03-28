@@ -20,20 +20,7 @@
 		
 		<script src="js/index.js"></script>
 		
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
-                jQuery('.tp-banner').show().revolution({
-                    dottedOverlay:"none",
-                    delay:5000,
-                    startwidth:1170,
-                    startheight:925,
-                    minHeight:500,
-                    navigationType:"none",
-                    navigationArrows:"solo",
-                    navigationStyle:"preview1"
-                });             
-            }); 
-        </script>
+        
 
         <script>
 			$(document).ready(function(){
