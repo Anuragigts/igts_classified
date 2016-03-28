@@ -317,8 +317,8 @@
 											<span class="acc-trigger"><a href="#">DEACTIVATE ACCOUNT</a></span>
 											<div class="acc-container">
 												<div class="active top_20">
-													<p>Please don't leave us!</p>
-														<p>Every time an account is deactivated, one of the team cries and it takes hours to get them talking again :</p>
+													<p>Are you sure to Deactivate your Account ...?? If you are really decided it then We will miss you.</p>
+													<p>Please tell Us why you taken this decision, So that we can improve it.</p>
 													<div class="row">
 														<div class="col-sm-8 unit">
 															<label class="input select">

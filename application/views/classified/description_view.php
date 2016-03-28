@@ -2,7 +2,8 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Product View</title>
+		<title>Product View | 99 Right Deals</title>
+		
 		<style>
 			.section-title-01{
 				height: 220px;
@@ -309,7 +310,7 @@
 													</a>
 												</div>
 												<div class="pull-right">
-													<i class="fa fa-thumbs-o-up fa-2x bg_clr1" title="Like Ad" ></i> <span class="likes_count" ><?php echo $total_likes; ?></span>
+													<i class="fa fa-thumbs-o-up like_symbol_size bg_clr1" title="Like Ad" ></i> <span class="likes_count" ><?php echo $total_likes; ?></span>
 												</div>
 											</div>
 											
