@@ -684,7 +684,7 @@
 .j-forms .secondary-btn:hover { 
 	background-color:#A1CB57;
 	color:#fff;
-	border:2px solid #A1CB57; 
+	/*border:2px solid #A1CB57; */
 }
 
 .j-forms .primary-btn:hover.processing { background:#303f9f; cursor:wait; }
