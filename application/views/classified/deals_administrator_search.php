@@ -3,7 +3,7 @@
 		/*location*/
 		$latt = $m_details->latt;
 		$longg = $m_details->longg;
-		$url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=false";
+		$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&key=AIzaSyBM3nyeJqQycOIyVkC6qyqiw9nUl6O7FfU";
 		$ch = curl_init();
 		// Disable SSL verification
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
