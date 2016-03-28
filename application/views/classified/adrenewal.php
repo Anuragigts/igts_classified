@@ -39,7 +39,7 @@
 						<div class="paddings">
 							<div class="container about_text">
 								<div class="row check_out">
-									<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 col-xs-offset-0">
+									<div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
 										<div class="checkout_h3">
 											<h2>Ad Renewal</h2>
 											<?php 
