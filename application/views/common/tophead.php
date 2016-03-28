@@ -38,7 +38,7 @@
 				 ?>
 				<!-- <li style="margin-top: 8px;"><a href="login" class="bor_log">LOGIN</a></li>
 				<li style="margin-top: 8px;"><a href="signup" class="bor_reg">REGISTER</a></li> -->
-				<li class=" pull-right"><a href="<?php echo base_url(); ?>post-a-deal"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="postanad" title="Post Deal"> </a></li>
+				<li class=" pull-right"><a href="<?php echo base_url(); ?>post-a-deal"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="Free Classifieds Ads" title="Post A Deal"> </a></li>
 			</ul>
 		</nav>
 		<!-- Main Nav -->

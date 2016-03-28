@@ -554,7 +554,7 @@
 	</script>
 	
 	<!-- Modal -->
-	<div class="modal dialog1 fade" id="sendnow" role="dialog">
+	<div class="modal dialog1 fade" id="sendnow" role="dialog" style="padding-top: 100px;">
 		<div class="modal-dialog1">
 			<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="feedbackads" >
 				<div class="modal-content">
