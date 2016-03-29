@@ -542,7 +542,7 @@
 												}
 											});
 										
-											$("#feedbackads").validate({
+											$("#send_now_desc").validate({
 											
 												rules: {
 													fbkcontname: {
@@ -731,7 +731,7 @@
 										<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 									</div>
 									<?php echo $this->view("classified_layout/success_error"); ?>
-									<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="feedbackads">
+									<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="send_now_desc">
 										<aside class="widget view_sidebar send_now_hide" style="display:none;">
 											<div class="j-row">
 												<div class="unit">

@@ -382,10 +382,6 @@
 		<script src="<?php echo base_url();?>js/jquery.js"></script> 
 		
 		<script src="<?php echo base_url();?>j-folder/js/jquery.maskedinput.min.js"></script>
-		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
-		<script src="<?php echo base_url();?>j-folder/js/additional-methods.min.js"></script>
-		<script src="<?php echo base_url();?>j-folder/js/jquery.form.min.js"></script>
-		<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
 		
 		<script type="text/javascript" src="<?php echo base_url();?>libs/jquery.xuSlider.js"></script>
 		<script>

@@ -382,8 +382,8 @@
 		
 		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
-		<script src="<?php echo base_url(); ?>libs/jquery.mixitup.min.js"></script>
-		<script src="<?php echo base_url(); ?>libs/main.js"></script>
+		<script src="<?php echo base_url();?>libs/jquery.mixitup.min.js"></script>
+		<script src="<?php echo base_url();?>libs/main.js"></script>
 		
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
