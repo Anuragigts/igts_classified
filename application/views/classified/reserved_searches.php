@@ -102,26 +102,27 @@
 		<!-- End Entire Wrap -->
 		
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-
+		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
+		
 		<script type="text/javascript">
-		$(function(){
-			$(".delete-bg").click(function(){
-				var id = $(this).attr('id');
-				var id1 = id.split(',');
-					$.ajax({
-						type: "POST",
-						url: "<?php echo base_url();?>searchview/deletesave_search",
-						data: {
-							s_id: id1[0], 
-							login_id: id1[1]
-						},
-						success: function (data) {
-								$("div .del"+id1[0]+id1[1]).remove();
-						}
-					});
+			$(function(){
+				$(".delete-bg").click(function(){
+					var id = $(this).attr('id');
+					var id1 = id.split(',');
+						$.ajax({
+							type: "POST",
+							url: "<?php echo base_url();?>searchview/deletesave_search",
+							data: {
+								s_id: id1[0], 
+								login_id: id1[1]
+							},
+							success: function (data) {
+									$("div .del"+id1[0]+id1[1]).remove();
+							}
+						});
+				});
 			});
-		});
-	</script>
+		</script>
 		
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 

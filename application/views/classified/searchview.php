@@ -1116,7 +1116,8 @@
 		
 		<!-- End Shadow Semiboxed -->
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-
+		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
+		
 		<script type="text/javascript">
 			$(function(){
 				$(".saved_link").click(function(){

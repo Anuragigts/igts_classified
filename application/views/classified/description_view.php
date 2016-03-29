@@ -310,7 +310,7 @@
 													</a>
 												</div>
 												<div class="pull-right">
-													<i class="fa fa-thumbs-o-up like_symbol_size bg_clr1" title="Like Ad" ></i> <span class="likes_count" ><?php echo $total_likes; ?></span>
+													<i class="fa fa-thumbs-o-up fa-2x like_symbol_size bg_clr1" title="Like Ad" ></i> <span class="likes_count" ><?php echo $total_likes; ?></span>
 												</div>
 											</div>
 											

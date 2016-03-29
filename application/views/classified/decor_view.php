@@ -1122,7 +1122,7 @@
 	
 	<!-- End Shadow Semiboxed -->
 	<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-	
+	<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 	<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
 	
 	<script type="text/javascript" src="libs/jquery.xuSlider.js"></script>

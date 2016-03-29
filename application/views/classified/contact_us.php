@@ -200,7 +200,7 @@
 		
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script>
 		<script src="<?php echo base_url(); ?>js/maps/gmap3.js"></script>  
-		
+		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript">
 			

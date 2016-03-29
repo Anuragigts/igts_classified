@@ -446,7 +446,7 @@
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 		
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-		
+		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 		<script>
 			$('.xuSlider').xuSlider();
 		</script>
