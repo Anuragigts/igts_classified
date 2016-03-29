@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBM3nyeJqQycOIyVkC6qyqiw9nUl6O7FfU"></script>
 		
 		<script type="text/javascript">
 			google.maps.event.addDomListener(window, 'load', function () {
@@ -52,10 +52,7 @@
 								$("form.jforms").submit();
 						}
 					)
-					/*$('input:radio').click(function() {
-							$("form.jforms").submit();
-						}*/
-					)
+					
 					$('.dealtitle_sort').change(function() {
 							$("form.jforms").submit();
 						}

@@ -23,7 +23,9 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('s_cat_id');
                 $this->session->unset_userdata('s_looking_search'); 
                 $this->session->unset_userdata('s_search_sub'); 
+                $this->session->unset_userdata('s_search_subsub'); 
                 $this->session->unset_userdata('s_dealurgent');
+                $this->session->set_userdata('s_seller_deals');
                 $this->session->unset_userdata('s_search_bustype');
                 $this->session->unset_userdata('s_dealtitle');
                 $this->session->unset_userdata('s_dealprice');
@@ -31,6 +33,43 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('s_location');
                 $this->session->unset_userdata('s_latt');
                 $this->session->unset_userdata('s_longg');
+                /*motor point starts*/
+                $this->session->unset_userdata('car_van_bus');
+                $this->session->unset_userdata('motor_hm');
+                $this->session->unset_userdata('bikes_sub');
+                $this->session->unset_userdata('plant_farm');
+                $this->session->unset_userdata('boats_sub');
+                if($this->input->get('car_van_bus')){
+                     $this->session->set_userdata('car_van_bus',$this->input->get('car_van_bus'));
+                }
+                else{
+                    $this->session->set_userdata('car_van_bus',array());
+                }
+                if($this->input->get('motor_hm')){
+                     $this->session->set_userdata('motor_hm',$this->input->get('motor_hm'));
+                }
+                else{
+                    $this->session->set_userdata('motor_hm',array());
+                }
+                if($this->input->get('bikes_sub')){
+                     $this->session->set_userdata('bikes_sub',$this->input->get('bikes_sub'));
+                }
+                else{
+                    $this->session->set_userdata('bikes_sub',array());
+                }
+                if($this->input->get('plant_farm')){
+                     $this->session->set_userdata('plant_farm',$this->input->get('plant_farm'));
+                }
+                else{
+                    $this->session->set_userdata('plant_farm',array());
+                }
+                if($this->input->get('boats_sub')){
+                     $this->session->set_userdata('boats_sub',$this->input->get('boats_sub'));
+                }
+                else{
+                    $this->session->set_userdata('boats_sub',array());
+                }
+                /*motor point ends*/
                 if($this->input->get('miles')){
                      $this->session->set_userdata('miles',$this->input->get('miles'));
                 }
@@ -48,6 +87,20 @@ class  Searchview extends CI_Controller{
                 else{
                     $this->session->set_userdata('s_search_sub',array());
                 }
+                if($this->input->get('search_subsub')){
+                     $this->session->set_userdata('s_search_subsub',$this->input->get('search_subsub'));
+                }
+                else{
+                    $this->session->set_userdata('s_search_subsub',array());
+                }
+
+                if($this->input->get('seller_deals')){
+                     $this->session->set_userdata('s_seller_deals',$this->input->get('seller_deals'));
+                }
+                else{
+                    $this->session->set_userdata('s_seller_deals',array());
+                }
+
                  if($this->input->get('dealurgent')){
                        $this->session->set_userdata('s_dealurgent' ,$this->input->get('dealurgent'));
                 }else{
@@ -135,8 +188,76 @@ class  Searchview extends CI_Controller{
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
             $result['show_all'] = $this->classifed_model->show_all();
-              /*business and consumer count for pets*/
+                /*jobs sub*/
                $result['subcat_cnt'] = $this->hotdealsearch_model->subcat_searchdeals();
+               if ($this->session->userdata('s_cat_id') == 1) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_jobs();
+               }
+               else if ($this->session->userdata('s_cat_id') == 2) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services();
+               }
+               else if ($this->session->userdata('s_cat_id') == 3) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motors();
+               }
+               else if ($this->session->userdata('s_cat_id') == 4) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property();
+               }
+               else if ($this->session->userdata('s_cat_id') == 5) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_pets();
+               }
+               else if ($this->session->userdata('s_cat_id') == 6) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle();
+               }
+               else if ($this->session->userdata('s_cat_id') == 7) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen();
+               }
+               else if ($this->session->userdata('s_cat_id') == 8) {
+                 $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_ezone();
+               }
+               /*services sub sub*/
+               $result['subcat_prof'] = $this->hotdealsearch_model->subcat_prof_searchdeals();
+               $result['subcat_pop'] = $this->hotdealsearch_model->subcat_pop_searchdeals();
+               /*find a property sub sub*/
+               $result['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_searchdeals();
+               $result['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_searchdeals();
+               /*pets sub sub*/
+               $result['subcat_pets'] = $this->hotdealsearch_model->subcat_pets_searchdeals();
+               $result['subcat_bigpets'] = $this->hotdealsearch_model->subcat_bigpets_searchdeals();
+               $result['subcat_smallpets'] = $this->hotdealsearch_model->subcat_smallpets_searchdeals();
+               $result['subcat_petsaccess'] = $this->hotdealsearch_model->subcat_petsaccess_searchdeals();
+               /*cloths and life styles*/
+               $result['subcat_women'] = $this->hotdealsearch_model->subcat_women_searchdeals();
+               $result['subcat_men'] = $this->hotdealsearch_model->subcat_men_searchdeals();
+               $result['subcat_boy'] = $this->hotdealsearch_model->subcat_boy_searchdeals();
+               $result['subcat_girl'] = $this->hotdealsearch_model->subcat_girl_searchdeals();
+               $result['subcat_bboy'] = $this->hotdealsearch_model->subcat_bboy_searchdeals();
+               $result['subcat_bgirl'] = $this->hotdealsearch_model->subcat_bgirl_searchdeals();
+               /*home kitchen*/
+               $result['subcat_kitchen'] = $this->hotdealsearch_model->subcat_kitchen_searchdeals();
+               $result['subcat_home'] = $this->hotdealsearch_model->subcat_home_searchdeals();
+               $result['subcat_decor'] = $this->hotdealsearch_model->subcat_decor_searchdeals();
+               /*ezone*/
+               $result['subcat_phone'] = $this->hotdealsearch_model->subcat_phone_searchdeals();
+               $result['subcat_homeapp'] = $this->hotdealsearch_model->subcat_homeapp_searchdeals();
+               $result['subcat_smallapp'] = $this->hotdealsearch_model->subcat_smallapp_searchdeals();
+               $result['subcat_lappy'] = $this->hotdealsearch_model->subcat_lappy_searchdeals();
+               $result['subcat_access'] = $this->hotdealsearch_model->subcat_access_searchdeals();
+               $result['subcat_pcare'] = $this->hotdealsearch_model->subcat_pcare_searchdeals();
+               $result['subcat_henter'] = $this->hotdealsearch_model->subcat_henter_searchdeals();
+               $result['subcat_pgraphy'] = $this->hotdealsearch_model->subcat_pgraphy_searchdeals();
+
+
+               /*motor sub sub*/
+               $result['subcat_cars'] = $this->hotdealsearch_model->subcat_cars_searchdeals();
+               $result['subcat_bikes'] = $this->hotdealsearch_model->subcat_bikes_searchdeals();
+               $result['subcat_motorhomes'] = $this->hotdealsearch_model->subcat_motorhomes_searchdeals();
+               $result['subcat_vans'] = $this->hotdealsearch_model->subcat_vans_searchdeals();
+               $result['subcat_buses'] = $this->hotdealsearch_model->subcat_buses_searchdeals();
+               $result['subcat_plant'] = $this->hotdealsearch_model->subcat_plant_searchdeals();
+               $result['subcat_farming'] = $this->hotdealsearch_model->subcat_farming_searchdeals();
+               $result['subcat_boats'] = $this->hotdealsearch_model->subcat_boats_searchdeals();
+
+               /*business and consumer count*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_search();
                 $result['login_id'] = $this->session->userdata('login_id');
                  /*seller and needed count for pets*/

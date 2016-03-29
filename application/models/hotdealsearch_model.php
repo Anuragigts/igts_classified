@@ -105,15 +105,23 @@ class hotdealsearch_model extends CI_Model{
 			/*search home filter*/
 			public function subcat_searchdeals(){
 				$cat_id =  $this->session->userdata('s_cat_id');
-				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
-				$this->db->from('sub_category');
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
-				if ($cat_id != 'all') {
-					$this->db->where('sub_category.category_id', $cat_id);
+				if ($cat_id == 'all') {
+					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+					$this->db->from('sub_category');
+					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+					$this->db->group_by("sub_category.sub_category_id");
+					$rs = $this->db->get();
+					return $rs->result();
 				}
-				$this->db->group_by("sub_category.sub_category_id");
-				$rs = $this->db->get();
-				return $rs->result();
+				if ($cat_id == 1) {
+					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+					$this->db->from('sub_category');
+					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+					$this->db->where('sub_category.category_id', $cat_id);
+					$this->db->group_by("sub_category.sub_category_id");
+					$rs = $this->db->get();
+					return $rs->result();
+				}
 			}
 			/*services search sub category*/
 			public function services_sub_prof(){
@@ -1142,17 +1150,17 @@ class hotdealsearch_model extends CI_Model{
 
         public function clothstyle_list(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20) AS women,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.ad_status = 1) AS women,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21) AS men,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.ad_status = 1) AS men,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22) AS boy,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.ad_status = 1) AS boy,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23) AS girls,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.ad_status = 1) AS girls,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24) AS babyboy,
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24 AND ad.ad_status = 1) AS babyboy,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25) AS babygirl");
+		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25 AND ad.ad_status = 1) AS babygirl");
 		return $this->db->get()->result();
         }
 
@@ -4145,10 +4153,19 @@ class hotdealsearch_model extends CI_Model{
          	$looking_search =  $this->session->userdata('s_looking_search');
          	$cat_id =  $this->session->userdata('s_cat_id');
          	$search_sub =  $this->session->userdata('s_search_sub');
+         	$search_subsub =  $this->session->userdata('s_search_subsub');
         	$search_bustype = $this->session->userdata('s_search_bustype');
         	$dealtitle = $this->session->userdata('s_dealtitle');
         	$dealprice = $this->session->userdata('s_dealprice');
         	$recentdays = $this->session->userdata('s_recentdays');
+        	$seller_deals = $this->session->userdata('s_seller_deals');
+			$dealurgent = $this->session->userdata('s_dealurgent');
+
+			$car_van_bus = $this->session->userdata('car_van_bus');
+            $motor_hm = $this->session->userdata('motor_hm');
+            $bikes_sub = $this->session->userdata('bikes_sub');
+            $plant_farm = $this->session->userdata('plant_farm');
+            $boats_sub = $this->session->userdata('boats_sub');
 
         	$distance = round($this->miles2kms($miles));
 			$earthRadius = 6371;
@@ -4175,8 +4192,8 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 				if ($looking_search) {
 					if ($looking_search != '') {
-						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' 
-  						OR ad.deal_desc LIKE '%$looking_search%')");
+						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' 
+  						OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search')");
 					}
 				}
 
@@ -4184,10 +4201,115 @@ class hotdealsearch_model extends CI_Model{
 					if ($cat_id != 'all') {
 						$this->db->where('ad.category_id', $cat_id);
 					}
+					/*jobs*/
+					if ($cat_id == '1') {
+						$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+						if (!empty($seller_deals)) {
+							$this->db->where_in('jd.jobtype_title', $seller_deals);
+						}
+					}
+					/*services, pets, cloths*/
+					if ($cat_id == '2' || $cat_id == '5' || $cat_id == '6' || $cat_id == '7') {
+						if (!empty($seller_deals)) {
+							$this->db->where_in('ad.services', $seller_deals);
+						}
+					}
+					if ($cat_id == '4') {
+						$this->db->join('property_resid_commercial AS res', "res.ad_id = ad.ad_id", 'left');
+						if (!empty($seller_deals)) {
+							$this->db->where_in('res.offered_type', $seller_deals);
+						}
+					}
+					if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(1, $dealurgent)){
+								array_push($pcklist, 1);
+							}
+							if (in_array(2, $dealurgent)){
+								array_push($pcklist, 2);
+							}
+							if (in_array(3, $dealurgent)){
+								array_push($pcklist, 3);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+					if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(4, $dealurgent)){
+								array_push($pcklist, 4);
+							}
+							if (in_array(5, $dealurgent)){
+								array_push($pcklist, 5);
+							}
+							if (in_array(6, $dealurgent)){
+								array_push($pcklist, 6);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+					if (!empty($pcklist)) {
+							$this->db->where_in('ad.package_type', $pcklist);
+						}
+					if (!empty($search_sub)) {
+						$this->db->where_in('ad.sub_cat_id', $search_sub);
+					}
+					if ($cat_id == 3) {
+							if (!empty($car_van_bus)) {
+								$this->db->join('motor_car_van_bus_ads AS cars', "cars.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('cars.manufacture', $car_van_bus);
+							}
+							if (!empty($bikes_sub)) {
+								$this->db->join('motor_bike_ads AS bike', "bike.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('bike.manufacture', $bikes_sub);
+							}
+							if (!empty($motor_hm)) {
+								$this->db->join('motor_home_ads AS mh', "mh.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('mh.manufacture', $motor_hm);
+							}
+							if (!empty($plant_farm)) {
+								$this->db->join('motor_plant_farming AS pf', "pf.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('pf.manufacture', $plant_farm);
+							}
+							if (!empty($boats_sub)) {
+								$this->db->join('motor_boats AS mb', "mb.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('mb.manufacture', $boats_sub);
+							}
+						}
+					if (!empty($search_subsub)) {
+							if ($cat_id == 4) {
+							$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+							$this->db->where_in('resi.property_for', $search_subsub);
+						}
+						else{
+							$this->db->where_in('ad.sub_scat_id', $search_subsub);
+						}
+					}
+					
 				}
-				if (!empty($search_sub)) {
-					$this->db->where_in('ad.sub_cat_id', $search_sub);
-				}
+
 			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
@@ -4236,7 +4358,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get();
-			 // echo $this->db->last_query(); exit;
+			  // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -4249,10 +4371,20 @@ class hotdealsearch_model extends CI_Model{
         	$looking_search =  $this->session->userdata('s_looking_search');
         	$cat_id =  $this->session->userdata('s_cat_id');
         	$search_sub =  $this->session->userdata('s_search_sub');
+        	$search_subsub =  $this->session->userdata('s_search_subsub');
         	$search_bustype = $this->session->userdata('s_search_bustype');
         	$dealtitle = $this->session->userdata('s_dealtitle');
         	$dealprice = $this->session->userdata('s_dealprice');
         	$recentdays = $this->session->userdata('s_recentdays');
+        	$seller_deals = $this->session->userdata('s_seller_deals');
+			$dealurgent = $this->session->userdata('s_dealurgent');
+
+			$car_van_bus = $this->session->userdata('car_van_bus');
+            $motor_hm = $this->session->userdata('motor_hm');
+            $bikes_sub = $this->session->userdata('bikes_sub');
+            $plant_farm = $this->session->userdata('plant_farm');
+            $boats_sub = $this->session->userdata('boats_sub');
+
         	$distance = round($this->miles2kms($miles));
 			$earthRadius = 6371;
 			if ($this->session->userdata('s_latt') !='') {
@@ -4278,17 +4410,121 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 				if ($looking_search) {
 					if ($looking_search != '') {
-						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' 
-  				OR ad.deal_desc LIKE '%$looking_search%')");
+						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' 
+  						OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search')");
 					}
 				}
 				if ($cat_id) {
 					if ($cat_id != 'all') {
 						$this->db->where('ad.category_id', $cat_id);
 					}
-				}
-				if (!empty($search_sub)) {
-					$this->db->where_in('ad.sub_cat_id', $search_sub);
+					/*jobs*/
+					if ($cat_id == '1') {
+						$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+						if (!empty($seller_deals)) {
+							$this->db->where_in('jd.jobtype_title', $seller_deals);
+						}
+					}
+					/*services, pets, cloths*/
+					if ($cat_id == '2' || $cat_id == '5' || $cat_id == '6' || $cat_id == '7') {
+						if (!empty($seller_deals)) {
+							$this->db->where_in('ad.services', $seller_deals);
+						}
+					}
+					if ($cat_id == '4') {
+						$this->db->join('property_resid_commercial AS res', "res.ad_id = ad.ad_id", 'left');
+						if (!empty($seller_deals)) {
+							$this->db->where_in('res.offered_type', $seller_deals);
+						}
+					}
+					if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(1, $dealurgent)){
+								array_push($pcklist, 1);
+							}
+							if (in_array(2, $dealurgent)){
+								array_push($pcklist, 2);
+							}
+							if (in_array(3, $dealurgent)){
+								array_push($pcklist, 3);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+					if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(4, $dealurgent)){
+								array_push($pcklist, 4);
+							}
+							if (in_array(5, $dealurgent)){
+								array_push($pcklist, 5);
+							}
+							if (in_array(6, $dealurgent)){
+								array_push($pcklist, 6);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+					if (!empty($pcklist)) {
+							$this->db->where_in('ad.package_type', $pcklist);
+						}
+					if (!empty($search_sub)) {
+						$this->db->where_in('ad.sub_cat_id', $search_sub);
+					}
+					if ($cat_id == 3) {
+							if (!empty($car_van_bus)) {
+								$this->db->join('motor_car_van_bus_ads AS cars', "cars.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('cars.manufacture', $car_van_bus);
+							}
+							if (!empty($bikes_sub)) {
+								$this->db->join('motor_bike_ads AS bike', "bike.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('bike.manufacture', $bikes_sub);
+							}
+							if (!empty($motor_hm)) {
+								$this->db->join('motor_home_ads AS mh', "mh.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('mh.manufacture', $motor_hm);
+							}
+							if (!empty($plant_farm)) {
+								$this->db->join('motor_plant_farming AS pf', "pf.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('pf.manufacture', $plant_farm);
+							}
+							if (!empty($boats_sub)) {
+								$this->db->join('motor_boats AS mb', "mb.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('mb.manufacture', $boats_sub);
+							}
+						}
+					if (!empty($search_subsub)) {
+							if ($cat_id == 4) {
+							$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+							$this->db->where_in('resi.property_for', $search_subsub);
+						}
+						else{
+							$this->db->where_in('ad.sub_scat_id', $search_subsub);
+						}
+					}
+					
 				}
 			$this->db->where("ad.ad_status", "1");
 			
@@ -4339,7 +4575,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			$this->db->order_by('dtime', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
-			  // echo $this->db->last_query(); exit;
+			    // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -7978,7 +8214,7 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function busconcount_search(){
-        	$cat_id =  $this->session->userdata('cat_id');
+        	$cat_id =  $this->session->userdata('s_cat_id');
         	if ($cat_id) {
 	        	if ($cat_id != 'all') {
 	        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
@@ -7986,6 +8222,7 @@ class hotdealsearch_model extends CI_Model{
 					(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND ad_status = 1 AND ad_type = 'business') AS business,
 					(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND ad_status = 1 AND ad_type = 'consumer') AS consumer");
 							$rs = $this->db->get();
+							// echo $this->db->last_query(); exit;
 		        			return $rs->result();
 	        	}
 	        	else{
@@ -8202,9 +8439,9 @@ class hotdealsearch_model extends CI_Model{
 
         /*cloths and lifestyles count business or consumer*/
         public function busconcount_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_type = 'consumer') AS consumer");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status =1 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status =1 AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status =1 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -8321,23 +8558,23 @@ class hotdealsearch_model extends CI_Model{
 
         /*pets seller and needed count*/
         public function sellerneeded_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed') AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1) AS seller,
+(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1) AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*motors seller and needed count*/
         public function sellerneeded_motors(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire') AS forhire");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1) AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_ezone(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed') AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1) AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -8456,25 +8693,25 @@ class hotdealsearch_model extends CI_Model{
 
         /*services seller and needed count*/
         public function sellerneeded_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider') AS provider,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed') AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1) AS provider,
+(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1) AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneeded_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company') AS company,
-			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency') AS agency,
-			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other') AS other");
+        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1) AS company,
+(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1) AS agency,
+(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1) AS other");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*pets seller and needed count*/
         public function sellerneeded_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1) AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -8482,18 +8719,18 @@ class hotdealsearch_model extends CI_Model{
         /*findproperty seller and needed count*/
         public function sellerneeded_property(){
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Offered') AS offered,
+			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1) AS offered,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Wanted') AS wanted");
+			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1) AS wanted");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*clothstyles seller and needed count*/
         public function sellerneeded_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6') AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1) AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1) AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1) AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -8791,10 +9028,10 @@ class hotdealsearch_model extends CI_Model{
 
         /*packages count for findproperty*/
         public function deals_pck_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '4' AND urgent_package = '0') AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -8849,18 +9086,26 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function deals_pck_search(){
-        	$cat_id =  $this->session->userdata('cat_id');
+        	$cat_id =  $this->session->userdata('s_cat_id');
         	if ($cat_id != 'all') {
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0') AS freecount");
+        		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND ad_status = 1) AS freecount");
+        		}
+        		else{
+        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND ad_status = 1) AS freecount");	
+        		}
         	}
         	else{
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 3 AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 2 AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 1 AND urgent_package = '0') AS freecount");	
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE package_type = 3 AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE package_type = 2 AND urgent_package = '0' AND ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE package_type = 1 AND urgent_package = '0' AND ad_status = 1) AS freecount");	
         	}
         	
         	$rs = $this->db->get();
@@ -8890,6 +9135,365 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
 
+        public function subcat_prof_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 9);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function subcat_pop_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 10);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function subcat_resi_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	$this->db->where("sscat.sub_category_id", 11);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function subcat_comm_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	$this->db->where("sscat.sub_category_id", 26);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function subcat_pets_searchdeals(){
+        	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+			$this->db->from('sub_category');
+			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+			$this->db->where('sub_category.category_id', 5);
+			$this->db->group_by("sub_category.sub_category_id");
+			$this->db->limit(4);
+			$rs = $this->db->get();
+			return $rs->result();
+        }
+        public function subcat_bigpets_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 5);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         public function subcat_smallpets_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 6);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function subcat_petsaccess_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 7);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*cloths sub sub*/
+        /*women*/
+        public function subcat_women_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 20);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*men*/
+        public function subcat_men_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 21);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*boy*/
+        public function subcat_boy_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 22);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*girl*/
+        public function subcat_girl_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 23);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*bboy*/
+        public function subcat_bboy_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 24);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*bgirl*/
+        public function subcat_bgirl_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 25);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*home and kitchen*/
+        /*kitchen*/
+        public function subcat_kitchen_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 67);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*home*/
+        public function subcat_home_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 68);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*decor*/
+        public function subcat_decor_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 69);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*ezone sub sub*/
+        /*phone tablets*/
+        public function subcat_phone_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 59);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*home apps*/
+        public function subcat_homeapp_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 60);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*small apps*/
+        public function subcat_smallapp_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 61);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*laptop apps*/
+        public function subcat_lappy_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 62);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*accessories*/
+        public function subcat_access_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 63);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+       	/*personal care*/
+        public function subcat_pcare_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 64);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*home entertainment*/
+        public function subcat_henter_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 65);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*Photography*/
+        public function subcat_pgraphy_searchdeals(){
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->where("sscat.sub_category_id", 66);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*motor point*/
+        /*cars*/
+        public function subcat_cars_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 12);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*bikes*/
+        public function subcat_bikes_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes
+			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 13);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*motor homes*/
+        public function subcat_motorhomes_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` 
+		      AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 14);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*vans*/
+        public function subcat_vans_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 15);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*coaches buses*/
+        public function subcat_buses_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 16);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*plant machinery*/
+        public function subcat_plant_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 17);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*farming vehicles*/
+        public function subcat_farming_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 18);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*boating */
+        public function subcat_boats_searchdeals(){
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb
+			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 19);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
         
 }
 ?>

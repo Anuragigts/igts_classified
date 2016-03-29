@@ -79,11 +79,15 @@
 						$("form.jforms").submit();
 					}
 				)
-				$(".clear_location").click(function(){
-					$('#latt').val('');
-					$('#longg').val('');
-					$('#find_loc').val('');
-					$("form.jforms").submit();
+				$(".seach_btn").click(function(){
+					if ($('#find_loc').val() == '') {
+						$('#latt').val('');
+						$('#longg').val('');
+						$("form.jforms").submit();
+					}
+					else{
+						$("form.jforms").submit();
+					}
 				});
 			}
 		);
@@ -110,10 +114,12 @@
 			  	$topad = $publicview->topad;
 			  	$mid_ad = $publicview->mid_ad;
 			  }
+
 			$miles =  $this->session->userdata('miles');
 			$looking_search = $this->session->userdata('s_looking_search'); 
 			$cat_id =  $this->session->userdata('s_cat_id');
 			$search_sub = $this->session->userdata('s_search_sub'); 
+			$search_subsub =  $this->session->userdata('s_search_subsub');
 			$dealtitle = $this->session->userdata('s_dealtitle');
 			$dealprice = $this->session->userdata('s_dealprice');
 			$recentdays = $this->session->userdata('s_recentdays');
@@ -121,6 +127,72 @@
 			$location = $this->session->userdata('s_location');
 			$latt = $this->session->userdata('s_latt');
 			$longg = $this->session->userdata('s_longg');
+			$seller_deals = $this->session->userdata('s_seller_deals');
+			$dealurgent = $this->session->userdata('s_dealurgent');
+			if ($cat_id == 1) {
+				foreach ($sellerneededcount as $sncnt) {
+				$company = $sncnt->company;
+				$agency = $sncnt->agency;
+				$other = $sncnt->other;
+			  	}
+			}
+			if ($cat_id == 2) {
+				foreach ($sellerneededcount as $sncnt) {
+					$seller = $sncnt->provider;
+					$needed = $sncnt->needed;
+				  }
+			}
+			if ($cat_id == 3) {
+				foreach ($sellerneededcount as $sncnt) {
+					$seller = $sncnt->seller;
+					$needed = $sncnt->needed;
+					$forhire = $sncnt->forhire;
+				  }
+			}
+			if ($cat_id == 4) {
+				foreach ($sellerneededcount as $sncnt) {
+				$offered = $sncnt->offered;
+				$wanted = $sncnt->wanted;
+				}
+			}
+			if ($cat_id == 5) {
+				foreach ($sellerneededcount as $sncnt) {
+				$seller = $sncnt->seller;
+				$needed = $sncnt->needed;
+		  		}
+			}
+			if ($cat_id == 6) {
+				foreach ($sellerneededcount as $sncnt) {
+						$seller = $sncnt->seller;
+						$needed = $sncnt->needed;
+						$charity = $sncnt->charity;
+				  }
+			}
+			if($cat_id == 7) {
+				foreach ($sellerneededcount as $sncnt) {
+					$seller = $sncnt->seller;
+					$needed = $sncnt->needed;
+					$charity = $sncnt->charity; 
+				  }
+			}
+			if($cat_id == 8) {
+				foreach ($sellerneededcount as $sncnt) {
+				  	$seller = $sncnt->seller;
+				  	$needed = $sncnt->needed;
+				  }
+			}
+			foreach ($deals_pck as $pckval) {
+					$urgentcnt = $pckval->urgentcount;
+					$platinumcnt = $pckval->platinumcount;
+					$goldcnt = $pckval->goldcount;
+					$freecnt = $pckval->freecount;
+				  }
+			
+			$car_van_bus = $this->session->userdata('car_van_bus');
+            $motor_hm = $this->session->userdata('motor_hm');
+            $bikes_sub = $this->session->userdata('bikes_sub');
+            $plant_farm = $this->session->userdata('plant_farm');
+            $boats_sub = $this->session->userdata('boats_sub');
 	   ?>
 	</head>
 	
@@ -207,7 +279,7 @@
 														</label>
 													</div>
 													<div class="col-md-5 col-sm-3 col-xs-12">
-														<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
+														<input type="button" class="primary-btn seach_btn" name='' Value="Search">
 													</div>
 												</div>
 											</div>
@@ -221,11 +293,40 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>home-page"><h3 class="title-widget">Home Search Filter</h3></a>
+											<?php 
+												if ($cat_id) {
+												if ($cat_id == 'all') { ?>
+												<h3 class="title-widget">Home Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '1') { ?>
+												<h3 class="title-widget">Jobs Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '2') { ?>
+												<h3 class="title-widget">Services Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '3') { ?>
+												<h3 class="title-widget">Motor Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '4') { ?>
+												<h3 class="title-widget">Property Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '5') { ?>
+												<h3 class="title-widget">Pets Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '6') { ?>
+												<h3 class="title-widget">Clothing & Lifestyles Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '7') { ?>
+												<h3 class="title-widget">Home & kitchen Search Filter</h3>
+												<?php }?>
+												<?php if ($cat_id == '8') { ?>
+												<h3 class="title-widget">E-Zone Search Filter</h3>
+												<?php }?>
+											<?php } ?>
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Deal Type</h4>
+												<h4 class="title-widget ">Deal Type</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content" >
 													<div>
 														<label class="radio">
 															<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
@@ -246,35 +347,663 @@
 													<?php 
 														if ($cat_id) {
 														if ($cat_id != 'all') { ?>
-														 <div class="cd-filter-block">
-															<h4 class="title-widget">Search Filters</h4>
-
-															<div class="cd-filter-content">
-																<?php if ($cat_id != '2' && $cat_id != '4' && $cat_id != '7') { ?>
-																<div id='limit_scrol'>
-																	<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
-																		<label class="checkbox">
-																			<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
-																			<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
-																		</label>
-																	<?php } ?>
+															<?php if ($cat_id == '1') { ?>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Jobs Search Filters</h4>
+																	<div class="cd-filter-content">
+																		<div id='limit_scrol'>
+																			<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
 																</div>
-																<?php }
-																else{ ?>
-																	<div>
-																		<?php foreach ($subcat_cnt as $subcat_cntval) { ?>
+																	<div class="cd-filter-block">
+																		<h4 class="title-widget">Seller Type</h4>
+
+																		<div class="cd-filter-content" >
+																			<div>
+																				<label class="checkbox">
+																					<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Company" <?php if(isset($seller_deals) && in_array('Company',$seller_deals)){ echo 'checked = checked';}?> >
+																					<i></i> Company Deals (<?php echo $company; ?>)
+																				</label>
+																				<label class="checkbox">
+																					<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Agency" <?php if(isset($seller_deals) && in_array('Agency',$seller_deals)){ echo 'checked = checked';}?> >
+																					<i></i> Agency Deals (<?php echo $agency; ?>)
+																				</label>
+																				<label class="checkbox">
+																					<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Other" <?php if(isset($seller_deals) && in_array('Other',$seller_deals)){ echo 'checked = checked';}?> >
+																					<i></i> Other Deals (<?php echo $other; ?>)
+																				</label>
+																			</div>
+																		</div> 
+																	</div>
+															<?php }		?>
+
+															<?php if ($cat_id == '2') { ?>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Professional</h4>
+																	<div class="cd-filter-content">
+																		<div id='limit_scrol'>
+																			<?php foreach ($subcat_prof as $subcat_profval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_profval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_profval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_profval->sub_subcategory_name; ?> (<?php echo $subcat_profval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Popular</h4>
+																	<div class="cd-filter-content">
+																		<div id='limit_scrol'>
+																			<?php foreach ($subcat_pop as $subcat_popval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_popval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_popval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_popval->sub_subcategory_name; ?> (<?php echo $subcat_popval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget ">Seller Type</h4>
+
+																	<div class="cd-filter-content" >
+																		<div>
 																			<label class="checkbox">
-																				<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_cntval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_cntval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
-																				<i></i> <?php echo $subcat_cntval->sub_category_name; ?> (<?php echo $subcat_cntval->no_ads; ?>)
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_provider',$seller_deals)) echo 'checked = checked';?> value="service_provider" >
+																				<i></i> Service provider (<?php echo $seller; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_needed',$seller_deals)) echo 'checked = checked';?> value="service_needed" >
+																				<i></i> Service Needed (<?php echo $needed; ?>)
+																			</label>
+																		</div>
+																	</div> 
+																</div>
+																
+															<?php }		?>
+															<!-- motor point -->
+															<?php if ($cat_id == 3) { ?>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Cars Filters</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_cars as $subcat_carsval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="car_van_bus[]" class="car_van_bus" value="<?php echo $subcat_carsval->sub_subcategory_id; ?>" <?php if (isset($car_van_bus) && in_array($subcat_carsval->sub_subcategory_id, $car_van_bus)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_carsval->sub_subcategory_name; ?> (<?php echo $subcat_carsval->no_ads; ?>)
 																			</label>
 																		<?php } ?>
 																	</div>
-																<?php } ?>
+																</div>
 															</div>
-														</div> 
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Bikes Filters</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_bikes as $subcat_bikesval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="bikes_sub[]" class="bikes_sub" value="<?php echo $subcat_bikesval->sub_subcategory_id; ?>" <?php if (isset($bikes_sub) && in_array($subcat_bikesval->sub_subcategory_id, $bikes_sub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_bikesval->sub_subcategory_name; ?> (<?php echo $subcat_bikesval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Motor Homes Filters</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_motorhomes as $subcat_motorhomesval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="motor_hm[]" class="motor_hm" value="<?php echo $subcat_motorhomesval->sub_subcategory_id; ?>" <?php if (isset($motor_hm) && in_array($subcat_motorhomesval->sub_subcategory_id, $motor_hm)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_motorhomesval->sub_subcategory_name; ?> (<?php echo $subcat_motorhomesval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Vans, Trucks & SUV's</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_vans as $subcat_vansval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="car_van_bus[]" class="car_van_bus" value="<?php echo $subcat_vansval->sub_subcategory_id; ?>" <?php if (isset($car_van_bus) && in_array($subcat_vansval->sub_subcategory_id, $car_van_bus)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_vansval->sub_subcategory_name; ?> (<?php echo $subcat_vansval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">coaches & buses</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_buses as $subcat_busesval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="car_van_bus[]" class="car_van_bus" value="<?php echo $subcat_busesval->sub_subcategory_id; ?>" <?php if (isset($car_van_bus) && in_array($subcat_busesval->sub_subcategory_id, $car_van_bus)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_busesval->sub_subcategory_name; ?> (<?php echo $subcat_busesval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Plant Machinery</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_plant as $subcat_plantval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="plant_farm[]" class="plant_farm" value="<?php echo $subcat_plantval->sub_subcategory_id; ?>" <?php if (isset($plant_farm) && in_array($subcat_plantval->sub_subcategory_id, $plant_farm)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_plantval->sub_subcategory_name; ?> (<?php echo $subcat_plantval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Farming Vehicles</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_farming as $subcat_farmingval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="plant_farm[]" class="plant_farm" value="<?php echo $subcat_farmingval->sub_subcategory_id; ?>" <?php if (isset($plant_farm) && in_array($subcat_farmingval->sub_subcategory_id, $plant_farm)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_farmingval->sub_subcategory_name; ?> (<?php echo $subcat_farmingval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Boats</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_boats as $subcat_boatsval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="boats_sub[]" class="boats_sub" value="<?php echo $subcat_boatsval->sub_subcategory_id; ?>" <?php if (isset($boats_sub) && in_array($subcat_boatsval->sub_subcategory_id, $boats_sub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_boatsval->sub_subcategory_name; ?> (<?php echo $subcat_boatsval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget ">Seller Type</h4>
+
+																<div class="cd-filter-content">
+																	<div>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
+																			<i></i> Seller Deals (<?php echo $seller; ?>)
+																		</label>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
+																			<i></i> Needed Deals (<?php echo $needed; ?>)
+																		</label>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('ForHire',$seller_deals)) echo 'checked = checked';?> value="ForHire" >
+																			<i></i> ForHire Deals (<?php echo $forhire; ?>)
+																		</label>
+																	</div>
+																</div> 
+															</div>
+															<?php } ?>
+															<!-- find a property -->
+															<?php if ($cat_id == '4') { ?>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Residential</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_resi as $subcat_resival) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_resival->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_resival->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_resival->sub_subcategory_name; ?> (<?php echo $subcat_resival->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Commercial</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_comm as $subcat_commval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_commval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_commval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_commval->sub_subcategory_name; ?> (<?php echo $subcat_commval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget ">Seller Type</h4>
+
+																	<div class="cd-filter-content" >
+																		<div>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Offered" <?php if(isset($seller_deals) && in_array('Offered',$seller_deals)) echo 'checked = checked';?> >
+																				<i></i> Offered Deals (<?php echo $offered; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Wanted" <?php if(isset($seller_deals) && in_array('Wanted',$seller_deals)) echo 'checked = checked';?> >
+																				<i></i> Wanted Deals (<?php echo $wanted; ?>)
+																			</label>
+																		</div>
+																	</div> 
+																</div>
+															<?php }		?>
+															<!-- pets  -->
+															<?php if ($cat_id == '5') { ?>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Pets Search Filters</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_pets as $subcat_petsval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_sub[]" class="search_sub" value="<?php echo $subcat_petsval->sub_category_id; ?>" <?php if (isset($search_sub) && in_array($subcat_petsval->sub_category_id, $search_sub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_petsval->sub_category_name; ?> (<?php echo $subcat_petsval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Big Animals</h4>
+																	<div class="cd-filter-content">
+																		<div id='limit_scrol'>
+																			<?php foreach ($subcat_bigpets as $subcat_bigpetsval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_bigpetsval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_bigpetsval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_bigpetsval->sub_subcategory_name; ?> (<?php echo $subcat_bigpetsval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Small Animals</h4>
+																	<div class="cd-filter-content">
+																		<div id='limit_scrol'>
+																			<?php foreach ($subcat_smallpets as $subcat_smallpetsval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_smallpetsval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_smallpetsval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_smallpetsval->sub_subcategory_name; ?> (<?php echo $subcat_smallpetsval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Pet Accessories</h4>
+																	<div class="cd-filter-content">
+																		<div id='limit_scrol'>
+																			<?php foreach ($subcat_petsaccess as $subcat_petsaccessval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_petsaccessval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_petsaccessval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_petsaccessval->sub_subcategory_name; ?> (<?php echo $subcat_petsaccessval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget ">Seller Type</h4>
+
+																	<div class="cd-filter-content" >
+																		<div>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
+																				<i></i> Seller Deals (<?php echo $seller; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
+																				<i></i> Needed Deals (<?php echo $needed; ?>)
+																			</label>
+																		</div>
+																	</div> 
+																</div>
+															<?php }		?>
+															<!-- cloths -->
+															<?php if ($cat_id == '6') { ?>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Women</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_women as $subcat_womenval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_womenval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_womenval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_womenval->sub_subcategory_name; ?> (<?php echo $subcat_womenval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Men</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_men as $subcat_menval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_menval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_menval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_menval->sub_subcategory_name; ?> (<?php echo $subcat_menval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Boy</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_boy as $subcat_boyval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_boyval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_boyval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_boyval->sub_subcategory_name; ?> (<?php echo $subcat_boyval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Girl</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_girl as $subcat_girlval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_girlval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_girlval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_girlval->sub_subcategory_name; ?> (<?php echo $subcat_girlval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Baby Boy</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_bboy as $subcat_bboyval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_bboyval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_bboyval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_bboyval->sub_subcategory_name; ?> (<?php echo $subcat_bboyval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Baby Girl</h4>
+																	<div class="cd-filter-content">
+																		<div>
+																			<?php foreach ($subcat_bgirl as $subcat_bgirlval) { ?>
+																				<label class="checkbox">
+																					<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_bgirlval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_bgirlval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																					<i></i> <?php echo $subcat_bgirlval->sub_subcategory_name; ?> (<?php echo $subcat_bgirlval->no_ads; ?>)
+																				</label>
+																			<?php } ?>
+																		</div>
+																	</div>
+																</div>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget ">Seller Type</h4>
+
+																	<div class="cd-filter-content" >
+																		<div>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> >
+																				<i></i> Seller (<?php echo $seller; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> >
+																				<i></i> Needed (<?php echo $needed; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Charity" <?php if(isset($seller_deals) && in_array('Charity',$seller_deals)) echo 'checked = checked';?> >
+																				<i></i> Charity (<?php echo $charity; ?>)
+																			</label>
+																		</div>
+																	</div> 
+																</div>
+															<?php }		?>
+															<?php if ($cat_id == 7) { ?>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Kitchen Essentials</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_kitchen as $subcat_kitchenval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_kitchenval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_kitchenval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_kitchenval->sub_subcategory_name; ?> (<?php echo $subcat_kitchenval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Home Essentials</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_home as $subcat_homeval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_homeval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_homeval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_homeval->sub_subcategory_name; ?> (<?php echo $subcat_homeval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Decor</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_decor as $subcat_decorval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_decorval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_decorval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_decorval->sub_subcategory_name; ?> (<?php echo $subcat_decorval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget ">Seller Type</h4>
+
+																<div class="cd-filter-content" >
+																	<div>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> >
+																			<i></i> Seller Deals (<?php echo $seller; ?>)
+																		</label>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Needed" <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> >
+																			<i></i> Needed Deals (<?php echo $needed; ?>)
+																		</label>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Charity" <?php if(isset($seller_deals) && in_array('Charity',$seller_deals)) echo 'checked = checked';?> >
+																			<i></i> Charity Deals (<?php echo $charity; ?>)
+																		</label>
+																	</div>
+																</div> 
+															</div>
+															<?php } ?>
+															<?php if ($cat_id == 8) { ?>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Phones & Tablets</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_phone as $subcat_phoneval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_phoneval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_phoneval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_phoneval->sub_subcategory_name; ?> (<?php echo $subcat_phoneval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Home Appliances</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_homeapp as $subcat_homeappval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_homeappval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_homeappval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_homeappval->sub_subcategory_name; ?> (<?php echo $subcat_homeappval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Small Appliances</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_smallapp as $subcat_smallappval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_smallappval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_smallappval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_smallappval->sub_subcategory_name; ?> (<?php echo $subcat_smallappval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Laptop & Computers</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_lappy as $subcat_lappyval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_lappyval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_lappyval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_lappyval->sub_subcategory_name; ?> (<?php echo $subcat_lappyval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Accessories</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_access as $subcat_accessval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_accessval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_accessval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_accessval->sub_subcategory_name; ?> (<?php echo $subcat_accessval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Personal Care</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_pcare as $subcat_pcareval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_pcareval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_pcareval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_pcareval->sub_subcategory_name; ?> (<?php echo $subcat_pcareval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Home Entertainment</h4>
+																<div class="cd-filter-content">
+																	<div id='limit_scrol'>
+																		<?php foreach ($subcat_henter as $subcat_henterval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_henterval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_henterval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_henterval->sub_subcategory_name; ?> (<?php echo $subcat_henterval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Photography</h4>
+																<div class="cd-filter-content">
+																	<div>
+																		<?php foreach ($subcat_pgraphy as $subcat_pgraphyval) { ?>
+																			<label class="checkbox">
+																				<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_pgraphyval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_pgraphyval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+																				<i></i> <?php echo $subcat_pgraphyval->sub_subcategory_name; ?> (<?php echo $subcat_pgraphyval->no_ads; ?>)
+																			</label>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+															<div class="cd-filter-block">
+																<h4 class="title-widget">Seller Type</h4>
+
+																<div class="cd-filter-content" >
+																	<div>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
+																			<i></i> Seller Deals (<?php echo $seller; ?>)
+																		</label>
+																		<label class="checkbox">
+																			<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
+																			<i></i> Needed Deals (<?php echo $needed; ?>)
+																		</label>
+																	</div>
+																</div> 
+															</div>
+															<?php } ?>
 														<?php  }
 															}
 													 ?>
+													 <div class="cd-filter-block">
+																		<h4 class="title-widget">Search Only</h4>
+
+																		<div class="cd-filter-content">
+																			<?php if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) { ?>
+																				<div>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
+																					</label>
+																				</div>
+																			<?php }
+																			else{ ?>
+																				<div>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
+																					</label>
+																				</div>
+																			<?php } ?>
+																		</div>
+																	</div>
 											
 										</div>
 										<div class="row top_20">
@@ -392,7 +1121,6 @@
 			$(function(){
 				$(".saved_link").click(function(){
 					var login_id = <?php if ($this->session->userdata('login_id')){ echo $this->session->userdata('login_id'); }else{ echo 0; } ?>;
-					alert(login_id);
 					if (login_id == '' || login_id == 0) {
 						window.location.href = '<?php echo base_url(); ?>login';
 						return false;
