@@ -887,48 +887,34 @@
 													</div>
 
 													<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Brand Name
-															<sup data-toggle="tooltip" title="" data-original-title="Brand Name">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="brandname">
-																<i class="fa fa-laptop"></i>
+														<div class="span6 unit">
+															<label class="label">Brand Name
+																<sup data-toggle="tooltip" title="" data-original-title="Brand Name">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
 															</label>
-															<input type="text" id="brandname" name="brandname" placeholder="Enter Brand Name">
+															<div class="input">
+																<label class="icon-right" for="brandname">
+																	<i class="fa fa-laptop"></i>
+																</label>
+																<input type="text" id="brandname" name="brandname" placeholder="Enter Brand Name">
+															</div>
+														</div>
+														<div class="span6 unit">
+															<label class="label">Colour 
+																<sup data-toggle="tooltip" title="" data-original-title="Colour">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="Colour">
+																	<img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
+																</label>
+																<input type="text" id="color" name="color" placeholder="Enter Colour">
+															</div>
 														</div>
 													</div>
-													<div class="span6 unit">
-														<label class="label">Screen Size 
-															<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="screensize">
-																<img src="<?php echo base_url(); ?>j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
-															</label>
-															<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
-														</div>
-													</div>
-												</div>
-												
 												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Colour 
-															<sup data-toggle="tooltip" title="" data-original-title="Colour">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="Colour">
-																<img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
-															</label>
-															<input type="text" id="color" name="color" placeholder="Enter Colour">
-														</div>
-													</div>
 													<div class="span6 unit">
 														<label class="label">Model Name / Number
 															<sup data-toggle="tooltip" title="" data-original-title="Model Name">
@@ -942,22 +928,22 @@
 															<input type="text" id="modelname" name="modelname" placeholder="Enter Model Name">
 														</div>
 													</div>
+													<div class="span6 unit">
+														<label class="label">Made In 
+															<sup data-toggle="tooltip" title="" data-original-title="Made In ">
+																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<div class="input">
+															<label class="icon-right" for="Made In">
+																<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+															</label>
+															<input type="text" id="ezone_madein" name="ezone_madein" placeholder="Enter Made in">
+														</div>
+													</div>
 												</div>
 												
 												<div class="j-row">
-														<div class="span6 unit">
-															<label class="label">Made In 
-																<sup data-toggle="tooltip" title="" data-original-title="Made In ">
-																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-																</sup>
-															</label>
-															<div class="input">
-																<label class="icon-right" for="Made In">
-																	<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
-																</label>
-																<input type="text" id="ezone_madein" name="ezone_madein" placeholder="Enter Made in">
-															</div>
-														</div>
 														<div class="span6 unit">
 															<label class="label">Warranty 
 																<sup data-toggle="tooltip" title="" data-original-title="Warranty">
@@ -971,22 +957,22 @@
 																<input type="text" id="warranty" name="warranty" placeholder="Enter Warranty">
 															</div>
 														</div>
+														<div class="span6 unit">
+															<label class="label">Manufacturer part number 
+																<sup data-toggle="tooltip" title="" data-original-title="Manufacturer part number ">
+																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+																</sup>
+															</label>
+															<div class="input">
+																<label class="icon-right" for="manufacture">
+																	<img src="<?php echo base_url(); ?>j-folder/img/manufacture.png" alt="manufacture" title="Manufacture" class="img-responsive">
+																</label>
+																<input type="text" id="ezone_manufacture" name="ezone_manufacture" placeholder="Enter Manufacturer part number ">
+															</div>
+														</div>
 													</div>
 												
 												<div class="j-row">
-													<div class="span6 unit">
-														<label class="label">Manufacturer part number 
-															<sup data-toggle="tooltip" title="" data-original-title="Manufacturer part number ">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="manufacture">
-																<img src="<?php echo base_url(); ?>j-folder/img/manufacture.png" alt="manufacture" title="Manufacture" class="img-responsive">
-															</label>
-															<input type="text" id="ezone_manufacture" name="ezone_manufacture" placeholder="Enter Manufacturer part number ">
-														</div>
-													</div>
 													<?php if (@$sub_id == '59' || @$sub_id == '62') { ?>
 														<div class="span6 unit">
 															<label class="label">Operating System
@@ -1002,9 +988,6 @@
 															</div>
 														</div>
 													<?php } ?>
-												</div>
-												
-												<div class="j-row">
 													<?php if (@$sub_id == '59' || @$sub_id == '62') { ?>
 													<div class="span6 unit">
 														<label class="label">Storage
@@ -1035,6 +1018,23 @@
 													</div>
 													<?php } ?>
 												</div>
+												<?php if (@$sub_id == '59' || @$sub_id == '62' || @$sub_id == '65') { ?>
+												<div class="j-row">
+													<div class="span6 unit">
+														<label class="label">Screen Size 
+															<sup data-toggle="tooltip" title="" data-original-title="Screen Size ">
+																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															</sup>
+														</label>
+														<div class="input">
+															<label class="icon-right" for="screensize">
+																<img src="<?php echo base_url(); ?>j-folder/img/screensize.png" alt="Screen" title="Screen Icon">
+															</label>
+															<input type="text" id="screensize" name="screensize" placeholder="Enter Screen Size">
+														</div>
+													</div>
+												</div>
+												<?php } ?>
 
 													<div class="j-row">
 														<div class="span6 unit">

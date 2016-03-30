@@ -33,7 +33,7 @@
 						var dealprice = $(".price_sort option:selected").val();
 						$.ajax({
 							type: "POST",
-							url: "<?php echo base_url();?>deals-administrator/my_ads_search",
+							url: "<?php echo base_url();?>deals_administrator/my_ads_search",
 							data: {
 								dealtitle: dealtitle,
 								dealprice: dealprice

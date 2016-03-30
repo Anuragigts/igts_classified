@@ -434,7 +434,7 @@
 											</label>
 										</div>
 										<div class="col-sm-12 unit">
-											<label class="label">How likely are you to return to to 99 right Deals ?</label>
+											<label class="label">How likely are you to return to 99 right Deals ?</label>
 											<label class="input select">
 												<select name="return_site">
 													<option value="none" selected disabled="">Please select an option</option>

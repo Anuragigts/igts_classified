@@ -178,7 +178,7 @@
 
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Home Essentials</h4>
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content" >
 													<div id="limit_scrol">
 														<?php foreach ($home_view as $hval) { ?>
 														<label class="checkbox">
@@ -192,7 +192,7 @@
 
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Decor</h4>
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content" >
 													<div id="limit_scrol">
 														<?php foreach ($decor_view as $dval) { ?>
 														<label class="checkbox">
@@ -204,9 +204,9 @@
 												</div>
 											</div>
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Seller Type</h4>
+												<h4 class="title-widget ">Seller Type</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content" >
 													<div>
 														<label class="checkbox">
 															<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Seller" <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> >
@@ -225,9 +225,9 @@
 											</div>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Deal Type</h4>
+												<h4 class="title-widget ">Deal Type</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content" >
 													<div>
 														<label class="radio">
 															<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
@@ -246,9 +246,9 @@
 											</div>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Location</h4>
+												<h4 class="title-widget ">Location</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content" >
 													<div class="input">
 														<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
 														<input type='hidden' name='latt' id='latt' value='' >

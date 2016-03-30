@@ -11,43 +11,7 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-		<script type="text/javascript">
-			$(function(){
-				/*search ato z / A to Z*/
-					$(".dealtitle_sort").change(function(){
-						var dealtitle = $(".dealtitle_sort option:selected").val();
-						var dealprice = $(".price_sort option:selected").val();
-						$.ajax({
-							type: "POST",
-							url: "<?php echo base_url();?>deals-administrator-box/my_ads_search",
-							data: {
-								dealtitle: dealtitle,
-								dealprice: dealprice
-							},
-							success: function (data) {
-								$(".deals_search_result").html(data);
-							}
-						})
-					});
-				/*search price asc / desc*/
-					$(".price_sort").change(function(){
-						var dealprice = $(".price_sort option:selected").val();
-						var dealtitle = $(".dealtitle_sort option:selected").val();
-						$.ajax({
-							type: "POST",
-							url: "<?php echo base_url();?>deals-administrator-box/my_ads_search",
-							data: {
-								dealtitle: dealtitle,
-								dealprice: dealprice
-							},
-							success: function (data) {
-								$(".deals_search_result").html(data);
-							}
-						})
-					});
-			});
-		</script>
-		
+
 	</head>
 	
 	<body id="home">
@@ -112,22 +76,7 @@
 											<div class="row">
 												<div class="col-md-9">
 													<strong>Sort by:</strong>
-													<ul>                            
-														<li class="deal_admin_top">
-															<div class="top_bar_top">
-																<label class="input select">
-																	<select name="star">
-																		<option value="none" selected disabled="">Star</option>
-																		<option value="5">5 Starts</option>
-																		<option value="4">4 Starts</option>
-																		<option value="3">3 Starts</option>
-																		<option value="2">2 Starts</option>
-																		<option value="1">1 Starts</option>
-																	</select>
-																	<i></i>
-																</label>
-															</div>
-														</li>
+													<ul>
 														<li class="deal_admin_top">
 															<div class="top_bar_top">
 																<label class="input select">
@@ -190,6 +139,42 @@
 		<!-- End Entire Wrap -->
 		
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+		<script type="text/javascript">
+			$(function(){
+				/*search ato z / A to Z*/
+					$(".dealtitle_sort").change(function(){
+						var dealtitle = $(".dealtitle_sort option:selected").val();
+						var dealprice = $(".price_sort option:selected").val();
+						$.ajax({
+							type: "POST",
+							url: "<?php echo base_url();?>deals_administrator_box/my_ads_box_search",
+							data: {
+								dealtitle: dealtitle,
+								dealprice: dealprice
+							},
+							success: function (data) {
+								$(".deals_search_result").html(data);
+							}
+						})
+					});
+				/*search price asc / desc*/
+					$(".price_sort").change(function(){
+						var dealprice = $(".price_sort option:selected").val();
+						var dealtitle = $(".dealtitle_sort option:selected").val();
+						$.ajax({
+							type: "POST",
+							url: "<?php echo base_url();?>deals_administrator_box/my_ads_box_search",
+							data: {
+								dealtitle: dealtitle,
+								dealprice: dealprice
+							},
+							success: function (data) {
+								$(".deals_search_result").html(data);
+							}
+						})
+					});
+			});
+		</script>
 		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 		<script>

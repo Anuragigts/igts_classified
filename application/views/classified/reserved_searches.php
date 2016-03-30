@@ -65,21 +65,47 @@
 										<div class="row">
 											<div class="col-sm-12">
 												<h2>My Wishes</h2>
-												<label>Hi <?php echo @$log_name; ?>, you have <?php echo $search_count; ?> Reserved Deals</label>
+												<label>Hi <?php echo @$log_name; ?>, you have <?php echo $search_count; ?> my wishes</label>
 												<hr>
 												<!-- start cloned right side buttons element -->
-												<?php foreach ($search_list as $search_listval) { ?>
+												<?php foreach ($search_list as $search_listval) {
+													if ($search_listval->search_cat != 'all') {
+														$scat = @mysql_result(mysql_query("SELECT category_name FROM `catergory` WHERE category_id = '$search_listval->search_cat' "), 0, 'category_name');
+													}
+													else{
+														$scat = 'all';
+													}
+												 ?>
 													<div id="div1" class="<?php echo "del".$search_listval->id.$search_listval->login_id; ?>">
 														<div class="row">
-															<div class="col-sm-10">
-																<h5><a href="<?php echo $search_listval->save_search; ?>"><?php echo $search_listval->search_title; ?></a></h5>
-																<p><?php echo $search_listval->search_loc; ?></p>
-															</div>
-															<div class="col-sm-2">
-																<div class="my_wish_delete">
-																	<a href="javascript:void(0);" id="<?php echo $search_listval->id.",".$search_listval->login_id; ?>"  class="delete-bg"> Delete</a>
+															<?php if ($search_listval->search_title != '') { ?>
+																<div class="col-sm-10">
+																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a></h5>
+																	<p><?php if ($search_listval->search_loc != 0 && $search_listval->search_loc != '') {
+																		echo $search_listval->search_loc;
+																		}  ?>
+																	</p>
 																</div>
-															</div>
+																<div class="col-sm-2">
+																	<div class="my_wish_delete">
+																		<a href="javascript:void(0);" id="<?php echo $search_listval->id.",".$search_listval->login_id; ?>"  class="delete-bg"> Delete</a>
+																	</div>
+																</div>
+															<?php }
+															else{ ?>
+																<div class="col-sm-10">
+																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $scat." categories"; ?></a></h5>
+																	<p><?php if ($search_listval->search_loc != 0 && $search_listval->search_loc != '') {
+																		echo $search_listval->search_loc;
+																		}  ?>
+																	</p>
+																</div>
+																<div class="col-sm-2">
+																	<div class="my_wish_delete">
+																		<a href="javascript:void(0);" id="<?php echo $search_listval->id.",".$search_listval->login_id; ?>"  class="delete-bg"> Delete</a>
+																	</div>
+																</div>
+															<?php } ?>
 														</div><hr class="separator">
 													</div>
 												<?php } ?>

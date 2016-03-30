@@ -21,7 +21,7 @@
 						var dealprice = $(".price_sort option:selected").val();
 						$.ajax({
 							type: "POST",
-							url: "<?php echo base_url();?>pickup-deals/pickup_deals_search",
+							url: "<?php echo base_url();?>pickup_deals/pickup_deals_search",
 							data: {
 								dealtitle: dealtitle,
 								dealprice: dealprice
@@ -37,7 +37,7 @@
 						var dealtitle = $(".dealtitle_sort option:selected").val();
 						$.ajax({
 							type: "POST",
-							url: "<?php echo base_url();?>pickup-deals/pickup_deals_search",
+							url: "<?php echo base_url();?>pickup_deals/pickup_deals_search",
 							data: {
 								dealtitle: dealtitle,
 								dealprice: dealprice

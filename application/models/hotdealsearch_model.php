@@ -552,14 +552,23 @@ class hotdealsearch_model extends CI_Model{
 				$seller_id =  $this->session->userdata('seller_id');
 				$bus_id =  $this->session->userdata('bus_id');
 				$search_sub =  $this->session->userdata('search_sub');
+				$search_subsub =  $this->session->userdata('search_subsub');
 				$search_bustype = $this->session->userdata('search_bustype');
 				$dealtitle = $this->session->userdata('dealtitle');
 				$dealprice = $this->session->userdata('dealprice');
+				$dealurgent = $this->session->userdata('dealurgent');
 				$recentdays = $this->session->userdata('recentdays');
 				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 5);
 				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 5);
+
+				$car_van_bus = $this->session->userdata('car_van_bus');
+	            $motor_hm = $this->session->userdata('motor_hm');
+	            $bikes_sub = $this->session->userdata('bikes_sub');
+	            $plant_farm = $this->session->userdata('plant_farm');
+	            $boats_sub = $this->session->userdata('boats_sub');
+
         		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
-        		$this->db->from('postad AS ad, job_details AS jd, property_resid_commercial AS prc');
+        		$this->db->from('postad AS ad');
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
@@ -571,23 +580,52 @@ class hotdealsearch_model extends CI_Model{
 				}
 				if (!empty($seller_id)) {
 					if ($cat_id != 'all') {
-						if ($cat_id != '1' && $cat_id != '4') {
+						if ($cat_id == '2' || $cat_id == '3' || $cat_id == '5' || $cat_id == '6' || $cat_id == '7' || $cat_id == '8') {
 							$this->db->where_in('ad.services', $seller_id);
 						}
 						elseif ($cat_id == '1') {
-							$seller_id1 = implode("','", $seller_id);
-							$this->db->where("jd.ad_id = ad.ad_id");
-							$this->db->where_in('jd.jobtype_title', $seller_id);
+							$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+									$this->db->where_in('jd.jobtype_title', $seller_id);
 						}
 						elseif ($cat_id == '4') {
-							$seller_id2 = implode("','", $seller_id);
-							$this->db->where("ad.ad_id = prc.ad_id");
-							$this->db->where_in('prc.offered_type', $seller_id);
+							$this->db->join('property_resid_commercial AS res', "res.ad_id = ad.ad_id", 'left');
+								$this->db->where_in('res.offered_type', $seller_id);
 						}
 					}
 				}
 				if (!empty($search_sub)) {
 					$this->db->where_in('ad.sub_cat_id', $search_sub);
+				}
+				if ($cat_id == 3) {
+					if (!empty($car_van_bus)) {
+						$this->db->join('motor_car_van_bus_ads AS cars', "cars.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('cars.manufacture', $car_van_bus);
+					}
+					if (!empty($bikes_sub)) {
+						$this->db->join('motor_bike_ads AS bike', "bike.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('bike.manufacture', $bikes_sub);
+					}
+					if (!empty($motor_hm)) {
+						$this->db->join('motor_home_ads AS mh', "mh.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('mh.manufacture', $motor_hm);
+					}
+					if (!empty($plant_farm)) {
+						$this->db->join('motor_plant_farming AS pf', "pf.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('pf.manufacture', $plant_farm);
+					}
+					if (!empty($boats_sub)) {
+						$this->db->join('motor_boats AS mb', "mb.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('mb.manufacture', $boats_sub);
+					}
+				}
+				if (!empty($search_subsub)) {
+						if ($cat_id == 4) {
+						$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('resi.property_for', $search_subsub);
+					}
+					else{
+						$this->db->where_in('ad.sub_scat_id', $search_subsub);
+					}
 				}
 				if ($bus_id != '') {
 					$this->db->where('ad.ad_type', $bus_id);
@@ -598,6 +636,60 @@ class hotdealsearch_model extends CI_Model{
 					}
 				}
 			
+			if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(1, $dealurgent)){
+								array_push($pcklist, 1);
+							}
+							if (in_array(2, $dealurgent)){
+								array_push($pcklist, 2);
+							}
+							if (in_array(3, $dealurgent)){
+								array_push($pcklist, 3);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+					if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(4, $dealurgent)){
+								array_push($pcklist, 4);
+							}
+							if (in_array(5, $dealurgent)){
+								array_push($pcklist, 5);
+							}
+							if (in_array(6, $dealurgent)){
+								array_push($pcklist, 6);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+
+					if (!empty($pcklist)) {
+							$this->db->where_in('ad.package_type', $pcklist);
+						}
 				/*deal posted days 24hr/3day/7day/14day/1month */
 			if ($recentdays == 'last24hours'){
 				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
@@ -654,12 +746,21 @@ class hotdealsearch_model extends CI_Model{
 	    		$seller_id =  $this->session->userdata('seller_id');
 	    		$bus_id =  $this->session->userdata('bus_id');
 	    		$search_sub =  $this->session->userdata('search_sub');
+	    		$search_subsub =  $this->session->userdata('search_subsub');
 	    		$search_bustype = $this->session->userdata('search_bustype');
 				$dealtitle = $this->session->userdata('dealtitle');
 				$dealprice = $this->session->userdata('dealprice');
 				$recentdays = $this->session->userdata('recentdays');
+				$dealurgent = $this->session->userdata('dealurgent');
 				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 5);
 				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 5);
+	    		
+	    		$car_van_bus = $this->session->userdata('car_van_bus');
+		        $motor_hm = $this->session->userdata('motor_hm');
+		        $bikes_sub = $this->session->userdata('bikes_sub');
+		        $plant_farm = $this->session->userdata('plant_farm');
+		        $boats_sub = $this->session->userdata('boats_sub');
+
 	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
@@ -672,18 +773,16 @@ class hotdealsearch_model extends CI_Model{
 				}
 				if (!empty($seller_id)) {
 					if ($cat_id != 'all') {
-						if ($cat_id != '1' && $cat_id != '4') {
+						if ($cat_id == '2' || $cat_id == '3' || $cat_id == '5' || $cat_id == '6' || $cat_id == '7' || $cat_id == '8') {
 							$this->db->where_in('ad.services', $seller_id);
 						}
 						elseif ($cat_id == '1') {
-							$seller_id1 = implode("','", $seller_id);
-							$this->db->where("jd.ad_id = ad.ad_id");
-							$this->db->where_in('jd.jobtype_title', $seller_id);
+							$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+									$this->db->where_in('jd.jobtype_title', $seller_id);
 						}
 						elseif ($cat_id == '4') {
-							$seller_id2 = implode("','", $seller_id);
-							$this->db->where("ad.ad_id = prc.ad_id");
-							$this->db->where_in('prc.offered_type', $seller_id);
+							$this->db->join('property_resid_commercial AS res', "res.ad_id = ad.ad_id", 'left');
+								$this->db->where_in('res.offered_type', $seller_id);
 						}
 					}
 				}
@@ -693,11 +792,93 @@ class hotdealsearch_model extends CI_Model{
 				if (!empty($search_sub)) {
 					$this->db->where_in('ad.sub_cat_id', $search_sub);
 				}
+				if ($cat_id == 3) {
+					if (!empty($car_van_bus)) {
+					$this->db->join('motor_car_van_bus_ads AS cars', "cars.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('cars.manufacture', $car_van_bus);
+					}
+					if (!empty($bikes_sub)) {
+					$this->db->join('motor_bike_ads AS bike', "bike.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('bike.manufacture', $bikes_sub);
+					}
+					if (!empty($motor_hm)) {
+					$this->db->join('motor_home_ads AS mh', "mh.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('mh.manufacture', $motor_hm);
+					}
+					if (!empty($plant_farm)) {
+					$this->db->join('motor_plant_farming AS pf', "pf.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('pf.manufacture', $plant_farm);
+					}
+					if (!empty($boats_sub)) {
+					$this->db->join('motor_boats AS mb', "mb.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('mb.manufacture', $boats_sub);
+					}
+				}
+				if (!empty($search_subsub)) {
+						if ($cat_id == 4) {
+						$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+						$this->db->where_in('resi.property_for', $search_subsub);
+					}
+					else{
+						$this->db->where_in('ad.sub_scat_id', $search_subsub);
+					}
+				}
 				if ($search_bustype) {
 					if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 						$this->db->where("ad.ad_type", $search_bustype);
 					}
 				}
+
+				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(1, $dealurgent)){
+								array_push($pcklist, 1);
+							}
+							if (in_array(2, $dealurgent)){
+								array_push($pcklist, 2);
+							}
+							if (in_array(3, $dealurgent)){
+								array_push($pcklist, 3);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
+					if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
+						/*package search*/
+						if (!empty($dealurgent)) {
+							$pcklist = [];
+							if (in_array("0", $dealurgent)) {
+								$this->db->where('ad.urgent_package !=', '0');
+							}
+							else{
+								$this->db->where('ad.urgent_package =', '0');
+							}
+							if (in_array(4, $dealurgent)){
+								array_push($pcklist, 4);
+							}
+							if (in_array(5, $dealurgent)){
+								array_push($pcklist, 5);
+							}
+							if (in_array(6, $dealurgent)){
+								array_push($pcklist, 6);
+							}
+							if (!empty($pcklist)) {
+								$this->db->where_in('ad.package_type', $pcklist);
+							}
+							
+						}
+					}
 			
 				/*deal posted days 24hr/3day/7day/14day/1month */
 			if ($recentdays == 'last24hours'){
@@ -745,7 +926,7 @@ class hotdealsearch_model extends CI_Model{
 					$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 				}
 				$this->db->order_by("ad.ad_id", "DESC");
-				$m_res = $this->db->get('postad AS ad , job_details AS jd, property_resid_commercial AS prc', $data['limit'], $data['start']);
+				$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 				 // echo $this->db->last_query();exit;
 				return $m_res->result();
 
@@ -8231,6 +8412,7 @@ class hotdealsearch_model extends CI_Model{
 				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'business') AS business,
 				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'consumer') AS consumer");
 					$rs = $this->db->get();
+					// echo $this->db->last_query(); exit;
 	        		return $rs->result();
         		}
         	  }
@@ -8249,16 +8431,24 @@ class hotdealsearch_model extends CI_Model{
         public function deals_pck_hotdeals(){
         	$cat_id =  $this->session->userdata('cat_id');
         	if ($cat_id != 'all') {
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0') AS freecount");
+        		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND postad.ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND postad.ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND postad.ad_status = 1) AS freecount");
+        		}
+        		else{
+  					$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND postad.ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND postad.ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1) AS freecount");      			
+        		}
         	}
         	else{
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 3 AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 2 AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 1 AND urgent_package = '0') AS freecount");	
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND postad.ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 OR package_type = 6) AND urgent_package = '0' AND postad.ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 OR package_type = 5) AND urgent_package = '0' AND postad.ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 OR package_type = 4) AND urgent_package = '0' AND postad.ad_status = 1) AS freecount");	
         	}
         	
         	$rs = $this->db->get();
@@ -8694,7 +8884,7 @@ class hotdealsearch_model extends CI_Model{
         /*services seller and needed count*/
         public function sellerneeded_services(){
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1) AS provider,
-(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1) AS needed");
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1) AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -9103,12 +9293,13 @@ class hotdealsearch_model extends CI_Model{
         	}
         	else{
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND ad_status = 1) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 3 AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 2 AND urgent_package = '0' AND ad_status = 1) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE package_type = 1 AND urgent_package = '0' AND ad_status = 1) AS freecount");	
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 || package_type = 6) AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 || package_type = 5) AND urgent_package = '0' AND ad_status = 1) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 || package_type = 4) AND urgent_package = '0' AND ad_status = 1) AS freecount");	
         	}
         	
         	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
         	return $rs->result();
         }
 
@@ -9488,6 +9679,561 @@ class hotdealsearch_model extends CI_Model{
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb
 			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 19);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function jobs_hotdeals(){
+				$cat_id =  $this->session->userdata('cat_id');
+				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+				$this->db->from('sub_category');
+				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+					$this->db->where('sub_category.category_id', 1);
+				$this->db->group_by("sub_category.sub_category_id");
+				$rs = $this->db->get();
+				// echo $this->db->last_query(); exit;
+				return $rs->result();
+			}
+
+			public function hotdeals_pck_hotdeals(){
+        	$cat_id =  $this->session->userdata('cat_id');
+        	$pcktype = '(
+					(postad.package_type = "3" OR postad.package_type = "6") OR 
+					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	if ($cat_id != 'all') {
+        		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND $pcktype) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND postad.ad_status = 1 AND $pcktype) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '75' AND $pcktype) AS freecount");
+        		}
+        		else{
+        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND $pcktype) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND postad.ad_status = 1) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '75' AND $pcktype) AS freecount");
+        		}
+        	}
+        	else{
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND postad.ad_status = 1) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 OR package_type = 6) AND urgent_package = '0' AND postad.ad_status = 1 AND $pcktype) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 OR package_type = 5) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 OR package_type = 4) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '75' AND $pcktype) AS freecount");	
+        	}
+        	
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+		public function sellerneededhot_jobs(){
+			$pcktype = '(
+					(postad.package_type = "3" OR postad.package_type = "6") OR 
+					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1
+        		AND $pcktype) AS company,
+			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1 AND $pcktype) AS agency,
+			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1 AND $pcktype) AS other");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+         /*services seller and needed count*/
+        public function sellerneededhot_services(){
+        	$pcktype = '(
+					(postad.package_type = "3" OR postad.package_type = "6") OR 
+					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1 AND $pcktype) AS provider,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1 AND $pcktype) AS needed");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function sellerneededhot_motors(){
+        	$pcktype = '(
+			(postad.package_type = "3" OR postad.package_type = "6") OR 
+			((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+			OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+			OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+			OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1 AND $pcktype) AS forhire");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+         public function sellerneededhot_property(){
+         	$pcktype = '(
+					(ad.package_type = "3" OR ad.package_type = "6") OR 
+					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")
+					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50")
+					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
+
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND $pcktype) AS offered,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND $pcktype) AS wanted");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function sellerneededhot_pets(){
+        	$pcktype = '(
+					(postad.package_type = "3" OR postad.package_type = "6") OR 
+					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function sellerneededhot_clothstyle(){
+        	$pcktype = '(
+					(ad.package_type = "3" OR ad.package_type = "6") OR 
+					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")
+					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50")
+					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1 AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1 AND $pcktype) AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1 AND $pcktype) AS charity");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+         public function sellerneededhot_kitchen(){
+         	$pcktype = '(
+					(postad.package_type = "3" OR postad.package_type = "6") OR 
+					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1 AND $pcktype) AS charity");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function sellerneededhot_ezone(){
+        	$pcktype = '(
+					(postad.package_type = "3" OR postad.package_type = "6") OR 
+					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
+					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
+					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function subcat_prof_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 9);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function subcat_pop_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 10);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*find a property*/
+        public function subcat_resi_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	$this->db->where("sscat.sub_category_id", 11);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function subcat_comm_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	$this->db->where("sscat.sub_category_id", 26);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*pets sub sub*/
+        public function subcat_pets_hotdeals(){
+        	$pcktype = "((postad.package_type = '6') OR ((postad.package_type = '5')AND postad.urgent_package != '0' ) OR ((postad.package_type = '4')AND postad.urgent_package != '0' AND postad.likes_count >= '75')OR ((postad.package_type = '4')AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '5')AND postad.urgent_package = '0' AND postad.likes_count >= '25'))";
+        	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
+			$this->db->from('sub_category');
+			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND $pcktype", "left");
+			$this->db->where('sub_category.category_id', 5);
+			$this->db->group_by("sub_category.sub_category_id");
+			$this->db->limit(4);
+			$rs = $this->db->get();
+			return $rs->result();
+        }
+        public function subcat_bigpets_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 5);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         public function subcat_smallpets_hotdeals(){
+         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 6);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        public function subcat_petsaccess_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 7);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*cloths hot deals*/
+        /*women*/
+        public function subcat_women_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 20);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*men*/
+        public function subcat_men_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 21);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*boy*/
+        public function subcat_boy_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 22);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*girl*/
+        public function subcat_girl_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 23);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*bboy*/
+        public function subcat_bboy_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 24);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*bgirl*/
+        public function subcat_bgirl_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 25);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*kitchen home hot deals*/
+        /*kitchen*/
+        public function subcat_kitchen_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 67);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*home*/
+        public function subcat_home_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 68);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*decor*/
+        public function subcat_decor_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 69);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*ezone*/
+        /*phone tablets*/
+        public function subcat_phone_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 59);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*home apps*/
+        public function subcat_homeapp_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 60);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*small apps*/
+        public function subcat_smallapp_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 61);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*laptop apps*/
+        public function subcat_lappy_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 62);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*accessories*/
+        public function subcat_access_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 63);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+       	/*personal care*/
+        public function subcat_pcare_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 64);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+         /*home entertainment*/
+        public function subcat_henter_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 65);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        /*Photography*/
+        public function subcat_pgraphy_hotdeals(){
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->where("sscat.sub_category_id", 66);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+        /*motor point*/
+        /*cars*/
+        public function subcat_cars_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 12);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*bikes*/
+        public function subcat_bikes_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes
+			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 13);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*motor homes*/
+        public function subcat_motorhomes_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` 
+		      AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 14);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*vans*/
+        public function subcat_vans_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 15);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*coaches buses*/
+        public function subcat_buses_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 16);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*plant machinery*/
+        public function subcat_plant_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 17);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        /*farming vehicles*/
+        public function subcat_farming_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	$this->db->where("sscat.sub_category_id", 18);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        /*boating */
+        public function subcat_boats_hotdeals(){
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb
+			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 19);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();

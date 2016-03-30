@@ -30,10 +30,12 @@ class  Deals_administrator_box extends CI_Controller{
                    redirect('login');
                 }
 				$my_ads = $this->classifed_model->my_ads_box($search_option);
+                $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '".$this->session->userdata('login_id')."' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "deals_administrator_box",
                         'my_ads_details'=> $my_ads,
+                        'log_name'=>$log_name,
                         'paging_links' =>$this->pagination->create_links()
                 );
                 

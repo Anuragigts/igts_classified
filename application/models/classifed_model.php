@@ -2423,11 +2423,28 @@ GROUP BY img.ad_id
 
 	public function addsaved_search(){
 		$data = array(
-					  'login_id' => $this->input->post("login_id"),
+					  'login_id' => $this->session->userdata("login_id"),
 					  'search_title' => $this->input->post("search_title"),
 					  'search_cat' => $this->input->post("search_cat"),
 					  'save_search' => $this->session->userdata("saved_search"),
 					  'search_loc' => $this->input->post("search_loc"),
+					  'saved_on' => date("Y-m-d H:i:s"));
+		$this->db->insert("saved_searchs", $data);
+		if ($this->db->affected_rows() > 0) {
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+
+	public function addsaved_hotdeals(){
+		$data = array(
+					  'login_id' => $this->session->userdata("login_id"),
+					  'search_title' => '',
+					  'search_cat' => $this->session->userdata("cat_id"),
+					  'save_search' => $this->session->userdata("saved_search1"),
+					  'search_loc' => $this->session->userdata("location"),
 					  'saved_on' => date("Y-m-d H:i:s"));
 		$this->db->insert("saved_searchs", $data);
 		if ($this->db->affected_rows() > 0) {

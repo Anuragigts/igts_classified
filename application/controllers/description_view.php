@@ -76,7 +76,7 @@ class Description_view extends CI_Controller{
                                 foreach ($detailed_styles as $val) {
                                     $body_content = array('Cloth Type' => $val->cloth_type,
                                                             'Size'=>$val->w_size,
-                                                            'Color'=> $val->color,
+                                                            'Colour'=> $val->color,
                                                             'Brand'=>$val->brand,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Fit'=>$val->fit,
@@ -94,7 +94,7 @@ class Description_view extends CI_Controller{
                                 $detailed_styles = $this->classifed_model->ads_detailed_acces();
                                 foreach ($detailed_styles as $val) {
                                     $body_content = array('Cloth Type' => $val->cloth_type,
-                                                            'Color'=> $val->color,
+                                                            'Colour'=> $val->color,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Material'=>$val->material,
                                                             'Made In'=>$val->made_in);
@@ -109,7 +109,7 @@ class Description_view extends CI_Controller{
                                         if ($val->heel_details != '') {
                                             $body_content = array('Cloth Type' => $val->cloth_type,
                                                                     'Size'=>$val->shoe_size,
-                                                                    'Color'=> $val->color,
+                                                                    'Colour'=> $val->color,
                                                                     'Brand'=>$val->brand,
                                                                     'No of Items'=>$val->no_of_items,
                                                                     'Heel details'=>$val->heel_details,
@@ -120,7 +120,7 @@ class Description_view extends CI_Controller{
                                         else{
                                             $body_content = array('Cloth Type' => $val->cloth_type,
                                                                     'Size'=>$val->shoe_size,
-                                                                    'Color'=> $val->color,
+                                                                    'Colour'=> $val->color,
                                                                     'Brand'=>$val->brand,
                                                                     'No of Items'=>$val->no_of_items,
                                                                     'Material'=>$val->shoe_material,
@@ -137,7 +137,7 @@ class Description_view extends CI_Controller{
                                  foreach ($detailed_styles as $val) {
                                     $body_content = array('Cloth Type' => $val->cloth_type,
                                                             'Size'=>$val->w_size,
-                                                            'Color'=> $val->color,
+                                                            'Colour'=> $val->color,
                                                             'Brand'=>$val->brand,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Washing Instruction'=>$val->washing_instruct,
@@ -213,7 +213,7 @@ class Description_view extends CI_Controller{
                                         'Manufacture'=>$val->manufacture1,
                                         'Bike Type'=> $val->btype,
                                         'Model'=>$val->bmodel,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Reg year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fuel_type,
                                         'No of miles'=>$val->no_of_miles,
@@ -230,7 +230,7 @@ class Description_view extends CI_Controller{
                     $body_content = array('Registration Number' => $val->reg_number,
                                         'Manufacture'=>$val->manufacture1,
                                         'Model'=>$val->cmodel,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Reg year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fueltype,
                                         'Transmission'=>$val->transmission,
@@ -251,7 +251,7 @@ class Description_view extends CI_Controller{
                                         'Registration Number' => $val->reg_number,
                                         'Manufacture'=>$val->manufacture1,
                                         'Model'=>$val->cmodel,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Reg year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fueltype,
                                         'Transmission'=>$val->transmission,
@@ -271,7 +271,7 @@ class Description_view extends CI_Controller{
                     $body_content = array('Manufacture'=>$val->manufacture,
                                         'Year'=>$val->year,
                                         'Model'=>$val->model,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Fuel Type'=>$val->fueltype,
                                         'Condition'=>$val->condition
                                         );
@@ -285,7 +285,7 @@ class Description_view extends CI_Controller{
                     $body_content = array('Manufacture'=>$val->manufacture1,
                                         'Year'=>$val->reg_year,
                                         'Model'=>$val->cmodel,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Condition'=>$val->condition
                                         );
                                     }       
@@ -297,7 +297,7 @@ class Description_view extends CI_Controller{
                         $body_content = array('Manufacture'=>$val->manufacture1,
                                             'Year'=>$val->reg_year,
                                             'Model'=>$val->model,
-                                            'Color'=>$val->color,
+                                            'Colour'=>$val->color,
                                             'Condition'=>$val->condition
                                             );
                                         }  
@@ -316,7 +316,7 @@ class Description_view extends CI_Controller{
                             $body_content = array('Service Type'=>$value->services,
                                         'Brand_name'=>$val->brand_name,
                                         'Size'=>$val->size,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Model name'=>$val->model_name,
                                         'Operating system'=>$val->operating_system,
                                         'Storage'=>$val->storage,
@@ -329,7 +329,7 @@ class Description_view extends CI_Controller{
                             $body_content = array('Service Type'=>$value->services,
                                         'Brand_name'=>$val->brand_name,
                                         'Size'=>$val->size,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Model name'=>$val->model_name,
                                         'Operating system'=>$val->operating_system,
                                         'Made in'=>$val->made_in,
@@ -353,7 +353,7 @@ class Description_view extends CI_Controller{
                     $body_content = array('Service Type'=>$value->services,
                                         'Brand_name'=>$val->brand_name,
                                         'Material'=>$val->material,
-                                        'Color'=>$val->color,
+                                        'Colour'=>$val->color,
                                         'Assembly'=>$val->assembly,
                                         'Dimensions'=>$val->dimensions,
                                         'Capacity'=>$val->capacity,

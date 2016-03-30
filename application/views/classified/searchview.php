@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Motor View</title>
+		<title>Right Deals :: Main Search</title>
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -361,26 +361,26 @@
 																		</div>
 																	</div>
 																</div>
-																	<div class="cd-filter-block">
-																		<h4 class="title-widget">Seller Type</h4>
+																<div class="cd-filter-block">
+																	<h4 class="title-widget">Seller Type</h4>
 
-																		<div class="cd-filter-content" >
-																			<div>
-																				<label class="checkbox">
-																					<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Company" <?php if(isset($seller_deals) && in_array('Company',$seller_deals)){ echo 'checked = checked';}?> >
-																					<i></i> Company Deals (<?php echo $company; ?>)
-																				</label>
-																				<label class="checkbox">
-																					<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Agency" <?php if(isset($seller_deals) && in_array('Agency',$seller_deals)){ echo 'checked = checked';}?> >
-																					<i></i> Agency Deals (<?php echo $agency; ?>)
-																				</label>
-																				<label class="checkbox">
-																					<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Other" <?php if(isset($seller_deals) && in_array('Other',$seller_deals)){ echo 'checked = checked';}?> >
-																					<i></i> Other Deals (<?php echo $other; ?>)
-																				</label>
-																			</div>
-																		</div> 
-																	</div>
+																	<div class="cd-filter-content" >
+																		<div>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Company" <?php if(isset($seller_deals) && in_array('Company',$seller_deals)){ echo 'checked = checked';}?> >
+																				<i></i> Company Deals (<?php echo $company; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Agency" <?php if(isset($seller_deals) && in_array('Agency',$seller_deals)){ echo 'checked = checked';}?> >
+																				<i></i> Agency Deals (<?php echo $agency; ?>)
+																			</label>
+																			<label class="checkbox">
+																				<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Other" <?php if(isset($seller_deals) && in_array('Other',$seller_deals)){ echo 'checked = checked';}?> >
+																				<i></i> Other Deals (<?php echo $other; ?>)
+																			</label>
+																		</div>
+																	</div> 
+																</div>
 															<?php }		?>
 
 															<?php if ($cat_id == '2') { ?>
