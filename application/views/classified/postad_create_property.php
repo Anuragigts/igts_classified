@@ -646,7 +646,7 @@
 			}
 			
 			function address(latt, long1){
-			$.ajax({ url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&key=AIzaSyBM3nyeJqQycOIyVkC6qyqiw9nUl6O7FfU',
+			$.ajax({ url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
 			success: function(data){
 			$('#location').val(data.results[0].formatted_address);
 			$('#lattitude').val(latt);
