@@ -4502,7 +4502,7 @@ a .login-op-btn:hover {
     width: 136px;
     height: 86px;
     background: transparent url("../img/icons/reco.png") no-repeat;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 7;
     right: 0;
