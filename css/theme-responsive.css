@@ -499,6 +499,9 @@
 	.section-title-01{
 		height: 120px !important;
 	}
+	.tparrows {
+		display:none !important;
+	}
 	/* .loca_pad {
 		padding: 0px 6px;
 	}

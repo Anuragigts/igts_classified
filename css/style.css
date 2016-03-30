@@ -4510,7 +4510,7 @@ a .login-op-btn:hover {
 .most_valued_badge {
     height: 60px;
     background: transparent url("../img/icons/reco.png") no-repeat;
-    position: fixed;
+    position: absolute;
     left: 150px;
     top: 0;
     z-index: 99;
@@ -4521,7 +4521,7 @@ a .login-op-btn:hover {
     height: 87px;
     background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
     padding-top: 5px;
-    position: fixed;
+    position: absolute;
     margin-left: 168px;
     top: -19px;
     z-index: 99;
