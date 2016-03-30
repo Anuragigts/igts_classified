@@ -264,7 +264,7 @@ class Deal_page extends CI_Controller{
         public function getcityname(){
                 $latt = $this->input->post('latt');
                 $longg = $this->input->post('longg');
-                $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&key=AIzaSyBM3nyeJqQycOIyVkC6qyqiw9nUl6O7FfU";
+                $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=true";
                 $ch = curl_init();
                 // Disable SSL verification
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
