@@ -74,8 +74,10 @@
 											<li><a href='about-us'>About US</a></li>
 											<li><a href='contact-us'>Contact US</a></li>
 											<li><a href='terms-conditions'>Terms & Conditions</a></li>
+											<li><a href='cookies-policy'>Cookies Policy</a></li>
 											<li class="active_page"><a href='privacy-policy'>Privacy Policy</a></li>
-											<li><a href=''>Refund Policy</a></li>
+											<li><a href='safety-tips'>Assistence</a></li>
+											<li><a href=''>Faq</a></li>
 										</ul>
 									</div>
 								</div>

@@ -108,27 +108,25 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="row">
-												<div class="col-md-4 col-sm-4 col-xs-12">
+												<div class="col-md-5 col-sm-5 col-xs-12">
 													<aside class="cont_left">
 														<address class="whi_te">
-															<i class="fa fa-map-marker"></i> fa795 Folsom Ave, Suite 600<br>
-															<span class="pad_left_23"></span> San Francisco, CA 94107<br>
+															<i class="fa fa-map-marker"></i> 99right deals, Building 3, Chiswick Park<br>
+															<span class="pad_left_23"></span> 566 Chiswick High Road, London, W4 5YA<br>
+														</address>
+													</aside>
+												</div>
+												<div class="col-md-3 col-sm-3 col-xs-12 top_pad_10">
+													<aside class="cont_left">
+														<address class="whi_te">
+															<i class="fa fa-phone"></i>  (+44) 02089355446 <br>
 														</address>
 													</aside>
 												</div>
 												<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 													<aside class="cont_left">
 														<address class="whi_te">
-															<i class="fa fa-phone"></i>  (123) 456-7890 <br>
-															<i class="fa fa-phone"></i>  (123) 456-7890
-														</address>
-													</aside>
-												</div>
-												<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
-													<aside class="cont_left">
-														<address class="whi_te">
-															<i class="fa fa-envelope"></i><a href="mailto:#"> sales@gmail.com</a><br>
-															<i class="fa fa-envelope"></i><a href="mailto:#"> support@gmail.com</a>
+															<i class="fa fa-envelope"></i><a href="mailto:99rightdeals@gmail.com"> 99rightdeals@gmail.com</a><br>
 														</address>
 													</aside>
 												</div>
@@ -137,7 +135,7 @@
 											<div class="row">
 												<div class="col-md-8 col-sm-7 col-xs-12">
 													<p class="lead" align="justify">
-													   Find a wide variety of airline tickets and cheap flights, hotels, tour packages, car rentals, cruises and more in travelia.com.You can choose your favorite destination and start planning your long-awaited vacation.
+													   If you ever have any difficulties or want to ask any questions, our customer service team are available on live chat every day of the year from 9am to 5pm.
 													</p>
 													<?php if($this->session->flashdata("msg") != ""){ ?>
 														<div class="alert alert-success">

@@ -2,6 +2,8 @@
 <html>
 	<head>
 		
+		<title>Assistence | 99 Right Deals</title>
+
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->
@@ -55,7 +57,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="titles">
-										<h2>Safety Tips </h2>
+										<h2>Assistence </h2>
 										<hr class="tall">
 									</div>
 								</div>
@@ -65,9 +67,12 @@
 								<div class="col-sm-3">
 									<div class="item_subpages">
 										<ul class="">
-											<li class="active_page"><a href='safety-tips'>Safety Tips</a></li>
+											<li><a href='about-us'>About US</a></li>
+											<li><a href='contact-us'>Contact US</a></li>
+											<li><a href='terms-conditions'>Terms & Conditions</a></li>
 											<li><a href='cookies-policy'>Cookies Policy</a></li>
 											<li><a href='privacy-policy'>Privacy Policy</a></li>
+											<li class="active_page"><a href='safety-tips'>Assistence</a></li>
 											<li><a href=''>Faq</a></li>
 										</ul>
 									</div>

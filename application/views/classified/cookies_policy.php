@@ -58,9 +58,12 @@
 								<div class="col-md-3 col-sm-3 col-xs-12">
 									<div class="item_subpages">
 										<ul class="">
-											<li><a href='safety-tips'>Safety Tips</a></li>
+											<li><a href='about-us'>About US</a></li>
+											<li><a href='contact-us'>Contact US</a></li>
+											<li><a href='terms-conditions'>Terms & Conditions</a></li>
 											<li class="active_page"><a href='cookies-policy'>Cookies Policy</a></li>
 											<li><a href='privacy-policy'>Privacy Policy</a></li>
+											<li><a href='safety-tips'>Assistence</a></li>
 											<li><a href=''>Faq</a></li>
 										</ul>
 									</div>
