@@ -151,6 +151,51 @@ class Signup_model extends CI_Model{
                         return 0;
                 }
         }
+        public function gmail_already(){
+                $gmid = $this->input->post('gmid');
+           $login_qry = $this->db->query("SELECT COUNT(*) FROM login WHERE gmailid = '$gmid'");
+            $result1 = $login_qry->row_array();
+                if($result1['COUNT(*)'] > 0){
+                    $this->session->set_userdata('login_id',$result1['login_id']);
+                        return 1;
+                }
+                else{
+                        return 0;
+                }
+        }
+
+        public function gmail_create(){
+            if($this->input->post('signup_type') == '7') {
+                    $mail = $this->input->post('con_email');
+
+                    $login_data = array(
+                                    'user_type'=>7,
+                                    'login_email'=>$this->input->post('con_email'),
+                                    'is_confirm'=>'confirm',
+                                    'login_status'=>1,
+                                    'first_name' => $this->input->post('con_fname'),
+                                    'lastname' => $this->input->post('con_lname'),
+                                    'mobile'=>$this->input->post('con_mobile'),
+                                    'gmailid'=>$this->input->post('gmid'));
+                    $this->db->insert('login', $login_data);
+            }
+            else{
+                        $data = array('user_type'=>6,
+                                    'login_email'=>$this->input->post('con_email'),
+                                    'is_confirm'=>'confirm',
+                                    'login_status'=>1,
+                                    'first_name' => $this->input->post('bus_fname'),
+                                    'lastname' => $this->input->post('bus_lname'),
+                                    'mobile'=>$this->input->post('bus_mobile'),
+                                    'bus_name'=>$this->input->post('bus_name'),
+                                    'bus_addr'=>$this->input->post('bus_address'),
+                                    'vat_number'=> $this->input->post('vat_number'),
+                                    'gmailid'=>$this->input->post('gmid'));
+                        $this->db->insert('login', $data);
+            }
+            $this->session->set_userdata('login_id',$this->db->insert_id());
+        }
+
         public function onloadfb_already(){
             $fbdata = $this->session->userdata('fb_data');
             $login_qry = $this->db->query("SELECT COUNT(*) FROM login WHERE fbid = '".$fbdata['id']."'");
@@ -158,6 +203,20 @@ class Signup_model extends CI_Model{
             $result1 = $login_qry->row_array();
             $result2 = $login_qry1->row_array();
             // $this->db->last_query(); exit;
+                if($result1['COUNT(*)'] > 0){
+                    $this->session->set_userdata('login_id',$result2['login_id']);
+                        return 1;
+                }
+                else{
+                        return 0;
+                }
+        }
+
+        public function onloadgmail_already($id){
+            $login_qry = $this->db->query("SELECT COUNT(*) FROM login WHERE gmailid = '$id'");
+            $login_qry1 = $this->db->query("SELECT * FROM login WHERE gmailid = '$id'");
+            $result1 = $login_qry->row_array();
+            $result2 = $login_qry1->row_array();
                 if($result1['COUNT(*)'] > 0){
                     $this->session->set_userdata('login_id',$result2['login_id']);
                         return 1;

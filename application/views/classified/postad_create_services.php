@@ -18,7 +18,7 @@
 		<link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>imgupload/platinum.css' />
 		<script src="<?php echo base_url(); ?>imgupload/jquery.fancybox.min.js"></script>
 		<script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=places"></script>
 		
 		<script type="text/javascript">
 			/*packages selection */
@@ -145,11 +145,6 @@
 					});
 				});
 			
-				$(document).ready(function(){
-				 $('#content').bind("cut copy paste",function(e) {
-					 e.preventDefault();
-				 });
-			   });
 		</script>
 		<script type='text/javascript'>
 			/* Free */
@@ -631,15 +626,15 @@
 		}
 		
 		function address(latt, long1){
-		$.ajax({ url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
-		success: function(data){
-		$('#location').val(data.results[0].formatted_address);
-		$('#lattitude').val(latt);
-		$('#longtitude').val(long1);
-		
-		   /*or you could iterate the components for only the city and state*/
-		}
-		});
+			$.ajax({ url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
+			success: function(data){
+			$('#location').val(data.results[0].formatted_address);
+			$('#lattitude').val(latt);
+			$('#longtitude').val(long1);
+			
+			   /*or you could iterate the components for only the city and state*/
+			}
+			});
 		}
 		
 		window.onload = function() {

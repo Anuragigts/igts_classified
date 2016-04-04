@@ -12,6 +12,22 @@ class  Deals_administrator extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
+             if ($this->input->post()) {
+            $this->session->unset_userdata('dealtitle');
+            $this->session->unset_userdata('dealprice');
+
+             if($this->input->post('dealtitle_sort')){
+                       $this->session->set_userdata('dealtitle',$this->input->post('dealtitle_sort'));
+              }else{
+                   $this->session->set_userdata('dealtitle','Any');
+              }
+
+              if($this->input->post('price_sort')){
+                     $this->session->set_userdata('dealprice',$this->input->post('price_sort'));
+              }else{
+                   $this->session->set_userdata('dealprice','Any');
+              }
+            }
             $config = array();
             $config['base_url'] = base_url().'deals_administrator/index';
             $config['total_rows'] = count($this->classifed_model->count_my_ads());

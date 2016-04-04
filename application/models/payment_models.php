@@ -112,6 +112,7 @@ class Payment_models extends CI_Model{
 						'urgent_package'=>$urg1,
 						'payment_status'=>1,
 						'paid_amt'=>$paid_amt,
+						'approved_on'=>date("Y-m-d H:i:s"),
 						'expire_data'=>$ad_days);
 		$this->db->where('login_id',$this->session->userdata('login_id'));
 		$this->db->where('ad_id',$ad_id);

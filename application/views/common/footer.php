@@ -93,7 +93,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-12 error letter_success" style="display:none;" >
+									<div class="col-md-12 letter_success" style="display:none;" >
 										You have subscribed Successfully
 									</div>
 									<div class="col-md-12 error letter_emailerr" style="display:none;" >
@@ -417,7 +417,7 @@
 								<div class="col-sm-6 unit">
 									<div class="row">
 										<div class="col-sm-12 unit">
-											<label class="label">Which category were you most interested in ?</label>
+											<label class="label">Which category are you most interested in ?</label>
 											<label class="input select">
 												<select name="category">
 													<option value="none" selected disabled="">Please select an option</option>

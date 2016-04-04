@@ -106,5 +106,17 @@ class Settings extends CI_Controller {
 					);
 			$this->load->view("admin_layout/inner_template",$data);
 	}
+
+	public function contact_details(){
+		$nl_data = $this->settings_model->get_contact_details();
+		$data   =   array(
+							"title"         =>     "Classifieds :: Admin contact details",
+							"metadesc"      =>     "Classifieds :: Admin contact details",
+							"metakey"       =>     "Classifieds :: Admin contact details",
+							"content"       =>     "contact_details",
+							'nl_data'		=>		$nl_data
+					);
+			$this->load->view("admin_layout/inner_template",$data);
+	}
 }
 ?>

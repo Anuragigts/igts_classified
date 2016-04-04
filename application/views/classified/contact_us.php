@@ -16,7 +16,9 @@
 		<script>
 								  
 		  $(function() {
-		  
+		  	jQuery.validator.addMethod("character", function (value) {
+					 return /^[a-zA-Z\s]+$/.test(value);
+					});
 			// Setup form validation on the #register-form element
 			$("#contact_form").validate({
 			
@@ -24,6 +26,7 @@
 				rules: {
 					contact_name: {
 						required: true,
+						character:true
 					},
 					contact_email: {
 							required: true,
@@ -41,11 +44,11 @@
 				// Specify the validation error messages
 				messages: {
 					contact_name: {
-						required: "Please Enter Your Name",
+						required: "Please enter your name",
+						character: "please Enter characters",
 					},
 					contact_no: {
 						required: "Please Enter Mobile No"
-						//minlength: "Please Enter 10 Digit Mobile No"
 					},
 					contact_message: {
 						required: "Please Enter Message",
@@ -90,7 +93,7 @@
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
 				<div class="content_info">
-					<form id="contact_form" action="#" class="j-forms" method="post" style="background-color:#fff;">
+					<form id="contact_form" action="" class="j-forms" method="post" style="background-color:#fff;">
 						<div class="content_info">
 							<div class="paddings-mini">
 								<div class="container">
@@ -136,6 +139,14 @@
 													<p class="lead" align="justify">
 													   Find a wide variety of airline tickets and cheap flights, hotels, tour packages, car rentals, cruises and more in travelia.com.You can choose your favorite destination and start planning your long-awaited vacation.
 													</p>
+													<?php if($this->session->flashdata("msg") != ""){ ?>
+														<div class="alert alert-success">
+														    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
+														    <h4>
+														        <?php echo $this->session->flashdata("msg");?>
+														    </h4>
+														</div>
+													<?php } ?>
 													<div class="row">
 														<div class="col-sm-6 unit">
 															<div class="input">
@@ -158,7 +169,7 @@
 																<label class="icon-right" for="contact_no">
 																	<i class="fa fa-phone"></i>
 																</label>
-																<input type="text" id="contact_no" name="contact_no" placeholder="Enter Your Mobile Number ">
+																<input type="text" id="contact_no" name="contact_no" placeholder="Enter Your Mobile Number" maxlength= '11' onkeypress="return isNumber(event)">
 															</div>
 														</div>
 														<div class="col-sm-12 unit">
@@ -243,7 +254,11 @@
 		</script>
 		
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
-		
+		<script type="text/javascript">
+		setTimeout(function(){
+			$(".alert").hide();
+		},5000);
+		</script>
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->

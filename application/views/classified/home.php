@@ -170,9 +170,11 @@
 							<div class="selector1">
 								<select class="guests-input" name="category_name">
 									<option value="all">All</option>
-									<?php foreach ($show_all as $show_val) { ?>
+									<?php
+									if (!empty($show_all)) {
+									 foreach ($show_all as $show_val) { ?>
 									<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
-									<?php	} ?>
+									<?php }   } ?>
 								</select>
 							</div>
 							<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="">
@@ -216,9 +218,19 @@
 												});
 											</script>
 											<ul>
-												<?php foreach ($news as $n_val) { ?>
+												<?php
+												if (!empty($news)) {
+												 foreach ($news as $n_val) { ?>
 												<li><a href="<?php echo base_url(); ?>description_view/details/<?php echo $n_val->ad_id; ?>" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
-												<?php	} ?>
+												<?php	}
+													}
+													else{
+												 ?>
+												<li><a href="#" target="_self">Platinum Ad Marquee goes here </a></li>
+												<li><a href="#" target="_self">Platinum Ad Marquee goes here</a></li>
+												<li><a href="#" target="_self">Platinum Ad Marquee goes here</a></li>
+												<li><a href="#" target="_self">Platinum Ad Marquee goes here</a></li>
+												 <?php } ?>
 											</ul>
 										</div>
 									</div>
@@ -333,6 +345,7 @@
 										<div id="viewport">
 											<div id="box">
 												<?php
+												if (!empty($hot_deals)) {
 													$i=1;
 													 foreach ($hot_deals as $hot_deals_val) {
 														/*currency symbol*/ 
@@ -399,7 +412,52 @@
 												</figure>
 												<?php 
 													$i++;
-													} ?>
+														}
+													}
+													else{ ?>
+													<figure class="slide jbs-current">
+															<div class="significant_badge">
+															</div>
+															<div class="img-hover significant_ad">
+																<img src="<?php echo base_url(); ?>pictures/14594957602.jpg" title="significant" class="img-responsive">
+																<div class="overlay"><a href="#" ><i class="fa fa-link"></i></a></div>
+															</div>
+														<div class="info-gallery slider_bg">
+															<h3>Post a Platinum Ad </h3>
+															<hr class="separator">
+															<h3 class="home_price"><span class="pound_sym"></span>49</h3>
+															<a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+															<div class="bus_logo">
+																<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+															</div>
+															<div class="price11">
+																<span></span><b>
+																<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+															</div>
+														</div>
+													</figure>
+													<figure class="slide jbs-current">
+															<div class="significant_badge">
+															</div>
+															<div class="img-hover significant_ad">
+																<img src="<?php echo base_url(); ?>pictures/14594957602.jpg" title="significant" class="img-responsive">
+																<div class="overlay"><a href="#" ><i class="fa fa-link"></i></a></div>
+															</div>
+														<div class="info-gallery slider_bg">
+															<h3>Post a Platinum Ad </h3>
+															<hr class="separator">
+															<h3 class="home_price"><span class="pound_sym"></span>29</h3>
+															<a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+															<div class="bus_logo">
+																<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+															</div>
+															<div class="price11">
+																<span></span><b>
+																<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+															</div>
+														</div>
+													</figure>
+													<?php } ?>
 											</div>
 										</div>
 									</div>
@@ -427,7 +485,9 @@
 								<a href="#jobs" data-filter=".jobs">jobs</a>
 							</div>
 							<div class="portfolioContainer">
-								<?php foreach ($sig_show_all as $val){
+								<?php
+								if (!empty($sig_show_all)) {
+								 foreach ($sig_show_all as $val){
 									/*currency symbol*/ 
 										if ($val->currency == 'pound') {
 											$currency = '<span class="pound_sym"></span>';
@@ -480,11 +540,15 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }
+									}
+									 ?>
 								<!-- showall in most valued ads ends-->
 								
 								<!-- most valued ads for jobs -->
-								<?php foreach ($sig_ads_jobs as $m_ads){
+								<?php
+								if (!empty($sig_ads_jobs)) {
+								 foreach ($sig_ads_jobs as $m_ads){
 									if ($m_ads->category_id == '1') {
 										$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$m_ads->ad_id'"),0,'jobtype');
 									}
@@ -524,10 +588,14 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php } 
+									}
+								?>
 								<!-- sig ads for services -->
 								
-								<?php foreach ($sig_ads_services as $m_ads_services){
+								<?php
+								if (!empty($sig_ads_services)) {
+								 foreach ($sig_ads_services as $m_ads_services){
 									/*currency symbol*/ 
 																if ($m_ads_services->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -570,10 +638,12 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }   } ?>
 								
 								<!-- sig ads for motor point -->
-								<?php foreach ($sig_ads_motor as $motor_val){
+								<?php
+								if (!empty($sig_ads_motor)) {
+								 foreach ($sig_ads_motor as $motor_val){
 									/*currency symbol*/ 
 																if ($motor_val->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -616,10 +686,12 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }  } ?>
 								
 								<!-- sig ads for cloths and lifestyles -->
-								<?php foreach ($sig_ads_cloths as $cloth_val){
+								<?php
+								if (!empty($sig_ads_cloths)) {
+								 foreach ($sig_ads_cloths as $cloth_val){
 									/*currency symbol*/ 
 																if ($cloth_val->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -662,10 +734,13 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php } 
+									} ?>
 								
 								<!-- sig ads for find a property -->
-								<?php foreach ($sig_ads_property as $prop_val){
+								<?php
+								if (!empty($sig_ads_property)) {
+								 foreach ($sig_ads_property as $prop_val){
 									/*currency symbol*/ 
 																if ($prop_val->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -708,10 +783,14 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }
+									}
+									 ?>
 								
 								<!-- most valued ads for home and kitchen -->
-								<?php foreach ($sig_ads_khome as $khome_val){
+								<?php
+								if (!empty($sig_ads_khome)) {
+								 foreach ($sig_ads_khome as $khome_val){
 									/*currency symbol*/ 
 																if ($khome_val->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -754,10 +833,12 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }  } ?>
 								
 								<!-- sig ads for pets -->
-								<?php foreach ($sig_ads_pets as $m_ads_pets){
+								<?php
+								if (!empty($sig_ads_pets)) {
+								 foreach ($sig_ads_pets as $m_ads_pets){
 									/*currency symbol*/ 
 																if ($m_ads_pets->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -800,10 +881,14 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }
+									}
+								 ?>
 								
 								<!-- sig ads for ezone -->
-								<?php foreach ($sig_ads_ezone as $m_ads_ezone){
+								<?php
+								if (!empty($sig_ads_ezone)) {
+								 foreach ($sig_ads_ezone as $m_ads_ezone){
 									/*currency symbol*/ 
 																if ($m_ads_ezone->currency == 'pound') {
 																	$currency = '<span class="pound_sym"></span>';
@@ -846,7 +931,9 @@
 										</div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }
+									}
+								 ?>
 							</div>
 							<div class="row text_center">
 								<a href="significant_deals_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>VIEW ALL SIGNIFICANT DEALS</span></a>
@@ -871,7 +958,9 @@
 								</div>
 								<div class="col-sm-9">
 									<div id="boxes-carousel2">
-										<?php foreach ($mostvalued_ads as $b_ads) {
+										<?php
+										if (!empty($mostvalued_ads)) {
+										 foreach ($mostvalued_ads as $b_ads) {
 											/*currency symbol*/ 
 												if ($b_ads->currency == 'pound') {
 													$currency = '<span class="pound_sym"></span>';
@@ -940,7 +1029,9 @@
 											</div>
 											<?php	} ?>
 										</div>
-										<?php	} ?>
+										<?php	} 
+											}
+										?>
 									</div>
 								</div>
 							</div>
@@ -962,7 +1053,9 @@
 								<div class="col-sm-9 col-xs-12">
 									<div id="boxes-carousel">
 										
-										<?php foreach ($business_ads as $b_ads) {
+										<?php
+										if (!empty($business_ads)) {
+										 foreach ($business_ads as $b_ads) {
 											/*currency symbol*/ 
 												if ($b_ads->currency == 'pound') {
 													$currency = '<span class="pound_sym"></span>';
@@ -1033,7 +1126,9 @@
 											</div>
 											<?php	} ?>
 										</div>
-										<?php	} ?>
+										<?php	}
+											}
+										 ?>
 									</div>
 								</div>
 							</div>
@@ -1056,6 +1151,7 @@
 									<div id="boxes-carousel1">
 										
 										<?php 
+										if (!empty($free_ads)) {
 											foreach ($free_ads as $free_val) {
 												/*currency symbol*/ 
 													if ($free_val->currency == 'pound') {
@@ -1115,6 +1211,7 @@
 											<?php } ?>
 										</div>
 										<?php	}
+											}
 											?>
 									</div>
 								</div>
@@ -1128,11 +1225,15 @@
 										<div class="slide_j2"></div>
 									</div>
 									<div data-u="slides" class="slide_j3">
-										<?php foreach ($business_logos as $bval) { ?>
+										<?php
+										if (!empty($business_logos)) {
+										 foreach ($business_logos as $bval) { ?>
 										<div style="display: none;">
 											<img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $bval->bus_logo; ?>" alt="<?php echo base_url(); ?>pictures/<?php echo $bval->bus_logo; ?>" title="Business logo" />
 										</div>
-										<?php } ?>
+										<?php }
+											}
+										 ?>
 									</div>
 								</div>
 							</div>

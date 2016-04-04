@@ -15,45 +15,24 @@
 		
 		<script type="text/javascript">
 			$(function(){
-				/*search ato z / A to Z*/
-					$(".dealtitle_sort").change(function(){
-						var dealtitle = $(".dealtitle_sort option:selected").val();
-						var dealprice = $(".price_sort option:selected").val();
-						$.ajax({
-							type: "POST",
-							url: "<?php echo base_url();?>pickup_deals/pickup_deals_search",
-							data: {
-								dealtitle: dealtitle,
-								dealprice: dealprice
-							},
-							success: function (data) {
-								$(".pickup_result").html(data);
-							}
-						})
-					});
-				/*search price asc / desc*/
-					$(".price_sort").change(function(){
-						var dealprice = $(".price_sort option:selected").val();
-						var dealtitle = $(".dealtitle_sort option:selected").val();
-						$.ajax({
-							type: "POST",
-							url: "<?php echo base_url();?>pickup_deals/pickup_deals_search",
-							data: {
-								dealtitle: dealtitle,
-								dealprice: dealprice
-							},
-							success: function (data) {
-								$(".pickup_result").html(data);
-							}
-						})
-					});
+				$('.dealtitle_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$('.price_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
 			});
 		</script>
 		
 	</head>
 	
 	<body id="home">
-		
+			<?php 
+			$dealtitle = $this->session->userdata('dealtitle');
+			$dealprice = $this->session->userdata('dealprice');
+			?>
 		<!--Preloader-->
 		<div class="preloader">
 			<div class="status">&nbsp;</div>
@@ -97,7 +76,7 @@
 									</div>
 								</div>
 								
-								<form action="#" method="post" class="j-forms">
+								<form action="<?php echo base_url(); ?>pickup_deals/index" method="post" class="j-forms jforms">
 									<div class="col-sm-9 list-view">
 										<div class="row">
 											<div class="col-sm-12">
@@ -115,9 +94,9 @@
 															<div class="top_bar_top">
 																<label class="input select">
 																	<select name="dealtitle_sort" class="dealtitle_sort">
-																		<option value="Any">Title</option>
-																		<option value="atoz">A to Z</option>
-																		<option value="ztoa">Z to A</option>
+																		<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+																		<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+																		<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 																	</select>
 																	<i></i>
 																</label>
@@ -127,9 +106,9 @@
 															<div class="top_bar_top">
 																<label class="input select">
 																	<select name="price_sort" class="price_sort">
-																		<option value="Any">Pricing</option>
-																		<option value="lowtohigh">Low to High</option>
-																		<option value="hightolow">High to Low</option>
+																		<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+																		<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+																		<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 																	</select>
 																	<i></i>
 																</label>

@@ -109,6 +109,13 @@
 		</script>
 	</head>
 	<?php 
+	/*if (array_search("http://classifieds.local/hot-deals",$saved_searchexist)) {
+		echo 'sdsdsd';
+	}
+	if (in_array($this->session->set_userdata("saved_search1"), $saved_searchexist)) {
+		echo "der";
+	}
+	echo "<pre>"; print_r($saved_searchexist); echo "</pre>"; */
 		foreach ($busconcount as $countval) {
 		  	$allbustype = $countval->allbustype;
 		  	$business = $countval->business;

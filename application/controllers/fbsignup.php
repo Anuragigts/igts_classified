@@ -66,5 +66,9 @@ class fbsignup extends CI_Controller{
                 );
                 $this->load->view("classified_layout/inner_template",$data);
         }
+
+        public function gmail_account(){
+            
+        }
 }
 

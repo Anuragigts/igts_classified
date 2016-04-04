@@ -73,5 +73,13 @@ class Settings_model extends CI_Model{
 		$rs = $this->db->get()->result();
 		return $rs;
 	}
+
+	public function get_contact_details(){
+		$this->db->select();
+		$this->db->from("contactus");
+		$this->db->order_by("posted_on", "DESC");
+		$rs = $this->db->get()->result();
+		return $rs;
+	}
 }
 ?>

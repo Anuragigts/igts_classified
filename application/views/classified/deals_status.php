@@ -149,10 +149,11 @@
 												}
 												?></td>
 												<td class="pay_btn"><?php 
-												if ($ads->expire_data != '0000-00-00 00:00:00') {
-													?>
-												<a href="<?php base_url();?>payments/adrenewal/<?php echo $ads->ad_id;?>" class='adrenewal' title="Ad Renewal" >Ad Renewal</a>
-													<?php 
+												if ($ads->expire_data != '0000-00-00 00:00:00' && $ads->ad_status == 1) {
+													$date_diff =  (strtotime($ads->expire_data) - time())/(60*60*24);
+													if ($date_diff <= 10) { ?>
+														<a href="<?php base_url();?>payments/adrenewal/<?php echo $ads->ad_id;?>" class='adrenewal' title="Ad Renewal" >Ad Renewal</a>
+													<?php	}
 													}
 												?></td>
 											</tr>

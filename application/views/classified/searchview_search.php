@@ -175,13 +175,7 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
-																<ul class="starts">
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																</ul>
+																
 															</div>
 															<div class="col-xs-8">
 																<div class="location pull-right ">
@@ -319,13 +313,7 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
-																<ul class="starts">
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																</ul>
+																
 															</div>
 															<div class="col-xs-8">
 																<div class="location pull-right ">
@@ -447,13 +435,7 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
-																<ul class="starts">
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																</ul>
+																
 															</div>
 															<div class="col-xs-8">
 																<div class="location pull-right ">
@@ -572,13 +554,7 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
-																<ul class="starts">
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																</ul>
+																
 															</div>
 															<div class="col-xs-8">
 																<div class="location pull-right ">
@@ -694,13 +670,7 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
-																<ul class="starts">
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																</ul>
+																
 															</div>
 															<div class="col-xs-8">
 																<div class="location pull-right ">
@@ -814,13 +784,7 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-4">
-																<ul class="starts">
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star-half-empty"></i></a></li>
-																</ul>
+																
 															</div>
 															<div class="col-xs-8">
 																<div class="location pull-right ">

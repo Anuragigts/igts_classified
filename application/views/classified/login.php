@@ -162,7 +162,7 @@
 															</div>
 															<div class="col-md-6">
 																<div class=" login-options">
-																	<a href="javascript: void(0);" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
+																	<a href="<?php echo $authUrl; ?>" class="login-op-btn grad-btn ln-tr gp">Login with Google</a>
 																</div>
 															</div>
 														</div>
@@ -193,6 +193,13 @@
 				$('.fb').click(function(){
 					 window.open('<?= $login_url ?>', 'Facebook API','_blank',  "toolbar=yes, scrollbars=yes, resizable=yes, top=300, left=400,right=400, width=400, height=400");
 						return false;
+				});
+				$('.gp').click(function(){
+					 $.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>login/set_gf",
+					success: function (data) {}
+				    });
 				});
 			});
 		</script>

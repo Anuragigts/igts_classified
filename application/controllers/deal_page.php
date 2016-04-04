@@ -13,6 +13,13 @@ class Deal_page extends CI_Controller{
                 $this->load->library('pagination');
                }
         public function index(){
+          if ($this->session->userdata('login_id')) {
+            $saved_searchexist = $this->classifed_model->saved_searchexist($this->session->userdata('login_id'));
+          }
+          else{
+            $saved_searchexist = array();
+          }
+         
            if ((time() - $this->session->userdata('saved_time1')) > 5 ){
                    $this->session->unset_userdata('saved_time1');
                    $this->session->unset_userdata('saved_msg1');
@@ -183,7 +190,8 @@ class Deal_page extends CI_Controller{
                         'login' =>$login,
                         'paging_links' =>$this->pagination->create_links(),
                         'favourite_list'=>$favourite_list,
-                        "public_adview" => $public_adview
+                        "public_adview" => $public_adview,
+                        "saved_searchexist"=>$saved_searchexist
                 );
            /*business and consumer count for hot deals*/
           $data['busconcount'] = $this->hotdealsearch_model->busconcount_hotdeals();

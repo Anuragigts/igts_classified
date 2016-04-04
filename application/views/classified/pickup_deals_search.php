@@ -723,6 +723,11 @@
 	<?php } ?>
 	<!-- free package ends -->
 	<?php } ?>
+	<div class=''>
+		<div class='col-md-12'>
+			<?php echo $paging_links; ?>
+		</div>
+	</div>
 	<script type="text/javascript">
 		$(function(){
 			$(".favourite_label").click(function(){

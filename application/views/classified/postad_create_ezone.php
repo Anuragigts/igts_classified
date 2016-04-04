@@ -142,12 +142,6 @@
 						$('#del_img').css('display', 'none');
 					});
 				});
-			
-				$(document).ready(function(){
-				 $('#content').bind("cut copy paste",function(e) {
-					 e.preventDefault();
-				 });
-			   });
 		</script>
 		<script type='text/javascript'>
 			/* Free */

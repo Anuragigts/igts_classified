@@ -132,12 +132,13 @@ Class Classifed_model extends CI_model{
 		$this->db->or_where("ad.package_type", "3");
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
 
 		$m_res = $this->db->get();
-
+		// echo $this->db->last_query(); exit;
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}
@@ -520,12 +521,28 @@ GROUP BY img.ad_id
 
 	/*my ads in deals administrator*/
 	public function count_my_ads(){
+		$dealtitle = $this->session->userdata('dealtitle');
+		$dealprice = $this->session->userdata('dealprice');
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
+		/*deal title ascending or descending*/
+			if ($dealtitle == 'atoz') {
+				$this->db->order_by("ad.deal_tag","ASC");
+			}
+			else if ($dealtitle == 'ztoa'){
+				$this->db->order_by("ad.deal_tag", "DESC");
+			}
+			/*deal price ascending or descending*/
+			if ($dealprice == 'lowtohigh'){
+				$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+			}
+			else if ($dealprice == 'hightolow'){
+				$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+			}
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get();
 		return $res->result();
@@ -543,17 +560,33 @@ GROUP BY img.ad_id
 	}
 
 	public function my_ads($data){
+		$dealtitle = $this->session->userdata('dealtitle');
+		$dealprice = $this->session->userdata('dealprice');
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
+		/*deal title ascending or descending*/
+			if ($dealtitle == 'atoz') {
+				$this->db->order_by("ad.deal_tag","ASC");
+			}
+			else if ($dealtitle == 'ztoa'){
+				$this->db->order_by("ad.deal_tag", "DESC");
+			}
+			/*deal price ascending or descending*/
+			if ($dealprice == 'lowtohigh'){
+				$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+			}
+			else if ($dealprice == 'hightolow'){
+				$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+			}
 		$this->db->order_by("ad.ad_id", "DESC");
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
 		return $res->result();
 	}
 	public function my_ads_user($data){
-		$this->db->select("ad.ad_id,ad.urgent_package,ad.package_type,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data");
+		$this->db->select("ad.ad_id,ad.urgent_package,ad.package_type,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data, ad.ad_status");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('ad_status as a_s','a_s.id = ad.ad_status','inner');
 		$this->db->join('catergory as cat','cat.category_id = ad.category_id','inner');
@@ -1026,7 +1059,37 @@ GROUP BY img.ad_id
 	}
 
 	/*display in pickup deals*/
-	public function pickup_deals(){
+	public function pickup_deals($data){
+		$dealtitle = $this->session->userdata('dealtitle');
+		$dealprice = $this->session->userdata('dealprice');
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
+		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
+		$this->db->group_by("img.ad_id");
+		/*deal title ascending or descending*/
+				if ($dealtitle == 'atoz') {
+					$this->db->order_by("ad.deal_tag","ASC");
+				}
+				else if ($dealtitle == 'ztoa'){
+					$this->db->order_by("ad.deal_tag", "DESC");
+				}
+				/*deal price ascending or descending*/
+				if ($dealprice == 'lowtohigh'){
+					$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+				}
+				else if ($dealprice == 'hightolow'){
+					$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+				}
+		$this->db->order_by("fav.id", "DESC");
+		$res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+		return $res->result();
+	}
+
+	public function pickup_deals_count(){
+		$dealtitle = $this->session->userdata('dealtitle');
+		$dealprice = $this->session->userdata('dealprice');
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
@@ -1034,6 +1097,20 @@ GROUP BY img.ad_id
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
 		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
+		/*deal title ascending or descending*/
+				if ($dealtitle == 'atoz') {
+					$this->db->order_by("ad.deal_tag","ASC");
+				}
+				else if ($dealtitle == 'ztoa'){
+					$this->db->order_by("ad.deal_tag", "DESC");
+				}
+				/*deal price ascending or descending*/
+				if ($dealprice == 'lowtohigh'){
+					$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+				}
+				else if ($dealprice == 'hightolow'){
+					$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+				}
 		$this->db->order_by("fav.id", "DESC");
 		$res = $this->db->get();
 		return $res->result();
@@ -2499,6 +2576,32 @@ GROUP BY img.ad_id
 					$this->db->insert("newsletter", $ins);
 					return 0;
 				}
+		}
+
+		public function saved_searchexist(){
+			$this->db->select("save_search");
+			$this->db->from("saved_searchs");
+			$this->db->where("login_id", $this->session->userdata("login_id"));
+			$rs = $this->db->get();
+			return $rs->result();
+		}
+
+
+		public function contactus_create(){
+			$ins = array(
+					'cname'=> $this->input->post('contact_name'),
+					'email'	=> $this->input->post('contact_email'),
+					'mobile'	=> $this->input->post('contact_no'),
+					'msg'	=> $this->input->post('contact_message'),
+					'posted_on' => date("Y-m-d H:i:s")
+					);
+					$this->db->insert("contactus", $ins);
+					if ($this->db->affected_rows() > 0) {
+						return 1;
+					}
+					else{
+						return 0;
+					}
 		}
 
 
