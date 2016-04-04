@@ -25,7 +25,7 @@
 			background: green;
 			}
 			.slider-horizontal{
-				width: 170px;
+				width: 17%;
 			}
 			.tooltip.top {
 				padding: 5px 0;

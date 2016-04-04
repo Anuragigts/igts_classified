@@ -77,13 +77,13 @@
 										<span class="acc-trigger"><a href="#">INTRODUCTION</a></span>
 										<div class="acc-container">
 											<div class="content active">
-												<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use, which together with our privacy policy govern '99rightDeals’ relationship with you in relation to this website. These terms and conditions are effective from 1st March 2016 and form a legally binding agreement between you and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, any preceding terms and conditions will be superseded by this one. These terms shall take effect when you use the website for the first time. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+												<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use, which together with our privacy policy govern " 99rightDeals " relationship with you in relation to this website. These terms and conditions are effective from 1st March 2016 and form a legally binding agreement between you and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, any preceding terms and conditions will be superseded by this one. These terms shall take effect when you use the website for the first time. If you disagree with any part of these terms and conditions, please do not use our website.</p>
 									
-												<p>If you register with our website " <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> submit any material to our website or use any of our website services, we will ask you to expressly agree to these terms and conditions.</p>
+												<p>If you register with our website <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> submit any material to our website or use any of our website services, we will ask you to expressly agree to these terms and conditions.</p>
 												
 												<p>You must be at least 18 years of age to use our website; and by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least 18 years of age.</p>
 												
-												<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
+												<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘ you ’ refers to the user or viewer of our website.</p>
 											</div>
 										</div>
 									  
@@ -92,14 +92,14 @@
 											<div class="content">
 												<ul class="list-styles">
 													<li><i class="fa fa-circle"></i> "Content" means the information, data, text, messages, sounds, videos, adverts, screen names, files, details, photographs, graphics, software, static and mobile images and all other material published in the print publication on the Website.</li>
-													<li><i class="fa fa-circle"></i> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> " means 99rightDeals</li>
+													<li><i class="fa fa-circle"></i> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> means 99rightDeals</li>
 													<li><i class="fa fa-circle"></i> "Items" means all goods or services offered for rent or sale posted on the website.</li>
 													<li><i class="fa fa-circle"></i> "Minor" means a person under the age of 18 years.</li>
 													<li><i class="fa fa-circle"></i> "Post" means display, exhibit, upload, distribute, transmit, publish and/or disclose and the words "Posted" and "Posting" shall be accordingly interpreted.</li>
 													<li><i class="fa fa-circle"></i> "User" means any individual who holds a user account, who print adverts or is an Advertiser.</li>
 													<li><i class="fa fa-circle"></i> "Services" means any or all services that we provide through <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> inclusive of, without limitation, our print publication and online marketplace.</li>
 													<li><i class="fa fa-circle"></i> "Terms" refers to Terms of Use, our Cookie Policy, our Privacy Policy and any documents referred to within.</li>
-													<li><i class="fa fa-circle"></i> "Website" or “site” means the web pages that are available under the domains <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and its related websites, applications and the services.</li>
+													<li><i class="fa fa-circle"></i> "Website" or "site" means the web pages that are available under the domains <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and its related websites, applications and the services.</li>
 												</ul>
 											</div>
 										</div>
@@ -107,7 +107,7 @@
 										<span class="acc-trigger"><a href="#">ABOUT THE WEBSITE</a></span>
 										<div class="acc-container">
 											<div class="content">
-												<p> The website is a open market. It’s a display place where sellers may list items and buyers who may find the items to buy through us. We hold no responsibility whatsoever for the contracts formed through our website, for supply of goods, services and information, between you and the users. We simply serve as a display place where buyers and sellers meet. </p>
+												<p> The website is a open market. It ' s a display place where sellers may list items and buyers who may find the items to buy through us. We hold no responsibility whatsoever for the contracts formed through our website, for supply of goods, services and information, between you and the users. We simply serve as a display place where buyers and sellers meet. </p>
 									
 												<p>The business agreements or contracts are formed directly between buyers and the sellers and is subject to the terms and conditions which are implied by law or which the buyer and seller agree between them or both. The Website has nothing to do with the contracts formed between buyers and sellers nor is the website liable or entitled to any contract. </p>
 												

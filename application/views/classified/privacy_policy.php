@@ -84,7 +84,7 @@
 								<div class="col-md-9">
 									<p>This privacy policy sets out how <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> uses and protects any information that you give <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> when you use this website.</p>
 									
-									<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>  refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘you’ refers to the user or viewer of our website.</p>
+									<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>  refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ' you ' refers to the user or viewer of our website.</p>
 									
 									<p><strong>PERSONAL INFORMATION</strong></p>
 									
