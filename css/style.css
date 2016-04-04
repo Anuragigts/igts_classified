@@ -797,10 +797,10 @@ hr.tall {
 
 .filter-title {
     position: absolute;
-    top: 18%;
-    left: 50%;
+    top: 56%;
+    left: 36%;
     margin-left: -25%;
-    width: 50%;
+    width: 79%;
     z-index: 99;
 }
 .filter-title.top-30 {
@@ -926,7 +926,7 @@ hr.tall {
     border-right: 0;
 }
 .filter-header .input-large {
-    width: 23%;
+    width: 21%;
     background: #fff url("../img/icons/search.png") no-repeat scroll left 11px;
     padding-left: 27px;
     padding-top: 5px;
@@ -1000,7 +1000,7 @@ hr.tall {
     color: #565656;
 }
 .filter-header input[type="submit"] {
-    width: 13%;
+    width: 12%;
     border: 0;
     color: #fff;
     background: #EF530D none repeat scroll 0% 0% !important;
@@ -3452,6 +3452,7 @@ hr.separator:before {
 address {
     line-height: 35px;
     padding-left: 10px;
+    min-height: 69px;
 }
 address i {
     padding-right: 10px;

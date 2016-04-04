@@ -648,6 +648,7 @@
 	}
 }
 
+
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	
 	.filter-title {
@@ -662,9 +663,9 @@
 		top: 152.649px !important;
 	}
 	
-	.filter-header input[type="submit"] {
+	/*.filter-header input[type="submit"] {
 		width:10%;
-	}
+	}*/
 	.filter-header .input-large{
 		width: 17%;
 		background: none;
