@@ -798,9 +798,9 @@ hr.tall {
 .filter-title {
     position: absolute;
     top: 56%;
-    left: 36%;
-    margin-left: -25%;
-    width: 79%;
+	left: 26%;
+    width: 47%;
+	z-index: 99;
     z-index: 99;
 }
 .filter-title.top-30 {
@@ -884,7 +884,7 @@ hr.tall {
 
 .filter-header {
     padding: 0;
-    max-width: 90%;
+    max-width: 100%;
     margin: 1px auto 0px;
     height: 58px;
     border-radius: 0px 5px 5px;
@@ -4520,11 +4520,11 @@ a .login-op-btn:hover {
 .bus_rec_badge {
     width: 121px;
     height: 87px;
-    background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+    background: transparent url("../img/icons/reco.png") no-repeat;
     padding-top: 5px;
     position: absolute;
-    margin-left: 168px;
-    top: -19px;
+    margin-left: 165px;
+    top: 0px;
     z-index: 99;
 }
 .significant_badge {
