@@ -146,7 +146,7 @@
 		var pasteHandlerFunc = function(e) {
 
 			// Remove existing Mozilla "input" event handler
-			$contentEditable.off('input',mozillaCaptureFunc);
+			/*$contentEditable.off('input',mozillaCaptureFunc);
 
 			// Execute onBeforeUpload callback function if available
 			$.isFunction(settings.onBeforeUpload) && settings.onBeforeUpload.call(this);
@@ -171,15 +171,15 @@
 				pasting = false;
 				processUpload(files, e.originalEvent);
 				e.preventDefault();
-			}
+			}*/
 		};
 
 		// Alternate triggering metod for clipboard capturing, required for IE & Mozilla
 		var keydownHandlerFunc = function(e) {
-			if (!pasting && (e.ctrlKey || e.metaKey) && e.which == 86) {
+			/*if (!pasting && (e.ctrlKey || e.metaKey) && e.which == 86) {
 				pasting = true;
 				$contentEditable.focus();
-			}
+			}*/
 		};
 
 		// Alternative to css :hover, adding class "dropzonehover" to body tag.
@@ -268,8 +268,8 @@
 		if (settings.enableCliboardCapture) {
 			$contentEditable.appendTo('body').focus();
 			$(window).on({
-				keydown: keydownHandlerFunc, // IE & Mozilla
-				paste: pasteHandlerFunc
+				/*keydown: keydownHandlerFunc, // IE & Mozilla
+				paste: pasteHandlerFunc*/
 			});
 		}
 
