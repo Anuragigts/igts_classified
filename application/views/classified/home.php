@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>Free Classified Ads | Free Ads | In UK | 99 Right Deals</title>
+		<title> Classified Ads Website | Post Free Classified Ads In UK | 99 Right Deals</title>
 		
 		<meta name="description" content="99 Right Deals is classified website where user can post free ads for used/unused goods in categories like hot deals, e-zone, lifestyles, find a property, home & kitchen." />
 		<meta name="keywords" content="free classified ads,post free ads,buy and sell online,post free classified ads,free advertising websites,online classified ads,buying and selling websites,local classifieds ads,free online advertising,free advertising uk,classified ads uk" />
@@ -22,7 +22,7 @@
 				border-right: 1px solid #f4f4f4;
 			}
 			#slider5a .slider-track-high, #slider5c .slider-track-high {
-			background: green;
+				background: green;
 			}
 			.slider-horizontal{
 				width: 17%;
