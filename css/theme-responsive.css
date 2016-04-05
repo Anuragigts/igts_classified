@@ -123,9 +123,12 @@
 	}
 	.filter-title{
 		top: 35%;
-		left: 10%;
-		margin-left: -5%;
-		width: 90%;
+		left: 2%;
+		margin-left: 0%;
+		width: 100%;
+	}
+	.slider-horizontal{
+		width: 12% !important;
 	}
 	.title-header h1{
 		font-size: 3rem;
@@ -404,6 +407,9 @@
 	}
 	.fa-2x{
 		font-size:16px;
+	}
+	.slider-horizontal{
+		width: 50% !important;
 	}
 	.main_logo {
 		margin-top: -17px !important;

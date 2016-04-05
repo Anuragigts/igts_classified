@@ -6235,3 +6235,9 @@ div.letter_success{
        color: #88C425 !important;
         font-weight: bolder;
 }
+.slider.slider-horizontal .slider-track {
+    height: 10px;
+    width: 100%;
+    margin-top: 0px;
+    left: 20px;
+}
