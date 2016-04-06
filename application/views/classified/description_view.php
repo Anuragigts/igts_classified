@@ -41,6 +41,9 @@
 			.jgallery {
 				height:480px !important;
 			}
+			.owl-item{
+				width: 283px !important;
+			}
 		</style>
 		
 		<!-- xxx Head Content xxx -->
@@ -473,12 +476,15 @@
 																<i class="fa fa-linkedin linkedin"></i>
 															</a>
 														</li>
-														<li>
-															<a href="<?php echo "http://".$web_url; ?>" target="_blank" class="social-globe">
-																<i class="">Weblink</i>
-																<i class="whit_e"> Weblink</i>
-															</a>
-														</li>
+														<?php if ($package_type != 1 && $package_type != 4) { ?>
+															<li>
+																<a href="<?php echo "http://".$web_url; ?>" target="_blank" class="social-globe">
+																	<i class="">Weblink</i>
+																	<i class="whit_e"> Weblink</i>
+																</a>
+															</li>
+														<?php } ?>
+														
 													</ul>
 												</div>
 											</div>
@@ -700,9 +706,27 @@
 										<h3> <?php echo $name; ?></h3>
 										<hr>
 										<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php 
+										// print_r($ads_loc);
 										foreach ($ads_loc as $ads_loc_val) {
 											// echo $ads_loc_val->loc_name;
-											echo implode(",", array_slice(explode(",", $ads_loc_val->loc_name),1,2));
+											// echo implode(",", array_slice(explode(",", $ads_loc_val->loc_name),1,2));
+											$latt = $ads_loc_val->latt;
+											$longg = $ads_loc_val->longg;
+											$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=true";
+											$ch = curl_init();
+											// Disable SSL verification
+											curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+											// Will return the response, if false it print the response
+											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+											// Set the url
+											curl_setopt($ch, CURLOPT_URL,$url);
+											// Execute
+											$result=curl_exec($ch);
+											// Closing
+											curl_close($ch);
+											$json_response = json_decode($result, true);
+											// echo "<pre>"; print_r($json_response); echo "</pre>";
+											echo $city_name = $json_response['results'][0]['address_components'][1]['short_name'].",".$json_response['results'][0]['address_components'][2]['short_name'];
 											} 
 											?></i></h4>
 										<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
@@ -836,7 +860,7 @@
 										}	
 											?>
 										<div>
-											<?php if ($b_ads->urgent_package != '') { ?>
+											<?php if ($b_ads->urgent_package != '0') { ?>
 											<div class="bus_rec_badge">
 											</div>
 											<?php } ?>
@@ -844,7 +868,7 @@
 												<img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
 												<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
-											<div class="info-gallery">
+											<div class="info-gallery recommanded">
 												<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 												<hr class="separator">
 												<?php if ($b_ads->ad_type != 'consumer') { ?>

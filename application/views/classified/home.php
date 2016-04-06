@@ -31,6 +31,9 @@
 				padding: 5px 0;
 				margin-top: -32px;
 			}
+			.owl-item{
+				width: 283px !important;
+			}
 		</style>
 		
 	</head>
@@ -165,7 +168,7 @@
 				
 				<div class="filter-title">
 					<div class="filter-header">
-						<form action="<?php echo base_url(); ?>searchview" method="get">
+						<form action="<?php echo base_url(); ?>searchview" method="get" autocomplete="off">
 							<input type="text" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
 							<div class="selector1">
 								<select class="guests-input" name="category_name">
@@ -177,9 +180,15 @@
 									<?php }   } ?>
 								</select>
 							</div>
-							<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="">
+							<div class="main">
+						     	 <div id="holder">
+						     	 	<input type="text" class="input-large" id="keyword" name="keyword" placeholder="Location" tabindex="0">
+								 </div>
+								 <div id="ajax_response" style='opacity: 1; z-index: 99'></div>
+						   </div>
+							<!--<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="">
 							<input type='hidden' name='latt' id='latt' value='' >
-							<input type='hidden' name='longg' id='longg' value='' >
+							<input type='hidden' name='longg' id='longg' value='' >-->
 							<i class="fa fa-map-marker fa-2x loca_pad"></i>
 							<input type="text" id="ex5a" class="form-control" name="miles" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="5" data-slider-value="0"/>
 							<input type="submit" class="pull-right" value="Search">
@@ -203,7 +212,7 @@
 								<div class="ticker3 modern-ticker mt-round">
 									<div class="mt-body">
 										<div class="mt-news">
-											<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+											<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 											<script type="text/javascript">
 												google.maps.event.addDomListener(window, 'load', function () {
 													var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
@@ -216,7 +225,9 @@
 														$("#longg").val(longitude);
 													});
 												});
-											</script>
+											</script>-->
+											<link href="<?php echo base_url(); ?>js/autosearch/style.css" rel="stylesheet" type="text/css">
+   										   <SCRIPT LANGUAGE="JavaScript" src="<?php echo base_url(); ?>js/autosearch/script.js"></SCRIPT>
 											<ul>
 												<?php
 												if (!empty($news)) {
@@ -365,8 +376,10 @@
 													  }
 
 													  if ($hot_deals_val->category_id == '1') {
-															$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'jobtype');
-														}
+															// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'jobtype');
+													  		$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'salarymin');
+													  		$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'salarymax');
+													  	}
 													
 													  ?>
 												<figure class="slide jbs-current">
@@ -388,7 +401,7 @@
 														<h3 class="home_price"><?php echo $currency.number_format($hot_deals_val->price); ?></h3>
 														<?php }
 														else{ ?>
-														<h3 class="home_price"><?php echo $jobtype; ?></h3>
+														<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 														<?php } ?>
 														<a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 														<?php  if ($hot_deals_val->ad_type == 'business') {
@@ -497,7 +510,9 @@
 										}
 
 										if ($val->category_id == '1') {
-											$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$val->ad_id'"),0,'jobtype');
+											// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$val->ad_id'"),0,'jobtype');
+											$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$val->ad_id'"),0,'salarymin');
+											$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$val->ad_id'"),0,'salarymax');
 										}
 									?>
 								<div class="col-sm-4 col-md-3 col-xs-12 showall">
@@ -517,7 +532,7 @@
 										<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
 										<?php }
 										else{?>
-										<h3 class="home_price"><?php echo $jobtype; ?></h3>
+										<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 										<?php } ?>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<?php
@@ -550,7 +565,9 @@
 								if (!empty($sig_ads_jobs)) {
 								 foreach ($sig_ads_jobs as $m_ads){
 									if ($m_ads->category_id == '1') {
-										$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$m_ads->ad_id'"),0,'jobtype');
+										// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$m_ads->ad_id'"),0,'jobtype');
+										$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$m_ads->ad_id'"),0,'salarymin');
+											$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$m_ads->ad_id'"),0,'salarymax');
 									}
 
 									?>
@@ -566,7 +583,7 @@
 									<div class="info-gallery">
 										<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
 										<hr class="separator">
-										<h3 class="home_price"><?php echo $jobtype; ?></h3>
+										<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 										<?php
 											if($m_ads->ad_type == 'business'){
@@ -935,9 +952,6 @@
 									}
 								 ?>
 							</div>
-							<div class="row text_center">
-								<a href="significant_deals_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>VIEW ALL SIGNIFICANT DEALS</span></a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -952,7 +966,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-3">
-									<a href="mostvalued_deals_view">
+									<a href="#">
 									<img src="img/most_value.jpg" alt="post free ads" title="Value Deals" class="recentad_heig img-responsive">
 									</a>
 								</div>
@@ -970,7 +984,9 @@
 												}
 
 												if ($b_ads->category_id == '1') {
-														$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'jobtype');
+														// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'jobtype');
+														$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'salarymin');
+														$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'salarymax');
 													}
 
 											?>
@@ -1006,7 +1022,7 @@
 												<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 												<?php }
 												else{ ?>
-												<h3 class="home_price"><?php echo $jobtype; ?></h3>
+												<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
@@ -1046,7 +1062,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-3 col-xs-12">
-									<a href="business_deals_view">
+									<a href="#">
 									<img src="img/business_deals.jpg" alt="buy and sell online" title="Business Deals" class="recentad_heig img-responsive">
 									</a>
 								</div>
@@ -1065,7 +1081,9 @@
 												}	
 
 												if ($b_ads->category_id == '1') {
-														$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'jobtype');
+														// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'jobtype');
+														$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'salarymin');
+														$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$b_ads->ad_id'"),0,'salarymax');
 													}
 											?>
 										<div>
@@ -1098,7 +1116,7 @@
 												<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 												<?php }
 												else{ ?>
-												<h3 class="home_price"><?php echo $jobtype; ?></h3>
+												<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
@@ -1143,7 +1161,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-3 col-xs-12">
-									<a href="recent_deals_view">
+									<a href="#">
 									<img src="img/recentad.jpg" alt="local classifieds ads" title="Recent Deals" class="recentad_heig img-responsive">
 									</a>
 								</div>
@@ -1162,7 +1180,9 @@
 													}	
 
 													if ($free_val->category_id == '1') {
-														$jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$free_val->ad_id'"),0,'jobtype');
+														// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$free_val->ad_id'"),0,'jobtype');
+														$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$free_val->ad_id'"),0,'salarymin');
+														$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$free_val->ad_id'"),0,'salarymax');
 													}
 											 ?>
 										<div>
@@ -1182,7 +1202,7 @@
 												<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
 												<?php }
 												else{ ?>
-												<h3 class="home_price"><?php echo $jobtype; ?></h3>
+												<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">

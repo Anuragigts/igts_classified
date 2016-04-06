@@ -109,13 +109,17 @@
 		</script>
 	</head>
 	<?php 
-	/*if (array_search("http://classifieds.local/hot-deals",$saved_searchexist)) {
-		echo 'sdsdsd';
+	if (is_array($saved_searchexist)) {
+		foreach ($saved_searchexist as $saved_searchexist1) {
+			if ($saved_searchexist1->save_search == $this->session->userdata("saved_search1")) {
+				$der = 1;
+			}
+			else{
+				$der = 0;	
+			}
+		}
 	}
-	if (in_array($this->session->set_userdata("saved_search1"), $saved_searchexist)) {
-		echo "der";
-	}
-	echo "<pre>"; print_r($saved_searchexist); echo "</pre>"; */
+	// echo "<pre>"; print_r($saved_searchexist); echo "</pre>"; exit;
 		foreach ($busconcount as $countval) {
 		  	$allbustype = $countval->allbustype;
 		  	$business = $countval->business;
@@ -1017,7 +1021,16 @@
 														</ul>
 													</div>
 													<div class="col-md-2 saved_link1">
+														<?php 
+														//if ($der == 1) { ?>
+															<!-- <span class="saved_link" style="margin:0px;">Saved Search</span> -->
+														<?php //}
+														//else{ ?>
 														<a class="saved_link" style="margin:0px;" href="javascript:void(0);">Save Search</a>
+														<?php// }
+														 ?>
+														<!-- <a class="saved_link" style="margin:0px;" href="javascript:void(0);">Save Search</a> -->
+
 														<!-- <input type="hidden" name="search_title" id="search_title"	value="<?php echo $looking_search; ?>">
 														<input type="hidden" name="search_cat" id="search_cat"	value="<?php echo $cat_id; ?>">
 														<input type="hidden" name="search_loc" id="search_loc"	value="<?php echo $location; ?>"> -->

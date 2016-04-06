@@ -28,7 +28,7 @@
 		});
 	</script>
 	
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+	<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 	<script type="text/javascript">
 		google.maps.event.addDomListener(window, 'load', function () {
             var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
@@ -41,7 +41,7 @@
                 $("#longg").val(longitude);
             });
         });
-	</script>
+	</script>-->
 	
 	<script type="text/javascript">
 		$(function(){
@@ -220,7 +220,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="" method='get' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="" method='get' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;" autocomplete="off">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -252,9 +252,15 @@
 													<label class="icon-left" for="">
 														<i class="fa fa-search"></i>
 													</label>
-													<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
+													<div class="main">
+												     	 <div id="holder">
+												     	 	<input type="text" class="input-large" id="keyword" style="padding-left: 58px;" name="keyword" placeholder="Location" value="<?php echo $location; ?>">
+														 </div>
+														 <div id="ajax_response1" style="left: 3.5px !important; display: block; top: 48px !important; width: 211px !important;" ></div>
+												   </div>
+													<!-- <input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
 													<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
-													<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
+													<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' > -->
 												</div>
 											</div>
 											
@@ -1163,7 +1169,8 @@
 
 		<script src="<?php echo base_url();?>libs/jquery.mixitup.min.js"></script>
 		<script src="<?php echo base_url();?>libs/main.js"></script>
-		
+		<link href="<?php echo base_url(); ?>js/autosearch/style.css" rel="stylesheet" type="text/css">
+   		<script type="text/javascript" src="<?php echo base_url();?>js/autosearch/script1.js"></script>
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->

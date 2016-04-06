@@ -7,7 +7,11 @@
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->
-		
+		<style type="text/css">
+		.email_width{
+			width: 88% !important;
+		}
+		</style>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>css/signreg.css">
@@ -61,6 +65,10 @@
 					con_email: {
 						required: true,
 						email: true
+					},
+					con_password: {
+						required: true,
+						pwcheck: true
 					},
 					bus_fname: {
 						required: true,
@@ -205,7 +213,7 @@
 														</div>
 														<div class="col-2">
 															<label>Email <sup style='color:red;'>*</sup>
-																<input placeholder="Enter Email" id="con_email" name="con_email" tabindex="3">
+																<input placeholder="Enter Email" id="con_email" class='email_width' name="con_email" tabindex="3">
 																
 															</label>
 														</div>
@@ -245,7 +253,7 @@
 														</div>
 														<div class="col-2">
 															<label>Email <sup style='color:red;'>*</sup>
-																<input placeholder="Enter Email" id="bus_email" name="bus_email" tabindex="5">
+																<input placeholder="Enter Email" id="bus_email" name="bus_email" class="email_width" tabindex="5">
 															</label>
 														</div>
 														<div class="col-2">

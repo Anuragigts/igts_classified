@@ -168,7 +168,7 @@
 				if (img_count == 0) {
 					$(".free_img_error").css('display', 'block'); return false;
 				}
-				else if(pck_type == 'free' && (img_count > pckimglimit)){
+				else if(pck_type == '1' && (img_count > pckimglimit)){
 					$(".free_img_error").css('display', 'block'); return false;
 				}
 				else{
@@ -182,7 +182,7 @@
 				if (img_count == 0) {
 					$(".gold_img_error").css('display', 'block'); return false;
 				}
-				else if(pck_type == 'gold' && img_count > pckimglimit){
+				else if(pck_type == '2' && img_count > pckimglimit){
 					$(".gold_img_error").css('display', 'block'); return false;
 				}
 				else{
@@ -196,7 +196,7 @@
 				if (img_count == 0) {
 					$(".platinum_img_error").css('display', 'block'); return false;
 				}
-				else if(pck_type == 'platinum' && img_count > pckimglimit){
+				else if(pck_type == '3' && img_count > pckimglimit){
 					$(".platinum_img_error").css('display', 'block'); return false;
 				}
 				else{

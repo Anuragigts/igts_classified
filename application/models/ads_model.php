@@ -83,7 +83,7 @@ class Ads_model extends CI_Model{
 			$this->db->where('pkg_dur_id',$this->input->post('pkg_type'));
 			$this->db->from('pkg_duration_list');
 			$pkg_details = $this->db->get()->row();
-			
+			if($this->input->post('ad_status') == 1){
 			$date = date('Y-m-d H:i:s');
 		if($this->input->post('urg_type') != '0'){
 			
@@ -102,14 +102,21 @@ class Ads_model extends CI_Model{
 			'approved_by'		=>	$this->session->userdata('login_id'),
 			'approved_on'		=>	$date,
 			'expire_data'		=>	date('Y-m-d H:i:s', strtotime($date. ' + '.$pkg_details->dur_days.' days')),
-			'web_link'			=>	$this->input->post('pkg_web_link'),
 			'category_id'		=>	$this->input->post('cat_type'),
 			'ad_status'			=>	$this->input->post('ad_status'),
-			'service_type'		=>	$this->input->post('service_type'),
 			'admin_comment'		=>	$admin_comment
 		);
 		$this->db->where('ad_id', $this->input->post('ad_id'));
 		$update_status = $this->db->update('postad', $data);
+	}
+	else{
+		$data=array(
+			'ad_status'			=>	$this->input->post('ad_status'),
+			'admin_comment'		=>	$admin_comment
+		);
+		$this->db->where('ad_id', $this->input->post('ad_id'));
+		$update_status = $this->db->update('postad', $data);
+	}
 		//$this->db->last_query();
 		//exit;
 		return $update_status;

@@ -9,6 +9,7 @@ Class Classifed_model extends CI_model{
 		$this->db->from("postad as ad");
 		$this->db->join("platinum_ads as pads", "pads.ad_id = ad.ad_id","join");
 		$this->db->where('ad.ad_status', 1);
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->order_by('ad.ad_id', "DESC");
 		$rs = $this->db->get();
 		return $rs->result();
@@ -154,6 +155,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -175,6 +177,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -196,6 +199,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -217,6 +221,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -238,6 +243,7 @@ Class Classifed_model extends CI_model{
 		$this->db->where("ad.package_type", "3");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -259,6 +265,7 @@ Class Classifed_model extends CI_model{
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "7");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -280,6 +287,7 @@ Class Classifed_model extends CI_model{
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -303,6 +311,7 @@ Class Classifed_model extends CI_model{
 		$this->db->or_where("ad.package_type", "6");
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('ad.ad_id', 'DESC');
 		$this->db->limit(12);
@@ -318,10 +327,11 @@ Class Classifed_model extends CI_model{
 
 	/*hot_deals in home page 3D */
 	public function hot_deals(){
+		$date = date("Y-m-d H:i:s");
 		$query = $this->db->query("/*jobs*/
 (SELECT *FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
- WHERE ad.`category_id` = 1 AND ad.`ad_status` = 1 AND
+ WHERE ad.`category_id` = 1 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -334,7 +344,7 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 /*services*/
 (SELECT *FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
-WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND
+WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -347,7 +357,7 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 /*motor point*/
 (SELECT *FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
-WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND
+WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -360,7 +370,7 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 /*find a property*/
 (SELECT *FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
-WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND
+WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -373,7 +383,7 @@ ORDER BY ad.expire_data DESC LIMIT 2)UNION
 /*pets*/
 (SELECT * FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
- WHERE ad.`category_id` = 5 AND ad.`ad_status` = 1 AND
+ WHERE ad.`category_id` = 5 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -386,7 +396,7 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
  /*cloths*/
  (SELECT * FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id 
- WHERE ad.`category_id` = 6 AND ad.`ad_status` = 1 AND
+ WHERE ad.`category_id` = 6 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -400,7 +410,7 @@ GROUP BY img.ad_id
  (SELECT * FROM postad AS ad 
  JOIN ad_img AS img ON img.ad_id = ad.ad_id 
  WHERE ad.`category_id` = 7
- AND ad.`ad_status` = 1 AND
+ AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -414,7 +424,7 @@ GROUP BY img.ad_id
  (SELECT * FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id 
 WHERE ad.`category_id` = 8
- AND ad.`ad_status` = 1 AND
+ AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
@@ -439,6 +449,7 @@ GROUP BY img.ad_id
 		$this->db->or_where("ads.package_type", "2");
 		$this->db->or_where("ads.package_type", "5");
 		$this->db->where("ads.ad_status", "1");
+		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -460,6 +471,7 @@ GROUP BY img.ad_id
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.ad_type', 'consumer');
 		$this->db->where("ads.ad_status", "1");
+		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -483,6 +495,7 @@ GROUP BY img.ad_id
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.ad_type', 'business');
 		$this->db->where("ads.ad_status", "1");
+		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
 		$this->db->limit(10);
@@ -504,6 +517,7 @@ GROUP BY img.ad_id
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where('ads.ad_type', 'business');
 		$this->db->where("ads.ad_status", "1");
+		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->where('img.bus_logo !=', '');
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
@@ -1232,6 +1246,7 @@ GROUP BY img.ad_id
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -1254,6 +1269,7 @@ GROUP BY img.ad_id
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1271,6 +1287,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad",$data['limit'],$data['start']);
@@ -1292,6 +1309,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1315,6 +1333,7 @@ GROUP BY img.ad_id
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1331,6 +1350,7 @@ GROUP BY img.ad_id
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1353,6 +1373,8 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1369,6 +1391,7 @@ GROUP BY img.ad_id
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1386,6 +1409,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1403,6 +1427,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1420,6 +1445,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1437,6 +1463,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1454,6 +1481,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1471,6 +1499,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1488,6 +1517,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1505,6 +1535,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1522,6 +1553,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1539,6 +1571,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1556,6 +1589,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1572,6 +1606,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1593,6 +1628,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1614,6 +1650,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1637,6 +1674,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1654,6 +1692,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1671,6 +1710,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1688,6 +1728,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1706,6 +1747,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -1721,6 +1763,8 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1741,6 +1785,7 @@ GROUP BY img.ad_id
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1763,6 +1808,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1784,6 +1830,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1805,6 +1852,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1826,6 +1874,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1847,6 +1896,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1868,6 +1918,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1889,6 +1940,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1910,6 +1962,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1932,6 +1985,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1953,6 +2007,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1974,6 +2029,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -1995,6 +2051,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -2016,6 +2073,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -2037,6 +2095,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "7");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -2058,6 +2117,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "7");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2079,6 +2139,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
@@ -2100,6 +2161,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2122,6 +2184,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2144,6 +2207,7 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2168,6 +2232,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "20");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2190,6 +2255,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "20");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2213,6 +2279,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "21");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2235,6 +2302,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "21");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2257,6 +2325,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "22");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2279,6 +2348,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "23");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2301,6 +2371,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "24");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2323,6 +2394,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "25");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get();
@@ -2345,6 +2417,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "22");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2367,6 +2440,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "23");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2390,6 +2464,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "24");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
@@ -2412,6 +2487,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "25");
 		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);

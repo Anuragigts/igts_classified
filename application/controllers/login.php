@@ -27,7 +27,7 @@ class Login extends CI_Controller{
         // Google Project API Credentials
         $clientId = '438313202103-5ts2epm0c9b8mlj4ddf4lkis3l2qmkq0.apps.googleusercontent.com';
         $clientSecret = 'KIW-gQpaglq1dwa3gBAerJdP';
-        $redirectUrl = 'http://111deals.igravitas.com/gmail_signup';
+        $redirectUrl = 'http://99rightdeals.com/gmail_signup';
         
         // Google Client Configuration
         $gClient = new Google_Client();

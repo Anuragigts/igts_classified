@@ -26,7 +26,7 @@ class  Pets_view extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'pets_view/index';
             $config['total_rows'] = count($this->classifed_model->count_pets_view());
-            $config['per_page'] = 10;
+            $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
@@ -149,7 +149,7 @@ class  Pets_view extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'pets_view/search_filters';
             $config['total_rows'] = count($this->hotdealsearch_model->count_pets_search());
-            $config['per_page'] = 10;
+            $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';

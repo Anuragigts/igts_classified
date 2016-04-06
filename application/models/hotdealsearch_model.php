@@ -104,11 +104,12 @@ class hotdealsearch_model extends CI_Model{
 
 			/*search home filter*/
 			public function subcat_searchdeals(){
+				$date = date("Y-m-d H:i:s");
 				$cat_id =  $this->session->userdata('s_cat_id');
 				if ($cat_id == 'all') {
 					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 					$this->db->from('sub_category');
-					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 					$this->db->group_by("sub_category.sub_category_id");
 					$rs = $this->db->get();
 					return $rs->result();
@@ -116,7 +117,7 @@ class hotdealsearch_model extends CI_Model{
 				if ($cat_id == 1) {
 					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 					$this->db->from('sub_category');
-					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 					$this->db->where('sub_category.category_id', $cat_id);
 					$this->db->group_by("sub_category.sub_category_id");
 					$rs = $this->db->get();
@@ -125,9 +126,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/*services search sub category*/
 			public function services_sub_prof(){
+				$date = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '9');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -136,9 +138,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			public function services_sub_pop(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '10');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -148,9 +151,10 @@ class hotdealsearch_model extends CI_Model{
 
 			/* jobs sub category*/
 			public function jobs_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 				$this->db->from('sub_category');
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id", "left");
+				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_category.category_id", '1');
 				$this->db->group_by("sub_category.sub_category_id");
 				$rs = $this->db->get();
@@ -160,9 +164,10 @@ class hotdealsearch_model extends CI_Model{
 
 			/* pets sub category*/
 			public function pets_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 				$this->db->from('sub_category');
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id", "left");
+				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_category.category_id", '5');
 				$this->db->group_by("sub_category.sub_category_id");
 				$rs = $this->db->get();
@@ -172,50 +177,53 @@ class hotdealsearch_model extends CI_Model{
 
 			/* motor sub category*/
 			public function motor_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12) AS car,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13) AS bikes,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14) AS motorhomes,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15) AS vans,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16) AS buses,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=17) AS plants,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=18) AS farming,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=19) AS bloats");
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS car,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS bikes,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS motorhomes,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS vans,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS buses,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=17 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS plants,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=18 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS farming,
+								(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+								AND ad.`category_id` = '3' AND ad.`sub_cat_id`=19 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS bloats");
 		return $this->db->get()->result();
 			}
 
 			/*ezone sub category*/
 			public function ezone_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59) AS phones,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60) AS homes,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61) AS small,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62) AS lappy,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63) AS access,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64) AS pcare,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65) AS entertain,
-		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66) AS grapy");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS phones,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS homes,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS small,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS lappy,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS access,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pcare,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS entertain,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS grapy");
 									return $this->db->get()->result();
 			}
 
 			public function phone_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sscat.*,COUNT(ad.ad_id) AS no_ads");
 				$this->db->from('sub_subcategory AS sscat');
-				$this->db->join("postad AS ad", "ad.sub_scat_id= sscat.sub_subcategory_id", "left");
+				$this->db->join("postad AS ad", "ad.sub_scat_id= sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$data'", "left");
 				$this->db->where("sscat.sub_category_id", '59');
 				$this->db->group_by("sscat.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -224,9 +232,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			public function homes_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sscat.*,COUNT(ad.ad_id) AS no_ads");
 				$this->db->from('sub_subcategory AS sscat');
-				$this->db->join("postad AS ad", "ad.sub_scat_id= sscat.sub_subcategory_id", "left");
+				$this->db->join("postad AS ad", "ad.sub_scat_id= sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$data'", "left");
 				$this->db->where("sscat.sub_category_id", '60');
 				$this->db->group_by("sscat.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -235,9 +244,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/*small appliances*/
 			public function smalls_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '61');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -245,9 +255,10 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 			public function lappy_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '62');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -255,9 +266,10 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 			public function access_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '63');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -265,9 +277,10 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 			public function pcare_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '64');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -275,9 +288,10 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 			public function entertain_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '65');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -285,9 +299,10 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 			public function poto_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '66');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -331,185 +346,201 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			public function petrolcnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
 		return $this->db->get()->result();
 			}
 			public function caravans_petrolcnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
 		return $this->db->get()->result();
 			}
 			public function coaches_petrolcnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
 		return $this->db->get()->result();
 			}
 			public function vans_petrolcnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Petrol') AS petrol,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Diesel') AS diesel,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`fueltype` = 'Electric') AS electric");
 		return $this->db->get()->result();
 			}
 			public function bikepetrolcnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`fuel_type` = 'Petrol') AS petrol,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`fuel_type` = 'Petrol') AS petrol,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`fuel_type` = 'Diesel') AS diesel");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`fuel_type` = 'Diesel') AS diesel");
 		return $this->db->get()->result();
 			}
 
 			public function milagecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
 		return $this->db->get()->result();
 			}
 			public function caravans_milagecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
 		return $this->db->get()->result();
 			}
 			public function coaches_milagecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
 		return $this->db->get()->result();
 			}
 			public function vans_milagecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '0') AS allmiles,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '1' AND '15000') AS fiftin,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '15001' AND '30000') AS thirty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` BETWEEN '30001' AND '50000') AS fifty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`tot_miles` > '50000') AS sixty");
 		return $this->db->get()->result();
 			}
 			public function bikemilagecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` > '0') AS allmiles,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` > '0') AS allmiles,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` BETWEEN '1' AND '15000') AS fiftin,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` BETWEEN '1' AND '15000') AS fiftin,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` BETWEEN '15001' AND '30000') AS thirty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` BETWEEN '15001' AND '30000') AS thirty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` BETWEEN '30001' AND '50000') AS fifty,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` BETWEEN '30001' AND '50000') AS fifty,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` > '50000') AS sixty");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`no_of_miles` > '50000') AS sixty");
 		return $this->db->get()->result();
 			}
 			public function enginecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=12 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
 		return $this->db->get()->result();
 			}
 			public function caravans_enginecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_home_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=14 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
 		return $this->db->get()->result();
 			}
 			public function coaches_enginecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=16 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
 		return $this->db->get()->result();
 			}
 			public function vans_enginecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=15 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
 		return $this->db->get()->result();
 			}
 			public function bikeenginecnt(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '0') AS allengine,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1' AND '1000') AS thousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '1001' AND '2000') AS tthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` BETWEEN '2001' AND '3000') AS ttthousand,
 		(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_bike_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
-		AND ad.`category_id` = '3' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
+		AND ad.`category_id` = '3' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=13 AND mc.ad_id = ad.`ad_id` AND mc.`engine_size` > '3000') AS tttthousand");
 		return $this->db->get()->result();
 			}
 
 			/* kitchen sub category*/
 			public function kitchen_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '67');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -518,9 +549,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/* home sub category*/
 			public function home_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '68');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -529,9 +561,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 			/* decor sub category*/
 			public function decor_sub_search(){
+				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");
 				$this->db->from('sub_subcategory');
-				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sub_subcategory.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
 				$this->db->where("sub_subcategory.sub_category_id", '69');
 				$this->db->group_by("sub_subcategory.sub_subcategory_id");
 				$rs = $this->db->get();
@@ -558,8 +591,8 @@ class hotdealsearch_model extends CI_Model{
 				$dealprice = $this->session->userdata('dealprice');
 				$dealurgent = $this->session->userdata('dealurgent');
 				$recentdays = $this->session->userdata('recentdays');
-				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 5);
-				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 5);
+				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 4);
+				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 4);
 
 				$car_van_bus = $this->session->userdata('car_van_bus');
 	            $motor_hm = $this->session->userdata('motor_hm');
@@ -573,6 +606,7 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 				$this->db->where('ad.ad_status', 1);
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 				if ($cat_id) {
 					if ($cat_id != 'all') {
 						$this->db->where('ad.category_id', $cat_id);
@@ -752,8 +786,8 @@ class hotdealsearch_model extends CI_Model{
 				$dealprice = $this->session->userdata('dealprice');
 				$recentdays = $this->session->userdata('recentdays');
 				$dealurgent = $this->session->userdata('dealurgent');
-				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 5);
-				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 5);
+				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 4);
+				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 4);
 	    		
 	    		$car_van_bus = $this->session->userdata('car_van_bus');
 		        $motor_hm = $this->session->userdata('motor_hm');
@@ -766,6 +800,7 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 				$this->db->where('ad.ad_status', 1);
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 				if ($cat_id) {
 					if ($cat_id != 'all') {
 						$this->db->where('ad.category_id', $cat_id);
@@ -1330,18 +1365,19 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function clothstyle_list(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.ad_status = 1) AS women,
+		AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=20 AND ad.ad_status = 1) AS women,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.ad_status = 1) AS men,
+		AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=21 AND ad.ad_status = 1) AS men,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.ad_status = 1) AS boy,
+		AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=22 AND ad.ad_status = 1) AS boy,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.ad_status = 1) AS girls,
+		AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=23 AND ad.ad_status = 1) AS girls,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24 AND ad.ad_status = 1) AS babyboy,
+		AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=24 AND ad.ad_status = 1) AS babyboy,
 		(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-		AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25 AND ad.ad_status = 1) AS babygirl");
+		AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=25 AND ad.ad_status = 1) AS babygirl");
 		return $this->db->get()->result();
         }
 
@@ -2590,64 +2626,70 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function women_list_count(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=359) AS clothes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=359) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=360) AS shoes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=360) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=361) AS accessories,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=361) AS accessories,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=362) AS wedding
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=20 AND ad.`sub_scat_id`=362) AS wedding
 			");
         	return $this->db->get()->result();
         }
 
          public function men_list_count(){
+         	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=363) AS clothes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=363) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=364) AS shoes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=364) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=365) AS accessories,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=365) AS accessories,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=366) AS wedding
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=21 AND ad.`sub_scat_id`=366) AS wedding
 			");
         	return $this->db->get()->result();
         }
          public function boys_list_count(){
+         	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=367) AS clothes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=367) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=368) AS shoes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=368) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=369) AS accessories
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=22 AND ad.`sub_scat_id`=369) AS accessories
 			");
         	return $this->db->get()->result();
         }
         public function girls_list_count(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=370) AS clothes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=370) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=371) AS shoes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=371) AS shoes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=372) AS accessories
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=23 AND ad.`sub_scat_id`=372) AS accessories
 			");
         	return $this->db->get()->result();
         }
 
         public function babyboy_list_count(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=373) AS clothes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=373) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=374) AS accessories
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=24 AND ad.`sub_scat_id`=374) AS accessories
 			");
         	return $this->db->get()->result();
         }
          public function babygirl_list_count(){
+         	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=373) AS clothes,
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=373) AS clothes,
 			(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS sscat WHERE sscat.`sub_subcategory_id`=ad.`sub_scat_id`
-			AND ad.`category_id` = '6' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=374) AS accessories
+			AND ad.`category_id` = '6' AND ad.ad_status = 1 AND ad.expire_data >='$data' AND ad.`sub_cat_id`=25 AND ad.`sub_scat_id`=374) AS accessories
 			");
         	return $this->db->get()->result();
         }
@@ -2671,6 +2713,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($sub_cat)) {
 				$this->db->where_in('ad.sub_scat_id', $sub_cat);
 			}
@@ -2776,6 +2819,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "1");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
@@ -2876,6 +2920,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "1");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($jobslist)) {
 				$this->db->where_in('ad.sub_cat_id', $jobslist);
 			}
@@ -2976,6 +3021,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "5");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
 			}
@@ -3080,6 +3126,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "5");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($pets_sub)) {
 				$this->db->where_in('ad.sub_cat_id', $pets_sub);
 			}
@@ -3185,6 +3232,8 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "3");
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
@@ -3287,6 +3336,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
@@ -3391,6 +3441,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($phone_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $phone_sub);
 			}
@@ -3498,6 +3549,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($homes_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $homes_sub);
 			}
@@ -3605,6 +3657,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($smalls_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $smalls_sub);
 			}
@@ -3711,6 +3764,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($lappy_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $lappy_sub);
 			}
@@ -3817,6 +3871,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($pcare_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $pcare_sub);
 			}
@@ -3923,6 +3978,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($entertain_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $entertain_sub);
 			}
@@ -4029,6 +4085,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "66");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($poto_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $poto_sub);
 			}
@@ -4135,6 +4192,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($access_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $access_sub);
 			}
@@ -4239,6 +4297,8 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "3");
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
@@ -4341,6 +4401,7 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('s_recentdays');
         	$seller_deals = $this->session->userdata('s_seller_deals');
 			$dealurgent = $this->session->userdata('s_dealurgent');
+			$s_location = $this->session->userdata('s_location');
 
 			$car_van_bus = $this->session->userdata('car_van_bus');
             $motor_hm = $this->session->userdata('motor_hm');
@@ -4492,6 +4553,7 @@ class hotdealsearch_model extends CI_Model{
 				}
 
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -4519,6 +4581,11 @@ class hotdealsearch_model extends CI_Model{
 			if ($this->session->userdata('s_latt') !='') {
 				$this->db->where("(loc.latt LIKE '$latt%' 
   					OR loc.longg LIKE '$longg%')");
+			}
+
+			if ($s_location != '') {
+				$this->db->where("(loc.loc_name LIKE '$s_location%' 
+  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 
@@ -4559,7 +4626,8 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('s_recentdays');
         	$seller_deals = $this->session->userdata('s_seller_deals');
 			$dealurgent = $this->session->userdata('s_dealurgent');
-
+			$s_location = $this->session->userdata('s_location');
+			
 			$car_van_bus = $this->session->userdata('car_van_bus');
             $motor_hm = $this->session->userdata('motor_hm');
             $bikes_sub = $this->session->userdata('bikes_sub');
@@ -4708,6 +4776,7 @@ class hotdealsearch_model extends CI_Model{
 					
 				}
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
@@ -4736,6 +4805,11 @@ class hotdealsearch_model extends CI_Model{
 			if ($this->session->userdata('s_latt') !='') {
 				$this->db->where("(loc.latt LIKE '$latt%' 
   				OR loc.longg LIKE '$longg%')");
+			}
+
+			if ($s_location != '') {
+				$this->db->where("(loc.loc_name LIKE '$s_location%' 
+  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 
@@ -4782,6 +4856,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);
 			}
@@ -4886,6 +4961,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($phone_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $phone_sub);
 			}
@@ -4994,6 +5070,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($homes_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $homes_sub);
 			}
@@ -5101,6 +5178,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($smalls_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $smalls_sub);
 			}
@@ -5208,6 +5286,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($lappy_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $lappy_sub);
 			}
@@ -5315,6 +5394,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($access_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $access_sub);
 			}
@@ -5422,6 +5502,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($pcare_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $pcare_sub);
 			}
@@ -5530,6 +5611,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($entertain_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $entertain_sub);
 			}
@@ -5638,6 +5720,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "66");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($poto_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $poto_sub);
 			}
@@ -5748,6 +5831,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -5887,6 +5971,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($plants_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $plants_sub);
 			}
@@ -5994,6 +6079,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($farming_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $farming_sub);
 			}
@@ -6101,6 +6187,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($boats_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $boats_sub);
 			}
@@ -6207,6 +6294,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($plants_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $plants_sub);
 			}
@@ -6313,6 +6401,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($farming_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $farming_sub);
 			}
@@ -6419,6 +6508,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($boats_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $boats_sub);
 			}
@@ -6527,6 +6617,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -6667,6 +6758,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -6807,6 +6899,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -6948,6 +7041,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -7090,6 +7184,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -7231,6 +7326,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -7373,6 +7469,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -7514,6 +7611,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -7654,6 +7752,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -7793,6 +7892,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "7");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($kitchen_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
 			}
@@ -7895,6 +7995,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "7");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($kitchen_sub)) {
 				$this->db->where_in('ad.sub_scat_id', $kitchen_sub);
 			}
@@ -8003,6 +8104,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($proptype)) {
 				$this->db->where_in('ad.sub_cat_id', $proptype);
 			}
@@ -8171,6 +8273,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($proptype)) {
 				$this->db->where_in('ad.sub_cat_id', $proptype);
 			}
@@ -8319,6 +8422,7 @@ class hotdealsearch_model extends CI_Model{
 
         /*business and consumer count in hotdeals*/
         public function busconcount_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('cat_id');
         	if ($cat_id) {
 	        	if ($cat_id != 'all') {
@@ -8329,7 +8433,7 @@ class hotdealsearch_model extends CI_Model{
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
 					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
-	        		 category_id = '$cat_id' AND ad_status = 1 AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+	        		 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 					(SELECT COUNT(*) FROM postad WHERE
 						(
 					(package_type = '3' OR package_type = '6') OR 
@@ -8337,7 +8441,7 @@ class hotdealsearch_model extends CI_Model{
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
 					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
-					 category_id = '$cat_id' AND ad_status = 1 AND ad_type = 'business') AS business,
+					 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'business') AS business,
 					(SELECT COUNT(*) FROM postad WHERE
 						(
 					(package_type = '3' OR package_type = '6') OR 
@@ -8345,7 +8449,7 @@ class hotdealsearch_model extends CI_Model{
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
 					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
-					 category_id = '$cat_id' AND ad_status = 1 AND ad_type = 'consumer') AS consumer");
+					 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'consumer') AS consumer");
 							$rs = $this->db->get();
 		        			return $rs->result();
 	        	}
@@ -8356,7 +8460,7 @@ class hotdealsearch_model extends CI_Model{
 					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
-					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   )  AND ad_status = 1 AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   )  AND ad_status = 1 AND expire_data >='$date' AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 					(SELECT COUNT(*) FROM postad WHERE
 						(
 					(package_type = '3' OR package_type = '6') OR 
@@ -8364,7 +8468,7 @@ class hotdealsearch_model extends CI_Model{
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
 					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
-					  ad_status = 1 AND ad_type = 'business') AS business,
+					  ad_status = 1 AND expire_data >='$date' AND ad_type = 'business') AS business,
 					(SELECT COUNT(*) FROM postad WHERE
 						(
 					(package_type = '3' OR package_type = '6') OR 
@@ -8372,7 +8476,7 @@ class hotdealsearch_model extends CI_Model{
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
 					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
 					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
-					 ad_status = 1 AND ad_type = 'consumer') AS consumer");
+					 ad_status = 1 AND expire_data >='$date' AND ad_type = 'consumer') AS consumer");
 							$rs = $this->db->get();
 		        			return $rs->result();
 	        	}
@@ -8395,22 +8499,23 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function busconcount_search(){
+        	$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('s_cat_id');
         	if ($cat_id) {
 	        	if ($cat_id != 'all') {
 	        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
-	        		 category_id = '$cat_id' AND ad_status = 1 AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-					(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND ad_status = 1 AND ad_type = 'business') AS business,
-					(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND ad_status = 1 AND ad_type = 'consumer') AS consumer");
+	        		 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+					(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'business') AS business,
+					(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'consumer') AS consumer");
 							$rs = $this->db->get();
 							// echo $this->db->last_query(); exit;
 		        			return $rs->result();
 	        	}
 	        	else{
         		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
-        		 ad_status = 1 AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'business') AS business,
-				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND ad_type = 'consumer') AS consumer");
+        		 ad_status = 1 AND expire_data >='$date' AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND expire_data >='$date' AND ad_type = 'business') AS business,
+				(SELECT COUNT(*) FROM postad WHERE ad_status = 1 AND expire_data >='$date' AND ad_type = 'consumer') AS consumer");
 					$rs = $this->db->get();
 					// echo $this->db->last_query(); exit;
 	        		return $rs->result();
@@ -8456,131 +8561,149 @@ class hotdealsearch_model extends CI_Model{
         }
         /*business and consumer count in services*/
         public function busconcount_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$this->db->from("postad");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         /*jobs count business or consumer*/
         public function busconcount_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*pets count business or consumer*/
         public function busconcount_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*motorc count business or consumer*/
         public function busconcount_motors(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_ezone(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_phones(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '59' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '59' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '59' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '59' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '59' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '59' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_homes(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '60' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '60' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '60' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '60' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '60' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '60' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_smalls(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '61' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '61' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '61' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '61' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '61' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '61' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function busconcount_lappy(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '62' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '62' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '62' AND ad_type = 'consumer') AS consumer");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '62' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '62' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '62' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_access(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '63' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '63' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '63' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '63' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '63' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '63' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_pcare(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '64' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '64' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '64' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '64' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '64' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '64' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_entertain(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '65' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '65' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '65' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '65' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '65' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '65' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_poto(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '66' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '66' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = '66' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '66' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '66' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '66' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_cars(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '12' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '12' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '12' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '12' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '12' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '12' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function busconcount_plants(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '17' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '17' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '17' AND ad_type = 'consumer') AS consumer");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '17' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '17' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '17' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function busconcount_farming(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '18' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '18' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '18' AND ad_type = 'consumer') AS consumer");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '18' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '18' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '18' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function busconcount_boats(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '19' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '19' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '19' AND ad_type = 'consumer') AS consumer");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '19' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '19' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '19' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_caravans(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '14' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '14' AND ad_type = 'business') AS business,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '14' AND ad_type = 'consumer') AS consumer");
@@ -8588,13 +8711,15 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
         public function busconcount_coaches(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '16' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '16' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '16' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '16' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '16' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '16' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_vans(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '15' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '15' AND ad_type = 'business') AS business,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '15' AND ad_type = 'consumer') AS consumer");
@@ -8602,41 +8727,46 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
          public function busconcount_bikes(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '13' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '13' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id = '13' AND ad_type = 'consumer') AS consumer");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '13' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '13' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = '13' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*kitchenhome count business or consumer*/
         public function busconcount_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*findproperty count business or consumer*/
         public function busconcount_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*cloths and lifestyles count business or consumer*/
         public function busconcount_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status =1 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status =1 AND ad_type = 'business') AS business,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status =1 AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND ad_status =1 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND ad_status =1 AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND ad_status =1 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function busconcount_womenview(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND ad_type = 'business') AS business,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND ad_type = 'consumer') AS consumer");
@@ -8645,13 +8775,15 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function busconcount_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 21 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 21 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 21 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_boysview(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND ad_type = 'business') AS business,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND ad_type = 'consumer') AS consumer");
@@ -8659,13 +8791,15 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
          public function busconcount_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND ad_type = 'consumer') AS consumer");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 23 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 23 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 23 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function busconcount_babyboyview(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND ad_type = 'business') AS business,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND ad_type = 'consumer') AS consumer");
@@ -8673,9 +8807,10 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
         public function busconcount_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND ad_type = 'business') AS business,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND ad_type = 'consumer') AS consumer");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND ad_type = 'business') AS business,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -8748,554 +8883,619 @@ class hotdealsearch_model extends CI_Model{
 
         /*pets seller and needed count*/
         public function sellerneeded_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1) AS seller,
-(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1) AS needed");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*motors seller and needed count*/
         public function sellerneeded_motors(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1) AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1) AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' ) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' ) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date' ) AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_ezone(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1) AS needed");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_phone(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='59' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='59' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='59' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='59' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='59' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='59' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function sellerneeded_homes(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='60' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='60' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='60' AND services = 'ForHire') AS forhire");
+         	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='60' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='60' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='60' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_smalls(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='61' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='61' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='61' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='61' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='61' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='61' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_lappy(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='62' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='62' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='62' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='62' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='62' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='62' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_access(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='63' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='63' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='63' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='63' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='63' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='63' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_pcare(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='64' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='64' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='64' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='64' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='64' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='64' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_entertain(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='65' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='65' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='65' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='65' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='65' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='65' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_poto(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='66' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='66' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='66' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='66' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='66' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id='66' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_cars(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='12' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='12' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='12' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_plants(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='17' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='17' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='17' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_farming(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='18' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='18' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='18' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_boats(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='19' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='19' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='19' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_caravans(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='14' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='14' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='14' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_coaches(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='16' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='16' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='16' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_vans(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND services = 'ForHire') AS forhire");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='15' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='15' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='15' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function sellerneeded_bikes(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND services = 'Seller') AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND services = 'Needed') AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND services = 'ForHire') AS forhire");
+         	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='13' AND services = 'Seller') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='13' AND services = 'Needed') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$date' AND sub_cat_id='13' AND services = 'ForHire') AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*services seller and needed count*/
         public function sellerneeded_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1) AS provider,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1) AS needed");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1 AND expire_data >='$date') AS provider,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1 AND expire_data >='$date') AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneeded_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1) AS company,
-(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1) AS agency,
-(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1) AS other");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1 AND postad.expire_data >='$date') AS company,
+			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1 AND postad.expire_data >='$date') AS agency,
+			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1 AND postad.expire_data >='$date') AS other");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*pets seller and needed count*/
         public function sellerneeded_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1) AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1) AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1 AND expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*findproperty seller and needed count*/
         public function sellerneeded_property(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1) AS offered,
+			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS offered,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1) AS wanted");
+			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS wanted");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*clothstyles seller and needed count*/
         public function sellerneeded_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1) AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1) AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1) AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneeded_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 20 AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 20 AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 20 AND ad.category_id = '6') AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 20 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 20 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 20 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 21 AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 21 AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 21 AND ad.category_id = '6') AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 21 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 21 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 21 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_boyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 22 AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 22 AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 22 AND ad.category_id = '6') AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 22 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 22 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 22 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 23 AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 23 AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 23 AND ad.category_id = '6') AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 23 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 23 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 23 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function sellerneeded_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 24 AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 24 AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 24 AND ad.category_id = '6') AS charity");
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 24 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 24 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 24 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function sellerneeded_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 25 AND ad.category_id = '6') AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 25 AND ad.category_id = '6') AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 25 AND ad.category_id = '6') AS charity");
+         	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.sub_cat_id = 25 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed'AND ad.sub_cat_id = 25 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity'AND ad.sub_cat_id = 25 AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date') AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*findproperty area count*/
         public function areacount_property(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.`build_area` < 500) AS less500,
+			ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.`build_area` < 500) AS less500,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
+			ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
+			ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
+			ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.build_area > 2000) AS plus2000");
+			ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.build_area > 2000) AS plus2000");
         	$rs = $this->db->get();
         	return $rs->row();
         }
 
         /*findproperty bedrooms count*/
         public function bedroomcount_property(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bed_rooms = 1) AS one1,
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 1) AS one1,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bed_rooms = 2) AS secon2,
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 2) AS secon2,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bed_rooms = 3) AS third3,
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 3) AS third3,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bed_rooms >= 4) AS four4");
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms >= 4) AS four4");
         	$rs = $this->db->get();
         	return $rs->row();
         }
 
          /*findproperty bathroomcount_property count*/
         public function bathroomcount_property(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bath_rooms = 1) AS one1,
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 1) AS one1,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bath_rooms = 2) AS secon2,
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 2) AS secon2,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bath_rooms = 3) AS third3,
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 3) AS third3,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-		ad.category_id = '4' AND prc.bath_rooms >= 4) AS four4");
+		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms >= 4) AS four4");
         	$rs = $this->db->get();
         	return $rs->row();
         }
 
         /*findproperty resi_comm_count_property count*/
         public function resi_comm_count_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = '4' AND ad.sub_cat_id = 11) AS residential,
-(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = '4' AND ad.sub_cat_id = 26) AS commercial");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = '4' AND ad.sub_cat_id = 11  AND ad.ad_status = 1 AND ad.expire_data >='$data') AS residential,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS commercial");
         	$rs = $this->db->get();
         	return $rs->row();
         }
 
         /*packages count for services*/
         public function deals_pck_services(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 3 AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 2 AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 1 AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 3 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 2 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND package_type = 1 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for jobs*/
         public function deals_pck_jobs(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*packages count for pets*/
         public function deals_pck_pets(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '6'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '5'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '4'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for motors*/
         public function deals_pck_motors(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function deals_pck_ezone(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_phone(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_homes(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_smalls(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_lappy(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_access(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function deals_pck_pcare(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='64' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_entertain(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_poto(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_cars(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='12' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='12' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='12' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='12' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='12' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function deals_pck_plants(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='17' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='17' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='17' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='17' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='17' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function deals_pck_farming(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='18' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='18' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='18' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='18' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='18' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_boats(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='19' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='19' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='19' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='19' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='19' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_caravans(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='14' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='14' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='14' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='14' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='14' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function deals_pck_coaches(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='16' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='16' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='16' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='16' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='16' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_vans(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='15' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='15' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='15' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='15' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='15' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_bikes(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND sub_cat_id='13' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='13' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='13' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='13' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id='13' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*packages count for pets*/
         public function deals_pck_kitchen(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND urgent_package != '0') AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND package_type = '4'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND package_type = '6'  AND urgent_package = '0') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND package_type = '5'  AND urgent_package = '0') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND ad_status = 1 AND expire_data >='$data' AND package_type = '4'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for findproperty*/
         public function deals_pck_property(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         /*packages count for findproperty*/
         public function deals_pck_clothstyle(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          public function deals_pck_womenview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 20 AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND package_type = '4' AND urgent_package = '0') AS freecount");
+         	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 20 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 20 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 20 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 20 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_menview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 21 AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND package_type = '4' AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 21 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 21 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 21 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 21 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_boysview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 22 AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND package_type = '4' AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 22 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 22 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 22 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 22 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_girlsview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 23 AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND package_type = '4' AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 23 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 23 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 23 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 23 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_babyboyview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 24 AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND package_type = '4' AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 24 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 24 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 24 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 24 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
         public function deals_pck_babygirlview(){
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6'  AND sub_cat_id = 25 AND urgent_package != '0') AS urgentcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = '5' AND urgent_package = '0') AS goldcount,
-		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND package_type = '4' AND urgent_package = '0') AS freecount");
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 25 AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND package_type = '5' AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND package_type = '4' AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function deals_pck_search(){
+        	$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('s_cat_id');
         	if ($cat_id != 'all') {
         		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND ad_status = 1) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND ad_status = 1) AS freecount");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS freecount");
         		}
         		else{
-        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND ad_status = 1) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND ad_status = 1) AS freecount");	
+        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date') AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS freecount");	
         		}
         	}
         	else{
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND ad_status = 1) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 || package_type = 6) AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 || package_type = 5) AND urgent_package = '0' AND ad_status = 1) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 || package_type = 4) AND urgent_package = '0' AND ad_status = 1) AS freecount");	
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 || package_type = 6) AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 || package_type = 5) AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 || package_type = 4) AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date') AS freecount");	
         	}
         	
         	$rs = $this->db->get();
@@ -9305,16 +9505,17 @@ class hotdealsearch_model extends CI_Model{
 
         /*job positon count*/
         public function jobpositioncnt(){
+        	$data = date("Y-m-d H:i:s");
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
-		WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Student_(Higher_Education_Graduate)')AS students,
+		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Student_(Higher_Education_Graduate)')AS students,
 		(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
-		WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Entry-level')AS entrylevel,
+		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Entry-level')AS entrylevel,
 		(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
-		WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Expirenced_(Non-Manager)')AS nonmanager,
+		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Expirenced_(Non-Manager)')AS nonmanager,
 		(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
-		WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Manager_(Managing_the_staff)')AS manager,
+		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Manager_(Managing_the_staff)')AS manager,
 		(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
-		WHERE ad.`ad_id`=jd.`ad_id` AND jd.`positionfor` = 'Executive_(Director_Dept.Head)')AS executive");
+		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Executive_(Director_Dept.Head)')AS executive");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -9327,9 +9528,10 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_prof_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 9);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9337,9 +9539,10 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_pop_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 10);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9347,10 +9550,11 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_resi_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
-			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
         	$this->db->where("sscat.sub_category_id", 11);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9359,10 +9563,11 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_comm_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
-			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
         	$this->db->where("sscat.sub_category_id", 26);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9371,9 +9576,10 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_pets_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 			$this->db->from('sub_category');
-			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1", "left");
+			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 			$this->db->where('sub_category.category_id', 5);
 			$this->db->group_by("sub_category.sub_category_id");
 			$this->db->limit(4);
@@ -9381,18 +9587,20 @@ class hotdealsearch_model extends CI_Model{
 			return $rs->result();
         }
         public function subcat_bigpets_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 5);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function subcat_smallpets_searchdeals(){
+         	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 6);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9400,9 +9608,10 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_petsaccess_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 7);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9412,9 +9621,10 @@ class hotdealsearch_model extends CI_Model{
         /*cloths sub sub*/
         /*women*/
         public function subcat_women_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 20);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9422,9 +9632,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*men*/
         public function subcat_men_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 21);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9432,9 +9643,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*boy*/
         public function subcat_boy_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 22);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9442,9 +9654,10 @@ class hotdealsearch_model extends CI_Model{
         }
          /*girl*/
         public function subcat_girl_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 23);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9452,9 +9665,10 @@ class hotdealsearch_model extends CI_Model{
         }
          /*bboy*/
         public function subcat_bboy_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 24);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9462,9 +9676,10 @@ class hotdealsearch_model extends CI_Model{
         }
          /*bgirl*/
         public function subcat_bgirl_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
         	$this->db->where("sscat.sub_category_id", 25);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9474,9 +9689,10 @@ class hotdealsearch_model extends CI_Model{
         /*home and kitchen*/
         /*kitchen*/
         public function subcat_kitchen_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 67);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9484,9 +9700,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*home*/
         public function subcat_home_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 68);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9494,9 +9711,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*decor*/
         public function subcat_decor_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 69);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9506,9 +9724,10 @@ class hotdealsearch_model extends CI_Model{
         /*ezone sub sub*/
         /*phone tablets*/
         public function subcat_phone_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 59);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9516,9 +9735,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*home apps*/
         public function subcat_homeapp_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 60);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9526,9 +9746,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*small apps*/
         public function subcat_smallapp_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 61);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9536,9 +9757,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*laptop apps*/
         public function subcat_lappy_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 62);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9546,9 +9768,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*accessories*/
         public function subcat_access_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 63);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9556,9 +9779,10 @@ class hotdealsearch_model extends CI_Model{
         }
        	/*personal care*/
         public function subcat_pcare_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 64);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9566,9 +9790,10 @@ class hotdealsearch_model extends CI_Model{
         }
          /*home entertainment*/
         public function subcat_henter_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 65);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9576,9 +9801,10 @@ class hotdealsearch_model extends CI_Model{
         }
         /*Photography*/
         public function subcat_pgraphy_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
         	$this->db->where("sscat.sub_category_id", 66);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9588,10 +9814,11 @@ class hotdealsearch_model extends CI_Model{
         /*motor point*/
         /*cars*/
         public function subcat_cars_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 12);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9601,10 +9828,11 @@ class hotdealsearch_model extends CI_Model{
 
         /*bikes*/
         public function subcat_bikes_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes
-			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 13);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9614,10 +9842,11 @@ class hotdealsearch_model extends CI_Model{
 
         /*motor homes*/
         public function subcat_motorhomes_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` 
-		      AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+		      AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 14);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9626,10 +9855,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*vans*/
         public function subcat_vans_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 15);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9638,10 +9868,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*coaches buses*/
         public function subcat_buses_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 16);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9650,10 +9881,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*plant machinery*/
         public function subcat_plant_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
-			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 17);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9663,10 +9895,11 @@ class hotdealsearch_model extends CI_Model{
 
         /*farming vehicles*/
         public function subcat_farming_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
-			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 18);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9675,10 +9908,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*boating */
         public function subcat_boats_searchdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb
-			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 19);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9687,10 +9921,11 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function jobs_hotdeals(){
+        		$date = date("Y-m-d H:i:s");
 				$cat_id =  $this->session->userdata('cat_id');
 				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 				$this->db->from('sub_category');
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
 					$this->db->where('sub_category.category_id', 1);
 				$this->db->group_by("sub_category.sub_category_id");
 				$rs = $this->db->get();
@@ -9699,6 +9934,7 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			public function hotdeals_pck_hotdeals(){
+				$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('cat_id');
         	$pcktype = '(
 					(postad.package_type = "3" OR postad.package_type = "6") OR 
@@ -9708,23 +9944,23 @@ class hotdealsearch_model extends CI_Model{
 					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
         	if ($cat_id != 'all') {
         		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
-        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND $pcktype) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND postad.ad_status = 1 AND $pcktype) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '75' AND $pcktype) AS freecount");
+        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");
         		}
         		else{
-        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND $pcktype) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND postad.ad_status = 1) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '75' AND $pcktype) AS freecount");
+        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS urgentcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date'  AND $pcktype) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");
         		}
         	}
         	else{
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND postad.ad_status = 1) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 OR package_type = 6) AND urgent_package = '0' AND postad.ad_status = 1 AND $pcktype) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 OR package_type = 5) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 OR package_type = 4) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.likes_count >= '75' AND $pcktype) AS freecount");	
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 OR package_type = 6) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS platinumcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 OR package_type = 5) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
+			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 OR package_type = 4) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");	
         	}
         	
         	$rs = $this->db->get();
@@ -9733,50 +9969,54 @@ class hotdealsearch_model extends CI_Model{
         }
 
 		public function sellerneededhot_jobs(){
+			$date = date("Y-m-d H:i:s");
 			$pcktype = '(
 					(postad.package_type = "3" OR postad.package_type = "6") OR 
 					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
 					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1
+        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1 AND postad.expire_data >='$date'
         		AND $pcktype) AS company,
-			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1 AND $pcktype) AS agency,
-			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1 AND $pcktype) AS other");
+			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS agency,
+			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS other");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          /*services seller and needed count*/
         public function sellerneededhot_services(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = '(
 					(postad.package_type = "3" OR postad.package_type = "6") OR 
 					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
 					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1 AND $pcktype) AS provider,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1 AND $pcktype) AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS provider,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed");
         	$rs = $this->db->get();
         	// echo $this->db->last_query(); exit;
         	return $rs->result();
         }
 
         public function sellerneededhot_motors(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = '(
 			(postad.package_type = "3" OR postad.package_type = "6") OR 
 			((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
 			OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
 			OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
 			OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1 AND $pcktype) AS forhire");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS forhire");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          public function sellerneededhot_property(){
+         	$date = date("Y-m-d H:i:s");
          	$pcktype = '(
 					(ad.package_type = "3" OR ad.package_type = "6") OR 
 					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
@@ -9785,72 +10025,77 @@ class hotdealsearch_model extends CI_Model{
 					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
 
         	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND $pcktype) AS offered,
+			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS offered,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND $pcktype) AS wanted");
+			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS wanted");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneededhot_pets(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = '(
 					(postad.package_type = "3" OR postad.package_type = "6") OR 
 					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
 					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneededhot_clothstyle(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = '(
 					(ad.package_type = "3" OR ad.package_type = "6") OR 
 					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
 					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")
 					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50")
 					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1 AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1 AND $pcktype) AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1 AND $pcktype) AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS needed,
+			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
          public function sellerneededhot_kitchen(){
+         	$date = date("Y-m-d H:i:s");
          	$pcktype = '(
 					(postad.package_type = "3" OR postad.package_type = "6") OR 
 					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
 					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1 AND $pcktype) AS charity");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS charity");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function sellerneededhot_ezone(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = '(
 					(postad.package_type = "3" OR postad.package_type = "6") OR 
 					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
 					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
 					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1 AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1 AND $pcktype) AS needed");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed");
         	$rs = $this->db->get();
         	return $rs->result();
         }
 
         public function subcat_prof_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 9);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9858,10 +10103,11 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_pop_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 10);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9870,11 +10116,12 @@ class hotdealsearch_model extends CI_Model{
 
         /*find a property*/
         public function subcat_resi_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
-			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
         	$this->db->where("sscat.sub_category_id", 11);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9883,11 +10130,12 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_comm_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
-			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
         	$this->db->where("sscat.sub_category_id", 26);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9897,10 +10145,11 @@ class hotdealsearch_model extends CI_Model{
 
         /*pets sub sub*/
         public function subcat_pets_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((postad.package_type = '6') OR ((postad.package_type = '5')AND postad.urgent_package != '0' ) OR ((postad.package_type = '4')AND postad.urgent_package != '0' AND postad.likes_count >= '75')OR ((postad.package_type = '4')AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '5')AND postad.urgent_package = '0' AND postad.likes_count >= '25'))";
         	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 			$this->db->from('sub_category');
-			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND $pcktype", "left");
+			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype", "left");
 			$this->db->where('sub_category.category_id', 5);
 			$this->db->group_by("sub_category.sub_category_id");
 			$this->db->limit(4);
@@ -9908,20 +10157,22 @@ class hotdealsearch_model extends CI_Model{
 			return $rs->result();
         }
         public function subcat_bigpets_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 5);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function subcat_smallpets_hotdeals(){
+         	$date = date("Y-m-d H:i:s");
          	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 6);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9929,10 +10180,11 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_petsaccess_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 7);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9942,10 +10194,11 @@ class hotdealsearch_model extends CI_Model{
         /*cloths hot deals*/
         /*women*/
         public function subcat_women_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 20);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9953,10 +10206,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*men*/
         public function subcat_men_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 21);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9964,10 +10218,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*boy*/
         public function subcat_boy_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 22);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9975,10 +10230,11 @@ class hotdealsearch_model extends CI_Model{
         }
          /*girl*/
         public function subcat_girl_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 23);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9986,10 +10242,11 @@ class hotdealsearch_model extends CI_Model{
         }
          /*bboy*/
         public function subcat_bboy_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 24);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -9997,10 +10254,11 @@ class hotdealsearch_model extends CI_Model{
         }
          /*bgirl*/
         public function subcat_bgirl_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 25);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10010,10 +10268,11 @@ class hotdealsearch_model extends CI_Model{
         /*kitchen home hot deals*/
         /*kitchen*/
         public function subcat_kitchen_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 67);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10021,10 +10280,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*home*/
         public function subcat_home_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 68);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10032,10 +10292,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*decor*/
         public function subcat_decor_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 69);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10045,10 +10306,11 @@ class hotdealsearch_model extends CI_Model{
         /*ezone*/
         /*phone tablets*/
         public function subcat_phone_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 59);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10056,10 +10318,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*home apps*/
         public function subcat_homeapp_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 60);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10067,10 +10330,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*small apps*/
         public function subcat_smallapp_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 61);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10078,10 +10342,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*laptop apps*/
         public function subcat_lappy_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 62);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10089,10 +10354,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*accessories*/
         public function subcat_access_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 63);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10100,10 +10366,11 @@ class hotdealsearch_model extends CI_Model{
         }
        	/*personal care*/
         public function subcat_pcare_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 64);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10111,10 +10378,11 @@ class hotdealsearch_model extends CI_Model{
         }
          /*home entertainment*/
         public function subcat_henter_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 65);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10122,10 +10390,11 @@ class hotdealsearch_model extends CI_Model{
         }
         /*Photography*/
         public function subcat_pgraphy_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND $pcktype", "left");
+        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 66);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10135,11 +10404,12 @@ class hotdealsearch_model extends CI_Model{
         /*motor point*/
         /*cars*/
         public function subcat_cars_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 12);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10149,11 +10419,12 @@ class hotdealsearch_model extends CI_Model{
 
         /*bikes*/
         public function subcat_bikes_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes
-			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 13);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10163,11 +10434,12 @@ class hotdealsearch_model extends CI_Model{
 
         /*motor homes*/
         public function subcat_motorhomes_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` 
-		      AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+		      AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 14);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10176,11 +10448,12 @@ class hotdealsearch_model extends CI_Model{
         }
         /*vans*/
         public function subcat_vans_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 15);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10189,11 +10462,12 @@ class hotdealsearch_model extends CI_Model{
         }
         /*coaches buses*/
         public function subcat_buses_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 16);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10202,11 +10476,12 @@ class hotdealsearch_model extends CI_Model{
         }
         /*plant machinery*/
         public function subcat_plant_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
-			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 17);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10216,11 +10491,12 @@ class hotdealsearch_model extends CI_Model{
 
         /*farming vehicles*/
         public function subcat_farming_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
-			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 18);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -10229,11 +10505,12 @@ class hotdealsearch_model extends CI_Model{
         }
         /*boating */
         public function subcat_boats_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb
-			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
         	$this->db->where("sscat.sub_category_id", 19);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();

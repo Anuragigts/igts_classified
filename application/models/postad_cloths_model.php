@@ -90,7 +90,17 @@ class Postad_cloths_model extends CI_Model{
                                 'longg' => $this->input->post('longtitude')
                                 );
                         $this->db->insert("location", $loc);
-
+                           /*platinum package*/
+                    if ($this->input->post('package_type') == 6) {
+                       $plat_data = array('ad_id' => $insert_id,
+                                            'marquee'=>$this->input->post('marquee_title'),
+                                            'ad_validfrom' => date("d-m-Y H:i:s"),
+                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
+                                            'status' => 1,
+                                            'posted_date' => date("d-m-Y H:i:s")
+                                    );
+                       $this->db->insert('platinum_ads', $plat_data);
+                    }
                      /*image upload*/
                              $i=1;
                        foreach($this->input->post('pic_hide') as $rawData){ 

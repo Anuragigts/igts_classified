@@ -11,6 +11,9 @@ class Gmail_signup extends CI_Controller{
                 $this->load->model("signup_model");
                }
         public function index(){
+            if ($this->input->get("error") && $this->input->get("error") == 'access_denied') {
+                redirect("login");
+            }
             // Include the google api php libraries
         include_once APPPATH."libraries/google-api-php-client/Google_Client.php";
         include_once APPPATH."libraries/google-api-php-client/contrib/Google_Oauth2Service.php";

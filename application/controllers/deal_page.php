@@ -13,6 +13,7 @@ class Deal_page extends CI_Controller{
                 $this->load->library('pagination');
                }
         public function index(){
+          echo "<pre>"; print_r($this->input->get()); echo "</pre>";
           if ($this->session->userdata('login_id')) {
             $saved_searchexist = $this->classifed_model->saved_searchexist($this->session->userdata('login_id'));
           }
@@ -166,7 +167,7 @@ class Deal_page extends CI_Controller{
           $config = array();
             $config['base_url'] = base_url().'deal_page/index';
             $config['total_rows'] = count($this->hotdealsearch_model->count_hotdeal_search());
-            $config['per_page'] = 5;
+            $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';

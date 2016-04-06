@@ -126,12 +126,17 @@ class  Searchview extends CI_Controller{
                 }else{
                      $this->session->set_userdata('s_recentdays','Any');
                 }
-                if($this->input->get('latt')){
+                /*if($this->input->get('latt')){
                     $this->session->set_userdata('s_location',$this->input->get('find_loc'));
                        $this->session->set_userdata('s_latt',$this->input->get('latt'));
                 }else{
                     $this->session->set_userdata('s_location','');
                      $this->session->set_userdata('s_latt','');
+                }*/
+                if($this->input->get('keyword')){
+                    $this->session->set_userdata('s_location',$this->input->get('keyword'));
+                }else{
+                    $this->session->set_userdata('s_location','');
                 }
                 if($this->input->get('longg')){
                        $this->session->set_userdata('s_longg',$this->input->get('longg'));
@@ -143,7 +148,7 @@ class  Searchview extends CI_Controller{
             $config = array();
             $config['base_url'] = base_url().'searchview/index';
             $config['total_rows'] = count($this->hotdealsearch_model->count_searchviewsearch());
-            $config['per_page'] = 10;
+            $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';

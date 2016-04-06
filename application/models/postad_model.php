@@ -92,28 +92,7 @@ class Postad_model extends CI_Model{
                                 );
                         $this->db->insert("location", $loc);
 
-                        /*free package*/
-                    if ($this->input->post('package_type') == 1) {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('free_ads', $plat_data);
-                    }
-                             /*gold package*/
-                    if ($this->input->post('package_type') == 2) {
-                       $plat_data = array('ad_id' => $insert_id,
-                                            'ad_validfrom' => date("d-m-Y H:i:s"),
-                                            'ad_validto' => date('d-m-Y H:i:s', strtotime("+30 days")),
-                                            'status' => 1,
-                                            'posted_date' => date("d-m-Y H:i:s")
-                                    );
-                       $this->db->insert('gold_ads', $plat_data);
-                    }
-
-                        /*platinum package*/
+                         /*platinum package*/
                     if ($this->input->post('package_type') == 3) {
                        $plat_data = array('ad_id' => $insert_id,
                                             'marquee'=>$this->input->post('marquee_title'),
