@@ -167,32 +167,47 @@
 				</div>
 				
 				<div class="filter-title">
-					<div class="filter-header">
-						<form action="<?php echo base_url(); ?>searchview" method="get" autocomplete="off">
-							<input type="text" placeholder="I'm looking for" name='looking_search' id='looking_search' class="input-large">
-							<div class="selector1">
-								<select class="guests-input" name="category_name">
-									<option value="all">All</option>
-									<?php
-									if (!empty($show_all)) {
-									 foreach ($show_all as $show_val) { ?>
-									<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
-									<?php }   } ?>
-								</select>
+					<div class="">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu j-forms">
+									<div class="row">
+										<div class="col-md-3 col-sm-3 col-xs-12">
+											<div class="input">
+												<label class="icon-left" for="">
+													<i class="fa fa-search"></i>
+												</label>
+												<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="">
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-3 col-xs-12 top_pad_10">
+											<label class="input select">
+												<select class="guests-input" name="category_name">
+													<option value="all">All</option>
+												</select>
+												<i></i>
+											</label>
+										</div>
+										
+										<div class="col-md-6 col-sm-6 col-xs-12 top_pad_10">
+											<div class="row">
+												<div class="col-md-9 col-sm-8 col-xs-12">
+													<div class="input">
+														<label class="icon-left" for="">
+															<i class="fa fa-search"></i>
+														</label>
+														<input type="text" placeholder="Enter a Location" id="list-autocomplete" name="list-autocomplete">
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-4 col-xs-12 top_pad_10">
+													<input type="button" class="primary-btn seach_btn" name='' Value="Search">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="main">
-						     	 <div id="holder">
-						     	 	<input type="text" class="input-large" id="keyword" name="keyword" placeholder="Location" tabindex="0">
-								 </div>
-								 <div id="ajax_response" style='opacity: 1; z-index: 99'></div>
-						   </div>
-							<!--<input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="">
-							<input type='hidden' name='latt' id='latt' value='' >
-							<input type='hidden' name='longg' id='longg' value='' >-->
-							<i class="fa fa-map-marker fa-2x loca_pad"></i>
-							<input type="text" id="ex5a" class="form-control" name="miles" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="5" data-slider-value="0"/>
-							<input type="submit" class="pull-right" value="Search">
-						</form>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -226,8 +241,7 @@
 													});
 												});
 											</script>-->
-											<link href="<?php echo base_url(); ?>js/autosearch/style.css" rel="stylesheet" type="text/css">
-   										   <SCRIPT LANGUAGE="JavaScript" src="<?php echo base_url(); ?>js/autosearch/script.js"></SCRIPT>
+											
 											<ul>
 												<?php
 												if (!empty($news)) {
@@ -1271,7 +1285,20 @@
 		<!-- End Entire Wrap -->
 		
 		<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+		
+		<script src="j-folder/js/jquery.ui.min.js"></script>
 	
+		<script>
+			$(document).ready(function(){
+				$('#list-autocomplete').autocomplete({
+					source: [ "c++", "java", "jphp", "jcoldfusigon", "jjavasgcript", "jgasp", "jgruby", "jpghp", "jcoldfgusion", "jjagvascript", "jrasp", "jrugby", "jatva", "jpthp", "jcoldffusigon", "jjavasgcrfipt", "jgafsp", "jgrugby", "jpgghp", "jcohldfgusion", "jjajgvascript", "jrfasp", "jrfugby"  ],
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+			});
+		</script>
+		
 		<script>
 			jQuery(document).ready(function ($) {
 				
@@ -1418,7 +1445,8 @@
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->
-			
+		
+		
 	</body>
 </html>
 

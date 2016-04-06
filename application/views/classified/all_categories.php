@@ -70,6 +70,17 @@
 						<div class="paddings">
 							<div class="container pad_bott_50">
 								<div class="row">
+									<div class="col-md-6 col-sm-8 col-md-offset-1" style="margin-bottom:50px;">
+										<div class="unit">
+											<div class="input">
+												<label class="icon-left" for="">
+													<i class="fa fa-search"></i>
+												</label>
+												<input type="text" placeholder="enter a letter" id="list-autocomplete" name="list-autocomplete">
+											</div>
+										</div>
+									</div>
+									
 									<div class="col-md-10 col-sm-8 col-md-offset-1" style="border: 2px solid rgb(94, 195, 163);padding: 7px 10px;height: 68px;">
 										<div class="row">
 											<div class="col-md-3 col-sm-3 col-xs-12 unit">
@@ -485,7 +496,6 @@
 		<script src="<?php echo base_url(); ?>js/bootstrap-slider.js"></script>
 		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-		
 		<script>
 			$('.xuSlider').xuSlider();
 		</script>
@@ -495,6 +505,20 @@
 				formatter: function(value) {
 					return 'Current value: ' + value;
 				}
+			});
+		</script>
+		
+		<script src="j-folder/js/jquery.ui.min.js"></script>
+	
+		
+		<script>
+			$(document).ready(function(){
+				$('#list-autocomplete').autocomplete({
+					source: [ "c++", "java", "jphp", "jcoldfusion", "jjavascript", "jasp", "jruby" ],
+					messages: {
+						noResults:''
+					}
+				});
 			});
 		</script>
 		

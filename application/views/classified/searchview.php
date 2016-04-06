@@ -235,7 +235,7 @@
 													<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
 												</div>
 											</div>
-											<div class="col-md-3 col-sm-6 col-xs-12">
+											<div class="col-md-2 col-sm-6 col-xs-12">
 												<label class="input select">
 													<select class="guests-input" name="category_name">
 														<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
@@ -264,9 +264,9 @@
 												</div>
 											</div>
 											
-											<div class="col-md-3 col-sm-8 col-xs-12">
+											<div class="col-md-4 col-sm-8 col-xs-12">
 												<div class="row">
-													<div class="col-md-7 col-sm-9 col-xs-12">
+													<div class="col-md-8 col-sm-9 col-xs-12">
 														<label class="input select">
 															<select name="miles">
 																<option value="0" <?php if ($miles == '0') { echo "selected=selected"; } ?>>+0 Miles</option>
@@ -284,7 +284,7 @@
 															<i></i>
 														</label>
 													</div>
-													<div class="col-md-5 col-sm-3 col-xs-12">
+													<div class="col-md-4 col-sm-3 col-xs-12">
 														<input type="button" class="primary-btn seach_btn" name='' Value="Search">
 													</div>
 												</div>
