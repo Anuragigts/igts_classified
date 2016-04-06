@@ -5455,6 +5455,11 @@ td {
     color: #E95413 !important;
     min-height: 53px;
 }
+.job_price{
+    font-size: 22px !important;
+    color: #E95413 !important;
+    min-height: 53px;
+}
 .active_filter {
     color: #E95413 !important;
 }
@@ -6234,6 +6239,9 @@ a.delete-bg:before {
 div.letter_success{
        color: #88C425 !important;
         font-weight: bolder;
+}
+.recommanded{
+        min-height: 245px;
 }
 .slider.slider-horizontal .slider-track {
     height: 10px;
