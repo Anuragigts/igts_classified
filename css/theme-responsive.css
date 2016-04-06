@@ -34,10 +34,10 @@
 	}
 	/* Filter Header - Title Header ------------------------------*/
 	.filter-title{
-		top: 57%;
+		top: 53%;
 		left: 0%;
 		margin-left: 0;
-		width: 100%;
+		width: 106%;
 	}
 	.title-header h1{
 		font-size: 3.5rem;
@@ -123,13 +123,13 @@
 	}
 	.filter-title{
 		top: 35%;
-		left: 2%;
-		margin-left: 0%;
-		width: 100%;
+		left: 10%;
+		margin-left: -5%;
+		width: 90%;
 	}
-	.slider-horizontal{
+	/* .slider-horizontal{
 		width: 12% !important;
-	}
+	} */
 	.title-header h1{
 		font-size: 3rem;
 		line-height: 3.4rem;
@@ -296,7 +296,7 @@
 		width: 208px;
 	}
 	.slider-horizontal{
-		width:148px;
+		width:158px;
 	}
 }
 /* ---------------------------------------------------------------------- */
@@ -370,6 +370,23 @@
 		right: 0px;
 	}
 }
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	.top_pad_10{
+		padding-top:10px;
+	}
+	.seach_btn {
+		width: 100%;
+	}
+}
+
+@media screen and (min-device-width: 360px) and (max-device-width: 640px) {
+	.top_pad_10{
+		padding-top:10px;
+	}
+	.seach_btn {
+		width: 100%;
+	}
+}
 @media screen and (min-device-width: 320px) and (max-device-width: 360px) {
 	.portfolioFilter a {
 		font-size: 12px;
@@ -408,9 +425,9 @@
 	.fa-2x{
 		font-size:16px;
 	}
-	.slider-horizontal{
+	/* .slider-horizontal{
 		width: 50% !important;
-	}
+	} */
 	.main_logo {
 		margin-top: -17px !important;
 	}
@@ -439,9 +456,7 @@
 		padding: 5px 33px 22px 36px;
 		float: right;
 	}
-	.top_pad_10{
-		padding-top:10px;
-	}
+	
 	.add_top img,
 	.add_top iframe{
 		width: 289px;
@@ -735,7 +750,6 @@
  
  
  
-
 
 
 

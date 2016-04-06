@@ -797,10 +797,10 @@ hr.tall {
 
 .filter-title {
     position: absolute;
-    top: 56%;
-	left: 26%;
-    width: 47%;
-	z-index: 99;
+    top: 55%;
+    left: 41%;
+    margin-left: -25%;
+    width: 68%;
     z-index: 99;
 }
 .filter-title.top-30 {
@@ -884,7 +884,7 @@ hr.tall {
 
 .filter-header {
     padding: 0;
-    max-width: 100%;
+    max-width: 90%;
     margin: 1px auto 0px;
     height: 58px;
     border-radius: 0px 5px 5px;
@@ -926,7 +926,7 @@ hr.tall {
     border-right: 0;
 }
 .filter-header .input-large {
-    width: 21%;
+    width: 23%;
     background: #fff url("../img/icons/search.png") no-repeat scroll left 11px;
     padding-left: 27px;
     padding-top: 5px;
@@ -1000,7 +1000,7 @@ hr.tall {
     color: #565656;
 }
 .filter-header input[type="submit"] {
-    width: 12%;
+    width: 13%;
     border: 0;
     color: #fff;
     background: #EF530D none repeat scroll 0% 0% !important;
@@ -1010,7 +1010,7 @@ hr.tall {
 .ui-datepicker {
     max-width: 250px;
     padding: 0;
-    border: 1px solid !important;
+    /* border: 1px solid !important; */
 }
 .ui-datepicker table thead {
     background-color: #f8f8f8 !important;
@@ -5934,12 +5934,16 @@ strong {
     height: 0;
 }
 .search_menu {
-    border: 2px solid rgb(94, 195, 163);
-    padding: 7px 10px 0px;
+   /*  border: 2px solid rgb(94, 195, 163);
+    padding: 7px 10px 0px; */
+	border: 3px solid #88C425;
+	padding: 7px 10px 0px;
+	background-color: #fff !important;
 }
 .seach_btn {
     margin-top: 0px !important;
-    width: 88px;
+    /* width: 88px; */
+	background: #EF530D !important;
 }
 .range {
     display: table;
@@ -6243,9 +6247,4 @@ div.letter_success{
 .recommanded{
         min-height: 245px;
 }
-.slider.slider-horizontal .slider-track {
-    height: 10px;
-    width: 100%;
-    margin-top: 0px;
-    left: 20px;
-}
+
