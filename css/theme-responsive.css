@@ -396,6 +396,9 @@
 	.j-forms{
 		background-color:#fff !important;
 	}
+	.sort-by-container ul .deal_admin_top {
+		width: 100% !important;
+	}
 }
 
 @media screen and (min-device-width: 360px) and (max-device-width: 640px) {
