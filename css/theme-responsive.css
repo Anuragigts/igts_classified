@@ -361,7 +361,7 @@
 }
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 	.most_valued_badge{
-		left: 105px;
+		/*left: 105px;*/
 	}
 	.bus_rec_badge {
 		margin-left: 151px;
@@ -376,6 +376,9 @@
 	}
 	.seach_btn {
 		width: 100%;
+	}
+	.sort-by-container {
+	     padding: 0px 10px 24px 10px;
 	}
 }
 
@@ -457,23 +460,6 @@
 		float: right;
 	}
 	
-	.add_top img,
-	.add_top iframe{
-		width: 289px;
-		height: 151px;
-	}
-	.add_left img,
-	.add_left iframe{
-		width: 289px;
-		height: 155px;
-		padding-bottom: 23px;
-	}
-	.add_middle img,
-	.add_middle iframe{
-		width: 289px;
-		height: 70px;
-		padding-bottom: 20px;
-	}
 	.desc_top_img img,
 	.desc_top_img iframe{
 		width: 289px;
@@ -491,7 +477,7 @@
 		height: 273px;
 	}
 	.most_valued_badge{
-		left: 156px;
+		/*left: 156px;*/
 	}
 	.bus_rec_badge {
 		margin-left: 170px;
@@ -666,6 +652,23 @@
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	.product{
 		display:none;
+	}
+	.add_top img,
+	.add_top iframe{
+		width: 289px;
+		height: 151px;
+	}
+	.add_left img,
+	.add_left iframe{
+		width: 289px;
+		height: 155px;
+		padding-bottom: 23px;
+	}
+	.add_middle img,
+	.add_middle iframe{
+		width: 289px;
+		height: 70px;
+		padding-bottom: 20px;
 	}
 }
 

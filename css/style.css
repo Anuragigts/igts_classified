@@ -4509,12 +4509,12 @@ a .login-op-btn:hover {
     right: 0;
 }
 .most_valued_badge {
+    width: 136px;
     height: 60px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
-    left: 150px;
     top: 0;
-    z-index: 99;
+    z-index: 7;
     right: 0;
 }
 .bus_rec_badge {
@@ -4523,7 +4523,7 @@ a .login-op-btn:hover {
     background: transparent url("../img/icons/reco.png") no-repeat;
     padding-top: 5px;
     position: absolute;
-    margin-left: 165px;
+    left: 165px;
     top: 0px;
     z-index: 99;
 }
@@ -4533,7 +4533,7 @@ a .login-op-btn:hover {
     background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
     padding-top: 10px;
     position: fixed;
-    margin-left: 246px;
+    left: 246px;
     top: -20px;
     z-index: 7;
 }
@@ -5544,6 +5544,7 @@ input[name="range"]::-webkit-slider-thumb:after {
 .find_location,
 .clear_location {
     margin-top: 5px;
+    margin-right: 0px;
 }
 .cd-filter-content label {
     font-size: 13px !important;
@@ -5879,6 +5880,7 @@ strong {
 .add_middle iframe {
     width: 848px;
     height: 90px;
+    margin-bottom: 22px;
 }
 .desc_top_img img,
 .desc_top_img iframe {
