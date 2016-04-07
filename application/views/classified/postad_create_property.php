@@ -1720,8 +1720,8 @@
 														</div>
 													</div>
 													<div class="span12 unit">
-														<label class="label">Marquee Title 
-														<sup data-toggle="tooltip" title="" data-original-title="Marquee Title">
+														<label class="label">Hot Deals Title 
+														<sup data-toggle="tooltip" title="" data-original-title="Hot Deals Title">
 														<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 														</sup>
 														</label>
@@ -1859,7 +1859,7 @@
 															<label class="checkbox">
 															<input type="checkbox" id='terms_condition' name="terms_condition" value="terms_condition" checked onclick="return false">
 															<i></i>
-															I accept <a href="<?php echo base_url(); ?>terms-conditions" target="_blank">Terms & Conditions</a> 
+															I accept <a href="<?php echo base_url(); ?>terms-conditions" target="_blank"><strong>Terms & Conditions</strong></a>  
 															</label>
 														</div>
 														<div class="alert alert-danger terms_error" style='display:none'; >

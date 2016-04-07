@@ -81,8 +81,10 @@
 														<div class="row">
 															<?php if ($search_listval->search_title != '') { ?>
 																<div class="col-sm-10">
-																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a></h5>
-																	<p><img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon"> <?php if ($search_listval->search_loc != '') {
+																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a> in
+																	<a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $scat." categories"; ?></a>
+																	</h5>
+																	<p><img src="<?php echo base_url(); ?>img/icons/location_map.png" class="my_wishes" alt="map" class="map_icon"> <?php if ($search_listval->search_loc != '') {
 																		echo $search_listval->search_loc;
 																		}  ?>
 																	</p>
@@ -93,19 +95,6 @@
 																	</div>
 																</div>
 															<?php }?>
-																<div class="col-sm-10">
-																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $scat." categories"; ?></a></h5>
-																	<p><?php if ($search_listval->search_loc != '') {
-																		echo $search_listval->search_loc;
-																		?>
-																	</p>
-																</div>
-																<div class="col-sm-2">
-																	<div class="my_wish_delete">
-																		<a href="javascript:void(0);" id="<?php echo $search_listval->id.",".$search_listval->login_id; ?>"  class="delete-bg"> Delete</a>
-																	</div>
-																</div>
-															<?php } ?>
 														</div><hr class="separator">
 													</div>
 												<?php } ?>
