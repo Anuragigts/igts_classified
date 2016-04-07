@@ -132,17 +132,10 @@ class  Clothing_lifestyles_view extends CI_Controller{
                 }else{
                      $this->session->set_userdata('recentdays','Any');
                 }
-                if($this->input->post('latt')){
+                if($this->input->post('find_loc')){
                     $this->session->set_userdata('location',$this->input->post('find_loc'));
-                       $this->session->set_userdata('latt',$this->input->post('latt'));
                 }else{
                     $this->session->set_userdata('location','');
-                     $this->session->set_userdata('latt','');
-                }
-                if($this->input->post('longg')){
-                       $this->session->set_userdata('longg',$this->input->post('longg'));
-                }else{
-                     $this->session->set_userdata('longg','');
                 }
             }
              $services_view = $this->hotdealsearch_model->count_clothstyle_search();
