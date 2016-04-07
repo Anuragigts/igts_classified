@@ -82,7 +82,7 @@ class  Services_view extends CI_Controller{
                 /*business and consumer count for services*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_services();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_services();
                 // echo "<pre>"; print_r($this);
@@ -219,7 +219,7 @@ class  Services_view extends CI_Controller{
                 /*business and consumer count for services*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_services();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_services();
                 // echo "<pre>"; print_r($this);

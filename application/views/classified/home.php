@@ -167,7 +167,7 @@
 				</div>
 				
 				<div class="filter-title">
-					<div class="">
+					<form action="<?php echo base_url(); ?>searchview" method="get" autocomplete="off">
 						<div class="container">
 							<div class="row">
 								<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu j-forms">
@@ -184,6 +184,11 @@
 											<label class="input select">
 												<select class="guests-input" name="category_name">
 													<option value="all">All</option>
+													<?php
+													if (!empty($show_all)) {
+													 foreach ($show_all as $show_val) { ?>
+													<option value="<?php echo $show_val->category_id; ?>"><?php echo ucwords($show_val->category_name); ?></option>
+													<?php }   } ?>
 												</select>
 												<i></i>
 											</label>
@@ -200,7 +205,7 @@
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-4 col-xs-12 top_pad_10">
-													<input type="button" class="primary-btn seach_btn" name='' Value="Search">
+													<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
 												</div>
 											</div>
 										</div>
@@ -208,7 +213,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</section>
 			<?php //echo "<pre>"; print_r($hot_deals); echo "</pre>";
@@ -1284,14 +1289,15 @@
 		</div>
 		<!-- End Entire Wrap -->
 		
-		<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
 		
-		<script src="j-folder/js/jquery.ui.min.js"></script>
-	
 		<script>
 			$(document).ready(function(){
 				$('#list-autocomplete').autocomplete({
-					source: [ "c++", "java", "jphp", "jcoldfusigon", "jjavasgcript", "jgasp", "jgruby", "jpghp", "jcoldfgusion", "jjagvascript", "jrasp", "jrugby", "jatva", "jpthp", "jcoldffusigon", "jjavasgcrfipt", "jgafsp", "jgrugby", "jpgghp", "jcohldfgusion", "jjajgvascript", "jrfasp", "jrfugby"  ],
+					source: '<?php echo base_url(); ?>classified/search_autocomplete',
+					minLength: 1,
+					// source: [ "c++", "java", "jphp", "jcoldfusigon", "jjavasgcript", "jgasp", "jgruby", "jpghp", "jcoldfgusion", "jjagvascript", "jrasp", "jrugby", "jatva", "jpthp", "jcoldffusigon", "jjavasgcrfipt", "jgafsp", "jgrugby", "jpgghp", "jcohldfgusion", "jjajgvascript", "jrfasp", "jrfugby"  ],
 					messages: {
 						noResults:'No Data Found'
 					}

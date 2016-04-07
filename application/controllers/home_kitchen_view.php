@@ -72,7 +72,7 @@ class  Home_kitchen_view extends CI_Controller{
                 /*business and consumer count for kitchen*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_kitchen();
                  /*seller and needed count for kitchen*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_kitchen();
                 $data['public_adview'] = $public_adview;
@@ -206,7 +206,7 @@ class  Home_kitchen_view extends CI_Controller{
              /*business and consumer count for kitchen*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_kitchen();
                  /*seller and needed count for kitchen*/
-                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen();
+                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen1();
                  /*packages count*/
                 $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_kitchen();
                 $this->load->view("classified_layout/inner_template",$result);

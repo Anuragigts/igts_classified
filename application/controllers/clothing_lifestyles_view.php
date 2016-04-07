@@ -79,7 +79,7 @@ class  Clothing_lifestyles_view extends CI_Controller{
                 /*business and consumer count for services*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_clothstyle();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_clothstyle();
                 // echo "<pre>"; print_r($this);
@@ -197,7 +197,7 @@ class  Clothing_lifestyles_view extends CI_Controller{
            /*business and consumer count for services*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_clothstyle();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_clothstyle();
                 // echo "<pre>"; print_r($this);

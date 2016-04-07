@@ -73,7 +73,7 @@ class  Motor_view extends CI_Controller{
                 /*business and consumer count for pets*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_motors();
                  /*seller and needed count for pets*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motors();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motors1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_motors();
                 $data['public_adview'] = $public_adview;
@@ -190,7 +190,7 @@ class  Motor_view extends CI_Controller{
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_motors();
                  /*seller and needed count for pets*/
-                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motors();
+                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motors1();
                  /*packages count*/
                 $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_motors();
             $this->load->view("classified_layout/inner_template",$result);

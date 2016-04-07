@@ -104,11 +104,20 @@
 		
 	</script>
 			  <?php
-			  foreach ($busconcount as $countval) {
+			  /*foreach ($busconcount as $countval) {
 			  	$allbustype = $countval->allbustype;
 			  	$business = $countval->business;
 			  	$consumer = $countval->consumer;
-			  }
+			  }*/
+			  if (array_key_exists('allbustype', $busconcount)) {
+				   $allbustype = $busconcount['allbustype'];
+				}
+				if (array_key_exists('business', $busconcount)) {
+				   $business = $busconcount['business'];
+				}
+				if (array_key_exists('consumer', $busconcount)) {
+				   $consumer = $busconcount['consumer'];
+				}
 			  foreach ($public_adview as $publicview) {
 			  	$left_ad1 = $publicview->sidead_one;
 			  	$topad = $publicview->topad;
@@ -130,63 +139,117 @@
 			$seller_deals = $this->session->userdata('s_seller_deals');
 			$dealurgent = $this->session->userdata('s_dealurgent');
 			if ($cat_id == 1) {
-				foreach ($sellerneededcount as $sncnt) {
-				$company = $sncnt->company;
-				$agency = $sncnt->agency;
-				$other = $sncnt->other;
-			  	}
+			  	 if (array_key_exists('company', $sellerneededcount)) {
+					   $company = $sellerneededcount['company'];
+				}
+				if (array_key_exists('Agency', $sellerneededcount)) {
+				   $agency = $sellerneededcount['Agency'];
+				}
+				if (array_key_exists('Other', $sellerneededcount)) {
+				   $other = $sellerneededcount['Other'];
+				}
 			}
 			if ($cat_id == 2) {
-				foreach ($sellerneededcount as $sncnt) {
-					$seller = $sncnt->provider;
-					$needed = $sncnt->needed;
-				  }
+				  if (array_key_exists('provider', $sellerneededcount)) {
+					   $seller = $sellerneededcount['provider'];
+				}
+				if (array_key_exists('needed', $sellerneededcount)) {
+				   $needed = $sellerneededcount['needed'];
+				}
+
 			}
 			if ($cat_id == 3) {
-				foreach ($sellerneededcount as $sncnt) {
-					$seller = $sncnt->seller;
-					$needed = $sncnt->needed;
-					$forhire = $sncnt->forhire;
-				  }
+				   if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
+				 if (array_key_exists('forhire', $sellerneededcount)) {
+					   $forhire = $sellerneededcount['forhire'];
+				}
 			}
 			if ($cat_id == 4) {
-				foreach ($sellerneededcount as $sncnt) {
+				/*foreach ($sellerneededcount as $sncnt) {
 				$offered = $sncnt->offered;
 				$wanted = $sncnt->wanted;
+				}*/
+				if (array_key_exists('offered', $sellerneededcount)) {
+					   $offered = $sellerneededcount['offered'];
+				}
+				 if (array_key_exists('wanted', $sellerneededcount)) {
+					   $wanted = $sellerneededcount['wanted'];
 				}
 			}
 			if ($cat_id == 5) {
-				foreach ($sellerneededcount as $sncnt) {
+				/*foreach ($sellerneededcount as $sncnt) {
 				$seller = $sncnt->seller;
 				$needed = $sncnt->needed;
-		  		}
+		  		}*/
+		  		if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
 			}
 			if ($cat_id == 6) {
-				foreach ($sellerneededcount as $sncnt) {
+				/*foreach ($sellerneededcount as $sncnt) {
 						$seller = $sncnt->seller;
 						$needed = $sncnt->needed;
 						$charity = $sncnt->charity;
-				  }
+				  }*/
+				  if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
+				if (array_key_exists('charity', $sellerneededcount)) {
+					   $charity = $sellerneededcount['charity'];
+				}
 			}
 			if($cat_id == 7) {
-				foreach ($sellerneededcount as $sncnt) {
+				/*foreach ($sellerneededcount as $sncnt) {
 					$seller = $sncnt->seller;
 					$needed = $sncnt->needed;
 					$charity = $sncnt->charity; 
-				  }
+				  }*/
+				  if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
+				if (array_key_exists('charity', $sellerneededcount)) {
+					   $charity = $sellerneededcount['charity'];
+				}
 			}
 			if($cat_id == 8) {
-				foreach ($sellerneededcount as $sncnt) {
+				/*foreach ($sellerneededcount as $sncnt) {
 				  	$seller = $sncnt->seller;
 				  	$needed = $sncnt->needed;
-				  }
+				  }*/
+				  if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
 			}
-			foreach ($deals_pck as $pckval) {
-					$urgentcnt = $pckval->urgentcount;
-					$platinumcnt = $pckval->platinumcount;
-					$goldcnt = $pckval->goldcount;
-					$freecnt = $pckval->freecount;
-				  }
+			// print_r($deals_pck);
+			if (array_key_exists('urgentcount', $deals_pck)) {
+			   $urgentcnt = $deals_pck['urgentcount'];
+			}
+			if (array_key_exists('platinumcount', $deals_pck)) {
+			   $platinumcnt = $deals_pck['platinumcount'];
+			}
+			if (array_key_exists('goldcount', $deals_pck)) {
+			   $goldcnt = $deals_pck['goldcount'];
+			}
+			if (array_key_exists('freecount', $deals_pck)) {
+			   $freecnt = $deals_pck['freecount'];
+			}
 			
 			$car_van_bus = $this->session->userdata('car_van_bus');
             $motor_hm = $this->session->userdata('motor_hm');
@@ -235,7 +298,7 @@
 													<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
 												</div>
 											</div>
-											<div class="col-md-2 col-sm-6 col-xs-12">
+											<div class="col-md-3 col-sm-6 col-xs-12">
 												<label class="input select">
 													<select class="guests-input" name="category_name">
 														<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
@@ -247,45 +310,18 @@
 												</label>
 											</div>
 
-											<div class="col-md-3 col-sm-4 col-xs-12">
-												<div class="input">
-													<label class="icon-left" for="">
-														<i class="fa fa-search"></i>
-													</label>
-													<div class="main">
-												     	 <div id="holder">
-												     	 	<input type="text" class="input-large" id="keyword" style="padding-left: 58px;" name="keyword" placeholder="Location" value="<?php echo $location; ?>">
-														 </div>
-														 <div id="ajax_response1" style="left: 3.5px !important; display: block; top: 48px !important; width: 211px !important;" ></div>
-												   </div>
-													<!-- <input type="text" placeholder="Location" class="input-large" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
-													<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
-													<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' > -->
-												</div>
-											</div>
-											
-											<div class="col-md-4 col-sm-8 col-xs-12">
+											<div class="col-md-6 col-sm-6 col-xs-12 top_pad_10">
 												<div class="row">
-													<div class="col-md-8 col-sm-9 col-xs-12">
-														<label class="input select">
-															<select name="miles">
-																<option value="0" <?php if ($miles == '0') { echo "selected=selected"; } ?>>+0 Miles</option>
-																<option value="5" <?php if ($miles == '5') { echo "selected=selected"; } ?>>+5 Mile</option>
-																<option value="10" <?php if ($miles == '10') { echo "selected=selected"; } ?>>+10 Miles</option>
-																<option value="15" <?php if ($miles == '15') { echo "selected=selected"; } ?>>+15 Miles</option>
-																<option value="20" <?php if ($miles == '20') { echo "selected=selected"; } ?>>+20 Miles</option>
-																<option value="25" <?php if ($miles == '25') { echo "selected=selected"; } ?>>+25 Miles</option>
-																<option value="30" <?php if ($miles == '30') { echo "selected=selected"; } ?>>+30 Miles</option>
-																<option value="35" <?php if ($miles == '35') { echo "selected=selected"; } ?>>+35 Miles</option>
-																<option value="40" <?php if ($miles == '40') { echo "selected=selected"; } ?>>+40 Miles</option>
-																<option value="45" <?php if ($miles == '45') { echo "selected=selected"; } ?>>+45 Miles</option>
-																<option value="50" <?php if ($miles == '50') { echo "selected=selected"; } ?>>+50 Miles</option>
-															</select>
-															<i></i>
-														</label>
+													<div class="col-md-9 col-sm-8 col-xs-12">
+														<div class="input">
+															<label class="icon-left" for="">
+																<i class="fa fa-search"></i>
+															</label>
+															<input type="text" placeholder="Enter a Location" id="list-autocomplete" name="list-autocomplete" value="<?php echo $location; ?>">
+														</div>
 													</div>
-													<div class="col-md-4 col-sm-3 col-xs-12">
-														<input type="button" class="primary-btn seach_btn" name='' Value="Search">
+													<div class="col-md-3 col-sm-4 col-xs-12 top_pad_10">
+														<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
 													</div>
 												</div>
 											</div>
@@ -988,7 +1024,7 @@
 																					</label>
 																				</div>
 																			<?php }
-																			else{ ?>
+																			else if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8){ ?>
 																				<div>
 																					<label class="checkbox">
 																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
@@ -1004,6 +1040,26 @@
 																					</label>
 																					<label class="checkbox">
 																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
+																					</label>
+																				</div>
+																			<?php }
+																			else{ ?>
+																				<div>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3,6" <?php if(isset($dealurgent) && in_array('3,6',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2,5" <?php if(isset($dealurgent) && in_array('2,5',$dealurgent)){ echo 'checked = checked';}?> >
+																						<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+																					</label>
+																					<label class="checkbox">
+																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1,4" <?php if(isset($dealurgent) && in_array('1,4',$dealurgent)){ echo 'checked = checked';}?> >
 																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
 																					</label>
 																				</div>
@@ -1158,7 +1214,18 @@
 			$(".alert").hide();
 		}, 5000);
 		</script>
-		
+
+		<script>
+			$(document).ready(function(){
+				$('#list-autocomplete').autocomplete({
+					source: '<?php echo base_url(); ?>classified/search_autocomplete',
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 		
 		<script>

@@ -99,5 +99,21 @@ class Classified extends CI_Controller{
             else
                 echo 0;
         }
+
+        public function search_autocomplete(){
+            $keyword = $this->input->get('term');
+             $query = mysql_query("select * from ukcities where city_name like '".$keyword."%' limit 0,10");
+             if (mysql_num_rows($query) >0 ) {
+                 while ($row = mysql_fetch_assoc($query)) {
+                    $data[] = $row['city_name'];
+                }
+             }
+             else{
+                $data[] = '';
+             }
+                
+                //return json data
+                echo json_encode($data);
+        }
 }
 ?>

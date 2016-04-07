@@ -1354,7 +1354,7 @@ GROUP BY img.ad_id
 		$this->db->group_by(" img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
-
+		// echo $this->db->last_query(); exit;
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}
@@ -2680,7 +2680,7 @@ GROUP BY img.ad_id
 					}
 		}
 
-
+		
 
 }
 

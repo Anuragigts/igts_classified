@@ -126,15 +126,9 @@ class  Searchview extends CI_Controller{
                 }else{
                      $this->session->set_userdata('s_recentdays','Any');
                 }
-                /*if($this->input->get('latt')){
-                    $this->session->set_userdata('s_location',$this->input->get('find_loc'));
-                       $this->session->set_userdata('s_latt',$this->input->get('latt'));
-                }else{
-                    $this->session->set_userdata('s_location','');
-                     $this->session->set_userdata('s_latt','');
-                }*/
-                if($this->input->get('keyword')){
-                    $this->session->set_userdata('s_location',$this->input->get('keyword'));
+                
+                if($this->input->get('list-autocomplete')){
+                    $this->session->set_userdata('s_location',$this->input->get('list-autocomplete'));
                 }else{
                     $this->session->set_userdata('s_location','');
                 }

@@ -82,7 +82,7 @@ class  Residential_view extends CI_Controller{
                 /*business and consumer count for findproperty*/
                 $data['busconcount'] = $this->hotdealsearch_model->busconcount_property();
                  /*seller and needed count for findproperty*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property1();
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_property();
                 $data['public_adview'] = $public_adview;
@@ -227,7 +227,7 @@ class  Residential_view extends CI_Controller{
          /*business and consumer count for findproperty*/
             $result['busconcount'] = $this->hotdealsearch_model->busconcount_property();
              /*seller and needed count for findproperty*/
-            $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property();
+            $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property1();
              /*packages count*/
             $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_property();
              $this->load->view("classified_layout/inner_template",$result);
