@@ -219,7 +219,9 @@
 	.list-styles li a{
 		font-size: 11px;
 	}
-
+	.cloth_head_font {
+		font-size: 13px !important;
+	}
 }
 /* ---------------------------------------------------------------------- */
 /*	 Version 600px
@@ -315,6 +317,7 @@
 	.featured-badge {
 		width: 136px;
 		height: 86px;
+
 		background: transparent url("../img/icons/reco.png") no-repeat;
 		position: absolute;
 		top: 0;
@@ -379,6 +382,19 @@
 	}
 	.sort-by-container {
 	     padding: 0px 10px 24px 10px;
+	}
+	.list_view_bottom {
+		padding: 10px 12px 44px;
+	}
+	.post-meta {
+		font-size: 12px;
+	}
+	.post-meta li {
+		padding-top: 5px;
+		margin-right: 10px;
+	}
+	.j-forms{
+		background-color:#fff !important;
 	}
 }
 
