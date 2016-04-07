@@ -70,7 +70,7 @@
 					<div class="paddings">
 						<div class="container">
 							<div class="row">
-								<div class="col-sm-3">
+								<div class="col-sm-3 col-sm-3">
 									<div class="item-table">
 										<div class="header-table color-red">
 											<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="Profile" class="img-responsive pvt-no-img">
@@ -90,7 +90,7 @@
 
 								<form id="j-forms2" action="<?php echo base_url(); ?>deals_administrator/index" class="j-forms jforms" method="post">
 									<!-- Item Table-->
-									<div class="col-md-9">
+									<div class="col-md-9 col-sm-9">
 										<div class="row">
 											<div class="col-sm-12">
 												<h2>Deals Administrator</h2>
@@ -101,7 +101,7 @@
 										<!-- sort-by-container-->
 										<div class="sort-by-container tooltip-hover">
 											<div class="row">
-												<div class="col-md-9">
+												<div class="col-md-9 col-sm-9">
 													<strong>Sort by:</strong>
 													<ul>                            
 														<li class="deal_admin_top">

@@ -59,7 +59,7 @@
 					<div class="paddings">
 						<div class="container">
 							<div class="row">
-								<div class="col-sm-3">
+								<div class="col-sm-3 col-sm-3">
 									<div class="item-table">
 										<div class="header-table color-red">
 											<img src="<?php echo base_url(); ?>img/icons/user_pro.png" alt="user_pro" title="Profile" class="img-responsive pvt-no-img">
@@ -77,7 +77,7 @@
 								</div>
 								
 								<form action="<?php echo base_url(); ?>pickup_deals/index" method="post" class="j-forms jforms">
-									<div class="col-sm-9 list-view">
+									<div class="col-md-9 col-sm-9 list-view">
 										<div class="row">
 											<div class="col-sm-12">
 												<h2>Pickup deals</h2>
@@ -87,7 +87,7 @@
 										
 										<div class="sort-by-container tooltip-hover">
 											<div class="row">
-												<div class="col-md-12">
+												<div class="col-md-12 col-sm-12 col-xs-12">
 													<strong>Sort by:</strong>
 													<ul>                            
 														<li>
