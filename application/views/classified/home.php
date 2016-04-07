@@ -1290,20 +1290,8 @@
 		<!-- End Entire Wrap -->
 		
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
 		
-		<script>
-			$(document).ready(function(){
-				$('#list-autocomplete').autocomplete({
-					source: '<?php echo base_url(); ?>classified/search_autocomplete',
-					minLength: 1,
-					// source: [ "c++", "java", "jphp", "jcoldfusigon", "jjavasgcript", "jgasp", "jgruby", "jpghp", "jcoldfgusion", "jjagvascript", "jrasp", "jrugby", "jatva", "jpthp", "jcoldffusigon", "jjavasgcrfipt", "jgafsp", "jgrugby", "jpgghp", "jcohldfgusion", "jjajgvascript", "jrfasp", "jrfugby"  ],
-					messages: {
-						noResults:'No Data Found'
-					}
-				});
-			});
-		</script>
+		
 		
 		<script>
 			jQuery(document).ready(function ($) {

@@ -13,96 +13,83 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery.cleditor.css" />
 		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
-	<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-	<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
-	
-	<script type="text/javascript">
-		$(document).ready(function() {
-		  $('.cd-filter-content').niceScroll({
-			autohidemode: 'false',     
-			cursorborderradius: '0px', 
-			background: '#f4f4f4',     
-			cursorwidth: '8px',       
-			cursorcolor: '#E95413'     
-		  });
-		});
-	</script>
-	
-	<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-	<script type="text/javascript">
-		google.maps.event.addDomListener(window, 'load', function () {
-            var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
-            google.maps.event.addListener(places, 'place_changed', function () {
-                var place = places.getPlace();
-                var address = place.formatted_address;
-                var latitude = place.geometry.location.lat();
-                var longitude = place.geometry.location.lng();
-                $("#latt").val(latitude);
-                $("#longg").val(longitude);
-            });
-        });
-	</script>-->
-	
-	<script type="text/javascript">
-		$(function(){
-			$(".loc_map").click(function(){
-				var val = $(".loc_map").attr("id");
-				var val1 = val.split(",");
-				$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+			  $('.cd-filter-content').niceScroll({
+				autohidemode: 'false',     
+				cursorborderradius: '0px', 
+				background: '#f4f4f4',     
+				cursorwidth: '8px',       
+				cursorcolor: '#E95413'     
+			  });
 			});
-		});
-	</script>
+		</script>
 
-	<script type="text/javascript">
-		$(document).ready(
-			function()
-			{
-				$("input:checkbox").change(
-					function()
-					{
-							$("form.jforms").submit();
-					}
-				)
-				$('input:radio').click(function() {
-						$("form.jforms").submit();
-					}
-				)
-				$('.dealtitle_sort').change(function() {
-						$("form.jforms").submit();
-					}
-				)
-				$('.price_sort').change(function() {
-						$("form.jforms").submit();
-					}
-				)
-				$('.recentdays_sort').change(function() {
-						$("form.jforms").submit();
-					}
-				)
-				$(".seach_btn").click(function(){
-					if ($('#find_loc').val() == '') {
-						$('#latt').val('');
-						$('#longg').val('');
-						$("form.jforms").submit();
-					}
-					else{
-						$("form.jforms").submit();
-					}
+	
+	
+		<script type="text/javascript">
+			$(function(){
+				$(".loc_map").click(function(){
+					var val = $(".loc_map").attr("id");
+					var val1 = val.split(",");
+					$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
 				});
-			}
-		);
-	</script>
+			});
+		</script>
 
-	<script type="text/javascript">
-	$("form").submit(function(){
-	    var uri = window.location.toString();
-		if (uri.indexOf("?") > 0) {
-		    var clean_uri = uri.substring(0, uri.indexOf("?"));
-		    window.history.replaceState({}, document.title, clean_uri);
-		}
-	});
-		
-	</script>
+		<script type="text/javascript">
+			$(document).ready(
+				function()
+				{
+					$("input:checkbox").change(
+						function()
+						{
+								$("form.jforms").submit();
+						}
+					)
+					$('input:radio').click(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$('.dealtitle_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$('.price_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$('.recentdays_sort').change(function() {
+							$("form.jforms").submit();
+						}
+					)
+					$(".seach_btn").click(function(){
+						if ($('#find_loc').val() == '') {
+							$('#latt').val('');
+							$('#longg').val('');
+							$("form.jforms").submit();
+						}
+						else{
+							$("form.jforms").submit();
+						}
+					});
+				}
+			);
+		</script>
+
+		<script type="text/javascript">
+			$("form").submit(function(){
+			    var uri = window.location.toString();
+				if (uri.indexOf("?") > 0) {
+				    var clean_uri = uri.substring(0, uri.indexOf("?"));
+				    window.history.replaceState({}, document.title, clean_uri);
+				}
+			});
+			
+		</script>
 			  <?php
 			  /*foreach ($busconcount as $countval) {
 			  	$allbustype = $countval->allbustype;
@@ -290,7 +277,7 @@
 								<div class="row">
 									<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu">
 										<div class="row">
-											<div class="col-md-3 col-sm-6 col-xs-12">
+											<div class="col-md-3 col-sm-3 col-xs-12">
 												<div class="input">
 													<label class="icon-left" for="">
 														<i class="fa fa-search"></i>
@@ -298,7 +285,7 @@
 													<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
 												</div>
 											</div>
-											<div class="col-md-3 col-sm-6 col-xs-12">
+											<div class="col-md-3 col-sm-3 col-xs-12 top_pad_10">
 												<label class="input select">
 													<select class="guests-input" name="category_name">
 														<option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
@@ -1001,71 +988,71 @@
 															}
 													 ?>
 													 <div class="cd-filter-block">
-																		<h4 class="title-widget">Search Only</h4>
+														<h4 class="title-widget">Search Only</h4>
 
-																		<div class="cd-filter-content">
-																			<?php if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) { ?>
-																				<div>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
-																					</label>
-																				</div>
-																			<?php }
-																			else if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8){ ?>
-																				<div>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
-																					</label>
-																				</div>
-																			<?php }
-																			else{ ?>
-																				<div>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3,6" <?php if(isset($dealurgent) && in_array('3,6',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2,5" <?php if(isset($dealurgent) && in_array('2,5',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
-																					</label>
-																					<label class="checkbox">
-																						<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1,4" <?php if(isset($dealurgent) && in_array('1,4',$dealurgent)){ echo 'checked = checked';}?> >
-																						<i></i> Recent Deals (<?php echo $freecnt; ?>)
-																					</label>
-																				</div>
-																			<?php } ?>
-																		</div>
-																	</div>
+														<div class="cd-filter-content">
+															<?php if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) { ?>
+																<div>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Recent Deals (<?php echo $freecnt; ?>)
+																	</label>
+																</div>
+															<?php }
+															else if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8){ ?>
+																<div>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Recent Deals (<?php echo $freecnt; ?>)
+																	</label>
+																</div>
+															<?php }
+															else{ ?>
+																<div>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3,6" <?php if(isset($dealurgent) && in_array('3,6',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2,5" <?php if(isset($dealurgent) && in_array('2,5',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+																	</label>
+																	<label class="checkbox">
+																		<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1,4" <?php if(isset($dealurgent) && in_array('1,4',$dealurgent)){ echo 'checked = checked';}?> >
+																		<i></i> Recent Deals (<?php echo $freecnt; ?>)
+																	</label>
+																</div>
+															<?php } ?>
+														</div>
+													</div>
 											
 										</div>
 										<div class="row top_20">
@@ -1088,7 +1075,7 @@
 										
 										<div class="sort-by-container tooltip-hover">
 											<div class="row">
-												<div class="col-sm-10">
+												<div class="col-md-10 col-sm-9">
 													<strong>Sort by:</strong>
 													<ul>                            
 														<li>
@@ -1132,7 +1119,7 @@
 														</li>
 													</ul>
 												</div>
-												<div class="col-md-2 saved_link1">
+												<div class="col-md-2 col-sm-3 saved_link1">
 													<a class="saved_link" style="margin:0px;" href="javascript:void(0);">Save Search</a>
 													<!-- <input type="hidden" name="login_id" id="login_id"	value="<?php echo $login_id; ?>"> -->
 													<input type="hidden" name="search_title" id="search_title"	value="<?php echo $looking_search; ?>">
@@ -1215,17 +1202,6 @@
 		}, 5000);
 		</script>
 
-		<script>
-			$(document).ready(function(){
-				$('#list-autocomplete').autocomplete({
-					source: '<?php echo base_url(); ?>classified/search_autocomplete',
-					messages: {
-						noResults:'No Data Found'
-					}
-				});
-			});
-		</script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
 		
 		<script>

@@ -29,20 +29,7 @@
 			});
 		</script>
 		
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-		<script type="text/javascript">
-			google.maps.event.addDomListener(window, 'load', function () {
-				var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
-				google.maps.event.addListener(places, 'place_changed', function () {
-					var place = places.getPlace();
-					var address = place.formatted_address;
-					var latitude = place.geometry.location.lat();
-					var longitude = place.geometry.location.lng();
-					$("#latt").val(latitude);
-					$("#longg").val(longitude);
-				});
-			});
-		</script>
+		
 		  <?php foreach ($public_adview as $publicview) {
 			$left_ad1 = $publicview->sidead_one;
 			$topad = $publicview->topad;

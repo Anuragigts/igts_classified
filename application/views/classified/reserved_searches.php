@@ -82,7 +82,7 @@
 															<?php if ($search_listval->search_title != '') { ?>
 																<div class="col-sm-10">
 																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a></h5>
-																	<p><?php if ($search_listval->search_loc != '') {
+																	<p><img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon"> <?php if ($search_listval->search_loc != '') {
 																		echo $search_listval->search_loc;
 																		}  ?>
 																	</p>

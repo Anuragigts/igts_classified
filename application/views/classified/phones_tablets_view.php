@@ -26,21 +26,6 @@
 			});
 		</script>
 		
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-		<script type="text/javascript">
-			google.maps.event.addDomListener(window, 'load', function () {
-				var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
-				google.maps.event.addListener(places, 'place_changed', function () {
-					var place = places.getPlace();
-					var address = place.formatted_address;
-					var latitude = place.geometry.location.lat();
-					var longitude = place.geometry.location.lng();
-					$("#latt").val(latitude);
-					$("#longg").val(longitude);
-				});
-			});
-		</script>
-		
 		<script type="text/javascript">
 			$(function(){
 				$(".loc_map").click(function(){
@@ -179,9 +164,9 @@
 											</div> 
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Seller Type</h4>
+												<h4 class="title-widget">Seller Type</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content">
 													<div>
 														<label class="checkbox">
 															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
@@ -200,9 +185,9 @@
 											</div>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Deal Type</h4>
+												<h4 class="title-widget">Deal Type</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content">
 													<div>
 														<label class="radio">
 															<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
@@ -221,9 +206,9 @@
 											</div>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget closed">Location</h4>
+												<h4 class="title-widget">Location</h4>
 
-												<div class="cd-filter-content" style="overflow: hidden; display: none;">
+												<div class="cd-filter-content">
 													<div class="input">
 														<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" value="<?php echo $location; ?>" name="find_loc">
 														<input type='hidden' name='latt' id='latt' value='' >
