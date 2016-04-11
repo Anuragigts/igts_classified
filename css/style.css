@@ -6253,3 +6253,6 @@ div.letter_success{
 	width: 18px;
 	height: 18px;
 }
+.ui-autocomplete-loading { 
+	background:url('../img/loader.gif') no-repeat right 10px center !important;
+}
