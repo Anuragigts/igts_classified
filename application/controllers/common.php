@@ -161,7 +161,6 @@ class Common extends CI_Controller {
                                             redirect("login");  
                          }
                 }
-
              $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "forgot_password_active",

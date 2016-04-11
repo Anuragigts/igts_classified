@@ -30,19 +30,6 @@
 			});
 		</script>
 		<script type="text/javascript">
-			google.maps.event.addDomListener(window, 'load', function () {
-				var places = new google.maps.places.Autocomplete(document.getElementById('find_loc'));
-				google.maps.event.addListener(places, 'place_changed', function () {
-					var place = places.getPlace();
-					var address = place.formatted_address;
-					var latitude = place.geometry.location.lat();
-					var longitude = place.geometry.location.lng();
-					$("#latt").val(latitude);
-					$("#longg").val(longitude);
-				});
-			});
-		</script>
-		<script type="text/javascript">
 			$(document).ready(
 				function()
 				{
@@ -125,12 +112,24 @@
 		  	$business = $countval->business;
 		  	$consumer = $countval->consumer;
 		  }
-		  foreach ($deals_pck as $pckval) {
+		  /*foreach ($deals_pck as $pckval) {
 		  	$urgentcnt = $pckval->urgentcount;
 		  	$platinumcnt = $pckval->platinumcount;
 		  	$goldcnt = $pckval->goldcount;
 		  	$freecnt = $pckval->freecount;
-		  }
+		  }*/
+		  if (array_key_exists('urgentcount', $deals_pck)) {
+					$urgentcnt = $deals_pck['urgentcount'];
+				}
+			if (array_key_exists('platinumcount', $deals_pck)) {
+				   $platinumcnt = $deals_pck['platinumcount'];
+			}
+			if (array_key_exists('goldcount', $deals_pck)) {
+				   $goldcnt = $deals_pck['goldcount'];
+			}
+			if (array_key_exists('freecount', $deals_pck)) {
+				   $freecnt = $deals_pck['freecount'];
+			}
 		$cat_id =  $this->session->userdata('cat_id');
 		$bus_id =  $this->session->userdata('bus_id');
 		$seller_deals =  $this->session->userdata('seller_id');
@@ -145,57 +144,81 @@
 		$latt = $this->session->userdata('latt');
 		$longg = $this->session->userdata('longg');
 		if ($cat_id == 1) {
-			foreach ($sellerneededcount as $sncnt) {
-			$company = $sncnt->company;
-			$agency = $sncnt->agency;
-			$other = $sncnt->other;
-		  	}
+			if (array_key_exists('company', $sellerneededcount)) {
+					   $company = $sellerneededcount['company'];
+				}
+				if (array_key_exists('agency', $sellerneededcount)) {
+				   $agency = $sellerneededcount['agency'];
+				}
+				if (array_key_exists('other', $sellerneededcount)) {
+				   $other = $sellerneededcount['other'];
+				}
 		}
 		if ($cat_id == 2) {
-			foreach ($sellerneededcount as $sncnt) {
-				$seller = $sncnt->provider;
-				$needed = $sncnt->needed;
-			  }
+			if (array_key_exists('provider', $sellerneededcount)) {
+					   $seller = $sellerneededcount['provider'];
+				}
+				if (array_key_exists('needed', $sellerneededcount)) {
+				   $needed = $sellerneededcount['needed'];
+				}
 			}
 			if ($cat_id == 3) {
-				foreach ($sellerneededcount as $sncnt) {
-					$seller = $sncnt->seller;
-					$needed = $sncnt->needed;
-					$forhire = $sncnt->forhire;
-				  }
+				if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
+				 if (array_key_exists('forhire', $sellerneededcount)) {
+					   $forhire = $sellerneededcount['forhire'];
+				}
 			}
 
 			if ($cat_id == 4) {
-				foreach ($sellerneededcount as $sncnt) {
-				$offered = $sncnt->offered;
-				$wanted = $sncnt->wanted;
+				if (array_key_exists('offered', $sellerneededcount)) {
+					   $offered = $sellerneededcount['offered'];
+				}
+				 if (array_key_exists('wanted', $sellerneededcount)) {
+					   $wanted = $sellerneededcount['wanted'];
 				}
 			}
 			if ($cat_id == 5) {
-				foreach ($sellerneededcount as $sncnt) {
-				$seller = $sncnt->seller;
-				$needed = $sncnt->needed;
-		  		}
+		  		if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
 			}
 			if ($cat_id == 6) {
-				foreach ($sellerneededcount as $sncnt) {
-						$seller = $sncnt->seller;
-						$needed = $sncnt->needed;
-						$charity = $sncnt->charity;
-				  }
+				  if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+				}
+				 if (array_key_exists('needed', $sellerneededcount)) {
+					   $needed = $sellerneededcount['needed'];
+				}
+				if (array_key_exists('charity', $sellerneededcount)) {
+					   $charity = $sellerneededcount['charity'];
+				}
 			}
 			if($cat_id == 7) {
-				foreach ($sellerneededcount as $sncnt) {
-					$seller = $sncnt->seller;
-					$needed = $sncnt->needed;
-					$charity = $sncnt->charity; 
-				  }
+				  if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+					}
+					 if (array_key_exists('needed', $sellerneededcount)) {
+						   $needed = $sellerneededcount['needed'];
+					}
+					if (array_key_exists('charity', $sellerneededcount)) {
+						   $charity = $sellerneededcount['charity'];
+					}
 			}
 			if($cat_id == 8) {
-				foreach ($sellerneededcount as $sncnt) {
-				  	$seller = $sncnt->seller;
-				  	$needed = $sncnt->needed;
-				  }
+				   if (array_key_exists('seller', $sellerneededcount)) {
+					   $seller = $sellerneededcount['seller'];
+					}
+					 if (array_key_exists('needed', $sellerneededcount)) {
+						   $needed = $sellerneededcount['needed'];
+					}
 			}
 
 			$car_van_bus = $this->session->userdata('car_van_bus');
@@ -274,7 +297,7 @@
 													<div class="span6 unit">
 														<div class="widget right-130">
 															<div class="input">
-																<input type="text" placeholder="Enter Location" id="find_loc" name="find_loc" value="<?php echo $location; ?>">
+																<input type="text" placeholder="Enter Location" id="list-autocomplete" name="list-autocomplete" value="<?php echo $location; ?>">
 																<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
 																<input type='hidden' name='longg' id='longg' value='<?php echo $longg ?>' >
 															</div>
@@ -1021,21 +1044,8 @@
 														</ul>
 													</div>
 													<div class="col-md-2 saved_link1">
-														<?php 
-														//if ($der == 1) { ?>
-															<!-- <span class="saved_link" style="margin:0px;">Saved Search</span> -->
-														<?php //}
-														//else{ ?>
 														<a class="saved_link" style="margin:0px;" href="javascript:void(0);">Save Search</a>
-														<?php// }
-														 ?>
-														<!-- <a class="saved_link" style="margin:0px;" href="javascript:void(0);">Save Search</a> -->
-
-														<!-- <input type="hidden" name="search_title" id="search_title"	value="<?php echo $looking_search; ?>">
-														<input type="hidden" name="search_cat" id="search_cat"	value="<?php echo $cat_id; ?>">
-														<input type="hidden" name="search_loc" id="search_loc"	value="<?php echo $location; ?>"> -->
 													</div>
-													
 												</div>
 											</div>
 											<!-- sort-by-container-->
@@ -1080,6 +1090,16 @@
 		setTimeout(function(){
 			$(".alert").hide();
 		}, 5000);
+		</script>
+		<script>
+			$(document).ready(function(){
+				$('#list-autocomplete').autocomplete({
+					source: '<?php echo base_url(); ?>classified/search_autocomplete',
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+			});
 		</script>
 		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 

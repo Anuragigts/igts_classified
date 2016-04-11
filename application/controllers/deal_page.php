@@ -13,7 +13,6 @@ class Deal_page extends CI_Controller{
                 $this->load->library('pagination');
                }
         public function index(){
-          echo "<pre>"; print_r($this->input->get()); echo "</pre>";
           if ($this->session->userdata('login_id')) {
             $saved_searchexist = $this->classifed_model->saved_searchexist($this->session->userdata('login_id'));
           }
@@ -136,19 +135,11 @@ class Deal_page extends CI_Controller{
               }else{
                    $this->session->set_userdata('recentdays','Any');
               }
-              if ($this->input->get('find_loc') != '' || $this->input->get('find_loc') != '0'){
-                  if($this->input->get('latt')){
-                    $this->session->set_userdata('location',$this->input->get('find_loc'));
-                       $this->session->set_userdata('latt',$this->input->get('latt'));
-                }
-                if($this->input->get('longg')){
-                       $this->session->set_userdata('longg',$this->input->get('longg'));
-                }
+              if ($this->input->get('list-autocomplete') != '' || $this->input->get('list-autocomplete') != '0'){
+                   $this->session->set_userdata('location',$this->input->get('list-autocomplete'));
               }
               else{
                 $this->session->set_userdata('location','');
-                $this->session->set_userdata('latt','');
-                $this->session->set_userdata('longg','');
               }
               
           }

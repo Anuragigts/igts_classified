@@ -617,6 +617,7 @@ class hotdealsearch_model extends CI_Model{
 				$recentdays = $this->session->userdata('recentdays');
 				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 4);
 				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 4);
+				$s_location = $this->session->userdata('location');
 
 				$car_van_bus = $this->session->userdata('car_van_bus');
 	            $motor_hm = $this->session->userdata('motor_hm');
@@ -766,9 +767,13 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
+			/*if ($latt) {
 				$this->db->where("(loc.latt LIKE '$latt%' 
   					OR loc.longg LIKE '$longg%')");
+			}*/
+			if ($s_location != '') {
+				$this->db->where("(loc.loc_name LIKE '$s_location%' 
+  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 			
@@ -812,7 +817,8 @@ class hotdealsearch_model extends CI_Model{
 				$dealurgent = $this->session->userdata('dealurgent');
 				$latt = substr($this->session->userdata('latt'),0,strpos($this->session->userdata('latt'),".") + 4);
 				$longg = substr($this->session->userdata('longg'),0,strpos($this->session->userdata('longg'),".") + 4);
-	    		
+	    		$s_location = $this->session->userdata('location');
+
 	    		$car_van_bus = $this->session->userdata('car_van_bus');
 		        $motor_hm = $this->session->userdata('motor_hm');
 		        $bikes_sub = $this->session->userdata('bikes_sub');
@@ -957,9 +963,13 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
+			/*if ($latt) {
 				$this->db->where("(loc.latt LIKE '$latt%' 
   				OR loc.longg LIKE '$longg%')");
+			}*/
+			if ($s_location != '') {
+				$this->db->where("(loc.loc_name LIKE '$s_location%' 
+  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 			
@@ -1085,8 +1095,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1151,9 +1160,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1193,8 +1201,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1260,9 +1267,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1296,8 +1302,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1359,9 +1364,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1411,8 +1415,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1477,9 +1480,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1515,8 +1517,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1582,9 +1583,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1620,8 +1620,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1687,9 +1686,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1722,8 +1720,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1789,9 +1786,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1826,8 +1822,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1897,9 +1892,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -1933,8 +1927,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2002,9 +1995,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2038,8 +2030,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2109,9 +2100,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2141,8 +2131,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2209,9 +2198,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2244,8 +2232,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2256,9 +2243,6 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			$this->db->where("ad.ad_status", "1");
-			// if (!empty($profpop)) {
-			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
-			// }
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -2315,9 +2299,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2347,8 +2330,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2415,9 +2397,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2448,8 +2429,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2519,9 +2499,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2552,8 +2531,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2564,9 +2542,6 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			$this->db->where("ad.ad_status", "1");
-			// if (!empty($profpop)) {
-			// 	$this->db->where_in('ad.sub_scat_id', $profpop);
-			// }
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
 					$this->db->where("ad.ad_type", $search_bustype);
@@ -2623,9 +2598,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2725,8 +2699,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -2793,9 +2766,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -2832,8 +2804,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$recentdays = $this->session->userdata('recentdays');
         	$search_bustype = $this->session->userdata('search_bustype');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -2883,9 +2854,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 			
@@ -2935,6 +2905,7 @@ class hotdealsearch_model extends CI_Model{
         	$search_bustype = $this->session->userdata('search_bustype');
         	$latt = $this->session->userdata('latt');
         	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -2984,9 +2955,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 			
@@ -3034,8 +3004,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3099,9 +3068,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3138,8 +3106,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3204,9 +3171,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3246,8 +3212,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3309,9 +3274,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3349,8 +3313,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3412,9 +3375,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3453,8 +3415,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3519,9 +3480,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3561,8 +3521,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3627,9 +3586,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3669,8 +3627,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3735,9 +3692,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3776,8 +3732,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3842,9 +3797,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3883,8 +3837,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -3949,9 +3902,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -3990,8 +3942,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -4056,9 +4007,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -4097,8 +4047,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -4163,9 +4112,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -4204,8 +4152,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -4270,9 +4217,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -4310,8 +4256,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -4374,9 +4319,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -4924,8 +4868,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -4987,9 +4930,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5028,8 +4970,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5095,9 +5036,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5137,8 +5077,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5204,9 +5143,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5245,8 +5183,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5312,9 +5249,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5353,8 +5289,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5420,9 +5355,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5461,8 +5395,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5528,9 +5461,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5569,8 +5501,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5636,9 +5567,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5678,8 +5608,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5745,9 +5674,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5787,8 +5715,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5854,9 +5781,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -5898,8 +5824,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -5997,9 +5922,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6038,8 +5962,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6105,9 +6028,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6146,8 +6068,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6213,9 +6134,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6254,8 +6174,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6321,9 +6240,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6362,8 +6280,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6428,9 +6345,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6469,8 +6385,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6535,9 +6450,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6576,8 +6490,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6642,9 +6555,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6826,8 +6738,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -6924,9 +6835,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -6967,8 +6877,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7065,9 +6974,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7108,8 +7016,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7207,9 +7114,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7251,8 +7157,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7350,9 +7255,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7393,8 +7297,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7492,9 +7395,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7536,8 +7438,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7635,9 +7536,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7679,8 +7579,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7777,9 +7676,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7820,8 +7718,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -7918,9 +7815,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -7961,8 +7857,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -8026,9 +7921,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $this->input->post("longg"));
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -8064,8 +7958,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -8129,9 +8022,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -8172,8 +8064,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -8299,9 +8190,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -8341,8 +8231,7 @@ class hotdealsearch_model extends CI_Model{
         	$dealtitle = $this->session->userdata('dealtitle');
         	$dealprice = $this->session->userdata('dealprice');
         	$recentdays = $this->session->userdata('recentdays');
-        	$latt = $this->session->userdata('latt');
-        	$longg = $this->session->userdata('longg');
+        	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
         	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -8468,9 +8357,8 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($latt) {
-				$this->db->where("loc.latt", $latt);
-				$this->db->where("loc.longg", $longg);
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
 			}
 
 
@@ -11124,11 +11012,28 @@ class hotdealsearch_model extends CI_Model{
 
         public function jobs_hotdeals(){
         		$date = date("Y-m-d H:i:s");
+        		$bustype = $this->session->userdata('bus_id');
+        		$locname = $this->session->userdata('location');
 				$cat_id =  $this->session->userdata('cat_id');
 				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 				$this->db->from('sub_category');
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
-					$this->db->where('sub_category.category_id', 1);
+				if ($bustype) {
+		        	if ($bustype !='all') {
+		        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type ='$bustype' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+		        	}
+		        	else{
+		        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+		        	}
+		        }
+		        else{
+	        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+	        	}
+
+	        	if ($locname != '') {
+					$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+				}
+				
+				$this->db->where('sub_category.category_id', 1);
 				$this->db->group_by("sub_category.sub_category_id");
 				$rs = $this->db->get();
 				// echo $this->db->last_query(); exit;
@@ -11138,167 +11043,544 @@ class hotdealsearch_model extends CI_Model{
 			public function hotdeals_pck_hotdeals(){
 				$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('cat_id');
-        	$pcktype = '(
-					(postad.package_type = "3" OR postad.package_type = "6") OR 
-					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
         	if ($cat_id != 'all') {
         		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
-        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");
+
+        			$this->db->select('COUNT(*) as urgentcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$urgentcount = $this->db->get()->row('urgentcount');
+
+					$this->db->select('COUNT(*) as platinumcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$platinumcount = $this->db->get()->row('platinumcount');
+
+					$this->db->select('COUNT(*) as goldcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$goldcount = $this->db->get()->row('goldcount');
+
+					$this->db->select('COUNT(*) as freecount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$freecount = $this->db->get()->row('freecount');
+					$rs = array('urgentcount'=>$urgentcount,'platinumcount'=>$platinumcount,'goldcount'=>$goldcount,'freecount'=>$freecount);
         		}
         		else{
-        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS urgentcount,
+        			$this->db->select('COUNT(*) as urgentcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$urgentcount = $this->db->get()->row('urgentcount');
+
+					$this->db->select('COUNT(*) as platinumcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$platinumcount = $this->db->get()->row('platinumcount');
+
+					$this->db->select('COUNT(*) as goldcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$goldcount = $this->db->get()->row('goldcount');
+
+					$this->db->select('COUNT(*) as freecount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$freecount = $this->db->get()->row('freecount');
+					$rs = array('urgentcount'=>$urgentcount,'platinumcount'=>$platinumcount,'goldcount'=>$goldcount,'freecount'=>$freecount);
+        			/*$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date'  AND $pcktype) AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");
+			(SELECT COUNT(*) FROM postad WHERE category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");*/
         		}
         	}
         	else{
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE urgent_package != '0' AND postad.ad_status = 1) AS urgentcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 3 OR package_type = 6) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS platinumcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 2 OR package_type = 5) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25' AND $pcktype) AS goldcount,
-			(SELECT COUNT(*) FROM postad WHERE (package_type = 1 OR package_type = 4) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75' AND $pcktype) AS freecount");	
-        	}
+        		$this->db->select('COUNT(*) as urgentcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("category_id = '$cat_id' AND urgent_package != '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$urgentcount = $this->db->get()->row('urgentcount');
+
+					$this->db->select('COUNT(*) as platinumcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("(package_type = 3 OR package_type = 6) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$platinumcount = $this->db->get()->row('platinumcount');
+
+					$this->db->select('COUNT(*) as goldcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("(package_type = 2 OR package_type = 5) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '25'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$goldcount = $this->db->get()->row('goldcount');
+
+					$this->db->select('COUNT(*) as freecount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					$this->db->where("(package_type = 1 OR package_type = 4) AND urgent_package = '0' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.likes_count >= '75'");
+					if ($locname != '') {
+						$this->db->where("(loc.loc_name LIKE '$locname%' 
+		  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+					}
+					if ($bustype != 'all') {
+						$this->db->where("ad_type",$bustype);
+					}
+					$freecount = $this->db->get()->row('freecount');
+					$rs = array('urgentcount'=>$urgentcount,'platinumcount'=>$platinumcount,'goldcount'=>$goldcount,'freecount'=>$freecount);
+
+		     }
         	
-        	$rs = $this->db->get();
-        	// echo $this->db->last_query(); exit;
-        	return $rs->result();
+        	return $rs;
         }
 
 		public function sellerneededhot_jobs(){
 			$date = date("Y-m-d H:i:s");
-			$pcktype = '(
-					(postad.package_type = "3" OR postad.package_type = "6") OR 
-					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1 AND postad.expire_data >='$date'
-        		AND $pcktype) AS company,
-			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS agency,
-			(SELECT COUNT(*) FROM job_details, postad WHERE job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype) AS other");
-        	$rs = $this->db->get();
-        	return $rs->result();
+			$bustype = $this->session->userdata('bus_id');
+			$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+        	$locname = $this->session->userdata('location');
+
+        	$this->db->select('COUNT(*) as company', false);
+    		$this->db->from('job_details, postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Company' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$company = $this->db->get()->row('company');
+
+			$this->db->select('COUNT(*) as agency', false);
+    		$this->db->from('job_details, postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Agency' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$agency = $this->db->get()->row('agency');
+
+			$this->db->select('COUNT(*) as other', false);
+    		$this->db->from('job_details, postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("job_details.ad_id = postad.ad_id AND job_details.jobtype_title = 'Other' AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$other = $this->db->get()->row('other');
+
+        	$rs = array('company'=>$company,'agency'=>$agency,'other'=>$other);
+        	return $rs;
         }
 
          /*services seller and needed count*/
         public function sellerneededhot_services(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = '(
-					(postad.package_type = "3" OR postad.package_type = "6") OR 
-					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_provider' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS provider,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND services = 'service_needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed");
-        	$rs = $this->db->get();
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	
+        	$this->db->select('COUNT(*) as provider', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '2' AND services = 'service_provider' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$provider = $this->db->get()->row('provider');
+
+			$this->db->select('COUNT(*) as needed', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '2' AND services = 'service_needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$needed = $this->db->get()->row('needed');
+
+        	$rs = array('provider'=>$provider,'needed'=>$needed);
         	// echo $this->db->last_query(); exit;
-        	return $rs->result();
+        	return $rs;
         }
 
         public function sellerneededhot_motors(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = '(
-			(postad.package_type = "3" OR postad.package_type = "6") OR 
-			((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-			OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-			OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-			OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS forhire");
-        	$rs = $this->db->get();
-        	return $rs->result();
+        	$locname = $this->session->userdata('location');
+        	$bustype = $this->session->userdata('bus_id');
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$this->db->select('COUNT(*) as seller', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '3' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$seller = $this->db->get()->row('seller');
+
+			$this->db->select('COUNT(*) as needed', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '3' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$needed = $this->db->get()->row('needed');
+
+			$this->db->select('COUNT(*) as forhire', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '3' AND services = 'ForHire' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$forhire = $this->db->get()->row('forhire');
+
+        	$rs = array('seller'=>$seller,'needed'=>$needed,'forhire'=>$forhire);
+        	return $rs;
         }
 
          public function sellerneededhot_property(){
          	$date = date("Y-m-d H:i:s");
-         	$pcktype = '(
-					(ad.package_type = "3" OR ad.package_type = "6") OR 
-					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50")
-					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
+         	$locname = $this->session->userdata('location');
+         	$bustype = $this->session->userdata('bus_id');
+         	$pcktype = '((ad.package_type = "3" OR ad.package_type = "6") OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" ) OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")	OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50") OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25"))';
+			
+			$this->db->select('COUNT(*) as offered', false);
+    		$this->db->from('postad AS ad, property_resid_commercial AS prc');
+    		$this->db->join("location as loc", "loc.ad_id = ad.ad_id", "left");
+			$this->db->where("ad.ad_id = prc.ad_id AND ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad.ad_type = '$bustype'");
+			}
+			$offered = $this->db->get()->row('offered');
 
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS offered,
-			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
-			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS wanted");
-        	$rs = $this->db->get();
-        	return $rs->result();
+			$this->db->select('COUNT(*) as wanted', false);
+    		$this->db->from('postad AS ad, property_resid_commercial AS prc');
+    		$this->db->join("location as loc", "loc.ad_id = ad.ad_id", "left");
+			$this->db->where("ad.ad_id = prc.ad_id AND ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad.ad_type = '$bustype'");
+			}
+			$wanted = $this->db->get()->row('wanted');
+
+        	$rs = array('offered'=>$offered,'wanted'=>$wanted);
+        	return $rs;
         }
 
         public function sellerneededhot_pets(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = '(
-					(postad.package_type = "3" OR postad.package_type = "6") OR 
-					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed");
-        	$rs = $this->db->get();
-        	return $rs->result();
+        	$locname = $this->session->userdata('location');
+        	$bustype = $this->session->userdata('bus_id');
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	
+        	$this->db->select('COUNT(*) as seller', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '5' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$seller = $this->db->get()->row('seller');
+
+			$this->db->select('COUNT(*) as needed', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '5' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$needed = $this->db->get()->row('needed');
+			$rs = array('seller'=>$seller,'needed'=>$needed);
+        	return $rs;
         }
 
         public function sellerneededhot_clothstyle(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = '(
-					(ad.package_type = "3" OR ad.package_type = "6") OR 
-					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50")
-					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Seller' AND ad.category_id = '6'  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Needed' AND ad.category_id = '6'  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS needed,
-			(SELECT COUNT(*) FROM postad AS ad WHERE ad.services = 'Charity' AND ad.category_id = '6' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS charity");
-        	$rs = $this->db->get();
-        	return $rs->result();
+        	$locname = $this->session->userdata('location');
+        	$bustype = $this->session->userdata('bus_id');
+        	$pcktype = '((package_type = "3" OR package_type = "6") OR ((package_type = "2" OR package_type = "5" )AND urgent_package != "0" ) OR ((package_type = "1" OR package_type = "4" )AND urgent_package != "0" AND likes_count >= "75")	OR ((package_type = "1" OR package_type = "4" )AND urgent_package = "0" AND likes_count >= "50") OR ((package_type = "2" OR package_type = "5" )AND urgent_package = "0" AND likes_count >= "25"))';
+        	
+        	$this->db->select('COUNT(*) as seller', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("services = 'Seller' AND category_id = '6'  AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$seller = $this->db->get()->row('seller');
+
+			$this->db->select('COUNT(*) as needed', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("services = 'Needed' AND category_id = '6'  AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$needed = $this->db->get()->row('needed');
+
+			$this->db->select('COUNT(*) as charity', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("services = 'Charity' AND category_id = '6' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$charity = $this->db->get()->row('charity');
+
+        	$rs = array('seller'=>$seller,'needed'=>$needed,'charity'=>$charity);
+        	return $rs;
         }
 
          public function sellerneededhot_kitchen(){
          	$date = date("Y-m-d H:i:s");
-         	$pcktype = '(
-					(postad.package_type = "3" OR postad.package_type = "6") OR 
-					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '7' AND services = 'Charity' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS charity");
-        	$rs = $this->db->get();
-        	return $rs->result();
+         	$locname = $this->session->userdata('location');
+         	$bustype = $this->session->userdata('bus_id');
+         	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$this->db->select('COUNT(*) as seller', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '7' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$seller = $this->db->get()->row('seller');
+
+			$this->db->select('COUNT(*) as needed', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '7' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$needed = $this->db->get()->row('needed');
+
+			$this->db->select('COUNT(*) as charity', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '7' AND services = 'Charity' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$charity = $this->db->get()->row('charity');
+
+        	$rs = array('seller'=>$seller,'needed'=>$needed,'charity'=>$charity);
+        	return $rs;
         }
 
         public function sellerneededhot_ezone(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = '(
-					(postad.package_type = "3" OR postad.package_type = "6") OR 
-					((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" )
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")
-					OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50")
-					OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS seller,
-			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype) AS needed");
-        	$rs = $this->db->get();
-        	return $rs->result();
+        	$locname = $this->session->userdata('location');
+        	$bustype = $this->session->userdata('bus_id');
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$this->db->select('COUNT(*) as seller', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '8' AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$seller = $this->db->get()->row('seller');
+
+			$this->db->select('COUNT(*) as needed', false);
+    		$this->db->from('postad');
+    		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+			$this->db->where("category_id = '8' AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date' AND $pcktype");
+			if ($locname != '') {
+				$this->db->where("(loc.loc_name LIKE '$locname%' 
+  					OR loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname%')");
+			}
+			if ($bustype != 'all') {
+				$this->db->where("ad_type",$bustype);
+			}
+			$needed = $this->db->get()->row('needed');
+        	
+        	$rs = array('seller'=>$seller,'needed'=>$needed);
+        	return $rs;
         }
 
         public function subcat_prof_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 9);
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$bustype' AND $pcktype", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+			
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	return $rs->result();
@@ -11306,11 +11588,27 @@ class hotdealsearch_model extends CI_Model{
 
         public function subcat_pop_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	$this->db->where("sscat.sub_category_id", 10);
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$bustype' AND $pcktype", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+			
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	return $rs->result();
@@ -11319,25 +11617,53 @@ class hotdealsearch_model extends CI_Model{
         /*find a property*/
         public function subcat_resi_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
-			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
-        	$this->db->where("sscat.sub_category_id", 11);
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+	        	}
+	        	else{
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+			$this->db->where("sscat.sub_category_id", 11);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
-        	// echo $this->db->last_query(); exit;
+        	 // echo $this->db->last_query(); exit;
         	return $rs->result();
         }
 
         public function subcat_comm_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi
-			WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+	        	}
+	        	else{
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 26);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11348,10 +11674,25 @@ class hotdealsearch_model extends CI_Model{
         /*pets sub sub*/
         public function subcat_pets_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((postad.package_type = '6') OR ((postad.package_type = '5')AND postad.urgent_package != '0' ) OR ((postad.package_type = '4')AND postad.urgent_package != '0' AND postad.likes_count >= '75')OR ((postad.package_type = '4')AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '5')AND postad.urgent_package = '0' AND postad.likes_count >= '25'))";
         	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 			$this->db->from('sub_category');
-			$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype AND postad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
 			$this->db->where('sub_category.category_id', 5);
 			$this->db->group_by("sub_category.sub_category_id");
 			$this->db->limit(4);
@@ -11360,21 +11701,51 @@ class hotdealsearch_model extends CI_Model{
         }
         public function subcat_bigpets_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
-        	$this->db->where("sscat.sub_category_id", 5);
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+			$this->db->where("sscat.sub_category_id", 5);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	return $rs->result();
         }
          public function subcat_smallpets_hotdeals(){
          	$date = date("Y-m-d H:i:s");
-         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 6);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11383,10 +11754,25 @@ class hotdealsearch_model extends CI_Model{
 
         public function subcat_petsaccess_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 7);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11397,10 +11783,25 @@ class hotdealsearch_model extends CI_Model{
         /*women*/
         public function subcat_women_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 20);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11409,10 +11810,25 @@ class hotdealsearch_model extends CI_Model{
         /*men*/
         public function subcat_men_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 21);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11421,10 +11837,25 @@ class hotdealsearch_model extends CI_Model{
         /*boy*/
         public function subcat_boy_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 22);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11433,10 +11864,25 @@ class hotdealsearch_model extends CI_Model{
          /*girl*/
         public function subcat_girl_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 23);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11445,10 +11891,25 @@ class hotdealsearch_model extends CI_Model{
          /*bboy*/
         public function subcat_bboy_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 24);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11457,10 +11918,25 @@ class hotdealsearch_model extends CI_Model{
          /*bgirl*/
         public function subcat_bgirl_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 25);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11471,10 +11947,25 @@ class hotdealsearch_model extends CI_Model{
         /*kitchen*/
         public function subcat_kitchen_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 67);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11483,10 +11974,25 @@ class hotdealsearch_model extends CI_Model{
         /*home*/
         public function subcat_home_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 68);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11495,10 +12001,25 @@ class hotdealsearch_model extends CI_Model{
         /*decor*/
         public function subcat_decor_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 69);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11509,10 +12030,25 @@ class hotdealsearch_model extends CI_Model{
         /*phone tablets*/
         public function subcat_phone_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 59);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11521,10 +12057,25 @@ class hotdealsearch_model extends CI_Model{
         /*home apps*/
         public function subcat_homeapp_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 60);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11533,10 +12084,25 @@ class hotdealsearch_model extends CI_Model{
         /*small apps*/
         public function subcat_smallapp_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 61);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11545,10 +12111,25 @@ class hotdealsearch_model extends CI_Model{
         /*laptop apps*/
         public function subcat_lappy_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 62);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11557,10 +12138,25 @@ class hotdealsearch_model extends CI_Model{
         /*accessories*/
         public function subcat_access_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 63);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11569,10 +12165,25 @@ class hotdealsearch_model extends CI_Model{
        	/*personal care*/
         public function subcat_pcare_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 64);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11581,10 +12192,25 @@ class hotdealsearch_model extends CI_Model{
          /*home entertainment*/
         public function subcat_henter_hotdeals(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 65);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11593,10 +12219,25 @@ class hotdealsearch_model extends CI_Model{
         /*Photography*/
         public function subcat_pgraphy_hotdeals(){
         	$date = date("Y-m-d H:i:s");
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	if ($bustype) {
+	        	if ($bustype !='all') {
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype'", "left");
+	        	}
+	        	else{
+	        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+	        	}
+	        }
+	        else{
+        		$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
+        	}
+        	if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 66);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11607,11 +12248,26 @@ class hotdealsearch_model extends CI_Model{
         /*cars*/
         public function subcat_cars_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$bustype' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 12);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11622,11 +12278,27 @@ class hotdealsearch_model extends CI_Model{
         /*bikes*/
         public function subcat_bikes_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes
-			WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes	WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT bikes.* FROM `postad` AS ad, `motor_bike_ads` AS bikes WHERE bikes.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+        	
         	$this->db->where("sscat.sub_category_id", 13);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11637,11 +12309,26 @@ class hotdealsearch_model extends CI_Model{
         /*motor homes*/
         public function subcat_motorhomes_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` 
-		      AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT mh.* FROM `postad` AS ad, `motor_home_ads` AS mh WHERE mh.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 14);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11651,11 +12338,26 @@ class hotdealsearch_model extends CI_Model{
         /*vans*/
         public function subcat_vans_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$bustype' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 15);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11665,11 +12367,26 @@ class hotdealsearch_model extends CI_Model{
         /*coaches buses*/
         public function subcat_buses_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars
-			WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$bustype' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 16);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11679,11 +12396,27 @@ class hotdealsearch_model extends CI_Model{
         /*plant machinery*/
         public function subcat_plant_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
-			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+        	
         	$this->db->where("sscat.sub_category_id", 17);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11694,11 +12427,26 @@ class hotdealsearch_model extends CI_Model{
         /*farming vehicles*/
         public function subcat_farming_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf
-			WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT pf.* FROM `postad` AS ad, `motor_plant_farming` AS pf WHERE pf.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
         	$this->db->where("sscat.sub_category_id", 18);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -11708,11 +12456,27 @@ class hotdealsearch_model extends CI_Model{
         /*boating */
         public function subcat_boats_hotdeals(){
         	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+        	$locname = $this->session->userdata('location');
         	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb
-			WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+        	if ($bustype) {
+				if ($bustype != '') {
+					$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+				else{
+					$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				}
+			}
+			else{
+				$this->db->join("(SELECT mb.* FROM `postad` AS ad, `motor_boats` AS mb WHERE mb.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+			}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+        	
         	$this->db->where("sscat.sub_category_id", 19);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();

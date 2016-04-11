@@ -50,10 +50,12 @@ class Login_model extends CI_Model{
     public function forgot($mail){
          $config = Array(
                  'protocol' => 'smtp',
-                 'smtp_host' => 'ssl://smtp.googlemail.com',
-                 'smtp_port' => 465,
-                 'smtp_user' => 'c.punnam@googlemail.com',
-                 'smtp_pass' => '12chandru12',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => '99rightdeals@googlemail.com',
+                'smtp_pass' => 'S@ibaba2016',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
                  );
 
          $this->db->select("*");
