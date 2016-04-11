@@ -34,6 +34,7 @@
 			.owl-item{
 				width: 283px !important;
 			}
+			
 		</style>
 		
 	</head>
@@ -1412,12 +1413,13 @@
 		</script>
 		
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
-		<script src="<?php echo base_url(); ?>js/bootstrap-slider.js"></script>
 		
 		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
 		<script>
 			$(document).ready(function(){
 				$('#list-autocomplete').autocomplete({
+					//search  : function(){$(this).addClass('working');},
+					//open    : function(){$(this).removeClass('working');},
 					source: '<?php echo base_url(); ?>classified/search_autocomplete',
 					minLength: 1,
 					messages: {
@@ -1427,13 +1429,6 @@
 			});
 		</script>
 		
-		<script>
-			var slider = new Slider('#ex5a', {
-				formatter: function(value) {
-					return  value + 'mi';
-				}
-			});
-		</script>
 		<script type="text/javascript">
             jQuery(document).ready(function() {
                 jQuery('.tp-banner').show().revolution({
