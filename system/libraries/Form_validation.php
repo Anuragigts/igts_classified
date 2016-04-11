@@ -191,11 +191,11 @@ class CI_Form_validation {
 
         // This sets the error message for your custom validation
         // rule. %s will be replaced with the field name if needed.
-        $this->set_message('check_pass', 'Password needs to have at least one uppercase letter, one lower case letter, a number and one special character.');
+        $this->set_message('check_pass', 'Password needs to have at least one uppercase letter, one lower case letter, a number.');
 
         // The regex looks ahead for at least one lowercase letter,
         // one uppercase letter and a number. IT'S NOT TESTED THOUGH.
-        return (bool) preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@|#|_|-|+|=|*]).+$/', $pass);
+        return (bool) preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', $pass);
     }
 
 
