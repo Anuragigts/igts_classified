@@ -644,6 +644,12 @@
 			address(position.latt, position.lng);
 				});
 			  }
+			  document.getElementByClass("ui-corner-all").onclick = function() {
+			getPosition(function(position){
+			    setup_map(position.latt, position.lng);
+				address(position.latt, position.lng);
+			});
+		  }
 			}
 		</script> 
 	</head>
@@ -1728,6 +1734,18 @@
 			<script>
 				$(document).ready(function () { 
 				$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 
+				});
+			</script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
+			<script>
+				$(document).ready(function(){
+					$('#postalcode').autocomplete({
+						source: '<?php echo base_url(); ?>classified/postalcode_search',
+						minLength: 1,
+						messages: {
+							noResults:'No Data Found'
+						}
+					});
 				});
 			</script>
 			<!-- Modal -->

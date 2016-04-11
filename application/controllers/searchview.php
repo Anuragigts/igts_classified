@@ -275,7 +275,21 @@ class  Searchview extends CI_Controller{
         }
 
         public function addsave_search(){
-            $save = $this->classifed_model->addsaved_search();
+            $exist = $this->classifed_model->addexist_search(); 
+            if ($exist > 0) {
+                $this->session->set_flashdata("err", 'already saved the search');
+                echo 0;
+            }
+            else{
+              $save = $this->classifed_model->addsaved_search();
+              if ($save == 1) {
+                  $this->session->set_userdata('saved_msg', 'Your search is saved');
+                  $this->session->set_userdata('saved_time', time());
+                  echo 1;
+              }
+            }
+
+            /*$save = $this->classifed_model->addsaved_search();
             if ($save == 1) {
                 $this->session->set_userdata('saved_msg', 'Your search is saved');
                 $this->session->set_userdata('saved_time', time());
@@ -283,7 +297,7 @@ class  Searchview extends CI_Controller{
             }
             else{
                 echo 0;
-            }
+            }*/
         }
 
         public function deletesave_search(){

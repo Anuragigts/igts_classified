@@ -2591,6 +2591,13 @@ GROUP BY img.ad_id
 		}
 	}
 
+	public function addexist_search(){
+		$this->db->where("save_search", $this->session->userdata("saved_search"));
+		$this->db->where("login_id", $this->session->userdata("login_id"));
+		$rs = $this->db->count_all_results("saved_searchs");
+		return $rs;
+	}
+
 	public function addsaved_hotdeals(){
 		$data = array(
 					  'login_id' => $this->session->userdata("login_id"),

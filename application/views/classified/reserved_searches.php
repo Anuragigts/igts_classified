@@ -74,17 +74,22 @@
 														$scat = @mysql_result(mysql_query("SELECT category_name FROM `catergory` WHERE category_id = '$search_listval->search_cat' "), 0, 'category_name');
 													}
 													else{
-														$scat = 'all';
+														$scat = 'All';
 													}
 												 ?>
 													<div id="div1" class="<?php echo "del".$search_listval->id.$search_listval->login_id; ?>">
 														<div class="row">
-															<?php if ($search_listval->search_title != '') { ?>
 																<div class="col-sm-10">
-																	<h5><a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a> in
+																	<h5>
+																		<?php if ($search_listval->search_title != '') { ?>
+																			<a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a> in
+																		<?php } ?>
 																	<a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $scat." categories"; ?></a>
 																	</h5>
-																	<p><img src="<?php echo base_url(); ?>img/icons/location_map.png" class="my_wishes" alt="map" class="map_icon"> <?php if ($search_listval->search_loc != '') {
+																	<p>
+																		<?php if ($search_listval->search_loc != '') { ?>
+																		<img src="<?php echo base_url(); ?>img/icons/location_map.png" class="my_wishes" alt="map" class="map_icon"> 
+																		<?php 
 																		echo $search_listval->search_loc;
 																		}  ?>
 																	</p>
@@ -94,7 +99,6 @@
 																		<a href="javascript:void(0);" id="<?php echo $search_listval->id.",".$search_listval->login_id; ?>"  class="delete-bg"> Delete</a>
 																	</div>
 																</div>
-															<?php }?>
 														</div><hr class="separator">
 													</div>
 												<?php } ?>

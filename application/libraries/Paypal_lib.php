@@ -247,7 +247,6 @@ class paypal_lib {
 	
 	function curlPost($paypalurl,$paypalreturnarr)
 	{
-		
 		$req = 'cmd=_notify-validate';
 		foreach($paypalreturnarr as $key => $value) 
 		{

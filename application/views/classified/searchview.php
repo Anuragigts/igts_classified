@@ -91,11 +91,6 @@
 			
 		</script>
 			  <?php
-			  /*foreach ($busconcount as $countval) {
-			  	$allbustype = $countval->allbustype;
-			  	$business = $countval->business;
-			  	$consumer = $countval->consumer;
-			  }*/
 			  if (array_key_exists('allbustype', $busconcount)) {
 				   $allbustype = $busconcount['allbustype'];
 				}
@@ -1072,6 +1067,12 @@
 											    </h4>
 											</div>
 										<?php } ?>
+										<?php if($this->session->flashdata("err") != ""){ ?>
+										<div class="alert alert-danger">
+										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+										<h4><?php echo $this->session->flashdata("err");?></h4>
+										</div>
+										<?php }?>
 										
 										<div class="sort-by-container tooltip-hover">
 											<div class="row">
@@ -1186,9 +1187,9 @@
 								search_loc: $("#search_loc").val()
 							},
 							success: function (data) {
-								if (data == 1) {
+								// if (data == 1) {
 									window.location.reload();
-								};
+								// };
 							}
 						})
 					}

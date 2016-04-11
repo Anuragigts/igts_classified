@@ -102,10 +102,14 @@ class Classified extends CI_Controller{
 
         public function search_autocomplete(){
             $keyword = $this->input->get('term');
-             $query = mysql_query("select * from ukcities where city_name like '".$keyword."%' limit 0,10");
+            $query = mysql_query("SELECT * FROM (SELECT postcode AS uk_keyword FROM uk_postcodes WHERE postcode LIKE '".$keyword."%'
+                                UNION SELECT district AS uk_keyword FROM uk_postcodes WHERE district LIKE '".$keyword."%'
+                                UNION SELECT town AS uk_keyword FROM uk_postcodes WHERE town LIKE '".$keyword."%'
+                                UNION SELECT county AS uk_keyword FROM uk_postcodes WHERE county LIKE '".$keyword."%'
+                                UNION SELECT country AS uk_keyword FROM uk_postcodes WHERE country LIKE '".$keyword."%') AS search_keyword LIMIT 0,10");
              if (mysql_num_rows($query) >0 ) {
                  while ($row = mysql_fetch_assoc($query)) {
-                    $data[] = $row['city_name'];
+                    $data[] = $row['uk_keyword'];
                 }
              }
              else{
@@ -115,5 +119,23 @@ class Classified extends CI_Controller{
                 //return json data
                 echo json_encode($data);
         }
+
+        public function postalcode_search(){
+            $keyword = $this->input->get('term');
+            $query = mysql_query("SELECT * FROM (SELECT postcode AS uk_keyword FROM uk_postcodes WHERE postcode LIKE '".$keyword."%') AS search_keyword LIMIT 0,10");
+             if (mysql_num_rows($query) >0 ) {
+                 while ($row = mysql_fetch_assoc($query)) {
+                    $data[] = $row['uk_keyword'];
+                }
+             }
+             else{
+                $data[] = '';
+             }
+                
+                //return json data
+                echo json_encode($data);
+        }
+
+
 }
 ?>
