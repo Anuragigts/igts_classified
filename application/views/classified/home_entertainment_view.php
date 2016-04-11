@@ -349,6 +349,19 @@
 		<script>
 			$('.xuSlider').xuSlider();
 		</script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#find_loc').autocomplete({
+					source: '<?php echo base_url(); ?>classified/search_autocomplete',
+					minLength: 1,
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+			});
+		</script>
+		
 		
 		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 

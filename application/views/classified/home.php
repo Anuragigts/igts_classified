@@ -1414,6 +1414,19 @@
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
 		<script src="<?php echo base_url(); ?>js/bootstrap-slider.js"></script>
 		
+		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#list-autocomplete').autocomplete({
+					source: '<?php echo base_url(); ?>classified/search_autocomplete',
+					minLength: 1,
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+			});
+		</script>
+		
 		<script>
 			var slider = new Slider('#ex5a', {
 				formatter: function(value) {

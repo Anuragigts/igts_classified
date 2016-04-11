@@ -1086,11 +1086,15 @@
 
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script>
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+		
 		<script type="text/javascript">
-		setTimeout(function(){
-			$(".alert").hide();
-		}, 5000);
+			setTimeout(function(){
+				$(".alert").hide();
+			}, 5000);
 		</script>
+		
+		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
+		
 		<script>
 			$(document).ready(function(){
 				$('#list-autocomplete').autocomplete({
@@ -1101,6 +1105,7 @@
 				});
 			});
 		</script>
+		
 		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
 
 		<!-- xxx footerscript Content xxx -->
