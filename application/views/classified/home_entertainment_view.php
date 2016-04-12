@@ -349,7 +349,7 @@
 		<script>
 			$('.xuSlider').xuSlider();
 		</script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
+
 		<script>
 			$(document).ready(function(){
 				$('#find_loc').autocomplete({

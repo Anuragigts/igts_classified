@@ -837,7 +837,7 @@
 														</div>
 														<div class="span2 unit" class='del_img'>
 															<a href='javascript:void(0);' id="del_img" style='display:none;'>
-															<img src="<?php echo base_url(); ?>pictures/delete.png" alt='delete' title="Delete"/></a>
+															<img src="<?php echo base_url(); ?>img/delete.png" alt='delete' title="Delete"/></a>
 														</div>
 													</div>
 												</div>
@@ -1799,7 +1799,6 @@
 			$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 
 			});
 		</script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>j-folder/js/jquery-ui.min.js"></script>
 		<script>
 			$(document).ready(function(){
 				$('#postalcode').autocomplete({
