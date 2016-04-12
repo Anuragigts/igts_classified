@@ -91,7 +91,6 @@ class  Services_view extends CI_Controller{
                 $this->load->view("classified_layout/inner_template",$data);
         }
         public function search_filters(){
-            //echo '<pre>';print_r($this->input->post());echo '</pre>';
             if($this->input->post()){
                 $this->session->unset_userdata('prof_service');
                 $this->session->unset_userdata('pop_service');

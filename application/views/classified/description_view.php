@@ -708,25 +708,7 @@
 										<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php 
 										// print_r($ads_loc);
 										foreach ($ads_loc as $ads_loc_val) {
-											// echo $ads_loc_val->loc_name;
-											// echo implode(",", array_slice(explode(",", $ads_loc_val->loc_name),1,2));
-											$latt = $ads_loc_val->latt;
-											$longg = $ads_loc_val->longg;
-											$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=true";
-											$ch = curl_init();
-											// Disable SSL verification
-											curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-											// Will return the response, if false it print the response
-											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-											// Set the url
-											curl_setopt($ch, CURLOPT_URL,$url);
-											// Execute
-											$result=curl_exec($ch);
-											// Closing
-											curl_close($ch);
-											$json_response = json_decode($result, true);
-											// echo "<pre>"; print_r($json_response); echo "</pre>";
-											echo $city_name = $json_response['results'][0]['address_components'][1]['short_name'].",".$json_response['results'][0]['address_components'][2]['short_name'];
+											echo $city_name = $ads_loc_val->town.",".$ads_loc_val->county;
 											} 
 											?></i></h4>
 										<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
@@ -754,7 +736,14 @@
 									<div class="text_center">
 										<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 									</div>
-									<?php echo $this->view("classified_layout/success_error"); ?>
+									<!-- feedback message alert -->
+									<?php if($this->session->flashdata("feedbackmsg") != ""){ ?>
+									<div class="alert">
+									    <h3 style='color: red;'>
+									        <?php echo $this->session->flashdata("feedbackmsg");?>
+									    </h3>
+									</div>
+									<?php } ?>
 									<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="send_now_desc">
 										<aside class="widget view_sidebar send_now_hide" style="display:none;">
 											<div class="j-row">

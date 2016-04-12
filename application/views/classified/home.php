@@ -452,7 +452,7 @@
 															<div class="significant_badge">
 															</div>
 															<div class="img-hover significant_ad">
-																<img src="<?php echo base_url(); ?>pictures/14594957602.jpg" title="significant" class="img-responsive">
+																<img src="<?php echo base_url(); ?>img/14594957602.jpg" title="significant" class="img-responsive">
 																<div class="overlay"><a href="#" ><i class="fa fa-link"></i></a></div>
 															</div>
 														<div class="info-gallery slider_bg">
@@ -461,7 +461,7 @@
 															<h3 class="home_price"><span class="pound_sym"></span>49</h3>
 															<a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 															<div class="bus_logo">
-																<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+																<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" /></b>
 															</div>
 															<div class="price11">
 																<span></span><b>
@@ -473,7 +473,7 @@
 															<div class="significant_badge">
 															</div>
 															<div class="img-hover significant_ad">
-																<img src="<?php echo base_url(); ?>pictures/14594957602.jpg" title="significant" class="img-responsive">
+																<img src="<?php echo base_url(); ?>img/14594957602.jpg" title="significant" class="img-responsive">
 																<div class="overlay"><a href="#" ><i class="fa fa-link"></i></a></div>
 															</div>
 														<div class="info-gallery slider_bg">
@@ -482,7 +482,7 @@
 															<h3 class="home_price"><span class="pound_sym"></span>29</h3>
 															<a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 															<div class="bus_logo">
-																<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+																<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" /></b>
 															</div>
 															<div class="price11">
 																<span></span><b>
@@ -1417,8 +1417,6 @@
 		<script>
 			$(document).ready(function(){
 				$('#list-autocomplete').autocomplete({
-					//search  : function(){$(this).addClass('working');},
-					//open    : function(){$(this).removeClass('working');},
 					source: '<?php echo base_url(); ?>classified/search_autocomplete',
 					minLength: 1,
 					messages: {
