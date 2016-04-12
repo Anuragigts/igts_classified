@@ -54,7 +54,6 @@
 															<span id="publish_date">07  NOV</span>
 															<span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
 															<span><i class="fa fa-comment"></i> <a href="#">2 Comments</a></span>
-															<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
 														</div>
 													</div>
 													<div class="col-xs-12 col-sm-10 blog-content">
@@ -79,30 +78,31 @@
 												</div>
 												
 												<div class="row">  
-													<div class="col-sm-12"><h4>Comments <a href="#">( 4 )</a></h4><hr></div>
 													<div class="col-sm-12">
-														<div class="info-testimonial">
-															<ul id="testimonials">
+														<h4>Comments</h4><hr>
+													</div>
+													<div class="col-sm-12 col-xs-12">
+														<div class="comments-blog">
+															<ul id="comments-bloglist" class="comments-bloglist">
 																<li>
-																	<p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue.<i class="fa fa-quote-right"></i></p>
-
-																	<h4>Comment One</h4>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star-half-o"></i>
-																</li>
-
-																<li>
-																	<p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue.<i class="fa fa-quote-right"></i></p>
-
-																	<h4>Comment Two</h4>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star"></i>
-																	<i class="fa fa-star-half-o"></i>
+																	<div class="comment-main-bloglevel">
+																		<div class="comment-avatar">
+																			<i class="fa fa-user fa-3x"></i>
+																		</div>
+																		<!-- Contenedor del Comentario -->
+																		<div class="comment-blogbox">
+																			<div class="comment-head">
+																				<h6 class="comment-name"><a href="">Agustin Ortiz</a></h6>
+																				<span>hace 20 minutes</span>
+																				<div class="reting_view">
+																					2 Ratings
+																				</div>
+																			</div>
+																			<div class="comment-content">
+																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+																			</div>
+																		</div>
+																	</div>
 																</li>
 															</ul>
 														</div>
@@ -173,7 +173,7 @@
 												</div>                     
 											</div>
 											
-											<div class="widget archieve">
+											<!--div class="widget archieve">
 												<h3>Archive</h3>
 												<div class="row">
 													<div class="col-sm-12">
@@ -189,7 +189,7 @@
 														</ul>
 													</div>
 												</div>                     
-											</div>
+											</div-->
 											
 										</aside>     
 

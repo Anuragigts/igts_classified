@@ -77,23 +77,8 @@
 		 foreach ($entertain_result1 as $sval1) {
 		 foreach ($sval1 as $sval) {
 			$personname = $sval->first_name;
-			  /*location*/
-			$latt = $sval->latt;
-			$longg = $sval->longg;
-			$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=true";
-			$ch = curl_init();
-			// Disable SSL verification
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			// Will return the response, if false it print the response
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			// Set the url
-			curl_setopt($ch, CURLOPT_URL,$url);
-			// Execute
-			$result=curl_exec($ch);
-			// Closing
-			curl_close($ch);
-			$json_response = json_decode($result, true);
-			$city_name = $json_response['results'][0]['address_components'][2]['short_name'];
+			/*location*/
+			$city_name = $sval->county;
 			/*currency symbol*/ 
 			if ($sval->currency == 'pound') {
 				$currency = '<span class="pound_sym"></span>';

@@ -89,7 +89,6 @@
 															<span id="publish_date">07  NOV</span>
 															<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
 															<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
-															<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
 														</div>
 													</div>
 														
@@ -178,7 +177,7 @@
 												</div>                     
 											</div>
 											
-											<div class="widget archieve">
+											<!--div class="widget archieve">
 												<h3>Archive</h3>
 												<div class="row">
 													<div class="col-sm-12">
@@ -194,7 +193,7 @@
 														</ul>
 													</div>
 												</div>                     
-											</div>
+											</div-->
 											
 										</aside>  
 									</div>

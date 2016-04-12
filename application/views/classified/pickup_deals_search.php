@@ -1,31 +1,16 @@
 	<!-- platinum+urgent package start -->
 	<?php foreach (@$pickup_deals as $pvalue) {
-		/*location*/
-			$latt = $pvalue->latt;
-			$longg = $pvalue->longg;
-			$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latt.",".$longg."&sensor=true";
-			$ch = curl_init();
-			// Disable SSL verification
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			// Will return the response, if false it print the response
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			// Set the url
-			curl_setopt($ch, CURLOPT_URL,$url);
-			// Execute
-			$result=curl_exec($ch);
-			// Closing
-			curl_close($ch);
-			$json_response = json_decode($result, true);
-			$city_name = $json_response['results'][0]['address_components'][2]['short_name'];
-		/*currency symbol*/ 
-		if ($pvalue->currency == 'pound') {
-			$currency = '<span class="pound_sym"></span>';
-		}
-		else if ($pvalue->currency == 'euro') {
-			$currency = '<span class="euro_sym"></span>';
-		}
-		if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package != '0') {
-		?>
+			/*location*/
+			$city_name = $pvalue->county;
+			/*currency symbol*/ 
+			if ($pvalue->currency == 'pound') {
+				$currency = '<span class="pound_sym"></span>';
+			}
+			else if ($pvalue->currency == 'euro') {
+				$currency = '<span class="euro_sym"></span>';
+			}
+			if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package != '0') {
+			?>
 	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
 		<div class="first_list">
 			<div class="row">
