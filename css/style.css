@@ -4494,7 +4494,7 @@ a .login-op-btn:hover {
     width: 136px;
 	height: 48px;
 	background: transparent url("../img/icons/reco.png") no-repeat;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	z-index: 7;
 	right: -220px;
@@ -4521,9 +4521,8 @@ a .login-op-btn:hover {
     width: 121px;
     height: 87px;
     background: transparent url("../img/icons/reco.png") no-repeat;
-    padding-top: 5px;
     position: absolute;
-    left: 165px;
+    margin-left: 172px;
     top: 0px;
     z-index: 99;
 }
