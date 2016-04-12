@@ -76,6 +76,23 @@
 		$service_result1 = array_chunk($service_result, 10);
 		 foreach ($service_result1 as $sval1) {
 		 foreach ($sval1 as $sval) {
+		 	$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$sval->ad_id' GROUP BY ad_id");
+		 	if (mysql_num_rows($qry) > 0) {
+		 		$no_ratings = mysql_result($qry,0,'no_ratings');
+		 		$rating_sum = mysql_result($qry,0,'rating_sum');
+		 	}
+		 	else{
+		 		$no_ratings = 0;
+		 		$rating_sum = 0;
+		 	}
+		 	if ($no_ratings != 0) {
+		 		$avg_per = ($rating_sum/($no_ratings*5))*100;
+		 		$total_rating = round($avg_per/100)*5;
+		 	}
+		 	else{
+		 		$total_rating = 0;
+		 	}
+
 		 	$personname = $sval->first_name;
 			$city_name = $sval->county;
 			/*currency symbol*/ 
@@ -152,6 +169,13 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-4">
+									<ul class="starts">
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-half-empty"></i></a></li>
+									</ul>
 								</div>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
@@ -287,7 +311,13 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-4">
-									
+									<ul class="starts">
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-half-empty"></i></a></li>
+									</ul>
 								</div>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
@@ -405,7 +435,13 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-4">
-									
+									<ul class="starts">
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-half-empty"></i></a></li>
+									</ul>
 								</div>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
@@ -522,7 +558,13 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-4">
-									
+									<ul class="starts">
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-half-empty"></i></a></li>
+									</ul>
 								</div>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
@@ -635,7 +677,13 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-4">
-									
+									<ul class="starts">
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-half-empty"></i></a></li>
+									</ul>
 								</div>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
@@ -746,7 +794,13 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-4">
-									
+									<ul class="starts">
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-star-half-empty"></i></a></li>
+									</ul>
 								</div>
 								<div class="col-xs-8">
 									<div class="location pull-right ">

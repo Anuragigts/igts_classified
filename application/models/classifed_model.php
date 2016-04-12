@@ -541,6 +541,7 @@ GROUP BY img.ad_id
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -579,6 +580,7 @@ GROUP BY img.ad_id
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -1080,6 +1082,7 @@ GROUP BY img.ad_id
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
 		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
@@ -1109,6 +1112,7 @@ GROUP BY img.ad_id
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
 		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
