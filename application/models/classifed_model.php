@@ -723,6 +723,7 @@ GROUP BY img.ad_id
 		$this->db->join("uk_postcodes AS up", "up.latitude = loc.latt AND up.longitude = loc.longg", "join");
 		$this->db->where('loc.ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
+		// echo $this->db->last_query(); exit;
 		return $res->result();
 	}
 

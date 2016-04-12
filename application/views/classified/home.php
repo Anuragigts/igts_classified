@@ -439,7 +439,14 @@
 															} ?>
 														<div class="price11">
 															<span></span><b>
+															<?php  if ($hot_deals_val->package_type == '3' || $hot_deals_val->package_type == '6') {?>
 															<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+															<?php }
+															 ?>
+															 <?php  if ($hot_deals_val->package_type == '2' || $hot_deals_val->package_type == '5') {?>
+															<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Crown" title="Right Deal"></b>
+															<?php }
+															 ?>
 														</div>
 													</div>
 												</figure>

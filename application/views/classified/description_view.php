@@ -706,7 +706,6 @@
 										<h3> <?php echo $name; ?></h3>
 										<hr>
 										<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php 
-										// print_r($ads_loc);
 										foreach ($ads_loc as $ads_loc_val) {
 											echo $city_name = $ads_loc_val->town.",".$ads_loc_val->county;
 											} 
