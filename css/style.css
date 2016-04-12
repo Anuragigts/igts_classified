@@ -4518,11 +4518,11 @@ a .login-op-btn:hover {
     right: 0;
 }
 .bus_rec_badge {
-    width: 121px;
+    width: 138px;
     height: 87px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
-    margin-left: 172px;
+    margin-left: 163px;
     top: 0px;
     z-index: 99;
 }

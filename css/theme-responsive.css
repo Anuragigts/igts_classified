@@ -367,10 +367,13 @@
 		/*left: 105px;*/
 	}
 	.bus_rec_badge {
-		margin-left: 151px;
+		margin-left: 163px;
 	}
 	.significant_badge {
 		right: 0px;
+	}
+	.featured_badge_view {
+		right: -188px;
 	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -399,6 +402,7 @@
 	.sort-by-container ul .deal_admin_top {
 		width: 100% !important;
 	}
+
 }
 
 @media screen and (min-device-width: 360px) and (max-device-width: 640px) {
@@ -407,6 +411,15 @@
 	}
 	.seach_btn {
 		width: 100%;
+	}
+	.featured_badge_view {
+		right: 0px;
+	}
+	.bus_rec_badge {
+		margin-left: 164px;
+	}
+	.recentad_heig {
+		padding-bottom: 20px;
 	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 360px) {
@@ -495,12 +508,8 @@
 		padding: 7px 10px;
 		height: 273px;
 	}
-	.most_valued_badge{
-		/*left: 156px;*/
-	}
-	.bus_rec_badge {
-		margin-left: 170px;
-	}
+	
+	
 	tr .preview img{
 		width:80px;
 	}
@@ -688,6 +697,12 @@
 		width: 289px;
 		height: 70px;
 		padding-bottom: 20px;
+	}
+	.featured_badge_view {
+		right:0px;
+	}
+	.bus_rec_badge {
+		margin-left: 164px;
 	}
 }
 
