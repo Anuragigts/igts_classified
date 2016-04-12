@@ -170,5 +170,13 @@ class Postad_model extends CI_Model{
             }
 
 
+            public function getloc_details($pid){
+                $this->db->select();
+                $this->db->from("uk_postcodes");
+                $this->db->where("postcode", $pid);
+                return $this->db->get()->result();
+            }
+
+
 }
 ?>

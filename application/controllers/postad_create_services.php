@@ -66,6 +66,11 @@ class Postad_create_services extends CI_Controller{
             }
             echo json_encode($data);
         }
+
+        public function getloc_details(){
+            $loc_details = $this->postad_model->getloc_details($this->input->post('postalcode'));
+            echo json_encode($loc_details);
+        }
     }
 
  ?>

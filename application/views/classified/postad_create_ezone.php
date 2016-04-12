@@ -587,23 +587,7 @@
 			});
 			
 		</script>
-		<script type="text/javascript">
-			function getPosition(callback) {
-			  var geocoder = new google.maps.Geocoder();
-			  var postcode = document.getElementById("postalcode").value;
-			
-			  geocoder.geocode({'address': postcode}, function(results, status) 
-			  {   
-				if (status == google.maps.GeocoderStatus.OK) 
-				{
-				  callback({
-					latt: results[0].geometry.location.lat(),
-					lng: results[0].geometry.location.lng()
-				  });
-				}
-			  });
-			}
-			
+			<script type="text/javascript">
 			function setup_map(latitude, longitude) { 
 			  var _position = { lat: latitude, lng: longitude};
 			  
@@ -620,34 +604,36 @@
 			  });
 			}
 			
-			function address(latt, long1){
-				$.ajax({ url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latt+','+long1+'&sensor=true',
-				success: function(data){
-				$('#location').val(data.results[0].formatted_address);
-				$('#lattitude').val(latt);
-				$('#longtitude').val(long1);
-				
-				   /*or you could iterate the components for only the city and state*/
-				}
-				});
-			}
-			
 			window.onload = function() {
 			  setup_map(51.5073509, -0.12775829999998223);
-			
-			  document.getElementById("postalcode").onchange = function() {
-				getPosition(function(position){
-				  setup_map(position.latt, position.lng);
-				address(position.latt, position.lng);
-				});
-			  }
-			  document.getElementByClass("ui-corner-all").onclick = function() {
-			getPosition(function(position){
-			    setup_map(position.latt, position.lng);
-				address(position.latt, position.lng);
-			});
-		  }
 			}
+		</script>
+		<script>
+			$(document).ready(function(){
+				$('#postalcode').autocomplete({
+					source: '<?php echo base_url(); ?>classified/postalcode_search',
+					minLength: 1,
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+				$('#postalcode').on('autocompletechange change', function () {
+			        $.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>postad_create_services/getloc_details",
+						data: {
+							postalcode : $(this).val()
+						},
+						success: function (data) {
+							data1 = JSON.parse(data);
+							$("#location").val(data1[0].district+", "+data1[0].town+", "+data1[0].county+", "+data1[0].postcode+", "+data1[0].country);
+							$("#lattitude").val(data1[0].latitude);
+							$("#longtitude").val(data1[0].longitude);
+							setup_map(parseInt(data1[0].latitude), parseInt(data1[0].longitude));
+						}
+				    });
+			    }).change();
+			});
 		</script> 
 	</head>
 	
@@ -770,8 +756,8 @@
 															</sup>
 															</label>
 															<div class="input">
-																<label class="icon-right" for="email">
-																<i class="fa fa-bookmark-o"></i>
+																<label class="icon-left" for="email">
+																<i class="fa fa-search"></i>
 																</label>
 																<input type="text" id="postalcode" name="postalcode" placeholder="" >
 															</div>
