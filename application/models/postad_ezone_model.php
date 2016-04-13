@@ -86,7 +86,8 @@ class Postad_ezone_model extends CI_Model{
                     $loc = array('ad_id' => $insert_id,
                                 'loc_name' => $this->input->post('location'),
                                 'latt' => $this->input->post('lattitude'),
-                                'longg' => $this->input->post('longtitude')
+                                'longg' => $this->input->post('longtitude'),
+                                'loc_city' => $this->input->post('loc_city')
                                 );
                         $this->db->insert("location", $loc);
 

@@ -643,6 +643,7 @@
 							$("#location").val(data1[0].district+", "+data1[0].town+", "+data1[0].county+", "+data1[0].postcode+", "+data1[0].country);
 							$("#lattitude").val(data1[0].latitude);
 							$("#longtitude").val(data1[0].longitude);
+							$("#loc_city").val(data1[0].county);
 							setup_map(parseInt(data1[0].latitude), parseInt(data1[0].longitude));
 						}
 				    });
@@ -800,6 +801,7 @@
 																<!-- lattitude and longtitude -->
 																<input id="lattitude" name='lattitude' readonly type="hidden"  size="90" />
 																<input id="longtitude" name='longtitude' readonly type="hidden"  size="90" />
+																<input id="loc_city" name='loc_city' type="hidden"  size="90" />
 															</div>
 														</div>
 													</div>

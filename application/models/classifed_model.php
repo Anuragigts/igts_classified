@@ -1243,14 +1243,13 @@ GROUP BY img.ad_id
 
 	/*ads for services in services search */
 	public function services_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*, lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		//$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
-		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -1267,13 +1266,12 @@ GROUP BY img.ad_id
 		}
 	}
 	public function count_services_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*, lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.ad_status", "1");
@@ -1288,12 +1286,11 @@ GROUP BY img.ad_id
 
 		/*ads for jobs in jobs search */
 	public function jobs_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -1310,13 +1307,12 @@ GROUP BY img.ad_id
 	}
 
 	public function count_jobs_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, up.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -1377,13 +1373,12 @@ GROUP BY img.ad_id
 
 	/*motor search*/
 	public function count_motor_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.ad_status", "1");
@@ -1789,12 +1784,11 @@ GROUP BY img.ad_id
 	}
 
 	public function motor_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.ad_status", "1");

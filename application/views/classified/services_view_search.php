@@ -94,7 +94,7 @@
 		 	}
 
 		 	$personname = $sval->first_name;
-			$city_name = $sval->county;
+			$city_name = $sval->loc_city;
 			/*currency symbol*/ 
 			if ($sval->currency == 'pound') {
 				$currency = '<span class="pound_sym"></span>';
