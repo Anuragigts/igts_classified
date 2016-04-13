@@ -1699,7 +1699,7 @@
 										</div>
 										<!-- end /.content -->
 										<div class="footer">
-											<input type="submit" class="primary-btn multi-submit-btn video_validate" name='post_create_ad_pets' Value="Post Deal">
+											<input type="submit" class="primary-btn multi-submit-btn video_validate" name='post_create_ad_pets' Value="Continue">
 											<button type="button" class="primary-btn multi-next-btn" >Next</button>
 											<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 										</div>

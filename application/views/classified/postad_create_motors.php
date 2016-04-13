@@ -1178,7 +1178,7 @@
 															</label>
 															<input type="text" class='veh_regno' id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
 														</div>
-														<span class='pleasewait' style='color:red;display:none;'>Please Wait...</span>
+														<span class='pleasewait' style='color:blue;display:none;'>Please Wait...</span>
 														<span class='manualentry' style='color: red;'></span>
 													</div>
 													<div class='span2 unit top_20'>
@@ -2582,7 +2582,7 @@
 										<!-- end /.content -->
 
 										<div class="footer">
-											<input type="submit" class="primary-btn multi-submit-btn video_validate" name='post_create_ad_motors' Value="Post Deal">
+											<input type="submit" class="primary-btn multi-submit-btn video_validate" name='post_create_ad_motors' Value="Continue">
 											<button type="button" class="primary-btn multi-next-btn" >Next</button>
 											<button type="button" class="secondary-btn multi-prev-btn">Back</button>
 										</div>
