@@ -421,6 +421,9 @@
 	.recentad_heig {
 		padding-bottom: 20px;
 	}
+	.significant_badge {
+		left: 208px !important;
+	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 360px) {
 	.portfolioFilter a {
@@ -460,9 +463,6 @@
 	.fa-2x{
 		font-size:16px;
 	}
-	/* .slider-horizontal{
-		width: 50% !important;
-	} */
 	.main_logo {
 		margin-top: -17px !important;
 	}
@@ -524,9 +524,7 @@
 		width: 318px !important;
 		height: 232px !important;
 	}
-	.significant_badge {
-		margin-left: 206px;
-	}
+	
 	.j-forms {
 		background-color: none !important;
 		box-shadow: none !important;
@@ -537,13 +535,6 @@
 	.tparrows {
 		display:none !important;
 	}
-	/* .loca_pad {
-		padding: 0px 6px;
-	}
-	.home_btn {
-		width: 78px;
-		padding: 0 13px !important;
-	} */
 	
 }
 @media screen and (min-device-width: 361px) and (max-device-width: 640px) {
@@ -573,76 +564,6 @@
 		width:100px;
 	}
 }
-/* @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-	
-	.home_form{
-		background-color:#fff;
-		border: 2px solid rgb(94, 195, 163);
-		padding: 7px 10px;
-		height: 273px;
-	}
-	.loca_pad {
-		padding: 0px 6px;
-	}
-	.home_btn {
-		width: 78px;
-		padding: 0 13px !important;
-	}
-} */
-
-/* @media screen and (min-device-width: 361px) and (max-device-width: 480px) {
-	
-	.tp-caption.large_bold_white {
-		font-size: 20px !important;
-		top: 142.649px !important;
-	}
-	.tp-caption.small_light_white {
-		font-size: 16px !important;
-		top: 152.649px !important;
-	}
-	.filter-title {
-		top: 43%;
-	}
-}
-
-@media screen and (max-width: 768px){
-	
-	.filter-title {
-		top: 53%;
-	}
-	.tp-caption.large_bold_white {
-		font-size: 28px !important;
-		top: 142.649px !important;
-	}
-	.tp-caption.small_light_white {
-		font-size: 22px !important;
-		top: 152.649px !important;
-	}
-	.filter-header .input-large{
-		width: 18%;
-		background: #fff url("../img/icons/search.png") no-repeat scroll left 6px;
-		padding-top: 6px;
-		padding-left: 10px;
-	}
-}
-@media screen and (max-width: 1024px){
-	
-	.filter-title {
-		top: 55%;
-	}
-	.tp-caption.large_bold_white {
-		font-size: 28px !important;
-		top: 142.649px !important;
-	}
-	.tp-caption.small_light_white {
-		font-size: 22px !important;
-		top: 152.649px !important;
-	}
-	
-	.filter-header input[type="submit"] {
-		width:8%;
-	} 
-} */
 
 @media screen and (min-device-width: 481px) and (max-device-width: 640px) {
 	
@@ -704,6 +625,10 @@
 	.bus_rec_badge {
 		margin-left: 164px;
 	}
+	.significant_badge {
+		left: 236px;
+	}
+	
 }
 
 

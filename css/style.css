@@ -6503,3 +6503,6 @@ div.letter_success{
 .ui-autocomplete-loading { 
 	background:url('../img/loader.gif') no-repeat right 10px center !important;
 }
+.ui-autocomplete a.ui-corner-all.sbiAnchor:hover, .ui-autocomplete .ui-state-focus a.ui-corner-all.sbiAnchor{
+    background: blue;
+}
