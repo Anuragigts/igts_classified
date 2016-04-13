@@ -6506,3 +6506,10 @@ div.letter_success{
 .ui-autocomplete a.ui-corner-all.sbiAnchor:hover, .ui-autocomplete .ui-state-focus a.ui-corner-all.sbiAnchor{
     background: blue;
 }
+.span6 strong{
+	color:#0DC5B2;
+}
+.span6 strong:hover{
+	color:#A1CB57;
+	text-decoration:underline;
+}

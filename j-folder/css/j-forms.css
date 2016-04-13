@@ -695,7 +695,7 @@
 
 .j-forms .secondary-btn,
 .j-forms .secondary-btn:hover,
-.j-forms .secondary-btn:active { opacity:.5; }
+.j-forms .secondary-btn:active { /* opacity:.5; */ }
 
 .j-forms .primary-btn.processing:before {
 	background:rgba(255,255,255,.4);
