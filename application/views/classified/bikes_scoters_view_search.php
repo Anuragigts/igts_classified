@@ -77,7 +77,7 @@
 		 foreach ($bikes_result1 as $sval1) {
 		 foreach ($sval1 as $sval) {
 			/*location*/
-			$city_name = $sval->county;
+			$city_name = $sval->loc_city;
 			/*currency symbol*/ 
 			if ($sval->currency == 'pound') {
 				$currency = '<span class="pound_sym"></span>';

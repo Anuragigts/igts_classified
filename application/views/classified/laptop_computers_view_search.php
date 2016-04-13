@@ -78,7 +78,7 @@
 		 foreach ($sval1 as $sval) {
 			$personname = $sval->first_name;
 			/*location*/
-			$city_name = $sval->county;
+			$city_name = $sval->loc_city;
 
 			/*currency symbol*/ 
 			if ($sval->currency == 'pound') {
