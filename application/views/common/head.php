@@ -357,7 +357,7 @@
 			});
 
 			/*edit open model*/
-		$(".edit_service_prof").click(function(){
+			$(".edit_service_prof").click(function(){
 				var sub = $(this).attr('id');
 				var sub1 = sub.split(",");
 				document.getElementById('services_sub').value = sub1[0];
@@ -365,17 +365,17 @@
 				document.getElementById('edit_service_cat').submit();
 			});
 
-		$(".edit_service_pop").click(function(){
+			$(".edit_service_pop").click(function(){
 				var sub = $(this).attr('id');
 				var sub1 = sub.split(",");
 				document.getElementById('services_sub').value = sub1[0];
 				document.getElementById('services_sub_sub').value = sub1[1];
 				document.getElementById('edit_service_cat').submit();
 			});
+	
+			/*pets category*/
 
-		/*pets category*/
-
-		$(".pets_others").click(function(){
+			$(".pets_others").click(function(){
 				var sub = $(this).attr('id');
 				document.getElementById('pets_sub').value = sub;
 				document.getElementById('pets_form').submit();
@@ -406,9 +406,9 @@
 				document.getElementById('pets_form').submit();
 			});
 
-		/*edit model pets*/	
+			/*edit model pets*/	
 
-		$(".edit_pets_others").click(function(){
+			$(".edit_pets_others").click(function(){
 				var sub = $(this).attr('id');
 				document.getElementById('pets_sub').value = sub;
 				document.getElementById('edit_pets_cat').submit();

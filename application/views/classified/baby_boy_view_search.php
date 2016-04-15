@@ -158,7 +158,7 @@
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> <?php echo $city_name; ?></a>
+										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->location_name; ?>"> <?php echo $city_name; ?></a>
 									</div>
 								</div>
 							</div>
@@ -294,7 +294,7 @@
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> <?php echo $city_name; ?></a>
+										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->location_name; ?>"> <?php echo $city_name; ?></a>
 									</div>
 								</div>
 							</div>
@@ -412,7 +412,7 @@
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> <?php echo $city_name; ?></a>
+										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->location_name; ?>"> <?php echo $city_name; ?></a>
 									</div>
 								</div>
 							</div>
@@ -529,7 +529,7 @@
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> <?php echo $city_name; ?></a>
+										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->location_name; ?>"> <?php echo $city_name; ?></a>
 									</div>
 								</div>
 							</div>
@@ -642,7 +642,7 @@
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> <?php echo $city_name; ?></a>
+										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->location_name; ?>"> <?php echo $city_name; ?></a>
 									</div>
 								</div>
 							</div>
@@ -753,7 +753,7 @@
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
-										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->loc_name; ?>"> <?php echo $city_name; ?></a>
+										<a href="javascript:void(0);" class="location loc_map" id="<?php echo $sval->latt.','.$sval->longg; ?>" data-toggle="modal" data-target="#map_location" title="<?php echo $sval->location_name; ?>"> <?php echo $city_name; ?></a>
 									</div>
 								</div>
 							</div>
