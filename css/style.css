@@ -353,6 +353,9 @@ hr.tall {
     padding: 0px 6px;
     /* margin-right: 8px; */
 }
+.filters_categories ul{
+   margin-bottom:0;
+}
 .filters_categories .list-styles li a,
 .filters_categories .list-styles li {
     font-size: 15px;
