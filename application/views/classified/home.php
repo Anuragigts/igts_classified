@@ -522,7 +522,7 @@
 								<a href="#findproperty" data-filter=".findproperty">Find a Property</a>
 								<a href="#homekitchen" data-filter=".homekitchen">Home & Kitchen</a>
 								<a href="#pets" data-filter=".pets">Pets</a>
-								<a href="#jobs" data-filter=".jobs">jobs</a>
+								<a href="#jobs" data-filter=".jobs">Jobs</a>
 							</div>
 							<div class="portfolioContainer">
 								<?php
