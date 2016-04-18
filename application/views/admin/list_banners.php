@@ -73,3 +73,9 @@
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+	setTimeout(function(){
+		$(".alert").hide();
+	},5000);
+</script>

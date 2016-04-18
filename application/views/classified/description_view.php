@@ -201,16 +201,35 @@
 				</div>
 				<?php 
 					/* ad video details */
-					if (isset($ad_video->video_name)) {
+					if ($ad_video != '0') {
+						$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
+					}
+					/*if (isset($ad_video->video_name)) {
 						if ($ad_video->video_name != '') {
 					$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
 					}
 					else{
 						$video_name = 	'';
 					}
-					};
+					};*/
 					
 					foreach ($ads_desc as $ads_desc_val) {
+						$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$ads_desc_val->ad_id' AND status = 1 GROUP BY ad_id");
+					 	if (mysql_num_rows($qry) > 0) {
+					 		$no_ratings = mysql_result($qry,0,'no_ratings');
+					 		$rating_sum = mysql_result($qry,0,'rating_sum');
+					 	}
+					 	else{
+					 		$no_ratings = 0;
+					 		$rating_sum = 0;
+					 	}
+					 	if ($no_ratings != 0) {
+					 		$avg_per = ($rating_sum/($no_ratings*5))*100;
+					 		$total_rating = round(($avg_per/100)*5);
+					 	}
+					 	else{
+					 		$total_rating = 0;
+					 	}	
 						
 						$catid = $ads_desc_val->category_id;
 						$ad_id_no = $ads_desc_val->ad_id;
@@ -299,6 +318,62 @@
 																<li>
 																	<span>Deal ID : <?php echo $dealid; ?></span>
 																</li>
+																<!-- <li>
+																	<?php if ($total_rating == 0) { ?>
+																		<ul class="starts">
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																		</ul>
+																	<?php } ?>
+																	<?php if ($total_rating == 1) { ?>
+																		<ul class="starts">
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																		</ul>
+																	<?php } ?>
+																	<?php if ($total_rating == 2) { ?>
+																		<ul class="starts">
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																		</ul>
+																	<?php } ?>
+																	<?php if ($total_rating == 3) { ?>
+																		<ul class="starts">
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																		</ul>
+																	<?php } ?>
+																	<?php if ($total_rating == 4) { ?>
+																		<ul class="starts">
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+																		</ul>
+																	<?php } ?>
+																	<?php if ($total_rating == 5) { ?>
+																		<ul class="starts">
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																			<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+																		</ul>
+																	<?php } ?>
+																</li> -->
 															</ul>
 														</div>
 													</div>
@@ -399,9 +474,7 @@
 														</div>
 														<div>
 															<p>
-																<?php foreach ($ads_loc as $ads_loc_val) { ?>
-																<iframe src = "https://maps.google.com/maps?q=<?php echo $ads_loc_val->latt; ?>,<?php echo $ads_loc_val->longg; ?>&hl=es;z=5&amp;output=embed" width="500px" height="500px"></iframe>
-																<?php } ?>
+																<iframe src = "https://maps.google.com/maps?q=<?php echo $ads_loc->latt; ?>,<?php echo $ads_loc->longg; ?>&hl=es;z=11&amp;output=embed" width="500px" height="500px"></iframe>
 															</p>
 														</div>
 														<div>
@@ -706,9 +779,7 @@
 										<h3> <?php echo $name; ?></h3>
 										<hr>
 										<h4 class="loc_view"><i class="fa fa-map-marker "></i> <i><?php 
-										foreach ($ads_loc as $ads_loc_val) {
-											echo $city_name = $ads_loc_val->town.",".$ads_loc_val->county;
-											} 
+											echo $city_name = $ads_loc->town.",".$ads_loc->county;
 											?></i></h4>
 										<img src="<?php echo base_url(); ?>img/icons/contact.png" alt="contact" title="Contact Details" class="contact_now_show img-responsive">
 										<ul class="list-styles contact_now_hide" style="display:none;">
@@ -805,7 +876,7 @@
 									</form>
 									<aside class="widget top_20">
 										<p>
-											<?php  if(($package_type == '3' || $package_type == '6') && $ad_video->video_name != ''){
+											<?php  if(($package_type == '3' || $package_type == '6') && $ad_video != '0'){
 												?>
 											<iframe height="215" src="https://www.youtube.com/embed/<?php echo $video_name[1]; ?>" frameborder="0" allowfullscreen></iframe>
 											<?php } ?>

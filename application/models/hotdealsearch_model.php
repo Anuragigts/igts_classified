@@ -773,7 +773,7 @@ class hotdealsearch_model extends CI_Model{
 			}*/
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
-  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+  					OR loc.loc_name LIKE '%$s_location' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 			
@@ -969,7 +969,7 @@ class hotdealsearch_model extends CI_Model{
 			}*/
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
-  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+  					OR loc.loc_name LIKE '%$s_location' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 			
@@ -1304,13 +1304,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
@@ -1418,13 +1417,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
@@ -1521,13 +1519,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
 			$this->db->where("ad.ad_status", "1");
@@ -1625,13 +1622,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
 			$this->db->where("ad.ad_status", "1");
@@ -1726,13 +1722,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
 			$this->db->where("ad.ad_status", "1");
@@ -1829,13 +1823,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
 			$this->db->where("ad.ad_status", "1");
@@ -1935,13 +1928,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
 			$this->db->where("ad.ad_status", "1");
@@ -2039,13 +2030,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
 			$this->db->where("ad.ad_status", "1");
@@ -2141,13 +2131,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
 			$this->db->where("ad.ad_status", "1");
@@ -2243,13 +2232,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			$this->db->where("ad.ad_status", "1");
@@ -2342,13 +2330,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
 			$this->db->where("ad.ad_status", "1");
@@ -2442,13 +2428,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
 			$this->db->where("ad.ad_status", "1");
@@ -2545,13 +2529,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			$this->db->where("ad.ad_status", "1");
@@ -2714,13 +2696,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
 			$this->db->where("ad.ad_status", "1");
@@ -3020,12 +3001,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "5");
 			$this->db->where("ad.ad_status", "1");
@@ -3123,13 +3103,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "5");
 			$this->db->where("ad.ad_status", "1");
@@ -3331,12 +3310,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.ad_status", "1");
@@ -3434,12 +3412,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
@@ -3541,12 +3518,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
@@ -3648,12 +3624,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
@@ -3754,12 +3729,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
@@ -3860,12 +3834,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
@@ -3966,12 +3939,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
@@ -4072,12 +4044,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "66");
@@ -4178,12 +4149,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
@@ -4599,14 +4569,10 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($this->session->userdata('s_latt') !='') {
-				$this->db->where("(loc.latt LIKE '$latt%' 
-  					OR loc.longg LIKE '$longg%')");
-			}
-
+			
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
-  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+  					OR loc.loc_name LIKE '%$s_location' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 
@@ -4851,14 +4817,9 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/*location search*/
-			if ($this->session->userdata('s_latt') !='') {
-				$this->db->where("(loc.latt LIKE '$latt%' 
-  				OR loc.longg LIKE '$longg%')");
-			}
-
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
-  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+  					OR loc.loc_name LIKE '%$s_location' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
 
@@ -4895,13 +4856,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.ad_status", "1");
@@ -4998,13 +4958,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
@@ -5106,13 +5065,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
@@ -5213,13 +5171,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
@@ -5320,13 +5277,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
@@ -5427,13 +5383,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
@@ -5534,13 +5489,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
@@ -5642,13 +5596,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
@@ -5750,13 +5703,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "66");
@@ -5860,13 +5812,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
@@ -5999,13 +5950,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
@@ -6106,13 +6056,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
@@ -6213,13 +6162,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
@@ -6320,12 +6268,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
@@ -6426,12 +6373,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
@@ -6532,12 +6478,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
@@ -6641,12 +6586,11 @@ class hotdealsearch_model extends CI_Model{
         	$latt = $this->session->userdata('latt');
         	$longg = $this->session->userdata('longg');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
@@ -6782,12 +6726,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
@@ -6922,12 +6865,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
@@ -7062,13 +7004,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
@@ -7204,13 +7145,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
@@ -7345,13 +7285,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
@@ -7487,13 +7426,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_bike_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
@@ -7629,12 +7567,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
@@ -7769,12 +7706,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('motor_bike_ads as mc', "mc.ad_id = ad.ad_id", 'left');
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
@@ -7909,13 +7845,11 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
-			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "7");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -8011,13 +7945,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->where("ad.category_id", "7");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -8118,15 +8051,350 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			if (!empty($proptype)) {
+				$this->db->where_in('ad.sub_cat_id', $proptype);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
+				}
+			}
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array("3", $dealurgent)){
+					array_push($pcklist, '3');
+				}
+				if (in_array("2", $dealurgent)){
+					array_push($pcklist, '2');
+				}
+				if (in_array("1", $dealurgent)){
+					array_push($pcklist, '1');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
+			}
+			/*bedrooms search*/
+			if (!empty($bedrooms)) {
+				$bed_where = '';
+				foreach ($bedrooms as $bedroomval) {
+					if ($bedroomval == '1') {
+						$bed_where .= '(prc.bed_rooms = 1)';
+					}
+					else if ($bedroomval == '2') {
+						$bed_where .= 'OR (prc.bed_rooms = 2)';
+					}
+					else if ($bedroomval == '3') {
+						$bed_where .= 'OR (prc.bed_rooms = 3)';
+					}
+					else if ($bedroomval == '4') {
+						$bed_where .= 'OR (prc.bed_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bed_where,"OR "));
+			}
+			/*bathroom search*/
+			if (!empty($bathroom)) {
+				$bath_where = '';
+				foreach ($bathroom as $bathroomval) {
+					if ($bathroomval == '1') {
+						$bath_where .= '(prc.bath_rooms = 1)';
+					}
+					else if ($bathroomval == '2') {
+						$bath_where .= 'OR (prc.bath_rooms = 2)';
+					}
+					else if ($bathroomval == '3') {
+						$bath_where .= 'OR (prc.bath_rooms = 3)';
+					}
+					else if ($bathroomval == '4') {
+						$bath_where .= 'OR (prc.bath_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bath_where,"OR "));
+			}
+			/*area square*/
+			if (!empty($area)) {
+				$area_where = '';
+				foreach ($area as $aval) {
+					if ($aval == '<500') {
+						$area_where .= '(prc.build_area < 500)';
+					}
+					else if ($aval == '500-1000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 500 AND 1000)';
+					}
+					else if ($aval == '1000-1500') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1000 AND 1500)';
+					}
+					else if ($aval == '1500-2000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1500 AND 2000)';
+					}
+					else if ($aval == '>2000') {
+						$area_where .= 'OR (prc.build_area > 2000)';
+					}
+				}
+				$this->db->where(ltrim($area_where,"OR "));
+			}
+			
+
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($recentdays == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($recentdays == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($recentdays == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($recentdays == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($recentdays == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+			 // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+         public function propertyresi_search($data){
+	 		$proptype = $this->session->userdata('proptype');
+            $bedrooms = $this->session->userdata('bed_rooms');
+            $bathroom = $this->session->userdata('bathroom');
+            $area = $this->session->userdata('area_square');
+
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$location = $this->session->userdata('location');
+        	$seller = $this->session->userdata('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			// $this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.sub_cat_id", "11");
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			if (!empty($proptype)) {
+				$this->db->where_in('ad.sub_cat_id', $proptype);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
+				}
+			}
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array("3", $dealurgent)){
+					array_push($pcklist, '3');
+				}
+				if (in_array("2", $dealurgent)){
+					array_push($pcklist, '2');
+				}
+				if (in_array("1", $dealurgent)){
+					array_push($pcklist, '1');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
+			}
+			/*bedrooms search*/
+			if (!empty($bedrooms)) {
+				$bed_where = '';
+				foreach ($bedrooms as $bedroomval) {
+					if ($bedroomval == '1') {
+						$bed_where .= '(prc.bed_rooms = 1)';
+					}
+					else if ($bedroomval == '2') {
+						$bed_where .= 'OR (prc.bed_rooms = 2)';
+					}
+					else if ($bedroomval == '3') {
+						$bed_where .= 'OR (prc.bed_rooms = 3)';
+					}
+					else if ($bedroomval == '4') {
+						$bed_where .= 'OR (prc.bed_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bed_where,"OR "));
+			}
+			/*bathroom search*/
+			if (!empty($bathroom)) {
+				$bath_where = '';
+				foreach ($bathroom as $bathroomval) {
+					if ($bathroomval == '1') {
+						$bath_where .= '(prc.bath_rooms = 1)';
+					}
+					else if ($bathroomval == '2') {
+						$bath_where .= 'OR (prc.bath_rooms = 2)';
+					}
+					else if ($bathroomval == '3') {
+						$bath_where .= 'OR (prc.bath_rooms = 3)';
+					}
+					else if ($bathroomval == '4') {
+						$bath_where .= 'OR (prc.bath_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bath_where,"OR "));
+			}
+			/*area square*/
+			if (!empty($area)) {
+				$area_where = '';
+				foreach ($area as $aval) {
+					if ($aval == '<500') {
+						$area_where .= '(prc.build_area < 500)';
+					}
+					else if ($aval == '500-1000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 500 AND 1000)';
+					}
+					else if ($aval == '1000-1500') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1000 AND 1500)';
+					}
+					else if ($aval == '1500-2000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1500 AND 2000)';
+					}
+					else if ($aval == '>2000') {
+						$area_where .= 'OR (prc.build_area > 2000)';
+					}
+				}
+				$this->db->where(ltrim($area_where,"OR "));
+			}
+			
+
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($recentdays == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($recentdays == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($recentdays == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($recentdays == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($recentdays == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+			 // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+         public function propertycomm_search($data){
+	 		$proptype = $this->session->userdata('proptype');
+            $bedrooms = $this->session->userdata('bed_rooms');
+            $bathroom = $this->session->userdata('bathroom');
+            $area = $this->session->userdata('area_square');
+
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$location = $this->session->userdata('location');
+        	$seller = $this->session->userdata('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			// $this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.sub_cat_id", "26");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($proptype)) {
@@ -8286,15 +8554,348 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,up.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-			$this->db->join('uk_postcodes AS up', "up.latitude = loc.latt AND up.longitude= loc.longg", 'join');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			if (!empty($proptype)) {
+				$this->db->where_in('ad.sub_cat_id', $proptype);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
+				}
+			}
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array("3", $dealurgent)){
+					array_push($pcklist, '3');
+				}
+				if (in_array("2", $dealurgent)){
+					array_push($pcklist, '2');
+				}
+				if (in_array("1", $dealurgent)){
+					array_push($pcklist, '1');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
+			}
+			/*bedrooms search*/
+			if (!empty($bedrooms)) {
+				$bed_where = '';
+				foreach ($bedrooms as $bedroomval) {
+					if ($bedroomval == '1') {
+						$bed_where .= '(prc.bed_rooms = 1)';
+					}
+					else if ($bedroomval == '2') {
+						$bed_where .= 'OR (prc.bed_rooms = 2)';
+					}
+					else if ($bedroomval == '3') {
+						$bed_where .= 'OR (prc.bed_rooms = 3)';
+					}
+					else if ($bedroomval == '4') {
+						$bed_where .= 'OR (prc.bed_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bed_where,"OR "));
+			}
+			/*bathroom search*/
+			if (!empty($bathroom)) {
+				$bath_where = '';
+				foreach ($bathroom as $bathroomval) {
+					if ($bathroomval == '1') {
+						$bath_where .= '(prc.bath_rooms = 1)';
+					}
+					else if ($bathroomval == '2') {
+						$bath_where .= 'OR (prc.bath_rooms = 2)';
+					}
+					else if ($bathroomval == '3') {
+						$bath_where .= 'OR (prc.bath_rooms = 3)';
+					}
+					else if ($bathroomval == '4') {
+						$bath_where .= 'OR (prc.bath_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bath_where,"OR "));
+			}
+			/*area square*/
+			if (!empty($area)) {
+				$area_where = '';
+				foreach ($area as $aval) {
+					if ($aval == '<500') {
+						$area_where .= '(prc.build_area < 500)';
+					}
+					else if ($aval == '500-1000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 500 AND 1000)';
+					}
+					else if ($aval == '1000-1500') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1000 AND 1500)';
+					}
+					else if ($aval == '1500-2000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1500 AND 2000)';
+					}
+					else if ($aval == '>2000') {
+						$area_where .= 'OR (prc.build_area > 2000)';
+					}
+				}
+				$this->db->where(ltrim($area_where,"OR "));
+			}
+			
+
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($recentdays == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($recentdays == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($recentdays == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($recentdays == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($recentdays == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			  // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+        public function count_propertyresi_search(){
+        	$proptype = $this->session->userdata('proptype');
+            $bedrooms = $this->session->userdata('bed_rooms');
+            $bathroom = $this->session->userdata('bathroom');
+            $area = $this->session->userdata('area_square');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$location = $this->session->userdata('location');
+        	$seller = $this->session->userdata('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.sub_cat_id", "11");
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			if (!empty($proptype)) {
+				$this->db->where_in('ad.sub_cat_id', $proptype);
+			}
+			if (!empty($seller)) {
+				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_bustype) {
+				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+					$this->db->where("ad.ad_type", $search_bustype);
+				}
+			}
+			if (!empty($dealurgent)) {
+				$pcklist = [];
+				if (in_array("0", $dealurgent)) {
+					$this->db->where('ad.urgent_package !=', '0');
+				}
+				else{
+					$this->db->where('ad.urgent_package =', '0');
+				}
+				if (in_array("3", $dealurgent)){
+					array_push($pcklist, '3');
+				}
+				if (in_array("2", $dealurgent)){
+					array_push($pcklist, '2');
+				}
+				if (in_array("1", $dealurgent)){
+					array_push($pcklist, '1');
+				}
+				if (!empty($pcklist)) {
+					$this->db->where_in('ad.package_type', $pcklist);
+				}
+				
+			}
+			/*bedrooms search*/
+			if (!empty($bedrooms)) {
+				$bed_where = '';
+				foreach ($bedrooms as $bedroomval) {
+					if ($bedroomval == '1') {
+						$bed_where .= '(prc.bed_rooms = 1)';
+					}
+					else if ($bedroomval == '2') {
+						$bed_where .= 'OR (prc.bed_rooms = 2)';
+					}
+					else if ($bedroomval == '3') {
+						$bed_where .= 'OR (prc.bed_rooms = 3)';
+					}
+					else if ($bedroomval == '4') {
+						$bed_where .= 'OR (prc.bed_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bed_where,"OR "));
+			}
+			/*bathroom search*/
+			if (!empty($bathroom)) {
+				$bath_where = '';
+				foreach ($bathroom as $bathroomval) {
+					if ($bathroomval == '1') {
+						$bath_where .= '(prc.bath_rooms = 1)';
+					}
+					else if ($bathroomval == '2') {
+						$bath_where .= 'OR (prc.bath_rooms = 2)';
+					}
+					else if ($bathroomval == '3') {
+						$bath_where .= 'OR (prc.bath_rooms = 3)';
+					}
+					else if ($bathroomval == '4') {
+						$bath_where .= 'OR (prc.bath_rooms > 4)';
+					}
+				}
+				$this->db->where(ltrim($bath_where,"OR "));
+			}
+			/*area square*/
+			if (!empty($area)) {
+				$area_where = '';
+				foreach ($area as $aval) {
+					if ($aval == '<500') {
+						$area_where .= '(prc.build_area < 500)';
+					}
+					else if ($aval == '500-1000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 500 AND 1000)';
+					}
+					else if ($aval == '1000-1500') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1000 AND 1500)';
+					}
+					else if ($aval == '1500-2000') {
+						$area_where .= 'OR (prc.build_area BETWEEN 1500 AND 2000)';
+					}
+					else if ($aval == '>2000') {
+						$area_where .= 'OR (prc.build_area > 2000)';
+					}
+				}
+				$this->db->where(ltrim($area_where,"OR "));
+			}
+			
+
+
+			/*deal posted days 24hr/3day/7day/14day/1month */
+			if ($recentdays == 'last24hours'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+			}
+			else if ($recentdays == 'last3days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+			}
+			else if ($recentdays == 'last7days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+			}
+			else if ($recentdays == 'last14days'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+			}	
+			else if ($recentdays == 'last1month'){
+				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+			}
+
+			/*location search*/
+			if ($location) {
+				$this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+			}
+
+
+			$this->db->group_by(" img.ad_id");
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			  // echo $this->db->last_query(); exit;
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+        }
+        public function count_propertycomm_search(){
+        	$proptype = $this->session->userdata('proptype');
+            $bedrooms = $this->session->userdata('bed_rooms');
+            $bathroom = $this->session->userdata('bathroom');
+            $area = $this->session->userdata('area_square');
+        	$search_bustype = $this->session->userdata('search_bustype');
+        	$dealurgent = $this->session->userdata('dealurgent');
+        	$dealtitle = $this->session->userdata('dealtitle');
+        	$dealprice = $this->session->userdata('dealprice');
+        	$recentdays = $this->session->userdata('recentdays');
+        	$location = $this->session->userdata('location');
+        	$seller = $this->session->userdata('seller_deals');
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->where("ad.category_id", "4");
+			$this->db->where("ad.sub_cat_id", "26");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($proptype)) {
@@ -8864,6 +9465,22 @@ class hotdealsearch_model extends CI_Model{
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function busconcount_propertyresi(){
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function busconcount_propertycomm(){
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -9600,6 +10217,36 @@ class hotdealsearch_model extends CI_Model{
         	$rs = $this->db->get();
         	return $rs->row();
         }
+         public function areacount_propertyresi(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.`build_area` < 500) AS less500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.build_area > 2000) AS plus2000");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+        public function areacount_propertycomm(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.`build_area` < 500) AS less500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 500 AND 1000)) AS plus500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 1000 AND 1500)) AS plus1000,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (prc.`build_area` BETWEEN 1500 AND 2000)) AS plus1500,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.build_area > 2000) AS plus2000");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
 
         /*findproperty bedrooms count*/
         public function bedroomcount_property(){
@@ -9615,6 +10262,32 @@ class hotdealsearch_model extends CI_Model{
         	$rs = $this->db->get();
         	return $rs->row();
         }
+        public function bedroomcount_propertyresi(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 1) AS one1,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 2) AS secon2,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 3) AS third3,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms >= 4) AS four4");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+        public function bedroomcount_propertycomm(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 1) AS one1,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 2) AS secon2,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms = 3) AS third3,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bed_rooms >= 4) AS four4");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
 
          /*findproperty bathroomcount_property count*/
         public function bathroomcount_property(){
@@ -9627,6 +10300,32 @@ class hotdealsearch_model extends CI_Model{
 		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 3) AS third3,
 		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
 		ad.category_id = '4' AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms >= 4) AS four4");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+        public function bathroomcount_propertyresi(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 1) AS one1,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 2) AS secon2,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 3) AS third3,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 11 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms >= 4) AS four4");
+        	$rs = $this->db->get();
+        	return $rs->row();
+        }
+        public function bathroomcount_propertycomm(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 1) AS one1,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 2) AS secon2,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms = 3) AS third3,
+		(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+		ad.category_id = '4' AND ad.sub_cat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND prc.bath_rooms >= 4) AS four4");
         	$rs = $this->db->get();
         	return $rs->row();
         }
@@ -9855,6 +10554,24 @@ class hotdealsearch_model extends CI_Model{
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function deals_pck_propertyresi(){
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function deals_pck_propertycomm(){
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
+		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -12571,6 +13288,24 @@ class hotdealsearch_model extends CI_Model{
 			ad.category_id = '4' AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS offered,
 			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
 			ad.category_id = '4' AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS wanted");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function sellerneeded_property1resi(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS offered,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 11 AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS wanted");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function sellerneeded_property1comm(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND prc.offered_type = 'Offered' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS offered,
+			(SELECT COUNT(*) FROM postad AS ad, property_resid_commercial AS prc WHERE ad.ad_id = prc.ad_id AND
+			ad.category_id = '4' AND ad.sub_cat_id = 26 AND prc.offered_type = 'Wanted' AND ad.ad_status = 1 AND ad.expire_data >='$date' ) AS wanted");
         	$rs = $this->db->get();
         	return $rs->result();
         }

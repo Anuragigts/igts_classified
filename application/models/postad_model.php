@@ -89,7 +89,8 @@ class Postad_model extends CI_Model{
                                 'loc_name' => $this->input->post('location'),
                                 'latt' => $this->input->post('lattitude'),
                                 'longg' => $this->input->post('longtitude'),
-                                'loc_city' => $this->input->post('loc_city')
+                                'loc_city' => $this->input->post('loc_city'),
+                                'location_name' => $this->input->post('location_name')
                                 );
                         $this->db->insert("location", $loc);
 

@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Used | New | Boats For Sale in UK | 99 Right Deals</title>
+		<title>Commercial Fishing Boat For Sale | New And Used Boats | 99 Right Deals</title>
 		
-		<meta name="description" content="Search and Find the new or used boat for sale in United Kingdom. And compare wide range and price of boats services at affordable price on 99 Right Deals." />
-		<meta name="keywords" content="used boats for sale, boats for sale uk, small boats for sale, new boats for sale, used boats for sale uk, fishing boats for sale, canal boats for sale, wooden boats for sale, motor boats for sale, used houseboats for sale" />
+		<meta name="description" content="Search the new or used boats and for sale in UK. And Find boat house for sale, fishing boats for sale used or UK boat sales on 99 Right Deals." />
+		<meta name="keywords" content="used aluminum boats, used boats for sale by owner, boat house for sale, boat houses for sale, uk boat sales, commercial fishing boat for sale, fishing boats for sale used, buy a used boat, rinker boats for sale, wood boat for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

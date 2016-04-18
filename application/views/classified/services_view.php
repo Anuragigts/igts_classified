@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Services Classified Ads In UK | 99 Right Deals</title>
+		<title>Services For Sale In London - United Kingdom | 99 Right Deals</title>
 		
-		<meta name="description" content="365" />
-		<meta name="keywords" content="Hot" />
+		<meta name="description" content="Post free ads for finding service experts in Business Development, Interior Designing, electronic and home appliances repairs and services, Beauty and Hair care experts, Events Managing experts and top service proviers." />
+		<meta name="keywords" content="free services ads, lease and loan insurance services uk, beauty & hair care services, event management services, courier delivery services, home based services ads, housekeeping classified ads,cleaning services classified ads,legal advisor financial services" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -155,7 +155,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>services"><h3 class="title-widget">Services Filter</h3></a>
+											<a href="<?php echo base_url(); ?>household-services-london-uk"><h3 class="title-widget">Services Filter</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Professional</h4>
 												<div class="cd-filter-content">

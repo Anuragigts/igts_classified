@@ -36,23 +36,23 @@
 							<div class="row"> 
 								<div class="col-sm-4">
 									<ul class="social">
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>hot-deals">Hot Deals</a></li>
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>e-zone">E-Zone</a></li>
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>motor-point">Motor Point</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>hot-deals-post-classifieds-ads">Hot Deals</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale">E-Zone</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>motor-point-used-cars-sale">Motor Point</a></li>
 									</ul>
 								</div>
 								<div class="col-sm-4">
 									<ul class="social">
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>clothing-lifestyles">Clothing & LifeStyles</a></li>
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>services">Services</a></li>
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>find-a-property">Find a Property</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>clothes-for-sale-uk">Clothing & LifeStyles</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>household-services-london-uk">Services</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>residential-commercial-property-for-sale">Find a Property</a></li>
 									</ul>
 								</div>
 								<div class="col-sm-4">
 									<ul class="social">
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>home-kitchen">Home & Kitchen</a></li>
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>pet-deals">Pets</a></li>
-										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>free-job-ads">Jobs</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>home-kitchen-services-uk">Home & Kitchen</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>pet-for-sale-online">Pets</a></li>
+										<li><i class="fa fa-check"></i> <a href="<?php echo base_url(); ?>part-full-time-jobs-london">Jobs</a></li>
 									</ul>
 								</div>
 							</div>

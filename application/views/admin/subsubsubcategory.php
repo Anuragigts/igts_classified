@@ -54,7 +54,7 @@
 						</div>
 						<div class='span6'>
 							<div class="control-group">
-								<label class="control-label" for="typeahead">Sub Category Name <span class="text-red">*</span></label>
+								<label class="control-label" for="typeahead">Sub Sub Category Name <span class="text-red">*</span></label>
 								<div class="controls">
 									<select name="sscat_name" class="form-control sscat_chage">
 										<option value="">-- Select Sub Sub Category --</option>
@@ -68,7 +68,7 @@
 						</div>
 						<div class='span6' style='margint:0px;'>
 							<div class="control-group">
-								<label class="control-label" for="typeahead">New Sub Category Name<span class="text-red">*</span></label>
+								<label class="control-label" for="typeahead">Sub Sub Sub Category Name<span class="text-red">*</span></label>
 								<div class="controls">
 									<input type="text" name="ssscat_name" value="<?php echo set_value("ssscat_name");?>" class="form-control ssscat_name sct-ret" placeholder="Sub Sub Sub Category Name" maxlength="100"/> 
 									<?php echo form_error("ssscat_name");?>

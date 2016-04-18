@@ -76,6 +76,22 @@
 		$jobs_result1 = array_chunk($jobs_result, 10);
 		 foreach ($jobs_result1 as $sval1) {
 		 foreach ($sval1 as $sval) {
+		 	$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$sval->ad_id' AND status = 1 GROUP BY ad_id");
+		 	if (mysql_num_rows($qry) > 0) {
+		 		$no_ratings = mysql_result($qry,0,'no_ratings');
+		 		$rating_sum = mysql_result($qry,0,'rating_sum');
+		 	}
+		 	else{
+		 		$no_ratings = 0;
+		 		$rating_sum = 0;
+		 	}
+		 	if ($no_ratings != 0) {
+		 		$avg_per = ($rating_sum/($no_ratings*5))*100;
+		 		$total_rating = round(($avg_per/100)*5);
+		 	}
+		 	else{
+		 		$total_rating = 0;
+		 	}
 		/*location*/
 		$city_name = $sval->loc_city;
 			/*currency symbol*/ 
@@ -151,9 +167,72 @@
 								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									
-								</div>
+								<?php if ($total_rating == 0) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 1) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 2) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 3) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 4) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 5) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
@@ -284,9 +363,72 @@
 								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									
-								</div>
+								<?php if ($total_rating == 0) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 1) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 2) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 3) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 4) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 5) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
@@ -399,9 +541,72 @@
 								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									
-								</div>
+								<?php if ($total_rating == 0) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 1) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 2) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 3) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 4) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 5) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
@@ -513,9 +718,72 @@
 								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									
-								</div>
+								<?php if ($total_rating == 0) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 1) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 2) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 3) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 4) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 5) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
@@ -623,9 +891,72 @@
 								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									
-								</div>
+								<?php if ($total_rating == 0) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 1) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 2) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 3) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 4) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 5) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">
@@ -731,9 +1062,72 @@
 								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									
-								</div>
+								<?php if ($total_rating == 0) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 1) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 2) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 3) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 4) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
+								<?php if ($total_rating == 5) { ?>
+									<div class="col-xs-4">
+										<ul class="starts">
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-star"></i></a></li>
+										</ul>
+									</div>
+								<?php } ?>
 								<div class="col-xs-8">
 									<div class="location pull-right ">
 										<img src="<?php echo base_url(); ?>img/icons/location_map.png" title="Location" alt="map" class="map_icon">

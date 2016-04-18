@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Hot Deals In UK | 99 Right Deals</title>
+		<title>Local Classifieds Ads | UK Classifieds Ads | 99 Right Deals</title>
 		
-		<meta name="description" content="Hot Deals - category list in 99 Right Deals.Here are most exciting hot deals in different products time to time." />
+		<meta name="description" content="Hot Deals - category list in 99 Right Deals.Create free local cassified ads for getting most exciting hot deals on different products time to time." />
 		<meta name="keywords" content="free advertising sites,post ads for free ,free ad posting sites,post free classified ads,free online advertising,free business advertising,free advertising online,free classified ads sites," />
 		
 		<!-- xxx Head Content xxx -->

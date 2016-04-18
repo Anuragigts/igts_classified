@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Apartments | Villa | Flats | For Sale In UK | 99 Right Deals</title>
+		<title>Property For Sale UK | Property For Rent UK, Property In London | 99 Right Deals</title>
 		
-		<meta name="description" content="Free Ads for Apartments , Villas and Flats For Sale in United Kingdom at affordable price on 99 Right Deals." />
-		<meta name="keywords" content="Flats to rent in UK, Property to rent in UK,  furnished apartments for sale,Apartments for rent,free ads apartments,free online ads  for apartments,post free ads for rent" />
+		<meta name="description" content="Free Ads for Apartments , Villas and Flats For Sale in United Kingdom. Find property for sale UK, property for rent, flat for sale, commercial property for rent on 99 Right Deals." />
+		<meta name="keywords" content="flat for sale, property for rent uk, online property for sale, houses for sale in uk, find property to rent, houses for rent in uk, houses for sale uk, property for sale in uk, house for sale by owner, property in london, homes for sale in uk, property for sale uk, land for sale, commercial property for rent" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -151,19 +151,15 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>find-a-property"><h3 class="title-widget">Property Filter</h3></a>
+											<a href="<?php echo base_url(); ?>residential-commercial-property-for-sale"><h3 class="title-widget">Property Filter</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Property</h4>
 												<div class="cd-filter-content">
-													<div>
-														<label class="checkbox">
-															<input type="checkbox" name="proptype[]" class='proptype' value="11" <?php if(isset($proptype) && in_array(11,$proptype)){ echo 'checked = checked';}?> />
-															<i></i> Residential (<?php echo $resi_comm_count->residential; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="proptype[]" class='proptype' value="26" <?php if(isset($proptype) && in_array(26,$proptype)){ echo 'checked = checked';}?> />
-															<i></i> Commercial (<?php echo $resi_comm_count->commercial; ?>)
-														</label>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>flats-villas-apartment-property-for-sale"> Residential (<?php echo $resi_comm_count->residential; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>commercial-property-for-sale"> Commercial (<?php echo $resi_comm_count->commercial; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

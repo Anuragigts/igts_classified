@@ -140,10 +140,10 @@
 								$vasl = ucfirst($list->deal_tag);
 								echo $vasl;?></td>
 							<td><?php  
-								$val2 = $list->created_on;
+								$val2 = date("d-m-Y H:i:s", strtotime($list->created_on));
 								echo $val2;?></td>
 							<td><?php  
-								$val = $list->expire_data;
+								$val = date("d-m-Y H:i:s", strtotime($list->expire_data));
 								echo $val;?></td>
 							<td><?php  
 								$val = $list->price;

@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>New | Used | Bikes & Scooters For Sale In UK | 99 Right Deals</title>
+		<title>Used Bikes & Scooters for Sale‎, Buy used scooter online | 99 Right Deals</title>
 		
-		<meta name="description" content="Find the latest new and used bike for sales at best price in United Kingdom on 99 Right Deals. And get the hot deals & compare price to other website." />
+		<meta name="description" content="Find used bikes & Scooters for sale in UK. And buy used scooter online, used bike for sale, scooters for sale online, second hand bike for sale at affordable price on 99 Right Deals." />
 		<meta name="keywords" content="new bikes, used bikes, new scooters, used scooters,used bikes for sale,used motorcycles for sale,second hand bikes for sale, online used bikes,scooters for sale,cheapest scooters for sale" />
 		
 		<!-- xxx Head Content xxx -->

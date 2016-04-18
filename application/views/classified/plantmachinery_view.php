@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Used Plant Machinery For Sale In UK | 99 Right Deals</title>
+		<title>Used Plant And Machinery For Sale, Buy Used Plant Machinery| 99 Right Deals</title>
 		
-		<meta name="description" content="Buy and sell the used or new plant machiney in Unites Kingdom with best price. Find the hot deals on new and used plant machinery on 99 Right Deals. " />
-		<meta name="keywords" content="used plant machinery for sale,second hand plant machinery,buy used plant machinery,plant machinery for sale,plant machinery sales,plant and machinery sales,plant equipment for sale,plant machinery for sale uk,second hand farm machinery,Buy & Sell Used plant Equipment, new plant machinery for sale," />
+		<meta name="description" content="Find Used Pland and Machinery for Sale in UK on 99 Right Deals. And Buy Used Plant Machinery, Second Hand Plant Machinery, Second Hand Machinery for Sale at best price." />
+		<meta name="keywords" content="second hand plant equipment,plant and machinery uk,used plant machinery,used machinery for sale,construction plant & machinery sales,second hand machinery for sale,second hand plant equipment,plant machinery and equipment,used plant machinery and equipment for sale,used plant and machinery for sale in uk,buy used plant machinery,second hand plant and machinery for sale,used plant machinery for sale uk," />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Free Job Ads | Jobs Classified Ads| In UK | 99 Right Deals</title>
+		<title>Freelance Jobs In UK | Jobs Classified Ads | 99 Right Deals</title>
 		
 		<meta name="description" content="99 Right Deals website assits you finding full time, part time jobs, home based work, Freelancer related job in United Kingdom and free post ads for relevant profile jobs on 99 Right Deals." />
-		<meta name="keywords" content="freelancing job ads, employment classified ads,full time job ads,freelance job in united kingdom,job advertisements uk,home based job classified, home base work uk,part time home based jobs,part-time job ads online" />
+		<meta name="keywords" content="freelancing job ads, employment classified ads,full time job ads,freelance job in united kingdom,job advertisements uk,home based job classified, home base work uk,part time home based jobs,part-time job ads online,freelance jobs online" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -144,7 +144,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>free-job-ads"><h3 class="title-widget">Jobs Filter</h3></a>
+											<a href="<?php echo base_url(); ?>part-full-time-jobs-london"><h3 class="title-widget">Jobs Filter</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Category</h4>
 												<div class="cd-filter-content">

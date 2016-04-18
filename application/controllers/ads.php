@@ -146,6 +146,7 @@ class Ads extends CI_Controller {
                 );
 			$data['category_list'] = $this->category_model->view();
 			$data['packages_details'] = $this->category_model->get_packages_details();
+			$data['ad_status'] = $this->ads_model->get_postad_status();
 			
 				//echo '<pre>';print_r($data);echo '</pre>';//exit;
 			$this->load->view("admin_layout/inner_template",$data);
@@ -235,6 +236,32 @@ $data['ad_status'] = $this->ads_model->get_postad_status();
 			//echo $request;exit;
 			$data['ads_list'] = $this->ads_model->ads_by_usertype($user_type);
 			$this->load->view("admin_layout/inner_template",$data);
+		}
+
+		public function get_newads_count(){
+			$newads = $this->category_model->newads_cnt();
+			$pendingads = $this->category_model->pendingads_cnt();
+			$rejectads = $this->category_model->rejectads_cnt();
+			$onholdads = $this->category_model->onhold_cnt();
+			$activeads = $this->category_model->active_cnt();
+			echo json_encode(
+								array(
+									'news_ads'=>$newads,
+									'pending_ads'=>$pendingads,
+									'reject_ads'=>$rejectads,
+									'onhold_ads'=>$onholdads,
+									'active_ads'=>$activeads)
+							);
+		}
+
+		public function get_feedbackads_count(){
+			$fdkads = $this->category_model->fdkads();
+			$rptads = $this->category_model->rptads();
+			echo json_encode(
+								array(
+									'fdkads'=>$fdkads,
+									'rptads'=>$rptads)
+							);
 		}
 }
 ?>

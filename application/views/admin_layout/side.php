@@ -114,16 +114,17 @@
 								</li>
 							</ul>
 						</li>
-						<!--<li><a href="<?php echo base_url();?>users/CustomerCare"><i class="icon-user"></i><span class="hidden-tablet"> User</span></a></li>
-						<li><a href="<?php echo base_url();?>ads/"><i class="icon-bullhorn"></i><span class="hidden-tablet"> Advertisements </span></a></li>-->
-						<!--<li><a href="<?php echo base_url();?>customercare"><i class="icon-headphones"></i><span class="hidden-tablet"> Customer Care </span></a></li>
-						<li><a href="widgets.html"><i class="icon-headphones"></i><span class="hidden-tablet"> Widgets</span></a></li>-->
-						<li >
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Advertisements &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
 								<li>
 									<a class="submenu" href="<?php echo base_url();?>users/list_userads">
 										<i class="fa fa-angle-double-right"></i> User List Ads
+									</a>
+								</li>
+								<li>
+									<a class="submenu" href="<?php echo base_url();?>pay_pendingads">
+										<i class="fa fa-angle-double-right"></i> Payment-pending Ads
 									</a>
 								</li>
 								<li>

@@ -64,7 +64,7 @@
 							</div>
 						</div>
 						<?php //echo '<pre>';print_r($pkg_types);echo '</pre>';?>
-						<div class='span6' style='margint:0px;'>
+						<!-- <div class='span6' style='margint:0px;'>
 							<div class="control-group">
 								<label class="control-label" for="typeahead">Package Type <span class="text-red">*</span></label>
 								<div class="controls">
@@ -77,7 +77,7 @@
 									<?php echo form_error("pkg_type");?>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class='span6' style='margint:0px;'>
 							<div class="control-group">
 								<label class="control-label" for="typeahead">Category Type <span class="text-red">*</span></label>
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	<?php if(isset($ad_reports)){
-		//echo '<pre>';print_r($ad_reports[0]);echo '</pre>';?>
+		// echo '<pre>';print_r($ad_reports[0]);echo '</pre>';?>
 	<div class="row-fluid sortable2">
 		<div class="box span12">
 			<div class="box-header" data-original-title style='height:32px;padding:5px;'>
@@ -122,10 +122,9 @@
 							<th>Ad ID</th>
 							<th>Deal Tag</th>
 							<th>Report Title</th>
-							<th>Created On</th>
+							<th>Report Message</th>
 							<th>Category</th>
-							<th>Price</th>
-							<th>Package Name</th>
+							<th>Created on</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -140,16 +139,13 @@
 							<td><?php  
 								$name = ucfirst($list->name);
 								echo $name;?></td>
-							<td><?php  
-								$val2 = $list->created_on;
+							<td style='word-break: break-all;'><?php  
+								$val2 = $list->message;
 								echo $val2;?></td>
 							<td><?php  
 								echo ucwords($list->category_name);?></td>
 							<td><?php  
-								$val = $list->price;
-								echo $val;?></td>
-							<td><?php  
-								$val = ucfirst($list->pkg_dur_name);
+								$val = date("d-m-Y H:i:s", strtotime($list->r_created));
 								echo $val;?></td>
 						</tr>
 						<?php 

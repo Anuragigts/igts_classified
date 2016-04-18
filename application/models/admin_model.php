@@ -348,7 +348,7 @@ class Admin_model extends CI_Model{
 		
 	function get_Feedbacks(){
 		$cats = $this->get_assigned_cats();
-		$this->db->select();
+		$this->db->select("*,f_ad.created_on as f_created");
 		if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
 			$this->db->where_in('p_ad.category_id',$cats_list);
@@ -362,8 +362,9 @@ class Admin_model extends CI_Model{
 		$this->db->join('postad as p','p.ad_id = f_ad.ad_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
 		$this->db->from('feedbackforads as f_ad');
+		$this->db->order_by("f_created", "DESC");
 		$all_feedbacks = $this->db->get()->result();
-		//echo $this->db->last_query();
+		  // echo $this->db->last_query(); exit;
 		//echo '<pre>';print_r($all_feedbacks);echo '</pre>';exit;
 		return $all_feedbacks;
 	}
@@ -394,10 +395,11 @@ class Admin_model extends CI_Model{
 	}
 	function getAdfeedbacks(){
 		$ad_id = $this->uri->segment(3);
-		$this->db->select();
+		$this->db->select("*,f_ad.created_on as f_created");
 		$this->db->where('f_ad.ad_id',$ad_id);
 		$this->db->join('postad as p','p.ad_id = f_ad.ad_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->order_by("f_created","DESC");
 		$this->db->from('feedbackforads as f_ad');
 		$all_feedbacks = $this->db->get()->result();
 		//echo '<pre>';print_r($all_feedbacks);echo '</pre>';exit;
@@ -418,9 +420,11 @@ class Admin_model extends CI_Model{
 		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
+		$this->db->order_by("r_created","DESC");
 		$this->db->from('reportforads as r_ad');
+		
 		$all_reports = $this->db->get()->result();
-		//echo $this->db->last_query();
+		// echo $this->db->last_query();
 		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
 		return $all_reports;
 	}
@@ -477,6 +481,7 @@ class Admin_model extends CI_Model{
 		$this->db->join('postad as p_ad','p_ad.ad_id = r_ad.ad_id','inner');
 		$this->db->join('catergory as cat','cat.category_id = r_ad.cat_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_ad.package_type','inner');
+		$this->db->order_by("p_ad.created_on","DESC");
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
 		//echo $this->db->last_query();

@@ -87,13 +87,13 @@
 								&nbsp;&nbsp;<b style='font-family: ""; vertical-align:middle; font-size:35px;'>£</b>
 							</div>
 						</div>
-						<div class="control-group">
+						<!-- <div class="control-group">
 							<label class="control-label" for="euro_price">Euro Price</label>
 							<div class="controls">
 								<input type="text" id="euro_price" name="euro_price" value='<?php echo $packages_details->cost_euro?>'>
 								<i class='glyphicons-icon euro' style='vertical-align:bottom; height:38px;'></i>
 							</div>
-						</div>
+						</div> -->
 						<div class="control-group">
 							<label class="control-label" for="add_type">Package Category</label>
 							<div class="controls">

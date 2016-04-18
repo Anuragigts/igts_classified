@@ -12,7 +12,7 @@
 		</li>
 		<li><a href="">Ads List</a></li>
 	</ul>
-	<?php if($this->session->flashdata('err') != ''){?>
+	<?php if($this->session->flashdata('err') != ''){ ?>
 	<div class="alert alert-block alert-danger fade in">
 		<button data-dismiss="alert" class="close" type="button">
 		×
@@ -51,10 +51,13 @@
 							<label class="control-label" for="pkg_type">Package Type</label>
 							<div class="controls">
 								<select id="pkg_type" name='pkg_type' >
-									<option value='' >Select Package</option>
-									<?php foreach($packages_details as $pkgs){if($pkgs->status == 1){?>
-									<option value='<?php echo $pkgs->pkg_dur_id; ?>'<?php if(isset($filter_details)&& ($filter_details['pkg_type'] == $pkgs->pkg_dur_id)) echo 'selected';?>><?php echo ucwords($pkgs->pkg_dur_name); ?></option>
-									<?php }}?>
+									<option value='' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == '')) echo 'selected';?> >Select Package</option>
+									<option value='14' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == 14)) echo 'selected';?> >Free</option>
+									<option value='25' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == 25)) echo 'selected';?> >Gold</option>
+									<option value='36' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == 36)) echo 'selected';?> >Platinum</option>
+									<?php //foreach($packages_details as $pkgs){if($pkgs->status == 1){?>
+									<!-- <option value='<?php echo $pkgs->pkg_dur_id; ?>'<?php if(isset($filter_details)&& ($filter_details['pkg_type'] == $pkgs->pkg_dur_id)) echo 'selected';?>><?php echo ucwords($pkgs->pkg_dur_name); ?></option> -->
+									<?php //}} ?>
 								</select>
 							</div>
 						</div>
@@ -131,6 +134,8 @@
 							<th>Expire On</th>
 							<!-- <th>Gallery</th> -->
 							<th>Status</th>
+							<th>Payment Status</th>
+							<th>Paid Amount</th>
 							<th>View</th>
 							<th style='width:55px;'>Action</th>
 						</tr>
@@ -152,15 +157,25 @@
 							<td><?php echo ucwords($ads->category_name);?></td>
 							<td><?php echo $ads->price;?></td>
 							<td><?php echo $ads->created_on;?></td>
-							<td><?php echo $ads->expire_data;?></td>
-							<!--<td title ='<?php echo $ads->deal_desc?>'><?php echo substr($ads->deal_desc, '0', '20');?></td>-->
-							<!-- <td><a href='<?php echo base_url();?>ads/multimedia/<?php echo $ads->ad_id.'/';?>'>Images</a></td> -->
+							<td><?php
+							if ($ads->expire_data != '0000-00-00 00:00:00') {
+								echo date('d-m-Y H:i:s', strtotime($ads->expire_data));
+							}
+							 ?></td>
 							<td><?php if($ads->ad_status == 1)echo 'Approved'; 
 								else if($ads->ad_status == 0)echo 'New';
 								else if($ads->ad_status == 2)echo 'InProgress';
 								else if($ads->ad_status == 3)echo 'On-Hold';
 								else echo 'Rejected';?>
 							</td>
+							<?php if (($ads->package_type == 1 || $ads->package_type == 4) && $ads->urgent_package == 0) { ?>
+								<td></td>
+							<td></td>
+							<?php }
+							else{ ?>
+							<td>Success</td>
+							<td><?php echo $ads->gross_amt." ".$ads->currency_code; ?></td>
+							<?php } ?>
 							<td>
 								<a class="" href="<?php echo base_url();?>description_view/details/<?php echo $ads->ad_id.'/';?>" target='_blank'title="View Ad Content" style=''>View</a>
 							</td>
@@ -175,14 +190,19 @@
 				</table>
 				<?php // echo '<pre>';print_r($ad_status); echo '</pre>';?>
 				<form name='change_status' method='post' action='<?php echo base_url()?>ads/change_status' >
-					<select name='change_status'>
-						<option>Select status </option>
-						<?php foreach($ad_status as $status){if($status->id != 1){?>
+					<select name='change_status' id="change_status">
+						<option value="">Select status </option>
+						<?php foreach($ad_status as $status){
+							//if($status->id != 1){
+							?>
 						<option value='<?php echo $status->id; ?>'><?php echo ucwords($status->status_name); ?></option>
-						<?php }}?>
+						<?php //}
+					}?>
 					</select>
 					<input type='hidden' name='selected_ads' class='selected_ads' id='selected_ads' value=''>
-					<input type='submit' name='active' class='btn success'value='Change Status' >
+					<input type='submit' name='active' class='btn success change_status' value='Change Status' >
+					<div class='status_error' style="color:red; display:none;">Please select status</div>
+					<div class='select_error' style="color:red; display:none;">Please select Ads</div>
 				</form>
 			</div>
 		</div>
@@ -210,4 +230,26 @@
 		}
 		document.getElementById('selected_ads').value = selected_ads;
 	}
+	$(function(){
+		$('.change_status').click(function(){
+			var status = $("#change_status").val();
+			var ads = $("#selected_ads").val();
+			if (status == '') {
+				$(".status_error").show();
+				return false;
+			}
+			else{
+				$(".status_error").hide();	
+				return true;
+			}
+			if (ads == '') {
+				$(".select_error").show();
+				return false;
+			}
+			else{
+				$(".select_error").hide();
+				return false;
+			}
+		});
+	});
 </script>

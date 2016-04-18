@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Farming | Agricultural | Vehicles For Sale In UK | 99 Right Deals</title>
+		<title>Agricultural Vehicles | Farming Vehicles For Sale | 99 Right Deals</title>
 		
-		<meta name="description" content="Find the used or new farming vehicles for sale in United Kingdom on 99 Right Deals and also campare price and get the hot deals on used agriculture vehicles for sales." />
-		<meta name="keywords" content="farming vehicles, farm vehicles, agricultural vehicles for sale, used tractors for sale, used farm equipment for sale, used farm machinery, farm machinery for sale, farm utility vehicles ,farm machinery for sale uk, agricultural trailers for sale" />
+		<meta name="description" content="Find the used or new farming vehicles for sale in United Kingdom and also create free ads for used agriculture vehicles Tractor for sale on 99 Right Deals." />
+		<meta name="keywords" content="farm vehicles, agricultural tractors, agricultural machinery uk, small farm vehicles, farm machines, farm vehicle, agricultural vehicles, farm machinery online, farming tractors, agriculture equipment, agricultural vehicles for sale" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

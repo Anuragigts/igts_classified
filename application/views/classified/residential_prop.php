@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Pets For Sale |Pet Classified Ads, Pets For Sale Online | 99 Right Deals</title>
+		<title>Residential Property For Sale | Property For Sale | 99 Right Deals</title>
 		
-		<meta name="description" content="Post free online classified for pets classified ads or puppies for sale in UK. And find buy pets online uk, pets for sale in uk and local classifieds ads for pets on 99 Right Deals." />
-		<meta name="keywords" content="buy pets online uk, pets classified ads, free ads pets for sale, puppies for sale in uk, pet for sale online, pets for sale in uk, classified pets for sale, local classified ads pets, pug puppies for sale, pets for sale online, pets for sale uk, sell pets online, pets for sale websites, pet classified ads, pets for sale" />
+		<meta name="description" content="Find the residential property for sale in United Kingdom on 99 Right Deals at best price. And post free classifieds ads for property for sale, house for sale uk, flat for sale." />
+		<meta name="keywords" content="apartments for sale, flats for sale, cheapest property in uk, property websites UK, homes for sale, houses for sale by owner, property for sale UK, land for sale UK, find a property, house for sale uk, houses for sale uk" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -13,7 +13,6 @@
 		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
-		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
 		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
@@ -39,7 +38,43 @@
 				});
 			});
 		</script>
-		<script type="text/javascript">
+
+		<?php foreach ($busconcount as $countval) {
+			$allbustype = $countval->allbustype;
+			$business = $countval->business;
+			$consumer = $countval->consumer;
+		  }
+		  foreach ($deals_pck as $pckval) {
+			$urgentcnt = $pckval->urgentcount;
+			$platinumcnt = $pckval->platinumcount;
+			$goldcnt = $pckval->goldcount;
+			$freecnt = $pckval->freecount;
+		  }
+		  foreach ($public_adview as $publicview) {
+			$left_ad1 = $publicview->sidead_one;
+			$topad = $publicview->topad;
+			$mid_ad = $publicview->mid_ad;
+		  }
+		  foreach ($sellerneededcount as $sncnt) {
+			$offered = $sncnt->offered;
+			$wanted = $sncnt->wanted;
+		  }
+				$proptype = $this->session->userdata('proptype');
+				$bed_rooms = $this->session->userdata('bed_rooms');
+				$bathroom = $this->session->userdata('bathroom');
+				$area_square = $this->session->userdata('area_square');
+				$seller_deals = $this->session->userdata('seller_deals');
+				$dealurgent = $this->session->userdata('dealurgent');
+				$dealtitle = $this->session->userdata('dealtitle');
+				$dealtitle = $this->session->userdata('dealtitle');
+				$dealprice = $this->session->userdata('dealprice');
+				$recentdays = $this->session->userdata('recentdays');
+				$search_bustype = $this->session->userdata('search_bustype');
+				$location = $this->session->userdata('location');
+				$latt = $this->session->userdata('latt');
+				$longg = $this->session->userdata('longg');
+		   ?>
+		   <script type="text/javascript">
 			$(document).ready(
 					function()
 					{
@@ -47,7 +82,7 @@
 							function()
 							{
 									$("form.jforms").submit();
-							}
+						   }
 						)
 						$('input:radio').click(function() {
 								$("form.jforms").submit();
@@ -73,39 +108,7 @@
 						});
 					}
 				);
-		</script>
-		  <?php foreach ($busconcount as $countval) {
-			$allbustype = $countval->allbustype;
-			$business = $countval->business;
-			$consumer = $countval->consumer;
-		  }
-		  foreach ($deals_pck as $pckval) {
-			$urgentcnt = $pckval->urgentcount;
-			$platinumcnt = $pckval->platinumcount;
-			$goldcnt = $pckval->goldcount;
-			$freecnt = $pckval->freecount;
-		  }
-		  foreach ($public_adview as $publicview) {
-			$left_ad1 = $publicview->sidead_one;
-			$topad = $publicview->topad;
-			$mid_ad = $publicview->mid_ad;
-		  }
-		  foreach ($sellerneededcount as $sncnt) {
-			$seller = $sncnt->seller;
-			$needed = $sncnt->needed;
-		  }
-				$pets_sub1 = $this->session->userdata('pets_sub');
-				$seller_deals = $this->session->userdata('seller_deals');
-				$dealurgent = $this->session->userdata('dealurgent');
-				$dealtitle = $this->session->userdata('dealtitle');
-				$dealprice = $this->session->userdata('dealprice');
-				$recentdays = $this->session->userdata('recentdays');
-				$search_bustype = $this->session->userdata('search_bustype');
-				$location = $this->session->userdata('location');
-				$latt = $this->session->userdata('latt');
-				$longg = $this->session->userdata('longg');
-		   ?>
-		   
+			</script>
 	</head>
 	
 	<body id="home">
@@ -126,14 +129,13 @@
 			<div class="section-title-01">
 				<div class="bg_parallax image_01_parallax"></div>
 			</div>   
-
+			
 			<!--Content Central -->
 			<section class="content-central">
-				<!-- Shadow Semiboxed -->
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>pets_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>residential_prop/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -149,32 +151,95 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>pet-for-sale-online"><h3 class="title-widget">Pets Filter</h3></a>
+											<a href="<?php echo base_url(); ?>flats-villas-apartment-property-for-sale"><h3 class="title-widget">Property Filter</h3></a>
 											<div class="cd-filter-block">
-												<h4 class="title-widget">Pet Type</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($pets_sub as $petval) { ?>
-															<label class="checkbox">
-															<input type="checkbox" name="pets_sub[]" class='pets_sub' value="<?php echo $petval->sub_category_id; ?>" <?php if(isset($pets_sub1) && in_array($petval->sub_category_id,$pets_sub1)){ echo 'checked = checked';}?> >
-															<i></i>  <?php echo ucwords($petval->sub_category_name)." (".$petval->no_ads.")"; ?>  
-															</label>
-														<?php } ?>
+												<h4 class="title-widget">No. of BedRooms</h4>
+												<div class="cd-filter-content" >
+													<div>
+														<label class="checkbox">
+															<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="1" <?php if(isset($bed_rooms) && in_array(1,$bed_rooms)){ echo 'checked = checked';}?> >
+															<i></i> 1 (<?php echo $bedroomcount->one1; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="2" <?php if(isset($bed_rooms) && in_array(2,$bed_rooms)){ echo 'checked = checked';}?> >
+															<i></i> 2 (<?php echo $bedroomcount->secon2; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="3" <?php if(isset($bed_rooms) && in_array(3,$bed_rooms)){ echo 'checked = checked';}?> >
+															<i></i> 3 (<?php echo $bedroomcount->third3; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="bed_rooms[]" class='bed_rooms' value="4" <?php if(isset($bed_rooms) && in_array(4,$bed_rooms)){ echo 'checked = checked';}?> >
+															<i></i> 4+ (<?php echo $bedroomcount->four4; ?>)
+														</label>
 													</div>
 												</div>
 											</div>
+											<div class="cd-filter-block">
+												<h4 class="title-widget">No. of BathRooms</h4>
+												<div class="cd-filter-content" >
+													<div>
+														<label class="checkbox">
+															<input type="checkbox" name="bathroom[]" class='bathroom' value="1" <?php if(isset($bathroom) && in_array(1,$bathroom)){ echo 'checked = checked';}?> >
+															<i></i> 1 (<?php echo $bathroomcount->one1; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="bathroom[]" class='bathroom' value="2" <?php if(isset($bathroom) && in_array(2,$bathroom)){ echo 'checked = checked';}?> >
+															<i></i> 2 (<?php echo $bathroomcount->secon2; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="bathroom[]" class='bathroom' value="3" <?php if(isset($bathroom) && in_array(3,$bathroom)){ echo 'checked = checked';}?> >
+															<i></i> 3 (<?php echo $bathroomcount->third3; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="bathroom[]" class='bathroom' value="4" <?php if(isset($bathroom) && in_array(4,$bathroom)){ echo 'checked = checked';}?> >
+															<i></i> 4+ (<?php echo $bathroomcount->four4; ?>)
+														</label>
+													</div>
+												</div>
+											</div>
+											
+											<div class="cd-filter-block">
+												<h4 class="title-widget "> Area (Sq Ft)</h4>
+
+												<div class="cd-filter-content" >
+													<div>
+														<label class="checkbox">
+															<input type="checkbox" name="area_square[]" class='area_square' value="<500" <?php if(isset($area_square) && in_array('<500',$area_square)){ echo 'checked = checked';}?> >
+															<i></i> Less than 500 (<?php echo $areacount->less500; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="area_square[]" class='area_square' value="500-1000" <?php if(isset($area_square) && in_array("500-1000",$area_square)){ echo 'checked = checked';}?> >
+															<i></i> 500 - 1000 (<?php echo $areacount->plus500; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="area_square[]" class='area_square' value="1000-1500" <?php if(isset($area_square) && in_array("1000-1500",$area_square)){ echo 'checked = checked';}?> >
+															<i></i> 1000 - 1500 (<?php echo $areacount->plus1000; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="area_square[]" class='area_square' value="1500-2000" <?php if(isset($area_square) && in_array("1500-2000",$area_square)){ echo 'checked = checked';}?> >
+															<i></i> 1500 - 2000 (<?php echo $areacount->plus1500; ?>)
+														</label>
+														<label class="checkbox">
+															<input type="checkbox" name="area_square[]" class='area_square' value=">2000" <?php if(isset($area_square) && in_array(">2000",$area_square)){ echo 'checked = checked';}?> >
+															<i></i> More than 2000 (<?php echo $areacount->plus2000; ?>)
+														</label>
+													</div>
+												</div> 
+											</div>
+
 											<div class="cd-filter-block">
 												<h4 class="title-widget ">Seller Type</h4>
 
 												<div class="cd-filter-content" >
 													<div>
 														<label class="checkbox">
-															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
-															<i></i> Seller Deals (<?php echo $seller; ?>)
+															<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Offered" <?php if(isset($seller_deals) && in_array('Offered',$seller_deals)) echo 'checked = checked';?> >
+															<i></i> Offered Deals (<?php echo $offered; ?>)
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
-															<i></i> Needed Deals (<?php echo $needed; ?>)
+															<input type="checkbox" name="seller_deals[]" class='seller_deals' value="Wanted" <?php if(isset($seller_deals) && in_array('Wanted',$seller_deals)) echo 'checked = checked';?> >
+															<i></i> Wanted Deals (<?php echo $wanted; ?>)
 														</label>
 													</div>
 												</div> 
@@ -206,7 +271,7 @@
 
 												<div class="cd-filter-content" >
 													<div class="input">
-														<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" value="<?php echo $location; ?>" name="find_loc">
+														<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
 														<input type='hidden' name='latt' id='latt' value='' >
 														<input type='hidden' name='longg' id='longg' value='' >
 														<button class="btn btn-primary sm-btn pull-right find_location" id='find_location' >Find</button>
@@ -221,30 +286,31 @@
 												<div class="cd-filter-content">
 													<div>
 														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
+															<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0"<?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?> >
 															<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
+															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3"<?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
 															<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
+															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2"<?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
 															<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
+															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1"<?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
 															<i></i> Recent Deals (<?php echo $freecnt; ?>)
 														</label>
 													</div>
 												</div>
-											</div> 
+											</div>
 										</div>
 										<div class="row top_20">
 											<div class="col-sm-12 add_left">
 												<?php echo $left_ad1; ?>
 											</div>
 										</div>
+										
 									</div>
 									<!-- End Item Table-->
 
@@ -271,9 +337,9 @@
 															<div class="top_bar_top">
 																<label class="input select">
 																	<select name="price_sort" class="price_sort">
-																		<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
-																		<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
-																		<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
+																		<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?>>Any(Pricing)</option>
+																		<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?>>Low to High</option>
+																		<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?>>High to Low</option>
 																	</select>
 																	<i></i>
 																</label>
@@ -283,12 +349,12 @@
 															<div class="top_bar_top">
 																<label class="input select">
 																		<select name="recentdays_sort" class="recentdays_sort">
-																			<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
-																			<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
-																			<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
-																			<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
-																			<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
-																			<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+																			<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?>>Any(posted on)</option>
+																			<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?>>Last 24 Hours</option>
+																			<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?>>Last 3 Days</option>
+																			<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?>>Last 7 Days</option>
+																			<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?>>Last 14 Days</option>
+																			<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?>>Last 1 month</option>
 																		</select>
 																		<i></i>
 																	</label>
@@ -299,9 +365,9 @@
 											</div>
 										</div>
 										<!-- sort-by-container-->
-
-										<div class="row list_view_searches pets_search_result">
-											<?php echo $this->load->view("classified/pets_view_search"); ?>
+										
+										<div class="row list_view_searches residential_result">
+											<?php echo $this->load->view('classified/residential_prop_search') ?>
 										</div>
 									</div>
 								</div>
@@ -335,7 +401,7 @@
 		</div>
 		
 		<!-- End Shadow Semiboxed -->
-		<script src="js/jquery.js"></script> 
+		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 		
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
@@ -344,6 +410,7 @@
 		<script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>
 		
 		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
+		
 		<script>
 			$('.xuSlider').xuSlider();
 		</script>

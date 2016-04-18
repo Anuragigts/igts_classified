@@ -88,7 +88,6 @@
 				</div>
 			</div>
 			<div class="box-content">
-				<form name='change_status' method='post' action='<?php echo base_url()?>ads/change_status' >
 					<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						<thead>
 							<tr>
@@ -111,14 +110,14 @@
 								foreach($ads_list as $ads){$i++; ?>
 							<tr class="odd gradeX">
 								<td id='<?php echo 'td_'.$ads->ad_id?>' class='<?php if($ads->ad_status != 1)echo 'td_class_uncheck'?>'><?php if($ads->ad_status != 1){?>
-									<input type='checkbox' name='deal_id[]' class='checkbox1' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'><?php }?>
+									<input type='checkbox' name='deal_id[]' class='deal_id' id='deal_id<?php echo $ads->ad_id; ?>' value='<?php echo $ads->ad_id; ?>' onclick='select_post_ad(<?php echo $ads->ad_id;?>)'><?php }?>
 								</td>
 								<td><?php echo ucwords($ads->deal_tag);?></td>
 								<td><?php echo ucwords($ads->pkg_name);?></td>
 								<td><?php echo ucwords($ads->category_name);?></td>
 								<!--<td><?php echo $ads->price;?></td>-->
-								<td><?php echo $ads->created_on;?></td>
-								<td><?php echo $ads->expire_data;?></td>
+								<td><?php echo date("d-m-Y H:i:s", strtotime($ads->postadon));?></td>
+								<td><?php echo date("d-m-Y H:i:s", strtotime($ads->expire_data));?></td>
 								<td><?php if($ads->is_free == 1 || $ads->payment_status == 1)echo "<span style='color:green;'>No-Due</span>";else echo "<span style='color:red;'>Pending</span>"?></td>
 								<td><?php if($ads->ad_status == 1)echo 'Active'; 
 									else if($ads->ad_status == 0)echo 'New';
@@ -138,16 +137,17 @@
 							<?php } ?>
 						</tbody>
 					</table>
-					<select name='change_status'>
-						<option>Select status </option>
-						<option value='0'>New</option>
-						<option value='1'>Active</option>
-						<option value='2'>On-Hold</option>
-						<option value='3'>In-progress</option>
-						<option value='4'>Rejected</option>
+					<form name='change_status' method='post' action='<?php echo base_url()?>ads/change_status'>
+					<select name='change_status' id='change_status'>
+						<option value="">Select status </option>
+						<?php foreach($ad_status as $status){ ?>
+						<option value='<?php echo $status->id; ?>'><?php echo ucwords($status->status_name); ?></option>
+						<?php 	} ?>
 					</select>
 					<input type='hidden' name='selected_ads' class='selected_ads' id='selected_ads' value=''>
-					<input type='submit' name='active' class='btn success'value='Change Status' >
+					<input type='submit' name='active' class='btn success change_status' value='Change Status' >
+					<div class='status_error' style="color:red; display:none;">Please select status</div>
+					<div class='select_error' style="color:red; display:none;">Please select Ads</div>
 				</form>
 			</div>
 		</div>
@@ -208,7 +208,7 @@
 	
 	function select_post_ad(ad_id){
 		var adds_list = $('#selected_ads').val();
-		var selected_ads=''
+		var selected_ads='';
 		 if (document.getElementById('deal_id'+ad_id).checked) {
 			 selected_ads = adds_list+ad_id+',';
 		} else {
@@ -224,4 +224,26 @@
 		}
 		document.getElementById('selected_ads').value = selected_ads;
 	}
+	$(function(){
+		$('.change_status').click(function(){
+			var status = $("#change_status").val();
+			var ads = $("#selected_ads").val();
+			if (status == '') {
+				$(".status_error").show();
+				return false;
+			}
+			else{
+				$(".status_error").hide();	
+				return true;
+			}
+			if (ads == '') {
+				$(".select_error").show();
+				return false;
+			}
+			else{
+				$(".select_error").hide();
+				return false;
+			}
+		});
+	});
 </script>

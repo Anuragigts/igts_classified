@@ -170,7 +170,6 @@
 			<div class="box-header">
 				<h2><i class="halflings-icon white check"></i><span class="break"></span>Latest Ads</h2>
 				<div class="box-icon">
-					<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 					<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 				</div>

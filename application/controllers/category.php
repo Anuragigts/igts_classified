@@ -98,7 +98,7 @@ class Category extends CI_Controller {
 				$this->form_validation->set_rules("img_count","No Of Images","required");
 				$this->form_validation->set_rules("bump_home","Bump Days","required");
 				$this->form_validation->set_rules("bump_search","Bump Search","required");
-				$this->form_validation->set_rules("euro_price","Euro Price","required");
+				// $this->form_validation->set_rules("euro_price","Euro Price","required");
 				$this->form_validation->set_rules("pound_price","pound Price","required");
 					if($this->form_validation->run() != TRUE){
 						$this->session->set_flashdata("err","Validation Failed");

@@ -71,7 +71,32 @@ td a.btn{
 .btn i{margin:0px;}
 td a.btn{line-height:15px;}
 </style>	
-		
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			type: "POST",
+				url: "<?php echo base_url();?>ads/get_newads_count",
+				success: function (data) {
+					data1 = JSON.parse(data);
+					$("span.new_ads").text(data1.news_ads);
+					$("span.pending_ads").text(data1.pending_ads);
+					$("span.rejected_ads").text(data1.reject_ads);
+					$("span.onhold_ads").text(data1.onhold_ads);
+					$("span.approve_ads").text(data1.active_ads);
+				}
+	    });
+	    $.ajax({
+			type: "POST",
+				url: "<?php echo base_url();?>ads/get_feedbackads_count",
+				success: function (data) {
+					data1 = JSON.parse(data);
+					$("span.feedbackforads").text(data1.fdkads);
+					$("span.reportforads").text(data1.rptads);
+				}
+	    });
+	});
+</script>
 </head>
 
 <body>
@@ -92,99 +117,54 @@ td a.btn{line-height:15px;}
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="icon-bell"></i>
-								<span class="badge red">
-								<?php echo $this->session->userdata('new');?> </span>
+								<span class="badge red new_ads"></span>
 							</a>
 							<ul class="dropdown-menu notifications">
-								<!--<li class="dropdown-menu-title">
- 									<span>You have 11 notifications</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>	-->
                             	<li>
                                     <a href="<?php echo base_url()?>ads/listAdsbyStatus/0/">
 										<span class="icon blue"><i class="icon-user"></i></span>
 										<span class="message">New Ads</span>
-										<span class="time"><?php echo $this->session->userdata('new');?></span> 
+										<span class="time new_ads"></span> 
                                     </a>
                                 </li>
 								<li>
-                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/3/" >
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/2/" >
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
 										<span class="message">Pending Ads</span>
-										<span class="time"><?php echo $this->session->userdata('ad_pending');?></span> 
+										<span class="time pending_ads"></span> 
                                     </a>
                                 </li>
 								<li>
                                     <a href="<?php echo base_url()?>ads/listAdsbyStatus/4/">
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
 										<span class="message">Rejected Ads</span>
-										<span class="time"><?php echo $this->session->userdata('ad_reject');?></span> 
+										<span class="time rejected_ads"></span> 
                                     </a>
                                 </li>
 								<li>
-                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/2/">
+                                    <a href="<?php echo base_url()?>ads/listAdsbyStatus/3/">
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
 										<span class="message">On Hold Ads</span>
-										<span class="time"><?php echo $this->session->userdata('ad_hold');?></span> 
+										<span class="time onhold_ads"></span> 
                                     </a>
                                 </li>
 								<li>
                                     <a href="<?php echo base_url()?>ads/listAdsbyStatus/1/">
 										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">Active Ads</span>
-										<span class="time"><?php echo $this->session->userdata('active_ad');?></span> 
+										<span class="message">Approved Ads</span>
+										<span class="time approve_ads"></span> 
                                     </a>
                                 </li>
-								<!--<li>
-                                    <a href="#">
-										<span class="icon yellow"><i class="icon-shopping-cart"></i></span>
-										<span class="message">2 items sold</span>
-										<span class="time">1 hour</span> 
-                                    </a>
-                                </li>
-								<li class="warning">
-                                    <a href="#">
-										<span class="icon red"><i class="icon-user"></i></span>
-										<span class="message">User deleted account</span>
-										<span class="time">2 hour</span> 
-                                    </a>
-                                </li>
-								<li class="warning">
-                                    <a href="#">
-										<span class="icon red"><i class="icon-shopping-cart"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">6 hour</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">yesterday</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
-										<span class="time">yesterday</span> 
-                                    </a>
-                                </li>
-                                <li class="dropdown-menu-sub-footer">
-                            		<a>View all notifications</a>
-								</li>	-->
 							</ul>
 						</li>
 						<li class="dropdown notifications">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="icon-envelope"></i>
-								<span class="badge red">
-								4 </span>
+								<span class="badge red feedbackforads"></span>
 							</a>
 							<ul class="dropdown-menu messages">
 								<li class="dropdown-menu-title">
  									<span>Feedbacks & Reports</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
 								</li>	
 								<li>
                                     <a href="<?php echo base_url()?>admin/AllFeedbacks/1">
@@ -192,14 +172,14 @@ td a.btn{line-height:15px;}
 									<span class="icon green"><i class="icon-comment-alt"></i></span>
 									<span class="header">
 											<span class="from">
-										    	Active Feedbacks
+										    	Feedbacks
 										     </span>
-											<span class="time"><?php echo $this->session->userdata('a_feedback').' Feedbacks';?></span>
+											<span class="time feedbackforads"></span>
 										</span>
 										 
                                     </a>
                                 </li>
-								<li>
+								<!-- <li>
                                     <a href="<?php echo base_url()?>admin/AllFeedbacks/0">
 									<span class="icon green"><i class="icon-comment-alt"></i></span>
 									<span class="header">
@@ -207,17 +187,17 @@ td a.btn{line-height:15px;}
 										<span class="time"><?php echo $this->session->userdata('ina_feedback').' Feedbacks';?></span> 
 										</span>
                                     </a>
-                                </li>
+                                </li> -->
 								<li>
                                     <a href="<?php echo base_url()?>admin/AllReports/1">
 									<span class="icon green"><i class="icon-comment-alt"></i></span>
 									<span class="header">
-											<span class="from">Active Reports</span>
-										<span class="time"><?php echo $this->session->userdata('a_reports').' Reports';?></span> 
+											<span class="from">Reports</span>
+										<span class="time reportforads"></span> 
 										</span>
                                     </a>
                                 </li>
-								<li>
+								<!-- <li>
                                     <a href="<?php echo base_url()?>admin/AllReports/0">
 									<span class="icon green"><i class="icon-comment-alt"></i></span>
 									<span class="header">
@@ -225,170 +205,9 @@ td a.btn{line-height:15px;}
 										<span class="time"><?php echo $this->session->userdata('ina_reports').' Reports';?></span> 
 										</span>
                                     </a>
-                                </li>
+                                </li> -->
 							</ul>
 						</li>
-						<!-- start: Notifications Dropdown -->
-						<!--<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i>
-								<span class="badge red">
-								5 </span>
-							</a>
-							<ul class="dropdown-menu tasks">
-								<li class="dropdown-menu-title">
- 									<span>You have 17 tasks in progress</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>
-								<li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">iOS Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim red">80</div> 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">Android Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim green">47</div> 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">ARM Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim yellow">32</div> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">ARM Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim greenLight">63</div> 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">ARM Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim orange">80</div> 
-                                    </a>
-                                </li>
-								<li>
-                            		<a class="dropdown-menu-sub-footer">View all tasks</a>
-								</li>	
-							</ul>
-						</li>-->
-						<!-- end: Notifications Dropdown -->
-						<!-- start: Message Dropdown -->
-						<!--<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-envelope"></i>
-								<span class="badge red">
-								4 </span>
-							</a>
-							<ul class="dropdown-menu messages">
-								<li class="dropdown-menu-title">
- 									<span>You have 9 messages</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>	
-                            	<li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	Dennis Ji
-										     </span>
-											<span class="time">
-										    	6 min
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	Dennis Ji
-										     </span>
-											<span class="time">
-										    	56 min
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	Dennis Ji
-										     </span>
-											<span class="time">
-										    	3 hours
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	Dennis Ji
-										     </span>
-											<span class="time">
-										    	yesterday
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	Dennis Ji
-										     </span>
-											<span class="time">
-										    	Jul 25, 2012
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-								<li>
-                            		<a class="dropdown-menu-sub-footer">View all messages</a>
-								</li>	
-							</ul>
-						</li>-->
-						
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

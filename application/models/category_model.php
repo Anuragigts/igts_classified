@@ -418,7 +418,7 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
 					'img_count'			=>	$this->input->post('img_count'),
 					'bump_home'			=>	$this->input->post('bump_home'),
 					'bump_search'		=>	$this->input->post('bump_search'),
-					'cost_euro'			=>	$this->input->post('euro_price'),
+					// 'cost_euro'			=>	$this->input->post('euro_price'),
 					'cost_pound'		=>	$this->input->post('pound_price'),
 					'is_top'			=>	$is_cat,
 					'added_by'			=>	$this->session->userdata('login_id'),
@@ -442,7 +442,7 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
 					'img_count'			=>	$this->input->post('img_count'),
 					'bump_home'			=>	$this->input->post('bump_home'),
 					'bump_search'		=>	$this->input->post('bump_search'),
-					'cost_euro'			=>	$this->input->post('euro_price'),
+					// 'cost_euro'			=>	$this->input->post('euro_price'),
 					'cost_pound'		=>	$this->input->post('pound_price'),
 					'likes_count'		=>	$this->input->post('like_count'),
 					'is_top'			=>	$is_cat,
@@ -548,6 +548,61 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
         public function bikes_sub_cat_list(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 13");
             return $rs->result_array();
+        }
+
+        /*news ads count*/
+        public function newads_cnt(){
+            $this->db->select();
+            $this->db->from("postad");
+            $this->db->where("ad_status", 0);
+            $this->db->where("payment_status", 1);
+            return $this->db->count_all_results();
+        }
+        /*pending ads count*/
+        public function pendingads_cnt(){
+            $this->db->select();
+            $this->db->from("postad");
+            $this->db->where("ad_status", 2);
+            $this->db->where("payment_status", 1);
+            return $this->db->count_all_results();
+        }
+        /*rejecting ads count*/
+        public function rejectads_cnt(){
+            $this->db->select();
+            $this->db->from("postad");
+            $this->db->where("ad_status", 4);
+            $this->db->where("payment_status", 1);
+            return $this->db->count_all_results();
+        }
+        /*onhold ads count*/
+        public function onhold_cnt(){
+            $this->db->select();
+            $this->db->from("postad");
+            $this->db->where("ad_status", 3);
+            $this->db->where("payment_status", 1);
+            return $this->db->count_all_results();
+        }
+        /*approved ads count*/
+        public function active_cnt(){
+            $this->db->select();
+            $this->db->from("postad");
+            $this->db->where("ad_status", 1);
+            $this->db->where("payment_status", 1);
+            return $this->db->count_all_results();
+        }
+        /*feedback ads*/
+        public function fdkads(){
+            $this->db->select();
+            $this->db->from("feedbackforads");
+            $this->db->where("status", 1);
+            return $this->db->count_all_results();
+        }
+         /*report ads*/
+        public function rptads(){
+            $this->db->select();
+            $this->db->from("reportforads");
+            $this->db->where("status", 1);
+            return $this->db->count_all_results();
         }
 }
 ?>

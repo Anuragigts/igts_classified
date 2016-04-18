@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Motor Point |New and Used Cars| In UK | 99 Right Deals</title>
+		<title>Motor Point | Cars For Sale Website | Second Hand Car UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Post free ads for buy & sell new or used car in united kingdom and get the great price value on your vehciles. Creates own free ads for used care on 99 right deals." />
-		<meta name="keywords" content="new cars for sale,new cars ads,buy and sell new and used cars,buy and sell commercial vehicles,new and used bikes for sale,Used Bike for Sale,New & Used Motorbikes & Motorcycles for Sale,Used Motorcycles for sale,Second hand Motorbikes and cars" />
+		<meta name="description" content="Post free ads for used cars for sale in United Kingdom. Find freeads classifieds for buy a car in UK, new and used car for sale, buying second hand car, used car classified ads on 99 Right Deals." />
+		<meta name="keywords" content="buy a car in uk, second hand car uk, best second hand car to buy, used cars by owner, cars for sale website, used cars for sale by owners, cars for sale private owner, local cars for sale by owner, best used car website" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -147,7 +147,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>motor-point"><h3 class="title-widget">Motors Filter</h3></a>
+											<a href="<?php echo base_url(); ?>motor-point-used-cars-sale"><h3 class="title-widget">Motors Filter</h3></a>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget">All Motors</h4>
@@ -164,15 +164,14 @@
 																$farmingcnt = $motor_sub1->farming;
 																$bloatscnt = $motor_sub1->bloats;
 															} ?>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>car-services"> Cars (<?php echo $carcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>bikes-scooters-services"> Bikes & Scoters (<?php echo $bikescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motorhomes-caravans"> Motorhomes & Caravans (<?php echo $motorhomescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>vans-trucks-suvs"> Vans,Trunks & SUV's (<?php echo $vanscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>coaches-buses"> Coaches & Busses (<?php echo $busescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plant-machinery"> Plant Machinery (<?php echo $plantscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>farming-vehicles"> Farming Vehicles (<?php echo $farmingcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>boats-services"> Boats (<?php echo $bloatscnt; ?>)</a></li>
-														</ul>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cars-for-sale-london"> Cars (<?php echo $carcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>bikes-scooters-for-sale"> Bikes & Scoters (<?php echo $bikescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motorhomes-caravans-for-sale"> Motorhomes & Caravans (<?php echo $motorhomescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>vans-trucks-suvs-for-sale"> Vans,Trunks & SUV's (<?php echo $vanscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>coaches-buses-for-sale"> Coaches & Busses (<?php echo $busescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plant-machinery-for-sale"> Plant Machinery (<?php echo $plantscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>agricultural-farming-vehicles-for-sale"> Farming Vehicles (<?php echo $farmingcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-boats-for-sale"> Boats (<?php echo $bloatscnt; ?>)</a></li>
 														</ul>
 													</div>
 												</div>

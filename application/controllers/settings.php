@@ -61,10 +61,14 @@ class Settings extends CI_Controller {
 		function get_banner(){	
 			if($this->input->post('update_banner')){
 				$update_status = $this->settings_model->update_banner();
-				if($update_status)
-					redirect('admin_dashboard');
-				else 
-					$all_banners = $this->settings_model->get_banners();
+				if($update_status == 1){
+					$this->session->set_flashdata("msg","Banner has been updated Successfully");
+					redirect('settings/list_banners');
+				}
+				else {
+					$this->session->set_flashdata("err","Internal error occured");
+					redirect('settings/list_banners');
+				}
 			}else{
 				$b_id = $this->uri->segment(3);
 				if($b_id>0){

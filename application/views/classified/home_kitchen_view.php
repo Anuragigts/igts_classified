@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Home And Kitchen Services Ads In UK | 99 Right Deals</title>
+		<title>Home And Kitchen Services In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="99 Right Deals also provides free classified ads for used furniture ,interior designing, modular kitchen related serivces, buy and sell electronic new or used products on valuable price." />
+		<meta name="description" content="We provides free classified ads for used furniture ,interior designing, modular kitchen related serivces, buy and sell used electronic products on valuable price." />
 		<meta name="keywords" content="home cleaning services, house cleaning services, housekeeping services, residential cleaning services, professional cleaning services,kitchen cleaning services ,kitchen deep cleaning,modular kitchen design, modular kitchen in uk,modular kitchen companies in uk" />
 		
 		<!-- xxx Head Content xxx -->
@@ -148,7 +148,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>home-kitchen"><h3 class="title-widget">Home Kitchen Filter</h3></a>
+											<a href="<?php echo base_url(); ?>home-kitchen-services-uk"><h3 class="title-widget">Home Kitchen Filter</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Kitchen Essentials</h4>
 												<div class="cd-filter-content">

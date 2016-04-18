@@ -35,7 +35,7 @@
 	<?php }?>
 	
 	<?php if(isset($ad_feedbacks)){
-		//echo '<pre>';print_r($result[0]);echo '</pre>';?>
+		 // echo '<pre>';print_r($ad_feedbacks);echo '</pre>';?>
 	<div class="row-fluid sortable2">
 		<div class="box span12">
 			<div class="box-header" data-original-title style='height:32px;padding:5px;'>
@@ -51,10 +51,10 @@
 						<tr>
 							<th>Ad ID</th>
 							<th>Deal Tag</th>
-							<th>Created On</th>
-							<th>Expire On</th>
-							<th>Price</th>
-							<th>Package Name</th>
+							<th>Contact Name</th>
+							<th>message</th>
+							<th>Email</th>
+							<th>Created on</th>
 							<!--<th>Action</th>-->
 						</tr>
 					</thead>
@@ -68,20 +68,20 @@
 								$vasl = ucfirst($list->deal_tag);
 								echo $vasl;?></td>
 							<td><?php  
-								$val2 = $list->created_on;
+								$val2 = $list->contact_name;
 								echo $val2;?></td>
-							<td><?php  
-								$val = $list->expire_data;
+							<td style='word-break: break-all;'><?php  
+								$val = $list->message;
 								echo $val;?></td>
 							<td><?php  
-								$val = $list->price;
+								$val = $list->email;
 								echo $val;?></td>
-							<td><?php  
+							<!-- <td><?php  
 								$val = ucfirst($list->pkg_dur_name);
-								echo $val;?></td>
-							<!--<td>
-								sdfas
-							</td>-->
+								echo $val;?></td> -->
+							<td>
+								<?php echo date("d-m-Y H:i:s", strtotime($list->f_created)); ?>
+							</td>
 						</tr>
 						<?php 
 							}

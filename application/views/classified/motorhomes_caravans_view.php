@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>New | Used | Motorhomes & Caravans For Sale In UK | 99 Right Deals</title>
+		<title>Buy New And Used Motorhomes For Sale, Cheap Used Motorhomes For Sale | 99 Right Deals</title>
 		
-		<meta name="description" content="Find the hot deals on new or used motorhomes and caravans for sale in United Kingdom at affordable price on  99 Right Deals. And get the latest model and spare part for sales." />
-		<meta name="keywords" content="used motorhomes for sale,used caravans for sale,used motorhomes for sale by owner,second hand motorhomes for sale,new motorhomes for sale,second hand motorhomes for sale uk,new and used caravans for sale,buy new and used motorhomes for sale,motorhomes for sale uk,used touring caravans for sale" />
+		<meta name="description" content="Find Free Ads for tourer caravan, used caravans for sale in UK. See the latest classified ads for used motorhomes, caravan uk, cheap motorhomes for sale on 99 Right Deals." />
+		<meta name="keywords" content="motorhomes for sale private owners, motorhomes for sale by owners, tourer caravan, motorhomes for sale by owner, motorhomes for sale used, motorhomes used, caravan uk, private touring caravans for sale, caravans used for sale, motorhomes used for sale, very cheap motorhomes for sale, caravan sites for sale uk" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

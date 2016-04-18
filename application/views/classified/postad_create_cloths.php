@@ -640,11 +640,14 @@
 						},
 						success: function (data) {
 							data1 = JSON.parse(data);
+							if (data1 != '') {
 							$("#location").val(data1[0].district+", "+data1[0].town+", "+data1[0].county+", "+data1[0].postcode+", "+data1[0].country);
 							$("#lattitude").val(data1[0].latitude);
 							$("#longtitude").val(data1[0].longitude);
-							$("#loc_city").val(data1[0].county);
+							$("#loc_city").val(data1[0].town);
+							$("#location_name").val(data1[0].district+", "+data1[0].town+", "+data1[0].county+", "+data1[0].country);
 							setup_map(parseInt(data1[0].latitude), parseInt(data1[0].longitude));
+							}
 						}
 				    });
 			    }).change();
@@ -802,6 +805,7 @@
 																<input id="lattitude" name='lattitude' readonly type="hidden"  size="90" />
 																<input id="longtitude" name='longtitude' readonly type="hidden"  size="90" />
 																<input id="loc_city" name='loc_city' type="hidden"  size="90" />
+																<input id="location_name" name='location_name' type="hidden"  size="90" />
 															</div>
 														</div>
 													</div>
@@ -2136,7 +2140,7 @@
 																		<label class="icon-right" for="buscontname">
 																			<i class="fa fa-user"></i>
 																		</label>
-																		<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name ">
+																		<input type="text" id="buscontname" name="buscontname" placeholder="Enter Contact Person Name " readonly>
 																	</div>
 																</div>
 															</div>
@@ -2151,7 +2155,7 @@
 																		<label class="icon-right" for="bussmblno">
 																			<i class="fa fa-phone"></i>
 																		</label>
-																		<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number ">
+																		<input type="text" id="bussmblno" name="bussmblno" placeholder="Enter Your Mobile Number " readonly>
 																	</div>
 																</div>
 																<div class="span6 unit">
@@ -2164,7 +2168,7 @@
 																		<label class="icon-right" for="busemail">
 																			<i class="fa fa-envelope-o"></i>
 																		</label>
-																		<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email">
+																		<input type="email" id="busemail" name="busemail" placeholder="Enter Your Email" readonly>
 																	</div>
 																</div>
 															</div>
@@ -2182,7 +2186,7 @@
 																		<label class="icon-right" for="conscontname">
 																			<i class="fa fa-user"></i>
 																		</label>
-																		<input type="text" id="conscontname" name="conscontname" placeholder="Enter Contact Person Name ">
+																		<input type="text" id="conscontname" name="conscontname" placeholder="Enter Contact Person Name " readonly>
 																	</div>
 																</div>
 																<div class="span6 unit">
@@ -2195,7 +2199,7 @@
 																		<label class="icon-right" for="conssmblno">
 																			<i class="fa fa-phone"></i>
 																		</label>
-																		<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number ">
+																		<input type="text" id="conssmblno" name="conssmblno" placeholder="Enter Your Mobile Number " readonly>
 																	</div>
 																</div>
 															</div>
@@ -2210,7 +2214,7 @@
 																		<label class="icon-right" for="consemail">
 																			<i class="fa fa-envelope-o"></i>
 																		</label>
-																		<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email">
+																		<input type="email" id="consemail" name="consemail" placeholder="Enter Your Email" readonly>
 																	</div>
 																</div>
 															</div>

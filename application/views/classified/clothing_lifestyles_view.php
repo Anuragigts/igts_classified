@@ -4,7 +4,7 @@
 		
 		<title>Clothing & Lifestyle In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Post free ads for buying and selling used or unused products on 99 Right Deals. And get the hot & great deals on clothing & lifestyle related products. " />
+		<meta name="description" content="Post free ads for second hand designer clothes online UK on 99 Right Deals.Find the best place to sell clothes online in UK. Also get hot & great deals on clothing & lifestyle." />
 		<meta name="keywords" content="buy and sell clothes online uk, electronic classified ads, used furniture ads, mobile phones, laptop & desktop pc ads, toys and tools,buy and sell used clothes online" />
 		
 		<!-- xxx Head Content xxx -->
@@ -160,7 +160,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>clothing-lifestyles"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
+											<a href="<?php echo base_url(); ?>clothes-for-sale-uk"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Type</h4>
 												<div class="cd-filter-content">

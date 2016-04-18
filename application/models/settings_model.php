@@ -54,7 +54,13 @@ class Settings_model extends CI_Model{
 			);
 			$this->db->where('id',$this->input->post('b_id'));
 			$up_status = $this->db->update('publicads_searchview', $update);
-			return $up_status;
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+			// return $up_status;
 	}
 
 	public function get_newletters(){

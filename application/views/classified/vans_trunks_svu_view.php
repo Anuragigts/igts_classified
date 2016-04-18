@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>New | Used | Vans Truck & SUV's For Sale In UK | 99 Right Deals</title>
+		<title>Used Vans For Sale By Owner, Buy Used SUV, Used Truck For Sale In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Find the used or second hand and new commercial vehicles, trucks, vans ans SUV's in United Kingdom with affordable price and get the hot deals on 99 Right Deals." />
+		<meta name="description" content="Find used vans for sale by owner, buy used suv, used truck for sale in UK on 99 Right Deals. And get cheap trucks for sale by owner, best second hand suv, used vans." />
 		<meta name="keywords" content="used trucks for sale, used vans for sale, used suvs for sale, new vans for sale, used trucks for sale in uk, used commercial vehicles for sale, used suvs for sale uk, semi trucks for sale, cheap vans for sale, commercial trucks for sale, suvs for sale" />
 		
 		<!-- xxx Head Content xxx -->

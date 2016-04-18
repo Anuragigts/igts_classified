@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>E-Zone In UK | 99 Right Deals</title>
+		<title>E-Zone In UK | Classified Ad Websites| Classifieds Ads| 99 Right Deals</title>
 		
-		<meta name="description" content="E-Zone category list in 99 Right Deals. We provides here electronic products like phones & tablets, home appliances,small appliances, laptop and computer for online buying and selling. " />
+		<meta name="description" content="We provides free classified ads online for electronic products on 99 Right Deals like phones & tablets, home appliances,small appliances, laptop and computer for online buying and selling." />
 		<meta name="keywords" content="electronics classified ads,used electronics classified,Electronics in the UK,Elelctronic free ads, phones & tables, tablets & ipods, air conditioners & refigerators,microwave ovens & mixer grinder," />
 		
 		<!-- xxx Head Content xxx -->
@@ -146,7 +146,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>e-zone"><h3 class="title-widget">Ezone Filter</h3></a>
+											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget">All Ezone</h4>

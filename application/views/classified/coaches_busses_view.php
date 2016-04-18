@@ -2,10 +2,10 @@
 <html>
 	<head>
 		
-		<title>Used | New | Buses and Coaches For Sale In UK | 99 Right Deals</title>
+		<title>Bus And Coach Sales UK | Used Coaches For Sale In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Find and search new or second hand or used buses and coaches for buying and selling in United Kingdom with hot deals on 99 Right Deals." />
-		<meta name="keywords" content="used buses for sale, used coaches for sale, buses and coaches for sale, new buses for sale, new coaches for sale, school bus for sale, buses for sale uk, bus and coach sales, mini coaches for sale, bus and coach sales uk, double decker bus for sale" />
+		<meta name="description" content="Find free ads for buy used bus, second hand coach sales, coach buses for sale in United Kingdom. And get executive buses for sale, used coach for sale in uk on 99 Right Deals." />
+		<meta name="keywords" content="second hand coach sales, passenger coaches for sale, luxury coach buses for sale, coach buses for sale, bus and coach sales, bus and coach sales uk, executive buses for sale, uk buses for sale, coach and bus sales uk, used coach for sale in uk, buy used bus, second hand bus sales, volvo coach sales, volvo bus and coach sales" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
