@@ -169,7 +169,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>motor-point"><h3 class="title-widget">Motors Filter</h3></a>
+											<a href="<?php echo base_url(); ?>motor-point-used-cars-sale"><h3 class="title-widget">Motors Filter</h3></a>
 											<a href=""><h4 class="title-widget">Vans Trunks SUVs</h4></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Fuel type</h4>

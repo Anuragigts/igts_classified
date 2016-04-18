@@ -44,6 +44,9 @@
 			.owl-item{
 				width: 283px !important;
 			}
+			.nav-bottom .fade{
+				display:none;
+			}
 		</style>
 		
 		<!-- xxx Head Content xxx -->
@@ -565,7 +568,7 @@
 									</div>
 									
 									<?php echo $this->view("classified_layout/success_error"); ?>
-									<a class="review_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Write a Review</span></a>
+									<a class="review_show btn_v btn-4 btn-4a fa fa-arrow-right" style="padding: 10px 41px 12px 18px;"><span>Write a Review</span></a>
 									
 									<style type="text/css">
 										.error{

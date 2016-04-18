@@ -5,8 +5,8 @@
 	<div class="footer-down">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-				   <p>Copyright @ 2015.All Right Reserved to 365 Deals - Designed & Developed By <a href="http://www.igravitas.in" target="_blank">iGravitas TechnoSoft</a> India (P) Ltd.</p>
+				<div class="col-md-6 col-md-offset">
+				   <p>Copyright @ 2016.All Right Reserved to <a href="http://www.99rightdeals.com/" target="_blank">99RightDeals</a></p>
 				</div>
 			</div>
 		</div>
