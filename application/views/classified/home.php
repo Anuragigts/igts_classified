@@ -1247,6 +1247,9 @@
 												<hr class="separator">
 												<?php if ($free_val->category_id != '1') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
+												<?php }
+												else{ ?>
+												<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 												<?php } ?>
 												<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 												<div class="price">

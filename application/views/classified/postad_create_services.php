@@ -589,6 +589,7 @@
 				}
 			
 			});
+
 			
 		</script>
 		
@@ -739,6 +740,8 @@
 																<i class="fa fa-search"></i>
 																</label>
 																<input type="text" id="postalcode" name="postalcode" >
+																<span id="pcode_error" class="error" style="color: #b71c1c !important; display:none;">Please Enter your Nearest Location</span>
+																<input type="hidden" id="pcode_status" name="pcode_status" value="0" >
 															</div>
 														</div>
 														<div class="span6 unit">
@@ -879,10 +882,6 @@
 																	<input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
 																	<i></i> <span class="pound_sym"></span> (Pound) 
 																	</label>
-																	<!--label class="radio">
-																		<input type="radio" name="checkbox_toggle1" class='currency'  value="euro">
-																		<i></i> <span class="euro_sym"></span> (Euro)
-																	</label-->
 																</div>
 															</div>
 														</div>
@@ -1662,10 +1661,31 @@
 							$("#loc_city").val(data1[0].town);
 							$("#location_name").val(data1[0].district+", "+data1[0].town+", "+data1[0].county+", "+data1[0].country);
 							setup_map(parseInt(data1[0].latitude), parseInt(data1[0].longitude));
+							$("#pcode_error").hide();
+							$("#pcode_status").val(0);
+							}
+							else{
+								$("#location").val('');
+							$("#lattitude").val('');
+							$("#longtitude").val('');
+							$("#loc_city").val('');
+							$("#location_name").val('');
+								$("#postalcode").change(function(){
+									setTimeout(function(){
+										if ($("#postalcode").val() != '' && $("#location").val() != '') {
+											return true;
+										}else{
+											$("#pcode_status").val(1);
+											$("#pcode_error").show();
+											return false;
+										}
+									},3000);
+								});
 							}
 						}
 				    });
 			    }).change();
+			    
 			});
 		</script>
 		<!-- Modal -->

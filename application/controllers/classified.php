@@ -122,7 +122,9 @@ class Classified extends CI_Controller{
 
         public function postalcode_search(){
             $keyword = $this->input->get('term');
-            $query = mysql_query("SELECT * FROM (SELECT postcode AS uk_keyword FROM uk_postcodes WHERE postcode LIKE '".$keyword."%') AS search_keyword LIMIT 0,10");
+            // $query = mysql_query("SELECT * FROM (SELECT postcode AS uk_keyword FROM uk_postcodes WHERE postcode LIKE '".$keyword."%') AS search_keyword LIMIT 0,10");
+            $query = mysql_query("SELECT * FROM (SELECT postcode AS uk_keyword FROM uk_postcodes WHERE postcode LIKE '".$keyword."%' UNION 
+SELECT town AS uk_keyword FROM `uk_postcodes` WHERE town LIKE '".$keyword."%' GROUP BY `town`) AS search_keyword LIMIT 0,10");
              if (mysql_num_rows($query) >0 ) {
                  while ($row = mysql_fetch_assoc($query)) {
                     $data[] = $row['uk_keyword'];

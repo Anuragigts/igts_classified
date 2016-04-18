@@ -176,6 +176,8 @@ class Postad_model extends CI_Model{
                 $this->db->select();
                 $this->db->from("uk_postcodes");
                 $this->db->where("postcode", $pid);
+                $this->db->or_where("town", $pid);
+                $this->db->group_by("town");
                 return $this->db->get()->result();
             }
 
