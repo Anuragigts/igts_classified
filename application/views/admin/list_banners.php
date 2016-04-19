@@ -24,7 +24,7 @@
 		×
 		</button>
 		<p>
-			<?php echo ($this->session->flashdata('err'))?$this->session->flashdata('err'):''?>
+			<?php echo ($this->session->flashdata('msg'))?$this->session->flashdata('msg'):''?>
 		</p>
 	</div>
 	<br>

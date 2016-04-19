@@ -5,11 +5,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class  Dogs_view  extends CI_Controller{
+class Dogs_view extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
+                $this->load->model("postad_pets_model");
                 $this->load->library('pagination');
         }
         public function index(){
@@ -24,8 +25,8 @@ class  Dogs_view  extends CI_Controller{
                 $this->session->set_userdata('latt','');
                 $this->session->set_userdata('longg','');
             $config = array();
-            $config['base_url'] = base_url().'dogs_view /index';
-            $config['total_rows'] = count($this->classifed_model->count_pets_view());
+            $config['base_url'] = base_url().'dogs_view/index';
+            $config['total_rows'] = count($this->postad_pets_model->count_petdogs_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -49,7 +50,7 @@ class  Dogs_view  extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $pets_view = $this->classifed_model->pets_view($search_option);
+                $pets_view = $this->postad_pets_model->petdogs_view($search_option);
             foreach ($pets_view as $pview) {
                 $loginid = $pview->login_id;
             }
@@ -59,7 +60,7 @@ class  Dogs_view  extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "pets_view",
+                        "content"   =>  "dogs_view",
                          "pets_result" => $pets_view,
                          'log_name' => $log_name,
                          'paging_links' =>$this->pagination->create_links()
@@ -72,11 +73,11 @@ class  Dogs_view  extends CI_Controller{
                     $data['favourite_list']=$favourite_list;
 
                 /*business and consumer count for pets*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_pets();
+                $data['busconcount'] = $this->postad_pets_model->busconcount_petsdogs();
                  /*seller and needed count for pets*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_pets1();
+                $data['sellerneededcount'] = $this->postad_pets_model->sellerneeded_pets_dogs();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_pets();
+                $data['deals_pck'] = $this->postad_pets_model->deals_pck_petsdog();
                 $data['public_adview'] = $public_adview;
                 $this->load->view("classified_layout/inner_template",$data);
         }
@@ -140,8 +141,8 @@ class  Dogs_view  extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'pets_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_pets_search());
+            $config['base_url'] = base_url().'dogs_view/search_filters';
+            $config['total_rows'] = count($this->postad_pets_model->count_petdogs_search());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -166,7 +167,7 @@ class  Dogs_view  extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->pets_search($search_option);
+             $rs = $this->postad_pets_model->petdogs_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -174,7 +175,7 @@ class  Dogs_view  extends CI_Controller{
              }
               $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "pets_view");
+                        "content"   =>  "dogs_view");
             $result['pets_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_pets();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -187,11 +188,11 @@ class  Dogs_view  extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
              $result['pets_sub'] = $this->hotdealsearch_model->pets_sub_search();
              /*business and consumer count for pets*/
-                $result['busconcount'] = $this->hotdealsearch_model->busconcount_pets();
+                $result['busconcount'] = $this->postad_pets_model->busconcount_petsdogs();
                  /*seller and needed count for pets*/
-                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_pets1();
+                $result['sellerneededcount'] = $this->postad_pets_model->sellerneeded_pets_dogs();
                  /*packages count*/
-                $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_pets();
+                $result['deals_pck'] = $this->postad_pets_model->deals_pck_petsdog();
             $this->load->view("classified_layout/inner_template",$result);
         }
         

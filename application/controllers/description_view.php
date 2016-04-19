@@ -209,7 +209,7 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '13') {
                  $detailed_bikes = $this->classifed_model->ads_detailed_bikes();   
                  foreach ($detailed_bikes as $val) {
-                    $body_content = array('Registration Number' => $val->reg_number,
+                    $body_content = array(
                                         'Manufacture'=>$val->manufacture1,
                                         'Bike Type'=> $val->btype,
                                         'Model'=>$val->bmodel,
@@ -227,7 +227,7 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '12' || $value->sub_cat_id == '15' || $value->sub_cat_id == '16') {
                 $detailed_cars = $this->classifed_model->ads_detailed_cars();        
                 foreach ($detailed_cars as $val) {
-                    $body_content = array('Registration Number' => $val->reg_number,
+                    $body_content = array(
                                         'Manufacture'=>$val->manufacture1,
                                         'Model'=>$val->cmodel,
                                         'Colour'=>$val->color,
@@ -248,7 +248,6 @@ class Description_view extends CI_Controller{
                 $detailed_motorhomes = $this->classifed_model->ads_detailed_motorhomes();
                  foreach ($detailed_motorhomes as $val) {
                     $body_content = array('Type of motors' => $val->typeofmotorhome,
-                                        'Registration Number' => $val->reg_number,
                                         'Manufacture'=>$val->manufacture1,
                                         'Model'=>$val->cmodel,
                                         'Colour'=>$val->color,

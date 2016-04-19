@@ -153,13 +153,102 @@
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Pet Type</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($pets_sub as $petval) { ?>
-															<label class="checkbox">
-															<input type="checkbox" name="pets_sub[]" class='pets_sub' value="<?php echo $petval->sub_category_id; ?>" <?php if(isset($pets_sub1) && in_array($petval->sub_category_id,$pets_sub1)){ echo 'checked = checked';}?> >
-															<i></i>  <?php echo ucwords($petval->sub_category_name)." (".$petval->no_ads.")"; ?>  
-															</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($pets_sub as $petval) {
+																$dogscnt = $petval->dogs;
+																$catscnt = $petval->cats;
+																$fishescnt = $petval->fishes;
+																$birdscnt = $petval->birds;
+																$otherscnt = $petval->others;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Dogs (<?php echo $dogscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Cats (<?php echo $catscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Fishes (<?php echo $fishescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Birds (<?php echo $birdscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Others (<?php echo $otherscnt; ?>)</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="cd-filter-block">
+												<h4 class="title-widget">Big Animals</h4>
+												<div class="cd-filter-content">
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($pets_big as $petval) {
+																$cobscnt = $petval->cobs;
+																$donkeyscnt = $petval->donkeys;
+																$horsescnt = $petval->horses;
+																$poniescnt = $petval->ponies;
+																$beefcnt = $petval->beef;
+																$dailrycnt = $petval->dailry;
+																$otherscnt = $petval->others;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Cobs (<?php echo $cobscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Donkeys (<?php echo $donkeyscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Horses (<?php echo $horsescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Ponies (<?php echo $poniescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Beef cattle (<?php echo $beefcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Dairy cattle (<?php echo $dailrycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Others (<?php echo $otherscnt; ?>)</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="cd-filter-block">
+												<h4 class="title-widget">Small Animals</h4>
+												<div class="cd-filter-content">
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($pets_small as $petval) {
+																$pigscnt = $petval->pigs;
+																$sheepscnt = $petval->sheeps;
+																$goatscnt = $petval->goats;
+																$poultrycnt = $petval->poultry;
+																$reptilescnt = $petval->reptiles;
+																$furrycnt = $petval->furry;
+																$otherscnt = $petval->others;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Pigs (<?php echo $pigscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Sheeps (<?php echo $sheepscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Goats (<?php echo $goatscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Poultry (<?php echo $poultrycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Reptiles (<?php echo $reptilescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Furry Pets (<?php echo $furrycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Others (<?php echo $otherscnt; ?>)</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="cd-filter-block">
+												<h4 class="title-widget">Pet Accessories</h4>
+												<div class="cd-filter-content">
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($pets_access as $petval) {
+																$foodscnt = $petval->foods;
+																$toyscnt = $petval->toys;
+																$clothscnt = $petval->cloths;
+																$feedcnt = $petval->feed;
+																$bedscnt = $petval->beds;
+																$odourcnt = $petval->odour;
+																$fishcnt = $petval->fish;
+																$marinecnt = $petval->marine;
+																$landcnt = $petval->land;
+																$stuffcnt = $petval->stuff;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Pet foods (<?php echo $foodscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Toys & training (<?php echo $toyscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Clothing & accessories (<?php echo $clothscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Feeding accessories (<?php echo $feedcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Beds, cages, & crates (<?php echo $bedscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Cleaning & odour control (<?php echo $odourcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Fish tanks & cabinets (<?php echo $fishcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london">Marine aquarium & ponds(<?php echo $marinecnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Aquarium landscaping (<?php echo $landcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Other maintenance stuff (<?php echo $stuffcnt; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div>

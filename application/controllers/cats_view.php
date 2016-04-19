@@ -24,7 +24,7 @@ class  Cats_view  extends CI_Controller{
                 $this->session->set_userdata('latt','');
                 $this->session->set_userdata('longg','');
             $config = array();
-            $config['base_url'] = base_url().'cats_view /index';
+            $config['base_url'] = base_url().'cats_view/index';
             $config['total_rows'] = count($this->classifed_model->count_pets_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
@@ -59,7 +59,7 @@ class  Cats_view  extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "pets_view",
+                        "content"   =>  "cats_view",
                          "pets_result" => $pets_view,
                          'log_name' => $log_name,
                          'paging_links' =>$this->pagination->create_links()
@@ -140,7 +140,7 @@ class  Cats_view  extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'pets_view/search_filters';
+            $config['base_url'] = base_url().'cats_view/search_filters';
             $config['total_rows'] = count($this->hotdealsearch_model->count_pets_search());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
@@ -174,7 +174,7 @@ class  Cats_view  extends CI_Controller{
              }
               $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "pets_view");
+                        "content"   =>  "cats_view");
             $result['pets_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_pets();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');

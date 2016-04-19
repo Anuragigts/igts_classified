@@ -60,7 +60,6 @@ class Settings extends CI_Controller {
 		}
 		function get_banner(){	
 			if($this->input->post('update_banner')){
-				echo "<pre>"; print_r($this->input->post()); echo "</pre>"; exit;
 				$update_status = $this->settings_model->update_banner();
 				if($update_status == 1){
 					$this->session->set_flashdata("msg","Banner has been updated Successfully");

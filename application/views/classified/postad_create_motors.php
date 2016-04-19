@@ -895,7 +895,7 @@
 																	<i class="fa fa-search"></i>
 																</label>
 																<input type="text" id="postalcode" name="postalcode" placeholder="" >
-																<span id="pcode_error" class="error" style="color: #b71c1c !important; display:none;">Please Enter your Nearest Location</span>
+																<span id="pcode_error" class="error" style="color: #b71c1c !important; display:none;">Please Enter Your Location (or) Nearest Location</span>
 																<input type="hidden" id="pcode_status" name="pcode_status" value="0" >
 															</div>
 														</div>

@@ -188,9 +188,9 @@
 						document.getElementById('image_count').value = parseInt(f_count) - 1;
 			
 							$wrapper.toggleClass('new-item').addClass('removed-item');
-							$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+							// $wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
 								$wrapper.remove();
-							});
+							// });
 						});
 			
 						var thumb = getThumbnail(e.target,50,50);
@@ -740,7 +740,7 @@
 																<i class="fa fa-search"></i>
 																</label>
 																<input type="text" id="postalcode" name="postalcode" >
-																<span id="pcode_error" class="error" style="color: #b71c1c !important; display:none;">Please Enter your Nearest Location</span>
+																<span id="pcode_error" class="error" style="color: #b71c1c !important; display:none;">Please Enter Your Location (or) Nearest Location</span>
 																<input type="hidden" id="pcode_status" name="pcode_status" value="0" >
 															</div>
 														</div>

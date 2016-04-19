@@ -67,6 +67,9 @@ class  Pets_view extends CI_Controller{
                 
                 /*pets*/
                 $data['pets_sub'] = $this->hotdealsearch_model->pets_sub_search();
+                $data['pets_big'] = $this->hotdealsearch_model->pets_big_search();
+                $data['pets_small'] = $this->hotdealsearch_model->pets_small_search();
+                $data['pets_access'] = $this->hotdealsearch_model->pets_access_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -186,6 +189,9 @@ class  Pets_view extends CI_Controller{
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
              $result['pets_sub'] = $this->hotdealsearch_model->pets_sub_search();
+             $result['pets_big'] = $this->hotdealsearch_model->pets_big_search();
+                $result['pets_small'] = $this->hotdealsearch_model->pets_small_search();
+                $result['pets_access'] = $this->hotdealsearch_model->pets_access_search();
              /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_pets();
                  /*seller and needed count for pets*/

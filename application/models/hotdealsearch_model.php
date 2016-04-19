@@ -189,13 +189,80 @@ class hotdealsearch_model extends CI_Model{
 			/* pets sub category*/
 			public function pets_sub_search(){
 				$data = date("Y-m-d H:i:s");
-				$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
-				$this->db->from('sub_category');
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$data'", "left");
-				$this->db->where("sub_category.category_id", '5');
-				$this->db->group_by("sub_category.sub_category_id");
+				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+				AND ad.`category_id` = '5' AND ad.`sub_cat_id`=1 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS dogs,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+				AND ad.`category_id` = '5' AND ad.`sub_cat_id`=2 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS cats,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+				AND ad.`category_id` = '5' AND ad.`sub_cat_id`=3 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS fishes,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+				AND ad.`category_id` = '5' AND ad.`sub_cat_id`=4 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS birds,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+				AND ad.`category_id` = '5' AND ad.`sub_cat_id`=8 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS others");
 				$rs = $this->db->get();
-				 // echo $this->db->last_query(); exit;
+				return $rs->result();
+			}
+			public function pets_big_search(){
+				$data = date("Y-m-d H:i:s");
+				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=1 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS cobs,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=2 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS donkeys,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=3 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS horses,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=4 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS ponies,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=5 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS beef,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=6 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS dailry,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=7 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS others");
+				$rs = $this->db->get();
+				return $rs->result();
+			}
+			public function pets_small_search(){
+				$data = date("Y-m-d H:i:s");
+				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=8 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS pigs,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=9 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS sheeps,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=10 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS goats,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=11 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS poultry,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=12 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS reptiles,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=13 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS furry,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=14 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS others");
+				$rs = $this->db->get();
+				return $rs->result();
+			}
+			public function pets_access_search(){
+				$data = date("Y-m-d H:i:s");
+				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=15 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS foods,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=16 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS toys,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=17 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS cloths,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=18 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS feed,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=19 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS beds,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=20 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS odour,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=21 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS fish,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=22 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS marine,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=23 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS land,
+				(SELECT COUNT(*) FROM postad AS ad, `sub_subcategory` AS scat WHERE scat.`sub_subcategory_id` = ad.sub_scat_id
+				AND ad.`category_id` = '5' AND ad.`sub_scat_id`=24 AND ad.ad_status = 1 AND ad.expire_data >='19-04-2016 10:10:10') AS stuff");
+				$rs = $this->db->get();
 				return $rs->result();
 			}
 
