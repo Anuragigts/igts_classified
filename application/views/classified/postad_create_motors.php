@@ -35,9 +35,13 @@
 					},
 					success: function (data) {
 						if(data.make != ''){
+						$(".res_manufacture").parent().removeClass("error-view");
+						$(".res_manufacture").parent().addClass("success-view");
 						$(".res_manufacture").css("display", 'block');
 						$(".manufacture").css("display", 'none');
 						$('.res_manufacture').val(data.make);
+						$(".res_model").parent().removeClass("error-view");
+						$(".res_model").parent().addClass("success-view");
 						$(".car_model").css("display", 'none');
 						$(".res_model").val(data.model)
 						$(".res_model").css("display", 'block');
@@ -728,7 +732,7 @@
 							$("#longtitude").val(data1[0].longitude);
 							$("#loc_city").val(data1[0].town);
 							$("#location_name").val(data1[0].district+", "+data1[0].town+", "+data1[0].county+", "+data1[0].country);
-							setup_map(parseInt(data1[0].latitude), parseInt(data1[0].longitude));
+							setup_map(parseFloat(data1[0].latitude), parseFloat(data1[0].longitude));
 							$("#pcode_error").hide();
 							$("#pcode_status").val(0);
 							}

@@ -57,7 +57,7 @@
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
 													<div class="overlay">
 														<h2>Hot Deals</h2>
-														<a class="info" href="hot-deals">View Details</a>
+														<a class="info" href="hot-deals-post-classifieds-ads">View Details</a>
 													</div>
 												</div>
 											</div>
