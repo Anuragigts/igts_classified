@@ -6516,3 +6516,6 @@ div.letter_success{
 	color:#A1CB57;
 	text-decoration:underline;
 }
+radio i:focus { 
+    border: 1px doted yellow !important; 
+}
