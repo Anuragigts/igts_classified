@@ -217,11 +217,29 @@ class Postad_motor_model extends CI_Model{
 
                         /*bike details*/
                         if ($this->input->post('sub_id') == '13') {
+                                if ($this->input->post('manufacture1') != '') {
+                                       $manuf = $this->input->post('manufacture1');
+                                }
+                                else{
+                                    $manuf = $this->input->post('manufacture');   
+                                }
+                                if ($this->input->post('Model1') != '' ) {
+                                    $model = $this->input->post('Model1');   
+                                }
+                                else{
+                                    $model = $this->input->post('Model');   
+                                }
+                                if ($this->input->post('Type1') != '' ) {
+                                    $type = $this->input->post('Type1');   
+                                }
+                                else{
+                                    $type = $this->input->post('Type');   
+                                }
                             $bike_details = array('ad_id' => $insert_id,
 		                                    'reg_number' => $this->input->post('veh_regno'),
-		                                    'manufacture' => $this->input->post('manufacture'),
-		                                    'bike_type' => $this->input->post('Type'),
-		                                    'model'=>$this->input->post('Model'),
+		                                    'manufacture' => $manuf,
+		                                    'bike_type' => $type,
+		                                    'model'=>$model,
 		                                    'color'=>$this->input->post('color'),
 											'reg_year'=>$this->input->post('reg_year'),
 											'fuel_type'=>$this->input->post('FuelType'),

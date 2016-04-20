@@ -23,6 +23,7 @@
 		<script type="text/javascript">
 		/*vehicle reg number*/
 		$(function(){
+			/*cars*/
 			$('.find_vrm').click(function(){
 				$(".manualentry").text("");
 				$(".pleasewait").css('display', 'block');
@@ -59,6 +60,50 @@
 						}
 						
 						$(".pleasewait").css('display', 'none');
+					}
+				})
+			});
+			/*bikes*/
+			$('.find_bikevrm').click(function(){
+				$(".manualentry_bike").text("");
+				$(".pleasewait_bike").css('display', 'block');
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url();?>postad_create_motors/bikesvrm_api",
+					dataType: "json",
+					data: {
+						vrm: $(".bikeveh_regno").val()
+					},
+					success: function (data) {
+						if(data.make != ''){
+						$(".manufacture_bike").parent().removeClass("error-view");
+						$(".manufacture_bike").parent().addClass("success-view");
+						$(".manufacture_bike").css("display", 'block');
+						$(".bike_manufacture").css("display", 'none');
+						$('.manufacture_bike').val(data.make);
+						$(".model_bike").parent().removeClass("error-view");
+						$(".model_bike").parent().addClass("success-view");
+						$(".bike_model").css("display", 'none');
+						$(".model_bike").val(data.model)
+						$(".model_bike").css("display", 'block');
+						$(".bike_type1").parent().removeClass("error-view");
+						$(".bike_type1").parent().addClass("success-view");
+						$(".bike_type1").val("bike");
+						$(".bike_type1").css("display", 'block');
+						$(".bike_type").css("display", 'none');
+						$("#color").val(data.colour);
+						$("#reg_year").val(data.manufacture_year);
+						$('.fueltype option[value='+data.fuel_type+']').attr("selected","selected");
+						var esize = data.engine_size;
+						var esize1 = esize.split('cc');
+						$("#eng_size").val(esize1[0]);
+						$("#road_tax").val(data.road_tax);
+						}
+						else{
+							$(".manualentry_bike").text("Enter Manually");
+						}
+						
+						$(".pleasewait_bike").css('display', 'none');
 					}
 				})
 			});
@@ -1026,7 +1071,7 @@
 													<!-- bike form -->
 													<?php if (@$sub_id == '13') { ?>
 												<div class="j-row">
-													<div class="span6 unit">
+													<div class="span4 unit">
 														<label class="label">Vehicle Registration  Number 
 															<sup data-toggle="tooltip" title="" data-original-title="Vehicle Registration  Number ">
 																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
@@ -1036,8 +1081,13 @@
 															<label class="icon-right" for="veh_regno">
 																<img src="<?php echo base_url(); ?>j-folder/img/regno.png" alt="regno" title="Reg No Icon" class="img-responsive">
 															</label>
-															<input type="text" id="veh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
+															<input type="text" id="veh_regno" class="bikeveh_regno" name="veh_regno" placeholder="Enter Vehicle Registration  Number ">
 														</div>
+														<span class='pleasewait_bike' style='color:blue;display:none;'>Please Wait...</span>
+														<span class='manualentry_bike' style='color: red;'></span>
+													</div>
+													<div class='span2 unit top_20'>
+														<button class="primary-btn find_bikevrm" type="button">Find Details</button>
 													</div>
 													<div class="span6 unit">
 														<label class="label">Manufacture 
@@ -1053,6 +1103,7 @@
 																	<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
 																	<?php } ?>
 																</select>
+																<input type="text" name="manufacture1" value="" class='manufacture_bike' style='display: none;' >
 																<i></i>
 															</label>
 														</div>
@@ -1070,6 +1121,7 @@
 																<option value="none" selected disabled="">Select Type</option>
 																<option value="">Sample</option>
 															</select>
+															<input type="text" name="Type1" value="" class='bike_type1' style='display: none;' >
 															<i></i>
 														</label>
 													</div>
@@ -1084,6 +1136,7 @@
 																<option value="none" selected disabled="">Select Model</option>
 																<option value="">Sample</option>
 															</select>
+															<input type="text" name="Model1" value="" class='model_bike' style='display: none;' >
 															<i></i>
 														</label>
 													</div>
@@ -1124,7 +1177,7 @@
 															</sup>
 														</label>
 														<label class="input select">
-															<select name="FuelType">
+															<select name="FuelType" class="fueltype">
 																<option value="none" selected disabled="">Select fuel</option>
 																<option value="Petrol">Petrol</option>
 																<option value="Diesel">Diesel</option>

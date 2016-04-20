@@ -177,6 +177,49 @@ class Postad_create_motors extends CI_Controller{
                 
         }
 
+        public function bikesvrm_api(){
+                $vrm = str_replace(" ", '', $this->input->post('vrm'));
+                $url = "https://api.vehicleis.uk/vehicle-search/?vrm=".$vrm."&api_key=2139ed51b08fe88dab91aff8dd2c3be0";
+                // $url = "http://phpmail.local/json_view.php";
+                $ch = curl_init();
+                // Disable SSL verification
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                // Will return the response, if false it print the response
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                // Set the url
+                curl_setopt($ch, CURLOPT_URL,$url);
+                // Execute
+                $result=curl_exec($ch);
+                // Closing
+                curl_close($ch);
+                $json_response = json_decode($result, true);
+                // echo $json_response['request']['error'];exit;
+                if (isset($json_response['request']['error'])) {
+                   $res_array = array(
+                          'make'=>'',
+                          'model'=>'',
+                          'colour'=>'',
+                          'manufacture_year'=>'',
+                          'fuel_type'=>'',
+                          'engine_size'=>''
+                          );
+                  echo json_encode($res_array);
+                }
+                else{
+                  $res_array = array(
+                        'make'=>$json_response['data']['vehicle_information']['make'],
+                        'model'=>$json_response['data']['vehicle_information']['model'],
+                        'colour'=>$json_response['data']['vehicle_information']['colour'],
+                        'manufacture_year'=>$json_response['data']['vehicle_information']['manufacture_year'],
+                        'fuel_type'=>$json_response['data']['vehicle_information']['fuel_type'],
+                        'engine_size'=>$json_response['data']['vehicle_information']['engine_size'],
+                        'road_tax'=>$json_response['data']['dvla_vehicle_information']['tax']['expires']
+                        );
+                echo json_encode($res_array);
+                }
+                
+        }
+
 
 
 }

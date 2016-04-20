@@ -798,6 +798,8 @@ GROUP BY img.ad_id
 	/*motor point*/
 	/*bikes*/
 	public function ads_detailed_bikes(){
+		$vrmcheck = @mysql_result(mysql_query("SELECT `manufacture` FROM `motor_bike_ads` WHERE ad_id = '".$this->uri->segment(3)."'"), 0, 'manufacture');
+		if (ctype_digit($vrmcheck)) {
 		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, bike_type.b_type as btype, bike_model.bike_model as bmodel");
 		$this->db->from("motor_bike_ads, sub_subcategory, bike_type, bike_model");
 		$this->db->where('ad_id', $this->uri->segment(3));
@@ -806,6 +808,14 @@ GROUP BY img.ad_id
 		$this->db->where('bike_model.id = motor_bike_ads.model');
 		$res = $this->db->get();
 		return $res->result();
+		}
+		else{
+		$this->db->select("*,motor_bike_ads.manufacture AS manufacture1, motor_bike_ads.model as bmodel, motor_bike_ads.bike_type as btype");
+		$this->db->from("motor_bike_ads");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		return $res->result();	
+		}
 	}
 
 	/*cars, vans, buses*/
