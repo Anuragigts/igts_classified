@@ -77,7 +77,7 @@
 							</div>
 						</li>
 						<li data-transition="slidevertical">
-							<img src="img/slide/1.jpg" class="img-responsive" alt="electronics for sale" title="Electronic Appliances">
+							<img src="img/slide/1.jpg" class="img img-responsive" alt="electronics for sale" title="Electronic Appliances">
 							<div class="tp-caption large_bold_white sft stb"
 								data-x="center"
 								data-y="260"
@@ -99,7 +99,7 @@
 						</li>
 						
 						<li data-transition="slidevertical">
-							<img src="img/slide/2.jpg" class="img-responsive" alt="car or bike for sale" title="Car & Bike" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
+							<img src="img/slide/2.jpg" class="img img-responsive" alt="car or bike for sale" title="Car & Bike" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat">
 							<div class="tp-caption large_bold_white sft stb"
 								data-x="center"
 								data-y="260"
@@ -121,7 +121,7 @@
 						</li>
 						
 						<li data-transition="slidevertical" >
-							<img src="img/slide/3.jpg" class="img-responsive" alt="clothes for sale" title="Clothes & Lifestyle">
+							<img src="img/slide/3.jpg" class="img img-responsive" alt="clothes for sale" title="Clothes & Lifestyle">
 							<div class="tp-caption large_bold_white sft stb"
 								data-x="center"
 								data-y="260"
@@ -143,7 +143,7 @@
 						</li>
 						
 						<li data-transition="slidevertical" >
-							<img src="img/slide/5.jpg" class="img-responsive" alt="residential or commercial property for sale" title="Find A Property">
+							<img src="img/slide/5.jpg" class="img img-responsive" alt="residential or commercial property for sale" title="Find A Property">
 							<div class="tp-caption large_bold_white sft stb"
 								data-x="center"
 								data-y="260"
