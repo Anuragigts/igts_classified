@@ -1184,7 +1184,7 @@
         // alert(code);
 
         //assign in hidden variable
-        document.getElementById('text_hide').value = code;
+        document.getElementById('text_hide').value = code.replace("<br>","");
         // Update the textarea checksum
         if (options.updateFrame)
             editor.areaChecksum = checksum(code);
