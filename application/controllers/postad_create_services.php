@@ -71,6 +71,13 @@ class Postad_create_services extends CI_Controller{
             $loc_details = $this->postad_model->getloc_details($this->input->post('postalcode'));
             echo json_encode($loc_details);
         }
+
+        public function storesession(){
+            $this->session->set_userdata("pic_data",$this->input->post("src"));
+        }
+         public function delsession(){
+            $this->session->unset_userdata("pic_data");
+        }
     }
 
  ?>

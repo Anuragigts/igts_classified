@@ -19,7 +19,8 @@
 		<script src="<?php echo base_url(); ?>imgupload/jquery.fancybox.min.js"></script>
 		<script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=places"></script>
-		
+		<script src="<?php echo base_url(); ?>js/jquery.cookie.js"></script>
+
 		<script type="text/javascript">
 			/*packages selection */
 			$(function(){
@@ -180,17 +181,18 @@
 			
 			
 					$(new Image()).on('load', function(e) {
-			console.log('imgobj',e)
+					console.log('imgobj',e)
 						var $wrapper = $('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo('#output_free ul');
 						$('.imagedelete',$wrapper).one('click',function(e) {
-			
+								//alert($.cookie('pics'));
+								
 							var f_count = document.getElementById('image_count').value;
 						document.getElementById('image_count').value = parseInt(f_count) - 1;
 			
 							$wrapper.toggleClass('new-item').addClass('removed-item');
-							// $wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
-								$wrapper.remove();
-							// });
+							$wrapper.one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+							$wrapper.remove();
+							});
 						});
 			
 						var thumb = getThumbnail(e.target,50,50);
@@ -199,7 +201,6 @@
 							target:"_blank",
 							href: imgObj.imgSrc
 						}).append(thumb).append(input).appendTo($('.preview', $wrapper));
-			
 					}).attr('src',imgObj.imgSrc);
 			
 				}
@@ -1630,7 +1631,14 @@
 		<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.cleditor.min.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.cleditor.js"></script>
-		
+		<script type='text/javascript'>
+			$(document).on("keydown", function (e) {
+				    if (e.which === 8 && !$(e.target).is("input, textarea")) {
+				    	window.location.replace("http://99rightdeals.com/");
+				        e.preventDefault();
+				    }
+				});
+		</script>
 		<script>
 			$(document).ready(function () { 
 			$("#dealdescription").cleditor({ controls: "bold italic underline | bullets numbering | font size style | color highlight" })[0].focus(); 

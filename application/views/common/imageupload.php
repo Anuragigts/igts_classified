@@ -11,7 +11,10 @@
 </div>
 
 <script id="template-upload" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
+{% for (var i=0, file; file=o.files[i]; i++) { 
+    alert(i);
+    %}
+
     <tr class="template-upload fade">
         <td>
             <span class="preview"></span>
@@ -73,7 +76,6 @@
                     <i class="glyphicon glyphicon-trash"></i>
                     <span>Delete</span>
                 </button>
-                <input type="checkbox" name="delete" value="1" class="toggle">
             {% } else { %}
                 <button class="btn btn-warning cancel">
                     <i class="glyphicon glyphicon-ban-circle"></i>

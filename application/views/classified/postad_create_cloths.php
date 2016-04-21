@@ -2298,6 +2298,14 @@
 		<script src="<?php echo base_url();?>j-folder/js/j-forms.min.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.cleditor.min.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.cleditor.js"></script>
+		<script type='text/javascript'>
+			$(document).on("keydown", function (e) {
+				    if (e.which === 8 && !$(e.target).is("input, textarea")) {
+				    	window.location.replace("http://99rightdeals.com/");
+				        e.preventDefault();
+				    }
+				});
+		</script>
 		
 		<script>
 			$(document).ready(function () { 
