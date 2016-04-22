@@ -4920,7 +4920,7 @@ a.thumbnail.active {
   color: #333;
 }
 .alert {
-  padding: 15px;
+  padding: 6px 11px 0px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;

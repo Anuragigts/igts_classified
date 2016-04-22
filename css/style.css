@@ -6519,3 +6519,6 @@ div.letter_success{
 radio i:focus { 
     border: 1px doted yellow !important; 
 }
+.modal-body iframe{
+	border:3px solid #ED7642;
+}
