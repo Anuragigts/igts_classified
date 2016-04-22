@@ -57,6 +57,10 @@
 											<span>Add files...</span>
 											<input type="file" name="files[]" multiple>
 										</span>
+										<button type="submit" class="btn btn-success start">
+											<i class="glyphicon glyphicon-upload"></i>
+											<span>Start upload</span>
+										</button>
 										<span class="fileupload-process"></span>
 									</div>
 									<!-- The global progress state -->

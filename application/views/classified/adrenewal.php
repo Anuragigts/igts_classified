@@ -70,10 +70,7 @@
 														<img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>">
 													</td>
 													<td class="product">
-														<h4><?php echo substr(ucwords($tran_details->deal_tag),0,20); ?></h4>
-														<p align="justify">
-															<?php echo substr(strip_tags(ucwords($tran_details->deal_desc)), 0,46); ?>
-														</p>
+														<h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
 													</td>
 													<td class="price">
 														<?php echo $price; ?>
@@ -130,7 +127,7 @@
 													<th class="tot_top total_amt"><?php echo substr($price1, 0,strpos($price1,".")+3); ?></th>
 												</tr>
 												<tr>
-													<td  colspan='4'class='response_coupon'></td>
+													<td colspan='4'class='response_coupon'></td>
 												</tr>
 											</thead>
 										</table>
@@ -147,7 +144,7 @@
 					</div> 
 				</form>			
 			</section>
-		<!-- End Shadow Semiboxed -->
+			<!-- End Shadow Semiboxed -->
 		
 			<!-- xxx footer Content xxx -->
 			<?php echo $this->load->view('common/footer');?> 

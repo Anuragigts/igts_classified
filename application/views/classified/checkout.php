@@ -67,10 +67,7 @@
 														<img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>">
 													</td>
 													<td class="product">
-														<h4><?php echo substr(ucwords($tran_details->deal_tag),0,20); ?></h4>
-														<p align="justify" class="chech_desc_wid">
-															<?php echo substr(strip_tags(ucwords($tran_details->deal_desc)), 0,46); ?>
-														</p>
+														<h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
 													</td>
 													<td class="price">
 														<?php echo $tran_details->cost_pound+$tran_details->u_pkg__pound_cost; ?>

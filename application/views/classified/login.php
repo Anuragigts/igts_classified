@@ -8,6 +8,16 @@
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->
 		
+		<style>
+			#feedback {
+				position: absolute !important;
+				top: 55% !important;
+			}
+			textarea{
+				height:0px !important;
+			}
+		</style>
+		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>css/logreg.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />

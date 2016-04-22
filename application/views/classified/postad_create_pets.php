@@ -824,7 +824,9 @@
 													<div class="j-row"  >
 														<div class="span6 unit">
 															<label class="label">Business Logo 
-															<sup data-toggle="tooltip" title="" data-original-title="Business Logo ">
+															<sup data-toggle="tooltip" title="" data-original-title="Logo creates a brand image of various business products
+
+">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -875,7 +877,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Deal Tag / Caption 
-															<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
+															<sup data-toggle="tooltip" title="" data-original-title="A good and a catchy caption will be a great source to attract more buyers to your deals. Keywords in the caption will play a major role   to list your deals in search result while buyers searching for deals. hence it is advised to chose the caption wisely. ">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -891,7 +893,7 @@
 													<div class="j-row">
 														<div class="span12 unit">
 															<label class="label">Deal Description 
-															<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
+															<sup data-toggle="tooltip" title="" data-original-title="It is ideal to be creative in explaining about your deal in a much detailed way so it enables the buyers to understand and meet their needs as per their requirements. when  the buyer hits the deal page, the creative story about the deal will give more chances to sell the products which also forms a road to success. Also the pictures and the competitive prices of the products will play a vital role in order to hold the buyer.  ">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -904,7 +906,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Family Race
-															<sup data-toggle="tooltip" title="" data-original-title="Family Race">
+															<sup data-toggle="tooltip" title="" data-original-title="DISTINGWISH CHARACTERISTICS AND GUALITY BASED ON THE BREED">
 															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 															</label>
@@ -933,7 +935,7 @@
 														<div class="span6 unit">
 															<!-- start Age -->
 															<label class="label">Age
-															<sup data-toggle="tooltip" title="" data-original-title="Age">
+															<sup data-toggle="tooltip" title="" data-original-title="Age of the animal">
 															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 															</label>
@@ -956,7 +958,7 @@
 														<div class="span6 unit">
 															<!-- start Height -->
 															<label class="label">Height
-															<sup data-toggle="tooltip" title="" data-original-title="Height">
+															<sup data-toggle="tooltip" title="" data-original-title="HIGHT OF THE ANIMAL">
 															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 															</label>
@@ -972,7 +974,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Gender
-															<sup data-toggle="tooltip" title="" data-original-title="Gender">
+															<sup data-toggle="tooltip" title="" data-original-title="GENDER OF THE ANIMAL  Eg: Male or female">
 															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>
 															</label>
@@ -988,7 +990,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
+															<sup data-toggle="tooltip" title="" data-original-title="It notifies the symbol of the currency">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1017,7 +1019,7 @@
 																</div>
 																<div class="span6 unit">
 																	<label class="label">Price Type 
-																	<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																	<sup data-toggle="tooltip" title="" data-original-title="It indicates if the product price is fixed or negotiable">
 																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 																	</sup>
 																	</label>

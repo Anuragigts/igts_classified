@@ -840,7 +840,7 @@
 													<div class="j-row"  >
 														<div class="span6 unit">
 															<label class="label">Business Logo 
-															<sup data-toggle="tooltip" title="" data-original-title="Business Logo ">
+															<sup data-toggle="tooltip" title="" data-original-title="Logo creates a brand image of various business products">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -891,7 +891,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Deal Tag / Caption 
-															<sup data-toggle="tooltip" title="" data-original-title="Deal Tag / Caption">
+															<sup data-toggle="tooltip" title="" data-original-title="A good and a catchy caption will be a great source to attract more buyers to your deals. Keywords in the caption will play a major role   to list your deals in search result while buyers searching for deals. hence it is advised to chose the caption wisely.">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -906,7 +906,7 @@
 													<div class="j-row">
 														<div class="span12 unit">
 															<label class="label">Deal Description 
-															<sup data-toggle="tooltip" title="" data-original-title="Deal Description ">
+															<sup data-toggle="tooltip" title="" data-original-title="It is ideal to be creative in explaining about your deal in a much detailed way so it enables the buyers to understand and meet their needs as per their requirements. when  the buyer hits the deal page, the creative story about the deal will give more chances to sell the products which also forms a road to success. Also the pictures and the competitive prices of the products will play a vital role in order to hold the buyer.">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -949,7 +949,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Bed Room
-															<sup data-toggle="tooltip" title="" data-original-title="Bedrooms">
+															<sup data-toggle="tooltip" title="" data-original-title="Number of bedrooms in the property">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -962,7 +962,7 @@
 														</div>
 														<div class="span6 unit">
 															<label class="label">Bath Room
-															<sup data-toggle="tooltip" title="" data-original-title="BathRoom">
+															<sup data-toggle="tooltip" title="" data-original-title="Number of bathroom in the property">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1091,7 +1091,7 @@
 														</div>
 														<div class="span6 unit">
 															<label class="label">Super built-up area
-															<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
+															<sup data-toggle="tooltip" title="" data-original-title="Super built-up area is a construction of a property which is a combination of built up areas ,carpet area and area of walls and columns. it can be notified with sq.meters.">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1119,7 +1119,7 @@
 														</div>
 														<div class="span6 unit">
 															<label class="label">Property Age
-															<sup data-toggle="tooltip" title="" data-original-title="Property Age">
+															<sup data-toggle="tooltip" title="" data-original-title="Number of years since the property has been built.">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1134,7 +1134,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Property Ownership 
-															<sup data-toggle="tooltip" title="" data-original-title="Property Ownership">
+															<sup data-toggle="tooltip" title="" data-original-title="Type of property ownership">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1147,7 +1147,7 @@
 														</div>
 														<div class="span6 unit">
 															<label class="label">Floor number 
-															<sup data-toggle="tooltip" title="" data-original-title="Floor number">
+															<sup data-toggle="tooltip" title="" data-original-title="The location of the property situated on a specific floor ">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1163,7 +1163,7 @@
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Price 
-															<sup data-toggle="tooltip" title="" data-original-title="Price">
+															<sup data-toggle="tooltip" title="" data-original-title="It notifies the symbol of the currency ">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>
@@ -1192,7 +1192,7 @@
 																</div>
 																<div class="span6 unit">
 																	<label class="label">Price Type 
-																	<sup data-toggle="tooltip" title="" data-original-title="Price Type ">
+																	<sup data-toggle="tooltip" title="" data-original-title="It indicates if the product price is fixed or negotiable">
 																	<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 																	</sup>
 																	</label>

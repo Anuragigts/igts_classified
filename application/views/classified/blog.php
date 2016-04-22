@@ -92,7 +92,7 @@
 														</div>
 													</div>
 														
-													<div class="col-xs-12 col-sm-10 ">
+													<div class="col-xs-12 col-sm-10">
 														<a href="#">
 															<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/2.jpg" width="100%" alt="" />
 														</a>
