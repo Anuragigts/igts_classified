@@ -58,6 +58,76 @@ class Settings extends CI_Controller {
 				);
 			$this->load->view("admin_layout/inner_template",$data);
 		}
+		function blog(){
+			$allcategory = $this->settings_model->allcategory();
+			$bloglist = $this->settings_model->bloglist();
+			$data   =   array(
+						"title"         =>     "Classifieds :: Admin blog",
+						"metadesc"      =>     "Classifieds :: Admin blog",
+						"metakey"       =>     "Classifieds :: Admin blog",
+						"content"       =>     "blog",
+						'bloglist'		=>		$bloglist,
+						'allcategory'	=>		$allcategory
+				);
+			$this->load->view("admin_layout/inner_template",$data);
+		}
+		function addblog(){
+			if ($this->input->post()) {
+				$create = $this->settings_model->create_blog();
+				if ($create == 1) {
+				    $this->session->set_flashdata('msg',"Blog created Successfully");
+				    redirect("settings/blog");
+				          }
+				          else{
+				    $this->session->set_flashdata('err',"Internal error occured");
+				    redirect("settings/blog");
+				          }          
+			}
+			$allcategory = $this->settings_model->allcategory();
+			$data   =   array(
+						"title"         =>     "Classifieds :: Admin addblog",
+						"metadesc"      =>     "Classifieds :: Admin addblog",
+						"metakey"       =>     "Classifieds :: Admin addblog",
+						"content"       =>     "addblog",
+						'allcategory'	=>		$allcategory
+				);
+			$this->load->view("admin_layout/inner_template",$data);
+		}
+		function editblog($id){
+			if ($this->input->post()) {
+				$update = $this->settings_model->update_blog();
+				if ($update == 1) {
+				    $this->session->set_flashdata('msg',"Blog Updated Successfully");
+				    redirect("settings/blog");
+				          }
+				          else{
+				    $this->session->set_flashdata('err',"Internal error occured");
+				    redirect("settings/blog");
+				          }          
+			}
+			$getdata = $this->settings_model->editblog($id);
+			$allcategory = $this->settings_model->allcategory();
+			$data   =   array(
+						"title"         =>     "Classifieds :: Admin editblog",
+						"metadesc"      =>     "Classifieds :: Admin editblog",
+						"metakey"       =>     "Classifieds :: Admin editblog",
+						"content"       =>     "editblog",
+						'allcategory'	=>		$allcategory,
+						'getdata'		=>		$getdata
+				);
+			$this->load->view("admin_layout/inner_template",$data);
+		}
+		public function delblog(){
+			$del = $this->settings_model->del_blog($this->input->post('id'));
+			if ($del == 1) {
+				$this->session->set_flashdata("msg","Blog deleted Successfully");
+				echo 1;
+			}
+			else{
+				$this->session->set_flashdata("err","internal error occured");
+				echo 0;
+			}
+		}
 		function get_banner(){	
 			if($this->input->post('update_banner')){
 				$update_status = $this->settings_model->update_banner();

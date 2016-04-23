@@ -1634,8 +1634,17 @@
 		<script type='text/javascript'>
 			$(document).on("keydown", function (e) {
 				    if (e.which === 8 && !$(e.target).is("input, textarea")) {
-				    	window.location.replace("http://99rightdeals.com/");
+				    	window.location.replace("http://classifieds.local/");
 				        e.preventDefault();
+				    }
+				});
+				$(document).on("keydown", function (e) {
+				    if (e.which === 8 && !$(e.target).is("input, textarea")) {
+				    	$("input").select(function(){
+					        window.location.replace("http://classifieds.local/");
+				        	e.preventDefault();	
+					    });
+				    	
 				    }
 				});
 		</script>

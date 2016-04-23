@@ -553,7 +553,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($val->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($val->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<?php if ($val->category_id != '1') { ?>
 										<h3 class="home_price"><?php echo $currency.number_format($val->price); ?></h3>
@@ -608,7 +608,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($m_ads->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($m_ads->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -658,7 +658,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($m_ads_services->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($m_ads_services->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($m_ads_services->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -706,7 +706,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($motor_val->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($motor_val->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($motor_val->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -754,7 +754,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($cloth_val->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($cloth_val->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($cloth_val->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -803,7 +803,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($prop_val->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($prop_val->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($prop_val->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -853,7 +853,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($khome_val->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($khome_val->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($khome_val->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -901,7 +901,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($m_ads_pets->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($m_ads_pets->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($m_ads_pets->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -951,7 +951,7 @@
 										<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
 									</div>
 									<div class="info-gallery">
-										<h3><?php echo substr($m_ads_ezone->deal_tag,0,20); ?></h3>
+										<h3><?php echo substr($m_ads_ezone->deal_tag,0,17); ?></h3>
 										<hr class="separator">
 										<h3 class="home_price"><?php echo $currency.number_format($m_ads_ezone->price); ?></h3>
 										<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>

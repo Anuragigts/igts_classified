@@ -87,5 +87,195 @@ class Settings_model extends CI_Model{
 		$rs = $this->db->get()->result();
 		return $rs;
 	}
+	/*show all categories in home page*/
+    public function allcategory(){
+
+        $this->db->select("*");
+        $this->db->from("`catergory`");
+        $rs = $this->db->get();
+        
+        if($this->db->affected_rows() > 0){
+            return $rs->result();
+        }
+        else{
+            return array();
+        }
+
+    }
+
+    public function create_blog(){
+    	if ($this->input->post()) {
+				$target_dir = "./pictures/blogs/";
+                    if ($_FILES["file"]["name"] != '') {
+                       $new_name = explode(".", $_FILES["file"]["name"]);
+            $blog_logo = time().".".end($new_name);
+            move_uploaded_file($_FILES["file"]["tmp_name"],$target_dir.time().".".end($new_name));
+                        $insert = array(
+                        				'blog_title'	=>  $this->input->post('blog_title'),
+                        				'blog_desc'		=>	$this->input->post('blog_desc'),
+                        				'blog_cat'		=>	$this->input->post('blog_cat'),
+                        				'blog_image'	=>	$blog_logo,
+                        				'blog_created'	=>	date("Y-m-d H:i:s"),
+                        				'blog_createdby'=>	$this->session->userdata('login_id'),
+                        				'status'		=>	1
+                        	);
+                        $this->db->insert("blog",$insert);
+                        if ($this->db->affected_rows() > 0) {
+                        	return 1;
+                        }
+                        else{
+                        	return 0;
+                        }
+                        return 1;
+                    }
+                    else{
+                    	return 0;
+                    }
+                 }
+    }
+
+    
+    public function update_blog(){
+    	if ($this->input->post()) {
+				$target_dir = "./pictures/blogs/";
+                    if ($_FILES["file"]["name"] != '') {
+                       $new_name = explode(".", $_FILES["file"]["name"]);
+           $blog_logo = $this->input->post("imgname");
+            move_uploaded_file($_FILES["file"]["tmp_name"],$target_dir.$blog_logo);
+        	}
+        	else{
+        		$blog_logo = $this->input->post("imgname");
+        	}
+                        $update = array(
+                        				'blog_title'	=>  $this->input->post('blog_title'),
+                        				'blog_desc'		=>	$this->input->post('blog_desc'),
+                        				'blog_cat'		=>	$this->input->post('blog_cat'),
+                        				'blog_image'	=>	$blog_logo,
+                        				'blog_created'	=>	date("Y-m-d H:i:s"),
+                        				'blog_createdby'=>	$this->session->userdata('login_id'),
+                        				'status'		=>	1
+                        	);
+                        $this->db->where("id", $this->input->post("blog_id"));
+                        $this->db->update("blog",$update);
+                        if ($this->db->affected_rows() > 0) {
+                        	return 1;
+                        }
+                        else{
+                        	return 0;
+                        }
+                 }
+    }
+
+    public function bloglist(){
+    	$this->db->select();
+    	$this->db->from("blog");
+    	$this->db->where("status", 1);
+    	$this->db->order_by("blog_created","desc");
+    	return $this->db->get()->result();
+    }
+
+    
+    public function editblog($id){
+    	$this->db->select();
+    	$this->db->from("blog");
+    	$this->db->where("id", $id);
+    	return $this->db->get()->row();
+    }
+
+    public function del_blog($id){
+    	$this->db->select();
+    	$this->db->from("blog");
+    	$this->db->where("id",$id);
+    	$img = $this->db->get()->row('blog_image');
+
+
+    	$this->db->delete('blog', array('id' => $id)); 
+    	unlink("./pictures/blogs/".$img);
+    	if ($this->db->affected_rows() > 0) {
+
+    		return 1;
+    	}
+    	else{
+    		return 0;
+    	}
+    }
+
+    public function bloglistview($data){
+    	$this->db->select();
+    	$this->db->where("status", 1);
+    	$this->db->join("login","login.login_id=blog.blog_createdby",'inner');
+    	
+    	if ($this->session->userdata("blogcat") && $this->session->userdata("blogcat") != '') {
+    		$this->db->join("catergory","catergory.category_id=blog.blog_cat AND catergory.category_id='".$this->session->userdata("blogcat")."'",'inner');
+    	}
+    	else{
+    		$this->db->join("catergory","catergory.category_id=blog.blog_cat",'inner');
+    	}
+    	$this->db->order_by("blog_created","desc");
+    	$rs = $this->db->get("blog",$data['limit'],$data['start']);
+    	return $rs->result();
+    }
+     public function bloglistviewcat($data){
+    	$this->db->select();
+    	$this->db->where("status", 1);
+    	$this->db->join("login","login.login_id=blog.blog_createdby",'inner');
+    	$this->db->join("catergory","catergory.category_id=blog.blog_cat AND catergory.category_id='".$this->uri->segment(3)."'",'inner');
+    	$this->db->order_by("blog_created","desc");
+    	$rs = $this->db->get("blog",$data['limit'],$data['start']);
+    	return $rs->result();
+    }
+    public function count_bloglistview(){
+    	$this->db->select();
+    	$this->db->from("blog");
+    	$this->db->where("status", 1);
+    	$this->db->join("login","login.login_id=blog.blog_createdby",'inner');
+    	$this->db->order_by("blog_created","desc");
+    	return $this->db->get()->result();
+    }
+
+    public function count_bloglistviewcat(){
+    	$this->db->select();
+    	$this->db->from("blog");
+    	$this->db->where("status", 1);
+    	$this->db->join("login","login.login_id=blog.blog_createdby",'inner');
+    	$this->db->join("catergory","catergory.category_id=blog.blog_cat AND catergory.category_id='".$this->uri->segment(3)."'",'inner');
+    	$this->db->order_by("blog_created","desc");
+    	return $this->db->get()->result();
+    }
+
+    public function blogdetails($id){
+    	$this->db->select();
+    	$this->db->from("blog");
+    	$this->db->where("status", 1);
+    	$this->db->where("id", $id);
+    	$this->db->join("login","login.login_id=blog.blog_createdby",'inner');
+    	return $this->db->get()->row();
+    }
+
+    public function category_count(){
+    	$this->db->select("*, COUNT(blog.blog_cat) AS no_blogs");
+    	$this->db->from("catergory");
+    	$this->db->join("blog","blog.blog_cat = catergory.category_id",'left');
+    	$this->db->group_by("catergory.category_id");
+    	return $this->db->get()->result();
+    }
+
+   /* public function blog_comment(){
+    	$insert = array(
+        				'name'	=>  $this->input->post('name'),
+        				'email'		=>	$this->input->post('email'),
+        				'message'		=>	$this->input->post('comment'),
+        				'status'	=>	1
+        				'created_on'	=>	date("Y-m-d H:i:s")
+        	);
+        $this->db->insert("blog_comments",$insert);
+        if ($this->db->affected_rows() > 0) {
+        	return 1;
+        }
+        else{
+        	return 0;
+        }
+    }*/
+
 }
 ?>

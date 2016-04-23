@@ -55,6 +55,7 @@
 						</li>
 						<?php }?>
 						<li><a href="<?php echo base_url()?>settings/list_banners"><i class="icon-lock"></i><span class="hidden-tablet"> Banners </span></a></li>
+						<li><a href="<?php echo base_url()?>settings/blog"><i class="icon-cogs"></i><span class="hidden-tablet"> Blog </span></a></li>
 						<li >
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Reports For Ads &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >

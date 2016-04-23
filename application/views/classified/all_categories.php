@@ -45,7 +45,7 @@
 				<div class="content_info">
 					<div class="paddings">
 						<div class="container">
-							<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+							<form id="fileupload" action="" method="POST" enctype="multipart/form-data">
 								<!-- Redirect browsers with JavaScript disabled to the origin page -->
 								<noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
 								<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -63,6 +63,7 @@
 										</button>
 										<span class="fileupload-process"></span>
 									</div>
+									<input type="submit" name="submit" value="Submit" />
 									<!-- The global progress state -->
 									<div class="col-lg-5 fileupload-progress fade">
 										<!-- The global progress bar -->
@@ -75,13 +76,13 @@
 								</div>
 								<!-- The table listing the files available for upload/download -->
 								<table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-							</form>
+							
 							
 
 							<!-- xxx footer Content xxx -->
 							<?php echo $this->load->view('common/imageupload');?> 
 							<!-- xxx footer End xxx -->
-
+							</form>
 						</div>
 					</div>
 				</div>

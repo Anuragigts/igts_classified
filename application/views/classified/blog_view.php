@@ -40,76 +40,36 @@
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
 				<div class="content_info">
-					<form action="" id="" method="post" class="j-forms tooltip-hover" style="background-color:#ffffff !important;">
+					<form action="" id="comment_form" method="post" class="j-forms tooltip-hover" style="background-color:#ffffff !important;">
 						<div class="content_info">
 							<div class="paddings-mini">
 								<div class="container">
 									<div class="blog row">
 										<div class="col-md-8">
 											<div class="blog-item">
-												<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/3.jpg" width="100%" alt="" />
-												<div class="row">  
-													<div class="col-xs-12 col-sm-2 text-center">
-														<div class="entry-meta">
-															<span id="publish_date">07  NOV</span>
-															<span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
-															<span><i class="fa fa-comment"></i> <a href="#">2 Comments</a></span>
-														</div>
-													</div>
-													<div class="col-xs-12 col-sm-10 blog-content">
-														<h2>Consequat bibendum quam</h2>
-														<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
-													</div>
+												<div class="imgblog">
+												<img class="img-responsive img-blog" src="<?php echo base_url(); ?>pictures/blogs/<?php echo $blogdetails->blog_image; ?>" width="100%" alt="" />
 												</div>
 												
 												<div class="row">  
 													<div class="col-xs-12 col-sm-12 blog-content">
-														<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper.</p>
-														
-														<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
-
-														<p align="justify">Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper.</p>
-														
-														<div class="post-tags">
-															<strong>Tag:</strong> <a href="#">Cool</a> / <a href="#">Creative</a> / <a href="#">Dubttstep</a>
-														</div>
-														
+														<h2><?php echo ucwords($blogdetails->blog_title); ?></h2>
+														<p align="justify"><?php echo $blogdetails->blog_desc; ?></p>
 													</div>
 												</div>
 												
 												<div class="row">  
-													<div class="col-sm-12">
-														<h4>Comments</h4><hr>
-													</div>
-													<div class="col-sm-12 col-xs-12">
-														<div class="comments-blog">
-															<ul id="comments-bloglist" class="comments-bloglist">
-																<li>
-																	<div class="comment-main-bloglevel">
-																		<div class="comment-avatar">
-																			<i class="fa fa-user fa-3x"></i>
-																		</div>
-																		<!-- Contenedor del Comentario -->
-																		<div class="comment-blogbox">
-																			<div class="comment-head">
-																				<h6 class="comment-name"><a href="">Agustin Ortiz</a></h6>
-																				<span>hace 20 minutes</span>
-																				<div class="reting_view">
-																					2 Ratings
-																				</div>
-																			</div>
-																			<div class="comment-content">
-																				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
-														</div>
-													</div>
+													
 												</div>
-												
-												<div class="row top_10">  
+												<?php if($this->session->flashdata("msg") != ""){ ?>
+												<div class="alert alert-success">
+												    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
+												    <h4>
+												        <?php echo $this->session->flashdata("msg");?>
+												    </h4>
+												</div>
+												<?php } ?>
+												<!-- <div class="row top_10">  
 													<div class="col-sm-12"><h4>New Comment</h4><hr></div>
 													<div class="col-sm-6 unit">
 														<label class="label">Name
@@ -121,7 +81,8 @@
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
 															</label>
-															<input type="text" id="name" name="name" placeholder="Enter Your Name " required>
+															<input type="text" id="name" name="name" placeholder="Enter Your Name " >
+															<input type="hidden" id="current_url" name="current_url" value="<?php echo current_url(); ?>" >
 														</div>
 													</div>
 													<div class="col-sm-6 unit">
@@ -134,7 +95,7 @@
 															<label class="icon-right" for="name">
 																<i class="fa fa-user"></i>
 															</label>
-															<input type="text" id="email" name="email" placeholder="Enter Your Email " required>
+															<input type="text" id="email" name="email" placeholder="Enter Your Email " >
 														</div>
 													</div>
 													<div class="col-sm-12 unit">
@@ -144,15 +105,16 @@
 															</sup>
 														</label>
 														<div class="input">
-															<textarea type="text" id="" name="Comment" placeholder="Enter Comment " required></textarea>
+															<textarea type="text" name="comment" placeholder="Enter Comment " ></textarea>
 														</div>
 													</div>
 													<div class="col-sm-12 unit">													
 														<button class="btn btn-primary " id='change_pwd'>Add Comment</button>
 													</div>
-												</div>
+												</div> -->
 											</div>
 										</div>
+
 
 										<aside class="col-md-4">
 											<div class="widget archieve">
@@ -160,40 +122,31 @@
 												<div class="row">
 													<div class="col-sm-12">
 														<ul class="blog_archieve">
-															<li><a href="#"> General <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"> Used Furniture <span class="pull-right">(32)</a></li>
-															<li><a href="#"> Second Hand Sofas <span class="pull-right">(19)</a></li>
-															<li><a href="#"> Locations <span class="pull-right">(08)</a></li>
-															<li><a href="#"> We love housing <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"> Pug Puppies <span class="pull-right">(32)</a></li>
-															<li><a href="#"> Quad Bikes for sale <span class="pull-right">(19)</a></li>
-															<li><a href="#"> Technology<span class="pull-right">(08)</a></li>
+															<?php foreach ($allcategory as $val) { ?>
+															<li><a href="<?php echo base_url(); ?>blog/blogcat/<?php echo $val->category_id; ?>"> <?php echo $val->category_name; ?> <span class="pull-right">(<?php echo $val->no_blogs; ?>)</span></a></li>
+															<?php } ?>
 														</ul>
 													</div>
 												</div>                     
 											</div>
-											
-											<!--div class="widget archieve">
-												<h3>Archive</h3>
-												<div class="row">
-													<div class="col-sm-12">
-														<ul class="blog_archieve">
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-														</ul>
-													</div>
-												</div>                     
-											</div-->
-											
 										</aside>     
-
 									</div>
+									<div id="fb-root"></div>
+									<script>(function(d, s, id) {
+									  var js, fjs = d.getElementsByTagName(s)[0];
+									  if (d.getElementById(id)) return;
+									  js = d.createElement(s); js.id = id;
+									  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6&appId=455502441327582";
+									  fjs.parentNode.insertBefore(js, fjs);
+									}(document, 'script', 'facebook-jssdk'));</script>
+									<!-- Load Facebook SDK for JavaScript -->
+									<div id="fb-root"></div>
+									<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#99rightdeals.com" data-numposts="5"></div>
+
+									<!-- Your embedded comments code -->
+									<div class="fb-comment-embed"
+									   data-href="https://99rightdeals.com"
+									   data-width="500"></div>
 								</div>
 							</div>
 						</div>  
@@ -212,7 +165,44 @@
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script>
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.maskedinput.min.js"></script>
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
-		
+		<script type="text/javascript">
+			$(function(){
+				$("#comment_form").validate({
+					rules: {
+						name: {
+							required: true,
+						},
+						email: {
+							required: true,
+							email: true,
+						},
+						comment: {
+							required: true,
+							minlength: 5,
+							maxlength: 25,
+						},
+					},
+				
+					messages: {
+						review_title: {
+							required: "Please Enter your name",
+						},
+						email: {
+							required: "Please Enter email id",
+						},
+						comment: {
+							required: "Please Enter your comment",
+							minlength: "Title contains atleast 5 characters",
+							maxlength: "Title contains maximum 25 characters"
+						},
+					},
+				
+					submitHandler: function(form) {
+						return true;
+					}
+				});
+			});
+		</script>
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->

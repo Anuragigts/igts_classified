@@ -11,9 +11,9 @@ class  All_categories extends CI_Controller{
                 //$this->load->model("login_model");
         }
         public function index(){
-                if ($this->session->userdata('login_id') == '') {
-                   redirect('login');
-                }
+            if ($this->input->post()) {
+                echo "<pre>"; print_r($this->input->post()); echo "</pre>";
+            }
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "all_categories"

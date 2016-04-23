@@ -43,159 +43,66 @@
 							<div class="paddings-mini">
 								<div class="container">
 									<div class="blog row">
+										
 										<div class="col-md-8">
+											<?php foreach ($blogslist as $val) { ?>
 											<div class="blog-item">
 												<div class="row">
 													<div class="col-xs-12 col-sm-2 text-center">
 														<div class="entry-meta">
-															<span id="publish_date">07  NOV</span>
-															<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
-															<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
-															<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+															<span id="publish_date"><?php echo date("d M Y", strtotime($val->blog_created)); ?></span>
+															<span><i class="fa fa-user"></i> <?php echo ucfirst($val->first_name); ?></span>
 														</div>
 													</div>
 														
 													<div class="col-xs-12 col-sm-10 ">
-														<a href="#">
-															<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/1.jpg" width="100%" alt="" />
+														<a href="<?php echo base_url(); ?>blog/blog_view/<?php echo $val->id; ?>" class="imgblog">
+															<img class="img-responsive img-blog" src="<?php echo base_url(); ?>pictures/blogs/<?php echo $val->blog_image; ?>" width="100%" alt="" />
 														</a>
 														<h3 class="post-title">
-															<a href="#" class="title">Sample Blog One Link</a>
+															<a href="#" class="title"><?php echo $val->blog_title; ?></a>
 														</h3>
-														<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
+														<p align="justify"><?php echo $val->blog_desc; ?></p>
 														
 														<div>
 															<ul class="social-team  pull-right">
-																<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-																<li><a href="#"><i class="fa fa-skype"></i></a></li>
-																<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-																<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-																<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+																<li><a href="javascript:void(0);"><i class="fa fa-facebook fb_share" id='<?php echo $val->id; ?>'></i></a></li>
+																<li><a href="javascript:void(0);"><i class="fa fa-google-plus gmail_share"></i></a></li>
+																<li><a href="javascript:void(0);"><i class="fa fa-twitter twitter_share"></i></a></li>
+																<li><a href="javascript:void(0);"><i class="fa fa-linkedin linkdin_share"></i></a></li>
 															</ul>                 
 														</div> 
 														
 														<div class="read-more pull-left">
-														   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
+														   <a href="<?php echo base_url(); ?>blog/blog_view/<?php echo $val->id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
 														</div>
 														
 													</div>
 												</div>    
 											</div>
-											
-											<div class="blog-item">
-												<div class="row">
-													<div class="col-xs-12 col-sm-2 text-center">
-														<div class="entry-meta">
-															<span id="publish_date">07  NOV</span>
-															<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
-															<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
-														</div>
-													</div>
-														
-													<div class="col-xs-12 col-sm-10">
-														<a href="#">
-															<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/2.jpg" width="100%" alt="" />
-														</a>
-														<h3 class="post-title">
-															<a href="#" class="title">Sample Blog One Link</a>
-														</h3>
-														<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-														
-														<div>
-															<ul class="social-team  pull-right">
-																<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-																<li><a href="#"><i class="fa fa-skype"></i></a></li>
-																<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-																<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-																<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-															</ul>                 
-														</div> 
-														
-														<div class="read-more pull-left">
-														   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
-														</div>
-														
-													</div>
-												</div>    
-											</div>
-											
-											<div class="blog-item">
-												<div class="row">
-													<div class="col-xs-12 col-sm-2 text-center">
-														<div class="entry-meta">
-															<span id="publish_date">07  NOV</span>
-															<span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
-															<span><i class="fa fa-comment"></i> <a href="">2 Comments</a></span>
-															<span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
-														</div>
-													</div>
-														
-													<div class="col-xs-12 col-sm-10 ">
-														<a href="#">
-															<img class="img-responsive img-blog" src="<?php echo base_url(); ?>img/slide/3.jpg" width="100%" alt="" />
-														</a>
-														<h3 class="post-title">
-															<a href="#" class="title">Sample Blog One Link</a>
-														</h3>
-														<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus. Cras nec elit dapibus nibh sollicitudin.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pharetra lectus[…]</p>
-														
-														<div>
-															<ul class="social-team  pull-right">
-																<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-																<li><a href="#"><i class="fa fa-skype"></i></a></li>
-																<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-																<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-																<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-															</ul>                 
-														</div> 
-														
-														<div class="read-more pull-left">
-														   <a href="blog_view" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>Read More</span></a>
-														</div>
-														
-													</div>
-												</div>    
-											</div>
+											<?php } ?>
 										</div>
+										
 
 										<aside class="col-md-4">
 											<div class="widget archieve">
-												<h3>Categories</h3>
+												<h3> <a href="<?php echo base_url(); ?>blog">All Categories</a></h3>
 												<div class="row">
 													<div class="col-sm-12">
 														<ul class="blog_archieve">
-															<li><a href="#"> General <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"> Used Furniture <span class="pull-right">(32)</a></li>
-															<li><a href="#"> Second Hand Sofas <span class="pull-right">(19)</a></li>
-															<li><a href="#"> Locations <span class="pull-right">(08)</a></li>
-															<li><a href="#"> We love housing <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"> Pug Puppies <span class="pull-right">(32)</a></li>
-															<li><a href="#"> Quad Bikes for sale <span class="pull-right">(19)</a></li>
-															<li><a href="#"> Technology<span class="pull-right">(08)</a></li>
+															<?php foreach ($allcategory as $val) { ?>
+															<li><a href="<?php echo base_url(); ?>blog/blogcat/<?php echo $val->category_id; ?>"> <?php echo $val->category_name; ?> <span class="pull-right">(<?php echo $val->no_blogs; ?>)</span></a></li>
+															<?php } ?>
 														</ul>
 													</div>
 												</div>                     
 											</div>
-											
-											<!--div class="widget archieve">
-												<h3>Archive</h3>
-												<div class="row">
-													<div class="col-sm-12">
-														<ul class="blog_archieve">
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-															<li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-														</ul>
-													</div>
-												</div>                     
-											</div-->
-											
 										</aside>  
+									</div>
+									<div class='row'>
+										<div class='col-md-12'>
+											<?php echo $paging_links; ?>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -214,7 +121,32 @@
 		
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script>
 		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
-		
+		<script type="text/javascript">
+		$(function(){
+			$(".fb_share").click(function(){
+					window.open('http://www.facebook.com/share.php?u=<?php echo base_url(); ?>blog/blog_view/'+$(this).attr('id')+'/&title=Blog View', "Blog View", '_blank', "width=400, height=400");
+				});
+			/*twitter_share share*/
+				$(".twitter_share").click(function(){
+					   window.open('http://twitter.com/home?status=Blog View+<?php echo base_url(); ?>blog/blog_view/'+$(this).attr('id'), "Blog View", '_blank', "width=400, height=400");
+				});
+				/*gmail_share share*/
+				$(".gmail_share").click(function(){
+					   window.open('https://plus.google.com/share?url=<?php echo base_url(); ?>blog/blog_view/'+$(this).attr('id'), "Blog View", '_blank', "width=400, height=400");
+				});
+				/*linkdin_share share*/
+				$(".linkdin_share").click(function(){
+					   window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo base_url(); ?>blog/blog_view/'+$(this).attr('id')+'&amp;title=[Blog View]&amp;source=[SOURCE/DOMAIN]', "Blog View", '_blank', "width=400, height=400");
+				});
+				$(".catid").click(function(){
+					// alert($(this).attr("id"));
+					 var id   =   $(this).attr("id");
+			        $.post( "<?php echo base_url();?>blog/blogcat" , { id: id} ,function( data ) {
+			                location.reload();
+			        });
+				});
+			});
+		</script>
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->
