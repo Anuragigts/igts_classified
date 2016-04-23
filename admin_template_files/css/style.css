@@ -3013,3 +3013,12 @@ color: red !important;
         width: 150px !important;
         word-wrap: break-word !important;
 }
+.blogedit_min{
+		min-height: 600px !important;
+}
+.top_10{
+padding-top: 10px;
+}
+.error{
+color: red !important;
+}

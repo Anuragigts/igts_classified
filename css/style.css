@@ -6519,6 +6519,9 @@ div.letter_success{
 radio i:focus { 
     border: 1px doted yellow !important; 
 }
+.imgblog img{
+    height: 270px;
+}
 .modal-body iframe{
 	border:3px solid #ED7642;
 }
