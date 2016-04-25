@@ -182,7 +182,7 @@ $route['goats-for-sale'] = "goats_view";
 $route['poultry-chickens-for-sale'] = "poultry_view";
 $route['pet-reptiles-sale'] = "reptiles_view";
 $route['furry-pets-for-sale'] = "furry_pets_view";
-$route['othes-small-pets-sale'] = "other_small_pets_view";
+$route['other-small-pets-sale'] = "other_small_pets_view";
 
 /*Pet Accessories*/
 $route['pet-foods-sale'] = "pet_food_view";
@@ -195,6 +195,73 @@ $route['fish-tank-cabinet-for-sale'] = "pet_fish_tanks_cabinets_view";
 $route['marine-aquarium-ponds-for-sale'] = "pet_marine_aquarium_ponds_view";
 $route['aquarium-landscaping-for-sale'] = "pet_aquarium_landscaping_view";
 $route['other-maintenance-stuff'] = "pet_other_maintenance_stuff_view";
+
+/* Jobs Category */
+$route['accounting-finance-jobs-london'] = "j_accounting_financeview";
+$route['retail-banking-jobs-vacancy-london'] = "j_bankingview";
+$route['news-media-jobs-london'] = "j_news_mediaview";
+$route['it-telecom-jobs-london-manchester'] = "j_it_telecomview";
+$route['hr-and-training-jobs-london'] = "j_human_resource_trainingview";
+$route['company-pa-secretarial-jobs-london'] = "j_pa_secretarialview";
+$route['front-desk-office-help-desk-jobs'] = "j_front_office_help_deskview";
+$route['electronics-electrical-civil-engineering-jobs'] = "j_electronics_electrical_ngineeringview";
+$route['marketing-finance-hr-management-jobs'] = "j_management_jobsview";
+$route['power-engineering-jobs-london-birmingham'] = "j_power_engineeringview";
+$route['miscelleneous-jobs-vacancy-birmingham-london'] = "j_miscelleneousview";
+
+$route['real-state-construction-jobs'] = "j_constructionview";
+$route['real-state-building-services-jobs'] = "j_building_servicesview";
+$route['retails-marketing-sales-jobs'] = "j_retailview";
+$route['computer-hardware-networking-jobs'] = "j_hardware_networkingview";
+$route['office-administrative-jobs'] = "j_office_administrative_jobsview";
+$route['architecture-jobs-london-birmingham'] = "j_architectureview";
+$route['electrician-plumbing-jobs-birmingham'] = "j_electrician_plumbing_toolsview";
+$route['logistics-supply-chain-management-jobs'] = "j_logistics_supply_chain_managementview";
+$route['telesales-marketing-telecalling-jobs-london'] = "j_telesalesview";
+$route['fresher-experience-graduate-Jobs-london'] = "j_graduate_jobsview";
+
+$route['income-tex-banking-financial-jobs-london'] = "j_financial_servicesview";
+$route['sales-marketing-jobs-vacancies-birmingham'] = "j_sales_marketingview";
+$route['purchasing-supply-logistic-jobs-london-wells'] = "j_purchasing_supplyview";
+$route['healthcare-old-age-care-services-jobs-london'] = "j_healthcare_old_agecareview";
+$route['part-full-time-driving-jobs-london'] = "j_drivingview";
+$route['outdoor-indoor-catering-jobs-london'] = "j_catering_jobsview";
+$route['chemical-engineering-jobs-london-birmingham'] = "j_chemical_enggview";
+$route['mechanical-engineering-london-birmingham-wells'] = "j_mechanical_enggview";
+$route['dentist-jobs-services-london'] = "j_dentistsview";
+$route['petroleum-chemical-engineering-jobs-london'] = "j_petroleum_enggview";
+$route['hospitality-and-staff-nursing-jobs'] = "j_nursing_jobsview";
+
+/*Services Category*/
+$route['educational-coaching-training-services-london'] = "s_coachings_trainingview";
+$route['business-office-services-london'] = "s_business_servicesview";
+$route['party-wedding-services-london'] = "s_party_wedding_servicesview";
+$route['it-digital marketing services'] = "s_it_digital_marketing_serviceview";
+$route['solicitor-services-london-manchester'] = "s_solicitor_servicesview";
+$route['accounting-taxation-services-london'] = "s_accounting_taxation_servicesview";
+$route['home-construction-renovation-services-london'] = "s_home_construction_ren_servicesview";
+$route['doctors-hospital-services-london'] = "s_doctor_hospital_servicesview";
+$route['nurse-care-services'] = "s_nurse_carer_servicesview";
+$route['astrology-numerology-services-london'] = "s_astrology_num_servicesview";
+$route['home-car-property-loan-insurance'] = "s_loan_insuranceview";
+$route['funeral-services'] = "s_funeral_servicesview";
+$route['health-fitness-services-london'] = "s_health_fitnessview";
+
+$route['dry-cleaning-laundry-services-london'] = "s_dry_clean_laund_servicesview";
+$route['household-services-london'] = "s_household_servicesview";
+$route['travel-vacation-services-london'] = "s_travel_vacation_servicesview";
+$route['massage-beauty-services-london'] = "s_massage_bbeauty_servicesview";
+$route['community-services-london'] = "s_community_servicesview";
+$route['entertainment-services'] = "s_entertainment_servicesview";
+$route['motor-services'] = "s_motor_servicesview";
+$route['logistics-transport-services'] = "s_logistics_tran_servicesview";
+$route['restaurant-food services'] = "s_restaurant_food_servicesview";
+$route['friendship-dating-services'] = "s_friend_dating_servicesview";
+$route['nannies-services-london-manchester'] = "s_nannies_servicesview";
+$route['embroidery-services-london'] = "s_embroidery_servicesview";
+$route['others-popular-services-london'] = "s_other_popular_servicesview";
+
+
 
 /* Inner Pages Links */
 $route['deals-status'] = "deals_status";
