@@ -214,8 +214,8 @@
 		<script type="text/javascript">
 			
 			var mapMarkers = [{
-				address: "217 Summit Boulevard, Birmingham, AL 35243",
-				html: "<strong>99 Right deals</strong><br>United States<br><br><a href='#' onclick='mapCenterAt({latitude: 33.44792, longitude: -86.72963, zoom: 16}, event)'>[+] zoom here</a>",
+				address: "Building 3, Chiswick Park 566 Chiswick High Road, London, W4 5YA",
+				html: "<strong>99 Right deals</strong><br>United States<br><br><a href='#' onclick='mapCenterAt({latitude: 51.4945771, longitude: -0.2759242, zoom: 16}, event)'>[+] zoom here</a>",
 				icon: {
 					image: "img/map-marker.png",
 					iconsize: [25, 35],
@@ -223,8 +223,8 @@
 				}
 			}];
 
-			var initLatitude = 33.44792;
-			var initLongitude = -86.72963;
+			var initLatitude = 51.4945771;
+			var initLongitude = -0.2759242;
 
 			var mapSettings = {
 				controls: {
@@ -239,7 +239,7 @@
 				markers: mapMarkers,
 				latitude: initLatitude,
 				longitude: initLongitude,
-				zoom: 5
+				zoom: 12
 			};
 			
 			$("#map").gMap(mapSettings);
@@ -253,9 +253,9 @@
 		
 		<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
 		<script type="text/javascript">
-		setTimeout(function(){
-			$(".alert").hide();
-		},5000);
+			setTimeout(function(){
+				$(".alert").hide();
+			},5000);
 		</script>
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 

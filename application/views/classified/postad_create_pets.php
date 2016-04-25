@@ -824,9 +824,7 @@
 													<div class="j-row"  >
 														<div class="span6 unit">
 															<label class="label">Business Logo 
-															<sup data-toggle="tooltip" title="" data-original-title="Logo creates a brand image of various business products
-
-">
+															<sup data-toggle="tooltip" title="" data-original-title="Logo creates a brand image of various business products">
 															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 															</sup>
 															</label>

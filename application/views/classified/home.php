@@ -3,6 +3,15 @@
 	<head>
 		
 		<title> Classified Ads Website | Post Free Classified Ads In UK | 99 Right Deals</title>
+		<meta charset="utf-8">
+		<meta name="robots" content="index, follow" />
+		<meta name="Googlebot" content="index, follow" />
+		<meta name="DC.title" content="Classified Ads Website | Post Free Classified Ads In UK | 99 Right Deals" />
+		<meta name="geo.region" content="GB-LND" />
+		<meta name="geo.placename" content="London" />
+		<meta name="geo.position" content="51.495097;-0.273317" />
+		<meta name="ICBM" content="51.495097, -0.273317" />
+		<meta content="www.99rightdeals.com" name="author" />
 		
 		<meta name="description" content="99 Right Deals is classified website where user can post free ads for used/unused goods in categories like hot deals, e-zone, lifestyles, find a property, home & kitchen." />
 		<meta name="keywords" content="free classified ads,post free ads,buy and sell online,post free classified ads,free advertising websites,online classified ads,buying and selling websites,local classifieds ads,free online advertising,free advertising uk,classified ads uk" />
