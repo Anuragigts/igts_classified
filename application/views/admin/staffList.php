@@ -9,7 +9,7 @@
 			<?php if($staff_type == 2) $u_type = 'Admin Incharge';
 				else if($staff_type == 3) $u_type = 'Managers';
 				else if($staff_type == 4) $u_type = 'Supervisors';
-				else if($staff_type == 5) $u_type = 'CallCenter Executives';
+				else if($staff_type == 5) $u_type = 'Customer Cares';
 				//echo '<pre>';print_r($this->session->all_userdata());echo '</pre>';
 				?>
 			<a href=""><?php echo $u_type; ?> List</a>

@@ -319,6 +319,16 @@ class  Searchview extends CI_Controller{
                 echo 0;
             }
         }
+
+        public function search_exists(){
+          $exist = $this->classifed_model->search_exists();
+          if ($exist > 0) {
+            echo 1;
+          }
+          else{
+            echo 0;
+          }
+        }
         
 }
 

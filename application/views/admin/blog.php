@@ -5,7 +5,7 @@
 			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="">Banners </a></li>
+		<li><a href="">Blogs </a></li>
 	</ul>
 	<?php if($this->session->flashdata('err') != ''){?>
 	<div class="alert alert-block alert-danger fade in">
@@ -37,7 +37,7 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Edit Adds in Each Category</h2>
+				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Edit Adds in Each Blog</h2>
 				<div class="box-icon">
 				
 				</div>
@@ -80,10 +80,13 @@
 	},5000);
 	$(function(){
 		$(".delblog").click(function(){
-		        var id   =   $(this).attr("id");
+			if (confirm("Do you want to Delete Blog")) {
+				var id   =   $(this).attr("id");
 		        $.post( "<?php echo base_url();?>settings/delblog" , { id: id} ,function( data ) {
 		                location.reload();
 		        });
+			}
+		        
 		});
 	});
 </script>

@@ -10,7 +10,7 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white edit"></i><span class="break"></span>List Sub Categories</h2>
+				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Create Sub Category</h2>
 				<div class="box-icon">
 					<!--<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 						<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -45,7 +45,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-lg-5"></div>
-							<div class="col-lg-2">
+							<div class="col-lg-2 text-center">
 								<input type="submit" name="create_subcategory" value="Create Sub Category" class="btn btn-default"/> 
 							</div>
 							<div class="col-lg-5"></div>

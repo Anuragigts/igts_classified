@@ -327,14 +327,23 @@ Class Classifed_model extends CI_model{
 	/*hot_deals in home page 3D */
 	public function hot_deals(){
 		$date = date("Y-m-d H:i:s");
+		/*top category*/
+		$top_free = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=1 AND is_top = 1"), 0,'likes_count');
+		$top_freeurgent = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=2 AND is_top = 1"), 0,'likes_count');
+		$top_gold = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=3 AND is_top = 1"), 0,'likes_count');
+		/*low category*/
+		$low_free = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=4 AND is_top = 0"), 0,'likes_count');
+		$low_freeurgent = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=5 AND is_top = 0"), 0,'likes_count');
+		$low_gold = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=6 AND is_top = 0"), 0,'likes_count');
+
 		$query = $this->db->query("/*jobs*/
 (SELECT *FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
  WHERE ad.`category_id` = 1 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -345,9 +354,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -358,9 +367,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -371,9 +380,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
-((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
-((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
+((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
+((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
 ((ad.package_type = 2)AND ad.urgent_package != 0 ))
@@ -384,9 +393,9 @@ ORDER BY ad.expire_data DESC LIMIT 2)UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
  WHERE ad.`category_id` = 5 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -397,9 +406,9 @@ ORDER BY ad.expire_data DESC LIMIT 2) UNION
 JOIN ad_img AS img ON img.ad_id = ad.ad_id 
  WHERE ad.`category_id` = 6 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -411,9 +420,9 @@ GROUP BY img.ad_id
  WHERE ad.`category_id` = 7
  AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -425,9 +434,9 @@ JOIN ad_img AS img ON img.ad_id = ad.ad_id
 WHERE ad.`category_id` = 8
  AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
 /*ad.expire_data >= NOW() AND*/
-(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= 3)OR
- ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= 2)OR
- ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= 1)OR
+(((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
+ ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
+ ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
  ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
@@ -2769,7 +2778,19 @@ GROUP BY img.ad_id
 			$this->db->from("saved_searchs");
 			$this->db->where("login_id", $this->session->userdata("login_id"));
 			$rs = $this->db->get();
+			// echo $this->db->last_query(); exit;
 			return $rs->result();
+		}
+
+		public function search_exists(){
+			$this->db->select("COUNT(*) as no_search");
+			$this->db->from("saved_searchs");
+			$this->db->where("login_id", $this->session->userdata("login_id"));
+			$this->db->where("search_title", $this->input->post("title"));
+			$this->db->where("search_cat", $this->input->post("cat"));
+			$this->db->where("search_loc", $this->input->post("loc"));
+			$rs = $this->db->get();
+			return $rs->row("no_search");
 		}
 
 

@@ -62,12 +62,12 @@
 								<input type="number" id="img_count" name="img_count" value='<?php echo $packages_details->img_count?>'>
 							</div>
 						</div>
-						<div class="control-group">
+						<!-- <div class="control-group">
 							<label class="control-label" for="like_count">Likes Count</label>
 							<div class="controls">
 								<input type="number" id="like_count" name='like_count' value='1' <?php echo $packages_details->likes_count; ?>> 
 							</div>
-						</div>
+						</div> -->
 						<div class="control-group">
 							<label class="control-label" for="bump_home">Bump Home</label>
 							<div class="controls">

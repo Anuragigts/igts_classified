@@ -125,7 +125,7 @@
 				<table class="table table-striped table-bordered bootstrap-datatable datatable">
 					<thead>
 						<tr>
-							<th>Select</th>
+							<th><input type="checkbox" id="selectall"/></th>
 							<th>Deal Tag</th>
 							<th>Package Type</th>
 							<th>Category</th>
@@ -236,20 +236,33 @@
 			var ads = $("#selected_ads").val();
 			if (status == '') {
 				$(".status_error").show();
-				return false;
-			}
-			else{
-				$(".status_error").hide();	
-				return true;
-			}
-			if (ads == '') {
-				$(".select_error").show();
-				return false;
-			}
-			else{
 				$(".select_error").hide();
 				return false;
 			}
+			else if (ads == '') {
+				$(".select_error").show();
+				$(".status_error").hide();	
+				return false;
+			}
+			else{
+				return true;
+			}
 		});
+		$("#selectall").click(function () {
+			var checkedall = [];
+			if(this.checked){
+            $('.deal_id').each(function(){
+                this.checked = true;
+                $(this).parent().addClass('checked');
+                checkedall.push($(this).val());
+            });
+        }else{
+             $('.deal_id').each(function(){
+                this.checked = false;
+                $(this).parent().removeClass('checked');
+            });
+        }
+        document.getElementById('selected_ads').value = checkedall;
+	    });
 	});
 </script>

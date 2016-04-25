@@ -120,7 +120,7 @@
 				<table class="table table-striped table-bordered bootstrap-datatable datatable">
 					<thead>
 						<tr>
-							<th>Select</th>
+							<th><input type="checkbox" id="selectall"/></th>
 							<th>Deal Tag</th>
 							<th>Package Type</th>
 							<th>Category</th>
@@ -176,15 +176,16 @@
 					</tbody>
 				</table>
 				<form name='change_status' method='post' action='<?php echo base_url()?>ads/change_status' >
-					<select name='change_status'>
-						<option>Select status </option>
-						<?php foreach($ad_status as $status){
-							if($status->id == 1){}else{?>
+					<select name='change_status' id='change_status'>
+						<option value=''>Select status </option>
+						<?php foreach($ad_status as $status){ ?>
 						<option value='<?php echo $status->id; ?>'><?php echo ucwords($status->status_name); ?></option>
-							<?php }}?>
+							<?php } ?>
 					</select>
 					<input type='hidden' name='selected_ads' class='selected_ads' id='selected_ads' value=''>
-					<input type='submit' name='active' class='btn success'value='Change Status' >
+					<input type='submit' name='active' class='btn success change_status'value='Change Status' >
+					<div class='status_error' style="color:red; display:none;">Please select status</div>
+					<div class='select_error' style="color:red; display:none;">Please select Ads</div>
 				</form>
 			</div>
 		</div>
@@ -224,4 +225,40 @@
 				}
 		
 	}
+
+	$(function(){
+		$('.change_status').click(function(){
+			var status = $("#change_status").val();
+			var ads = $("#selected_ads").val();
+			if (status == '') {
+				$(".status_error").show();
+				$(".select_error").hide();
+				return false;
+			}
+			else if (ads == '') {
+				$(".select_error").show();
+				$(".status_error").hide();	
+				return false;
+			}
+			else{
+				return true;
+			}
+		});
+		$("#selectall").click(function () {
+			var checkedall = [];
+			if(this.checked){
+            $('.deal_id').each(function(){
+                this.checked = true;
+                $(this).parent().addClass('checked');
+                checkedall.push($(this).val());
+            });
+        }else{
+             $('.deal_id').each(function(){
+                this.checked = false;
+                $(this).parent().removeClass('checked');
+            });
+        }
+        document.getElementById('selected_ads').value = checkedall;
+	    });
+	});
 </script>

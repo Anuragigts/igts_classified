@@ -10,7 +10,7 @@ class Admin_dashboard extends CI_Controller {
                 $this->load->model("admin_model");
         }
         public function  index(){
-                if($this->session->userdata("user_type") == ""){  redirect("/");};
+                if($this->session->userdata("user_type") == ""){  redirect(base_url()."admin/");};
 				
 				$ads_count = $this->admin_model->get_adsdetails();
 				$no_of_ads = $this->admin_model->get_no_of_ads();

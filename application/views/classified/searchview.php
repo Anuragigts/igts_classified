@@ -1218,6 +1218,17 @@
 						noResults:'No Data Found'
 					}
 				});
+
+				$.post( "<?php echo base_url();?>searchview/search_exists" , {
+				 title: $("#search_title").val(),
+				 cat: $("#search_cat").val(),
+				 loc: $("#search_loc").val()
+				} ,function(data) {
+		               if (data == 1) {
+		               	$(".saved_link1 a").remove();
+		               	$(".saved_link1").html("<span class='saved_link'>Saved</span>")
+		               }
+		        });
 			});
 		</script>
 		

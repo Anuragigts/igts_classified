@@ -145,7 +145,7 @@
 							<td><?php  
 								echo ucwords($list->category_name);?></td>
 							<td><?php  
-								$val = date("d-m-Y H:i:s", strtotime($list->r_created));
+								$val = date("d-m-Y H:i:s", strtotime($list->r_date));
 								echo $val;?></td>
 						</tr>
 						<?php 

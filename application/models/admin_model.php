@@ -12,6 +12,7 @@ class Admin_model extends CI_Model{
                 //$this->db->join("profile as p","l.login_id = p.login_id","inner");
                 $this->db->where("l.login_email",$this->input->post("email"));
                 $this->db->where("l.login_password",md5($this->input->post("password")));
+                $this->db->where("l.login_status",2);
                 $uq     =     $this->db->get();
                 //echo $this->db->last_query();exit;
                 if($this->db->affected_rows() > 0){
@@ -347,12 +348,12 @@ class Admin_model extends CI_Model{
 		}
 		
 	function get_Feedbacks(){
-		$cats = $this->get_assigned_cats();
+		// $cats = $this->get_assigned_cats();
 		$this->db->select("*,f_ad.created_on as f_created");
-		if($this->session->userdata('user_type') != 1){
+		/*if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
 			$this->db->where_in('p_ad.category_id',$cats_list);
-		}
+		}*/
 		if($this->uri->segment(3) !=''){
 			//echo $this->uri->segment(3);
 			$f_type = $this->uri->segment(3);
@@ -369,14 +370,14 @@ class Admin_model extends CI_Model{
 		return $all_feedbacks;
 	}
 	function get_FeedbacksByAds(){
-		$cats = $this->get_assigned_cats();
+		// $cats = $this->get_assigned_cats();
 		//$this->db->select();
 		$this->db->select('l.login_email,l.first_name,l.lastname,l.mobile, COUNT(f_ad.ad_id) as report_count,p.deal_tag,cat.category_name,pkg_list.pkg_dur_name as pkg_name,p.ad_id');
 		
-		if($this->session->userdata('user_type') != 1){
+		/*if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
 			$this->db->where_in('p.category_id',$cats_list);
-		}
+		}*/
 		$this->db->group_by('f_ad.ad_id');;
 		$this->db->join('postad as p','p.ad_id = f_ad.ad_id','inner');
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
@@ -389,8 +390,17 @@ class Admin_model extends CI_Model{
 		$this->db->join('login as l','l.login_id = p.login_id','inner');
 		$this->db->from('feedbackforads as f_ad');
 		$all_feedbacks = $this->db->get()->result();
-		//echo $this->db->last_query();
+		// echo $this->db->last_query();
 		//echo '<pre>';print_r($all_feedbacks);echo '</pre>';exit;
+		return $all_feedbacks;
+	}
+
+	function feedbackforsite(){
+		$this->db->select("*,cat.category_name as cname");
+		$this->db->join('catergory AS cat','cat.category_id= fs.category','inner');
+		$this->db->order_by("created_on","DESC");
+		$this->db->from('feedback_site AS fs');
+		$all_feedbacks = $this->db->get()->result();
 		return $all_feedbacks;
 	}
 	function getAdfeedbacks(){
@@ -406,12 +416,12 @@ class Admin_model extends CI_Model{
 		return $all_feedbacks;
 	}
 	function get_reportforads(){
-		$cats = $this->get_assigned_cats();
-		$this->db->select('r_ad.*, r_ad.created_on as r_created,pkg_list.*,p.ad_prefix,p.ad_id,p.deal_tag,p.price,cat.category_name');
-		if($this->session->userdata('user_type') != 1){
+		// $cats = $this->get_assigned_cats();
+		$this->db->select('r_ad.*, r_ad.created_on as r_date,pkg_list.*,p.ad_prefix,p.ad_id,p.deal_tag,p.price,cat.category_name');
+		/*if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
 			$this->db->where_in('p.category_id',$cats_list);
-		}
+		}*/
 		if($this->uri->segment(3)){
 			$r_type = $this->uri->segment(3);
 			if($r_type == 1 || $r_type == 0)
@@ -420,7 +430,7 @@ class Admin_model extends CI_Model{
 		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
-		$this->db->order_by("r_created","DESC");
+		$this->db->order_by("r_date","DESC");
 		$this->db->from('reportforads as r_ad');
 		
 		$all_reports = $this->db->get()->result();
@@ -429,14 +439,14 @@ class Admin_model extends CI_Model{
 		return $all_reports;
 	}
 	function get_ReportsByAds(){
-		$cats = $this->get_assigned_cats();
+		// $cats = $this->get_assigned_cats();
 		//$this->db->select();
 		$this->db->select('l.login_email,l.first_name,l.lastname,l.mobile, COUNT(r_ad.ad_id) as report_count,p.deal_tag,cat.category_name,pkg_list.pkg_dur_name as pkg_name,p.ad_id,r_ad.created_on');
 		
-		if($this->session->userdata('user_type') != 1){
-			$cats_list = explode(',',$cats->cat_ids);		
-			$this->db->where_in('p.category_id',$cats_list);
-		}
+		// if($this->session->userdata('user_type') != 1){
+			// $cats_list = explode(',',$cats->cat_ids);		
+			// $this->db->where_in('p.category_id',$cats_list);
+		// }
 		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
@@ -451,28 +461,28 @@ class Admin_model extends CI_Model{
 	}
 	function getAdReports(){
 		$ad_id = $this->uri->segment(3);
-		$this->db->select('r_ad.ad_id,r_ad.name,r_ad.created_on,p.ad_id,p.price,pkg_list.pkg_dur_name,p.ad_prefix,p.deal_tag,cat.*');
+		$this->db->select('r_ad.ad_id,r_ad.name,`r_ad`.`created_on` AS r_date,r_ad.`message` AS message,p.ad_id,p.price,pkg_list.pkg_dur_name,p.ad_prefix,p.deal_tag,cat.*');
 		$this->db->where('r_ad.ad_id',$ad_id);
 		$this->db->join('postad as p','p.ad_id = r_ad.ad_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p.package_type','inner');
 		$this->db->join('catergory as cat','cat.category_id = p.category_id','inner');
 		$this->db->from('reportforads as r_ad');
 		$all_reports = $this->db->get()->result();
-		//echo '<pre>';print_r($all_reports);echo '</pre>';exit;
+		// echo $this->db->last_query();exit;
 		return $all_reports;
 	}
 	function get_FilterReports($filter_details){
 		//echo '<pre>';print_r($this->input->post());echo '</pre>';exit;
-		$cats = $this->get_assigned_cats();
-		$this->db->select();
-		if($this->session->userdata('user_type') != 1){
+		// $cats = $this->get_assigned_cats();
+		$this->db->select("*,r_ad.created_on as r_date");
+		/*if($this->session->userdata('user_type') != 1){
 			$cats_list = explode(',',$cats->cat_ids);		
 			$this->db->where_in('p_ad.category_id',$cats_list);
-		}
+		}*/
 		if($filter_details['start_date'] !='')
-			$this->db->where('r_ad.created_on >=', date( 'Y-m-d H:i:s',strtotime($filter_details['start_date'])));
+			$this->db->where('r_date >=', date( 'Y-m-d H:i:s',strtotime($filter_details['start_date'])));
 		if($filter_details['end_date'] !='')
-			$this->db->where('r_ad.created_on <=', date( 'Y-m-d H:i:s',strtotime($filter_details['end_date'])));
+			$this->db->where('r_date <=', date( 'Y-m-d H:i:s',strtotime($filter_details['end_date'])));
 		if($filter_details['pkg_type'] != 0 && $filter_details['pkg_type'] !='')
 			$this->db->where('p_ad.package_type',$filter_details['pkg_type']);
 		if($filter_details['cat_type'] != 0 && $filter_details['cat_type'] != '')
@@ -503,5 +513,17 @@ class Admin_model extends CI_Model{
 		//exit;
 		return $year_ads;
 	}
+
+			function mail_exists($key)
+		{
+		    $this->db->where('login_email',$key);
+		    $query = $this->db->get('login');
+		    if ($query->num_rows() > 0){
+		        return true;
+		    }
+		    else{
+		        return false;
+		    }
+		}
 	
 }

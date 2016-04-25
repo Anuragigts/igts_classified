@@ -69,49 +69,6 @@
 												    </h4>
 												</div>
 												<?php } ?>
-												<!-- <div class="row top_10">  
-													<div class="col-sm-12"><h4>New Comment</h4><hr></div>
-													<div class="col-sm-6 unit">
-														<label class="label">Name
-															<sup data-toggle="tooltip" title="" data-original-title="Name">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="name">
-																<i class="fa fa-user"></i>
-															</label>
-															<input type="text" id="name" name="name" placeholder="Enter Your Name " >
-															<input type="hidden" id="current_url" name="current_url" value="<?php echo current_url(); ?>" >
-														</div>
-													</div>
-													<div class="col-sm-6 unit">
-														<label class="label">Email
-															<sup data-toggle="tooltip" title="" data-original-title="Email">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<label class="icon-right" for="name">
-																<i class="fa fa-user"></i>
-															</label>
-															<input type="text" id="email" name="email" placeholder="Enter Your Email " >
-														</div>
-													</div>
-													<div class="col-sm-12 unit">
-														<label class="label">Comment
-															<sup data-toggle="tooltip" title="" data-original-title="Comment">
-																<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-															</sup>
-														</label>
-														<div class="input">
-															<textarea type="text" name="comment" placeholder="Enter Comment " ></textarea>
-														</div>
-													</div>
-													<div class="col-sm-12 unit">													
-														<button class="btn btn-primary " id='change_pwd'>Add Comment</button>
-													</div>
-												</div> -->
 											</div>
 										</div>
 
@@ -141,7 +98,7 @@
 									}(document, 'script', 'facebook-jssdk'));</script>
 									<!-- Load Facebook SDK for JavaScript -->
 									<div id="fb-root"></div>
-									<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#99rightdeals.com" data-numposts="5"></div>
+									<div class="fb-comments" data-href="" data-numposts="5"></div>
 
 									<!-- Your embedded comments code -->
 									<div class="fb-comment-embed"

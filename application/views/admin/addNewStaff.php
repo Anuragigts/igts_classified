@@ -47,7 +47,7 @@
 						<div class="control-group">
 							<label class="control-label" for="staff_f_name"> First Name</label>
 							<div class="controls">
-								<input type="text" id="staff_f_name" name="staff_f_name" value='<?php echo set_value('staff_f_name'); ?>'required >
+								<input type="text" id="staff_f_name" name="staff_f_name" value='<?php echo set_value('staff_f_name'); ?>' >
 								<span><?php echo form_error('staff_f_name'); ?></span>
 							</div>
 						</div>
@@ -60,21 +60,21 @@
 						<div class="control-group">
 							<label class="control-label" for="login_email"> Email Id</label>
 							<div class="controls">
-								<input type="text" id="login_email" name="login_email" value='<?php echo set_value('login_email'); ?>'required>
+								<input type="text" id="login_email" name="login_email" value='<?php echo set_value('login_email'); ?>'>
 								<span><?php echo form_error('login_email'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="con_number">Contact Number</label>
 							<div class="controls">
-								<input type="text" id="con_number" name="con_number" value='<?php echo set_value('con_number'); ?>'maxlength="10" required > 
+								<input type="text" id="con_number" name="con_number" value='<?php echo set_value('con_number'); ?>'maxlength="11"  > 
 								<span><?php echo form_error('con_number'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="staff_dur"> Staff Type</label>
 							<div class="controls">
-								<select name='staff_type' class ='staff_type' required>
+								<select name='staff_type' class ='staff_type' >
 									<option value=''>Select Staff Type</option>
 									<?php $sess_user_type = $this->session->userdata('user_type');
 										foreach($staff_type as $s_type){
@@ -89,15 +89,16 @@
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="staff_status">Staff Status </label>
+							<label class="control-label" for="staff_status1">Staff Status </label>
 							<div class="controls">
 								<select id="staff_status" name='staff_status'>
-									<option>Select Staff Status</option>
+									<option value=''>Select Staff Status</option>
 									<?php foreach($user_status as $s_status){
 										if($s_status->user_status_id <= 3){?>
 									<option value='<?php echo $s_status->user_status_id; ?>'> <?php echo ucwords($s_status->user_status); ?></option>
 									<?php }}?>
 								</select>
+								<span><?php echo form_error('staff_status'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">

@@ -64,15 +64,22 @@ class Classified extends CI_Controller{
 
 
         public function feedback_site(){
-            $feedbackads_insert = $this->classifed_model->feedbacksite_insert();
+            if ($this->input->post()) {
+               $feedbackads_insert = $this->classifed_model->feedbacksite_insert();
                 if ($feedbackads_insert == 1) {
                     $this->session->set_flashdata('feedbackmsg', 'feedback Sent Successfully!!');
-                    redirect($this->input->post('curr_url'));
+                    // redirect($this->input->post('curr_url'));
                 }
                 else{
                    $this->session->set_flashdata('err', 'Internal error occured'); 
-                    redirect($this->input->post('curr_url'));
+                    // redirect($this->input->post('curr_url'));
                 }
+            }
+            $data = array(
+                        "title"     =>  "feedbacksuccess",
+                        "content"   =>  "feedbacksuccess"
+                );
+             $this->load->view("classified_layout/inner_template",$data);
         }
 
         public function autocompletesearch(){

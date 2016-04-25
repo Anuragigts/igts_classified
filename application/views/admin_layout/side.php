@@ -18,11 +18,11 @@
 						</li>
 						<li><a href="<?php echo base_url();?>admin_dashboard"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<?php $sess_user_type = $this->session->userdata('user_type');
-							if($sess_user_type == 1){?>
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 							<li><a href="<?php echo base_url();?>payments/transactions"><i class="icon-dashboard"></i><span class="hidden-tablet"> Transactions</span></a></li>	
 						<?php }?>
 						<?php 
-						if($sess_user_type !=5){?>
+						if($sess_user_type !=5 && $sess_user_type !=6 && $sess_user_type !=7){?>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Staff Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
@@ -39,12 +39,6 @@
 										<i class="fa fa-angle-double-right"></i> Managers
 									</a>
 								</li>
-								<?php }if($sess_user_type <= 3){?>
-								<li>
-									<a class="submenu" href="<?php echo base_url();?>users/staff/4">
-										<i class="fa fa-angle-double-right"></i> Supervisors
-									</a>
-								</li>
 								<?php }?>
 								<li>
 									<a class="submenu" href="<?php echo base_url();?>users/staff/5">
@@ -54,9 +48,14 @@
 							</ul>
 						</li>
 						<?php }?>
+						<?php
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 						<li><a href="<?php echo base_url()?>settings/list_banners"><i class="icon-lock"></i><span class="hidden-tablet"> Banners </span></a></li>
 						<li><a href="<?php echo base_url()?>settings/blog"><i class="icon-cogs"></i><span class="hidden-tablet"> Blog </span></a></li>
-						<li >
+						<?php } ?>
+						<?php
+							if($sess_user_type != 6 && $sess_user_type != 7){?>
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Reports For Ads &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
 								<li>
@@ -71,7 +70,11 @@
 								</li>
 							</ul>	
 						</li>
-						<li >
+						<?php } ?>
+						<?php
+							if($sess_user_type != 6 && $sess_user_type != 7){?>
+						<li><a href="<?php echo base_url()?>admin/feedbackforsite"><i class="icon-cogs"></i><span class="hidden-tablet"> Feedback For Website </span></a></li>
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Feedback For Ads &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
 								<li>
@@ -86,10 +89,9 @@
 								</li>
 							</ul>	
 						</li>
-						
-						
-						<!--<li><a href="<?php echo base_url()?>reports/reportforads"><i class="icon-lock"></i><span class="hidden-tablet"> Reports For Ads </span></a></li>
-						<li><a href="<?php echo base_url()?>admin/adsFeedback"><i class="icon-lock"></i><span class="hidden-tablet"> Ads Feedback</span></a></li>-->
+						<?php } ?>
+						<?php
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet">Category Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
@@ -164,6 +166,11 @@
 									</a>
 								</li>
 								<li>
+									<a class="submenu" href="<?php echo base_url();?>category/manage_likes">
+										<i class="fa fa-angle-double-right"></i> Manage Likes
+									</a>
+								</li>
+								<li>
 									<a class="submenu" href="<?php echo base_url();?>category/urgLabel">
 										<i class="fa fa-angle-double-right"></i> Urgent Label
 									</a>
@@ -181,7 +188,10 @@
 								</li>					
 							</ul>	
 						</li>
-						<li >
+						<?php } ?>
+						<?php
+							if($sess_user_type != 5 && $sess_user_type != 6 && $sess_user_type != 7){?>
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Coupons &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
 								<li>
@@ -191,7 +201,10 @@
 								</li>
 							</ul>	
 						</li>
-						<li >
+						<?php } ?>
+						<?php
+							if($sess_user_type != 6 && $sess_user_type != 7){ ?>
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Review &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
 								<li>
@@ -206,9 +219,12 @@
 								</li>
 							</ul>	
 						</li>
+						<?php } ?>
 						<li><a href="<?php echo base_url()?>settings/newsletter"><i class="icon-cogs"></i><span class="hidden-tablet"> News Letter</span></a></li>
 						<li><a href="<?php echo base_url()?>settings/deactivated_acnts"><i class="icon-cogs"></i><span class="hidden-tablet"> De-activated Accounts</span></a></li>
 						<li><a href="<?php echo base_url()?>settings/contact_details"><i class="icon-cogs"></i><span class="hidden-tablet"> Contact us Details</span></a></li>
+						<?php
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> User Management &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green'>
@@ -224,7 +240,7 @@
 								</li>
 							</ul>
 						</li>
-						
+						<?php } ?>
 						<li><a href="<?php echo base_url()?>settings/change_password"><i class="icon-lock"></i><span class="hidden-tablet"> Change Password</span></a></li>
 						
 						<li><a href="<?php echo base_url()?>admin/logout"><i class="icon-lock"></i><span class="hidden-tablet"> LogOut</span></a></li>

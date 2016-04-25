@@ -55,13 +55,14 @@ class Users extends CI_Controller {
 		{
 			//echo '<pre>';print_r($this->input->post());echo '<pre>';exit;
 			if($this->input->post('new_staff_detail')){
-				$this->form_validation->set_rules("staff_f_name","Password","required");
+				$this->form_validation->set_rules("staff_f_name","first name","required");
 				$this->form_validation->set_rules("staff_l_name","","");
-				$this->form_validation->set_rules("login_email","Email Id","required|valid_email");
+				$this->form_validation->set_rules("login_email","Email Id","required|valid_email|is_unique[login.login_email]");
 				$this->form_validation->set_rules("con_number","Contact Number","required|number");
 				$this->form_validation->set_rules("staff_pw",'Password',"trim|required|matches[c_staff_pw]");
 				$this->form_validation->set_rules("c_staff_pw","Confirm Password Number","trim|required");
 				$this->form_validation->set_rules("staff_type","Staff Type","required");
+				$this->form_validation->set_rules("staff_status","Staff Status","required");
 				
 				 if($this->form_validation->run() == TRUE){
 					 $ins_status = $this->admin_model->add_new_staff();	
@@ -75,14 +76,15 @@ class Users extends CI_Controller {
 				else{
 					$this->session->set_flashdata('err','Some details are not valid, Please try again');
 					$user_list = $this->admin_model->get_userlist();
-					
+					$user_status = $this->admin_model->get_user_status();
 				 
 					$data   =   array(
 							"title"         =>     "Add New Staff",
 							"metadesc"      =>     "Classifieds :: Admin Dashboard",
 							"metakey"       =>     "Classifieds :: Admin Dashboard",
 							"content"       =>     "addNewStaff",
-							'user_list'		=>		$user_list
+							'user_list'		=>		$user_list,
+							"user_status"   => 		$user_status
 					);
 					$data['staff_type'] = $this->admin_model->get_staffType();
 				}
@@ -100,6 +102,10 @@ class Users extends CI_Controller {
 				$data['staff_type'] = $this->admin_model->get_staffType();	
 			}
 			$this->load->view("admin_layout/inner_template",$data);
+		}
+
+		function rolekey_exists($key) {
+		  $this->admin_model->mail_exists($key);
 		}
 		function NewCuscare(){
 			

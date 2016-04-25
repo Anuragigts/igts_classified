@@ -98,7 +98,9 @@ td a.btn{line-height:15px;}
 	});
 </script>
 </head>
-
+<?php 
+if($this->session->userdata("user_type") == ""){  redirect(base_url()."admin/");};
+ ?>
 <body>
 		<!-- start: Header -->
 	<div class="navbar">

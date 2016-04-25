@@ -68,10 +68,10 @@
 							<td title='<?php echo $users->bus_name; ?>'><?php echo $users->bus_name;?></td>
 							<td title='<?php echo $users->bus_name; ?>'><?php echo ucwords(substr($users->bus_name, '0', '20'));?></td>
 							<?php }?>
-							<td><?php if($users->login_status == 1)echo 'Active';
-								else if($users->login_status == 0)echo 'New User';
-								else if($users->login_status == 2)echo 'In-Active';
-								else if($users->login_status == 4)echo 'Blocked';?></td>
+							<td><?php if($users->login_status == 2)echo 'Active';
+								else if($users->login_status == 1)echo 'New User';
+								else if($users->login_status == 4 || $users->login_status == 3)echo 'In-Active';
+								else if($users->login_status == 5)echo 'Blocked';?></td>
 							<!--<td>
 								<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/aprovals/<?php echo $users->login_id;?>" title="Edit User Details">
 								<i class="halflings-icon edit white"></i> 

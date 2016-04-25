@@ -5,7 +5,7 @@
 			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="">Package Details List</a></li>
+		<li><a href="">Likes Details List</a></li>
 	</ul>
 	<?php //echo '<pre>';print_r($packages_details[0]);echo '</pre>';?>
 	<?php if($this->session->flashdata('err') != ''){?>
@@ -31,12 +31,12 @@
 	<br>
 	<?php }?>
 	<div style='margin-bottom:10px;margin-right:25px; float:right;' > 
-		<a href='<?php echo base_url();?>category/addNewPackage' class='btn btn-success'>Add New</a>
+		<a href='<?php echo base_url();?>category/edit_likes' class='btn btn-success'>Manage Likes</a>
 	</div>
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Packages Details</h2>
+				<h2><i class="halflings-icon white user"></i><span class="break"></span>List of Likes Details</h2>
 				<div class="box-icon">
 				
 				</div>
@@ -47,35 +47,19 @@
 						<tr>
 							<th>S.No.</th>
 							<th>Package Name</th>
-							<th>Duration Days</th>
-							<th>Image Count</th>
-							<th>Bump Home</th>
-							<th>Bump Search</th>
-							<th>Price Type</th>
-							<th>Cost Pound</th>
-							<th>Created On</th>
-							<th style='width:55px;'>Action</th>
+							<th>Is Top</th>
+							<th>Likes Count</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php 
 							$i = 0;
-							foreach($packages_details as $pkg){$i++; ?>
+							foreach($likes_details as $pkg){$i++; ?>
 						<tr class="odd gradeX">
 							<td><?php echo $i;?></td>
-							<td><?php echo ucwords($pkg->pkg_dur_name);?></td>
-							<td><?php echo $pkg->dur_days.' Days';?></td>
-							<td><?php echo $pkg->img_count;?></td>
-							<td><?php echo $pkg->bump_home;?></td>
-							<td><?php echo $pkg->bump_search;?></td>
-							<td><?php if($pkg->is_top==1)echo 'High';else echo "Low"; ?></td>
-							<td><?php echo $pkg->cost_pound;?></td>
-							<td><?php echo $pkg->created_on;?></td>
-							<td>
-								<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>category/EditPackage/<?php echo $pkg->pkg_dur_id ;?>" title="Edit Package Details">
-								<i class="halflings-icon edit white"></i> 
-								</a>
-							</td>
+							<td><?php echo ucwords($pkg->package_type);?></td>
+							<td><?php echo $pkg->is_top;?></td>
+							<td><?php echo $pkg->likes_count;?></td>
 						</tr>
 						<?php } ?>
 					</tbody>
@@ -87,3 +71,10 @@
 </div>
 </div>
 <!-- end DASHBOARD CIRCLE TILES -->
+<script type="text/javascript">
+$(function(){
+	setTimeout(function(){
+		$(".alert").hide();
+	},5000);
+});
+</script>

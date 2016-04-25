@@ -55,7 +55,42 @@ class Category extends CI_Controller {
 						"packages_details"  =>     $packages_details
                 );
 				$this->load->view("admin_layout/inner_template",$data);
+		}
+		public function manage_likes(){
+			$likes_details= $this->category_model->get_likes_details();
+			$data   =   array(
+                        "title"         	=>     "Classifieds :: Admin Category",
+                        "metadesc"     		=>     "Classifieds :: Admin Category",
+                        "metakey"       	=>     "Classifieds :: Admin Category",
+                        "content"       	=>     "manage_likes",
+						"likes_details"  	=>     $likes_details
+                );
+				$this->load->view("admin_layout/inner_template",$data);
 		} 
+		public function edit_likes(){
+			if($this->input->post('edit_likes')){
+				$uplike = $this->category_model->uplikes();
+				if ($uplike) {
+					$this->session->set_flashdata("msg","Update success");
+						redirect('category/manage_likes');
+				}
+				else{
+					$this->session->set_flashdata("err","Update failed");
+						redirect('category/manage_likes');
+				}
+			}
+			$edlikestop = $this->category_model->get_toplikes_details();
+			$edlikeslow = $this->category_model->get_lowlikes_details();
+			$data   =   array(
+                        "title"         	=>     "Classifieds :: Admin Category",
+                        "metadesc"     		=>     "Classifieds :: Admin Category",
+                        "metakey"       	=>     "Classifieds :: Admin Category",
+                        "content"       	=>     "edit_likes",
+                        'edlikestop'		=>		$edlikestop,
+                        'edlikeslow'		=>		$edlikeslow
+			);
+			$this->load->view("admin_layout/inner_template",$data);			
+        }
 		public function addNewPackage(){
 			$data   =   array(
                         "title"         	=>     "Classifieds :: Admin Category",
@@ -63,7 +98,6 @@ class Category extends CI_Controller {
                         "metakey"       	=>     "Classifieds :: Admin Category",
                         "content"       	=>     "addNew_pkg_detail",
 			);
-			//echo "<pre>";print_r( $this->input->post());echo "</pre>";
 			
 			if($this->input->post('new_pkg_detail')){
 				$this->form_validation->set_rules("pkg_name","Package Name","required");

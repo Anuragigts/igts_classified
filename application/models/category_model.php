@@ -604,6 +604,37 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             $this->db->where("status", 1);
             return $this->db->count_all_results();
         }
+
+        /*manage likes*/
+        public function get_likes_details(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            return $this->db->get()->result();
+        }
+        public function get_toplikes_details(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            $this->db->where("is_top",1);
+            return $this->db->get()->result();
+        }
+        public function get_lowlikes_details(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            $this->db->where("is_top",0);
+            return $this->db->get()->result();
+        }
+        public function uplikes(){
+                /*top category*/
+                mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('top_Free')."' WHERE id = 1 ");
+                mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('top_Freeurgent')."' WHERE id = 2");
+                mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('top_Gold')."' WHERE id = 3");
+                /*low category*/
+                mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('low_Free')."' WHERE id = 4");
+                mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('low_Freeurgent')."' WHERE id = 5 ");
+                mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('low_Gold')."' WHERE id = 6 ");
+                return 1;
+        }
+        
 }
 ?>
 
