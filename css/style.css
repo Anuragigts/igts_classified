@@ -3029,7 +3029,7 @@ hr.separator:before {
     border-bottom: 1px solid #eee;
 }
 .post-header1 {
-    padding: 55px 27px 0 88px;
+	padding: 56px 26px 0 56px;
     float: right;
 }
 .post-format-icon {
