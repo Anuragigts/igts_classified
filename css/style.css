@@ -3662,13 +3662,8 @@ address strong {
     background-color: #E1483F;
 }
 .item-table a {
-    width: 70%;
-    height: 30px;
-    color: #fff;
-    margin: 0px auto 0 auto;
-    text-align: center;
-    border-radius: 40px 40px 0px 0px;
-    padding-top: 6px;
+	padding-top: 6px;
+	text-transform:uppercase;
 }
 .skin_base .item-table ul,
 .skin_base .item-table ul li {
@@ -3678,6 +3673,7 @@ address strong {
 .color-red {
     background: #EF530D !important;
     background-color: #EF530D !important;
+	color: #fff;
 }
 .color-blue {
     background: #0088cc;
