@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class  Home_essentials_view extends CI_Controller{
+class  H_ess_dining_room_furview extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model("classifed_model");
@@ -24,7 +24,7 @@ class  Home_essentials_view extends CI_Controller{
                 $this->session->set_userdata('latt','');
                 $this->session->set_userdata('longg','');
             $config = array();
-            $config['base_url'] = base_url().'home_essentials_view/index';
+            $config['base_url'] = base_url().'h_ess_dining_room_furview/index';
             $config['total_rows'] = count($this->classifed_model->count_kitchenhome_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
