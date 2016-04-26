@@ -49,11 +49,21 @@
 											<h2><?php echo @$log_name; ?></h2> 
 										</div>
 										<ul class="dashboard_tag">
-											<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals"><a href='<?php echo base_url(); ?>deals-status'>Deals Status</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin"><a href='<?php echo base_url(); ?>deals-administrator'>Deals Administrator</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup"><a href='<?php echo base_url(); ?>pickup-deals'>Pickup deals</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites"><a href='<?php echo base_url(); ?>reserved_searches'>My Wishes</a></li>
-											<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="Update Profile" title="<?php echo base_url(); ?>updateprofile image"> <a href='update-profile'>Update Profile</a></li>
+											<a href='<?php echo base_url(); ?>deals-status'>
+												<li><img src="<?php echo base_url(); ?>img/icons/status.png" alt="status" title="Deals">Deals Status</li>
+											</a>
+											<a href='<?php echo base_url(); ?>deals-administrator'>
+												<li><img src="<?php echo base_url(); ?>img/icons/admin.png" alt="admin" title="Admin">Deals Administrator</li>
+											</a>
+											<a href='<?php echo base_url(); ?>pickup-deals'>
+												<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup">Pickup deals</li>
+											</a>
+											<a href='<?php echo base_url(); ?>reserved_searches'>
+												<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites">My Wishes</li>
+											</a>
+											<a href='<?php echo base_url(); ?>update-profile'>
+												<li><img src="<?php echo base_url(); ?>img/icons/updateprofile.png" alt="Update Profile" title="<?php echo base_url(); ?>updateprofile image"> Update Profile</li>
+											</a>
 										</ul>
 										<a class="btn color-red" href="<?php echo base_url(); ?>login/logout">Logout</a>
 									</div>
