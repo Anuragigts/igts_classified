@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Used & Second Hand Kitchen Stuff For Sale In UK | 99 Right Deals</title>
+		<title>Used Cookware | Buy & Sell Cookware For Sale In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Place your classifieds ads for used and second hand kitchen stuff for sale in london, UK on 99 Right Deals at affordable price." />
+		<meta name="description" content="Find the recent ads for new & used cookware for sale in UK. Buy & Sell cookware's wide range like pots, pans, fry pans, non-stick pan and many more on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

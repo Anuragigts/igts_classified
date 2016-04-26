@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Used & Second Hand Kitchen Stuff For Sale In UK | 99 Right Deals</title>
+		<title>New & Used Dining Table Furniture For Sale In UK - 99 Right Deals</title>
 		
-		<meta name="description" content="Place your classifieds ads for used and second hand kitchen stuff for sale in london, UK on 99 Right Deals at affordable price." />
+		<meta name="description" content="Shop for new & used dining room furniture for sale in United Kingdom at affordable price and also get the hot deals on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

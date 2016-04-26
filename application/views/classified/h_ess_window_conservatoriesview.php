@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Used & Second Hand Kitchen Stuff For Sale In UK | 99 Right Deals</title>
+		<title>Windows & Conservatory Services In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Place your classifieds ads for used and second hand kitchen stuff for sale in london, UK on 99 Right Deals at affordable price." />
+		<meta name="description" content="Find online ads for Window & Conservatories services in United Kingdom. Window and Door Services online classified ads in UK on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

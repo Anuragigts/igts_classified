@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Used & Second Hand Kitchen Stuff For Sale In UK | 99 Right Deals</title>
+		<title>Buy & Sell Vases With Flowers For Sale In UK | 99 Right Deals</title>
 		
-		<meta name="description" content="Place your classifieds ads for used and second hand kitchen stuff for sale in london, UK on 99 Right Deals at affordable price." />
+		<meta name="description" content="Shop for vintage, new & used vases and flowers for sale in United Kingdom at best price on 99 Right deals. Post online ads for buy & sell vases with flowers in UK." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

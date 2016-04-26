@@ -2,9 +2,9 @@
 <html>
 	<head>
 		
-		<title>Used & Second Hand Kitchen Stuff For Sale In UK | 99 Right Deals</title>
+		<title>Buy & Sell Used Kitchen Storage For Sale In UK - 99 Right Deals</title>
 		
-		<meta name="description" content="Place your classifieds ads for used and second hand kitchen stuff for sale in london, UK on 99 Right Deals at affordable price." />
+		<meta name="description" content="Search the free advertisement for new & used kitchen storage for sale in United Kingdom. Buy & Sell used kitchen storage on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

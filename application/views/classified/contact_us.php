@@ -215,7 +215,7 @@
 			
 			var mapMarkers = [{
 				address: "Building 3, Chiswick Park 566 Chiswick High Road, London, W4 5YA",
-				html: "<strong>99 Right deals</strong><br>United States<br><br><a href='#' onclick='mapCenterAt({latitude: 51.4945771, longitude: -0.2759242, zoom: 16}, event)'>[+] zoom here</a>",
+				html: "<strong>99 Right deals</strong><br>United States<br><br><a href='#' onclick='mapCenterAt({latitude: 51.495097, longitude: -0.273317, zoom: 16}, event)'>[+] zoom here</a>",
 				icon: {
 					image: "img/map-marker.png",
 					iconsize: [25, 35],
@@ -223,8 +223,8 @@
 				}
 			}];
 
-			var initLatitude = 51.4945771;
-			var initLongitude = -0.2759242;
+			var initLatitude = 51.495097;
+			var initLongitude = -0.273317;
 
 			var mapSettings = {
 				controls: {
@@ -239,7 +239,7 @@
 				markers: mapMarkers,
 				latitude: initLatitude,
 				longitude: initLongitude,
-				zoom: 12
+				zoom: 13
 			};
 			
 			$("#map").gMap(mapSettings);
