@@ -85,7 +85,7 @@ class Login_model extends CI_Model{
 									<div style='margin-top:20px'></div>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
 										<h2>Forget Password</h2>
-										<p>Hi, We've received a request to reset your 99rightdeal password.</p>
+										<p>Hi, We've received a request to reset your 99rightdeals password.</p>
 										<p> To initiate the process, please click the following link</p>
 										<a href='".base_url()."common/forgot/".$random_code."' style='color:#fff;text-decoration: none;background-color: rgb(159, 201, 85);padding: 5px 27px;'>Click Here To Reset Your Password</a>
 										<div style='margin-top:20px'></div>
