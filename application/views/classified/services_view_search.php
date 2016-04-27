@@ -38,6 +38,7 @@
 					success: function (data) {
 						$(".fav"+adid+loginid).removeClass('inactive_fav');
 						$(".fav"+adid+loginid).addClass('active_fav');
+						$(".fav"+adid+loginid).attr('title', 'Remove from favourite');
 					}
 				})
 				
@@ -55,6 +56,7 @@
 						success: function (data) {
 							$(".fav"+adid+loginid).removeClass('active_fav');
 							$(".fav"+adid+loginid).addClass('inactive_fav');
+							$(".fav"+adid+loginid).attr("title",'Add to favourite');
 						}
 					})
 					
