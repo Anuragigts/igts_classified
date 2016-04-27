@@ -40,8 +40,24 @@
 				padding: 5px 0;
 				margin-top: -32px;
 			}
-			.owl-item{
-				width: 283px !important;
+			@media screen and (min-device-width: 768px) and (max-device-width: 1280px) {
+				.owl-item{
+					width: 283px !important;
+				}
+			}
+			@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+				
+				.tp-caption.large_bold_white {
+					font-size: 16px !important;
+					top: 142.649px !important;
+				}
+				.tp-caption.small_light_white {
+					font-size: 12px !important;
+					top: 155.649px !important;
+				}
+				.filter-title {
+					top: 48%;
+				}
 			}
 			
 		</style>
