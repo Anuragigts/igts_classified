@@ -375,6 +375,9 @@
 	.featured_badge_view {
 		right: -188px;
 	}
+	.tp-simpleresponsive{
+		height:450px !important;
+	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	.top_pad_10{
@@ -401,6 +404,13 @@
 	}
 	.sort-by-container ul .deal_admin_top {
 		width: 100% !important;
+	}
+	.tp-simpleresponsive{
+		height:500px !important;
+		width:100%;
+	}
+	.paddings-mini {
+		padding: 0;
 	}
 
 }
@@ -449,14 +459,7 @@
 	.view_price {
 		font-size: 10px;
 	}
-	.tp-caption.large_bold_white {
-		font-size: 16px !important;
-		top: 142.649px !important;
-	}
-	.tp-caption.small_light_white {
-		font-size: 12px !important;
-		top: 152.649px !important;
-	}
+	
 	.loca_pad{
 		padding: 12px 26px;
 	}
@@ -704,7 +707,7 @@
 		top: 152.649px !important;
 	}
 	.filter-title {
-		top: 50%;
+		top: 55%;
 	}
 }
  

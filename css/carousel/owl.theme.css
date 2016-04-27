@@ -115,10 +115,12 @@
 #boxes-carousel1  .owl-prev,
 #boxes-carousel2  .owl-prev,
 #boxes-carousel112  .owl-prev,
+#boxes-carousel-hot  .owl-prev,
 #boxes-carousel  .owl-next,
 #boxes-carousel1  .owl-next,
 #boxes-carousel2  .owl-next,
 #boxes-carousel112  .owl-next,
+#boxes-carousel-hot  .owl-next,
 #team-carousel  .owl-prev,
 #team-carousel  .owl-next,
 #services-carousel  .owl-prev,
@@ -147,10 +149,12 @@
 #boxes-carousel1  .owl-prev i,
 #boxes-carousel2  .owl-prev i,
 #boxes-carousel112  .owl-prev i,
+#boxes-carousel-hot  .owl-prev i,
 #boxes-carousel  .owl-prev i,
 #boxes-carousel1  .owl-next i,
 #boxes-carousel2  .owl-next i,
 #boxes-carousel112  .owl-next i,
+#boxes-carousel-hot  .owl-next i,
 #boxes-carousel  .owl-next i,
 #team-carousel .owl-prev i,
 #team-carousel .owl-next i,
@@ -168,6 +172,7 @@
 #boxes-carousel1  .owl-prev,
 #boxes-carousel2  .owl-prev,
 #boxes-carousel112  .owl-prev,
+#boxes-carousel-hot  .owl-prev,
 #team-carousel .owl-prev,
 #services-carousel  .owl-prev,
 #single-carousel  .owl-prev,
@@ -186,6 +191,7 @@
 #boxes-carousel1  .owl-next,
 #boxes-carousel2  .owl-next,
 #boxes-carousel112  .owl-next,
+#boxes-carousel-hot  .owl-next,
 #team-carousel .owl-next,
 #services-carousel  .owl-next,
 #single-carousel  .owl-next,
@@ -200,6 +206,7 @@
 #boxes-carousel1  .owl-pagination,
 #boxes-carousel2  .owl-pagination,
 #boxes-carousel112  .owl-pagination,
+#boxes-carousel-hot  .owl-pagination,
 #team-carousel .owl-pagination{
 	background-color: #fff;
 	display: inline;
@@ -225,6 +232,11 @@
 	margin-bottom: -1px;
 }
 #boxes-carousel112 .owl-controls{
+	margin-top: 30px;
+	text-align: center;
+	margin-bottom: -1px;
+}
+#boxes-carousel-hot .owl-controls{
 	margin-top: 30px;
 	text-align: center;
 	margin-bottom: -1px;

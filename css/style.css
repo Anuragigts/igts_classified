@@ -5315,9 +5315,11 @@ h4 a:hover {
 }
 .recentad_heig {
     height: 359px;
+	width: 100%;
 }
 .des_rec_heig {
     height: 405px;
+	width: 100%;
 }
 .business_img {
     height: 306px;
