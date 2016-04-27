@@ -103,6 +103,15 @@ $(document).ready(function($) {
        itemsMobile : [500,1],
        pagination: false
    });
+   $("#boxes-carousel-hot").owlCarousel({
+       autoPlay: 3200,      
+       items : 1,
+       navigation: true,
+       itemsDesktopSmall : [1024,3],
+       itemsTablet : [768,2],
+       itemsMobile : [500,1],
+       pagination: false
+   });
 
   //=================================== Carousel teams  ==================================//
    $("#team-carousel").owlCarousel({
