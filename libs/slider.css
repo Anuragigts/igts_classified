@@ -48,7 +48,7 @@ ol { list-style: none; }
 }
 
 .sliders li img {
-	width: 256px;
+	width: 100%;
 	display: block;
 	height: 220px;
 	border-top: 1px solid #f4f4f4;
