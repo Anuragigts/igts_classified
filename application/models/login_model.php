@@ -61,6 +61,7 @@ class Login_model extends CI_Model{
          $this->db->select("*");
             $this->db->from("login");
             $this->db->where("login_email", $mail);
+            $this->db->where("is_confirm", "confirm");
             $row = $this->db->get();
             // echo $row->num_rows();
             if($row->num_rows() > 0){

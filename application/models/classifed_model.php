@@ -500,6 +500,7 @@ GROUP BY img.ad_id
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
+		
 		$this->db->where('ads.ad_type', 'business');
 		$this->db->where("ads.ad_status", "1");
 		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
@@ -1083,8 +1084,9 @@ GROUP BY img.ad_id
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
-		$this->db->or_where('ads.category_id', $catid);
-		$this->db->or_where('ads.sub_cat_id', $subid);
+		$this->db->where("ads.ad_status", "1");
+		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->where("(ads.category_id = $catid) OR (ads.sub_cat_id= $subid)");
 		$this->db->like('ads.deal_tag',$title);
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('dtime', 'DESC');
@@ -2713,12 +2715,12 @@ GROUP BY img.ad_id
 	public function addsaved_hotdeals(){
 		$data = array(
 					  'login_id' => $this->session->userdata("login_id"),
-					  'search_title' => '',
+					  'bus_consumer' => $this->session->userdata("bus_id"),
 					  'search_cat' => $this->session->userdata("cat_id"),
 					  'save_search' => $this->session->userdata("saved_search1"),
 					  'search_loc' => $this->session->userdata("location"),
 					  'saved_on' => date("Y-m-d H:i:s"));
-		$this->db->insert("saved_searchs", $data);
+		$this->db->insert("saved_searchhot", $data);
 		if ($this->db->affected_rows() > 0) {
 			return 1;
 		}
@@ -2789,6 +2791,17 @@ GROUP BY img.ad_id
 			$this->db->where("search_title", $this->input->post("title"));
 			$this->db->where("search_cat", $this->input->post("cat"));
 			$this->db->where("search_loc", $this->input->post("loc"));
+			$rs = $this->db->get();
+			return $rs->row("no_search");
+		}
+
+		public function hotsearch_exists(){
+			$this->db->select("COUNT(*) as no_search");
+			$this->db->from("saved_searchhot");
+			$this->db->where("login_id", $this->session->userdata("login_id"));
+			$this->db->where("bus_consumer", $this->session->userdata("bus_id"));
+			$this->db->where("search_cat", $this->session->userdata("cat_id"));
+			$this->db->where("search_loc", $this->session->userdata("location"));
 			$rs = $this->db->get();
 			return $rs->row("no_search");
 		}

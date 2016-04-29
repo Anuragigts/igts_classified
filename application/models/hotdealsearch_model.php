@@ -672,6 +672,25 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 		public function count_hotdeal_search(){
+			/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
+			
+			$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
 				$cat_id =  $this->session->userdata('cat_id');
 				$seller_id =  $this->session->userdata('seller_id');
 				$bus_id =  $this->session->userdata('bus_id');
@@ -843,13 +862,12 @@ class hotdealsearch_model extends CI_Model{
   					OR loc.loc_name LIKE '%$s_location' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
+			/*likes counts*/
+			/*top category*/
 			
-				$pcktype = '(
-					(ad.package_type = "3" OR ad.package_type = "6") OR 
-					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50")
-					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25")   )';
+
+			
+				
 				$this->db->where($pcktype);
 				$this->db->group_by("img.ad_id");
 				/*deal title ascending or descending*/
@@ -866,12 +884,32 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-				$this->db->order_by("ad.ad_id", "DESC");
+				$this->db->order_by("ad.approved_on", "DESC");
 				$m_res = $this->db->get();
+				// echo $this->db->last_query(); exit;
 				return $m_res->result();
 		}
 
 	    public function hotdeal_search($data){
+	    	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
+			
+			$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
 	    		$cat_id =  $this->session->userdata('cat_id');
 	    		$seller_id =  $this->session->userdata('seller_id');
 	    		$bus_id =  $this->session->userdata('bus_id');
@@ -1040,11 +1078,6 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			
-				$pcktype = '((ad.package_type = "3" OR ad.package_type = "6") OR 
-					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= 75)
-					OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= 50)
-					OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= 25)   )';
 				$this->db->where($pcktype);
 				$this->db->group_by("img.ad_id");
 				/*deal title ascending or descending*/
@@ -1061,7 +1094,7 @@ class hotdealsearch_model extends CI_Model{
 				else if ($dealprice == 'hightolow'){
 					$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 				}
-				$this->db->order_by("ad.ad_id", "DESC");
+				$this->db->order_by("ad.approved_on", "DESC");
 				$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 				 // echo $this->db->last_query();exit;
 				return $m_res->result();

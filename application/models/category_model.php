@@ -634,6 +634,37 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
                 mysql_query("UPDATE manage_likes SET likes_count = '".$this->input->post('low_Gold')."' WHERE id = 6 ");
                 return 1;
         }
+
+        /*top categories*/
+        public function free_likes(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            $this->db->where("is_top",1);
+            $this->db->where("id",1);
+            return $this->db->get()->row('likes_count');
+        }
+        public function gold_likes(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            $this->db->where("is_top",1);
+            $this->db->where("id",3);
+            return $this->db->get()->row('likes_count');
+        }
+        /*low categories*/
+        public function free_likes_low(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            $this->db->where("is_top",0);
+            $this->db->where("id",4);
+            return $this->db->get()->row('likes_count');
+        }
+        public function gold_likes_low(){
+            $this->db->select();
+            $this->db->from("manage_likes");
+            $this->db->where("is_top",0);
+            $this->db->where("id",6);
+            return $this->db->get()->row('likes_count');
+        }
         
 }
 ?>

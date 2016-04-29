@@ -537,5 +537,283 @@ class Bump_model extends CI_Model{
 			$this->db->where('ad_id', $adid);
 			$this->db->delete('postad');
 		}
+
+
+		public function mainsearchlist(){
+			$this->db->select("*,lg.login_email AS mail");
+        	$this->db->from("saved_searchs");
+        	$this->db->join('login as lg','lg.login_id=saved_searchs.login_id','join');
+        	$rs = $this->db->get();
+        	return $rs->result();
+		}
+
+		public function hotdealsearchlist(){
+			$this->db->select("*,lg.login_email AS mail");
+        	$this->db->from("saved_searchhot");
+        	$this->db->join('login as lg','lg.login_id=saved_searchhot.login_id','join');
+        	$rs = $this->db->get();
+        	return $rs->result();
+		}
+		public function searchcnt_yesterday($logid,$title,$cat,$loc){
+			$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				if ($title) {
+					if ($title != '') {
+						$this->db->where("(ad.deal_tag LIKE '%$title%' OR ad.deal_tag LIKE '$title%' OR ad.deal_tag LIKE '%$title' 
+  						OR ad.deal_desc LIKE '%$title%' OR ad.deal_desc LIKE '$title%' OR ad.deal_desc LIKE '%$title')");
+					}
+				}
+
+				if ($cat) {
+					if ($cat != 'all') {
+						$this->db->where('ad.category_id', $cat);
+					}
+				}
+
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s",strtotime("-1 days")));
+			$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s",strtotime("-1 days")));
+			/*location search*/
+			if ($loc != '') {
+				$this->db->where("(loc.loc_name LIKE '$loc%' 
+  					OR loc.loc_name LIKE '%$loc' OR loc.loc_name LIKE '%$loc%')");
+			}
+			$this->db->group_by(" img.ad_id");
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			//echo $this->db->last_query();
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+		}
+
+		public function searchcnt_today($logid,$title,$cat,$loc){
+			$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				if ($title) {
+					if ($title != '') {
+						$this->db->where("(ad.deal_tag LIKE '%$title%' OR ad.deal_tag LIKE '$title%' OR ad.deal_tag LIKE '%$title' 
+  						OR ad.deal_desc LIKE '%$title%' OR ad.deal_desc LIKE '$title%' OR ad.deal_desc LIKE '%$title')");
+					}
+				}
+
+				if ($cat) {
+					if ($cat != 'all') {
+						$this->db->where('ad.category_id', $cat);
+					}
+				}
+
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s"));
+
+			/*location search*/
+			if ($loc != '') {
+				$this->db->where("(loc.loc_name LIKE '$loc%' 
+  					OR loc.loc_name LIKE '%$loc' OR loc.loc_name LIKE '%$loc%')");
+			}
+			$this->db->group_by(" img.ad_id");
+			$this->db->order_by('dtime', 'DESC');
+			$m_res = $this->db->get();
+			//echo $this->db->last_query();
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+		}
+
+		public function searchcnt_todaynow($logid,$title,$cat,$loc){
+			$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+			$this->db->from("postad AS ad");
+			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				if ($title) {
+					if ($title != '') {
+						$this->db->where("(ad.deal_tag LIKE '%$title%' OR ad.deal_tag LIKE '$title%' OR ad.deal_tag LIKE '%$title' 
+  						OR ad.deal_desc LIKE '%$title%' OR ad.deal_desc LIKE '$title%' OR ad.deal_desc LIKE '%$title')");
+					}
+				}
+
+				if ($cat) {
+					if ($cat != 'all') {
+						$this->db->where('ad.category_id', $cat);
+					}
+				}
+
+			$this->db->where("ad.ad_status", "1");
+			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s"));
+
+			/*location search*/
+			if ($loc != '') {
+				$this->db->where("(loc.loc_name LIKE '$loc%' 
+  					OR loc.loc_name LIKE '%$loc' OR loc.loc_name LIKE '%$loc%')");
+			}
+			$this->db->group_by(" img.ad_id");
+			$this->db->order_by('ad.approved_on', 'DESC');
+			$this->db->limit(4);
+			$m_res = $this->db->get();
+			// echo $this->db->last_query();
+			if($m_res->num_rows() > 0){
+				return $m_res->result();
+			}
+			else{
+				return array();
+			}
+		}
+		public function hotsearchcnt_yesterday($bus_id,$cat,$loc){
+			/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
+			
+			$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
+				$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+        		$this->db->from('postad AS ad');
+				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where('ad.ad_status', 1);
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s",strtotime("-1 days")));
+				$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s",strtotime("-1 days")));
+				if ($cat != 'all') {
+						$this->db->where('ad.category_id', $cat);
+					}
+				if ($bus_id != '') {
+					$this->db->where('ad.ad_type', $bus_id);
+				}			
+
+				if ($loc != '') {
+					$this->db->where("(loc.loc_name LIKE '$loc%' 
+	  					OR loc.loc_name LIKE '%$loc' OR loc.loc_name LIKE '%$loc%')");
+				}
+				$this->db->where($pcktype);
+				$this->db->group_by("img.ad_id");
+				$this->db->order_by("ad.approved_on", "DESC");
+				$m_res = $this->db->get();
+				return $m_res->result();
+		}
+		public function hotsearchcnt_today($bus_id,$cat,$loc){
+			/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
+			
+			$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
+				$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+        		$this->db->from('postad AS ad');
+				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where('ad.ad_status', 1);
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s"));
+				if ($cat != 'all') {
+						$this->db->where('ad.category_id', $cat);
+					}
+				if ($bus_id != '') {
+					$this->db->where('ad.ad_type', $bus_id);
+				}			
+
+				if ($loc != '') {
+					$this->db->where("(loc.loc_name LIKE '$loc%' 
+	  					OR loc.loc_name LIKE '%$loc' OR loc.loc_name LIKE '%$loc%')");
+				}
+				$this->db->where($pcktype);
+				$this->db->group_by("img.ad_id");
+				$this->db->order_by("ad.approved_on", "DESC");
+				$m_res = $this->db->get();
+				return $m_res->result();
+		}
+		public function hotsearchcnt_todaynow($bus_id,$cat,$loc){
+			/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
+			
+			$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
+				$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+        		$this->db->from('postad AS ad');
+				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where('ad.ad_status', 1);
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s"));
+				if ($cat != 'all') {
+						$this->db->where('ad.category_id', $cat);
+					}
+				if ($bus_id != '') {
+					$this->db->where('ad.ad_type', $bus_id);
+				}			
+
+				if ($loc != '') {
+					$this->db->where("(loc.loc_name LIKE '$loc%' 
+	  					OR loc.loc_name LIKE '%$loc' OR loc.loc_name LIKE '%$loc%')");
+				}
+				$this->db->where($pcktype);
+				$this->db->group_by("img.ad_id");
+				$this->db->order_by("ad.approved_on", "DESC");
+				$this->db->limit(4);
+				$m_res = $this->db->get();
+				return $m_res->result();
+		}
 }
 ?>

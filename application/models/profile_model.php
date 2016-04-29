@@ -13,11 +13,11 @@ class Profile_model extends CI_Model{
 	/*update profile*/
 	 public function prof_update(){
 	 	        $prof =  array(
-                        "first_name"   =>  $this->input->post('fname1'),
-                        "lastname"   =>  $this->input->post('lname1'),
-                        "mobile"   =>  $this->input->post('mobile1')
+                        "first_name"   =>  $this->input->post('firstnamepost'),
+                        "lastname"   =>  $this->input->post('lastnamepost'),
+                        "mobile"   =>  $this->input->post('contactnopost')
                 );
-                $this->db->where('login_id',$this->input->post('prof_id1'));
+                $this->db->where('login_id',$this->session->userdata('login_id'));
                 $this->db->update("login",$prof);
                 if($this->db->affected_rows() > 0){
                         return 1;
@@ -32,8 +32,8 @@ class Profile_model extends CI_Model{
         	/*password is exist or not*/
         	$this->db->select("COUNT(*)");
         	$this->db->from("login");
-        	$this->db->where('login_id', $this->input->post('prof_id1'));
-        	$this->db->where('login_password', md5($this->input->post('cur_pwd1')));
+        	$this->db->where('login_id', $this->session->userdata('login_id'));
+        	$this->db->where('login_password', md5($this->input->post('currentpasspost')));
         	$res = $this->db->get();
         	$res1 = $res->row_array();
         	if($res1['COUNT(*)'] != 1){
@@ -46,14 +46,39 @@ class Profile_model extends CI_Model{
 
         /*change passward update*/
         public function change_pwd_up(){
-	  	 $pwd =  array(
-                        "password"   =>  md5($this->input->post('pwd1'))
-                        );
-                $this->db->where('sid',$this->input->post('prof_id1'));
-                $this->db->update("signup",$pwd);
+            $mail = $this->db->get_Where('login', array('login.login_id'=>$this->session->userdata('login_id')))->row('login_email');
+             $config = Array(
+                 'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => '99rightdeals@googlemail.com',
+                'smtp_pass' => 'S@ibaba2016',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+                 );
 
-            $log_pwd =  array(
-                        "login_password"   =>  md5($this->input->post('pwd1'))
+                $this->load->library('email', $config);
+                $this->email->set_newline("\r\n");
+                $this->email->from('admin@99rightdeals.com', "99 Right Deals");
+                $this->email->to($mail);
+                $this->email->subject("99 Right Deals Change Password");
+                $message    =   "<div style='padding: 81px 150px;'>
+                                    <div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
+                                        <h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
+                                        <img src='http://99rightdeals.com/img/maillogo.png'>
+                                    </div>
+                                    <div style='margin-top:20px'></div>
+                                    <div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
+                                        <h2>Change Password</h2>
+                                        <p>Hi, We've changed your password successfully</p>
+                                        <p>Best Wishes,</p>
+                                        <p>The <a href='".base_url()."'><b style='color:#9FC955;'>99RightDeals </b></a>Team</p>
+                                    </div>
+                                </div>";
+                $this->email->message($message);
+                $this->email->send();
+	  	         $log_pwd =  array(
+                        "login_password"   =>  md5($this->input->post('newpasspost'))
                         );
                 $this->db->where('login_id',$this->session->userdata('login_id'));
                 $this->db->update("login",$log_pwd);
