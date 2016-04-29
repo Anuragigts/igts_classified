@@ -10,6 +10,7 @@ class  Home_essentials_view extends CI_Controller{
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
+                $this->load->model("postad_kitchen_model");
                 $this->load->library('pagination');
         }
         public function index(){
@@ -25,7 +26,7 @@ class  Home_essentials_view extends CI_Controller{
                 $this->session->set_userdata('longg','');
             $config = array();
             $config['base_url'] = base_url().'home_essentials_view/index';
-            $config['total_rows'] = count($this->classifed_model->count_kitchenhome_view());
+            $config['total_rows'] = count($this->postad_kitchen_model->count_homeesentials_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -48,7 +49,7 @@ class  Home_essentials_view extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $kitchenhome_view = $this->classifed_model->kitchenhome_view($search_option);
+                $kitchenhome_view = $this->postad_kitchen_model->homeesentials_view($search_option);
                     foreach ($kitchenhome_view as $kview) {
                         $loginid = $kview->login_id;
                     }
@@ -58,23 +59,25 @@ class  Home_essentials_view extends CI_Controller{
                 $home_view = $this->hotdealsearch_model->home_sub_search();
                 $decor_view = $this->hotdealsearch_model->decor_sub_search();
                 $brands = $this->hotdealsearch_model->brand_kitchen();
+                $hesentials_cnt = $this->hotdealsearch_model->homeessentials_cnt();
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "home_kitchen_view",
+                        "content"   =>  "home_essentials_view",
                          "kitchen_result" => $kitchenhome_view,
                          'paging_links' =>$this->pagination->create_links(),
                          'log_name' => $log_name,
                         'kitchen_view' => $kitchen_view,
+                        'hesentials_cnt'=>$hesentials_cnt,
                         'home_view' => $home_view,
                         'decor_view' => $decor_view,
                         'brands'=>$brands
                 );
                 /*business and consumer count for kitchen*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_kitchen();
+                $data['busconcount'] = $this->postad_kitchen_model->busconcount_hessen();
                  /*seller and needed count for kitchen*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen1();
+                $data['sellerneededcount'] = $this->postad_kitchen_model->sellerneeded_hessen();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_kitchen();
+                $data['deals_pck'] = $this->postad_kitchen_model->deals_pck_hessen();
                 $data['public_adview'] = $public_adview;
                 $data['login_status'] =$login_status;
                 $data['login'] = $login;
@@ -141,8 +144,8 @@ class  Home_essentials_view extends CI_Controller{
                 }
             }
             $config = array();
-            $config['base_url'] = base_url().'home_kitchen_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_kitchenhome_search());
+            $config['base_url'] = base_url().'home_essentials_view/search_filters';
+            $config['total_rows'] = count($this->postad_kitchen_model->count_homeesentials_search());
             $config['per_page'] = 30;
             $config['next_link'] = 'Next';
             $config['prev_link'] = 'Previous';
@@ -167,7 +170,7 @@ class  Home_essentials_view extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->kitchenhome_search($search_option);
+             $rs = $this->postad_kitchen_model->homeesentials_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -177,11 +180,13 @@ class  Home_essentials_view extends CI_Controller{
                 $home_view = $this->hotdealsearch_model->home_sub_search();
                 $decor_view = $this->hotdealsearch_model->decor_sub_search();
                 $brands = $this->hotdealsearch_model->brand_kitchen();
+                $hesentials_cnt = $this->hotdealsearch_model->homeessentials_cnt();
                 $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "home_kitchen_view",
+                        "content"   =>  "home_essentials_view",
                          'paging_links' =>$this->pagination->create_links(),
                         'kitchen_view' => $kitchen_view,
+                        'hesentials_cnt'=>$hesentials_cnt,
                         'home_view' => $home_view,
                         'decor_view' => $decor_view,
                         'brands'=>$brands
@@ -197,11 +202,11 @@ class  Home_essentials_view extends CI_Controller{
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
              /*business and consumer count for kitchen*/
-                $result['busconcount'] = $this->hotdealsearch_model->busconcount_kitchen();
+                $result['busconcount'] = $this->postad_kitchen_model->busconcount_hessen();
                  /*seller and needed count for kitchen*/
-                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_kitchen1();
+                $result['sellerneededcount'] = $this->postad_kitchen_model->sellerneeded_hessen();
                  /*packages count*/
-                $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_kitchen();
+                $result['deals_pck'] = $this->postad_kitchen_model->deals_pck_hessen();
                 $this->load->view("classified_layout/inner_template",$result);
         }
         

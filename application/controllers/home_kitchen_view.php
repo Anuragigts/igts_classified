@@ -54,6 +54,7 @@ class  Home_kitchen_view extends CI_Controller{
                     }
                 $log_name = @mysql_result(mysql_query("SELECT first_name FROM signup WHERE sid = (SELECT signupid FROM `login` WHERE `login_id` = '$loginid')  "), 0, 'first_name');
                  $public_adview = $this->classifed_model->publicads_homekitchen();
+                 $kitchenhome_sub_cnt = $this->hotdealsearch_model->kitchenhome_sub_cnt();
                 $kitchen_view = $this->hotdealsearch_model->kitchen_sub_search();
                 $home_view = $this->hotdealsearch_model->home_sub_search();
                 $decor_view = $this->hotdealsearch_model->decor_sub_search();
@@ -65,6 +66,7 @@ class  Home_kitchen_view extends CI_Controller{
                          'paging_links' =>$this->pagination->create_links(),
                          'log_name' => $log_name,
                         'kitchen_view' => $kitchen_view,
+                        'kitchenhome_sub_cnt'=> $kitchenhome_sub_cnt,
                         'home_view' => $home_view,
                         'decor_view' => $decor_view,
                         'brands'=>$brands
@@ -173,6 +175,7 @@ class  Home_kitchen_view extends CI_Controller{
                         $loginid = $sview->login_id;
                     }
              }
+             $kitchenhome_sub_cnt = $this->hotdealsearch_model->kitchenhome_sub_cnt();
               $kitchen_view = $this->hotdealsearch_model->kitchen_sub_search();
                 $home_view = $this->hotdealsearch_model->home_sub_search();
                 $decor_view = $this->hotdealsearch_model->decor_sub_search();
@@ -182,6 +185,7 @@ class  Home_kitchen_view extends CI_Controller{
                         "content"   =>  "home_kitchen_view",
                          'paging_links' =>$this->pagination->create_links(),
                         'kitchen_view' => $kitchen_view,
+                        'kitchenhome_sub_cnt'=> $kitchenhome_sub_cnt,
                         'home_view' => $home_view,
                         'decor_view' => $decor_view,
                         'brands'=>$brands

@@ -127,6 +127,24 @@ class Classified extends CI_Controller{
                 echo json_encode($data);
         }
 
+        /*deal tag search*/
+        public function search_dealtag(){
+            $term = $this->input->get('term');
+            $data = date("Y-m-d H:i:s");
+            $query = mysql_query("select * FROM postad WHERE deal_tag LIKE '".$term."%' ");
+             if (mysql_num_rows($query) >0 ) {
+                 while ($row = mysql_fetch_assoc($query)) {
+                    $data[] = $row['deal_tag'];
+                }
+             }
+             else{
+                $data[] = '';
+             }
+                
+                //return json data
+                echo json_encode($data);
+        }
+
         public function postalcode_search(){
             $keyword = $this->input->get('term');
             // $query = mysql_query("SELECT * FROM (SELECT postcode AS uk_keyword FROM uk_postcodes WHERE postcode LIKE '".$keyword."%') AS search_keyword LIMIT 0,10");

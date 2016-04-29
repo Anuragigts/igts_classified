@@ -28,6 +28,7 @@ class Ads extends CI_Controller {
 				$data['category_list'] = $this->category_model->view();
 				$data['packages_details'] = $this->category_model->get_packages_details();
 				$data['ad_status'] = $this->ads_model->get_postad_status();
+				$data['regad_status'] = $this->ads_model->get_postad_statusreg();
 
 				if($this->input->post('ads_filter')){
 					$filter_details['user_type'] = '';
@@ -90,6 +91,7 @@ class Ads extends CI_Controller {
 			$data['urgent_label'] = $this->ads_model->get_urgent_labelview();
 				$data['packages_details'] = $this->category_model->get_packages_details();
 				$data['ad_status'] = $this->ads_model->get_postad_status();
+				$data['regad_status'] = $this->ads_model->get_postad_statusreg();
 			if($this->uri->segment(3)){
 				$request = $this->uri->segment(3);
 				$view_page = 'ads_list';
@@ -213,6 +215,7 @@ class Ads extends CI_Controller {
 			$data['urgent_label'] = $this->ads_model->get_urgent_labelview();
 			$data['packages_details'] = $this->category_model->get_packages_details();
 			$data['ad_status'] = $this->ads_model->get_postad_status();
+			$data['regad_status'] = $this->ads_model->get_postad_statusreg();
 			$request = $this->uri->segment(3);
 			//echo $request;exit;
 			$data['ads_list'] = $this->ads_model->listAdsbyStatus($request);
@@ -229,8 +232,9 @@ class Ads extends CI_Controller {
 						"user_type"     =>     $user_type
                 );
 			$data['category_list'] = $this->category_model->view();
-$data['packages_details'] = $this->category_model->get_packages_details();
-$data['ad_status'] = $this->ads_model->get_postad_status();
+			$data['packages_details'] = $this->category_model->get_packages_details();
+			$data['ad_status'] = $this->ads_model->get_postad_status();
+			$data['regad_status'] = $this->ads_model->get_postad_statusreg();
 
 			$request = $this->uri->segment(3);
 			//echo $request;exit;

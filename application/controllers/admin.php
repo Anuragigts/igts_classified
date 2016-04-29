@@ -134,6 +134,17 @@ class Admin extends CI_Controller {
 			);
 			$this->load->view("admin_layout/inner_template",$data);
 		}
+		public function view_feedbacksite(){
+			$ad_feedbacks = $this->admin_model->view_feedbacksite($this->uri->segment(3));
+			$data   =   array(
+						"title"         =>     "Admin Dashboard",
+						"metadesc"      =>     "Classifieds :: Admin Dashboard",
+						"metakey"       =>     "Classifieds :: Admin Dashboard",
+						"content"       =>     "viewfeedbacksite",
+						"all_feedbacks"  =>     $ad_feedbacks
+			);
+			$this->load->view("admin_layout/inner_template",$data);
+		}
 		public function getAdFeedbacks(){
 			$ad_feedbacks = $this->admin_model->getAdfeedbacks();
 			$categories = $this->admin_model->get_postad_categories();
