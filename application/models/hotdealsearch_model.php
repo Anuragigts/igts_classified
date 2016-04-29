@@ -627,6 +627,103 @@ class hotdealsearch_model extends CI_Model{
 			}
 
 			/* kitchen sub category*/
+			public function kitchenhome_sub_cnt(){
+				$data = date("Y-m-d H:i:s");
+				$this->db->select(" (SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+	    AND ad.`sub_cat_id` = 67 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS kitchen,
+	  (SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat  WHERE scat.sub_category_id = ad.sub_cat_id  AND ad.`category_id` = '7' 
+	    AND ad.`sub_cat_id` = 68  AND ad.ad_status = 1  AND ad.expire_data >= '$data') AS home,
+	  (SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+	    AND ad.`sub_cat_id` = 69  AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS decor");
+				return $this->db->get()->result();
+			}
+
+		public function kessentials_cnt(){
+			$data = date("Y-m-d H:i:s");
+			$this->db->select("(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=457 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS tools,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=458 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS kstorage,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=459 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS cookware,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=460 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS bakeware,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=461 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS burners,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=462 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS furniture,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=463 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS linen,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 67 AND ad.`sub_scat_id`=464 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS others");
+				return $this->db->get()->result();
+		}	
+		public function homeessentials_cnt(){
+			$data = date("Y-m-d H:i:s");
+			$this->db->select("(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=465 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS bath,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=466 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS bed,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=467 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS carpet,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=468 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS cleaning,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=469 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS plumb,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=470 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS wind,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=471 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS door,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=472 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS garden,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=473 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS furniture,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=474 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS shed,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=475 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS plants,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=476 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS dining,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=477 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS living,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=478 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS kids,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=479 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS outdoor,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=480 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS study,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 68 AND ad.`sub_scat_id`=481 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS others");
+				return $this->db->get()->result();
+		}
+		public function decor_cnt(){
+			$data = date("Y-m-d H:i:s");
+			$this->db->select("(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=482 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS curtain,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=483 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS candle,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=484 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS vases,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=485 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS wall,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=486 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS home,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=487 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS religon,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=488 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS frame,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=489 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS rugs,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=490 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS cushions,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=491 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS lamp,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=492 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS outdoor,
+				(SELECT COUNT(*) FROM postad AS ad,`sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id AND ad.`category_id` = '7' 
+				AND ad.`sub_cat_id` = 69 AND ad.`sub_scat_id`=493 AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS others	");
+				return $this->db->get()->result();
+		}
 			public function kitchen_sub_search(){
 				$data = date("Y-m-d H:i:s");
 				$this->db->select("sub_subcategory.*, COUNT(postad.sub_scat_id) AS no_ads");

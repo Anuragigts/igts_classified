@@ -403,6 +403,15 @@ class Admin_model extends CI_Model{
 		$all_feedbacks = $this->db->get()->result();
 		return $all_feedbacks;
 	}
+	function view_feedbacksite($id){
+		$this->db->select("*,cat.category_name as cname");
+		$this->db->join('catergory AS cat','cat.category_id= fs.category','inner');
+		$this->db->order_by("created_on","DESC");
+		$this->db->from('feedback_site AS fs');
+		$this->db->where('id',$id);
+		$feedbacks = $this->db->get();
+		return $feedbacks->row();
+	}
 	function getAdfeedbacks(){
 		$ad_id = $this->uri->segment(3);
 		$this->db->select("*,f_ad.created_on as f_created");

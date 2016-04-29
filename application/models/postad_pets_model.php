@@ -6771,7 +6771,1550 @@ class Postad_pets_model extends CI_Model{
             else{
                 return array();
             }
+        }  
+
+         /*pets beds */
+        public function count_beds_view(){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "19");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+
+            return $m_res->result();
+        }
+
+        public function beds_view($data){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "19");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+            // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function count_beds_search(){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "19");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+                    $this->db->where("ad.ad_type", $search_bustype);
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+                    else{
+                        $this->db->order_by("ad.ad_id", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function beds_search($data){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "19");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+                    $this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+            
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
         }    
+
+         /*pets odours */
+        public function count_odours_view(){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "20");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+
+            return $m_res->result();
+        }
+
+        public function odours_view($data){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "20");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+            // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function count_odours_search(){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "20");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+                    $this->db->where("ad.ad_type", $search_bustype);
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+                    else{
+                        $this->db->order_by("ad.ad_id", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function odours_search($data){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "20");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+                    $this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+            
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }    
+
+        /*pets tanks */
+        public function count_tanks_view(){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "21");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+
+            return $m_res->result();
+        }
+
+        public function tanks_view($data){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "21");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+            // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function count_tanks_search(){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "21");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+                    $this->db->where("ad.ad_type", $search_bustype);
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+                    else{
+                        $this->db->order_by("ad.ad_id", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function tanks_search($data){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "21");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+                    $this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+            
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }  
+
+        /*pets marine */
+        public function count_marine_view(){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "22");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+
+            return $m_res->result();
+        }
+
+        public function marine_view($data){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "22");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+            // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function count_marine_search(){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "22");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+                    $this->db->where("ad.ad_type", $search_bustype);
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+                    else{
+                        $this->db->order_by("ad.ad_id", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function marine_search($data){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "22");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+                    $this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+            
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        } 
+
+        /*pets aquarium */
+        public function count_aquarium_view(){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "23");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+
+            return $m_res->result();
+        }
+
+        public function aquarium_view($data){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "23");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+            // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function count_aquarium_search(){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "23");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+                    $this->db->where("ad.ad_type", $search_bustype);
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+                    else{
+                        $this->db->order_by("ad.ad_id", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function aquarium_search($data){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "23");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+                    $this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+            
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }      
+
+         /*pets stuff */
+        public function count_stuff_view(){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "24");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+
+            return $m_res->result();
+        }
+
+        public function stuff_view($data){
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "24");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            $this->db->group_by(" img.ad_id");
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+            // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function count_stuff_search(){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->from("postad AS ad");
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "24");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($search_bustype == 'business' || $search_bustype == 'consumer') {
+                    $this->db->where("ad.ad_type", $search_bustype);
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+                    else{
+                        $this->db->order_by("ad.ad_id", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get();
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }
+
+        public function stuff_search($data){
+            $pets_sub = $this->session->userdata('pets_sub');
+            $search_bustype = $this->session->userdata('search_bustype');
+            $dealurgent = $this->session->userdata('dealurgent');
+            $dealtitle = $this->session->userdata('dealtitle');
+            $dealprice = $this->session->userdata('dealprice');
+            $recentdays = $this->session->userdata('recentdays');
+            $location = $this->session->userdata('location');
+            $seller = $this->session->userdata('seller_deals');
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+            $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+            '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+            $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+            $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->where("ad.category_id", "5");
+            $this->db->where("ad.sub_cat_id", "7");
+            $this->db->where("ad.sub_scat_id", "24");
+            $this->db->where("ad.ad_status", "1");
+            $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+            if (!empty($pets_sub)) {
+                $this->db->where_in('ad.sub_cat_id', $pets_sub);
+            }
+            if (!empty($seller)) {
+                $this->db->where_in('ad.services', $seller);
+            }
+            if ($search_bustype) {
+                if ($this->session->userdata('search_bustype') == 'business' || $this->session->userdata('search_bustype') == 'consumer') {
+                    $this->db->where("ad.ad_type", $this->session->userdata('search_bustype'));
+                }
+            }
+            /*package search*/
+            if (!empty($dealurgent)) {
+                $pcklist = [];
+                if (in_array("0", $dealurgent)) {
+                    $this->db->where('ad.urgent_package !=', '0');
+                }
+                else{
+                    $this->db->where('ad.urgent_package =', '0');
+                }
+                if (in_array(4, $dealurgent)){
+                    array_push($pcklist, 4);
+                }
+                if (in_array(5, $dealurgent)){
+                    array_push($pcklist, 5);
+                }
+                if (in_array(6, $dealurgent)){
+                    array_push($pcklist, 6);
+                }
+                if (!empty($pcklist)) {
+                    $this->db->where_in('ad.package_type', $pcklist);
+                }
+                
+            }
+            
+            /*deal posted days 24hr/3day/7day/14day/1month */
+            if ($recentdays == 'last24hours'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+            }
+            else if ($recentdays == 'last3days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+            }
+            else if ($recentdays == 'last7days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+            }
+            else if ($recentdays == 'last14days'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+            }   
+            else if ($recentdays == 'last1month'){
+                $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+            }
+
+            /*location search*/
+            if ($location) {
+                $this->db->where("(loc.loc_name LIKE '$location%' OR loc.loc_name LIKE '%$location' OR loc.loc_name LIKE '%$location%')");
+            }
+
+
+            $this->db->group_by(" img.ad_id");
+                /*deal title ascending or descending*/
+                    if ($dealtitle == 'atoz') {
+                        $this->db->order_by("ad.deal_tag","ASC");
+                    }
+                    else if ($dealtitle == 'ztoa'){
+                        $this->db->order_by("ad.deal_tag", "DESC");
+                    }
+                    /*deal price ascending or descending*/
+                    if ($dealprice == 'lowtohigh'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+                    }
+                    else if ($dealprice == 'hightolow'){
+                        $this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+                    }
+            $this->db->order_by('dtime', 'DESC');
+            $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
+             // echo $this->db->last_query(); exit;
+            if($m_res->num_rows() > 0){
+                return $m_res->result();
+            }
+            else{
+                return array();
+            }
+        }  
+  
 
 }
 ?>
