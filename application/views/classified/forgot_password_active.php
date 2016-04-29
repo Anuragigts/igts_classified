@@ -12,7 +12,44 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 		<script type="text/javascript" src="switchery.min.js"></script>
-		
+		<script type="text/javascript">
+			$(function(){
+				$.validator.addMethod("pwcheck", function(value) {
+					   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(value); // consists of only these
+					});
+				$("#forgot-form").validate({
+					
+					rules: {
+						password: {
+							required: true,
+							minlength: 8,
+							pwcheck: true
+						},
+						conf_password:{
+							required: true,
+							minlength: 8,
+							equalTo : "#password",
+							pwcheck: true
+						},
+					},
+				
+					messages: {
+						password: {
+							required: "Please enter a new password",
+							pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
+						},
+						conf_password:{
+							required: "Please enter a confirm password",
+							pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
+						},
+					},
+					
+					submitHandler: function(form) {
+						return true;
+					}
+				});
+			});
+		</script>
 	</head>
 	
 	<body id="home">
@@ -64,14 +101,14 @@
 												<form  method="post" class="log_form" action="<?php echo base_url(); ?>common/forgot/<?php echo @$rcode; ?>" id="forgot-form">
 													<div class="col-12">
 														<label>New Password <sup style='color:red;'>*</sup>
-														<input type='password' placeholder="Enter Password" id="password" name="password" tabindex="1" required>
+														<input type='password' placeholder="Enter Password" id="password" name="password" tabindex="1" >
 														<input type="hidden" id="random" name="random" value='<?php echo @$rcode; ?>' tabindex="1">
 														<?php echo form_error("password");?>
 														</label>
 													</div>
 													<div class="col-12">
 														<label>Confirm Password <sup style='color:red;'>*</sup>
-														<input type='password' placeholder="Enter password" id="conf_password" name="conf_password" tabindex="1" required>
+														<input type='password' placeholder="Enter password" id="conf_password" name="conf_password" tabindex="1" >
 														<?php echo form_error("conf_password");?>
 														</label>
 													</div>

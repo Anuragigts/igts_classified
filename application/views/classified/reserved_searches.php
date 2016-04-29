@@ -58,7 +58,7 @@
 											<a href='<?php echo base_url(); ?>pickup-deals'>
 												<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup">Pickup deals</li>
 											</a>
-											<a href='<?php echo base_url(); ?>reserved_searches'>
+											<a href='<?php echo base_url(); ?>my-wishes'>
 												<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites">My Wishes</li>
 											</a>
 											<a href='<?php echo base_url(); ?>update-profile'>
@@ -92,9 +92,9 @@
 																<div class="col-sm-10">
 																	<h5>
 																		<?php if ($search_listval->search_title != '') { ?>
-																			<a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $search_listval->search_title; ?></a> in
+																			<a href="<?php echo $search_listval->save_search; ?>" ><?php echo $search_listval->search_title; ?></a> in
 																		<?php } ?>
-																	<a href="<?php echo $search_listval->save_search; ?>" target="_blank"><?php echo $scat." categories"; ?></a>
+																	<a href="<?php echo $search_listval->save_search; ?>" ><?php echo $scat." categories"; ?></a>
 																	</h5>
 																	<p>
 																		<?php if ($search_listval->search_loc != '') { ?>

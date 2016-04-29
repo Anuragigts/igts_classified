@@ -51,22 +51,45 @@
 					rules: {
 						con_fname: {
 							required: true,
-							character:true
+							character:true,
+							minlength: 3
 						},
 						con_lname: {
 							required: true,
-							character:true
+							character:true,
+							minlength: 3
 						},
-						con_mobile: "required",
+						con_mobile: {
+							required: true,
+							minlength: 11
+						},
 						con_email: {
 							required: true,
 							email: true
 						},
-						bus_fname: "required",
-						bus_lname: "required",
-						bus_name: "required",
-						bus_address: "required",
-						bus_mobile: "required",
+						bus_fname: {
+							required: true,
+							character:true,
+							minlength: 3
+						},
+						bus_lname: {
+							required: true,
+							character:true,
+							minlength: 3
+						},
+						bus_name: {
+							required: true,
+							character:true,
+							minlength: 5
+						},
+						bus_address: {
+							required: true,
+							minlength: 5
+						},
+						bus_mobile: {
+							required: true,
+							minlength: 11
+						},
 						bus_email: {
 							required: true,
 							email: true
@@ -86,19 +109,42 @@
 					// Specify the validation error messages
 					messages: {
 						con_fname: {
-							required: "Please enter your first name",
-							character: "please Enter characters"
+							required: "Please enter your First name",
+							character: "please Enter characters",
+							minlength: "Enter atleast 3 characters"
 						},
 						con_lname: {
-							required: "Please enter your first name",
-							character: "please Enter characters"
+							required: "Please enter your Last name",
+							character: "please Enter characters",
+							minlength: "Enter atleast 3 characters"
 						},
-						con_mobile: "Please enter your 10 Digit Mobile No",
-						bus_fname: "Please enter your first name",
-						bus_lname: "Please enter your last name",
-						bus_name: "Please enter your Business name",
-						bus_address: "Please enter your Business Address",
-						bus_mobile: "Please enter your 10 Digit Mobile No",
+						con_mobile: {
+							required: "Please enter your 11 Digit Mobile No",
+							minlength: "Mobile number Should be 11 digits"
+						},
+						bus_fname: {
+							required: "Please enter your First name",
+							character: "please Enter characters",
+							minlength: "Enter atleast 3 characters"
+						},
+						bus_lname: {
+							required: "Please enter your Last name",
+							character: "please Enter characters",
+							minlength: "Enter atleast 3 characters"
+						},
+						bus_name: {
+							required: "Please enter your Business name",
+							character: "please Enter characters",
+							minlength: "Enter atleast 5 characters"
+						},
+						bus_address: {
+							required: "Please enter your Business Address",
+							minlength: "Enter atleast 5 characters"
+						},
+						bus_mobile: {
+							required: "Please enter your 11 Digit Mobile No",
+							minlength: "Mobile number Should be 11 digits"
+						},
 						bus_password: {
 							required: "Please provide a password",
 							// minlength: "Your password must be at least 8 characters long",
@@ -196,7 +242,7 @@
 														</div>
 														<div class="col-2">
 															<label>Email <sup style='color:red;'>*</sup>
-																<input placeholder="Enter Email" id="con_email" value="<?php echo $fbemail; ?>" name="con_email" tabindex="3">
+																<input placeholder="Enter Email" id="con_email" value="<?php echo $fbemail; ?>" name="con_email" tabindex="3" readonly>
 																
 															</label>
 														</div>
@@ -230,7 +276,7 @@
 														</div>
 														<div class="col-2">
 															<label>Email <sup style='color:red;'>*</sup>
-																<input placeholder="Enter Email" id="bus_email" name="bus_email" tabindex="5" value="<?php echo $fbemail; ?>">
+																<input placeholder="Enter Email" id="bus_email" name="bus_email" tabindex="5" value="<?php echo $fbemail; ?>" readonly>
 															</label>
 														</div>
 														<div class="col-2">

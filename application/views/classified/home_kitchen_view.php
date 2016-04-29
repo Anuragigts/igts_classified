@@ -150,43 +150,13 @@
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>home-kitchen-services-uk"><h3 class="title-widget">Home Kitchen Filter</h3></a>
 											<div class="cd-filter-block">
-												<h4 class="title-widget">Kitchen Essentials</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($kitchen_view as $kval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $kval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($kval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($kval->sub_subcategory_name)."(".$kval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Home Essentials</h4>
-												<div class="cd-filter-content" >
-													<div id="limit_scrol">
-														<?php foreach ($home_view as $hval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $hval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($hval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($hval->sub_subcategory_name)."(".$hval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Decor</h4>
-												<div class="cd-filter-content" >
-													<div id="limit_scrol">
-														<?php foreach ($decor_view as $dval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $dval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($dval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($dval->sub_subcategory_name)."(".$dval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Kitchen Essentials (<?php //echo $dogscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Home Essentials (<?php ///echo $catscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Decor (<?php// echo $fishescnt; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div>

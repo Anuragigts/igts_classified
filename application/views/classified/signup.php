@@ -55,41 +55,57 @@
 				rules: {
 					con_fname: {
 						required: true,
-						character:true
+						character:true,
+						minlength: 3
 					},
 					con_lname: {
 						required: true,
-						character:true
+						character:true,
+						minlength: 3
 					},
-					con_mobile: "required",
+					con_mobile: {
+						required: true,
+						minlength: 11
+					},
 					con_email: {
 						required: true,
 						email: true
 					},
 					con_password: {
 						required: true,
+						minlength: 8,
 						pwcheck: true
 					},
 					bus_fname: {
 						required: true,
-						character:true
+						character:true,
+						minlength: 3
 					},
 					bus_lname: {
 						required: true,
-						character:true
+						character:true,
+						minlength: 3
 					},
 					bus_name: {
 						required: true,
-						character:true
+						character:true,
+						minlength: 5
 					},
-					bus_address: "required",
-					bus_mobile: "required",
+					bus_address: {
+						required: true,
+						minlength: 5
+					},
+					bus_mobile: {
+						required: true,
+						minlength: 11
+					},
 					bus_email: {
 						required: true,
 						email: true
 					},
 					bus_password: {
 						required: true,
+						minlength: 8,
 						pwcheck: true
 					},
 				},
@@ -98,36 +114,51 @@
 				messages: {
 					con_fname: {
 						required: "Please enter your First name",
-						character: "please Enter characters"
+						character: "please Enter characters",
+						minlength: "Enter atleast 3 characters"
 					},
 					con_lname: {
 						required: "Please enter your Last name",
-						character: "please Enter characters"
+						character: "please Enter characters",
+						minlength: "Enter atleast 3 characters"
 					},
-					con_mobile: "Please enter your 11 Digit Mobile No",
+					con_mobile: {
+						required: "Please enter your 11 Digit Mobile No",
+						minlength: "Mobile number Should be 11 digits"
+					},
 					bus_fname: {
 						required: "Please enter your First name",
-						character: "please Enter characters"
+						character: "please Enter characters",
+						minlength: "Enter atleast 3 characters"
 					},
 					bus_lname: {
 						required: "Please enter your Last name",
-						character: "please Enter characters"
+						character: "please Enter characters",
+						minlength: "Enter atleast 3 characters"
 					},
 					bus_name: {
 						required: "Please enter your Business name",
-						character: "please Enter characters"
+						character: "please Enter characters",
+						minlength: "Enter atleast 5 characters"
 					},
-					bus_address: "Please enter your Business Address",
-					bus_mobile: "Please enter your 11 Digit Mobile No",
+					bus_address: {
+						required: "Please enter your Business Address",
+						minlength: "Enter atleast 5 characters"
+					},
+						
+					bus_mobile: {
+						required: "Please enter your 11 Digit Mobile No",
+						minlength: "Mobile number Should be 11 digits"
+					},
 					bus_password: {
 						required: "Please provide a password",
-						// minlength: "Your password must be at least 8 characters long",
-						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit)"
+						minlength: "Your password must be at least 8 characters long",
+						pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
 					},
 					con_password: {
 						required: "Please provide a password",
-						// minlength: "Your password must be at least 8 characters long",
-						pwcheck: "minimum 8 characters(Should Include atleast one lowercase, one uppercase, one digit)"
+						minlength: "Your password must be at least 8 characters long",
+						pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
 					},
 					con_email: "Please enter a valid email address",
 					bus_email: "Please enter a valid email address",

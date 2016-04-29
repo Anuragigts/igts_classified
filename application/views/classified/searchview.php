@@ -1226,7 +1226,7 @@
 				} ,function(data) {
 		               if (data == 1) {
 		               	$(".saved_link1 a").remove();
-		               	$(".saved_link1").html("<span class='saved_link'>Saved</span>")
+		               	$(".saved_link1").html("<a href='<?php echo base_url(); ?>my-wishes'><span class='saved_link'>Saved</span></a>");
 		               }
 		        });
 			});

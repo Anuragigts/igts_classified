@@ -73,9 +73,11 @@
 				var fav_count = <?php echo count($ads_favourite); ?>;
 				if (fav_count != 0) {
 					$(".favourite_label1").addClass('active');
+					$(".favourite_label1").attr("title",'Remove from Pickup Deals');
 				}
 				else{
 					$(".favourite_label1").removeClass('active');
+					$(".favourite_label1").attr("title",'Add to Pickup Deals');
 				}
 				
 				$(".favourite_label").click(function(){
@@ -96,6 +98,7 @@
 						
 						success: function (data) {
 							$(".favourite_label1").addClass('active');
+							$(".favourite_label1").attr("title",'Remove from Pickup Deals');
 						}
 					})
 						
@@ -112,6 +115,7 @@
 						
 						success: function (data) {
 							$(".favourite_label1").removeClass('active');
+							$(".favourite_label1").attr("title",'Add to Pickup Deals');
 						}
 					})
 						
@@ -283,7 +287,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<a href="<?php echo base_url(); ?>"><i class="fa fa-mail-reply-all fa-2x"></i></a>
+									<a href="javascript:window.history.go(-2);"><i class="fa fa-mail-reply-all fa-2x"></i></a>
 								</div>
 							</div>
 							<div class="row">
@@ -387,7 +391,7 @@
 													<input type="hidden" name="ad_id" id="ad_id" value="<?php echo $ad_id_no; ?>" />
 													<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 													<a href="javascript:void(0);" class="favourite_label">
-													<span class="favourite_label1" title="Add to favourites"></span>
+													<span class="favourite_label1" title="Add to Pickup Deals"></span>
 													</a>
 												</div>
 												<div class="pull-right">

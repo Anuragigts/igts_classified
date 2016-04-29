@@ -185,13 +185,13 @@
 																$dailrycnt = $petval->dailry;
 																$otherscnt = $petval->others;
 															} ?>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Cobs (<?php echo $cobscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Donkeys (<?php echo $donkeyscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Horses (<?php echo $horsescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Ponies (<?php echo $poniescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Beef cattle (<?php echo $beefcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Dairy cattle (<?php echo $dailrycnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Others (<?php echo $otherscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cobs-horses-for-sale"> Cobs (<?php echo $cobscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>donkeys-for-sale"> Donkeys (<?php echo $donkeyscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>horses-ponies-sale-uk"> Horses (<?php echo $horsescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>ponies-for-sale-uk"> Ponies (<?php echo $poniescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>online-beef-cattles-sale"> Beef cattle (<?php echo $beefcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dairy-cattles-sale-uk"> Dairy cattle (<?php echo $dailrycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>other-big-pets-sale"> Others (<?php echo $otherscnt; ?>)</a></li>
 														</ul>
 													</div>
 												</div>
@@ -210,13 +210,13 @@
 																$furrycnt = $petval->furry;
 																$otherscnt = $petval->others;
 															} ?>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Pigs (<?php echo $pigscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Sheeps (<?php echo $sheepscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Goats (<?php echo $goatscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Poultry (<?php echo $poultrycnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Reptiles (<?php echo $reptilescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Furry Pets (<?php echo $furrycnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Others (<?php echo $otherscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pigs-for-sale"> Pigs (<?php echo $pigscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>sheeps-lambs-sale"> Sheeps (<?php echo $sheepscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>goats-for-sale"> Goats (<?php echo $goatscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>poultry-chickens-for-sale"> Poultry (<?php echo $poultrycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pet-reptiles-sale"> Reptiles (<?php echo $reptilescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>furry-pets-for-sale"> Furry Pets (<?php echo $furrycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>other-small-pets-sale"> Others (<?php echo $otherscnt; ?>)</a></li>
 														</ul>
 													</div>
 												</div>
@@ -238,16 +238,16 @@
 																$landcnt = $petval->land;
 																$stuffcnt = $petval->stuff;
 															} ?>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Pet foods (<?php echo $foodscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Toys & training (<?php echo $toyscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Clothing & accessories (<?php echo $clothscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Feeding accessories (<?php echo $feedcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Beds, cages, & crates (<?php echo $bedscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>birds-for-sale"> Cleaning & odour control (<?php echo $odourcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Fish tanks & cabinets (<?php echo $fishcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london">Marine aquarium & ponds(<?php echo $marinecnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Aquarium landscaping (<?php echo $landcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-for-sale-london"> Other maintenance stuff (<?php echo $stuffcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pet-foods-sale"> Pet foods (<?php echo $foodscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>pets-toys-training"> Toys & training (<?php echo $toyscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>clothing-accessories-sale"> Clothing & accessories (<?php echo $clothscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>feeding-accessories-sale"> Feeding accessories (<?php echo $feedcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>beds-cages-crates-accessories-sale"> Beds, cages, & crates (<?php echo $bedscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cleaning-odour -control-services"> Cleaning & odour control (<?php echo $odourcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fish-tank-cabinet-for-sale"> Fish tanks & cabinets (<?php echo $fishcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>marine-aquarium-ponds-for-sale">Marine aquarium & ponds(<?php echo $marinecnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>aquarium-landscaping-for-sale"> Aquarium landscaping (<?php echo $landcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>other-maintenance-stuff"> Other maintenance stuff (<?php echo $stuffcnt; ?>)</a></li>
 														</ul>
 													</div>
 												</div>

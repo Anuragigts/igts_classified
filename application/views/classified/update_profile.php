@@ -21,88 +21,87 @@
 				return true;
 			}
 			
-			$(function(){
-				$('#firstnamepost').keydown(function (e) {
-						if (e.shiftKey || e.ctrlKey || e.altKey) {
-						e.preventDefault();
-						} else {
-						var key = e.keyCode;
-							if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-							e.preventDefault();
-							}
-						}
-					});
-				$('#lastnamepost').keydown(function (e) {
-						if (e.shiftKey || e.ctrlKey || e.altKey) {
-						e.preventDefault();
-						} else {
-						var key = e.keyCode;
-							if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-							e.preventDefault();
-							}
-						}
-					});
-			});
-			
 			/*save changes*/
 			$(function(){
-				$("#save_changes").click(function(){
-					var prof_id = $("#profile_id").val();
-					var fname = $("#firstnamepost").val();
-					var lname = $("#lastnamepost").val();
-					var mobile = $("#contactnopost").val();
-					  $.ajax({
-					  type : 'post',
-					  url  : '<?php echo base_url()?>update_profile/up_profile',
-					  data : {prof_id1: prof_id, fname1 : fname, lname1 : lname, mobile1 : mobile},
-					  dataType : 'json',
-					  success : function(res) {
-					   window.location.href = "<?php echo base_url(); ?>update-profile";
-					  }
-					});
+				$("#save_changes").validate({
+				
+					rules: {
+						firstnamepost: {
+							required: true,
+							lettersonly: true
+						},
+						lastnamepost: {
+							required: true,
+							lettersonly: true
+						},
+						contactnopost:{
+							required: true,
+							minlength: 11
+						},
+					},
+				
+					messages: {
+						firstnamepost: {
+							required: "Please enter first name"
+						},
+						lastnamepost: {
+							required: "Please enter last name"
+						},
+						contactnopost:{
+							required: "Please enter a mobile no"
+						},
+					},
+					
+					submitHandler: function(form) {
+						return true;
+					}
 				});
 			});
 			
 			/*Change Password*/
 			$(function(){
-				$("#change_pwd").click(function(){
-					var cur_pwd = $("#currentpasspost").val();
-					var pwd = $("#newpasspost").val();
-					var conf_pwd = $("#confirmpasspost").val();
-					var prof_id = $("#profile_id").val();
-					hasError = true;
-					if(cur_pwd == '') {
-					$("#currentpasspost").prop('required',true);
-					  hasError = false;
+				$.validator.addMethod("pwcheck", function(value) {
+				   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(value); // consists of only these
+				});
+				$("#change_pwd").validate({
+				
+					rules: {
+						currentpasspost: {
+							required: true,
+							minlength: 8,
+							pwcheck: true
+						},
+						newpasspost: {
+							required: true,
+							minlength: 8,
+							pwcheck: true
+						},
+						confirmpasspost:{
+							required: true,
+							minlength: 8,
+							equalTo : "#newpasspost",
+							pwcheck: true
+						},
+					},
+				
+					messages: {
+						currentpasspost: {
+							required: "Please enter a current password",
+							pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
+						},
+						newpasspost: {
+							required: "Please enter a new password",
+							pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
+						},
+						confirmpasspost:{
+							required: "Please enter a confirm password",
+							pwcheck: "Should Include atleast one lowercase, one uppercase, one digit"
+						},
+					},
+					
+					submitHandler: function(form) {
+						return true;
 					}
-					if(cur_pwd.length < 5){
-						$('span#currentpasspost-error').text('incorrect format');
-						$("#currentpasspost").prop('required',true);
-					   hasError = false;
-						}
-			
-			
-			
-					if(pwd == '') {
-					  $("#newpasspost").prop('required',true);
-					  hasError = false;
-					}
-			
-					if(conf_pwd == '') {
-					  $("#confirmpasspost").prop('required',true);
-					  hasError = false;
-					}
-					if(hasError == true){
-					  $.ajax({
-					  type : 'post',
-					  url  : '<?php echo base_url()?>update_profile/change_pwd',
-					  data : {cur_pwd1: cur_pwd, pwd1 : pwd, conf_pwd1 : conf_pwd, prof_id1: prof_id},
-					  dataType : 'json',
-					  success : function(res) {
-					   window.location.href = "<?php echo base_url(); ?>update-profile";
-					  }
-					});
-				}
 				});
 			});
 			
@@ -201,7 +200,7 @@
 											<a href='<?php echo base_url(); ?>pickup-deals'>
 												<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup">Pickup deals</li>
 											</a>
-											<a href='<?php echo base_url(); ?>reserved_searches'>
+											<a href='<?php echo base_url(); ?>my-wishes'>
 												<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites">My Wishes</li>
 											</a>
 											<a href='<?php echo base_url(); ?>update-profile'>
@@ -222,7 +221,7 @@
 												<div class="active">
 													<div class="row top_20">
 														<!-- contact details-->
-														<form id="" action="#" class="tooltip-hover change_pwd" method="post">
+														<form id="save_changes" action="<?php echo base_url()?>update_profile/up_profile" class="tooltip-hover change_pwd" method="post">
 															<div class="col-sm-6">
 																<div class="row">
 																	<div class="col-sm-12 unit">
@@ -267,13 +266,13 @@
 																		</div>
 																	</div>
 																	<div class="col-sm-12 unit">													
-																		<button class="btn btn-primary " id='save_changes' >Save Changes</button>
+																		<button class="btn btn-primary "  >Save Changes</button>
 																	</div>
 																</div>
 															</div>
 														</form>
 														<!-- Change password-->
-														<form id="" action="#" class="tooltip-hover change_pwd" method="post">
+														<form id="change_pwd" action="<?php echo base_url()?>update_profile/change_pwd" class="tooltip-hover change_pwd" method="post">
 															<div class="col-sm-6">
 																<div class="row">
 																	<div class="col-sm-12 unit">
@@ -320,7 +319,7 @@
 																		</div>
 																	</div>
 																	<div class="col-sm-12 unit">	
-																		<button class="btn btn-primary " id='change_pwd'>Change Password</button>
+																		<button class="btn btn-primary ">Change Password</button>
 																	</div>
 																</div>
 															</div>
@@ -330,8 +329,7 @@
 											</div>
 											<span class="acc-trigger"><a href="#">DEACTIVATE ACCOUNT</a></span>
 											<div class="acc-container">
-												<form id="" action="#" class="tooltip-hover" method="post">
-													<div class="active top_20">
+												<div class="active top_20">
 														<p>Are you sure to Deactivate your Account ...?? If you are really decided it then We will miss you.</p>
 														<p>Please tell Us why you taken this decision, So that we can improve it.</p>
 														<div class="row">
@@ -364,7 +362,6 @@
 															</div>
 														</div>
 													</div>
-												</form>
 											</div>
 										</div>
 									</div>

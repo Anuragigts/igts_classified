@@ -74,7 +74,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
-										<span class="favourite_label1 active" title="Add to favourite"></span>
+										<span class="favourite_label1 active" title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
 								</div>
@@ -259,7 +259,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
-										<span class="favourite_label1 active"  title="Add to favourite"></span>
+										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
 								</div>
@@ -430,7 +430,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
-										<span class="favourite_label1 active"  title="Add to favourite"></span>
+										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
 								</div>
@@ -598,7 +598,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
-										<span class="favourite_label1 active"  title="Add to favourite"></span>
+										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
 								</div>
@@ -764,7 +764,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
-										<span class="favourite_label1 active"  title="Add to favourite"></span>
+										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
 								</div>
@@ -926,7 +926,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
-										<span class="favourite_label1 active"  title="Add to favourite"></span>
+										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
 								</div>

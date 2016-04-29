@@ -149,7 +149,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>pet-for-sale-online"><h3 class="title-widget">Pets Category</h3></a>
+											<a href="<?php echo base_url(); ?>pet-for-sale-online"><h3 class="title-widget">Pets</h3></a>
 												<h3 class="title-widget">Dogs Filter</h3>
 											<div class="cd-filter-block">
 												<h4 class="title-widget ">Seller Type</h4>

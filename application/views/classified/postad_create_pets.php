@@ -1046,7 +1046,6 @@
 															$free_bump_search = $pack_val->bump_search;
 															$c_euro = $pack_val->cost_euro;
 															$c_pund = $pack_val->cost_pound;
-															$free_likes = $pack_val->likes_count;
 														}
 														foreach ($gold_pkg_list as $pack_val) {
 															$gold_duration = $pack_val->dur_days;
@@ -1055,7 +1054,6 @@
 															$gold_bump_search = $pack_val->bump_search;
 															$gc_euro = $pack_val->cost_euro;
 															$gc_pund = $pack_val->cost_pound;
-															$gold_likes = $pack_val->likes_count;
 														}
 														foreach ($ptm_pkg_list as $pack_val) {
 															$ptm_duration = $pack_val->dur_days;

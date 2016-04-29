@@ -132,7 +132,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>pets_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>ponies_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -148,20 +148,8 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>pet-for-sale-online"><h3 class="title-widget">Pets Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Pet Type</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($pets_sub as $petval) { ?>
-															<label class="checkbox">
-															<input type="checkbox" name="pets_sub[]" class='pets_sub' value="<?php echo $petval->sub_category_id; ?>" <?php if(isset($pets_sub1) && in_array($petval->sub_category_id,$pets_sub1)){ echo 'checked = checked';}?> >
-															<i></i>  <?php echo ucwords($petval->sub_category_name)." (".$petval->no_ads.")"; ?>  
-															</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
+											<a href="<?php echo base_url(); ?>pet-for-sale-online"><h3 class="title-widget">Pets</h3></a>
+											<h4 class="title-widget">Ponies Filter</h4>
 											<div class="cd-filter-block">
 												<h4 class="title-widget ">Seller Type</h4>
 

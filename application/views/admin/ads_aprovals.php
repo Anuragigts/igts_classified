@@ -265,4 +265,10 @@
         document.getElementById('selected_ads').value = checkedall;
 	    });
 	});
+
+	$(function(){
+		setTimeout(function(){
+			$(".alert").hide();
+		},5000);
+	});
 </script>

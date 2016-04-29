@@ -60,7 +60,7 @@
 											<a href='<?php echo base_url(); ?>pickup-deals'>
 												<li><img src="<?php echo base_url(); ?>img/icons/pickup.png" alt="pickup" title="Pickup">Pickup deals</li>
 											</a>
-											<a href='<?php echo base_url(); ?>reserved_searches'>
+											<a href='<?php echo base_url(); ?>my-wishes'>
 												<li><img src="<?php echo base_url(); ?>img/icons/seaked.png" alt="favourites" title="Favourites">My Wishes</li>
 											</a>
 											<a href='<?php echo base_url(); ?>update-profile'>
