@@ -198,11 +198,11 @@
 							<div class="row">
 								<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu j-forms">
 									<div class="row">
-										<div class="col-md-3 col-sm-3 col-xs-12">
+										<div class="col-md-4 col-sm-4 col-xs-12">
 											<div class="input">
-												<label class="icon-left" for="">
+												<!--label class="icon-left" for="">
 													<i class="fa fa-search"></i>
-												</label>
+												</label-->
 												<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="">
 											</div>
 										</div>
@@ -220,9 +220,9 @@
 											</label>
 										</div>
 										
-										<div class="col-md-6 col-sm-6 col-xs-12 top_pad_10">
+										<div class="col-md-5 col-sm-5 col-xs-12 top_pad_10">
 											<div class="row">
-												<div class="col-md-9 col-sm-8 col-xs-12">
+												<div class="col-md-8 col-sm-8 col-xs-12">
 													<div class="input">
 														<label class="icon-left" for="">
 															<i class="fa fa-search"></i>
@@ -230,7 +230,7 @@
 														<input type="text" placeholder="Enter a Location" id="list-autocomplete" name="list-autocomplete">
 													</div>
 												</div>
-												<div class="col-md-3 col-sm-4 col-xs-12 top_pad_10">
+												<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 													<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
 												</div>
 											</div>
