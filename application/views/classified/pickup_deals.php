@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 		
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/pagereload.js"></script>
+		
 		<script type="text/javascript">
 			$(function(){
 				$('.dealtitle_sort').change(function() {

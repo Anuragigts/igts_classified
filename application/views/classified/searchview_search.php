@@ -14,56 +14,56 @@
 		cursor: pointer !important;
 	}
 	</style>
-	<script type="text/javascript" src="<?php echo base_url(); ?>js/pagereload.js"></script>
+	
 	<script type="text/javascript">
-	$(function(){
-			$(".favourite_label").click(function(){
-				var adid = $(this).attr('id');
-			var log = $("#login_status").val();
-			if (log == 'no') {
-				window.location.href = "<?php echo base_url(); ?>login";
-			}
-			var loginid = $("#login_id").val();
-			var val = $(".fav"+adid+loginid).hasClass('active_fav');
-			
-			/*adding to favourite*/
-			if (val == false) {
-				$.ajax({
-				type: "POST",
-				url: "<?php echo base_url();?>description_view/add_favourite",
-				data: {
-					ad_id: adid, 
-					login_id: loginid
-				},
-				// dataType: "json",
-				success: function (data) {
-					$(".fav"+adid+loginid).removeClass('inactive_fav');
-					$(".fav"+adid+loginid).addClass('active_fav');
-					$(".fav"+adid+loginid).attr('title','Remove from Pickup Deals');
+		$(function(){
+				$(".favourite_label").click(function(){
+					var adid = $(this).attr('id');
+				var log = $("#login_status").val();
+				if (log == 'no') {
+					window.location.href = "<?php echo base_url(); ?>login";
 				}
-			})
-			
-			}
-			else{
-				/*deleting from favourite*/
+				var loginid = $("#login_id").val();
+				var val = $(".fav"+adid+loginid).hasClass('active_fav');
+				
+				/*adding to favourite*/
+				if (val == false) {
 					$.ajax({
 					type: "POST",
-					url: "<?php echo base_url();?>description_view/remove_favourite",
+					url: "<?php echo base_url();?>description_view/add_favourite",
 					data: {
 						ad_id: adid, 
 						login_id: loginid
 					},
 					// dataType: "json",
 					success: function (data) {
-						$(".fav"+adid+loginid).removeClass('active_fav');
-						$(".fav"+adid+loginid).addClass('inactive_fav');
-						$(".fav"+adid+loginid).attr('title','Add to Pickup Deals');
+						$(".fav"+adid+loginid).removeClass('inactive_fav');
+						$(".fav"+adid+loginid).addClass('active_fav');
+						$(".fav"+adid+loginid).attr('title','Remove from Pickup Deals');
 					}
 				})
 				
-			}
+				}
+				else{
+					/*deleting from favourite*/
+						$.ajax({
+						type: "POST",
+						url: "<?php echo base_url();?>description_view/remove_favourite",
+						data: {
+							ad_id: adid, 
+							login_id: loginid
+						},
+						// dataType: "json",
+						success: function (data) {
+							$(".fav"+adid+loginid).removeClass('active_fav');
+							$(".fav"+adid+loginid).addClass('inactive_fav');
+							$(".fav"+adid+loginid).attr('title','Add to Pickup Deals');
+						}
+					})
+					
+				}
+			});
 		});
-	});
 	</script>
 	<?php
 	$fav_list = [];

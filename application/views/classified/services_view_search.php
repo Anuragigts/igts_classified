@@ -38,7 +38,7 @@
 					success: function (data) {
 						$(".fav"+adid+loginid).removeClass('inactive_fav');
 						$(".fav"+adid+loginid).addClass('active_fav');
-						$(".fav"+adid+loginid).attr('title', 'Remove from favourite');
+						$(".fav"+adid+loginid).attr('title','Remove from Pickup Deals');
 					}
 				})
 				
@@ -56,7 +56,7 @@
 						success: function (data) {
 							$(".fav"+adid+loginid).removeClass('active_fav');
 							$(".fav"+adid+loginid).addClass('inactive_fav');
-							$(".fav"+adid+loginid).attr("title",'Add to favourite');
+							$(".fav"+adid+loginid).attr('title','Add to Pickup Deals');
 						}
 					})
 					
@@ -151,7 +151,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -161,7 +161,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -350,7 +350,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -360,7 +360,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -531,7 +531,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -541,7 +541,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -711,7 +711,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -721,7 +721,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -887,7 +887,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -897,7 +897,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1061,7 +1061,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1071,7 +1071,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
