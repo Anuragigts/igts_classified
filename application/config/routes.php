@@ -165,7 +165,7 @@ $route['dogs-puppies-for-sale'] = "dogs_view";
 $route['cats-kitten-for-sale'] = "cats_view";
 $route['fishes-for-sale'] = "fishes_view";
 $route['birds-for-sale'] = "birds_view";
-$route['commercial'] = "pets_for_sale_view";
+$route['pets-for-sale-london'] = "pets_for_sale_view";
 
 /*Big Animals*/
 $route['cobs-horses-for-sale'] = "cobs_view";
@@ -174,6 +174,7 @@ $route['horses-ponies-sale-uk'] = "horses_view";
 $route['ponies-for-sale-uk'] = "ponies_view";
 $route['online-beef-cattles-sale'] = "beef_cattle_view";
 $route['dairy-cattles-sale-uk'] = "dairy_cattle_view";
+$route['other-big-pets-sale'] = "other_big_pets_view";
 
 /*Small Animals*/
 $route['pigs-for-sale'] = "pigs_view";
@@ -186,11 +187,11 @@ $route['other-small-pets-sale'] = "other_small_pets_view";
 
 /*Pet Accessories*/
 $route['pet-foods-sale'] = "pet_food_view";
-$route['pets-toys -training'] = "pet_toys_training_view";
+$route['pets-toys-training'] = "pet_toys_training_view";
 $route['clothing-accessories-sale'] = "pet_clothing_accessories_view";
 $route['feeding-accessories-sale'] = "pet_feeding_accessories_view";
 $route['beds-cages-crates-accessories-sale'] = "pet_beds_cages_crates_view";
-$route['cleaning-odour -control-services'] = "pet_cleaning_odour_control_view";
+$route['cleaning-odour-control-services'] = "pet_cleaning_odour_control_view";
 $route['fish-tank-cabinet-for-sale'] = "pet_fish_tanks_cabinets_view";
 $route['marine-aquarium-ponds-for-sale'] = "pet_marine_aquarium_ponds_view";
 $route['aquarium-landscaping-for-sale'] = "pet_aquarium_landscaping_view";
