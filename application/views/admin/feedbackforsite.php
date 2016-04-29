@@ -51,11 +51,10 @@
 						<tr>
 							<th>S No</th>
 							<th>Category</th>
-							<th>Message</th>
-							<th>Email</th>
 							<th>Mobile</th>
 							<th>Created on</th>
 							<th>Overall rating</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -65,13 +64,10 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $list->cname;?></td>
-							<td style='word-break: break-all;'><?php  
-								$val = $list->fdk_msg;
-								echo $val;?></td>
-							<td><?php echo $list->fdk_mail; ?></td>
 							<td><?php echo $list->fdk_mobile; ?></td>
 							<td><?php echo $list->created_on; ?></td>
 							<td><?php echo $list->overall; ?></td>
+							<td><a href="<?php echo base_url(); ?>admin/view_feedbacksite/<?php echo $list->id; ?>">View</a></td>
 						</tr>
 						<?php $i++;
 							}

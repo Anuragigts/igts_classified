@@ -1458,6 +1458,15 @@
 						noResults:'No Data Found'
 					}
 				});
+
+				/*auto deal tag search*/
+				$('#looking_search').autocomplete({
+					source: '<?php echo base_url(); ?>classified/search_dealtag',
+					minLength: 1,
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
 			});
 		</script>
 		

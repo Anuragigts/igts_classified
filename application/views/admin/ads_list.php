@@ -176,11 +176,18 @@
 					</tbody>
 				</table>
 				<form name='change_status' method='post' action='<?php echo base_url()?>ads/change_status' >
-					<select name='change_status' id='change_status'>
+					<select name='change_status' id='change_status' class='status_color'>
 						<option value=''>Select status </option>
+						<?php $sess_user_type = $this->session->userdata('user_type');
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 						<?php foreach($ad_status as $status){ ?>
 						<option value='<?php echo $status->id; ?>'><?php echo ucwords($status->status_name); ?></option>
-							<?php } ?>
+							<?php }
+							}
+							else{ foreach($regad_status as $status){ ?>
+						<option value='<?php echo $status->id; ?>'><?php echo ucwords($status->status_name); ?></option>
+							<?php }
+							} ?>
 					</select>
 					<input type='hidden' name='selected_ads' class='selected_ads' id='selected_ads' value=''>
 					<input type='submit' name='active' class='btn success change_status'value='Change Status' >
@@ -259,6 +266,13 @@
             });
         }
         document.getElementById('selected_ads').value = checkedall;
+	    });
+
+	    /*color change for change status*/
+	    $(".status_color").change(function(){
+	    	if ($(this).val() != 0) {
+	    		$(".change_status").css('background-color','#578EBE');
+	    	}
 	    });
 	});
 </script>

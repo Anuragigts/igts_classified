@@ -180,7 +180,7 @@
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Executive (Director Dept.Head) (<?php echo $executive; ?>)
+															<i></i> Executive (Director / Dept.Head) (<?php echo $executive; ?>)
 														</label>
 													</div>
 												</div>

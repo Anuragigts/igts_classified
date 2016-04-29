@@ -1010,7 +1010,7 @@
 																	<option value="Entry-level">Entry-level</option>
 																	<option value="Expirenced_(Non-Manager)">Expirenced (Non-Manager)</option>
 																	<option value="Manager_(Managing_the_staff)">Manager (Managing the staff)</option>
-																	<option value="Executive_(Director_Dept.Head)">Executive (Director Dept.Head)</option>
+																	<option value="Executive_(Director_/_Dept.Head)">Executive (Director / Dept.Head)</option>
 																</select>
 																<i></i>
 															</label>

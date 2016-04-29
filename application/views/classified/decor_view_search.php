@@ -38,7 +38,6 @@
 					success: function (data) {
 						$(".fav"+adid+loginid).removeClass('inactive_fav');
 						$(".fav"+adid+loginid).addClass('active_fav');
-						$(".fav"+adid+loginid).attr('title','Remove from Pickup Deals');
 					}
 				})
 				
@@ -56,7 +55,6 @@
 						success: function (data) {
 							$(".fav"+adid+loginid).removeClass('active_fav');
 							$(".fav"+adid+loginid).addClass('inactive_fav');
-							$(".fav"+adid+loginid).attr('title','Add to Pickup Deals');
 						}
 					})
 					
@@ -75,8 +73,8 @@
 		 ?>
 	<!-- platinum+urgent package start -->
 	<?php
-		$pets_result1 = array_chunk($pets_result, 10);
-		 foreach ($pets_result1 as $sval1) {
+		$kitchen_result1 = array_chunk($kitchen_result, 10);
+		 foreach ($kitchen_result1 as $sval1) {
 		 foreach ($sval1 as $sval) {
 		 	$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$sval->ad_id' AND status = 1 GROUP BY ad_id");
 		 	if (mysql_num_rows($qry) > 0) {
@@ -94,8 +92,7 @@
 		 	else{
 		 		$total_rating = 0;
 		 	}
-		 	$personname = $sval->first_name;
-			/*location*/
+		/*location*/
 			$city_name = $sval->loc_city;
 			/*currency symbol*/ 
 			if ($sval->currency == 'pound') {
@@ -151,7 +148,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -161,7 +158,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -292,7 +289,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -350,7 +347,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -360,7 +357,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -490,7 +487,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -531,7 +528,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -541,7 +538,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -672,7 +669,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -711,7 +708,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -721,7 +718,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -852,7 +849,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -887,7 +884,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -897,7 +894,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1028,7 +1025,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -1061,7 +1058,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1071,7 +1068,7 @@
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
 										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to favourite"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1202,7 +1199,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>

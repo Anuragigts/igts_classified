@@ -243,7 +243,7 @@
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>clothing-accessories-sale"> Clothing & accessories (<?php echo $clothscnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>feeding-accessories-sale"> Feeding accessories (<?php echo $feedcnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>beds-cages-crates-accessories-sale"> Beds, cages, & crates (<?php echo $bedscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cleaning-odour -control-services"> Cleaning & odour control (<?php echo $odourcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cleaning-odour-control-services"> Cleaning & odour control (<?php echo $odourcnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fish-tank-cabinet-for-sale"> Fish tanks & cabinets (<?php echo $fishcnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>marine-aquarium-ponds-for-sale">Marine aquarium & ponds(<?php echo $marinecnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>aquarium-landscaping-for-sale"> Aquarium landscaping (<?php echo $landcnt; ?>)</a></li>

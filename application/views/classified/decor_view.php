@@ -331,7 +331,7 @@
 										<!-- sort-by-container-->
 
 										<div class="row list_view_searches kitchen_search_result">
-											<?php echo $this->load->view("classified/kitchen_view_search"); ?>
+											<?php echo $this->load->view("classified/decor_view_search"); ?>
 										</div>
 									</div>
 								</div>

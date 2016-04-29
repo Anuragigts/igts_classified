@@ -151,11 +151,16 @@
 											<a href="<?php echo base_url(); ?>home-kitchen-services-uk"><h3 class="title-widget">Home Kitchen Filter</h3></a>
 											<div class="cd-filter-block">
 												<div class="cd-filter-content">
-													<div class="filters_categories">	
+													<div class="filters_categories">
+													<?php foreach ($kitchenhome_sub_cnt as $val) {
+														$kitchen = $val->kitchen;
+														$home = $val->home;
+														$decor = $val->decor;
+													} ?>	
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dogs-puppies-for-sale"> Kitchen Essentials (<?php //echo $dogscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cats-kitten-for-sale"> Home Essentials (<?php ///echo $catscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fishes-for-sale"> Decor (<?php// echo $fishescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-kitchen-essential-stuff-sale"> Kitchen Essentials (<?php echo $kitchen; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>second-hand-home-furniture"> Home Essentials (<?php echo $home; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>wall-decor-sale"> Decor (<?php echo $decor; ?>)</a></li>
 														</ul>
 													</div>
 												</div>

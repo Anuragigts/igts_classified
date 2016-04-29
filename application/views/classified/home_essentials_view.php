@@ -131,7 +131,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>home_kitchen_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>home_essentials_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -148,44 +148,48 @@
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>home-kitchen-services-uk"><h3 class="title-widget">Home Kitchen Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Kitchen Essentials</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($kitchen_view as $kval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $kval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($kval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($kval->sub_subcategory_name)."(".$kval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
+											<?php foreach ($hesentials_cnt as $val) {
+												$bath = $val->bath;
+												$bed = $val->bed;
+												$carpet = $val->carpet;
+												$cleaning = $val->cleaning;
+												$plumb = $val->plumb;
+												$wind = $val->wind;
+												$door = $val->door;
+												$garden = $val->garden;
+												$furniture = $val->furniture;
+												$shed = $val->shed;
+												$plants = $val->plants;
+												$dining = $val->dining;
+												$living = $val->living;
+												$kids = $val->kids;
+												$outdoor = $val->outdoor;
+												$study = $val->study;
+												$others = $val->others;
+											} ?>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Home Essentials</h4>
-												<div class="cd-filter-content" >
-													<div id="limit_scrol">
-														<?php foreach ($home_view as $hval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $hval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($hval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($hval->sub_subcategory_name)."(".$hval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Decor</h4>
-												<div class="cd-filter-content" >
-													<div id="limit_scrol">
-														<?php foreach ($decor_view as $dval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $dval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($dval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($dval->sub_subcategory_name)."(".$dval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
+												<div class="cd-filter-content">
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>second-hand-bathroom-accessories-sale"> Bathroom Accessories (<?php echo $bath; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-bedroom-accessories-sale"> Bedroom Accessories (<?php echo $bed; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>carpets-flooring-for-sale"> Carpets & Flooring (<?php echo $carpet; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cleaning-services-london"> Cleaning Services (<?php echo $cleaning; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plumbing-electrician-services-london"> Plumbing & Electrician Services (<?php echo $plumb; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>windows-conservatories-for-sale"> Windows & Conservatories (<?php echo $wind; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>door-machinery-tools-sale"> Door, Machinery & Tools (<?php echo $door; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>garden-equipment"> Garden Equipment (<?php echo $garden; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>furniture-garden-for-sale"> Furniture for Garden (<?php echo $others; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>sheds-garden"> Sheds @ Garden (<?php echo $shed; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plants-garden"> Plants @ Garden (<?php echo $plants; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-dining-room-furniture"> Dining Room Furniture (<?php echo $dining; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>living-room-furniture-sale"> Living Room Furniture (<?php echo $living; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>kids-furniture-sale"> Furniture for Kids (<?php echo $kids; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>second-hand-outdoor-furniture-sale"> Outdoor Furniture (<?php echo $outdoor; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>study-office-room furniture-sale"> Study & Office Room Furniture (<?php echo $study; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>other-home-items-sale"> Other (<?php echo $others; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div>

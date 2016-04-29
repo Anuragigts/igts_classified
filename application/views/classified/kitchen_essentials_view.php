@@ -131,7 +131,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>home_kitchen_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>kitchen_essentials_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -148,44 +148,30 @@
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>home-kitchen-services-uk"><h3 class="title-widget">Home Kitchen Filter</h3></a>
+											<?php foreach ($kesentials_cnt as $val) {
+												$tools = $val->tools;
+												$kstorage = $val->kstorage;
+												$cookware = $val->cookware;
+												$bakeware = $val->bakeware;
+												$burners = $val->burners;
+												$furniture = $val->furniture;
+												$linen = $val->linen;
+												$others = $val->others;
+											} ?>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Kitchen Essentials</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($kitchen_view as $kval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $kval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($kval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($kval->sub_subcategory_name)."(".$kval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Home Essentials</h4>
-												<div class="cd-filter-content" >
-													<div id="limit_scrol">
-														<?php foreach ($home_view as $hval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $hval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($hval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($hval->sub_subcategory_name)."(".$hval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Decor</h4>
-												<div class="cd-filter-content" >
-													<div id="limit_scrol">
-														<?php foreach ($decor_view as $dval) { ?>
-														<label class="checkbox">
-														<input type="checkbox" name="kitchen_search[]" class="kitchen_search" value="<?php echo $dval->sub_subcategory_id; ?>" <?php if(isset($kitchen_sub) && in_array($dval->sub_subcategory_id,$kitchen_sub)){ echo 'checked = checked';}?> >
-														<i></i>  <?php echo ucwords($dval->sub_subcategory_name)."(".$dval->no_ads.")"; ?> 
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>second-hand-used-kitchen-tools"> Kitchen Tools (<?php echo $tools; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-kitchen-storage"> Kitchen Storage (<?php echo $kstorage; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>second-hand-cookware-sale-london"> Cookware (<?php echo $cookware; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>bakeware-for-sale"> Bakeware (<?php echo $bakeware; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-cooktops-burners-sale"> Cooktops & Burners (<?php echo $burners; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>barbeque-furniture-for-sale-london"> Barbecue Furniture (<?php echo $furniture; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>table-linen-for-sale"> Table Linen (<?php echo $linen; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>others-kitchen-essential-tools-sale"> Others (<?php echo $others; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div>
@@ -331,7 +317,7 @@
 										<!-- sort-by-container-->
 
 										<div class="row list_view_searches kitchen_search_result">
-											<?php echo $this->load->view("classified/kitchen_view_search"); ?>
+											<?php echo $this->load->view("classified/kitchen_essentials_view_search"); ?>
 										</div>
 									</div>
 								</div>

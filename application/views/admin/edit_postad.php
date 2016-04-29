@@ -51,9 +51,9 @@
 						<div class="control-group">
 							<label class="control-label" for="cat_type">Category Type</label>
 							<div class="controls">
-								<select id="cat_type" name='cat_type'>
+								<select id="cat_type" name='cat_type' disabled>
 									<?php foreach($category_list as $cat){?>
-									<option value='<?php echo $cat->category_id; ?>'<?php if($cat->category_id == $ads_details->category_id)echo 'selected';?>>
+									<option value='<?php echo $cat->category_id; ?>'<?php echo 'disabled="true"'; if($cat->category_id == $ads_details->category_id)echo 'selected';?> readonly >
 										<?php echo ucwords($cat->category_name); ?>
 									</option>
 									<?php }?>
@@ -83,7 +83,7 @@
 						<div class="control-group">
 							<label class="control-label" for="pkg_price">Price</label>
 							<div class="controls">
-								<input type="text" id="pkg_price" name="pkg_price"value='<?php echo $ads_details->price; ?>'>
+								<input type="text" id="pkg_price" name="pkg_price" readonly value='<?php echo $ads_details->price; ?>'>
 								<?php if($ads_details->currency=='euro'){?><i class='glyphicons-icon euro' style='vertical-align:bottom; height:38px;color:#999999'></i>
 								<?php } else{?>
 								<b style='font-family: ""; vertical-align:middle; font-size:30px; color:#999999;'>£</b>
@@ -112,11 +112,19 @@
 							<label class="control-label" for="ad_status">Ad Status</label>
 							<div class="controls">
 								<select id="ad_status" name="ad_status" onchange="view_comment()">
+									<?php $sess_user_type = $this->session->userdata('user_type');
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 									<?php foreach($ad_status as $status){
 										if(($ads_details->is_free == 0) && ($ads_details->payment_status == 0 ) && ($status->id == 1 )){?>
 									<?php }else{ ?>
 									<option value='<?php echo $status->id; ?>'<?php if($status->id == $ads_details->ad_status)echo 'selected'; ?>><?php echo ucwords($status->status_name);?></option>
-									<?php }}?>
+									<?php } } }
+									else{
+									foreach($regad_status as $status){
+										if(($ads_details->is_free == 0) && ($ads_details->payment_status == 0 ) && ($status->id == 1 )){?>
+									<?php }else{ ?>
+									<option value='<?php echo $status->id; ?>'<?php if($status->id == $ads_details->ad_status)echo 'selected'; ?>><?php echo ucwords($status->status_name);?></option>
+									<?php } } } ?>
 								</select>
 							</div>
 						</div>

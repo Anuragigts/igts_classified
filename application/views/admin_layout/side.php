@@ -117,6 +117,7 @@
 								</li>
 							</ul>
 						</li>
+						<?php } ?>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Advertisements &nbsp;</span><span class=""> <i class="icon-sort-down white"></i> </span></a>
 							<ul style='margin-left:15px; color:green' >
@@ -160,6 +161,8 @@
 										<i class="fa fa-angle-double-right"></i> Free Package Ads
 									</a>
 								</li>
+								<?php
+							if($sess_user_type == 1 || $sess_user_type == 2){?>
 								<li>
 									<a class="submenu" href="<?php echo base_url();?>category/listPackages">
 										<i class="fa fa-angle-double-right"></i> Package List
@@ -175,7 +178,7 @@
 										<i class="fa fa-angle-double-right"></i> Urgent Label
 									</a>
 								</li>
-								
+								<?php } ?>
 							</ul>	
 						</li>
 						<li >
@@ -188,7 +191,7 @@
 								</li>					
 							</ul>	
 						</li>
-						<?php } ?>
+						
 						<?php
 							if($sess_user_type != 5 && $sess_user_type != 6 && $sess_user_type != 7){?>
 						<li>
