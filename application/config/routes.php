@@ -226,9 +226,9 @@ $route['commercial-property-for-sale'] = "residential_com";
 /*Kitchen Essentials*/
 $route['used-kitchen-essential-stuff-sale'] = "kitchen_essentials_view";
 
-$route['seondhand-used-kitchen-tools'] = "k_ess_kitchen_toolsview";
+$route['second-hand-used-kitchen-tools'] = "k_ess_kitchen_toolsview";
 $route['used-kitchen-storage'] = "k_ess_kitchen_storageview";
-$route['secondhand-cookware-sale-london'] = "k_ess_cookwareview";
+$route['second-hand-cookware-sale-london'] = "k_ess_cookwareview";
 $route['bakeware-for-sale'] = "k_ess_bakewareview";
 $route['used-cooktops-burners-sale'] = "k_ess_cooktops_burnersview";
 $route['barbeque-furniture-for-sale-london'] = "k_ess_barbeque_furnitureview";
@@ -238,7 +238,7 @@ $route['others-kitchen-essential-tools-sale'] = "k_ess_otherview";
 /*Home Essentials*/
 $route['second-hand-home-furniture'] = "home_essentials_view";
 
-$route['secondhand-bathroom-accessories-sale'] = "h_ess_bathroom_accessoriesview";
+$route['second-hand-bathroom-accessories-sale'] = "h_ess_bathroom_accessoriesview";
 $route['used-bedroom-accessories-sale'] = "h_ess_bedroom_accessoriesview";
 $route['carpets-flooring-for-sale'] = "h_ess_carpets_flooringview";
 $route['cleaning-services-london'] = "h_ess_cleaning_servicesview";
@@ -249,10 +249,10 @@ $route['garden-equipment'] = "h_ess_garden_equipmentview";
 $route['furniture-garden-for-sale'] = "h_ess_furniture_gardenview";
 $route['sheds-garden'] = "h_ess_sheds_gardenview";
 $route['plants-garden'] = "h_ess_plant_gardenview";
-$route['used- dining-room-furniture'] = "h_ess_dining_room_furview";
+$route['used-dining-room-furniture'] = "h_ess_dining_room_furview";
 $route['living-room-furniture-sale'] = "h_ess_living_room_furview";
 $route['kids-furniture-sale'] = "h_ess_furniture_kidsview";
-$route['secondhand-outdoor-furniture-sale'] = "h_ess_outdoor_furview";
+$route['second-hand-outdoor-furniture-sale'] = "h_ess_outdoor_furview";
 $route['study-office-room furniture-sale'] = "h_ess_study_off_room_furview";
 $route['other-home-items-sale'] = "h_ess_otherview";
 
