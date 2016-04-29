@@ -59,6 +59,9 @@ class Postad_create_pets extends CI_Controller{
              $data['urgentlabel2'] = $this->category_model->urgentlabel_low2();
              $data['urgentlabel3'] = $this->category_model->urgentlabel_low3();
 
+             $data['free_likes'] = $this->category_model->free_likes_low();
+             $data['gold_likes'] = $this->category_model->gold_likes_low();
+
 	            $this->load->view("classified_layout/inner_template",$data);
         }
 

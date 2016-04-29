@@ -303,6 +303,16 @@ class Deal_page extends CI_Controller{
             }
         }
 
+        public function search_exists(){
+          $exist = $this->classifed_model->hotsearch_exists();
+          if ($exist > 0) {
+            echo 1;
+          }
+          else{
+            echo 0;
+          }
+        }
+
 
 }
 

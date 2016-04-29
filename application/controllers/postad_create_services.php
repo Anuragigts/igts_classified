@@ -52,6 +52,10 @@ class Postad_create_services extends CI_Controller{
              $data['urgentlabel1'] = $this->category_model->urgentlabel1();
              $data['urgentlabel2'] = $this->category_model->urgentlabel2();
              $data['urgentlabel3'] = $this->category_model->urgentlabel3();
+
+             $data['free_likes'] = $this->category_model->free_likes();
+             $data['gold_likes'] = $this->category_model->gold_likes();
+             
 	            $this->load->view("classified_layout/inner_template",$data);
         }
 

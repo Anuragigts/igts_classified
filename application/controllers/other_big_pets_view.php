@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class  Goats_view  extends CI_Controller{
+class  Other_big_pets_view  extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model("classifed_model");
@@ -25,8 +25,8 @@ class  Goats_view  extends CI_Controller{
                 $this->session->set_userdata('latt','');
                 $this->session->set_userdata('longg','');
             $config = array();
-            $config['base_url'] = base_url().'goats_view/index';
-            $config['total_rows'] = count($this->postad_pets_model->count_goats_view());
+            $config['base_url'] = base_url().'other_big_pets_view/index';
+            $config['total_rows'] = count($this->postad_pets_model->count_bigother_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -50,7 +50,7 @@ class  Goats_view  extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $pets_view = $this->postad_pets_model->goats_view($search_option);
+                $pets_view = $this->postad_pets_model->bigother_view($search_option);
             foreach ($pets_view as $pview) {
                 $loginid = $pview->login_id;
             }
@@ -60,7 +60,7 @@ class  Goats_view  extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "goats_view",
+                        "content"   =>  "other_big_pets_view",
                          "pets_result" => $pets_view,
                          'log_name' => $log_name,
                          'paging_links' =>$this->pagination->create_links()
@@ -73,11 +73,11 @@ class  Goats_view  extends CI_Controller{
                     $data['favourite_list']=$favourite_list;
 
                 /*business and consumer count for pets*/
-                $data['busconcount'] = $this->postad_pets_model->busconcount_pets_goat();
+                $data['busconcount'] = $this->postad_pets_model->busconcount_petsbothers();
                  /*seller and needed count for pets*/
-                $data['sellerneededcount'] = $this->postad_pets_model->sellerneeded_pets_goat();
+                $data['sellerneededcount'] = $this->postad_pets_model->sellerneeded_pets_bothers();
                  /*packages count*/
-                $data['deals_pck'] = $this->postad_pets_model->deals_pck_pets_goat();
+                $data['deals_pck'] = $this->postad_pets_model->deals_pck_petsbothers();
                 $data['public_adview'] = $public_adview;
                 $this->load->view("classified_layout/inner_template",$data);
         }
@@ -141,8 +141,8 @@ class  Goats_view  extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'goats_view/search_filters';
-            $config['total_rows'] = count($this->postad_pets_model->count_goats_search());
+            $config['base_url'] = base_url().'other_big_pets_view/search_filters';
+            $config['total_rows'] = count($this->postad_pets_model->count_bigother_search());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -167,7 +167,7 @@ class  Goats_view  extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->postad_pets_model->goats_search($search_option);
+             $rs = $this->postad_pets_model->bigother_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -175,7 +175,7 @@ class  Goats_view  extends CI_Controller{
              }
               $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "goats_view");
+                        "content"   =>  "other_big_pets_view");
             $result['pets_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_pets();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -188,11 +188,11 @@ class  Goats_view  extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
              $result['pets_sub'] = $this->hotdealsearch_model->pets_sub_search();
              /*business and consumer count for pets*/
-                $result['busconcount'] = $this->postad_pets_model->busconcount_pets_goat();
+                $result['busconcount'] = $this->postad_pets_model->busconcount_petsbothers();
                  /*seller and needed count for pets*/
-                $result['sellerneededcount'] = $this->postad_pets_model->sellerneeded_pets_goat();
+                $result['sellerneededcount'] = $this->postad_pets_model->sellerneeded_pets_bothers();
                  /*packages count*/
-                $result['deals_pck'] = $this->postad_pets_model->deals_pck_pets_goat();
+                $result['deals_pck'] = $this->postad_pets_model->deals_pck_petsbothers();
             $this->load->view("classified_layout/inner_template",$result);
         }
         
