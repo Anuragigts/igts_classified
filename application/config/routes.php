@@ -53,9 +53,11 @@ $route['post-a-deal'] = "postad";
 $route['home-page'] = "classified";
 
 
-/*E-Zone Category*/
+/*----------------E-Zone Category--------------------*/
 
 /*Phones & Tablets*/
+$route[''] = "phones_tablets_view";
+
 $route['used-phones-for-sale-london'] = "pt_mobile_phonesview";
 $route['tablets-ipods-for-sale'] = "pt_tablets_ipadsview";
 $route['sell-bluetooth-devices'] = "pt_bluetoothdevicesview";
@@ -68,6 +70,8 @@ $route['used-power-banks-sale'] = "pt_powerbanksview";
 $route['wearable-devices-sale'] = "pt_wearable_devicesview";
 
 /*Home Appliances*/
+$route[''] = "home_applications_view";
+
 $route['used-air-conditioners-sale'] = "ha_air_conditionersview";
 $route['secondhand-air-coolers-sale'] = "ha_air_coolersview";
 $route['used-ceiling-fans-sale'] = "ha_fansview";
@@ -82,6 +86,8 @@ $route['secondhand-dryers-for-sale'] = "ha_dryersview";
 $route['emergency-light-for-sale'] = "ha_emergency_lightview";
 
 /*Small Appliances*/
+$route[''] = "small_applicaances_view";
+
 $route['microwave-ovens-otg-sale'] = "sa_microwave_ovensview";
 $route['food-processors-sale-london'] = "sa_food_processorsview";
 $route['used-grinder-juicers-sale'] = "sa_mixer_grinder_juicersview";
@@ -96,6 +102,8 @@ $route['used-dishwashers-for-sale'] = "sa_dishwashersview";
 $route['secondhand-flour-mill-sale'] = "sa_flour_millview";
 
 /*Laptop & Computers*/
+$route[''] = "laptop_computers_view";
+
 $route['used-secondhand-laptop-sale'] = "lc_laptopsview";
 $route['all-in-one-accesseories-sale'] = "lc_all_in_oneview";
 $route['used-secondhand-printers-sale'] = "lc_printersview";
@@ -110,6 +118,8 @@ $route['ink-toner-sale-london'] = "lc_ink_tonerview";
 $route['softwares-sale-london-canterbury'] = "lc_softwaresview";
 
 /*Accessories*/
+$route[''] = "accessories_view";
+
 $route['tablet-ipad-accessories-sale'] = "a_tablet_ipad_accessoriesview";
 $route['iphone-accessories-for-sale'] = "a_iphone_accessoriesview";
 $route['mobile-accessories-for-sale'] = "a_mobile_accessoriesview";
@@ -121,6 +131,8 @@ $route['inverters-stablizers-power-sale'] = "a_inverters_stablizers_powerview";
 $route['used-secondhand-battery-sale'] = "a_batteryview";
 
 /*Personal Care*/
+$route[''] = "personal_care_view";
+
 $route['online-shavers-sale'] = "pc_shaversview";
 $route['sell-used-trimmers-sale'] = "pc_trimmersview";
 $route['body-groomers-for-sale'] = "pc_body_groomersview";
@@ -132,6 +144,8 @@ $route['monitors-for-sale'] = "pc_monitorsview";
 $route['secondhand-massagers-for-sale'] = "pc_massagersview";
 
 /*Home Entertainment*/
+$route[''] = "home_entertainment_view";
+
 $route['lcd-led-television-sale'] = "he_lcd_led_televisionsview";
 $route['home-theatre-systems-sale'] = "he_home_theatre_systemsview";
 $route['dvd-blue-ray-players-sale'] = "he_dvd_blueray_playersview";
@@ -141,12 +155,14 @@ $route['used-musical-instruments-sale'] = "he_musical_instrumentsview";
 $route['used-secondhand-projectors-sale'] = "he_projectorsview";
 
 /*Photography*/
+$route[''] = "photography_view";
+
 $route['digital-slr-cameras-sale'] = "p_digital_slr_camerasview";
 $route['point-shoot-cameras-sale'] = "p_point_shoot_camerasview";
 $route['digital-camcorders-for-sale'] = "p_camcordersview";
 
 
-/* Motor Point Category */
+/* --------------------Motor Point Category --------------------*/
 $route['cars-for-sale-london'] = "cars_view";
 $route['bikes-scooters-for-sale'] = "bikes_scoters_view";
 $route['motorhomes-caravans-for-sale'] = "motorhomes_caravans_view";
@@ -156,11 +172,109 @@ $route['plant-machinery-for-sale'] = "plantmachinery_view";
 $route['agricultural-farming-vehicles-for-sale'] = "farmingvehicles_view";
 $route['used-boats-for-sale'] = "boats_view";
 
-/*find a property*/
+/*--------------------Clothing Life Styles Category--------------------*/
+
+/*Women's*/
+$route['flats'] = "women_view";
+
+$route['flats'] = "women_clothingview";
+$route['flats'] = "women_shoesview";
+$route['flats'] = "women_accessoriesview";
+$route['flats'] = "women_weddingview";
+
+/*Men*/
+$route['flats'] = "men_view";
+
+$route['flats'] = "men_clothingview";
+$route['flats'] = "men_shoesview";
+$route['flats'] = "men_accessoriesview";
+$route['flats'] = "men_weddingview";
+
+/*Boys*/
+$route['flats'] = "boys_view";
+
+$route['flats'] = "boy_clothingview";
+$route['flats'] = "boy_shoesview";
+$route['flats'] = "boy_accessoriesview";
+
+/*Girls*/
+$route['flats'] = "girls_view";
+
+$route['flats'] = "girl_clothingview";
+$route['flats'] = "girl_shoesview";
+$route['flats'] = "girl_accessoriesview";
+
+/*Baby Boys*/
+$route['flats'] = "baby_boy_view";
+
+$route['flats'] = "babyboy_clothingview";
+$route['flats'] = "babyboy_accessoriesview";
+
+/*Baby Girls*/	
+$route['flats'] = "baby_girl_view";
+
+$route['flats'] = "babygirl_clothingview";
+$route['flats'] = "residential_prop";
+
+
+/*--------------------find a property--------------------*/
 $route['flats-villas-apartment-property-for-sale'] = "residential_prop";
 $route['commercial-property-for-sale'] = "residential_com";
 
-/*Pets Category*/
+/*--------------------Home & Kitchen Category--------------------*/
+
+/*Kitchen Essentials*/
+$route['used-kitchen-essential-stuff-sale'] = "kitchen_essentials_view";
+
+$route['seondhand-used-kitchen-tools'] = "k_ess_kitchen_toolsview";
+$route['used-kitchen-storage'] = "k_ess_kitchen_storageview";
+$route['secondhand-cookware-sale-london'] = "k_ess_cookwareview";
+$route['bakeware-for-sale'] = "k_ess_bakewareview";
+$route['used-cooktops-burners-sale'] = "k_ess_cooktops_burnersview";
+$route['barbeque-furniture-for-sale-london'] = "k_ess_barbeque_furnitureview";
+$route['table-linen-for-sale'] = "k_ess_table_linenview";
+$route['others-kitchen-essential-tools-sale'] = "k_ess_otherview";
+
+/*Home Essentials*/
+$route['second-hand-home-furniture'] = "home_essentials_view";
+
+$route['secondhand-bathroom-accessories-sale'] = "h_ess_bathroom_accessoriesview";
+$route['used-bedroom-accessories-sale'] = "h_ess_bedroom_accessoriesview";
+$route['carpets-flooring-for-sale'] = "h_ess_carpets_flooringview";
+$route['cleaning-services-london'] = "h_ess_cleaning_servicesview";
+$route['plumbing-electrician-services-london'] = "h_ess_plumb_elect_serviceview";
+$route['windows-conservatories-for-sale'] = "h_ess_window_conservatoriesview";
+$route['door-machinery-tools-sale'] = "h_ess_door_machinery_toolsview";
+$route['garden-equipment'] = "h_ess_garden_equipmentview";
+$route['furniture-garden-for-sale'] = "h_ess_furniture_gardenview";
+$route['sheds-garden'] = "h_ess_sheds_gardenview";
+$route['plants-garden'] = "h_ess_plant_gardenview";
+$route['used- dining-room-furniture'] = "h_ess_dining_room_furview";
+$route['living-room-furniture-sale'] = "h_ess_living_room_furview";
+$route['kids-furniture-sale'] = "h_ess_furniture_kidsview";
+$route['secondhand-outdoor-furniture-sale'] = "h_ess_outdoor_furview";
+$route['study-office-room furniture-sale'] = "h_ess_study_off_room_furview";
+$route['other-home-items-sale'] = "h_ess_otherview";
+
+/*Decor*/
+$route['wall-decor-sale'] = "decor_view";
+
+$route['curtains-accessories-sale'] = "dec_curtains_acceview";
+$route['candles-fragrances-sale'] = "dec_candles_fragrancesview";
+$route['vases-flowers-sale-london'] = "dec_vases_flowersview";
+$route['wall-décor-for-sale'] = "dec_wall_decorview";
+$route['home-accent-sale'] = "dec_home_accentview";
+$route['religion-spirituality-stuff-sale'] = "dec_religion_spiritualityview";
+$route['photo-frames-albums-sale'] = "dec_photo_frames_albumview";
+$route['rugs-carpets-sale-london-manchester'] = "dec_rugs_carpetview";
+$route['cushions-throws-for-sale'] = "dec_cushion_throwview";
+$route['table-lamps-ceiling-light-sale'] = "dec_table_lamp_ceiling_lightview";
+$route['used-wall-outdoor-light'] = "dec_wall_outdoor_lightview";
+$route['other-decor-accessories'] = "dec_othersview";
+
+
+
+/*--------------------Pets Category--------------------*/
 $route['dogs-puppies-for-sale'] = "dogs_view";
 $route['cats-kitten-for-sale'] = "cats_view";
 $route['fishes-for-sale'] = "fishes_view";
@@ -197,7 +311,7 @@ $route['marine-aquarium-ponds-for-sale'] = "pet_marine_aquarium_ponds_view";
 $route['aquarium-landscaping-for-sale'] = "pet_aquarium_landscaping_view";
 $route['other-maintenance-stuff'] = "pet_other_maintenance_stuff_view";
 
-/* Jobs Category */
+/* --------------------Jobs Category-------------------- */
 $route['accounting-finance-jobs-london'] = "j_accounting_financeview";
 $route['retail-banking-jobs-vacancy-london'] = "j_bankingview";
 $route['news-media-jobs-london'] = "j_news_mediaview";
@@ -233,7 +347,9 @@ $route['dentist-jobs-services-london'] = "j_dentistsview";
 $route['petroleum-chemical-engineering-jobs-london'] = "j_petroleum_enggview";
 $route['hospitality-and-staff-nursing-jobs'] = "j_nursing_jobsview";
 
-/*Services Category*/
+/*--------------------Services Category--------------------*/
+
+/*Professional */
 $route['educational-coaching-training-services-london'] = "s_coachings_trainingview";
 $route['business-office-services-london'] = "s_business_servicesview";
 $route['party-wedding-services-london'] = "s_party_wedding_servicesview";
@@ -248,6 +364,7 @@ $route['home-car-property-loan-insurance'] = "s_loan_insuranceview";
 $route['funeral-services'] = "s_funeral_servicesview";
 $route['health-fitness-services-london'] = "s_health_fitnessview";
 
+/*Popular*/
 $route['dry-cleaning-laundry-services-london'] = "s_dry_clean_laund_servicesview";
 $route['household-services-london'] = "s_household_servicesview";
 $route['travel-vacation-services-london'] = "s_travel_vacation_servicesview";
