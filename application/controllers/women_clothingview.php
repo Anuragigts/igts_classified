@@ -64,7 +64,7 @@ class  Women_clothingview extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "clothing_lifestyles_view",
+                        "content"   =>  "women_clothingview",
                         "clothstyle_result" => $clothstyle_view,
                         "clothstyle_list" => $clothstyle_list,
                         "public_adview" => $public_adview,
@@ -141,7 +141,7 @@ class  Women_clothingview extends CI_Controller{
              $services_view = $this->hotdealsearch_model->count_clothstyle_search();
              // echo count($services_view);
             $config = array();
-            $config['base_url'] = base_url().'clothing_lifestyles_view/search_filters';
+            $config['base_url'] = base_url().'women_clothingview/search_filters';
             $config['total_rows'] = count($services_view);
             $config['per_page'] = 30;
             $config['next_link'] = 'Next';
@@ -175,7 +175,7 @@ class  Women_clothingview extends CI_Controller{
              }
              $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "clothing_lifestyles_view");
+                        "content"   =>  "women_clothingview");
             $data['clothstyle_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_clothing();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');

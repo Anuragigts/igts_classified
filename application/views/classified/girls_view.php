@@ -145,28 +145,19 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>clothing-lifestyles"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
-											
+											<a href="<?php echo base_url(); ?>clothes-for-sale-uk"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Girls</h4>
 												<div class="cd-filter-content">
-													<div>
-														<label class="checkbox">
-															<input type="checkbox" class='girls_list' name="girls_list[]" value="370" <?php if(isset($sub_cat) && in_array(370,$sub_cat)){ echo 'checked = checked';}?> >
-															<i></i> Clothing (<?php echo $cloths; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" class='girls_list' name="girls_list[]" value="371" <?php if(isset($sub_cat) && in_array(371,$sub_cat)){ echo 'checked = checked';}?> >
-															<i></i> Shoes (<?php echo $shoes; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" class='girls_list' name="girls_list[]" value="372" <?php if(isset($sub_cat) && in_array(372,$sub_cat)){ echo 'checked = checked';}?> >
-															<i></i> Accessories (<?php echo $accessories; ?>)
-														</label>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>girls-stylish-designer-clothing"> Clothing (<?php echo $cloths; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>girls-shoes-footware"> Shoes (<?php echo $shoes; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>girls-designer-accessories"> Accessories (<?php echo $accessories; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
-											</div>
-											
+											</div>											
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Seller Type</h4>
 

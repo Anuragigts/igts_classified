@@ -143,20 +143,15 @@
 									<div class="col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>clothing-lifestyles"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
-											
+											<a href="<?php echo base_url(); ?>clothes-for-sale-uk"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Baby Boy</h4>
 												<div class="cd-filter-content">
-													<div>
-														<label class="checkbox">
-															<input type="checkbox" class='babyboy_list' name="babyboy_list[]" value="373" <?php if(isset($sub_cat) && in_array(373,$sub_cat)){ echo 'checked = checked';}?> >
-															<i></i> Clothing (<?php echo $cloths; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" class='babyboy_list' name="babyboy_list[]" value="374" <?php if(isset($sub_cat) && in_array(374,$sub_cat)){ echo 'checked = checked';}?> >
-															<i></i> Accessories (<?php echo $accessories; ?>)
-														</label>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>newborn-baby-boys-clothing"> Clothing (<?php echo $cloths; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>baby-boy-accessories"> Accessories (<?php echo $accessories; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div>

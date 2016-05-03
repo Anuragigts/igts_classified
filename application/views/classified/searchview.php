@@ -272,11 +272,8 @@
 								<div class="row">
 									<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu">
 										<div class="row">
-											<div class="col-md-3 col-sm-3 col-xs-12">
+											<div class="col-md-4 col-sm-4 col-xs-12">
 												<div class="input">
-													<label class="icon-left" for="">
-														<i class="fa fa-search"></i>
-													</label>
 													<input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
 												</div>
 											</div>
@@ -292,9 +289,9 @@
 												</label>
 											</div>
 
-											<div class="col-md-6 col-sm-6 col-xs-12 top_pad_10">
+											<div class="col-md-5 col-sm-5 col-xs-12 top_pad_10">
 												<div class="row">
-													<div class="col-md-9 col-sm-8 col-xs-12">
+													<div class="col-md-8 col-sm-8 col-xs-12">
 														<div class="input">
 															<label class="icon-left" for="">
 																<i class="fa fa-search"></i>
@@ -302,7 +299,7 @@
 															<input type="text" placeholder="Enter a Location" id="list-autocomplete" name="list-autocomplete" value="<?php echo $location; ?>">
 														</div>
 													</div>
-													<div class="col-md-3 col-sm-4 col-xs-12 top_pad_10">
+													<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 														<input type="submit" class="primary-btn seach_btn" name='' Value="Search">
 													</div>
 												</div>
@@ -1213,6 +1210,15 @@
 			$(document).ready(function(){
 				$('#list-autocomplete').autocomplete({
 					source: '<?php echo base_url(); ?>classified/search_autocomplete',
+					minLength: 1,
+					messages: {
+						noResults:'No Data Found'
+					}
+				});
+
+				/*auto deal tag search*/
+				$('#looking_search').autocomplete({
+					source: '<?php echo base_url(); ?>classified/search_dealtag',
 					minLength: 1,
 					messages: {
 						noResults:'No Data Found'

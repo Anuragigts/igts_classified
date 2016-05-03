@@ -130,8 +130,9 @@ class Classified extends CI_Controller{
         /*deal tag search*/
         public function search_dealtag(){
             $term = $this->input->get('term');
-            $data = date("Y-m-d H:i:s");
-            $query = mysql_query("select * FROM postad WHERE deal_tag LIKE '".$term."%' ");
+            $query = mysql_query("SELECT * FROM postad WHERE expire_data >='".date("Y-m-d H:i:s")."' AND deal_tag LIKE '".$term."%' UNION
+                                    SELECT * FROM postad WHERE expire_data >='".date("Y-m-d H:i:s")."' AND deal_tag LIKE '%".$term."' UNION
+                                    SELECT * FROM postad WHERE expire_data >='".date("Y-m-d H:i:s")."' AND deal_tag LIKE '%".$term."%' LIMIT 10 ");
              if (mysql_num_rows($query) >0 ) {
                  while ($row = mysql_fetch_assoc($query)) {
                     $data[] = $row['deal_tag'];
