@@ -609,9 +609,9 @@ hr.tall {
 .header-v2 .flat-mega-menu > ul > .title > a > span {
     color: #232323 !important;
 }
-.sticky-wrapper {
+/* .sticky-wrapper {
     height: auto !important;
-}
+} */
 .header-v1.is-sticky {
     border-bottom: 1px solid #dedede !important;
     max-height: 61px;
@@ -2335,7 +2335,7 @@ hr.separator:before {
 
 .footer-down {
     margin-top: 60px;
-    padding: 25px 0 20px 0;
+     padding: 13px 0 14px 0;
     background: rgba(0, 0, 0, 0.5);
 }
 .footer-down p {
