@@ -177,44 +177,44 @@ $route['used-boats-for-sale'] = "boats_view";
 /*Women's*/
 $route['flats'] = "women_view";
 
-$route['flats'] = "women_clothingview";
-$route['flats'] = "women_shoesview";
-$route['flats'] = "women_accessoriesview";
-$route['flats'] = "women_weddingview";
+$route['women-designer-clothing'] = "women_clothingview";
+$route['women-footware-shoes'] = "women_shoesview";
+$route['women-accessories-sale'] = "women_accessoriesview";
+$route['women-wedding-party-accessories'] = "women_weddingview";
 
 /*Men*/
 $route['flats'] = "men_view";
 
-$route['flats'] = "men_clothingview";
-$route['flats'] = "men_shoesview";
-$route['flats'] = "men_accessoriesview";
-$route['flats'] = "men_weddingview";
+$route['men-designer-clothing-london'] = "men_clothingview";
+$route['men-footware-shoes'] = "men_shoesview";
+$route['men-party-accessories'] = "men_accessoriesview";
+$route['men-wedding-accessories'] = "men_weddingview";
 
 /*Boys*/
 $route['flats'] = "boys_view";
 
-$route['flats'] = "boy_clothingview";
-$route['flats'] = "boy_shoesview";
-$route['flats'] = "boy_accessoriesview";
+$route['boy-clothing-for-sale'] = "boy_clothingview";
+$route['boy-shoes-footware'] = "boy_shoesview";
+$route['boy-party-accessories'] = "boy_accessoriesview";
 
 /*Girls*/
 $route['flats'] = "girls_view";
 
-$route['flats'] = "girl_clothingview";
-$route['flats'] = "girl_shoesview";
-$route['flats'] = "girl_accessoriesview";
+$route['girls-stylish-designer-clothing'] = "girl_clothingview";
+$route['girls-shoes-footware'] = "girl_shoesview";
+$route['girls-designer-accessories'] = "girl_accessoriesview";
 
 /*Baby Boys*/
 $route['flats'] = "baby_boy_view";
 
-$route['flats'] = "babyboy_clothingview";
-$route['flats'] = "babyboy_accessoriesview";
+$route['newborn-baby-boys-clothing'] = "babyboy_clothingview";
+$route['baby-boy-accessories'] = "babyboy_accessoriesview";
 
 /*Baby Girls*/	
 $route['flats'] = "baby_girl_view";
 
-$route['flats'] = "babygirl_clothingview";
-$route['flats'] = "residential_prop";
+$route['baby-girl-clothing'] = "babygirl_clothingview";
+$route['baby-girl-accessories'] = "babygirl_accessoriesview";
 
 
 /*--------------------find a property--------------------*/
