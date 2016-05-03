@@ -1288,6 +1288,54 @@ GROUP BY img.ad_id
 			return array();
 		}
 	}
+	public function serviceprof_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		//$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.sub_cat_id", "9");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+		// echo $this->db->last_query(); exit;
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function servicepop_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		//$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.sub_cat_id", "10");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+		// echo $this->db->last_query(); exit;
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
 	public function count_services_view(){
 		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1297,6 +1345,44 @@ GROUP BY img.ad_id
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+		
+	}
+	public function count_serviceprof_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.sub_cat_id", "9");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('dtime', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+		
+	}
+	public function count_servicepop_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->where("ad.category_id", "2");
+		$this->db->where("ad.sub_cat_id", "10");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
@@ -2823,6 +2909,78 @@ GROUP BY img.ad_id
 						return 0;
 					}
 		}
+
+		/*services prof and popular*/
+		public function profpopcnt(){
+			$data = date("Y-m-d H:i:s");
+			        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS prof,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pop");
+			return $this->db->get()->result();
+		}
+
+		public function prof_cnt(){
+			$data = date("Y-m-d H:i:s");
+			        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 25 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS coach,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 26 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS bus,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 27 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS party,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 28 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS it,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 29 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS solic,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 30 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS acnt,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 31 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS home,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 32 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS doctor,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 33 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS nurse,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 34 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS astr,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 35 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS loan,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 36 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS funeral,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=9 AND ad.sub_scat_id = 37 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS health");
+			return $this->db->get()->result();
+			}
+
+		public function spop_cnt(){
+			$data = date("Y-m-d H:i:s");
+			        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 38 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dry,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 39 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS house,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 40 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS travel,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 41 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS massage,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 42 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS comm,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 43 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS enter,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 44 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS motor,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 45 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS logi,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 46 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS rest,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 47 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS frnd,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 48 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS nanni,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 49 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS embro,
+						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 50 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
+			return $this->db->get()->result();
+			}
 
 		
 

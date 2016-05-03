@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class  Services_view extends CI_Controller{
+class  Servicepop_view extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model("classifed_model");
@@ -25,8 +25,8 @@ class  Services_view extends CI_Controller{
                 $this->session->set_userdata('latt','');
                 $this->session->set_userdata('longg','');
                 $config = array();
-                $config['base_url'] = base_url().'services_view/index';
-                $config['total_rows'] = count($this->classifed_model->count_services_view());
+                $config['base_url'] = base_url().'servicepop_view/index';
+                $config['total_rows'] = count($this->classifed_model->count_servicepop_view());
                 $config['per_page'] = 30;
                 $config['next_link'] = 'Next';
                 $config['prev_link'] = 'Previous';
@@ -39,7 +39,7 @@ class  Services_view extends CI_Controller{
                     'start' =>$page
                     );
 
-        $services_view = $this->classifed_model->services_view($search_option);
+        $services_view = $this->classifed_model->servicepop_view($search_option);
 
 
         //$data["paging_links"] =  $this->pagination->create_links();
@@ -60,16 +60,16 @@ class  Services_view extends CI_Controller{
                 $loginid = $sview->login_id;
             }
             $public_adview = $this->classifed_model->publicads_service();
-            $profpopcnt = $this->classifed_model->profpopcnt();
+            $spop_cnt = $this->classifed_model->spop_cnt();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "services_view",
+                        "content"   =>  "servicepop_view",
                         "service_result" => $services_view,
-                        'profpopcnt'    =>  $profpopcnt,
                         "public_adview" => $public_adview,
+                        "spop_cnt" => $spop_cnt,
                         'log_name' => $log_name,
                         "loc_list" => $loc_list,
                         'login_status' =>$login_status,
@@ -82,11 +82,11 @@ class  Services_view extends CI_Controller{
                 $data['services_sub_prof'] = $this->hotdealsearch_model->services_sub_prof();
                 $data['services_sub_pop'] = $this->hotdealsearch_model->services_sub_pop();
                 /*business and consumer count for services*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_services();
+                $data['busconcount'] = $this->hotdealsearch_model->busconcount_servicepop();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services1();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_servicespop();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_services();
+                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_servicepop();
                 // echo "<pre>"; print_r($this);
                 
 
@@ -159,8 +159,8 @@ class  Services_view extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'services_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_servicesprof_search());
+            $config['base_url'] = base_url().'servicepop_view/search_filters';
+            $config['total_rows'] = count($this->hotdealsearch_model->count_spop_search());
             $config['per_page'] = 30;
             $config['next_link'] = 'Next';
             $config['prev_link'] = 'Previous';
@@ -173,7 +173,7 @@ class  Services_view extends CI_Controller{
                 'start' =>$page
                 );
 
-        $services_view = $this->hotdealsearch_model->servicesprof_search($search_option);
+        $services_view = $this->hotdealsearch_model->spop_search($search_option);
 
                 if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
@@ -191,15 +191,16 @@ class  Services_view extends CI_Controller{
                 $loginid = $sview->login_id;
             }
             $public_adview = $this->classifed_model->publicads_service();
+            $spop_cnt = $this->classifed_model->spop_cnt();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "services_view",
+                        "content"   =>  "servicepop_view",
                         "service_result" => $services_view,
-                        'profpopcnt'    =>  $profpopcnt,
                         "public_adview" => $public_adview,
+                        "spop_cnt" => $spop_cnt,
                         'log_name' => $log_name,
                         "loc_list" => $loc_list,
                         'login_status' =>$login_status,
@@ -212,11 +213,11 @@ class  Services_view extends CI_Controller{
                 $data['services_sub_prof'] = $this->hotdealsearch_model->services_sub_prof();
                 $data['services_sub_pop'] = $this->hotdealsearch_model->services_sub_pop();
                 /*business and consumer count for services*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_services();
+                $data['busconcount'] = $this->hotdealsearch_model->busconcount_servicepop();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services1();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_servicespop();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_services();
+                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_servicepop();
                 // echo "<pre>"; print_r($this);
                 
 

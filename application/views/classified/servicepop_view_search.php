@@ -66,7 +66,7 @@
 	</script>
 	<?php
 		$fav_list = [];
-		if (!empty($favourite_list)) {
+		if (!empty($favourite_list )) {
 			foreach ($favourite_list as $favourite_list1) {
 				array_push($fav_list, $favourite_list1->ad_id);
 			}
@@ -75,8 +75,8 @@
 		 ?>
 	<!-- platinum+urgent package start -->
 	<?php
-		$kitchen_result1 = array_chunk($kitchen_result, 10);
-		 foreach ($kitchen_result1 as $sval1) {
+		$service_result1 = array_chunk($service_result, 10);
+		 foreach ($service_result1 as $sval1) {
 		 foreach ($sval1 as $sval) {
 		 	$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$sval->ad_id' AND status = 1 GROUP BY ad_id");
 		 	if (mysql_num_rows($qry) > 0) {
@@ -94,7 +94,8 @@
 		 	else{
 		 		$total_rating = 0;
 		 	}
-		/*location*/
+
+		 	$personname = $sval->first_name;
 			$city_name = $sval->loc_city;
 			/*currency symbol*/ 
 			if ($sval->currency == 'pound') {
@@ -103,7 +104,7 @@
 			else if ($sval->currency == 'euro') {
 				$currency = '<span class="euro_sym"></span>';
 			}
-			if ($sval->package_type == '6' && $sval->urgent_package != '0') { ?>
+			if ($sval->package_type == 3 && $sval->urgent_package != '0') { ?>
 	<div class="col-md-12">
 		<div class="first_list">
 			<div class="row">
@@ -291,7 +292,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -304,7 +305,7 @@
 	<?php }    ?>
 	<!-- platinum+urgent package end -->
 	<!-- platinum package start-->
-	<?php if ($sval->package_type == '6' && $sval->urgent_package == '0') {  ?>
+	<?php if ($sval->package_type == 3 && $sval->urgent_package == 0) {  ?>
 	<div class="col-md-12">
 		<div class="first_list">
 			<div class="row">
@@ -489,7 +490,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -501,7 +502,7 @@
 	<?php } ?>
 	<!-- platinum package end -->
 	<!-- gold+urgent package starts -->
-	<?php if ($sval->package_type == '5' && $sval->urgent_package != '0') {  ?>
+	<?php if ($sval->package_type == 2 && $sval->urgent_package != '0') {  ?>
 	<div class="col-md-12">
 		<div class="first_list gold_bgcolor">
 			<div class="row">
@@ -671,7 +672,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -683,7 +684,7 @@
 	<?php } ?>
 	<!-- gold+urgent package end -->
 	<!-- gold package starts -->
-	<?php if ($sval->package_type == '5' && $sval->urgent_package == '0') {  ?>
+	<?php if ($sval->package_type == 2 && $sval->urgent_package == 0) {  ?>
 	<div class="col-md-12">
 		<div class="first_list gold_bgcolor">
 			<div class="row">
@@ -851,7 +852,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -863,7 +864,7 @@
 	<?php } ?>
 	<!-- gold package end -->
 	<!-- free+urgent package starts -->
-	<?php if ($sval->package_type == '4' && $sval->urgent_package != '0') {  ?>
+	<?php if ($sval->package_type == 1 && $sval->urgent_package != '0') {  ?>
 	<div class="col-md-12">
 		<div class="first_list">
 			<div class="row">
@@ -1027,7 +1028,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>
@@ -1039,7 +1040,7 @@
 	<?php } ?>
 	<!-- free+urgent package ends -->
 	<!-- free package starts -->
-	<?php if ($sval->package_type == '4' && $sval->urgent_package == '0') {  ?>
+	<?php if ($sval->package_type == 1 && $sval->urgent_package == '0') {  ?>
 	<div class="col-md-12">
 		<div class="first_list">
 			<div class="row">
@@ -1201,7 +1202,7 @@
 					<ul>
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
-						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
+						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 					</ul>

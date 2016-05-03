@@ -112,9 +112,20 @@
 					$needed = $sncnt->needed;
 				  }
 
-				  foreach ($profpopcnt as $val) {
-				  		$sprof = $val->prof;
-				  		$spop = $val->pop;
+				  foreach ($spop_cnt as $val) {
+					$dry = $val->dry;
+					$house = $val->house;
+					$travel = $val->travel;
+					$massage = $val->massage;
+					$comm = $val->comm;
+					$enter = $val->enter;
+					$motor = $val->motor;
+					$logi = $val->logi;
+					$rest = $val->rest;
+					$frnd = $val->frnd;
+					$nanni = $val->nanni;
+					$embro = $val->embro;
+					$others = $val->others;
 				  }
 		   ?>
 	</head>
@@ -143,7 +154,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>services_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>servicepop_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
 					<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 					<div class="content_info">
 						<div class="paddings">
@@ -166,8 +177,19 @@
 												<div class="cd-filter-content">
 													<div class="filters_categories">	
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>professional-services-london-uk"> Professional (<?php echo $sprof; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>popular-services-london-uk"> Popular (<?php echo $spop; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dry-cleaning-laundry-services-london"> Dry Cleaning & Laundry Services (<?php echo $dry; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>household-services-london"> Household Services (<?php echo $house; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>travel-vacation-services-london"> Travel & Vacation Services (<?php echo $travel; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>massage-beauty-services-london"> Massage & Beauty Services (<?php echo $massage; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>community-services-london"> Community Services (<?php echo $comm; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>entertainment-services"> Entertainment Services (<?php echo $enter; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motor-services"> Motor Services (<?php echo $motor; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>logistics-transport-services"> Logistics & Transport Services (<?php echo $logi; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>restaurant-food services"> Restaurant & Food Services (<?php echo $rest; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>friendship-dating-services"> Friendship & Dating Services (<?php echo $frnd; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>nannies-services-london-manchester"> Nannies Services (<?php echo $nanni; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>embroidery-services-london"> Embroidery Services (<?php echo $embro; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>others-popular-services-london"> Others (<?php echo $others; ?>)</a></li>
 														</ul>
 													</div>
 												</div>
@@ -309,7 +331,7 @@
 										<!-- sort-by-container-->
 										
 										<div class="row search_result">
-										  <?php echo $this->load->view("classified/services_view_search"); ?> 
+										  <?php echo $this->load->view("classified/servicepop_view_search"); ?> 
 										</div>
 										
 									</div>

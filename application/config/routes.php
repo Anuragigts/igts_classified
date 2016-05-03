@@ -52,6 +52,10 @@ $route['part-full-time-jobs-london'] = "job_view";
 $route['post-a-deal'] = "postad";
 $route['home-page'] = "classified";
 
+/*--------------------Service category-----------*/
+$route['professional-services-london-uk'] = "serviceprof_view";
+$route['popular-services-london-uk'] = "servicepop_view";
+
 
 /*----------------E-Zone Category--------------------*/
 
@@ -253,7 +257,7 @@ $route['used-dining-room-furniture'] = "h_ess_dining_room_furview";
 $route['living-room-furniture-sale'] = "h_ess_living_room_furview";
 $route['kids-furniture-sale'] = "h_ess_furniture_kidsview";
 $route['second-hand-outdoor-furniture-sale'] = "h_ess_outdoor_furview";
-$route['study-office-room furniture-sale'] = "h_ess_study_off_room_furview";
+$route['study-office-room-furniture-sale'] = "h_ess_study_off_room_furview";
 $route['other-home-items-sale'] = "h_ess_otherview";
 
 /*Decor*/
