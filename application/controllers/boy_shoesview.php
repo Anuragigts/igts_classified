@@ -10,6 +10,7 @@ class  Boy_shoesview extends CI_Controller{
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
+                $this->load->model("postad_cloths_model");
                 $this->load->library('pagination');
         }
         public function index(){
@@ -24,7 +25,7 @@ class  Boy_shoesview extends CI_Controller{
                 $this->session->set_userdata('longg','');
                 $config = array();
                 $config['base_url'] = base_url().'boy_shoesview/index';
-                $config['total_rows'] = count($this->classifed_model->count_clothstyle_view());
+                $config['total_rows'] = count($this->postad_cloths_model->count_bshoes_view());
                 $config['per_page'] = 30;
                 $config['next_link'] = 'Next';
                 $config['prev_link'] = 'Previous';
@@ -37,7 +38,7 @@ class  Boy_shoesview extends CI_Controller{
                     'start' =>$page
                     );
 
-        $clothstyle_view = $this->classifed_model->clothstyle_view($search_option);
+        $clothstyle_view = $this->postad_cloths_model->bshoes_view($search_option);
         $clothstyle_list = $this->hotdealsearch_model->clothstyle_list();
 
 
@@ -64,7 +65,7 @@ class  Boy_shoesview extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "clothing_lifestyles_view",
+                        "content"   =>  "boy_shoesview",
                         "clothstyle_result" => $clothstyle_view,
                         "clothstyle_list" => $clothstyle_list,
                         "public_adview" => $public_adview,
@@ -77,11 +78,11 @@ class  Boy_shoesview extends CI_Controller{
                 );
 
                 /*business and consumer count for services*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_clothstyle();
+                $data['busconcount'] = $this->postad_cloths_model->busconcount_bshoes();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle1();
+                $data['sellerneededcount'] = $this->postad_cloths_model->sellerneeded_bshoes();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_clothstyle();
+                $data['deals_pck'] = $this->postad_cloths_model->deals_pck_bshoes();
                 // echo "<pre>"; print_r($this);
                
                 $this->load->view("classified_layout/inner_template",$data);
@@ -138,10 +139,10 @@ class  Boy_shoesview extends CI_Controller{
                     $this->session->set_userdata('location','');
                 }
             }
-             $services_view = $this->hotdealsearch_model->count_clothstyle_search();
+             $services_view = $this->postad_cloths_model->count_bshoes_search();
              // echo count($services_view);
             $config = array();
-            $config['base_url'] = base_url().'clothing_lifestyles_view/search_filters';
+            $config['base_url'] = base_url().'boy_shoesview/search_filters';
             $config['total_rows'] = count($services_view);
             $config['per_page'] = 30;
             $config['next_link'] = 'Next';
@@ -167,7 +168,7 @@ class  Boy_shoesview extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->clothstyle_search($search_option);
+             $rs = $this->postad_cloths_model->bshoes_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -175,7 +176,7 @@ class  Boy_shoesview extends CI_Controller{
              }
              $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "clothing_lifestyles_view");
+                        "content"   =>  "boy_shoesview");
             $data['clothstyle_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_clothing();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -188,11 +189,11 @@ class  Boy_shoesview extends CI_Controller{
             $data['paging_links'] = $this->pagination->create_links();
             $data['clothstyle_list'] = $this->hotdealsearch_model->clothstyle_list();
            /*business and consumer count for services*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_clothstyle();
+                $data['busconcount'] = $this->postad_cloths_model->busconcount_bshoes();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_clothstyle1();
+                $data['sellerneededcount'] = $this->postad_cloths_model->sellerneeded_bshoes();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_clothstyle();
+                $data['deals_pck'] = $this->postad_cloths_model->deals_pck_bshoes();
                 // echo "<pre>"; print_r($this);
                
                 $this->load->view("classified_layout/inner_template",$data);
