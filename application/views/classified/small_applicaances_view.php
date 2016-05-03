@@ -2,7 +2,10 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Motor View</title>
+		<title>New & Used Small Home & Kitchen Appliances For Sale UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Browse the used and new home and kitchen small appliances for sale like Microwave Ovens, Cookers, Grinder Juicers, Coffee Tea Makers in United Kingdom
+  " />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -144,7 +147,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>e-zone"><h3 class="title-widget">Ezone Filter</h3></a>
+											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget"> Small Appliances</h4>

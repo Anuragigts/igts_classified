@@ -166,8 +166,8 @@
 												<div class="cd-filter-content">
 													<div class="filters_categories">	
 														<ul class="list-styles">
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>professional-services-london-uk"> Professional (<?php echo $sprof; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>popular-services-london-uk"> Popular (<?php echo $spop; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>professional-services-uk"> Professional (<?php echo $sprof; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>popular-services-london"> Popular (<?php echo $spop; ?>)</a></li>
 														</ul>
 													</div>
 												</div>

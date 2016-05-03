@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Motor View</title>
+		<title>New & Used Personal And Body Care Stuff For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Shop now new & used personal care stuff like trimmer, shaver, hair dryers, massagers and so on for sale in London, UK on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -145,7 +147,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>e-zone"><h3 class="title-widget">Ezone Filter</h3></a>
+											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Personal Care</h4>

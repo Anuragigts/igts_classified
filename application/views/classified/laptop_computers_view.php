@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Motor View</title>
+		<title>New & Used or Second Hand Laptops And Computers For Sale In UK |99 Right Deals</title>
+		
+		<meta name="description" content="Find the new and used laptops and computers accessories for sale in london, UK on 99 Right Deals. And get the quik respones on your deals at best price" />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
@@ -145,7 +147,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>e-zone"><h3 class="title-widget">Ezone Filter</h3></a>
+											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Laptop & Computers</h4>

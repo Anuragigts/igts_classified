@@ -968,7 +968,7 @@
 				</div>
 			</div>
 			
-			<section class="content_info">
+			<section class="content_info sbr_view">
 				<div class="padding-bottom">
 					<div class="container">
 						<div class="titles recen_ad">

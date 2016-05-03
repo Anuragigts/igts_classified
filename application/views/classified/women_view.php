@@ -2,8 +2,10 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Women View</title>
+		<title>New & Used Women's Designer Clothes For Sale In London, UK | 99 Right Deals</title>
 		
+		<meta name="description" content="Buy & Sell new and secondhand womens styles or designer and wedding clothes or dresses and accessories for sale in London, UK on 99 Right Deals at affordable price." />
+
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->

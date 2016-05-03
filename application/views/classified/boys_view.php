@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Boys View</title>
+		<title>New & Used Boy Clothes or Shoes And Accessories For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Buy & Sell new and secondhand boys clothes or dresses, shoes and accessories for sale in London, UK on 99 Right Deals at affordable price." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

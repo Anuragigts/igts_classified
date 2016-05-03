@@ -2,10 +2,9 @@
 <html>
 	<head>
 		
-		<title>Services For Sale In London - United Kingdom | 99 Right Deals</title>
+		<title>Popular Services In London, United Kingdom | 99 Right Deals</title>
 		
-		<meta name="description" content="Post free ads for finding service experts in Business Development, Interior Designing, electronic and home appliances repairs and services, Beauty and Hair care experts, Events Managing experts and top service proviers." />
-		<meta name="keywords" content="free services ads, lease and loan insurance services uk, beauty & hair care services, event management services, courier delivery services, home based services ads, housekeeping classified ads,cleaning services classified ads,legal advisor financial services" />
+		<meta name="description" content="Find the household, motor, dry cleaning, tour & travel,  massage & beauty, logistic and transport services  in London, UK on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

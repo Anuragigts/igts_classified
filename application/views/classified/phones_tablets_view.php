@@ -2,8 +2,10 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Motor View</title>
+		<title>Used Phones & Tablets For Sale In United Kingdom | 99 Right Deals</title>
 		
+		<meta name="description" content="Shop the second hand or used & new smartphone, mobile phones and tablets or ipods for sale in London, UK on 99 Right Deals at affordable price." />
+
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->
@@ -147,7 +149,7 @@
 									<div class="col-md-3 col-sm-3">
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>e-zone"><h3 class="title-widget">Ezone Filter</h3></a>
+											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget"> Phones & Tablets</h4>

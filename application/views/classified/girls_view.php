@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+]<!DOCTYPE html>
 <html>
 	<head>
 		
-		<title>Right Deals :: Girls View</title>
+		<title>New & Used Girls Clothes or Shoes And Accessories For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Buy & Sell new and secondhand girls designer clothes or dresses, shoes and accessories for sale in London, UK on 99 Right Deals at affordable price." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

@@ -163,14 +163,14 @@
 																$entertaincnt = $ezone_sub1->entertain;
 																$grapycnt = $ezone_sub1->grapy;
 															} ?>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>phones_tablets_view">Phones & Tablets (<?php echo $phonescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home_applications_view">Home Appliances (<?php echo $homescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>small_applicaances_view">Small Appliances (<?php echo $smallcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>laptop_computers_view">Laptop & Computers (<?php echo $lappycnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>accessories_view">Accessories (<?php echo $accesscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>personal_care_view">Personal Care (<?php echo $pcarecnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home_entertainment_view">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>photography_view">Photography (<?php echo $grapycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-phones-tablets">Phones & Tablets (<?php echo $phonescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-appliances-for-sale">Home Appliances (<?php echo $homescnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-small-appliances">Small Appliances (<?php echo $smallcnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-laptop-computers-for-sale">Laptop & Computers (<?php echo $lappycnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>phones-ipods-camera-accessories-sale">Accessories (<?php echo $accesscnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>body-care-stuff-for-sale">Personal Care (<?php echo $pcarecnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-entertainment-items-sale">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-digital-camera-for-sale">Photography (<?php echo $grapycnt; ?>)</a></li>
 														</ul>
 														</ul>
 													</div>

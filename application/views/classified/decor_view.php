@@ -170,7 +170,7 @@
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>curtains-accessories-sale"> Curtains & Accessories (<?php echo $curtain; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>candles-fragrances-sale"> Candles & Fragrances (<?php echo $candle; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>vases-flowers-sale-london"> Vases & Flowers (<?php echo $vases; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>wall-décor-for-sale"> Wall Decor (<?php echo $wall; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>wall-decor-for-sale"> Wall Decor (<?php echo $wall; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-accent-sale"> Home Accent (<?php echo $home; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>religion-spirituality-stuff-sale"> Religion & Spirituality (<?php echo $religon; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>photo-frames-albums-sale"> Photo frames & Albums (<?php echo $frame; ?>)</a></li>

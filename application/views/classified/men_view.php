@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Men View</title>
+		<title>New & Used Mens Clothes For Sale In London, UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Buy & Sell new and secondhand mens designer clothes or dresses and accessories like t-shirts, shirts, jeans, denim, suits, pants, shoes for sale in London, UK on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

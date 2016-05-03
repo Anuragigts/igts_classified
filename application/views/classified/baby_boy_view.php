@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Baby Boy View</title>
+		<title>Newborn Baby Clothes And Accessories For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find the new & used baby boys clothes and accessories for sale in London, UK on 99 Right Deals at best price." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 

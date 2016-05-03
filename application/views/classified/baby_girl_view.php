@@ -2,7 +2,9 @@
 <html>
 	<head>
 		
-		<title>Right Deals :: Baby Boy View</title>
+		<title>Baby Girls Clothes And Accessories For Sale In UK | 99 Right Deals</title>
+		
+		<meta name="description" content="Find the new & used or second hand baby girls designer clothes and accessories for sale in London, UK at affordable price on 99 Right Deals." />
 		
 		<!-- xxx Head Content xxx -->
 		<?php echo $this->load->view('common/head');?> 
