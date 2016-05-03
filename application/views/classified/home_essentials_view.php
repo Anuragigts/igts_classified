@@ -187,7 +187,7 @@
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>living-room-furniture-sale"> Living Room Furniture (<?php echo $living; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>kids-furniture-sale"> Furniture for Kids (<?php echo $kids; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>second-hand-outdoor-furniture-sale"> Outdoor Furniture (<?php echo $outdoor; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>study-office-room furniture-sale"> Study & Office Room Furniture (<?php echo $study; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>study-office-room-furniture-sale"> Study & Office Room Furniture (<?php echo $study; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>other-home-items-sale"> Other (<?php echo $others; ?>)</a></li>
 														</ul>
 													</div>
