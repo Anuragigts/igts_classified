@@ -302,7 +302,7 @@
 										<!-- sort-by-container-->
 
 										<div class="row clothstyle_result">
-										   <?php echo $this->load->view("classified/clothing_lifestyles_view_search"); ?> 
+										   <?php echo $this->load->view("classified/women_clothingview_search"); ?> 
 										</div>
 									</div>
 								</div>

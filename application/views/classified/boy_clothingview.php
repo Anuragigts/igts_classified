@@ -142,7 +142,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>clothing_lifestyles_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>boy_clothingview/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 					<div class="content_info">
 						<div class="paddings">
@@ -160,21 +160,7 @@
 										<div class="container-by-widget-filter bg-dark color-white cloth_h3">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>clothes-for-sale-uk"><h3 class="title-widget">Clothing & LifeStyle</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Type</h4>
-												<div class="cd-filter-content">
-													<div class="filters_categories">	
-														<ul class="list-styles">
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>women_view">Women</a> (<?php echo $womencount ?>)</li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>men_view">Men</a> (<?php echo $mencount ?>)</li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>boys_view">Boy</a> (<?php echo $boycount ?>)</li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>girls_view">Girls</a> (<?php echo $girlscount ?>)</li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>baby_boy_view">Baby Boy</a> (<?php echo $babyboycount ?>)</li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>baby_girl_view">Baby Girl</a> (<?php echo $babygirlcount ?>)</li>
-														</ul>
-													</div>
-												</div>
-											</div>
+											<h4 class="title-widget ">Boy Clothing</h4>
 											<div class="cd-filter-block">
 												<h4 class="title-widget ">Seller Type</h4>
 
@@ -316,7 +302,7 @@
 										<!-- sort-by-container-->
 
 										<div class="row clothstyle_result">
-										   <?php echo $this->load->view("classified/clothing_lifestyles_view_search"); ?> 
+										   <?php echo $this->load->view("classified/boy_clothingview_search"); ?> 
 										</div>
 									</div>
 								</div>
