@@ -492,7 +492,7 @@
 				</div>
 			</section>
 			
-			<div class="content_info">
+			<div class="content_info sbr_view">
 				<div class="paddings-mini">
 					<div class="container">
 						<div class="titles recen_ad">
