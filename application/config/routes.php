@@ -56,7 +56,7 @@ $route['home-page'] = "classified";
 /*----------------E-Zone Category--------------------*/
 
 /*Phones & Tablets*/
-$route[''] = "phones_tablets_view";
+$route['used-phones-tablets'] = "phones_tablets_view";
 
 $route['used-phones-for-sale-london'] = "pt_mobile_phonesview";
 $route['tablets-ipods-for-sale'] = "pt_tablets_ipadsview";
@@ -70,7 +70,7 @@ $route['used-power-banks-sale'] = "pt_powerbanksview";
 $route['wearable-devices-sale'] = "pt_wearable_devicesview";
 
 /*Home Appliances*/
-$route[''] = "home_applications_view";
+$route['home-appliances-for-sale'] = "home_applications_view";
 
 $route['used-air-conditioners-sale'] = "ha_air_conditionersview";
 $route['secondhand-air-coolers-sale'] = "ha_air_coolersview";
@@ -86,7 +86,7 @@ $route['secondhand-dryers-for-sale'] = "ha_dryersview";
 $route['emergency-light-for-sale'] = "ha_emergency_lightview";
 
 /*Small Appliances*/
-$route[''] = "small_applicaances_view";
+$route['used-secondhand-small-appliances'] = "small_applicaances_view";
 
 $route['microwave-ovens-otg-sale'] = "sa_microwave_ovensview";
 $route['food-processors-sale-london'] = "sa_food_processorsview";
@@ -102,7 +102,7 @@ $route['used-dishwashers-for-sale'] = "sa_dishwashersview";
 $route['secondhand-flour-mill-sale'] = "sa_flour_millview";
 
 /*Laptop & Computers*/
-$route[''] = "laptop_computers_view";
+$route['secondhand-laptop-computers-for-sale'] = "laptop_computers_view";
 
 $route['used-secondhand-laptop-sale'] = "lc_laptopsview";
 $route['all-in-one-accesseories-sale'] = "lc_all_in_oneview";
@@ -118,7 +118,7 @@ $route['ink-toner-sale-london'] = "lc_ink_tonerview";
 $route['softwares-sale-london-canterbury'] = "lc_softwaresview";
 
 /*Accessories*/
-$route[''] = "accessories_view";
+$route['phones-ipods-camera-accessories-sale'] = "accessories_view";
 
 $route['tablet-ipad-accessories-sale'] = "a_tablet_ipad_accessoriesview";
 $route['iphone-accessories-for-sale'] = "a_iphone_accessoriesview";
@@ -131,7 +131,7 @@ $route['inverters-stablizers-power-sale'] = "a_inverters_stablizers_powerview";
 $route['used-secondhand-battery-sale'] = "a_batteryview";
 
 /*Personal Care*/
-$route[''] = "personal_care_view";
+$route['body-care-stuff-for-sale'] = "personal_care_view";
 
 $route['online-shavers-sale'] = "pc_shaversview";
 $route['sell-used-trimmers-sale'] = "pc_trimmersview";
@@ -144,7 +144,7 @@ $route['monitors-for-sale'] = "pc_monitorsview";
 $route['secondhand-massagers-for-sale'] = "pc_massagersview";
 
 /*Home Entertainment*/
-$route[''] = "home_entertainment_view";
+$route['home-entertainment-items-sale'] = "home_entertainment_view";
 
 $route['lcd-led-television-sale'] = "he_lcd_led_televisionsview";
 $route['home-theatre-systems-sale'] = "he_home_theatre_systemsview";
@@ -155,7 +155,7 @@ $route['used-musical-instruments-sale'] = "he_musical_instrumentsview";
 $route['used-secondhand-projectors-sale'] = "he_projectorsview";
 
 /*Photography*/
-$route[''] = "photography_view";
+$route['used-digital-camera-for-sale'] = "photography_view";
 
 $route['digital-slr-cameras-sale'] = "p_digital_slr_camerasview";
 $route['point-shoot-cameras-sale'] = "p_point_shoot_camerasview";
@@ -262,7 +262,7 @@ $route['wall-decor-sale'] = "decor_view";
 $route['curtains-accessories-sale'] = "dec_curtains_acceview";
 $route['candles-fragrances-sale'] = "dec_candles_fragrancesview";
 $route['vases-flowers-sale-london'] = "dec_vases_flowersview";
-$route['wall-décor-for-sale'] = "dec_wall_decorview";
+$route['wall-decor-for-sale'] = "dec_wall_decorview";
 $route['home-accent-sale'] = "dec_home_accentview";
 $route['religion-spirituality-stuff-sale'] = "dec_religion_spiritualityview";
 $route['photo-frames-albums-sale'] = "dec_photo_frames_albumview";
