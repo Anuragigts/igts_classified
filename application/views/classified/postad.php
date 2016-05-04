@@ -56,7 +56,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
 													<div class="overlay">
-														<h2>Hot Deals</h2>
+														<h3>Hot Deals</h3>
 														<a class="info" href="hot-deals-post-classifieds-ads">View Details</a>
 													</div>
 												</div>
@@ -65,7 +65,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="electronics in the uk " title="ezone Category">
 													<div class="overlay">
-														<h2>E-Zone</h2>
+														<h3>E-Zone</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#Zone">View Details</a>
 													</div>
 												</div>
@@ -160,7 +160,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
 													<div class="overlay">
-														<h2>Motor Point</h2>
+														<h3>Motor Point</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#Motor">View Details</a>
 													</div>
 												</div>
@@ -232,7 +232,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
 													<div class="overlay">
-														<h2 class="cloth_head_font">Clothing & LifeStyles</h2>
+														<h3 class="cloth_head_font">Clothing & LifeStyles</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#LifeStyles">View Details</a>
 													</div>
 												</div>
@@ -307,7 +307,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="free services ads" title="Services Category">
 													<div class="overlay">
-														<h2>Services</h2>
+														<h3>Services</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#Services" >View Details</a>
 													</div>
 												</div>
@@ -357,7 +357,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
 													<div class="overlay">
-														<h2>Find a Property</h2>
+														<h3>Find a Property</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#Property">View Details</a>
 													</div>
 												</div>
@@ -404,7 +404,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen.jpg" alt="home cleaning services" title="Home & Kitchen Category">
 													<div class="overlay">
-														<h2>Home & Kitchen</h2>
+														<h3>Home & Kitchen</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#Kitchen">View Details</a>
 													</div>
 												</div>
@@ -460,7 +460,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="free online pet ads" title="Pets Category">
 													<div class="overlay">
-														<h2>Pets</h2>
+														<h3>Pets</h3>
 														<a class="info" href="#" data-toggle="modal" data-target="#Pets">View Details</a>
 													</div>
 												</div>
@@ -520,7 +520,7 @@
 												<div class="hovereffect">
 													<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg" alt="classified jobs ads" title="Jobs Category">
 													<div class="overlay">
-														<h2>Jobs</h2>
+														<h3>Jobs</h3>
 														<div><a class="info" href="#" data-toggle="modal" data-target="#Jobs">View Details</a></div>
 													</div>
 												</div>

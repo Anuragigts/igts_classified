@@ -283,7 +283,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
 											<div class="overlay">
-												<h2>Hot Deals</h2>
+												<h3>Hot Deals</h3>
 												<a class="info" href="hot-deals-post-classifieds-ads">View Details</a>
 											</div>
 										</div>
@@ -292,7 +292,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/ezone.jpg" alt="electronics in the uk " title="ezone Category">
 											<div class="overlay">
-												<h2>E-Zone</h2>
+												<h3>E-Zone</h3>
 												<a class="info" href="e-zone-phones-tablets-sale">View Details</a>
 											</div>
 										</div>
@@ -301,7 +301,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/cars.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
 											<div class="overlay">
-												<h2>Motor Point</h2>
+												<h3>Motor Point</h3>
 												<a class="info" href="motor-point-used-cars-sale">View Details</a>
 											</div>
 										</div>
@@ -312,7 +312,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/clothing.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
 											<div class="overlay">
-												<h2 class="cloth_head_font">Clothing & LifeStyles</h2>
+												<h3 class="cloth_head_font">Clothing & LifeStyles</h3>
 												<a class="info" href="clothes-for-sale-uk">View Details</a>
 											</div>
 										</div>
@@ -321,7 +321,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/services.jpg" alt="free services ads" title="Services Category">
 											<div class="overlay">
-												<h2>Services</h2>
+												<h3>Services</h3>
 												<a class="info" href="household-services-london-uk">View Details</a>
 											</div>
 										</div>
@@ -330,7 +330,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/property.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
 											<div class="overlay">
-												<h2>Find a Property</h2>
+												<h3>Find a Property</h3>
 												<a class="info" href="residential-commercial-property-for-sale">View Details</a>
 											</div>
 										</div>
@@ -341,7 +341,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/kitchen.jpg" alt="home cleaning services" title="Home & Kitchen Category">
 											<div class="overlay">
-												<h2>Home & Kitchen</h2>
+												<h3>Home & Kitchen</h3>
 												<a class="info" href="home-kitchen-services-uk">View Details</a>
 											</div>
 										</div>
@@ -350,7 +350,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/pets.jpg" alt="free online pet ads" title="Pets Category">
 											<div class="overlay">
-												<h2>Pets</h2>
+												<h3>Pets</h3>
 												<a class="info" href="pet-for-sale-online">View Details</a>
 											</div>
 										</div>
@@ -359,7 +359,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/jobs.jpg"  alt="classified jobs ads" title="Jobs Category">
 											<div class="overlay">
-												<h2>Jobs</h2>
+												<h3>Jobs</h3>
 												<div><a class="info" href="part-full-time-jobs-london">View Details</a></div>
 											</div>
 										</div>
