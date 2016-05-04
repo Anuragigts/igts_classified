@@ -50,7 +50,7 @@ $route['home-kitchen-services-uk'] = "home_kitchen_view";
 $route['pet-for-sale-online'] = "pets_view";
 $route['part-full-time-jobs-london'] = "job_view";
 $route['post-a-deal'] = "postad";
-$route['home-page'] = "classified";
+/*$route['home-page'] = "classified";*/
 
 
 
@@ -388,6 +388,8 @@ $route['others-popular-services-london'] = "s_other_popular_servicesview";
 
 
 /* Inner Pages Links */
+$route['register'] = "signup";
+
 $route['deals-status'] = "deals_status";
 $route['deals-administrator'] = "deals_administrator";
 $route['deals-administrator-box'] = "deals_administrator_box";
