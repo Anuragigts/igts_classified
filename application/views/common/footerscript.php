@@ -71,7 +71,6 @@
 			$(document).ready(function(){
 				$(".bus_image").click(function(){
 					$(".bus_img").show(1000);
-
 				});
 			});
 		</script>
@@ -88,7 +87,6 @@
 			$(document).ready(function(){
 				$(".report_show").click(function(){
 					$(".report_hide").toggle(1000);
-
 				});
 			});
 		</script>
@@ -97,7 +95,6 @@
 			$(document).ready(function(){
 				$(".review_show").click(function(){
 					$(".review_hide").toggle(1000);
-
 				});
 			});
 		</script>
@@ -106,7 +103,6 @@
 			$(document).ready(function(){
 				$(".contact_now_show").click(function(){
 					$(".contact_now_hide").toggle(1000);
-
 				});
 			});
 		</script>
@@ -115,7 +111,6 @@
 			$(document).ready(function(){
 				$(".con_image").click(function(){
 					$(".bus_img").hide(1000);
-
 				});
 			});
 		</script>
@@ -124,7 +119,6 @@
 			$(document).ready(function(){
 				$(".free_check").click(function(){
 					$(".free_hide").show(1000);
-
 				});
 			});
 		</script>
@@ -133,7 +127,6 @@
 			$(document).ready(function(){
 				$(".gold_check").click(function(){
 					$(".gold_hide").show(1000);
-
 				});
 			});
 		</script>
