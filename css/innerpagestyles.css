@@ -1,4 +1,8 @@
 
+section form div .col-md-3{
+	padding:0;
+}
+
 .section-title-01{
 	height: 220px;
 }
