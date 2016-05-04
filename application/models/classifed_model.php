@@ -528,8 +528,7 @@ GROUP BY img.ad_id
 		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->where('img.bus_logo !=', '');
 		$this->db->group_by('img.ad_id');
-		$this->db->order_by('dtime', 'DESC');
-		$this->db->limit(10);
+		$this->db->order_by('ads.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){

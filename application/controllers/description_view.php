@@ -199,7 +199,7 @@ class Description_view extends CI_Controller{
                                                         'Maximum Salary'=>$currency.$val->salarymax,
                                                         'Salary Type'=>$val->salarytype,
                                                         'Suitable Skills'=>$val->suitableskils,
-                                                        'Position For'=>$val->positionfor);
+                                                        'Position For'=>str_replace("_", " ", $val->positionfor));
                                     }
 
                 }

@@ -441,7 +441,7 @@
 																		<tbody>
 																			<tr>
 																				<th><?php echo $k; ?></th>
-																				<td><?php echo $value; ?></td>
+																				<td style="word-break: break-all;"><?php echo $value; ?></td>
 																			</tr>
 																		</tbody>
 																	</table>

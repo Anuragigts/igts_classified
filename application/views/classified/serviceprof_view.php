@@ -174,20 +174,20 @@
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>household-services-london-uk"><h3 class="title-widget">Services Filter</h3></a>
 											<div class="cd-filter-block">
-												<h4 class="title-widget">Services Filter</h4>
+												<h4 class="title-widget">Professional Filter</h4>
 												<div class="cd-filter-content">
 													<div class="filters_categories">	
 														<ul class="list-styles">
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>educational-coaching-training-services-london"> Coachings & Training (<?php echo $coach; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>business-office-services-london"> Business Services (<?php echo $bus; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>party-wedding-services-london"> Party & Wedding Services (<?php echo $party; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>it-digital marketing services"> IT & Digital Marketing Services (<?php echo $it; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>party-wedding-services-london"> Party & Wedding (<?php echo $party; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>it-digital marketing services"> IT & Digital Marketing (<?php echo $it; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>solicitor-services-london-manchester"> Solicitor Services (<?php echo $solic; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>accounting-taxation-services-london"> Accounting & Taxation Services (<?php echo $acnt; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>accounting-taxation-services-london"> Accounting & Taxation (<?php echo $acnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-construction-renovation-services-london"> Home, Construction & Renovation Services (<?php echo $home; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>doctors-hospital-services-london"> Doctors & Hospital Services (<?php echo $doctor; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>doctors-hospital-services-london"> Doctors & Hospital (<?php echo $doctor; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>nurse-care-services"> Nurse & Care Services (<?php echo $nurse; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>astrology-numerology-services-london"> Astrology & Numerology Services (<?php echo $astr; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>astrology-numerology-services-london"> Astrology & Numerology (<?php echo $astr; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-car-property-loan-insurance"> Loan & Insurance (<?php echo $loan; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>funeral-services"> Funeral Services (<?php echo $funeral; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>health-fitness-services-london"> Health & Fitness (<?php echo $health; ?>)</a></li>
