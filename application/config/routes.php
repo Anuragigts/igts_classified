@@ -52,9 +52,6 @@ $route['part-full-time-jobs-london'] = "job_view";
 $route['post-a-deal'] = "postad";
 $route['home-page'] = "classified";
 
-/*--------------------Service category-----------*/
-$route['professional-services-london-uk'] = "serviceprof_view";
-$route['popular-services-london-uk'] = "servicepop_view";
 
 
 /*----------------E-Zone Category--------------------*/
@@ -179,7 +176,7 @@ $route['used-boats-for-sale'] = "boats_view";
 /*--------------------Clothing Life Styles Category--------------------*/
 
 /*Women's*/
-$route['flats'] = "women_view";
+$route['womens-clothes-shoes-sale'] = "women_view";
 
 $route['women-designer-clothing'] = "women_clothingview";
 $route['women-footware-shoes'] = "women_shoesview";
@@ -187,7 +184,7 @@ $route['women-accessories-sale'] = "women_accessoriesview";
 $route['women-wedding-party-accessories'] = "women_weddingview";
 
 /*Men*/
-$route['flats'] = "men_view";
+$route['mens-clothes-for-sale'] = "men_view";
 
 $route['men-designer-clothing-london'] = "men_clothingview";
 $route['men-footware-shoes'] = "men_shoesview";
@@ -195,27 +192,27 @@ $route['men-party-accessories'] = "men_accessoriesview";
 $route['men-wedding-accessories'] = "men_weddingview";
 
 /*Boys*/
-$route['flats'] = "boys_view";
+$route['boy-shoes-clothes-sale'] = "boys_view";
 
 $route['boy-clothing-for-sale'] = "boy_clothingview";
 $route['boy-shoes-footware'] = "boy_shoesview";
 $route['boy-party-accessories'] = "boy_accessoriesview";
 
 /*Girls*/
-$route['flats'] = "girls_view";
+$route['girls-clothes-dress-forsale'] = "girls_view";
 
 $route['girls-stylish-designer-clothing'] = "girl_clothingview";
 $route['girls-shoes-footware'] = "girl_shoesview";
 $route['girls-designer-accessories'] = "girl_accessoriesview";
 
 /*Baby Boys*/
-$route['flats'] = "baby_boy_view";
+$route['baby-boy-clothes-for-sale'] = "baby_boy_view";
 
 $route['newborn-baby-boys-clothing'] = "babyboy_clothingview";
 $route['baby-boy-accessories'] = "babyboy_accessoriesview";
 
 /*Baby Girls*/	
-$route['flats'] = "baby_girl_view";
+$route['baby-girls-clothes-accessories'] = "baby_girl_view";
 
 $route['baby-girl-clothing'] = "babygirl_clothingview";
 $route['baby-girl-accessories'] = "babygirl_accessoriesview";
@@ -353,7 +350,11 @@ $route['hospitality-and-staff-nursing-jobs'] = "j_nursing_jobsview";
 
 /*--------------------Services Category--------------------*/
 
+
+
 /*Professional */
+$route['professional-services-uk'] = "serviceprof_view";
+
 $route['educational-coaching-training-services-london'] = "s_coachings_trainingview";
 $route['business-office-services-london'] = "s_business_servicesview";
 $route['party-wedding-services-london'] = "s_party_wedding_servicesview";
@@ -369,6 +370,8 @@ $route['funeral-services'] = "s_funeral_servicesview";
 $route['health-fitness-services-london'] = "s_health_fitnessview";
 
 /*Popular*/
+$route['popular-services-london'] = "servicepop_view";
+
 $route['dry-cleaning-laundry-services-london'] = "s_dry_clean_laund_servicesview";
 $route['household-services-london'] = "s_household_servicesview";
 $route['travel-vacation-services-london'] = "s_travel_vacation_servicesview";
