@@ -348,9 +348,8 @@ $route['dentist-jobs-services-london'] = "j_dentistsview";
 $route['petroleum-chemical-engineering-jobs-london'] = "j_petroleum_enggview";
 $route['hospitality-and-staff-nursing-jobs'] = "j_nursing_jobsview";
 
+
 /*--------------------Services Category--------------------*/
-
-
 
 /*Professional */
 $route['professional-services-uk'] = "serviceprof_view";
@@ -358,7 +357,7 @@ $route['professional-services-uk'] = "serviceprof_view";
 $route['educational-coaching-training-services-london'] = "s_coachings_trainingview";
 $route['business-office-services-london'] = "s_business_servicesview";
 $route['party-wedding-services-london'] = "s_party_wedding_servicesview";
-$route['it-digital marketing services'] = "s_it_digital_marketing_serviceview";
+$route['it-digital-marketing-services'] = "s_it_digital_marketing_serviceview";
 $route['solicitor-services-london-manchester'] = "s_solicitor_servicesview";
 $route['accounting-taxation-services-london'] = "s_accounting_taxation_servicesview";
 $route['home-construction-renovation-services-london'] = "s_home_construction_ren_servicesview";
