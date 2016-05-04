@@ -18,7 +18,7 @@
                         <li><a href="<?php echo base_url();?>login/logout">Logout</a></li>
                     <?php } else { ?>
                         <li><a href="<?php echo base_url();?>login">Login</a></li>
-                        <li><a href="<?php echo base_url();?>signup">Signup</a></li>
+                        <li><a href="<?php echo base_url(); ?>register">Signup</a></li>
                     <?php } ?>
                         <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="<?php echo base_url();?>postad">Post Free Add</a></li>
                 </ul>

@@ -88,7 +88,7 @@
 											<div class="row login_left">
 												<div class="col-md-6">
 													<div class=" pull-left">
-														<a href="<?php echo base_url(); ?>home-page"><img src="<?php echo base_url(); ?>img/maillogo.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
+														<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>img/maillogo.png"  class="" alt="Logo" title="99 Right Deals">  </a> 
 													</div>
 												</div>
 												<div class="col-md-6">
