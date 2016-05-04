@@ -10,6 +10,7 @@
 		<?php echo $this->load->view('common/head');?> 
 		<!-- xxx End xxx -->
 		
+		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 

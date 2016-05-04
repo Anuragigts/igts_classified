@@ -24,6 +24,20 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/homestyles.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css">
 
+<noscript>
+<div itemscope itemtype="http://schema.org/LocalBusiness">
+<h2><span itemprop="name">99Right Deals</span></h2>
+<span itemprop="description">99 Right Deals is free online classified ads website in UK. Buy or Sell products and services like e-zone, lifestyles, property, home </span>
+<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+<span itemprop="streetAddress">K2C INFOTECH (P) LTD,99right deals,Building 3, Chiswick Park 566 Chiswick High Road</span>
+<span itemprop="postalCode">W4 5YA</span>
+<span itemprop="addressLocality">London</span>,
+<span itemprop="addressRegion">London</span>
+</div>
+Phone: <span itemprop="telephone">02089355446</span>
+</div>
+</noscript>
+
 </head>
 <body id="home">
 	

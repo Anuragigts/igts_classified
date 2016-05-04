@@ -10,6 +10,7 @@ class  S_household_servicesview extends CI_Controller{
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
+                $this->load->model("postad_model");
                 $this->load->library('pagination');
         }
         public function index(){
@@ -26,7 +27,7 @@ class  S_household_servicesview extends CI_Controller{
                 $this->session->set_userdata('longg','');
                 $config = array();
                 $config['base_url'] = base_url().'s_household_servicesview/index';
-                $config['total_rows'] = count($this->classifed_model->count_services_view());
+                $config['total_rows'] = count($this->postad_model->count_pophousehold_view());
                 $config['per_page'] = 30;
                 $config['next_link'] = 'Next';
                 $config['prev_link'] = 'Previous';
@@ -39,7 +40,7 @@ class  S_household_servicesview extends CI_Controller{
                     'start' =>$page
                     );
 
-        $services_view = $this->classifed_model->services_view($search_option);
+        $services_view = $this->postad_model->pophousehold_view($search_option);
 
 
         //$data["paging_links"] =  $this->pagination->create_links();
@@ -65,7 +66,7 @@ class  S_household_servicesview extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "services_view",
+                        "content"   =>  "s_household_servicesview",
                         "service_result" => $services_view,
                         "public_adview" => $public_adview,
                         'log_name' => $log_name,
@@ -80,11 +81,11 @@ class  S_household_servicesview extends CI_Controller{
                 $data['services_sub_prof'] = $this->hotdealsearch_model->services_sub_prof();
                 $data['services_sub_pop'] = $this->hotdealsearch_model->services_sub_pop();
                 /*business and consumer count for services*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_services();
+                $data['busconcount'] = $this->postad_model->busconcount_pophousehold();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services1();
+                $data['sellerneededcount'] = $this->postad_model->sellerneeded_pophousehold();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_services();
+                $data['deals_pck'] = $this->postad_model->deals_pck_pophousehold();
                 // echo "<pre>"; print_r($this);
                 
 
@@ -157,8 +158,8 @@ class  S_household_servicesview extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'services_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_servicesprof_search());
+            $config['base_url'] = base_url().'s_household_servicesview/search_filters';
+            $config['total_rows'] = count($this->postad_model->count_pophousehold_search());
             $config['per_page'] = 30;
             $config['next_link'] = 'Next';
             $config['prev_link'] = 'Previous';
@@ -171,7 +172,7 @@ class  S_household_servicesview extends CI_Controller{
                 'start' =>$page
                 );
 
-        $services_view = $this->hotdealsearch_model->servicesprof_search($search_option);
+        $services_view = $this->postad_model->pophousehold_search($search_option);
 
                 if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
@@ -194,7 +195,7 @@ class  S_household_servicesview extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "services_view",
+                        "content"   =>  "s_household_servicesview",
                         "service_result" => $services_view,
                         "public_adview" => $public_adview,
                         'log_name' => $log_name,
@@ -209,11 +210,11 @@ class  S_household_servicesview extends CI_Controller{
                 $data['services_sub_prof'] = $this->hotdealsearch_model->services_sub_prof();
                 $data['services_sub_pop'] = $this->hotdealsearch_model->services_sub_pop();
                 /*business and consumer count for services*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_services();
+                $data['busconcount'] = $this->postad_model->busconcount_pophousehold();
                 /*service provided / needed for services*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_services1();
+                $data['sellerneededcount'] = $this->postad_model->sellerneeded_pophousehold();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_services();
+                $data['deals_pck'] = $this->postad_model->deals_pck_pophousehold();
                 // echo "<pre>"; print_r($this);
                 
 

@@ -137,7 +137,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>services_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>s_dry_clean_laund_servicesview/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
 					<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 					<div class="content_info">
 						<div class="paddings">
@@ -155,33 +155,7 @@
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>household-services-london-uk"><h3 class="title-widget">Services Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Professional</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php  foreach ($services_sub_prof as $subprof) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="prof_service[]" class='prof_service' value="<?php echo $subprof->sub_subcategory_id; ?>" <?php if(isset($prof_service) && in_array($subprof->sub_subcategory_id,$prof_service)){ echo 'checked = checked';}?> >
-															<i></i> <?php echo ucwords($subprof->sub_subcategory_name)." (".$subprof->no_ads.")"; ?>
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
-
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Popular</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php  foreach ($services_sub_pop as $subpop) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="pop_service[]" class="pop_service" value="<?php echo $subpop->sub_subcategory_id; ?>" <?php if(isset($pop_service) && in_array($subpop->sub_subcategory_id,$pop_service)) echo 'checked = checked';?> >
-															<i></i> <?php echo ucwords($subpop->sub_subcategory_name)." (".$subpop->no_ads.")"; ?>
-														</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
+											<h4 class="title-widget ">Dry cleaning & laundry</h4>
 											<div class="cd-filter-block">
 												<h4 class="title-widget ">Seller Type</h4>
 
@@ -319,7 +293,7 @@
 										<!-- sort-by-container-->
 										
 										<div class="row search_result">
-										  <?php echo $this->load->view("classified/services_view_search"); ?> 
+										  <?php echo $this->load->view("classified/s_dry_clean_laund_servicesview_search"); ?> 
 										</div>
 										
 									</div>
