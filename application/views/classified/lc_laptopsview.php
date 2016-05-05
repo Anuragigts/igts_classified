@@ -129,7 +129,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>ezone_view/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>lc_laptopsview/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -147,35 +147,9 @@
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
-											<div class="cd-filter-block">
-												<h4 class="title-widget">All Ezone</h4>
-												<div class="cd-filter-content">
-													<div class="filters_categories">	
-														<ul class="list-styles">
-															<?php foreach ($ezone_sub as $ezone_sub1) {
-																$phonescnt = $ezone_sub1->phones;
-																$homescnt = $ezone_sub1->homes;
-																$smallcnt = $ezone_sub1->small;
-																$lappycnt = $ezone_sub1->lappy;
-																$accesscnt = $ezone_sub1->access;
-																$pcarecnt = $ezone_sub1->pcare;
-																$entertaincnt = $ezone_sub1->entertain;
-																$grapycnt = $ezone_sub1->grapy;
-															} ?>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>phones_tablets_view">Phones & Tablets (<?php echo $phonescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home_applications_view">Home Appliances (<?php echo $homescnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>small_applicaances_view">Small Appliances (<?php echo $smallcnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>laptop_computers_view">Laptop & Computers (<?php echo $lappycnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>accessories_view">Accessories (<?php echo $accesscnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>personal_care_view">Personal Care (<?php echo $pcarecnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home_entertainment_view">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>photography_view">Photography (<?php echo $grapycnt; ?>)</a></li>
-														</ul>
-														</ul>
-													</div>
-												</div>
-											</div> 
-											
+											<a href="<?php echo base_url(); ?>secondhand-laptop-computers-for-sale"><h4 class="title-widget">Laptop & Computers</h4></a>
+											<h4 class="title-widget ">Laptops</h4>
+
 											<div class="cd-filter-block">
 												<h4 class="title-widget ">Seller Type</h4>
 
@@ -318,7 +292,7 @@
 										<!-- sort-by-container-->
 										
 										<div class="row list_view_searches motor_result">
-											<?php echo $this->load->view("classified/ezone_view_search"); ?>
+											<?php echo $this->load->view("classified/lc_laptopsview_search"); ?>
 										</div>
 									</div>
 								</div>

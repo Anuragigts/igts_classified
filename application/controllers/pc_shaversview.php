@@ -10,6 +10,7 @@ class  Pc_shaversview extends CI_Controller{
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
+                $this->load->model("postad_ezone_model");
                 $this->load->library('pagination');
         }
         public function index(){
@@ -24,7 +25,7 @@ class  Pc_shaversview extends CI_Controller{
             $this->session->set_userdata('longg','');
             $config = array();
             $config['base_url'] = base_url().'pc_shaversview/index';
-            $config['total_rows'] = count($this->classifed_model->count_ezone_view());
+            $config['total_rows'] = count($this->postad_ezone_model->count_pcshavers_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -46,7 +47,7 @@ class  Pc_shaversview extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $ezone_result = $this->classifed_model->ezone_view($search_option);
+                $ezone_result = $this->postad_ezone_model->pcshavers_view($search_option);
             foreach ($ezone_result as $pview) {
                 $loginid = $pview->login_id;
             }
@@ -56,7 +57,7 @@ class  Pc_shaversview extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "ezone_view",
+                        "content"   =>  "pc_shaversview",
                          "ezone_result" => $ezone_result,
                          'log_name' => $log_name,
                          'paging_links' =>$this->pagination->create_links()
@@ -69,11 +70,11 @@ class  Pc_shaversview extends CI_Controller{
                     $data['favourite_list']=$favourite_list;
 
                 /*business and consumer count for pets*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_ezone();
+                $data['busconcount'] = $this->postad_ezone_model->busconcount_pcshavers();
                  /*seller and needed count for pets*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_ezone1();
+                $data['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_pcshavers();
                  /*packages count*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_ezone();
+                $data['deals_pck'] = $this->postad_ezone_model->deals_pck_pcshavers();
                 $data['public_adview'] = $public_adview;
                 $this->load->view("classified_layout/inner_template",$data);
         }
@@ -131,8 +132,8 @@ class  Pc_shaversview extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'ezone_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_ezone_search());
+            $config['base_url'] = base_url().'pc_shaversview/search_filters';
+            $config['total_rows'] = count($this->postad_ezone_model->count_pcshavers_search());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -157,7 +158,7 @@ class  Pc_shaversview extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->hotdealsearch_model->ezone_search($search_option);
+             $rs = $this->postad_ezone_model->pcshavers_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -165,7 +166,7 @@ class  Pc_shaversview extends CI_Controller{
              }
               $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "ezone_view");
+                        "content"   =>  "pc_shaversview");
             $result['ezone_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_ezone();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -179,11 +180,11 @@ class  Pc_shaversview extends CI_Controller{
               /*motor sub*/
                 $result['ezone_sub'] = $this->hotdealsearch_model->ezone_sub_search();
               /*business and consumer count for pets*/
-                $result['busconcount'] = $this->hotdealsearch_model->busconcount_ezone();
+                $result['busconcount'] = $this->postad_ezone_model->busconcount_pcshavers();
                  /*seller and needed count for pets*/
-                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_ezone1();
+                $result['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_pcshavers();
                  /*packages count*/
-                $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_ezone();
+                $result['deals_pck'] = $this->postad_ezone_model->deals_pck_pcshavers();
             $this->load->view("classified_layout/inner_template",$result);
         }
         

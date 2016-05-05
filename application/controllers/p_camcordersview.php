@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class  Lc_printersview extends CI_Controller{
+class  P_camcordersview extends CI_Controller{
        public function __construct(){
                 parent::__construct();
                 $this->load->model("classifed_model");
@@ -24,8 +24,8 @@ class  Lc_printersview extends CI_Controller{
             $this->session->set_userdata('latt','');
             $this->session->set_userdata('longg','');
             $config = array();
-            $config['base_url'] = base_url().'lc_printersview/index';
-            $config['total_rows'] = count($this->postad_ezone_model->count_lcprinters_view());
+            $config['base_url'] = base_url().'p_camcordersview/index';
+            $config['total_rows'] = count($this->postad_ezone_model->count_pcamcorders_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -47,7 +47,7 @@ class  Lc_printersview extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $ezone_result = $this->postad_ezone_model->lcprinters_view($search_option);
+                $ezone_result = $this->postad_ezone_model->pcamcorders_view($search_option);
             foreach ($ezone_result as $pview) {
                 $loginid = $pview->login_id;
             }
@@ -57,7 +57,7 @@ class  Lc_printersview extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "lc_printersview",
+                        "content"   =>  "p_camcordersview",
                          "ezone_result" => $ezone_result,
                          'log_name' => $log_name,
                          'paging_links' =>$this->pagination->create_links()
@@ -70,11 +70,11 @@ class  Lc_printersview extends CI_Controller{
                     $data['favourite_list']=$favourite_list;
 
                 /*business and consumer count for pets*/
-                $data['busconcount'] = $this->postad_ezone_model->busconcount_lcprinters();
+                $data['busconcount'] = $this->postad_ezone_model->busconcount_pcamcorders();
                  /*seller and needed count for pets*/
-                $data['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_lcprinters();
+                $data['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_pcamcorders();
                  /*packages count*/
-                $data['deals_pck'] = $this->postad_ezone_model->deals_pck_lcprinters();
+                $data['deals_pck'] = $this->postad_ezone_model->deals_pck_pcamcorders();
                 $data['public_adview'] = $public_adview;
                 $this->load->view("classified_layout/inner_template",$data);
         }
@@ -132,8 +132,8 @@ class  Lc_printersview extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'lc_printersview/search_filters';
-            $config['total_rows'] = count($this->postad_ezone_model->count_lcprinters_search());
+            $config['base_url'] = base_url().'p_camcordersview/search_filters';
+            $config['total_rows'] = count($this->postad_ezone_model->count_pcamcorders_search());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -158,7 +158,7 @@ class  Lc_printersview extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->postad_ezone_model->lcprinters_search($search_option);
+             $rs = $this->postad_ezone_model->pcamcorders_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -166,7 +166,7 @@ class  Lc_printersview extends CI_Controller{
              }
               $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "lc_printersview");
+                        "content"   =>  "p_camcordersview");
             $result['ezone_result'] = $rs;
             $public_adview = $this->classifed_model->publicads_ezone();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
@@ -180,11 +180,11 @@ class  Lc_printersview extends CI_Controller{
               /*motor sub*/
                 $result['ezone_sub'] = $this->hotdealsearch_model->ezone_sub_search();
               /*business and consumer count for pets*/
-                $result['busconcount'] = $this->postad_ezone_model->busconcount_lcprinters();
+                $result['busconcount'] = $this->postad_ezone_model->busconcount_pcamcorders();
                  /*seller and needed count for pets*/
-                $result['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_lcprinters();
+                $result['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_pcamcorders();
                  /*packages count*/
-                $result['deals_pck'] = $this->postad_ezone_model->deals_pck_lcprinters();
+                $result['deals_pck'] = $this->postad_ezone_model->deals_pck_pcamcorders();
             $this->load->view("classified_layout/inner_template",$result);
         }
         
