@@ -126,7 +126,8 @@
 												<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 													<aside class="cont_left">
 														<address class="whi_te">
-															<i class="fa fa-envelope"></i><a href="mailto:99rightdeals@gmail.com"> 99rightdeals@gmail.com</a><br>
+															<i class="fa fa-envelope"></i><a href="mailto:support@99rightdeals.com"> support@99rightdeals.com</a><br>
+															<i class="fa fa-envelope"></i><a href="mailto:advertising@99rightdeals.com"> advertising@99rightdeals.com</a><br>
 														</address>
 													</aside>
 												</div>
