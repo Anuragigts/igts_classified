@@ -310,6 +310,196 @@ class hotdealsearch_model extends CI_Model{
 									return $this->db->get()->result();
 			}
 
+			/*phone and tablets*/
+			public function ptablets_sub_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 383 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS mphone,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 384 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS ipad,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 385 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS btooth,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 386 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS land,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 387 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS adap,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 388 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS docks,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 389 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS cases,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 390 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS guard,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 391 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pbank,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=59 AND ad.sub_scat_id = 392 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS wdevice");
+									return $this->db->get()->result();
+			}
+
+			/*home appliances for ezone*/
+			public function happliance_sub_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 393 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS ac,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 394 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS acooler,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 395 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS fans,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 396 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS freez,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 397 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS wash,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 398 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS iron,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 399 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS vacum,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 400 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS heater,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 401 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS rheater,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 402 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS sewing,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 403 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dryers,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 404 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS elight");
+									return $this->db->get()->result();
+			}
+			/*small appliances for ezone*/
+			public function sappliance_sub_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 405 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS oven,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 406 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS fprocess,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 407 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS mixer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 408 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS cooker,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 409 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS sandwich,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 410 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS chopper,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 411 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS grill,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 412 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS kettle,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 413 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS fryer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 414 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS purifier,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 415 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dishwash,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 416 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS flour");
+									return $this->db->get()->result();
+			}
+			/*laptop and computers */
+			public function laptopcomputer_sub_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 417 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS laptop,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 418 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS allinone,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 419 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS printer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 420 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS wifi,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 421 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS harddrive,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 422 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pendrive,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 423 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS keyboard,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 424 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS mouse,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 425 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS headset,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 426 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS cables,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 427 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS ink,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=62 AND ad.sub_scat_id = 428 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS software");
+									return $this->db->get()->result();
+			}
+			/*accessories for ezone */
+			public function accesszone_sub_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 429 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS tablet,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 430 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS iphone,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 431 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS maccess,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 432 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS caccess,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 433 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS headphone,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 434 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS avaccess,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 435 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS camera,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 436 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS inverter,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 437 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS battery");
+									return $this->db->get()->result();
+			}
+			/*personal care for ezone */
+			public function pcarecnt_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 438 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS shavers,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 439 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS trimmer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 440 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS goomers,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 441 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dryers,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 442 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS stylers,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 443 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS epilator,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 444 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pedometer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 445 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS monitor,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 446 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS massage");
+									return $this->db->get()->result();
+			}
+			/*Home Entertainment for ezone */
+			public function hentertainment_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 447 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS lcdled,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 448 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS theatre,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 449 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS bluray,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 450 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS audio,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 451 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS gaming,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 452 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS musical,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 453 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS projector");
+									return $this->db->get()->result();
+			}
+			/*Home Entertainment for ezone */
+			public function photography_search(){
+				$data = date("Y-m-d H:i:s");
+				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 454 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS digital,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 455 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pointshoot,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 456 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS camcorder");
+									return $this->db->get()->result();
+			}
+
 			public function phone_sub_search(){
 				$data = date("Y-m-d H:i:s");
 				$this->db->select("sscat.*,COUNT(ad.ad_id) AS no_ads");

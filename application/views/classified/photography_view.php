@@ -152,15 +152,19 @@
 											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget">Personal Care</h4>
+												<h4 class="title-widget">Photography</h4>
 												<div class="cd-filter-content">
-													<div>
-														<?php foreach ($poto_sub as $poto_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="poto_sub[]" class='poto_sub' value="<?php echo $poto_subval->sub_subcategory_id; ?>" <?php if(isset($poto_sub12) && in_array($poto_subval->sub_subcategory_id,$poto_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $poto_subval->sub_subcategory_name; ?> (<?php echo $poto_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($potosubcnt as $potosubcnt1) {
+																$digital = $potosubcnt1->digital;
+																$pointshoot = $potosubcnt1->pointshoot;
+																$camcorder = $potosubcnt1->camcorder;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>digital-slr-cameras-sale">Digital SLR Cameras (<?php echo $digital; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>point-shoot-cameras-sale">Point & Shoot Cameras (<?php echo $pointshoot; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>digital-camcorders-for-sale">Camcorders (<?php echo $camcorder; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

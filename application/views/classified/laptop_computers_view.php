@@ -152,13 +152,35 @@
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Laptop & Computers</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($lappy_sub as $lappy_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="lappy_sub[]" class='lappy_sub' value="<?php echo $lappy_subval->sub_subcategory_id; ?>" <?php if(isset($lappy_sub12) && in_array($lappy_subval->sub_subcategory_id,$lappy_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $lappy_subval->sub_subcategory_name; ?> (<?php echo $lappy_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($lappysubcnt as $lappysubcnt1) {
+																$laptop = $lappysubcnt1->laptop;
+																$allinone = $lappysubcnt1->allinone;
+																$printer = $lappysubcnt1->printer;
+																$wifi = $lappysubcnt1->wifi;
+																$harddrive = $lappysubcnt1->harddrive;
+																$pendrive = $lappysubcnt1->pendrive;
+																$keyboard = $lappysubcnt1->keyboard;
+																$mouse = $lappysubcnt1->mouse;
+																$headset = $lappysubcnt1->headset;
+																$cables = $lappysubcnt1->cables;
+																$ink = $lappysubcnt1->ink;
+																$software = $lappysubcnt1->software;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-laptop-sale">Laptops (<?php echo $laptop; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>all-in-one-accesseories-sale">All in One (<?php echo $allinone; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-printers-sale">Printers (<?php echo $printer; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-wi-fi-devices-sale">Wi-Fi Devices (<?php echo $wifi; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>external-hard-drive-sale">External Hard Drives (<?php echo $harddrive; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>pen-drives-sale-london">Pen Drives (<?php echo $pendrive; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>keyboards-sale-london">Keyboards (<?php echo $keyboard; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mouse-sale-london-wells">Mouse (<?php echo $mouse; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>headsets-sale-london-peterborough">Headsets (<?php echo $headset; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>cable-connectors-for-sale">Cables & Connectors (<?php echo $cables; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>ink-toner-sale-london">Ink & Toner (<?php echo $ink; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>softwares-sale-london-canterbury">Softwares (<?php echo $software; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

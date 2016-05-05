@@ -65,6 +65,7 @@ class  Personal_care_view extends CI_Controller{
                 
                 /*motor*/
                 $data['pcare_sub'] = $this->hotdealsearch_model->pcare_sub_search();
+                $data['pcaresubcnt'] = $this->hotdealsearch_model->pcarecnt_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -185,6 +186,7 @@ class  Personal_care_view extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
                 $result['pcare_sub'] = $this->hotdealsearch_model->pcare_sub_search();
+                $result['pcaresubcnt'] = $this->hotdealsearch_model->pcarecnt_search();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_pcare();
                  /*seller and needed count for pets*/

@@ -65,6 +65,7 @@ class  Photography_view extends CI_Controller{
                 
                 /*motor*/
                 $data['poto_sub'] = $this->hotdealsearch_model->poto_sub_search();
+                $data['potosubcnt'] = $this->hotdealsearch_model->photography_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -185,6 +186,7 @@ class  Photography_view extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
                 $result['poto_sub'] = $this->hotdealsearch_model->poto_sub_search();
+                $result['potosubcnt'] = $this->hotdealsearch_model->photography_search();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_poto();
                  /*seller and needed count for pets*/

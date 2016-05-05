@@ -65,6 +65,7 @@ class  Accessories_view extends CI_Controller{
                 
                 /*motor*/
                 $data['access_sub'] = $this->hotdealsearch_model->access_sub_search();
+                $data['accesssubcnt'] = $this->hotdealsearch_model->accesszone_sub_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -185,6 +186,7 @@ class  Accessories_view extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
                 $result['access_sub'] = $this->hotdealsearch_model->access_sub_search();
+                $result['accesssubcnt'] = $this->hotdealsearch_model->accesszone_sub_search();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_access();
                  /*seller and needed count for pets*/

@@ -152,13 +152,35 @@
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Home Appliances</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($homes_sub as $homes_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="homes_sub[]" class='homes_sub' value="<?php echo $homes_subval->sub_subcategory_id; ?>" <?php if(isset($homes_sub12) && in_array($homes_subval->sub_subcategory_id,$homes_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $homes_subval->sub_subcategory_name; ?> (<?php echo $homes_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($happ_sub as $happ_sub1) {
+																$ac = $happ_sub1->ac;
+																$acooler = $happ_sub1->acooler;
+																$fans = $happ_sub1->fans;
+																$freez = $happ_sub1->freez;
+																$wash = $happ_sub1->wash;
+																$iron = $happ_sub1->iron;
+																$vacum = $happ_sub1->vacum;
+																$heater = $happ_sub1->heater;
+																$rheater = $happ_sub1->rheater;
+																$sewing = $happ_sub1->sewing;
+																$dryers = $happ_sub1->dryers;
+																$elight = $happ_sub1->elight;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-air-conditioners-sale">Air Conditioners (<?php echo $ac; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-air-coolers-sale">Air Coolers (<?php echo $acooler; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-ceiling-fans-sale">Fans (<?php echo $fans; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-refigerators-sale">Refrigerators (<?php echo $freez; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>washing-machines-for-sale">Washing Machines (<?php echo $wash; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-electric-iron-sale">Electric Iron (<?php echo $iron; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>vacuum-cleaners-sale-london">Vacuum Cleaners (<?php echo $vacum; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-water-heaters-sale">Water Heaters (<?php echo $heater; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>room-heaters-sale-london">Room Heaters (<?php echo $rheater; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>automatic-sewing-machine-sale">Sewing Machine (<?php echo $sewing; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-dryers-for-sale">Dryers (<?php echo $dryers; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>emergency-light-for-sale">Emergency Light (<?php echo $elight; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

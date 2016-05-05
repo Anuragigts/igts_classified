@@ -152,15 +152,35 @@
 											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget"> Phones & Tablets</h4>
+												<h4 class="title-widget">Phones & Tablets</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($phone_sub as $phone_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="phone_sub[]" class='phone_sub' value="<?php echo $phone_subval->sub_subcategory_id; ?>" <?php if(isset($phone_sub12) && in_array($phone_subval->sub_subcategory_id,$phone_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $phone_subval->sub_subcategory_name; ?> (<?php echo $phone_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php 
+															foreach ($ptablets_sub as $ptablets_sub1) {
+																$mphone = $ptablets_sub1->mphone;
+																$ipad = $ptablets_sub1->ipad;
+																$btooth = $ptablets_sub1->btooth;
+																$land = $ptablets_sub1->land;
+																$adap = $ptablets_sub1->adap;
+																$docks = $ptablets_sub1->docks;
+																$cases = $ptablets_sub1->cases;
+																$guard = $ptablets_sub1->guard;
+																$pbank = $ptablets_sub1->pbank;
+																$wdevice = $ptablets_sub1->wdevice;
+															}
+															 ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-phones-for-sale-london">Mobile Phones (<?php echo $mphone; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>tablets-ipods-for-sale">Tablets & iPads (<?php echo $ipad; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>sell-bluetooth-devices">Bluetooth Devices (<?php echo $btooth; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-landline-phones-sale">Landline Phones (<?php echo $land; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-adaptors-connectors-sale">Adaptors & Connectors (<?php echo $adap; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>dock-keypads-sale-uk">Docks & Keypads (<?php echo $docks; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-cases-sleeves-sale">Cases & Sleeves (<?php echo $cases; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-tv-screen-guards-sale">Screen Guards (<?php echo $guard; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-power-banks-sale">Powerbanks (<?php echo $pbank; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>wearable-devices-sale">Wearable Devices (<?php echo $wdevice; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

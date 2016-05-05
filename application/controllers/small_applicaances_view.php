@@ -65,6 +65,7 @@ class  Small_applicaances_view extends CI_Controller{
                 
                 /*motor*/
                 $data['smalls_sub'] = $this->hotdealsearch_model->smalls_sub_search();
+                $data['smallapp'] = $this->hotdealsearch_model->sappliance_sub_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -185,6 +186,7 @@ class  Small_applicaances_view extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
                 $result['smalls_sub'] = $this->hotdealsearch_model->smalls_sub_search();
+                $result['smallapp'] = $this->hotdealsearch_model->sappliance_sub_search();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_smalls();
                  /*seller and needed count for pets*/

@@ -152,13 +152,29 @@
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Personal Care</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($pcare_sub as $pcare_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="pcare_sub[]" class='pcare_sub' value="<?php echo $pcare_subval->sub_subcategory_id; ?>" <?php if(isset($pcare_sub12) && in_array($pcare_subval->sub_subcategory_id,$pcare_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $pcare_subval->sub_subcategory_name; ?> (<?php echo $pcare_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($pcaresubcnt as $pcaresubcnt1) {
+																$shavers = $pcaresubcnt1->shavers;
+																$trimmer = $pcaresubcnt1->trimmer;
+																$goomers = $pcaresubcnt1->goomers;
+																$dryers = $pcaresubcnt1->dryers;
+																$stylers = $pcaresubcnt1->stylers;
+																$epilator = $pcaresubcnt1->epilator;
+																$pedometer = $pcaresubcnt1->pedometer;
+																$monitor = $pcaresubcnt1->monitor;
+																$massage = $pcaresubcnt1->massage;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>online-shavers-sale">Shavers (<?php echo $shavers; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>sell-used-trimmers-sale">Trimmers (<?php echo $trimmer; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>body-groomers-for-sale">Body Groomers (<?php echo $goomers; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>hair-dryers-for-sale">Hair Dryers (<?php echo $dryers; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>hair-stylers-for-sale">Hair Stylers (<?php echo $stylers; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>epilators-for-sale">Epilators (<?php echo $epilator; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-pedometers-for-sale">Pedometers (<?php echo $pedometer; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>monitors-for-sale">Monitors (<?php echo $monitor; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-massagers-for-sale">Massagers (<?php echo $massage; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

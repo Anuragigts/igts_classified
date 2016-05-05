@@ -150,15 +150,37 @@
 											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget"> Small Appliances</h4>
+												<h4 class="title-widget">Small Appliances</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($smalls_sub as $smalls_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="smalls_sub[]" class='smalls_sub' value="<?php echo $smalls_subval->sub_subcategory_id; ?>" <?php if(isset($smalls_sub12) && in_array($smalls_subval->sub_subcategory_id,$smalls_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $smalls_subval->sub_subcategory_name; ?> (<?php echo $smalls_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($smallapp as $smallapp1) {
+																$oven = $smallapp1->oven;
+																$fprocess = $smallapp1->fprocess;
+																$mixer = $smallapp1->mixer;
+																$cooker = $smallapp1->cooker;
+																$sandwich = $smallapp1->sandwich;
+																$chopper = $smallapp1->chopper;
+																$grill = $smallapp1->grill;
+																$kettle = $smallapp1->kettle;
+																$fryer = $smallapp1->fryer;
+																$purifier = $smallapp1->purifier;
+																$dishwash = $smallapp1->dishwash;
+																$flour = $smallapp1->flour;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>microwave-ovens-otg-sale">Microwave Ovens & OTG (<?php echo $oven; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>food-processors-sale-london">Food Processors (<?php echo $fprocess; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-grinder-juicers-sale">Mixer Grinder Juicers (<?php echo $mixer; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>cookers-steamers-for-sale">Cookers & Steamers (<?php echo $cooker; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-toasters-sandwich-makers">Toasters & Sandwich Makers (<?php echo $sandwich; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>blenders-choppers-sale-london">Blenders & Choppers (<?php echo $chopper; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>grills-tandooris-sale-london">Grills & Tandooris (<?php echo $grill; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>coffee-makers-kettles-sale">Coffee Tea Makers & Kettles (<?php echo $kettle; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>fryers-snack-makers-sale">Fryers & Snack makers (<?php echo $fryer; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-water-purifiers-sale">Water Purifiers (<?php echo $purifier; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-dishwashers-for-sale">Dishwashers (<?php echo $dishwash; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-flour-mill-sale">Flour Mill (<?php echo $flour; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

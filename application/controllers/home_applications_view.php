@@ -65,6 +65,7 @@ class  Home_applications_view extends CI_Controller{
                 
                 /*motor*/
                 $data['homes_sub'] = $this->hotdealsearch_model->homes_sub_search();
+                $data['happ_sub'] = $this->hotdealsearch_model->happliance_sub_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -185,6 +186,7 @@ class  Home_applications_view extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
                 $result['homes_sub'] = $this->hotdealsearch_model->homes_sub_search();
+                $result['happ_sub'] = $this->hotdealsearch_model->happliance_sub_search();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_homes();
                  /*seller and needed count for pets*/

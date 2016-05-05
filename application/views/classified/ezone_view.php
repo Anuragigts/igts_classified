@@ -172,7 +172,6 @@
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-entertainment-items-sale">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-digital-camera-for-sale">Photography (<?php echo $grapycnt; ?>)</a></li>
 														</ul>
-														</ul>
 													</div>
 												</div>
 											</div> 

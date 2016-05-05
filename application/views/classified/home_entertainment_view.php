@@ -151,15 +151,27 @@
 											<a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 											
 											<div class="cd-filter-block">
-												<h4 class="title-widget">Personal Care</h4>
+												<h4 class="title-widget">Home Entertainment</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($entertain_sub as $entertain_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="entertain_sub[]" class='entertain_sub' value="<?php echo $entertain_subval->sub_subcategory_id; ?>" <?php if(isset($entertain_sub12) && in_array($entertain_subval->sub_subcategory_id,$entertain_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $entertain_subval->sub_subcategory_name; ?> (<?php echo $entertain_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($entertainsubcnt as $entertainsubcnt1) {
+																$lcdled = $entertainsubcnt1->lcdled;
+																$theatre = $entertainsubcnt1->theatre;
+																$bluray = $entertainsubcnt1->bluray;
+																$audio = $entertainsubcnt1->audio;
+																$gaming = $entertainsubcnt1->gaming;
+																$musical = $entertainsubcnt1->musical;
+																$projector = $entertainsubcnt1->projector;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>lcd-led-television-sale">LCD LED Televisions (<?php echo $lcdled; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-theatre-systems-sale">Home Theatre Systems (<?php echo $theatre; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>dvd-blue-ray-players-sale">DVD & Blue-Ray Players (<?php echo $bluray; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>audio-systems-for-sale">Audio Systems (<?php echo $audio; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-gaming-for-sale">Gaming (<?php echo $gaming; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-musical-instruments-sale">Musical Instruments (<?php echo $musical; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-projectors-sale">Projectors (<?php echo $projector; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 

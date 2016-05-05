@@ -156,13 +156,29 @@
 											<div class="cd-filter-block">
 												<h4 class="title-widget">Accessories</h4>
 												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($access_sub as $access_subval) { ?>
-														<label class="checkbox">
-															<input type="checkbox" name="access_sub[]" class='access_sub' value="<?php echo $access_subval->sub_subcategory_id; ?>" <?php if(isset($access_sub12) && in_array($access_subval->sub_subcategory_id,$access_sub12)) echo 'checked = checked';?> >
-															<i></i> <?php echo $access_subval->sub_subcategory_name; ?> (<?php echo $access_subval->no_ads; ?>)
-														</label>
-														<?php } ?>
+													<div class="filters_categories">	
+														<ul class="list-styles">
+															<?php foreach ($accesssubcnt as $accesssubcnt1) {
+																$tablet = $accesssubcnt1->tablet;
+																$iphone = $accesssubcnt1->iphone;
+																$maccess = $accesssubcnt1->maccess;
+																$caccess = $accesssubcnt1->caccess;
+																$headphone = $accesssubcnt1->headphone;
+																$avaccess = $accesssubcnt1->avaccess;
+																$camera = $accesssubcnt1->camera;
+																$inverter = $accesssubcnt1->inverter;
+																$battery = $accesssubcnt1->battery;
+															} ?>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>tablet-ipad-accessories-sale">Tablet & iPad Accessories (<?php echo $tablet; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>iphone-accessories-for-sale">iPhone Accessories (<?php echo $iphone; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-accessories-for-sale">Mobile Accessories (<?php echo $maccess; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-accessories-for-sale">Computer Accessories (<?php echo $caccess; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>headphones-earphones-for-sale">Headphones & Earphones (<?php echo $headphone; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>audio-video-accessories-sale">Audio Video Accessories (<?php echo $avaccess; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>camera-accessories-for-sale">Camera Accessories (<?php echo $camera; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>inverters-stablizers-power-sale">Inverters, Stablizers & Power (<?php echo $inverter; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-battery-sale">Battery (<?php echo $battery; ?>)</a></li>
+														</ul>
 													</div>
 												</div>
 											</div> 
