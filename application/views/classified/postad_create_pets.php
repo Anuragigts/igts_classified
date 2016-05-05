@@ -901,6 +901,7 @@
 															</div>
 														</div>
 													</div>
+													<?php if ($sub_id != 7) { ?>
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Family Race
@@ -985,6 +986,7 @@
 														</div>
 														<!-- end Gender -->
 													</div>
+													<?php } ?>
 													<div class="j-row">
 														<div class="span6 unit">
 															<label class="label">Price 

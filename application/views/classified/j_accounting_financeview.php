@@ -127,7 +127,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>job_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>j_accounting_financeview/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -144,19 +144,7 @@
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>part-full-time-jobs-london"><h3 class="title-widget">Jobs Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Category</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($jobs_sub as $jobval) { ?>
-															<label class="checkbox">
-																<input type="checkbox" name="job_search[]" class="job_search" value="<?php echo $jobval->sub_category_id; ?>" <?php if (isset($jobsearch) && in_array($jobval->sub_category_id, $jobsearch)) { echo 'checked=checked';	} ?> >
-																<i></i> <?php echo $jobval->sub_category_name."(".$jobval->no_ads.")"; ?> 
-															</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
+											<h4 class="title-widget">Accounting & Finance</h4>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget "> Position For</h4>
@@ -164,7 +152,7 @@
 													<div>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor"  value="Student_(Higher_Education_Graduate)" <?php if (isset($positionfor) && in_array('Student_(Higher_Education_Graduate)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i>  Student (Higher Education Graduate) (<?php echo $students; ?>)
+															<i></i>  Student (<?php echo $students; ?>)
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Entry-level" <?php if (isset($positionfor) && in_array('Entry-level', $positionfor)) { echo 'checked=checked';	} ?> >
@@ -172,15 +160,15 @@
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Expirenced_(Non-Manager)" <?php if (isset($positionfor) && in_array('Expirenced_(Non-Manager)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Expirenced (Non-Manager) (<?php echo $nonmanager; ?>)
+															<i></i> Expirenced (<?php echo $nonmanager; ?>)
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Manager_(Managing_the_staff)" <?php if (isset($positionfor) && in_array('Manager_(Managing_the_staff)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Manager (Managing the staff) (<?php echo $manager; ?>)
+															<i></i> Manager (<?php echo $manager; ?>)
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Executive (Director / Dept.Head) (<?php echo $executive; ?>)
+															<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_/_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_/_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
+															<i></i> Executive (<?php echo $executive; ?>)
 														</label>
 													</div>
 												</div>
@@ -316,7 +304,7 @@
 										<!-- sort-by-container-->
 
 										<div class="row list_view_searches jobs_search_result">
-											<?php echo $this->load->view("classified/jobs_view_search"); ?> 
+											<?php echo $this->load->view("classified/j_accounting_financeview_search"); ?> 
 										</div>
 									</div>
 								</div>

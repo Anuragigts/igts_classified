@@ -51,7 +51,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="titles">
-										<a href="<?php echo base_url(); ?>">Go To Homepage</a>
+										<a href="javascript: window.history.go(-1);" >Go To Previous page</a>
 									</div>
 								</div>
 							</div>
@@ -74,7 +74,7 @@
 		<script src="<?php echo base_url(); ?>js/jquery.js"></script>
 		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 		<script type="text/javascript">
-			setTimeout(function(){ window.location = '<?php echo base_url(); ?>'; }, 5000);
+			setTimeout(function(){ window.history.go(-1); }, 7000);
 		</script>
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 

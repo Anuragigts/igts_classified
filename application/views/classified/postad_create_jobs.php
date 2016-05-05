@@ -989,10 +989,7 @@
 															</sup>
 															</label>
 															<div class="input">
-																<label class="icon-right" for="suitableskils">
-																<img src="<?php echo base_url(); ?>j-folder/img/skill.png" alt="skill" title="Skill">
-																</label>
-																<input type="text" id="suitableskils" name="suitableskils" placeholder="Enter Suitable skill">
+																<textarea type="text" id="suitableskils" name="suitableskils" placeholder="Enter Suitable skill"></textarea>
 															</div>
 														</div>
 													</div>

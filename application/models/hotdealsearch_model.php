@@ -5163,19 +5163,20 @@ class hotdealsearch_model extends CI_Model{
 			
 			/*deal posted days 24hr/3day/7day/14day/1month */
 			if ($recentdays == 'last24hours'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+				// $this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
 			}
 			else if ($recentdays == 'last3days'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
 			}
 			else if ($recentdays == 'last7days'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
 			}
 			else if ($recentdays == 'last14days'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
 			}	
 			else if ($recentdays == 'last1month'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
 			}
 
 			/*location search*/
@@ -5201,7 +5202,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			  // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -5411,19 +5412,19 @@ class hotdealsearch_model extends CI_Model{
 			
 			/*deal posted days 24hr/3day/7day/14day/1month */
 			if ($recentdays == 'last24hours'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 day"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
 			}
 			else if ($recentdays == 'last3days'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-3 days"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
 			}
 			else if ($recentdays == 'last7days'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-7 days"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
 			}
 			else if ($recentdays == 'last14days'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-14 days"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
 			}	
 			else if ($recentdays == 'last1month'){
-				$this->db->where("UNIX_TIMESTAMP(STR_TO_DATE(ad.`created_on`, '%d-%m-%Y %h:%i:%s')) >=", strtotime(date("d-m-Y H:i:s", strtotime("-1 month"))));
+				$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
 			}
 
 			/*location search*/
@@ -5448,7 +5449,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			    // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -11522,7 +11523,7 @@ class hotdealsearch_model extends CI_Model{
 		(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
 		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Manager_(Managing_the_staff)')AS manager,
 		(SELECT COUNT(*) FROM postad AS ad, job_details AS jd 
-		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Executive_(Director_Dept.Head)')AS executive");
+		WHERE ad.`ad_id`=jd.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$data' AND jd.`positionfor` = 'Executive_(Director_/_Dept.Head)')AS executive");
         	$rs = $this->db->get();
         	return $rs->result();
         }

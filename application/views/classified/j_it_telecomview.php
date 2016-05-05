@@ -127,7 +127,7 @@
 				<div class="semiboxshadow text-center">
 					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
-				<form id="j-forms2" action="<?php echo base_url(); ?>job_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
+				<form id="j-forms2" action="<?php echo base_url(); ?>j_it_telecomview/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 					<div class="content_info">
 						<div class="paddings">
 							<div class="container pad_bott_50">
@@ -144,19 +144,7 @@
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>part-full-time-jobs-london"><h3 class="title-widget">Jobs Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Category</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($jobs_sub as $jobval) { ?>
-															<label class="checkbox">
-																<input type="checkbox" name="job_search[]" class="job_search" value="<?php echo $jobval->sub_category_id; ?>" <?php if (isset($jobsearch) && in_array($jobval->sub_category_id, $jobsearch)) { echo 'checked=checked';	} ?> >
-																<i></i> <?php echo $jobval->sub_category_name."(".$jobval->no_ads.")"; ?> 
-															</label>
-														<?php } ?>
-													</div>
-												</div>
-											</div>
+											<h4 class="title-widget "> IT & Telecom</h4>
 											
 											<div class="cd-filter-block">
 												<h4 class="title-widget "> Position For</h4>
@@ -316,7 +304,7 @@
 										<!-- sort-by-container-->
 
 										<div class="row list_view_searches jobs_search_result">
-											<?php echo $this->load->view("classified/jobs_view_search"); ?> 
+											<?php echo $this->load->view("classified/j_it_telecomview_search"); ?> 
 										</div>
 									</div>
 								</div>

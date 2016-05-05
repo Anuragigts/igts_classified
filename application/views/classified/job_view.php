@@ -16,7 +16,11 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>js/filter.css"> 
 		<link rel="stylesheet" href="<?php echo base_url();?>libs/slider.css">
 		<script type="text/javascript" src="<?php echo base_url();?>js/jssor.slider.min.js"></script>
-	
+		<style type="text/css">
+		#limit_scrol{
+			height: 400px !important;
+		}
+		</style>
 		<script type="text/javascript">
 			$(document).ready(function() {
 			  $('.cd-filter-content').niceScroll({
@@ -100,6 +104,41 @@
 				$agency = $sncnt->agency;
 				$other = $sncnt->other;
 			  }
+
+			  foreach ($jobscnt as $val) {
+			  			$acnts = $val->acnts;
+			  			$constr = $val->constr;
+			  			$finan = $val->finan;
+			  			$bank = $val->bank;
+			  			$build = $val->build;
+			  			$sales = $val->sales;
+			  			$news = $val->news;
+			  			$retail = $val->retail;
+			  			$supp = $val->supp;
+			  			$it = $val->it;
+			  			$hard = $val->hard;
+			  			$health = $val->health;
+			  			$human = $val->human;
+			  			$office = $val->office;
+			  			$drive = $val->drive;
+			  			$pa = $val->pa;
+			  			$archi = $val->archi;
+			  			$cater = $val->cater;
+			  			$front = $val->front;
+			  			$plumb = $val->plumb;
+			  			$chem = $val->chem;
+			  			$engg = $val->engg;
+			  			$logi = $val->logi;
+			  			$mech = $val->mech;
+			  			$dent = $val->dent;
+			  			$manage = $val->manage;
+			  			$tele = $val->tele;
+			  			$petrol = $val->petrol;
+			  			$powerengg = $val->powerengg;
+			  			$grad = $val->grad;
+			  			$nurse = $val->nurse;
+			  			$misc = $val->misc;
+			  }
 		   ?>
 		   
 	</head>
@@ -145,17 +184,43 @@
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>part-full-time-jobs-london"><h3 class="title-widget">Jobs Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Category</h4>
-												<div class="cd-filter-content">
-													<div id="limit_scrol">
-														<?php foreach ($jobs_sub as $jobval) { ?>
-															<label class="checkbox">
-																<input type="checkbox" name="job_search[]" class="job_search" value="<?php echo $jobval->sub_category_id; ?>" <?php if (isset($jobsearch) && in_array($jobval->sub_category_id, $jobsearch)) { echo 'checked=checked';	} ?> >
-																<i></i> <?php echo $jobval->sub_category_name."(".$jobval->no_ads.")"; ?> 
-															</label>
-														<?php } ?>
-													</div>
+											<h4 class="title-widget">Search Filter</h4>
+											<div class="cd-filter-content">
+												<div id='limit_scrol' class="filters_categories">	
+													<ul class="list-styles">
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>accounting-finance-jobs-london"> Accounting & Finance (<?php echo $acnts; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>real-state-construction-jobs"> Construction (<?php echo $constr; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>income-tex-banking-financial-jobs-london"> Financial Services (<?php echo $finan; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>retail-banking-jobs-vacancy-london"> Banking (<?php echo $bank; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>real-state-building-services-jobs"> Building Services (<?php echo $build; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>sales-marketing-jobs-vacancies-birmingham"> Sales & Marketing (<?php echo $sales; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>news-media-jobs-london"> News & Media (<?php echo $news; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>retails-marketing-sales-jobs"> Retail (<?php echo $retail; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>purchasing-supply-logistic-jobs-london-wells"> Purchasing & Supply (<?php echo $supp; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>it-telecom-jobs-london-manchester"> IT & Telecom (<?php echo $it; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>computer-hardware-networking-jobs"> Hardware & Networking (<?php echo $hard; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>healthcare-old-age-care-services-jobs-london"> Healthcare & Old Age Care (<?php echo $health; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>hr-and-training-jobs-london"> Human Resource & Training (<?php echo $human; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>office-administrative-jobs"> Office Administrative Jobs (<?php echo $office; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>part-full-time-driving-jobs-london"> Driving (<?php echo $drive; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>company-pa-secretarial-jobs-london"> P.A. & Secretarial (<?php echo $pa; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>architecture-jobs-london-birmingham"> Architecture (<?php echo $archi; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>outdoor-indoor-catering-jobs-london"> Catering Jobs (<?php echo $cater; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>front-desk-office-help-desk-jobs"> Front Office & Help Desk (<?php echo $front; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>electrician-plumbing-jobs-birmingham"> Electrician & Plumbing Tools (<?php echo $plumb; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>chemical-engineering-jobs-london-birmingham"> Chemical Engineering (<?php echo $chem; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>electronics-electrical-civil-engineering-jobs"> Electronics & Electrical Engineering (<?php echo $engg; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>logistics-supply-chain-management-jobs"> Logistics & Supply Chain Management (<?php echo $logi; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>mechanical-engineering-london-birmingham-wells"> Mechanical Engineering (<?php echo $mech; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>dentist-jobs-services-london"> Dentists (<?php echo $dent; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>marketing-finance-hr-management-jobs"> Management Jobs (<?php echo $manage; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>telesales-marketing-telecalling-jobs-london"> Telesales (<?php echo $tele; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>petroleum-chemical-engineering-jobs-london"> Petroleum Engineering (<?php echo $petrol; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>power-engineering-jobs-london-birmingham"> Power Engineering (<?php echo $powerengg; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>fresher-experience-graduate-Jobs-london"> Graduate Jobs (<?php echo $grad; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>hospitality-and-staff-nursing-jobs"> Nursing Jobs (<?php echo $nurse; ?>)</a></li>
+														<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>miscelleneous-jobs-vacancy-birmingham-london"> Miscelleneous (<?php echo $misc; ?>)</a></li>
+													</ul>
 												</div>
 											</div>
 											
@@ -165,7 +230,7 @@
 													<div>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor"  value="Student_(Higher_Education_Graduate)" <?php if (isset($positionfor) && in_array('Student_(Higher_Education_Graduate)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i>  Student (Higher Education Graduate) (<?php echo $students; ?>)
+															<i></i>  Student (<?php echo $students; ?>)
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Entry-level" <?php if (isset($positionfor) && in_array('Entry-level', $positionfor)) { echo 'checked=checked';	} ?> >
@@ -173,15 +238,15 @@
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Expirenced_(Non-Manager)" <?php if (isset($positionfor) && in_array('Expirenced_(Non-Manager)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Expirenced (Non-Manager) (<?php echo $nonmanager; ?>)
+															<i></i> Expirenced (<?php echo $nonmanager; ?>)
 														</label>
 														<label class="checkbox">
 															<input type="checkbox" name="positionfor[]" class="positionfor" value="Manager_(Managing_the_staff)" <?php if (isset($positionfor) && in_array('Manager_(Managing_the_staff)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Manager (Managing the staff) (<?php echo $manager; ?>)
+															<i></i> Manager (<?php echo $manager; ?>)
 														</label>
 														<label class="checkbox">
-															<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
-															<i></i> Executive (Director / Dept.Head) (<?php echo $executive; ?>)
+															<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_/_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_/_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
+															<i></i> Executive (<?php echo $executive; ?>)
 														</label>
 													</div>
 												</div>

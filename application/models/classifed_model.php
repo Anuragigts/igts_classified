@@ -10,7 +10,7 @@ Class Classifed_model extends CI_model{
 		$this->db->join("platinum_ads as pads", "pads.ad_id = ad.ad_id","join");
 		$this->db->where('ad.ad_status', 1);
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-		$this->db->order_by('ad.ad_id', "DESC");
+		$this->db->order_by('ad.approved_on', "DESC");
 		$rs = $this->db->get();
 		return $rs->result();
 	}
@@ -934,6 +934,7 @@ GROUP BY img.ad_id
 	/*feedback for ads*/
 	public function feedbackads_insert(){
 		$login_email = @mysql_result(mysql_query("SELECT login_email FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '".$this->input->post('ad_id')."')"), 0, 'login_email');
+		$deal_tag = @mysql_result(mysql_query("SELECT deal_tag FROM postad WHERE ad_id = '".$this->input->post('ad_id')."'"), 0, 'deal_tag');
 		 $config = Array(
                  'protocol' => 'smtp',
                  'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -945,7 +946,7 @@ GROUP BY img.ad_id
                  $this->email->set_newline("\r\n");
                 $this->email->from($this->input->post('busemail'), $this->input->post('fbkcontname'));
                 $this->email->to($login_email);
-                $this->email->subject("99 Right Deals Deal Feedback");
+                $this->email->subject("99 Right Deals::Deal Viewer Response");
                 $message    =   "<div style='padding: 81px 150px;'>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
 										<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
@@ -955,32 +956,37 @@ GROUP BY img.ad_id
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
 										<h3>Hi ".$this->input->post('con_fname').",</h3>
 										<p>Welcome to 99Rightdeals.com</p>
-										
+										<p><a href='".base_url()."description_view/details/".$this->input->post('ad_id')."'>$deal_tag</a></p>
 										<p>Contact Person : ".$this->input->post('fbkcontname')."</p>
 										<p>Contact mobile : ".$this->input->post('feedbackno')."</p>
 										<p>Contact email : ".$this->input->post('busemail')."</p>
-										<p>Message : ".$this->input->post('feedbackmsg')."</p>
+										<p >Message : ".$this->input->post('feedbackmsg')."</p>
 										<p>Best Wishes,</p>
 										<p>The <a href=''><strong style='color:#9FC955;'>99RightDeals </strong></a>Team</p>
 									</div>
 								</div>";
                 $this->email->message($message);
-                $this->email->send();
-		$data = array('ad_id'=> $this->input->post('ad_id'),
-						'contact_name'	=> $this->input->post('fbkcontname'),
-						'mobile'	=> $this->input->post('feedbackno'),
-						'email'	=> $this->input->post('busemail'),
-						'message'		=> $this->input->post('feedbackmsg'),
-						'created_on'	=> date("Y-m-d H:i:s"),
-						'status'		=> 1
-			);
-			$this->db->insert("feedbackforads", $data);
-			if ($this->db->affected_rows() > 0) {
-				return 1;
-			}
-			else{
-				return 0;
-			}
+                if (!$this->email->send()) {
+                // Raise error message
+                show_error($this->email->print_debugger());
+                    }
+                    else{
+						$data = array('ad_id'=> $this->input->post('ad_id'),
+										'contact_name'	=> $this->input->post('fbkcontname'),
+										'mobile'	=> $this->input->post('feedbackno'),
+										'email'	=> $this->input->post('busemail'),
+										'message'		=> $this->input->post('feedbackmsg'),
+										'created_on'	=> date("Y-m-d H:i:s"),
+										'status'		=> 1
+							);
+							$this->db->insert("feedbackforads", $data);
+							if ($this->db->affected_rows() > 0) {
+								return 1;
+							}
+							else{
+								return 0;
+							}
+				}			
 	}
 
 	/*feedback for website*/
@@ -1084,14 +1090,15 @@ GROUP BY img.ad_id
 		$this->db->from("postad as ads");
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->where("ads.ad_status", "1");
+		$this->db->where("(ads.package_type =2 OR ads.package_type = 5) OR (ads.package_type =3 OR ads.package_type = 6)");
 		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->where("(ads.category_id = $catid) OR (ads.sub_cat_id= $subid)");
 		$this->db->like('ads.deal_tag',$title);
 		$this->db->group_by('img.ad_id');
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ads.approved_on', 'DESC');
 		$this->db->limit(10);
 		$m_res = $this->db->get();
-
+		// echo $this->db->last_query(); exit;
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}
@@ -2909,6 +2916,76 @@ GROUP BY img.ad_id
 					}
 		}
 
+		
+		/*jobs count*/
+		public function jobscnt(){
+			$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=27 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS acnts,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=28 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS constr,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=29 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS finan,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=30 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS bank,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=31 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS build,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=32 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS sales,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=33 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS news,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=34 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS retail,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=35 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS supp,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=36 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS it,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=37 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS hard,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=38 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS health,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=39 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS human,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=40 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS office,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=41 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS drive,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=42 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pa,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=43 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS archi,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=44 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS cater,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=45 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS front,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=46 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS plumb,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=47 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS chem,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=48 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS engg,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=49 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS logi,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=50 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS mech,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=51 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dent,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=52 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS manage,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=53 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS tele,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=54 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS petrol,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=55 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS powerengg,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=56 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS grad,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=57 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS nurse,
+		(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+		AND ad.`category_id` = '1' AND ad.`sub_cat_id`=58 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS misc");
+			return $this->db->get()->result();
+		}
 		/*services prof and popular*/
 		public function profpopcnt(){
 			$data = date("Y-m-d H:i:s");

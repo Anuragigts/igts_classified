@@ -212,4 +212,10 @@
 			});
 		</script>
 		
-		
+		<script type="text/javascript">
+			$(function(){
+				$(".send_now_show").click(function(){
+					$('#fdbkads').val($(this).attr('id'));
+				});
+			});
+		</script>

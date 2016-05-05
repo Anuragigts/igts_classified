@@ -55,12 +55,14 @@ class  Job_view extends CI_Controller{
             }
              $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $public_adview = $this->classifed_model->publicads_jobs();
+            $jobscnt = $this->classifed_model->jobscnt();
                 $data   =   array(
                         "title"     =>  "Classifieds",
                         "content"   =>  "job_view",
                         'log_name' => $log_name,
                         "jobs_result" => $jobs_view,
                         "public_adview" => $public_adview,
+                        "jobscnt" => $jobscnt,
                         'login_status' =>$login_status,
                         'login' =>$login,
                         'paging_links' =>$this->pagination->create_links(),
@@ -179,6 +181,7 @@ class  Job_view extends CI_Controller{
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
+            $result['jobscnt'] = $this->classifed_model->jobscnt();
             $result['login_status'] =$login_status;
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;

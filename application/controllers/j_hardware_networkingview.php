@@ -10,6 +10,7 @@ class  J_hardware_networkingview extends CI_Controller{
                 parent::__construct();
                 $this->load->model("hotdealsearch_model");
                 $this->load->model("classifed_model");
+                $this->load->model("postad_job_model");
                 $this->load->library('pagination');
         }
         public function index(){
@@ -25,7 +26,7 @@ class  J_hardware_networkingview extends CI_Controller{
                 $this->session->set_userdata('longg','');
              $config = array();
             $config['base_url'] = base_url().'j_hardware_networkingview/index';
-            $config['total_rows'] = count($this->classifed_model->count_jobs_view());
+            $config['total_rows'] = count($this->postad_job_model->count_jhard_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -49,7 +50,7 @@ class  J_hardware_networkingview extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $jobs_view = $this->classifed_model->jobs_view($search_option);
+                $jobs_view = $this->postad_job_model->jhard_view($search_option);
             foreach ($jobs_view as $jview) {
                 $loginid = $jview->login_id;
             }
@@ -57,7 +58,7 @@ class  J_hardware_networkingview extends CI_Controller{
             $public_adview = $this->classifed_model->publicads_jobs();
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "job_view",
+                        "content"   =>  "j_hardware_networkingview",
                         'log_name' => $log_name,
                         "jobs_result" => $jobs_view,
                         "public_adview" => $public_adview,
@@ -69,13 +70,13 @@ class  J_hardware_networkingview extends CI_Controller{
                 
                 $data['jobs_sub'] = $this->hotdealsearch_model->jobs_sub_search();
                  /*business and consumer count for jobs*/
-                $data['busconcount'] = $this->hotdealsearch_model->busconcount_jobs();
+                $data['busconcount'] = $this->postad_job_model->busconcount_jhard();
                  /*seller and needed count for jobs*/
-                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_jobs1();
+                $data['sellerneededcount'] = $this->postad_job_model->sellerneeded_jhard();
                 /*packages count jobs*/
-                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_jobs();
+                $data['deals_pck'] = $this->postad_job_model->deals_pck_jhard();
                  /*packages count jobs*/
-                $data['jobpositioncnt'] = $this->hotdealsearch_model->jobpositioncnt();
+                $data['jobpositioncnt'] = $this->postad_job_model->position_jhard();
                 // echo "<pre>"; print_r($this);
                 $this->load->view("classified_layout/inner_template",$data);
         }
@@ -137,8 +138,8 @@ class  J_hardware_networkingview extends CI_Controller{
                 }
             }
             $config = array();
-            $config['base_url'] = base_url().'job_view/search_filters';
-            $config['total_rows'] = count($this->hotdealsearch_model->count_jobs_search());
+            $config['base_url'] = base_url().'j_hardware_networkingview/search_filters';
+            $config['total_rows'] = count($this->postad_job_model->count_jhard_search());
             $config['per_page'] = 30;
             $config['next_link'] = 'Next';
             $config['prev_link'] = 'Previous';
@@ -163,11 +164,11 @@ class  J_hardware_networkingview extends CI_Controller{
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
             /*location list*/
-            $res = $this->hotdealsearch_model->jobs_search($search_option);
+            $res = $this->postad_job_model->jhard_search($search_option);
            
             $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "job_view");
+                        "content"   =>  "j_hardware_networkingview");
              $result['jobs_result'] = $res;
             $public_adview = $this->classifed_model->publicads_jobs();
             if (!empty($res)) {
@@ -185,13 +186,13 @@ class  J_hardware_networkingview extends CI_Controller{
             $result['paging_links'] = $this->pagination->create_links();
              $result['jobs_sub'] = $this->hotdealsearch_model->jobs_sub_search();
                  /*business and consumer count for jobs*/
-            $result['busconcount'] = $this->hotdealsearch_model->busconcount_jobs();
+            $result['busconcount'] = $this->postad_job_model->busconcount_jhard();
              /*seller and needed count for jobs*/
-            $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_jobs1();
+            $result['sellerneededcount'] = $this->postad_job_model->sellerneeded_jhard();
             /*packages count jobs*/
-            $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_jobs();
+            $result['deals_pck'] = $this->postad_job_model->deals_pck_jhard();
              /*packages count jobs*/
-            $result['jobpositioncnt'] = $this->hotdealsearch_model->jobpositioncnt();
+            $result['jobpositioncnt'] = $this->postad_job_model->position_jhard();
             $this->load->view("classified_layout/inner_template",$result);
         }
         

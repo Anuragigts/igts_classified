@@ -55,7 +55,7 @@ class Description_view extends CI_Controller{
                                             'Price Type'=> $value->price_type );
                     }
                     /*pets*/
-                    if ($value->category_id == '5') {
+                    if ($value->category_id == '5' && $value->sub_cat_id != 7) {
                         $detailed_pets = $this->classifed_model->ads_detailed_pets();
                         foreach ($detailed_pets as $val) {
                             $body_content = array('Service Type' => $value->services,
@@ -490,12 +490,18 @@ class Description_view extends CI_Controller{
             $feedbackads_insert = $this->classifed_model->feedbackads_insert();
                 if ($feedbackads_insert == 1) {
                     $this->session->set_flashdata('feedbackmsg', 'feedback Sent Successfully!!');
-                    redirect($this->input->post('curr_url'));
+                    // redirect($this->input->post('curr_url'));
                 }
                 else{
                    $this->session->set_flashdata('err', 'Internal error occured'); 
-                    redirect($this->input->post('curr_url'));
+                    // redirect($this->input->post('curr_url'));
                 }
+                $data = array(
+                        "title"     =>  "feedbackadsuccess",
+                        "content"   =>  "feedbackadsuccess",
+                        'curr_url'  =>  $this->input->post('curr_url')
+                );
+             $this->load->view("classified_layout/inner_template",$data);
         }
 
         public function reportforads(){

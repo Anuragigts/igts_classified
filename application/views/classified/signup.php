@@ -306,6 +306,7 @@
 													</div>
 													<div class="col-submit">
 														<input type="submit" id="submit" name='submit' class="btn btn-primary" value="Register">
+														<a href='<?php echo base_url(); ?>'><input type="button" id="cancel" name='cancel' class="btn btn-primary" value="Cancel"></a>
 													</div>
 												</form>
 											</div>
