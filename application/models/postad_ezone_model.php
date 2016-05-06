@@ -201,7 +201,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_mphones(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 383 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 383 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 383 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 383 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 383 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -209,13 +210,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_mphones_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "383");
@@ -228,12 +230,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function mphones_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "383");
@@ -258,13 +261,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "383");
@@ -361,12 +365,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "383");
@@ -476,7 +481,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_tabipad(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 384 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 384 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 384 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 384 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 384 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -484,13 +490,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_tabipad_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "384");
@@ -503,12 +510,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function tabipad_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "384");
@@ -533,13 +541,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "384");
@@ -636,12 +645,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "384");
@@ -751,7 +761,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_bluetooth(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 385 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 385 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 385 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 385 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 385 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -759,13 +770,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_bluetooth_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "385");
@@ -778,12 +790,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function bluetooth_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "385");
@@ -808,13 +821,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "385");
@@ -911,12 +925,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "385");
@@ -1026,7 +1041,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_landlinephones(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 386 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 386 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 386 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 386 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 386 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -1034,13 +1050,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_landlinephones_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "386");
@@ -1053,12 +1070,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function landlinephones_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "386");
@@ -1083,13 +1101,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "386");
@@ -1186,12 +1205,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "386");
@@ -1300,7 +1320,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_adaptor(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 387 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 387 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 387 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 387 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 387 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -1308,13 +1329,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_adaptor_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "387");
@@ -1327,12 +1349,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function adaptor_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "387");
@@ -1357,13 +1380,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "387");
@@ -1460,12 +1484,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "387");
@@ -1575,7 +1600,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_dockskeypads(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 388 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 388 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 388 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 388 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 388 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -1583,13 +1609,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_dockskeypads_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "388");
@@ -1602,12 +1629,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function dockskeypads_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "388");
@@ -1632,13 +1660,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "388");
@@ -1735,12 +1764,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "388");
@@ -1849,7 +1879,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_casesleeves(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 389 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 389 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 389 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 389 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 389 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -1857,13 +1888,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_casesleeves_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "389");
@@ -1876,12 +1908,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function casesleeves_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "389");
@@ -1906,13 +1939,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "389");
@@ -2009,12 +2043,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "389");
@@ -2123,7 +2158,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_screenguards(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 390 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 390 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 390 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 390 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 390 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -2131,13 +2167,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_screenguards_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "390");
@@ -2150,12 +2187,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function screenguards_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "390");
@@ -2180,13 +2218,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "390");
@@ -2283,12 +2322,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "390");
@@ -2397,7 +2437,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_powerbanks(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 391 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 391 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 391 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 391 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 391 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -2405,13 +2446,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_powerbanks_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "391");
@@ -2424,12 +2466,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function powerbanks_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "391");
@@ -2454,13 +2497,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "391");
@@ -2557,12 +2601,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "391");
@@ -2671,7 +2716,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_wearabledevices(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 392 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 392 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 392 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 392 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 59 AND sub_scat_id = 392 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -2679,13 +2725,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_wearabledevices_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "392");
@@ -2698,12 +2745,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function wearabledevices_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "392");
@@ -2728,13 +2776,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "392");
@@ -2831,12 +2880,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "59");
                 $this->db->where("ad.sub_scat_id", "392");
@@ -2945,7 +2995,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_airconditioners(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 393 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 393 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 393 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 393 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 393 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -2953,13 +3004,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_airconditioners_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "393");
@@ -2972,12 +3024,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function airconditioners_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "393");
@@ -3002,13 +3055,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "393");
@@ -3105,12 +3159,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "393");
@@ -3219,7 +3274,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_aircoolers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 394 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 394 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 394 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 394 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 394 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -3227,13 +3283,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_aircoolers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "394");
@@ -3246,12 +3303,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function aircoolers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "394");
@@ -3276,13 +3334,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "394");
@@ -3379,12 +3438,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "394");
@@ -3493,7 +3553,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_fans(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 395 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 395 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 395 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 395 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 395 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -3501,13 +3562,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_fans_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "395");
@@ -3520,12 +3582,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function fans_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "395");
@@ -3550,13 +3613,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "395");
@@ -3653,12 +3717,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "395");
@@ -3767,7 +3832,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_refrigerators(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 396 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 396 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 396 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 396 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 396 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -3775,13 +3841,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_refrigerators_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "396");
@@ -3794,12 +3861,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function refrigerators_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "396");
@@ -3824,13 +3892,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "396");
@@ -3927,12 +3996,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "396");
@@ -4041,7 +4111,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_washingmachines(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 397 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 397 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 397 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 397 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 397 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -4049,13 +4120,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_washingmachines_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "397");
@@ -4068,12 +4140,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function washingmachines_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "397");
@@ -4098,13 +4171,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "397");
@@ -4201,12 +4275,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "397");
@@ -4315,7 +4390,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_electriciron(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 398 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 398 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 398 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 398 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 398 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -4323,13 +4399,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_electriciron_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "398");
@@ -4342,12 +4419,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function electriciron_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "398");
@@ -4372,13 +4450,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "398");
@@ -4475,12 +4554,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "398");
@@ -4590,7 +4670,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_vacuumcleaners(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 399 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 399 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 399 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 399 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 399 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -4598,13 +4679,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_vacuumcleaners_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "399");
@@ -4617,12 +4699,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function vacuumcleaners_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "399");
@@ -4647,13 +4730,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "399");
@@ -4750,12 +4834,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "399");
@@ -4865,7 +4950,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_waterheaters(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 400 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 400 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 400 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 400 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 400 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -4873,13 +4959,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_waterheaters_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "400");
@@ -4892,12 +4979,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function waterheaters_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "400");
@@ -4922,13 +5010,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "400");
@@ -5025,12 +5114,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "400");
@@ -5140,7 +5230,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_roomheaters(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 401 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 401 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 401 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 401 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 401 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -5148,13 +5239,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_roomheaters_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "401");
@@ -5167,12 +5259,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function roomheaters_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "401");
@@ -5197,13 +5290,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "401");
@@ -5300,12 +5394,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "401");
@@ -5415,7 +5510,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_sewingmachine(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 402 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 402 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 402 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 402 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 402 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -5423,13 +5519,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_sewingmachine_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "402");
@@ -5442,12 +5539,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function sewingmachine_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "402");
@@ -5472,13 +5570,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "402");
@@ -5575,12 +5674,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "402");
@@ -5690,7 +5790,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_dryers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 403 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 403 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 403 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 403 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 403 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -5698,13 +5799,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_dryers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "403");
@@ -5717,12 +5819,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function dryers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "403");
@@ -5747,13 +5850,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "403");
@@ -5850,12 +5954,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "403");
@@ -5965,7 +6070,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_emergencylight(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 404 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 404 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 404 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 404 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 60 AND sub_scat_id = 404 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -5973,13 +6079,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_emergencylight_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "404");
@@ -5992,12 +6099,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function emergencylight_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "404");
@@ -6022,13 +6130,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "404");
@@ -6125,12 +6234,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "60");
                 $this->db->where("ad.sub_scat_id", "404");
@@ -6240,7 +6350,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_microwaveovens(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 405 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 405 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 405 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 405 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 405 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -6248,13 +6359,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_microwaveovens_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "405");
@@ -6267,12 +6379,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function microwaveovens_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "405");
@@ -6297,13 +6410,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "405");
@@ -6400,12 +6514,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "405");
@@ -6515,7 +6630,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_foodprocessors(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 406 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 406 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 406 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 406 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 406 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -6523,13 +6639,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_foodprocessors_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "406");
@@ -6542,12 +6659,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function foodprocessors_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "406");
@@ -6572,13 +6690,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "406");
@@ -6675,12 +6794,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "406");
@@ -6790,7 +6910,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_mixergrinderjuicers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 407 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 407 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 407 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 407 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 407 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -6798,13 +6919,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_mixergrinderjuicers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "407");
@@ -6817,12 +6939,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function mixergrinderjuicers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "407");
@@ -6847,13 +6970,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "407");
@@ -6950,12 +7074,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "407");
@@ -7065,7 +7190,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_cookersteamers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 408 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 408 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 408 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 408 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 408 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -7073,13 +7199,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_cookersteamers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "408");
@@ -7092,12 +7219,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function cookersteamers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "408");
@@ -7122,13 +7250,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "408");
@@ -7225,12 +7354,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "408");
@@ -7340,7 +7470,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_toastersandwichmakers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 409 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 409 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 409 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 409 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 409 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -7348,13 +7479,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_toastersandwichmakers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "409");
@@ -7367,12 +7499,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function toastersandwichmakers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "409");
@@ -7397,13 +7530,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "409");
@@ -7500,12 +7634,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "409");
@@ -7615,7 +7750,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_blenderschoppers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 410 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 410 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 410 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 410 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 410 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -7623,13 +7759,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_blenderschoppers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "410");
@@ -7642,12 +7779,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function blenderschoppers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "410");
@@ -7672,13 +7810,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "410");
@@ -7775,12 +7914,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "410");
@@ -7890,7 +8030,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_grillstandooris(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 411 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 411 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 411 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 411 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 411 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -7898,13 +8039,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_grillstandooris_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "411");
@@ -7917,12 +8059,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function grillstandooris_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "411");
@@ -7947,13 +8090,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "411");
@@ -8050,12 +8194,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "411");
@@ -8167,7 +8312,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_kettles(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 412 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 412 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 412 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 412 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 412 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -8175,13 +8321,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_kettles_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "412");
@@ -8194,12 +8341,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function kettles_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "412");
@@ -8224,13 +8372,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "412");
@@ -8327,12 +8476,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "412");
@@ -8442,7 +8592,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_fryersmakers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 413 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 413 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 413 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 413 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 413 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -8450,13 +8601,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_fryersmakers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "413");
@@ -8469,12 +8621,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function fryersmakers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "413");
@@ -8499,13 +8652,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "413");
@@ -8602,12 +8756,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "413");
@@ -8717,7 +8872,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_waterpurifiers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 414 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 414 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 414 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 414 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 414 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -8725,13 +8881,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_waterpurifiers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "414");
@@ -8744,12 +8901,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function waterpurifiers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "414");
@@ -8774,13 +8932,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "414");
@@ -8877,12 +9036,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "414");
@@ -8992,7 +9152,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_dishwashers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 415 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 415 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 415 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 415 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 415 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -9000,13 +9161,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_dishwashers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "415");
@@ -9019,12 +9181,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function dishwashers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "415");
@@ -9049,13 +9212,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "415");
@@ -9152,12 +9316,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "415");
@@ -9267,7 +9432,8 @@ class Postad_ezone_model extends CI_Model{
                     }
             public function deals_pck_flourmill(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 416 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 416 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 416 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 416 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 61 AND sub_scat_id = 416 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -9275,13 +9441,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_flourmill_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "416");
@@ -9294,12 +9461,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function flourmill_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "416");
@@ -9324,13 +9492,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "416");
@@ -9427,12 +9596,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "61");
                 $this->db->where("ad.sub_scat_id", "416");
@@ -9543,7 +9713,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lclaptops(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 417 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 417 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 417 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 417 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 417 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -9551,13 +9722,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lclaptops_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "417");
@@ -9570,12 +9742,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lclaptops_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "417");
@@ -9600,13 +9773,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "417");
@@ -9703,12 +9877,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "417");
@@ -9818,7 +9993,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcallinone(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 418 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 418 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 418 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 418 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 418 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -9826,13 +10002,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcallinone_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "418");
@@ -9845,12 +10022,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcallinone_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "418");
@@ -9875,13 +10053,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "418");
@@ -9978,12 +10157,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "418");
@@ -10093,7 +10273,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcprinters(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 419 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 419 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 419 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 419 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 419 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -10101,13 +10282,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcprinters_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "419");
@@ -10120,12 +10302,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcprinters_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "419");
@@ -10150,13 +10333,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "419");
@@ -10253,12 +10437,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "419");
@@ -10368,7 +10553,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcwifidevices(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 420 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 420 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 420 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 420 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 420 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -10376,13 +10562,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcwifidevices_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "420");
@@ -10395,12 +10582,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcwifidevices_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "420");
@@ -10425,13 +10613,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "420");
@@ -10528,12 +10717,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "420");
@@ -10643,7 +10833,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcexternal(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 421 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 421 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 421 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 421 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 421 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -10651,13 +10842,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcexternal_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "421");
@@ -10670,12 +10862,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcexternal_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "421");
@@ -10700,13 +10893,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "421");
@@ -10803,12 +10997,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "421");
@@ -10918,7 +11113,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcpendrives(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 422 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 422 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 422 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 422 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 422 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -10926,13 +11122,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcpendrives_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "422");
@@ -10945,12 +11142,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcpendrives_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "422");
@@ -10975,13 +11173,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "422");
@@ -11078,12 +11277,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "422");
@@ -11193,7 +11393,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lckeyboard(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 423 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 423 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 423 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 423 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 423 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11201,13 +11402,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lckeyboard_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "423");
@@ -11220,12 +11422,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lckeyboard_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "423");
@@ -11250,13 +11453,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "423");
@@ -11353,12 +11557,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "423");
@@ -11468,7 +11673,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcmouse(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 424 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 424 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 424 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 424 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 424 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11476,13 +11682,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcmouse_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "424");
@@ -11495,12 +11702,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcmouse_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "424");
@@ -11525,13 +11733,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "424");
@@ -11628,12 +11837,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "424");
@@ -11743,7 +11953,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcheadsets(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 425 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 425 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 425 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 425 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 425 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11751,13 +11962,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcheadsets_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "425");
@@ -11770,12 +11982,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcheadsets_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "425");
@@ -11800,13 +12013,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "425");
@@ -11903,12 +12117,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "425");
@@ -12018,7 +12233,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lccables(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 426 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 426 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 426 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 426 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 426 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -12026,13 +12242,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lccables_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "426");
@@ -12045,12 +12262,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lccables_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "426");
@@ -12075,13 +12293,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "426");
@@ -12178,12 +12397,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "426");
@@ -12293,7 +12513,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcinktoner(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 427 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 427 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 427 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 427 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 427 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -12301,13 +12522,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcinktoner_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "427");
@@ -12320,12 +12542,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcinktoner_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "427");
@@ -12350,13 +12573,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "427");
@@ -12453,12 +12677,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "427");
@@ -12568,7 +12793,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_lcsoftware(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 428 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 428 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 428 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 428 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 62 AND sub_scat_id = 428 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -12576,13 +12802,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_lcsoftware_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "428");
@@ -12595,12 +12822,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function lcsoftware_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "428");
@@ -12625,13 +12853,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "428");
@@ -12728,12 +12957,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "62");
                 $this->db->where("ad.sub_scat_id", "428");
@@ -12846,7 +13076,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_atabletipad(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 429 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 429 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 429 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 429 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 429 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -12854,13 +13085,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_atabletipad_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "429");
@@ -12873,12 +13105,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function atabletipad_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "429");
@@ -12903,13 +13136,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "429");
@@ -13006,12 +13240,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "429");
@@ -13121,7 +13356,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_aiphoneacc(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 430 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 430 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 430 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 430 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 430 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -13129,13 +13365,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_aiphoneacc_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "430");
@@ -13148,12 +13385,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function aiphoneacc_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "430");
@@ -13178,13 +13416,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "430");
@@ -13281,12 +13520,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "430");
@@ -13397,7 +13637,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_amobileacc(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 431 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 431 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 431 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 431 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 431 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -13405,13 +13646,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_amobileacc_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "431");
@@ -13424,12 +13666,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function amobileacc_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "431");
@@ -13454,13 +13697,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "431");
@@ -13557,12 +13801,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "431");
@@ -13673,7 +13918,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_acomputer(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 432 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 432 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 432 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 432 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 432 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -13681,13 +13927,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_acomputer_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "432");
@@ -13700,12 +13947,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function acomputer_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "432");
@@ -13730,13 +13978,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "432");
@@ -13833,12 +14082,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "432");
@@ -13948,7 +14198,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_aheadphomes(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 433 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 433 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 433 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 433 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 433 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -13956,13 +14207,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_aheadphomes_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "433");
@@ -13975,12 +14227,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function aheadphomes_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "433");
@@ -14005,13 +14258,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "433");
@@ -14108,12 +14362,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "433");
@@ -14223,7 +14478,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_aaudiovideo(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 434 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 434 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 434 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 434 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 434 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -14231,13 +14487,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_aaudiovideo_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "434");
@@ -14250,12 +14507,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function aaudiovideo_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "434");
@@ -14280,13 +14538,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "434");
@@ -14383,12 +14642,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "434");
@@ -14483,39 +14743,41 @@ class Postad_ezone_model extends CI_Model{
             /* Camera Accessories */
             public function busconcount_acamera(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
-                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
-                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
+                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND ad_status = 1 AND expire_data >='$data' AND(ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'business') AS business,
+                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND ad_status = 1 AND expire_data >='$data' AND ad_type = 'consumer') AS consumer");
                 $rs = $this->db->get();
                 return $rs->result();
             }
             public function sellerneeded_acamera(){
                 $date = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
-                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed");
+                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND services = 'Seller' AND ad_status = 1 AND expire_data >='$date') AS seller,
+                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND services = 'Needed' AND ad_status = 1 AND expire_data >='$date') AS needed");
                 $rs = $this->db->get();
                 return $rs->result();
             }
             public function deals_pck_acamera(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
-                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 335 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
+                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
+                (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 435 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
                 $rs = $this->db->get();
                 return $rs->result();
             }
             public function count_acamera_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
-                $this->db->where("ad.sub_scat_id", "335");
+                $this->db->where("ad.sub_scat_id", "435");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
@@ -14525,15 +14787,16 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function acamera_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
-                $this->db->where("ad.sub_scat_id", "335");
+                $this->db->where("ad.sub_scat_id", "435");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
@@ -14555,16 +14818,17 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
-                $this->db->where("ad.sub_scat_id", "335");
+                $this->db->where("ad.sub_scat_id", "435");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 if (!empty($seller)) {
@@ -14658,15 +14922,16 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
-                $this->db->where("ad.sub_scat_id", "335");
+                $this->db->where("ad.sub_scat_id", "435");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 
@@ -14773,7 +15038,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_ainverters(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 436 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 436 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 436 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 436 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 436 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -14781,13 +15047,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_ainverters_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "436");
@@ -14800,12 +15067,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function ainverters_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "436");
@@ -14830,13 +15098,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "436");
@@ -14933,12 +15202,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "436");
@@ -15049,7 +15319,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_abattery(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 437 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 437 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 437 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 437 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 63 AND sub_scat_id = 437 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -15057,13 +15328,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_abattery_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "437");
@@ -15076,12 +15348,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function abattery_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "437");
@@ -15106,13 +15379,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "437");
@@ -15209,12 +15483,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "63");
                 $this->db->where("ad.sub_scat_id", "437");
@@ -15327,7 +15602,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcshavers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 438 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 438 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 438 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 438 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 438 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -15335,13 +15611,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcshavers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "438");
@@ -15354,12 +15631,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcshavers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "438");
@@ -15384,13 +15662,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "438");
@@ -15487,12 +15766,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "438");
@@ -15602,7 +15882,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pctrimmers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 439 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 439 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 439 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 439 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 439 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -15610,13 +15891,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pctrimmers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "439");
@@ -15629,12 +15911,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pctrimmers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "439");
@@ -15659,13 +15942,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "439");
@@ -15762,12 +16046,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "439");
@@ -15877,7 +16162,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcbodygromers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 440 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 440 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 440 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 440 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 440 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -15885,13 +16171,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcbodygromers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "440");
@@ -15904,12 +16191,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcbodygromers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "440");
@@ -15934,13 +16222,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "440");
@@ -16037,12 +16326,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "440");
@@ -16153,7 +16443,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pchairdryers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 441 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 441 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 441 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 441 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 441 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -16161,13 +16452,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pchairdryers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "441");
@@ -16180,12 +16472,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pchairdryers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "441");
@@ -16210,13 +16503,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "441");
@@ -16313,12 +16607,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "441");
@@ -16428,7 +16723,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pchairstylers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 442 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 442 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 442 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 442 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 442 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -16436,13 +16732,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pchairstylers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "442");
@@ -16455,12 +16752,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pchairstylers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "442");
@@ -16485,13 +16783,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "442");
@@ -16588,12 +16887,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "442");
@@ -16704,7 +17004,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcepilators(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 443 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 443 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 443 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 443 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 443 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -16712,13 +17013,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcepilators_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "443");
@@ -16731,12 +17033,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcepilators_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "443");
@@ -16761,13 +17064,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "443");
@@ -16864,12 +17168,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "443");
@@ -16980,7 +17285,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcpedometers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 444 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 444 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 444 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 444 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 444 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -16988,13 +17294,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcpedometers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "444");
@@ -17007,12 +17314,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcpedometers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "444");
@@ -17037,13 +17345,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "444");
@@ -17140,12 +17449,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "444");
@@ -17255,7 +17565,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcmonitors(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 445 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 445 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 445 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 445 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 445 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -17263,13 +17574,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcmonitors_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "445");
@@ -17282,12 +17594,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcmonitors_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "445");
@@ -17312,13 +17625,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "445");
@@ -17415,12 +17729,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "445");
@@ -17530,7 +17845,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcmassagers(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 446 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 446 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 446 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 446 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 64 AND sub_scat_id = 446 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -17538,13 +17854,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcmassagers_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "446");
@@ -17557,12 +17874,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcmassagers_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "446");
@@ -17587,13 +17905,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "446");
@@ -17690,12 +18009,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "64");
                 $this->db->where("ad.sub_scat_id", "446");
@@ -17807,7 +18127,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_helcdled(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 447 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 447 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 447 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 447 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 447 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -17815,13 +18136,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_helcdled_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "447");
@@ -17834,12 +18156,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function helcdled_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "447");
@@ -17864,13 +18187,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "447");
@@ -17967,12 +18291,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "447");
@@ -18082,7 +18407,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_hehometheatre(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 448 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 448 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 448 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 448 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 448 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -18090,13 +18416,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_hehometheatre_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "448");
@@ -18109,12 +18436,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function hehometheatre_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "448");
@@ -18139,13 +18467,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "448");
@@ -18242,12 +18571,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "448");
@@ -18357,7 +18687,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_hedvdblue(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 449 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 449 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 449 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 449 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 449 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -18365,13 +18696,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_hedvdblue_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "449");
@@ -18384,12 +18716,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function hedvdblue_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "449");
@@ -18414,13 +18747,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "449");
@@ -18517,12 +18851,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "449");
@@ -18632,7 +18967,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_heaudiosys(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 450 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 450 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 450 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 450 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 450 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -18640,13 +18976,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_heaudiosys_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "450");
@@ -18659,12 +18996,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function heaudiosys_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "450");
@@ -18689,13 +19027,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "450");
@@ -18792,12 +19131,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "450");
@@ -18907,7 +19247,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_hegaming(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 451 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 451 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 451 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 451 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 451 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -18915,13 +19256,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_hegaming_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "451");
@@ -18934,12 +19276,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function hegaming_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "451");
@@ -18964,13 +19307,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "451");
@@ -19067,12 +19411,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "451");
@@ -19182,7 +19527,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_hemusicalinst(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 452 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 452 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 452 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 452 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 452 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -19190,13 +19536,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_hemusicalinst_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "452");
@@ -19209,12 +19556,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function hemusicalinst_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "452");
@@ -19239,13 +19587,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "452");
@@ -19342,12 +19691,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "452");
@@ -19457,7 +19807,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_heprojectors(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 453 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 453 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 453 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 453 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 65 AND sub_scat_id = 453 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -19465,13 +19816,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_heprojectors_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "453");
@@ -19484,12 +19836,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function heprojectors_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "453");
@@ -19514,13 +19867,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "453");
@@ -19617,12 +19971,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "65");
                 $this->db->where("ad.sub_scat_id", "453");
@@ -19734,7 +20089,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pdigitalslr(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 454 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 454 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 454 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 454 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 454 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -19742,13 +20098,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pdigitalslr_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "454");
@@ -19761,12 +20118,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pdigitalslr_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "454");
@@ -19791,13 +20149,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "454");
@@ -19894,12 +20253,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "454");
@@ -20009,7 +20369,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_ppointshoot(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 455 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 455 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 455 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 455 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 455 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -20017,13 +20378,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_ppointshoot_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "455");
@@ -20036,12 +20398,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function ppointshoot_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "455");
@@ -20066,13 +20429,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "455");
@@ -20169,12 +20533,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "455");
@@ -20284,7 +20649,8 @@ class Postad_ezone_model extends CI_Model{
             }
             public function deals_pck_pcamcorders(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 456 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 456 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 456 AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 456 AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
                 (SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id = 66 AND sub_scat_id = 456 AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -20292,13 +20658,14 @@ class Postad_ezone_model extends CI_Model{
                 return $rs->result();
             }
             public function count_pcamcorders_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "456");
@@ -20311,12 +20678,13 @@ class Postad_ezone_model extends CI_Model{
                 return $m_res->result();
             }
             public function pcamcorders_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "456");
@@ -20341,13 +20709,14 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "456");
@@ -20444,12 +20813,13 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
                 $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                 $this->db->where("ad.category_id", "8");
                 $this->db->where("ad.sub_cat_id", "66");
                 $this->db->where("ad.sub_scat_id", "456");

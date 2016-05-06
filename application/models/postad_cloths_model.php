@@ -252,7 +252,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_wcloths(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 359 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 20  AND ad.sub_scat_id = 359 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 359 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 359 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 359 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -261,13 +262,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_wcloths_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "359");
                 $this->db->where("ad.ad_status", "1");
@@ -286,13 +289,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function wcloths_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "359");
                 $this->db->where("ad.ad_status", "1");
@@ -318,13 +323,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "359");
             $this->db->where("ad.ad_status", "1");
@@ -416,13 +423,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "359");
             $this->db->where("ad.ad_status", "1");
@@ -534,7 +543,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_wshoes(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 360 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 20  AND ad.sub_scat_id = 360 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 360 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 360 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 360 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -543,13 +553,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_wshoes_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "360");
                 $this->db->where("ad.ad_status", "1");
@@ -568,13 +580,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function wshoes_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "360");
                 $this->db->where("ad.ad_status", "1");
@@ -600,13 +614,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "360");
             $this->db->where("ad.ad_status", "1");
@@ -698,13 +714,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "360");
             $this->db->where("ad.ad_status", "1");
@@ -814,7 +832,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_waccessories(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 361 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 20  AND ad.sub_scat_id = 361 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 361 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 361 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 361 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -823,13 +842,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_waccessories_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "361");
                 $this->db->where("ad.ad_status", "1");
@@ -848,13 +869,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function waccessories_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "361");
                 $this->db->where("ad.ad_status", "1");
@@ -880,13 +903,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "361");
             $this->db->where("ad.ad_status", "1");
@@ -978,13 +1003,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "361");
             $this->db->where("ad.ad_status", "1");
@@ -1095,7 +1122,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_wwidding(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 362 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 20  AND ad.sub_scat_id = 362 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 362 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 362 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 20 AND sub_scat_id = 362 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -1104,13 +1132,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_wwidding_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "362");
                 $this->db->where("ad.ad_status", "1");
@@ -1129,13 +1159,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function wwidding_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "20");
                 $this->db->where("ad.sub_scat_id", "362");
                 $this->db->where("ad.ad_status", "1");
@@ -1161,13 +1193,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "362");
             $this->db->where("ad.ad_status", "1");
@@ -1259,13 +1293,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "20");
             $this->db->where("ad.sub_scat_id", "362");
             $this->db->where("ad.ad_status", "1");
@@ -1374,7 +1410,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_mclothing(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 363 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 21  AND ad.sub_scat_id = 363 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 363 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 363 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 363 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -1383,13 +1420,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_mclothing_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "363");
                 $this->db->where("ad.ad_status", "1");
@@ -1408,13 +1447,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function mclothing_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "363");
                 $this->db->where("ad.ad_status", "1");
@@ -1440,13 +1481,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "363");
             $this->db->where("ad.ad_status", "1");
@@ -1538,13 +1581,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "363");
             $this->db->where("ad.ad_status", "1");
@@ -1655,7 +1700,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_mshoes(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 364 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 21  AND ad.sub_scat_id = 364 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 364 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 364 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 364 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -1664,13 +1710,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_mshoes_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "364");
                 $this->db->where("ad.ad_status", "1");
@@ -1689,13 +1737,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function mshoes_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "364");
                 $this->db->where("ad.ad_status", "1");
@@ -1721,13 +1771,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "364");
             $this->db->where("ad.ad_status", "1");
@@ -1819,13 +1871,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "364");
             $this->db->where("ad.ad_status", "1");
@@ -1934,7 +1988,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_maccessories(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 365 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 21  AND ad.sub_scat_id = 365 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 365 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 365 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 365 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -1943,13 +1998,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_maccessories_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "365");
                 $this->db->where("ad.ad_status", "1");
@@ -1968,13 +2025,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function maccessories_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "365");
                 $this->db->where("ad.ad_status", "1");
@@ -2000,13 +2059,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "365");
             $this->db->where("ad.ad_status", "1");
@@ -2098,13 +2159,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "365");
             $this->db->where("ad.ad_status", "1");
@@ -2214,7 +2277,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_mwedding(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 366 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 21  AND ad.sub_scat_id = 366 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 366 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 366 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 21 AND sub_scat_id = 366 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -2223,13 +2287,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_mwedding_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "366");
                 $this->db->where("ad.ad_status", "1");
@@ -2248,13 +2314,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function mwedding_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "21");
                 $this->db->where("ad.sub_scat_id", "366");
                 $this->db->where("ad.ad_status", "1");
@@ -2280,13 +2348,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "366");
             $this->db->where("ad.ad_status", "1");
@@ -2378,13 +2448,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "21");
             $this->db->where("ad.sub_scat_id", "366");
             $this->db->where("ad.ad_status", "1");
@@ -2494,7 +2566,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_bclothing(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 367 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 22  AND ad.sub_scat_id = 367 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 367 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 367 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 367 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -2503,13 +2576,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_bclothing_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "22");
                 $this->db->where("ad.sub_scat_id", "367");
                 $this->db->where("ad.ad_status", "1");
@@ -2528,13 +2603,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function bclothing_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "22");
                 $this->db->where("ad.sub_scat_id", "367");
                 $this->db->where("ad.ad_status", "1");
@@ -2560,13 +2637,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "22");
             $this->db->where("ad.sub_scat_id", "367");
             $this->db->where("ad.ad_status", "1");
@@ -2658,13 +2737,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "22");
             $this->db->where("ad.sub_scat_id", "367");
             $this->db->where("ad.ad_status", "1");
@@ -2773,7 +2854,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_bshoes(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 368 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 22  AND ad.sub_scat_id = 368 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 368 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 368 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 368 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -2782,13 +2864,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_bshoes_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "22");
                 $this->db->where("ad.sub_scat_id", "368");
                 $this->db->where("ad.ad_status", "1");
@@ -2807,13 +2891,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function bshoes_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "22");
                 $this->db->where("ad.sub_scat_id", "368");
                 $this->db->where("ad.ad_status", "1");
@@ -2839,13 +2925,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "22");
             $this->db->where("ad.sub_scat_id", "368");
             $this->db->where("ad.ad_status", "1");
@@ -2937,13 +3025,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "22");
             $this->db->where("ad.sub_scat_id", "368");
             $this->db->where("ad.ad_status", "1");
@@ -3053,7 +3143,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_baccessories(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 369 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 22  AND ad.sub_scat_id = 369 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 369 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 369 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 22 AND sub_scat_id = 369 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -3062,13 +3153,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_baccessories_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "22");
                 $this->db->where("ad.sub_scat_id", "369");
                 $this->db->where("ad.ad_status", "1");
@@ -3087,13 +3180,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function baccessories_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "22");
                 $this->db->where("ad.sub_scat_id", "369");
                 $this->db->where("ad.ad_status", "1");
@@ -3119,13 +3214,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "22");
             $this->db->where("ad.sub_scat_id", "369");
             $this->db->where("ad.ad_status", "1");
@@ -3217,13 +3314,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "22");
             $this->db->where("ad.sub_scat_id", "369");
             $this->db->where("ad.ad_status", "1");
@@ -3333,7 +3432,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_gclothing(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 370 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 23  AND ad.sub_scat_id = 370 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 370 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 370 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 370 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -3342,13 +3442,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_gclothing_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "23");
                 $this->db->where("ad.sub_scat_id", "370");
                 $this->db->where("ad.ad_status", "1");
@@ -3367,13 +3469,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function gclothing_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "23");
                 $this->db->where("ad.sub_scat_id", "370");
                 $this->db->where("ad.ad_status", "1");
@@ -3399,13 +3503,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "23");
             $this->db->where("ad.sub_scat_id", "370");
             $this->db->where("ad.ad_status", "1");
@@ -3497,13 +3603,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "23");
             $this->db->where("ad.sub_scat_id", "370");
             $this->db->where("ad.ad_status", "1");
@@ -3613,7 +3721,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_gshoes(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 371 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 23  AND ad.sub_scat_id = 371 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 371 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 371 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 371 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -3622,13 +3731,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_gshoes_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "23");
                 $this->db->where("ad.sub_scat_id", "371");
                 $this->db->where("ad.ad_status", "1");
@@ -3647,13 +3758,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function gshoes_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "23");
                 $this->db->where("ad.sub_scat_id", "371");
                 $this->db->where("ad.ad_status", "1");
@@ -3679,13 +3792,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "23");
             $this->db->where("ad.sub_scat_id", "371");
             $this->db->where("ad.ad_status", "1");
@@ -3777,13 +3892,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "23");
             $this->db->where("ad.sub_scat_id", "371");
             $this->db->where("ad.ad_status", "1");
@@ -3892,7 +4009,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_gaccessories(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 372 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 23  AND ad.sub_scat_id = 372 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 372 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 372 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 23 AND sub_scat_id = 372 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -3901,13 +4019,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_gaccessories_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "23");
                 $this->db->where("ad.sub_scat_id", "372");
                 $this->db->where("ad.ad_status", "1");
@@ -3926,13 +4046,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function gaccessories_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "23");
                 $this->db->where("ad.sub_scat_id", "372");
                 $this->db->where("ad.ad_status", "1");
@@ -3958,13 +4080,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "23");
             $this->db->where("ad.sub_scat_id", "372");
             $this->db->where("ad.ad_status", "1");
@@ -4056,13 +4180,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "23");
             $this->db->where("ad.sub_scat_id", "372");
             $this->db->where("ad.ad_status", "1");
@@ -4173,7 +4299,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_bbclothing(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 373 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 24  AND ad.sub_scat_id = 373 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 373 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 373 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 373 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -4182,13 +4309,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_bbclothing_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "24");
                 $this->db->where("ad.sub_scat_id", "373");
                 $this->db->where("ad.ad_status", "1");
@@ -4207,13 +4336,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function bbclothing_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "24");
                 $this->db->where("ad.sub_scat_id", "373");
                 $this->db->where("ad.ad_status", "1");
@@ -4239,13 +4370,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "24");
             $this->db->where("ad.sub_scat_id", "373");
             $this->db->where("ad.ad_status", "1");
@@ -4337,13 +4470,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "24");
             $this->db->where("ad.sub_scat_id", "373");
             $this->db->where("ad.ad_status", "1");
@@ -4454,7 +4589,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_bbaccessories(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 374 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 24  AND ad.sub_scat_id = 374 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 374 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 374 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 24 AND sub_scat_id = 374 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -4463,13 +4599,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_bbaccessories_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "24");
                 $this->db->where("ad.sub_scat_id", "374");
                 $this->db->where("ad.ad_status", "1");
@@ -4488,13 +4626,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function bbaccessories_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "24");
                 $this->db->where("ad.sub_scat_id", "374");
                 $this->db->where("ad.ad_status", "1");
@@ -4520,13 +4660,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "24");
             $this->db->where("ad.sub_scat_id", "374");
             $this->db->where("ad.ad_status", "1");
@@ -4618,13 +4760,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "24");
             $this->db->where("ad.sub_scat_id", "374");
             $this->db->where("ad.ad_status", "1");
@@ -4735,7 +4879,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_bgclothing(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 375 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 25  AND ad.sub_scat_id = 375 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 375 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 375 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 375 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -4744,13 +4889,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_bgclothing_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "25");
                 $this->db->where("ad.sub_scat_id", "375");
                 $this->db->where("ad.ad_status", "1");
@@ -4769,13 +4916,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function bgclothing_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "25");
                 $this->db->where("ad.sub_scat_id", "375");
                 $this->db->where("ad.ad_status", "1");
@@ -4801,13 +4950,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "25");
             $this->db->where("ad.sub_scat_id", "375");
             $this->db->where("ad.ad_status", "1");
@@ -4899,13 +5050,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "25");
             $this->db->where("ad.sub_scat_id", "375");
             $this->db->where("ad.ad_status", "1");
@@ -5015,7 +5168,8 @@ class Postad_cloths_model extends CI_Model{
             }
             public function deals_pck_bgaccessories(){
                 $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 376 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                WHERE ad.category_id = '6' AND ad.sub_cat_id = 25  AND ad.sub_scat_id = 376 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 376 AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 376 AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
             (SELECT COUNT(*) FROM postad WHERE category_id = '6' AND sub_cat_id = 25 AND sub_scat_id = 376 AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -5024,13 +5178,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function count_bgaccessories_view(){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 $this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "25");
                 $this->db->where("ad.sub_scat_id", "376");
                 $this->db->where("ad.ad_status", "1");
@@ -5049,13 +5205,15 @@ class Postad_cloths_model extends CI_Model{
             }
 
             public function bgaccessories_view($data){
-                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+                $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
                 //$this->db->from("postad AS ad");
                 $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
                 $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-                $this->db->where("ad.category_id", "6");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->where("ad.category_id", "6");
+
                 $this->db->where("ad.sub_cat_id", "25");
                 $this->db->where("ad.sub_scat_id", "376");
                 $this->db->where("ad.ad_status", "1");
@@ -5081,13 +5239,15 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
+
             $this->db->where("ad.sub_cat_id", "25");
             $this->db->where("ad.sub_scat_id", "376");
             $this->db->where("ad.ad_status", "1");
@@ -5179,12 +5339,13 @@ class Postad_cloths_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS  img_count, loc.*, lg.*,ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             // $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
             $this->db->where("ad.category_id", "6");
             $this->db->where("ad.sub_cat_id", "25");
             $this->db->where("ad.sub_scat_id", "376");
