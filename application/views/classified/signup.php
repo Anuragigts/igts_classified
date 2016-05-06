@@ -88,7 +88,6 @@
 					},
 					bus_name: {
 						required: true,
-						character:true,
 						minlength: 5
 					},
 					bus_address: {
@@ -114,12 +113,12 @@
 				messages: {
 					con_fname: {
 						required: "Please enter your First name",
-						character: "please Enter characters",
+						character: "please Enter characters only",
 						minlength: "Enter atleast 3 characters"
 					},
 					con_lname: {
 						required: "Please enter your Last name",
-						character: "please Enter characters",
+						character: "please Enter characters only",
 						minlength: "Enter atleast 3 characters"
 					},
 					con_mobile: {
@@ -128,17 +127,16 @@
 					},
 					bus_fname: {
 						required: "Please enter your First name",
-						character: "please Enter characters",
+						character: "please Enter characters only",
 						minlength: "Enter atleast 3 characters"
 					},
 					bus_lname: {
 						required: "Please enter your Last name",
-						character: "please Enter characters",
+						character: "please Enter characters only",
 						minlength: "Enter atleast 3 characters"
 					},
 					bus_name: {
 						required: "Please enter your Business name",
-						character: "please Enter characters",
 						minlength: "Enter atleast 5 characters"
 					},
 					bus_address: {

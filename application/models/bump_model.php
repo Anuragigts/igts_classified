@@ -100,6 +100,15 @@ class Bump_model extends CI_Model{
 					               'ad_id' => $last_insert_id
 					            );
 
+							/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}		
+
+
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
 					$this->db->where('ad_id', $adid);
@@ -153,6 +162,14 @@ class Bump_model extends CI_Model{
 							$data = array(
 					               'ad_id' => $last_insert_id
 					            );
+
+							/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -210,6 +227,14 @@ class Bump_model extends CI_Model{
 							$data = array(
 					               'ad_id' => $last_insert_id
 					            );
+
+					/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -281,6 +306,14 @@ class Bump_model extends CI_Model{
 					               'ad_id' => $last_insert_id
 					            );
 
+					/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
+
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
 					$this->db->where('ad_id', $adid);
@@ -338,6 +371,14 @@ class Bump_model extends CI_Model{
 					               'ad_id' => $last_insert_id
 					            );
 
+					/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
+
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
 					$this->db->where('ad_id', $adid);
@@ -394,6 +435,14 @@ class Bump_model extends CI_Model{
 							$data = array(
 					               'ad_id' => $last_insert_id
 					            );
+
+					/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -461,6 +510,14 @@ class Bump_model extends CI_Model{
 					               'ad_id' => $last_insert_id
 					            );
 
+					/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
+
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
 					$this->db->where('ad_id', $adid);
@@ -518,6 +575,16 @@ class Bump_model extends CI_Model{
 							$data = array(
 					               'ad_id' => $last_insert_id
 					            );
+
+					/*platinum marquee and video link*/
+					if ($rs1->package_type == 3 || $rs1->package_type == 6) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('videos', $data); 
+								$this->db->where('ad_id', $adid);
+								$this->db->update('platinum_ads', $data); 
+							}
+
+							
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
 					$this->db->where('ad_id', $adid);

@@ -185,6 +185,7 @@ class Description_view extends CI_Controller{
                     /*Job category*/
                     if ($value->category_id == '1') {
                         $detailed_jobs = $this->classifed_model->ads_detailed_jobs();
+                        $sal = $value->price_type;
                         if ($value->currency == 'pound') {
                             $currency = '<span class="pound_sym"></span>';
                         }
@@ -199,7 +200,8 @@ class Description_view extends CI_Controller{
                                                         'Maximum Salary'=>$currency.$val->salarymax,
                                                         'Salary Type'=>$val->salarytype,
                                                         'Suitable Skills'=>$val->suitableskils,
-                                                        'Position For'=>str_replace("_", " ", $val->positionfor));
+                                                        'Position For'=>str_replace("_", " ", $val->positionfor),
+                                                        'Salary'=>$sal);
                                     }
 
                 }
