@@ -245,7 +245,7 @@
 						$likes_count = $ads_desc_val->likes_count;
 						
 						$package_type = $ads_desc_val->package_type;
-						$urgent_pack = $ads_desc_val->urgent_package;
+						$urgent_pack = $ads_desc_val->urg;
 						/*currency symbol*/ 
 							if ($ads_desc_val->currency == 'pound') {
 								$currency = '<span class="pound_sym"></span>';
@@ -295,7 +295,7 @@
 									<div class="post-item">
 										<div class="row">
 											<div class="col-md-9 col-sm-9 col-xs-12">
-												<?php if ($urgent_pack != 0) { ?>
+												<?php if ($urgent_pack != '') { ?>
 												<div class="featured_badge_view">
 												</div>
 												<?php	} ?>
@@ -926,7 +926,7 @@
 										}	
 											?>
 										<div>
-											<?php if ($b_ads->urgent_package != '0') { ?>
+											<?php if ($b_ads->urg != '') { ?>
 											<div class="bus_rec_badge">
 											</div>
 											<?php } ?>

@@ -106,6 +106,11 @@ class Bump_model extends CI_Model{
 								$this->db->update('videos', $data); 
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
+							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
 							}		
 
 
@@ -169,6 +174,11 @@ class Bump_model extends CI_Model{
 								$this->db->update('videos', $data); 
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
+							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
 							}
 
 					$this->db->where('ad_id', $adid);
@@ -234,6 +244,11 @@ class Bump_model extends CI_Model{
 								$this->db->update('videos', $data); 
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
+							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
 							}
 
 					$this->db->where('ad_id', $adid);
@@ -313,6 +328,11 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
+							}
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -378,6 +398,11 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
+							}
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -442,6 +467,11 @@ class Bump_model extends CI_Model{
 								$this->db->update('videos', $data); 
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
+							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
 							}
 
 					$this->db->where('ad_id', $adid);
@@ -517,6 +547,11 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
+							}
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -582,6 +617,11 @@ class Bump_model extends CI_Model{
 								$this->db->update('videos', $data); 
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
+							}
+							/*urgent label or not*/		
+					if ($rs1->urgent_package != 0) {
+								$this->db->where('ad_id', $adid);
+								$this->db->update('urgent_details', $data); 
 							}
 
 							

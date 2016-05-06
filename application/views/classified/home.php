@@ -542,7 +542,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 									}
 								?>
 							<div class="col-sm-4 col-md-3 col-xs-12 showall">
-								<?php if ($val->urgent_package != 0) { ?>
+								<?php if ($val->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	}
@@ -598,7 +598,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 jobs">
-								<?php if ($m_ads->urgent_package != 0) { ?>
+								<?php if ($m_ads->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -648,7 +648,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 services">
-								<?php if ($m_ads_services->urgent_package != 0) { ?>
+								<?php if ($m_ads_services->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -696,7 +696,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 motorpoint">
-								<?php if ($motor_val->urgent_package != 0) { ?>
+								<?php if ($motor_val->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -744,7 +744,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 cloths_lifestyles">
-								<?php if ($cloth_val->urgent_package != 0) { ?>
+								<?php if ($cloth_val->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -793,7 +793,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 findproperty">
-								<?php if ($prop_val->urgent_package != 0) { ?>
+								<?php if ($prop_val->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -843,7 +843,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 homekitchen">
-								<?php if ($khome_val->urgent_package != 0) { ?>
+								<?php if ($khome_val->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -891,7 +891,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 pets">
-								<?php if ($m_ads_pets->urgent_package != 0) { ?>
+								<?php if ($m_ads_pets->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -941,7 +941,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 															}	
 								?>
 							<div class="col-xs-12 col-sm-4 col-md-3 ezone">
-								<?php if ($m_ads_ezone->urgent_package != 0) { ?>
+								<?php if ($m_ads_ezone->urg != '') { ?>
 								<div class="most_valued_badge">
 								</div>
 								<?php	} ?>
@@ -1017,7 +1017,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 
 										?>
 									<div>
-										<?php if ($b_ads->urgent_package != 0) { ?>
+										<?php if ($b_ads->urg != '') { ?>
 										<div class="bus_rec_badge">
 										</div>
 										<?php } ?>
@@ -1113,7 +1113,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 												}
 										?>
 									<div>
-										<?php if ($b_ads->urgent_package != '0') { ?>
+										<?php if ($b_ads->urg != '') { ?>
 										<div class="bus_rec_badge">
 										</div>
 										<?php } ?>
@@ -1212,7 +1212,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 												}
 										 ?>
 									<div>
-										<?php if ($free_val->urgent_package != 0) { ?>
+										<?php if ($free_val->urg != '') { ?>
 										<div class="bus_rec_badge">
 										</div>
 										<?php } ?>
