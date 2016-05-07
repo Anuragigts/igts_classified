@@ -788,3 +788,52 @@ $("#ezone_viewless").click(function(){
 });
 
 });
+
+
+$(document).ready(function(){
+	$("#e_zone_fil_show").click(function(){
+		$("#e_zone_fil_hide").toggle(1000);
+	});
+	$("#motor_fil_show").click(function(){
+		$("#motor_fil_hide").toggle(1000);
+	});
+	$("#clot_fil_show").click(function(){
+		$("#clot_fil_hide").toggle(1000);
+	});
+	$("#service_fil_show").click(function(){
+		$("#service_fil_hide").toggle(1000);
+	});
+	$("#property_fil_show").click(function(){
+		$("#property_fil_hide").toggle(1000);
+	});
+	$("#home_fil_show").click(function(){
+		$("#home_fil_hide").toggle(1000);
+	});
+	$("#pets_fil_show").click(function(){
+		$("#pets_fil_hide").toggle(1000);
+	});
+	$(".bus_image").click(function(){
+		$(".bus_img").show(1000);
+	});
+	$(".send_now_show").click(function(){
+		$(".send_now_hide").toggle(1000);
+	});
+	$(".report_show").click(function(){
+		$(".report_hide").toggle(1000);
+	});
+	$(".review_show").click(function(){
+		$(".review_hide").toggle(1000);
+	});
+	$(".contact_now_show").click(function(){
+		$(".contact_now_hide").toggle(1000);
+	});
+	$(".con_image").click(function(){
+		$(".bus_img").hide(1000);
+	});
+	$(".free_check").click(function(){
+		$(".free_hide").show(1000);
+	});
+	$(".gold_check").click(function(){
+		$(".gold_hide").show(1000);
+	});
+});
