@@ -22,9 +22,10 @@
 		if (($m_details->package_type == '3' || $m_details->package_type == '6') && $m_details->urgent_package != '0') {
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="featured-badge">
-				
-			</div>
+			<?php if ($m_details->urg != '') { ?>
+				<div class="featured-badge">
+				</div>
+			 <?php } ?>
 			<div class="xuSlider xuSlider_plat_urgtnt">
 				<ul class="sliders">
 					<?php 
@@ -117,9 +118,10 @@
 		if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_details->urgent_package != 0) {
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="featured-badge">
-				
-			</div>
+			<?php if ($m_details->urg != '') { ?>
+				<div class="featured-badge">
+				</div>
+			 <?php } ?>
 			<div class="img-hover box_img">
 				<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 				<div class="overlay">
@@ -180,9 +182,10 @@
 	if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_details->urgent_package != 0) {
 	 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="featured-badge">
-				
-			</div>
+			<?php if ($m_details->urg != '') { ?>
+				<div class="featured-badge">
+				</div>
+			 <?php } ?>
 			<div class="img-hover box_img">
 				<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 				<div class="overlay">

@@ -555,10 +555,11 @@ GROUP BY img.ad_id
 	public function count_my_ads(){
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -580,10 +581,11 @@ GROUP BY img.ad_id
 		return $res->result();
 	}
 	public function count_my_ads_user(){
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by("ad.ad_id", "DESC");
@@ -594,9 +596,10 @@ GROUP BY img.ad_id
 	public function my_ads($data){
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/

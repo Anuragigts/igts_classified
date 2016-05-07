@@ -11460,7 +11460,7 @@ class Postad_kitchen_model extends CI_Model{
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-        $this->db->where("ad.category_id", "7");
+            $this->db->where("ad.category_id", "7");
             $this->db->where("ad.sub_cat_id", "69");
             $this->db->where("ad.sub_scat_id", "493");
             $this->db->where("ad.ad_status", "1");
