@@ -23,7 +23,7 @@
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<?php if ($m_details->urg != '') { ?>
-				<div class="featured-badge">
+				<div class="p-badge">
 				</div>
 			 <?php } ?>
 			<div class="xuSlider xuSlider_plat_urgtnt">
@@ -119,7 +119,7 @@
 		 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<?php if ($m_details->urg != '') { ?>
-				<div class="featured-badge">
+				<div class="p-badge">
 				</div>
 			 <?php } ?>
 			<div class="img-hover box_img">
@@ -183,7 +183,7 @@
 	 ?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<?php if ($m_details->urg != '') { ?>
-				<div class="featured-badge">
+				<div class="p-badge">
 				</div>
 			 <?php } ?>
 			<div class="img-hover box_img">
