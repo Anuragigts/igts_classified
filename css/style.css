@@ -3091,7 +3091,8 @@ hr.separator:before {
 }
 .post-item iframe {
     width: 100%;
-    height: 350px;
+    height: 289px;
+    border: 2px solid #5AB1D0;
 }
 .post-quote-wrapper {
     position: relative;
@@ -6121,7 +6122,7 @@ strong {
 }
 .add_left img,
 .add_left iframe {
-    width: 262px;
+    width: 290px;
     height: 156px;
 }
 .add_middle img,
