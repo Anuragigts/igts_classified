@@ -224,7 +224,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -243,7 +243,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -347,7 +347,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -451,7 +451,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -504,7 +504,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -523,7 +523,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -627,7 +627,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -731,7 +731,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -784,7 +784,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -803,7 +803,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -907,7 +907,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -1011,7 +1011,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -1064,7 +1064,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -1083,7 +1083,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -1187,7 +1187,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -1291,7 +1291,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -1343,7 +1343,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -1362,7 +1362,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -1466,7 +1466,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -1570,7 +1570,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -1623,7 +1623,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -1642,7 +1642,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -1746,7 +1746,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -1850,7 +1850,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -1902,7 +1902,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -1921,7 +1921,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -2025,7 +2025,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -2129,7 +2129,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -2181,7 +2181,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -2200,7 +2200,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -2304,7 +2304,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -2408,7 +2408,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -2460,7 +2460,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -2479,7 +2479,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -2583,7 +2583,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -2687,7 +2687,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -2739,7 +2739,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -2758,7 +2758,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -2862,7 +2862,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -2966,7 +2966,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -3018,7 +3018,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -3037,7 +3037,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -3141,7 +3141,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -3245,7 +3245,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -3297,7 +3297,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -3316,7 +3316,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -3420,7 +3420,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -3524,7 +3524,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -3576,7 +3576,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -3595,7 +3595,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -3699,7 +3699,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -3803,7 +3803,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -3855,7 +3855,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -3874,7 +3874,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -3978,7 +3978,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -4082,7 +4082,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -4134,7 +4134,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -4153,7 +4153,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -4257,7 +4257,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -4361,7 +4361,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -4413,7 +4413,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -4432,7 +4432,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -4536,7 +4536,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -4640,7 +4640,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -4693,7 +4693,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -4712,7 +4712,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -4816,7 +4816,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -4920,7 +4920,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -4973,7 +4973,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -4992,7 +4992,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -5096,7 +5096,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -5200,7 +5200,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -5253,7 +5253,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -5272,7 +5272,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -5376,7 +5376,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -5480,7 +5480,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -5533,7 +5533,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -5552,7 +5552,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -5656,7 +5656,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -5760,7 +5760,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -5813,7 +5813,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -5832,7 +5832,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -5936,7 +5936,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -6040,7 +6040,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -6093,7 +6093,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -6112,7 +6112,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -6216,7 +6216,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -6320,7 +6320,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -6373,7 +6373,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -6392,7 +6392,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -6496,7 +6496,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -6600,7 +6600,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -6653,7 +6653,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -6672,7 +6672,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -6776,7 +6776,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -6880,7 +6880,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -6933,7 +6933,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -6952,7 +6952,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -7056,7 +7056,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -7160,7 +7160,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -7213,7 +7213,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -7232,7 +7232,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -7336,7 +7336,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -7440,7 +7440,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -7493,7 +7493,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -7512,7 +7512,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -7616,7 +7616,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -7720,7 +7720,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -7773,7 +7773,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -7792,7 +7792,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -7896,7 +7896,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -8000,7 +8000,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -8053,7 +8053,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -8072,7 +8072,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -8176,7 +8176,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -8280,7 +8280,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -8335,7 +8335,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -8354,7 +8354,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -8458,7 +8458,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -8562,7 +8562,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -8615,7 +8615,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -8634,7 +8634,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -8738,7 +8738,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -8842,7 +8842,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -8895,7 +8895,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -8914,7 +8914,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -9018,7 +9018,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -9122,7 +9122,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -9175,7 +9175,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -9194,7 +9194,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -9298,7 +9298,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -9402,7 +9402,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -9455,7 +9455,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -9474,7 +9474,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -9578,7 +9578,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -9682,7 +9682,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -9736,7 +9736,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -9755,7 +9755,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -9859,7 +9859,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -9963,7 +9963,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -10016,7 +10016,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -10035,7 +10035,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -10139,7 +10139,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -10243,7 +10243,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -10296,7 +10296,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -10315,7 +10315,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -10419,7 +10419,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -10523,7 +10523,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -10576,7 +10576,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -10595,7 +10595,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -10699,7 +10699,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -10803,7 +10803,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -10856,7 +10856,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -10875,7 +10875,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -10979,7 +10979,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -11083,7 +11083,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -11136,7 +11136,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -11155,7 +11155,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -11259,7 +11259,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -11363,7 +11363,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -11416,7 +11416,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -11435,7 +11435,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -11539,7 +11539,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -11643,7 +11643,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -11696,7 +11696,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -11715,7 +11715,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -11819,7 +11819,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -11923,7 +11923,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -11976,7 +11976,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -11995,7 +11995,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -12099,7 +12099,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -12203,7 +12203,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -12256,7 +12256,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -12275,7 +12275,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -12379,7 +12379,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -12483,7 +12483,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -12536,7 +12536,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -12555,7 +12555,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -12659,7 +12659,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -12763,7 +12763,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -12816,7 +12816,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -12835,7 +12835,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -12939,7 +12939,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -13043,7 +13043,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -13099,7 +13099,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -13118,7 +13118,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -13222,7 +13222,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -13326,7 +13326,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -13379,7 +13379,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -13398,7 +13398,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -13502,7 +13502,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -13606,7 +13606,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -13660,7 +13660,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -13679,7 +13679,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -13783,7 +13783,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -13887,7 +13887,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -13941,7 +13941,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -13960,7 +13960,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -14064,7 +14064,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -14168,7 +14168,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -14221,7 +14221,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -14240,7 +14240,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -14344,7 +14344,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -14448,7 +14448,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -14501,7 +14501,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -14520,7 +14520,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -14624,7 +14624,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -14728,7 +14728,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -14781,7 +14781,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -14800,7 +14800,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -14904,7 +14904,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -15008,7 +15008,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -15061,7 +15061,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -15080,7 +15080,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -15184,7 +15184,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -15288,7 +15288,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -15342,7 +15342,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -15361,7 +15361,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -15465,7 +15465,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -15569,7 +15569,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -15625,7 +15625,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -15644,7 +15644,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -15748,7 +15748,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -15852,7 +15852,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -15905,7 +15905,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -15924,7 +15924,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -16028,7 +16028,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -16132,7 +16132,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -16185,7 +16185,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -16204,7 +16204,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -16308,7 +16308,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -16412,7 +16412,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -16466,7 +16466,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -16485,7 +16485,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -16589,7 +16589,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -16693,7 +16693,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -16746,7 +16746,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -16765,7 +16765,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -16869,7 +16869,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -16973,7 +16973,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -17027,7 +17027,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -17046,7 +17046,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -17150,7 +17150,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -17254,7 +17254,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -17308,7 +17308,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -17327,7 +17327,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -17431,7 +17431,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -17535,7 +17535,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -17588,7 +17588,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -17607,7 +17607,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -17711,7 +17711,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -17815,7 +17815,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -17868,7 +17868,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -17887,7 +17887,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -17991,7 +17991,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -18095,7 +18095,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -18150,7 +18150,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -18169,7 +18169,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -18273,7 +18273,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -18377,7 +18377,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -18430,7 +18430,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -18449,7 +18449,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -18553,7 +18553,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -18657,7 +18657,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -18710,7 +18710,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -18729,7 +18729,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -18833,7 +18833,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -18937,7 +18937,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -18990,7 +18990,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -19009,7 +19009,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -19113,7 +19113,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -19217,7 +19217,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -19270,7 +19270,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -19289,7 +19289,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -19393,7 +19393,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -19497,7 +19497,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -19550,7 +19550,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -19569,7 +19569,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -19673,7 +19673,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -19777,7 +19777,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -19830,7 +19830,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -19849,7 +19849,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -19953,7 +19953,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -20057,7 +20057,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -20112,7 +20112,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -20131,7 +20131,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -20235,7 +20235,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -20339,7 +20339,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -20392,7 +20392,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -20411,7 +20411,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -20515,7 +20515,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -20619,7 +20619,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
@@ -20672,7 +20672,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get();
 
                 return $m_res->result();
@@ -20691,7 +20691,7 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
                 $this->db->group_by(" img.ad_id");
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
                 if($m_res->num_rows() > 0){
@@ -20795,7 +20795,7 @@ class Postad_ezone_model extends CI_Model{
                     else{
                         $this->db->order_by("ad.ad_id", "DESC");
                     }
-                    $this->db->order_by('dtime', 'DESC');
+                    $this->db->order_by('ad.approved_on', 'DESC');
                     $m_res = $this->db->get();
                      // echo $this->db->last_query(); exit;
                     if($m_res->num_rows() > 0){
@@ -20899,7 +20899,7 @@ class Postad_ezone_model extends CI_Model{
                         else{
                             $this->db->order_by("ad.ad_id", "DESC");
                         }
-                $this->db->order_by('dtime', 'DESC');
+                $this->db->order_by('ad.approved_on', 'DESC');
                 $m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
                  // echo $this->db->last_query(); exit;
                 if($m_res->num_rows() > 0){
