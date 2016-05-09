@@ -172,7 +172,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 						<div class="row">
 							<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu j-forms">
 								<div class="row">
-									<div class="col-md-4 col-sm-4 col-xs-12">
+									<div class="col-md-4 col-sm-3 col-xs-12">
 										<div class="input">
 											<!--label class="icon-left" for="">
 												<i class="fa fa-search"></i>
@@ -194,7 +194,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 										</label>
 									</div>
 									
-									<div class="col-md-5 col-sm-5 col-xs-12 top_pad_10">
+									<div class="col-md-5 col-sm-6 col-xs-12 top_pad_10">
 										<div class="row">
 											<div class="col-md-8 col-sm-8 col-xs-12">
 												<div class="input">
@@ -288,7 +288,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+									<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/ezone.jpg" alt="electronics in the uk " title="ezone Category">
 											<div class="overlay">
@@ -297,7 +297,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+									<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/cars.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
 											<div class="overlay">
@@ -306,9 +306,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="row top_13">
-									<div class="col-md-4 col-sm-4 col-xs-12">
+									<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/clothing.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
 											<div class="overlay">
@@ -317,7 +315,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+									<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/services.jpg" alt="free services ads" title="Services Category">
 											<div class="overlay">
@@ -326,7 +324,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+									<div class="col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/property.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
 											<div class="overlay">
@@ -335,9 +333,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="row top_13">
-									<div class="col-md-4 col-sm-4 col-xs-12">
+									<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/kitchen.jpg" alt="home cleaning services" title="Home & Kitchen Category">
 											<div class="overlay">
@@ -346,7 +342,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+									<div class="col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/pets.jpg" alt="free online pet ads" title="Pets Category">
 											<div class="overlay">
@@ -355,7 +351,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+									<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 										<div class="hovereffect">
 											<img class="img-responsive" src="img/featured/jobs.jpg"  alt="classified jobs ads" title="Jobs Category">
 											<div class="overlay">
@@ -366,7 +362,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-4 col-xs-12 ">
+							<div class="col-md-4 col-sm-6 col-xs-12 ">
 								<div class="titles">
 									<h2><span>HOT </span>DEALS</h2>
 									<hr class="tall">
