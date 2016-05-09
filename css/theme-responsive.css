@@ -380,9 +380,21 @@
 	}
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-	.top_pad_10{
+	.mob_pad_10{
 		padding-top:10px;
 	}
+	
+	.hovereffect h3 {
+		font-size: 8px !important;
+		padding: 5px;
+	}
+	.hovereffect .overlay a {
+		font-size: 8px;
+	}
+	.hovereffect a.info {
+		margin: 12px 0 0;
+	}
+	
 	.seach_btn {
 		width: 100%;
 	}
