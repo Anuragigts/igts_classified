@@ -52,7 +52,11 @@ $route['part-full-time-jobs-london'] = "job_view";
 $route['post-a-deal'] = "postad";
 /*$route['home-page'] = "classified";*/
 
-
+/*home page urls*/
+$route['view-all-significant-deals'] = "significant_deals_view";
+$route['view-all-mostvalued-deals'] = "mostvalued_deals_view";
+$route['view-all-business-deals'] = "business_deals_view";
+$route['view-all-recent-deals'] = "recent_deals_view";
 
 /*----------------E-Zone Category--------------------*/
 
