@@ -615,7 +615,7 @@
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	.product{
-		display:none;
+		/* display:none; */
 	}
 	.add_top img,
 	.add_top iframe{
