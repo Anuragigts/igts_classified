@@ -267,7 +267,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
+																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -466,7 +466,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
+																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -650,7 +650,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
+																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -830,7 +830,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
+																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -1008,7 +1008,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?></p>
+																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
@@ -1183,7 +1183,7 @@
 														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,46); ?> </p>
+																	<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?> </p>
 																</div>
 																<div class="col-xs-12">
 																	<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>

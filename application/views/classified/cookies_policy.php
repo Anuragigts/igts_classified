@@ -58,13 +58,13 @@
 								<div class="col-md-3 col-sm-3 col-xs-12">
 									<div class="item_subpages">
 										<ul class="">
-											<li><a href='about-us'>About US</a></li>
-											<li><a href='contact-us'>Contact US</a></li>
-											<li><a href='terms-conditions'>Terms & Conditions</a></li>
-											<li class="active_page"><a href='cookies-policy'>Cookies Policy</a></li>
-											<li><a href='privacy-policy'>Privacy Policy</a></li>
-											<li><a href='safety-tips'>Assistence</a></li>
-											<li><a href=''>Faq</a></li>
+											<a href='about-us'><li>About US</li></a>
+											<a href='contact-us'><li>Contact US</li></a>
+											<a href='terms-conditions'><li>Terms & Conditions</li></a>
+											<a href='cookies-policy'><li class="active_page">Cookies Policy</li></a>
+											<a href='privacy-policy'><li>Privacy Policy</li></a>
+											<a href='safety-tips'><li>Assistence</li></a>
+											<a href=''><li>Faq</li></a>
 										</ul>
 									</div>
 								</div>

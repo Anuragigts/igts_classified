@@ -47,7 +47,7 @@
 				</div>	
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,24); ?></h3>
 				<hr class="separator">
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -93,7 +93,7 @@
 				</div>	
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,24); ?></h3>
 				<hr class="separator">
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -125,7 +125,7 @@
 				</div>
 			</div>
 			<div class="info-gallery gold_bgcolor">
-				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,24); ?></h3>
 				<hr class="separator">
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -155,7 +155,7 @@
 				</div>
 			</div>
 			<div class="info-gallery gold_bgcolor">
-				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,24); ?></h3>
 				<hr class="separator">
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -187,7 +187,7 @@
 				</div>
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,24); ?></h3>
 				<hr class="separator">
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -214,7 +214,7 @@
 				</div>
 			</div>
 			<div class="info-gallery">
-				<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
+				<h3><?php echo substr($m_details->deal_tag,0,24); ?></h3>
 				<hr class="separator">
 				<?php if ($m_details->category_id != '1') { ?>
 				<h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
