@@ -325,12 +325,7 @@
 		right: 0;
 	}
 
-	.sort-by-container ul li {
-		padding: 0;
-		width: 100%;
-		margin-right: 15px;
-		display: inline-block;
-	}
+	
 	.product h4,
 	.product p{
 		width:100px;
@@ -379,11 +374,24 @@
 		height:450px !important;
 	}
 }
+@media screen and (min-device-width: 360px) and (max-device-width: 640px) {
+	.sort-by-container ul li {
+		padding: 0;
+		width: 100%;
+		margin-right: 15px;
+		display: inline-block;
+	}
+}
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	.mob_pad_10{
 		padding-top:10px;
 	}
-	
+	.sort-by-container ul li {
+		padding: 0;
+		width: 100%;
+		margin-right: 15px;
+		display: inline-block;
+	}
 	.hovereffect h3 {
 		font-size: 8px !important;
 		padding: 5px;
@@ -408,8 +416,8 @@
 		font-size: 12px;
 	}
 	.post-meta li {
-		padding-top: 5px;
-		margin-right: 10px;
+		padding-top: 3px;
+		margin-right: 4px;
 	}
 	.j-forms{
 		background-color:#fff !important;
@@ -500,7 +508,7 @@
 		font-size: 12px;
 	}
 	.btn-4 {
-		padding: 10px 29px 10px 28px;
+		padding: 9px 17px 7px 16px;
 	}
 	.post-header1 {
 		padding: 5px 33px 22px 36px;
@@ -626,7 +634,7 @@
 	.add_left iframe{
 		width: 289px;
 		height: 155px;
-		padding-bottom: 23px;
+		/*padding-bottom: 23px;*/
 	}
 	.add_middle img,
 	.add_middle iframe{
@@ -721,6 +729,38 @@
 	.filter-title {
 		top: 55%;
 	}
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	.serch_bus_logo img {
+	    display:none;
+	}
+	.cont_left {
+	    padding: 0px 5px 0px 0px;
+	    border: 0px solid #9FC955;
+	}
+	address {
+	    line-height: 27px;
+	    padding-left: 12px;
+	    min-height: 58px;
+	    font-size: 12px;
+	}
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.serch_bus_logo img {
+	    display:none;
+	}
+	.cont_left {
+	    padding: 4px 3px 0px 0px;
+	    border: 0px solid #9FC955;
+	}
+	address {
+	    line-height: 24px;
+	    padding-left: 7px;
+	    min-height: 60px;
+	    font-size: 12px;
+	}
+	
 }
  
  
