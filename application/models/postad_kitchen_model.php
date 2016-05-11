@@ -162,7 +162,7 @@ class Postad_kitchen_model extends CI_Model{
                         $pets_details = array('ad_id' => $insert_id,
                                     'brand_name' => $this->input->post('brandname'),
                                     'material' => $this->input->post('material'),
-                                    'color' => $this->input->post('color'),
+                                    'color' => $this->input->post('hcolor'),
                                     'assembly'=>$this->input->post('assembly'),
                                     'dimensions'=>$this->input->post('weight'),
                                     'capacity'=>$this->input->post('capacity'),

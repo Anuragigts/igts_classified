@@ -109,8 +109,10 @@
 		<div class="first_list">
 			<div class="row">
 				<div class="col-sm-4">
+					<?php if ($sval->urg != '') { ?>
 					<div class="featured-badge">
 					</div>
+					<?php } ?>
 					<div class="xuSlider">
 						<ul class="sliders">
 							<?php 
@@ -507,8 +509,10 @@
 		<div class="first_list gold_bgcolor">
 			<div class="row">
 				<div class="col-sm-4">
+					<?php if ($sval->urg != '') { ?>
 					<div class="featured-badge">
 					</div>
+					<?php } ?>
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
@@ -869,8 +873,10 @@
 		<div class="first_list">
 			<div class="row">
 				<div class="col-sm-4 view_img">
+					<?php if ($sval->urg != '') { ?>
 					<div class="featured-badge">
 					</div>
+					<?php } ?>
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>

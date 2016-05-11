@@ -1,6 +1,6 @@
 	<!-- platinum+urgent package start -->
 	<?php foreach (@$pickup_deals as $pvalue) {
-		$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$pvalue->ad_id' AND status = 1 GROUP BY ad_id");
+		$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$pvalue->adid' AND status = 1 GROUP BY ad_id");
 		 	if (mysql_num_rows($qry) > 0) {
 		 		$no_ratings = mysql_result($qry,0,'no_ratings');
 		 		$rating_sum = mysql_result($qry,0,'rating_sum');
@@ -27,18 +27,18 @@
 			}
 			if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package != '0') {
 			?>
-	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
+	<div class="col-md-12 <?php echo "del".$pvalue->adid.$this->session->userdata('login_id'); ?>">
 		<div class="first_list">
 			<div class="row">
 				<div class="col-sm-4">
-					<?php if ($pvalue->urgent_package !='') { ?>
+					<?php if ($pvalue->urg !='') { ?>
 					<div class="featured-badge">
 					</div>
 					<?php } ?>
 					<div class="xuSlider">
 						<ul class="sliders">
 							<?php 
-								$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->ad_id'");
+								$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->adid'");
 								while ($res = mysql_fetch_object($pic)) { ?>
 							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
@@ -73,7 +73,7 @@
 								</div>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->adid.",".$this->session->userdata('login_id'); ?>">
 										<span class="favourite_label1 active" title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
@@ -175,7 +175,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),1,46); ?> </p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -202,7 +202,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -216,14 +216,14 @@
 	<?php 
 		if (($pvalue->package_type == '3' || $pvalue->package_type == '6') && $pvalue->urgent_package == '0'){
 		 ?>
-	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
+	<div class="col-md-12 <?php echo "del".$pvalue->adid.$this->session->userdata('login_id'); ?>">
 		<div class="first_list">
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="xuSlider">
 						<ul class="sliders">
 							<?php 
-								$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->ad_id'");
+								$pic = mysql_query("select * from ad_img WHERE ad_id = '$pvalue->adid'");
 								while ($res = mysql_fetch_object($pic)) { ?>
 							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
@@ -258,7 +258,7 @@
 								</div>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->adid.",".$this->session->userdata('login_id'); ?>">
 										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
@@ -360,7 +360,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),1,46); ?> </p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -388,7 +388,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -401,17 +401,17 @@
 	<?php 
 		if (($pvalue->package_type == '2' || $pvalue->package_type == '5') && $pvalue->urgent_package != '0'){
 		 ?>
-	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
+	<div class="col-md-12 <?php echo "del".$pvalue->adid.$this->session->userdata('login_id'); ?>">
 		<div class="first_list gold_bgcolor">
 			<div class="row">
 				<div class="col-sm-4">
-					<?php if ($pvalue->urgent_package !='') { ?>
+					<?php if ($pvalue->urg !='') { ?>
 					<div class="featured-badge">
 					</div>
 					<?php } ?>
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
 						<div class="price11">
@@ -429,7 +429,7 @@
 								</div>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->adid.",".$this->session->userdata('login_id'); ?>">
 										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
@@ -531,7 +531,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),1,46); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -560,7 +560,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -573,13 +573,13 @@
 	<?php 
 		if (($pvalue->package_type == '2' || $pvalue->package_type == '5') && $pvalue->urgent_package == '0'){
 		 ?>
-	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
+	<div class="col-md-12 <?php echo "del".$pvalue->adid.$this->session->userdata('login_id'); ?>">
 		<div class="first_list gold_bgcolor">
 			<div class="row">
 				<div class="col-sm-4 ">
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="no_image.png" title="significant" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
 						<div class="price11">
@@ -597,7 +597,7 @@
 								</div>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->adid.",".$this->session->userdata('login_id'); ?>">
 										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
@@ -699,7 +699,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),1,46); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -728,7 +728,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -741,17 +741,17 @@
 	<?php 
 		if (($pvalue->package_type == '1' || $pvalue->package_type == '4') && $pvalue->urgent_package != '0'){
 		 ?>
-	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
+	<div class="col-md-12 <?php echo "del".$pvalue->adid.$this->session->userdata('login_id'); ?>">
 		<div class="first_list">
 			<div class="row">
 				<div class="col-sm-4 view_img">
-					<?php if ($pvalue->urgent_package !='') { ?>
+					<?php if ($pvalue->urg !='') { ?>
 					<div class="featured-badge">
 					</div>
 					<?php } ?>
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
 				<div class="col-sm-8 middle_text">
@@ -763,7 +763,7 @@
 								</div>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->adid.",".$this->session->userdata('login_id'); ?>">
 										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
@@ -865,7 +865,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),1,46); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -894,7 +894,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -907,13 +907,13 @@
 	<?php 
 		if (($pvalue->package_type == '1' || $pvalue->package_type == '4') && $pvalue->urgent_package == '0'){
 		 ?>
-	<div class="col-md-12 <?php echo "del".$pvalue->ad_id.$this->session->userdata('login_id'); ?>">
+	<div class="col-md-12 <?php echo "del".$pvalue->adid.$this->session->userdata('login_id'); ?>">
 		<div class="first_list">
 			<div class="row">
 				<div class="col-sm-4 view_img">
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
 				<div class="col-sm-8 middle_text">
@@ -925,7 +925,7 @@
 								</div>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->ad_id.",".$this->session->userdata('login_id'); ?>">
+										<a href="javascript:void(0);" class="favourite_label" id="<?php echo $pvalue->adid.",".$this->session->userdata('login_id'); ?>">
 										<span class="favourite_label1 active"  title="Remove from Pickup Deals"></span>
 										</a>
 									</div>
@@ -1027,7 +1027,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),1,46); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -1056,7 +1056,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $log_name; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($pvalue->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $pvalue->ad_prefix.$pvalue->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>

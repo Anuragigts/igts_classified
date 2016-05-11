@@ -239,7 +239,7 @@
 					 	}	
 						
 						$catid = $ads_desc_val->category_id;
-						$ad_id_no = $ads_desc_val->ad_id;
+						$ad_id_no = $ads_desc_val->adid;
 						$isbustype = $ads_desc_val->ad_type;
 						/*like count*/
 						$likes_count = $ads_desc_val->likes_count;

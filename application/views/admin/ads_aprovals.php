@@ -207,6 +207,9 @@
 					<input type='submit' name='active' class='btn success change_status' value='Change Status' >
 					<div class='status_error' style="color:red; display:none;">Please select status</div>
 					<div class='select_error' style="color:red; display:none;">Please select Ads</div>
+					<div style='display:none;' class='comment'>
+						<textarea name='comment' id='comment' placeholder='Enter Reason' cols='40' rows='5'></textarea>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -273,6 +276,12 @@
 	    	if ($(this).val() != 0) {
 	    		$(".change_status").css('background-color','#578EBE');
 	    	}
+	    	if ($(this).val() == 4) {
+	    		$(".comment").show(1000);
+	    	}else{
+	    		$(".comment").hide(1000);
+	    	}
+
 	    });
 	});
 

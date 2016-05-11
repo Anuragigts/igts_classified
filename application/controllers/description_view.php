@@ -74,15 +74,15 @@ class Description_view extends CI_Controller{
                                 $value->sub_scat_id == '373' || $value->sub_scat_id == '375') {
                                 $detailed_styles = $this->classifed_model->ads_detailed_cloths();
                                 foreach ($detailed_styles as $val) {
-                                    $body_content = array('Cloth Type' => $val->cloth_type,
+                                    $body_content = array('Service type' => $val->cloth_type,
                                                             'Size'=>$val->w_size,
                                                             'Colour'=> $val->color,
-                                                            'Brand'=>$val->brand,
+                                                            'Brand Name'=>$val->brand,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Fit'=>$val->fit,
                                                             'Made In'=>$val->made_in,
                                                             'Material'=>$val->material,
-                                                            'Washing Instractor'=>$val->washing_instruct,
+                                                            'Washing Instructions'=>$val->washing_instruct,
                                                             'Length'=>$val->length );
                                 } 
                             }
@@ -93,7 +93,7 @@ class Description_view extends CI_Controller{
                                 $value->sub_scat_id == '374' || $value->sub_scat_id == '376') {
                                 $detailed_styles = $this->classifed_model->ads_detailed_acces();
                                 foreach ($detailed_styles as $val) {
-                                    $body_content = array('Cloth Type' => $val->cloth_type,
+                                    $body_content = array('Service type' => $val->cloth_type,
                                                             'Colour'=> $val->color,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Material'=>$val->material,
@@ -107,10 +107,10 @@ class Description_view extends CI_Controller{
                                 $detailed_styles = $this->classifed_model->ads_detailed_shoes();
                                 foreach ($detailed_styles as $val) {
                                         if ($val->heel_details != '') {
-                                            $body_content = array('Cloth Type' => $val->cloth_type,
+                                            $body_content = array('Service type' => $val->cloth_type,
                                                                     'Size'=>$val->shoe_size,
                                                                     'Colour'=> $val->color,
-                                                                    'Brand'=>$val->brand,
+                                                                    'Brand Name'=>$val->brand,
                                                                     'No of Items'=>$val->no_of_items,
                                                                     'Heel details'=>$val->heel_details,
                                                                     'Material'=>$val->shoe_material,
@@ -118,10 +118,10 @@ class Description_view extends CI_Controller{
                                                                     'Made In'=>$val->made_in);
                                         }
                                         else{
-                                            $body_content = array('Cloth Type' => $val->cloth_type,
+                                            $body_content = array('Service type' => $val->cloth_type,
                                                                     'Size'=>$val->shoe_size,
                                                                     'Colour'=> $val->color,
-                                                                    'Brand'=>$val->brand,
+                                                                    'Brand Name'=>$val->brand,
                                                                     'No of Items'=>$val->no_of_items,
                                                                     'Material'=>$val->shoe_material,
                                                                     'Shoe style'=>$val->shoe_style,
@@ -135,12 +135,12 @@ class Description_view extends CI_Controller{
                             if ($value->sub_scat_id == '362' || $value->sub_scat_id == '366') {
                                 $detailed_styles = $this->classifed_model->ads_detailed_wedding();
                                  foreach ($detailed_styles as $val) {
-                                    $body_content = array('Cloth Type' => $val->cloth_type,
+                                    $body_content = array('Service type' => $val->cloth_type,
                                                             'Size'=>$val->w_size,
                                                             'Colour'=> $val->color,
-                                                            'Brand'=>$val->brand,
+                                                            'Brand Name'=>$val->brand,
                                                             'No of Items'=>$val->no_of_items,
-                                                            'Washing Instruction'=>$val->washing_instruct,
+                                                            'Washing Instructions'=>$val->washing_instruct,
                                                             'Material'=>$val->material,
                                                             'Length'=>$val->length);
                                     } 

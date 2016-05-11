@@ -382,32 +382,34 @@ Phone: <span itemprop="telephone">02089355446</span>
 														$currency = '<span class="euro_sym"></span>';
 													}
 												  if ($hot_deals_val->ad_type == 'business') { 
-													$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_person');
-													$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
+													$person = @mysql_result(mysql_query("SELECT contact_person FROM contactinfo_business WHERE ad_id= '$hot_deals_val->adid'"), 0, 'contact_person');
+													$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_business WHERE ad_id= '$hot_deals_val->adid'"), 0, 'mobile');
 												  }
 												  else if ($hot_deals_val->ad_type == 'consumer') { 
-													$person = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'contact_name');
-													$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->ad_id'"), 0, 'mobile');
+													$person = @mysql_result(mysql_query("SELECT contact_name FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->adid'"), 0, 'contact_name');
+													$mobile = @mysql_result(mysql_query("SELECT mobile FROM contactinfo_consumer WHERE ad_id= '$hot_deals_val->adid'"), 0, 'mobile');
 												  }
 
 												  if ($hot_deals_val->category_id == '1') {
 														// $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'jobtype');
-														$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'salarymin');
-														$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$hot_deals_val->ad_id'"),0,'salarymax');
+														$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$hot_deals_val->adid'"),0,'salarymin');
+														$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$hot_deals_val->adid'"),0,'salarymax');
 													}
 												
 												  ?>
 											<figure class="slide jbs-current">
 												<?php 
 													if ($hot_deals_val->urgent_package != 0) {
+														if ($hot_deals_val->urg !='') {
 														?>
 												<div class="significant_badge">
 												</div>
 												<?php }
+													}
 													?>
 												<div class="img-hover significant_ad">
 													<img src="<?php echo base_url(); ?>pictures/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
-													<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+													<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->adid; ?>" ><i class="fa fa-link"></i></a></div>
 												</div>
 												<div class="info-gallery slider_bg">
 													<h3><?php echo substr($hot_deals_val->deal_tag, 0, 20); ?></h3>
@@ -418,7 +420,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 													else{ ?>
 													<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 													<?php } ?>
-													<a href="description_view/details/<?php echo $hot_deals_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+													<a href="description_view/details/<?php echo $hot_deals_val->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 													<?php  if ($hot_deals_val->ad_type == 'business') {
 														if ($hot_deals_val->bus_logo != '') {
 														?>
@@ -505,9 +507,9 @@ Phone: <span itemprop="telephone">02089355446</span>
 			<div class="content_info sbr_view">
 				<div class="paddings-mini">
 					<div class="container">
-						<div class="titles recen_ad">
+						<a href="<?php echo base_url(); ?>view-all-significant-deals"><div class="titles recen_ad">
 							<h2>SIGNIFICANT <span> DEALS</span></h2>
-						</div>
+						</div></a>
 						<div class="portfolioFilter">
 							<a href="#showall" data-filter=".showall" class="current">Show All</a>
 							<a href="#ezone" data-filter=".ezone">E-Zone</a>
@@ -974,6 +976,9 @@ Phone: <span itemprop="telephone">02089355446</span>
 								}
 							 ?>
 						</div>
+						<div class="row text_center">
+							<a href="<?php echo base_url(); ?>view-all-significant-deals" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>VIEW ALL SIGNIFICANT DEALS</span></a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -981,14 +986,14 @@ Phone: <span itemprop="telephone">02089355446</span>
 			<section class="content_info sbr_view">
 				<div class="padding-bottom">
 					<div class="container">
-						<div class="titles recen_ad">
+						<a href="<?php echo base_url(); ?>view-all-mostvalued-deals"><div class="titles recen_ad">
 							<h2>MOST<span> VALUED </span>DEALS</h2>
-						</div>
+						</div></a>
 					</div>
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-3">
-								<a href="#">
+								<a href="<?php echo base_url(); ?>view-all-mostvalued-deals">
 								<img src="img/most_value.jpg" alt="post free ads" title="Value Deals" class="recentad_heig img-responsive">
 								</a>
 							</div>
@@ -1076,15 +1081,15 @@ Phone: <span itemprop="telephone">02089355446</span>
 					</div>
 					
 					<div class="container">
-						<div class="titles recen_ad">
+						<a href="<?php echo base_url(); ?>view-all-business-deals"><div class="titles recen_ad">
 							<h2><span>BUSINESS </span>DEALS</h2>
-						</div>
+						</div></a>
 					</div>
 					
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-3 col-xs-12">
-								<a href="#">
+								<a href="<?php echo base_url(); ?>view-all-business-deals">
 								<img src="img/business_deals.jpg" alt="buy and sell online" title="Business Deals" class="recentad_heig img-responsive">
 								</a>
 							</div>
@@ -1175,15 +1180,15 @@ Phone: <span itemprop="telephone">02089355446</span>
 					</div>
 					
 					<div class="container">
-						<div class="titles recen_ad">
+						<a href="<?php echo base_url(); ?>view-all-recent-deals"><div class="titles recen_ad">
 							<h2><span>RECENT </span>DEALS</h2>
-						</div>
+						</div></a>
 					</div>
 					
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-3 col-xs-12">
-								<a href="#">
+								<a href="<?php echo base_url(); ?>view-all-recent-deals">
 								<img src="img/recentad.jpg" alt="local classifieds ads" title="Recent Deals" class="recentad_heig img-responsive">
 								</a>
 							</div>

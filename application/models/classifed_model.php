@@ -346,10 +346,10 @@ Class Classifed_model extends CI_model{
 		$low_gold = mysql_result(mysql_query("SELECT likes_count FROM manage_likes WHERE id=6 AND is_top = 0"), 0,'likes_count');
 
 		$query = $this->db->query("/*jobs*/
-(SELECT *FROM postad AS ad
+(SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
+ LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
  WHERE ad.`category_id` = 1 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
@@ -359,10 +359,10 @@ JOIN ad_img AS img ON img.ad_id = ad.ad_id
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
 /*services*/
-(SELECT *FROM postad AS ad 
+(SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
+LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
 WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
@@ -372,10 +372,10 @@ WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' A
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
 /*motor point*/
-(SELECT *FROM postad AS ad 
+(SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
+LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
 WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
@@ -385,10 +385,10 @@ WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' A
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
 /*find a property*/
-(SELECT *FROM postad AS ad
+(SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
+LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
 WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
@@ -398,10 +398,10 @@ WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' A
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2)UNION
 /*pets*/
-(SELECT * FROM postad AS ad
+(SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
+LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
  WHERE ad.`category_id` = 5 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
@@ -411,10 +411,10 @@ JOIN ad_img AS img ON img.ad_id = ad.ad_id
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
  /*cloths*/
- (SELECT * FROM postad AS ad 
+ (SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id 
+LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
  WHERE ad.`category_id` = 6 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
@@ -424,11 +424,11 @@ JOIN ad_img AS img ON img.ad_id = ad.ad_id
 GROUP BY img.ad_id 
  ORDER BY ad.approved_on DESC LIMIT 2) UNION
  /*home and kitchen*/
- (SELECT * FROM postad AS ad 
+ (SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad 
  JOIN ad_img AS img ON img.ad_id = ad.ad_id 
+ LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
  WHERE ad.`category_id` = 7
  AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
@@ -438,11 +438,11 @@ GROUP BY img.ad_id
 GROUP BY img.ad_id 
  ORDER BY ad.approved_on DESC LIMIT 2) UNION
  /*ezone*/
- (SELECT * FROM postad AS ad 
+ (SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id 
+LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
 WHERE ad.`category_id` = 8
  AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
-/*ad.expire_data >= NOW() AND*/
 (((ad.package_type = 4 )AND ad.urgent_package != 0 AND ad.likes_count >= '$low_freeurgent')OR
  ((ad.package_type = 4 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_free')OR
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
@@ -453,6 +453,7 @@ GROUP BY img.ad_id
  ORDER BY ad.approved_on DESC LIMIT 2) 
  
  ");
+	// echo $this->db->last_query(); exit;
 	return $query->result();
 	}
 
@@ -555,11 +556,12 @@ GROUP BY img.ad_id
 	public function count_my_ads(){
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -576,19 +578,20 @@ GROUP BY img.ad_id
 			else if ($dealprice == 'hightolow'){
 				$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 			}
-		$this->db->order_by("ad.ad_id", "DESC");
+		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get();
 		return $res->result();
 	}
 	public function count_my_ads_user(){
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
-		$this->db->order_by("ad.ad_id", "DESC");
+		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get();
 		return $res->result();
 	}
@@ -596,10 +599,11 @@ GROUP BY img.ad_id
 	public function my_ads($data){
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
-		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -616,12 +620,15 @@ GROUP BY img.ad_id
 			else if ($dealprice == 'hightolow'){
 				$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 			}
-		$this->db->order_by("ad.ad_id", "DESC");
+		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
+		// echo $this->db->last_query(); exit;
 		return $res->result();
 	}
 	public function my_ads_user($data){
 		$this->db->select("ad.ad_id,ad.urgent_package,ad.package_type,ad.deal_tag,pl.cost_pound, COUNT(`img`.`ad_id`) AS img_count,cat.category_name,pl.pkg_dur_name,ad.payment_status, a_s.status_name,u_lab.u_pkg__pound_cost,u_lab.u_pkg_name,u_lab.u_pkg_id,ad.paid_amt,ad.expire_data, ad.ad_status");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('ad_status as a_s','a_s.id = ad.ad_status','inner');
 		$this->db->join('catergory as cat','cat.category_id = ad.category_id','inner');
@@ -629,17 +636,19 @@ GROUP BY img.ad_id
 		$this->db->join('pkg_duration_list as pl','pl.pkg_dur_id = ad.package_type','inner');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
-		$this->db->order_by("ad.ad_id", "DESC");
+		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
 		return $res->result();
 	}
 	public function my_ads_box($data){
 		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
-		$this->db->order_by("ad.ad_id", "DESC");
+		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
 		return $res->result();
 	}
@@ -669,9 +678,9 @@ GROUP BY img.ad_id
 			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 		}
 		else{
-			$this->db->order_by("ad.ad_id", "DESC");
+			$this->db->order_by('ad.approved_on', 'DESC');
 		}
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$res = $this->db->get();
 		return $res->result();
 	}
@@ -702,16 +711,16 @@ GROUP BY img.ad_id
 			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 		}
 		else{
-			$this->db->order_by("ad.ad_id", "DESC");
+			$this->db->order_by('ad.approved_on', 'DESC');
 		}
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$res = $this->db->get();
 		return $res->result();
 	}
 
 	/*ad description view details*/
 	public function ads_description_details(){
-		$this->db->select("*,ud.valid_to AS urg");
+		$this->db->select("*,ud.valid_to AS urg,postad.ad_id as adid");
 		$this->db->from("postad");
 		$this->db->join('urgent_details AS ud',"ud.ad_id= postad.ad_id AND ud.valid_to >= '".date('Y-m-d H:i:s')."'",'left');
 		$this->db->where('postad.ad_id', $this->uri->segment(3));
@@ -950,15 +959,18 @@ GROUP BY img.ad_id
 	/*feedback for ads*/
 	public function feedbackads_insert(){
 		$login_email = @mysql_result(mysql_query("SELECT login_email FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '".$this->input->post('ad_id')."')"), 0, 'login_email');
+		$loginname = @mysql_result(mysql_query("SELECT first_name FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '".$this->input->post('ad_id')."')"), 0, 'first_name');
 		$deal_tag = @mysql_result(mysql_query("SELECT deal_tag FROM postad WHERE ad_id = '".$this->input->post('ad_id')."'"), 0, 'deal_tag');
 		 $config = Array(
                  'protocol' => 'smtp',
-                 'smtp_host' => 'ssl://smtp.googlemail.com',
-                 'smtp_port' => 465,
-                 'smtp_user' => 'c.punnam@googlemail.com',
-                 'smtp_pass' => '12chandru12',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => '99rightdeals@googlemail.com',
+                'smtp_pass' => 'S@ibaba2016',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
                  );
-		 $this->load->library('email', $config);
+				 $this->load->library('email', $config);
                  $this->email->set_newline("\r\n");
                 $this->email->from($this->input->post('busemail'), $this->input->post('fbkcontname'));
                 $this->email->to($login_email);
@@ -970,13 +982,13 @@ GROUP BY img.ad_id
 									</div>
 									<div style='margin-top:20px'></div>
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
-										<h3>Hi ".$this->input->post('con_fname').",</h3>
+										<h3>Hi ".$loginname.",</h3>
 										<p>Welcome to 99Rightdeals.com</p>
 										<p><a href='".base_url()."description_view/details/".$this->input->post('ad_id')."'>$deal_tag</a></p>
 										<p>Contact Person : ".$this->input->post('fbkcontname')."</p>
 										<p>Contact mobile : ".$this->input->post('feedbackno')."</p>
 										<p>Contact email : ".$this->input->post('busemail')."</p>
-										<p >Message : ".$this->input->post('feedbackmsg')."</p>
+										<p style='word-break: break-all;'>Message : ".$this->input->post('feedbackmsg')."</p>
 										<p>Best Wishes,</p>
 										<p>The <a href=''><strong style='color:#9FC955;'>99RightDeals </strong></a>Team</p>
 									</div>
@@ -1115,7 +1127,6 @@ GROUP BY img.ad_id
 		$this->db->order_by('ads.approved_on', 'DESC');
 		$this->db->limit(10);
 		$m_res = $this->db->get();
-		// echo $this->db->last_query(); exit;
 		if($m_res->num_rows() > 0){
 			return $m_res->result();
 		}
@@ -1128,10 +1139,11 @@ GROUP BY img.ad_id
 	public function pickup_deals($data){
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg,ad.ad_id as adid");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -1156,11 +1168,12 @@ GROUP BY img.ad_id
 	public function pickup_deals_count(){
 		$dealtitle = $this->session->userdata('dealtitle');
 		$dealprice = $this->session->userdata('dealprice');
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg,ad.ad_id as adid");
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where('fav.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
 		/*deal title ascending or descending*/
@@ -1183,12 +1196,13 @@ GROUP BY img.ad_id
 	}
 
 	public function pickup_deals_search(){
-		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg,ad.ad_id as adid");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad as ad");
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('favourite_deals as fav', "fav.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
 		$this->db->group_by("img.ad_id");
@@ -1208,9 +1222,9 @@ GROUP BY img.ad_id
 			$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 		}
 		else{
-			$this->db->order_by("ad.ad_id", "DESC");
+			$this->db->order_by('ad.approved_on', 'DESC');
 		}
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$res = $this->db->get();
 		return $res->result();
 	}
@@ -1301,7 +1315,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -1313,19 +1327,20 @@ GROUP BY img.ad_id
 		}
 	}
 	public function serviceprof_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		//$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.sub_cat_id", "9");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -1337,19 +1352,20 @@ GROUP BY img.ad_id
 		}
 	}
 	public function servicepop_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		//$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.sub_cat_id", "10");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -1373,45 +1389,47 @@ GROUP BY img.ad_id
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 		
 	}
 	public function count_serviceprof_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.sub_cat_id", "9");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 		
 	}
 	public function count_servicepop_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "2");
 		$this->db->where("ad.sub_cat_id", "10");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
@@ -1420,16 +1438,17 @@ GROUP BY img.ad_id
 
 		/*ads for jobs in jobs search */
 	public function jobs_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad",$data['limit'],$data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1441,17 +1460,18 @@ GROUP BY img.ad_id
 	}
 
 	public function count_jobs_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "1");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -1464,35 +1484,37 @@ GROUP BY img.ad_id
 
 	/*ads for jobs in pets search */
 	public function count_pets_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 
 	public function pets_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "5");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 		// echo $this->db->last_query(); exit;
 		if($m_res->num_rows() > 0){
@@ -1505,250 +1527,273 @@ GROUP BY img.ad_id
 
 	/*motor search*/
 	public function count_motor_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_ezone_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_phones_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_homes_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_smalls_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_lappy_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "62");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_access_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_pcare_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_entertain_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_poto_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg
+");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_plants_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_farming_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_boats_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function plants_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "17");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1759,18 +1804,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function farming_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1781,18 +1827,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function boats_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "19");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1804,109 +1851,115 @@ GROUP BY img.ad_id
 	}
 	/*cars search*/
 	public function count_cars_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_carvans_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_coaches_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	public function count_vans_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 	/*count_bikes_scoters_view search*/
 	public function count_bikes_scoters_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		return $m_res->result();
 	}
 
 	public function motor_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1917,17 +1970,18 @@ GROUP BY img.ad_id
 		}
 	}
 	public function ezone_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1939,18 +1993,19 @@ GROUP BY img.ad_id
 	}
 
 	public function phones_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "59");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1961,18 +2016,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function homes_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "60");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -1983,18 +2039,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function smalls_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "61");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2005,10 +2062,11 @@ GROUP BY img.ad_id
 		}
 	}
 	public function lappy_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
@@ -2016,7 +2074,7 @@ GROUP BY img.ad_id
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2027,18 +2085,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function access_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "63");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2049,18 +2108,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function pcare_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "64");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2071,18 +2131,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function entertain_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "65");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2093,18 +2154,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function poto_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 		$this->db->where("ad.category_id", "8");
 		$this->db->where("ad.sub_cat_id", "66");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2116,18 +2178,19 @@ GROUP BY img.ad_id
 	}
 
 	public function cars_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "12");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2138,18 +2201,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function carvans_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "14");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2160,18 +2224,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function vans_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "15");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2182,18 +2247,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function coaches_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "16");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2204,18 +2270,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function bikes_scoters_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "13");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2228,16 +2295,17 @@ GROUP BY img.ad_id
 
 	/*ads for kitchen_view search */
 	public function kitchenhome_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "7");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 		
 		if($m_res->num_rows() > 0){
@@ -2249,17 +2317,18 @@ GROUP BY img.ad_id
 	}
 
 	public function count_kitchenhome_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "7");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		// echo $this->db->last_query();exit;
 		if($m_res->num_rows() > 0){
@@ -2272,16 +2341,17 @@ GROUP BY img.ad_id
 
 	/*ads for find a property search */
 	public function find_property_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2293,17 +2363,18 @@ GROUP BY img.ad_id
 	}
 
 	public function find_propertyresi_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.sub_cat_id", "11");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2315,17 +2386,18 @@ GROUP BY img.ad_id
 	}
 
 	public function find_propertycomm_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.sub_cat_id", "26");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
 
 		if($m_res->num_rows() > 0){
@@ -2337,17 +2409,18 @@ GROUP BY img.ad_id
 	}
 
 	public function count_find_property_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -2359,18 +2432,19 @@ GROUP BY img.ad_id
 	}
 
 	public function count_find_propertyresi_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.sub_cat_id", "11");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -2382,18 +2456,19 @@ GROUP BY img.ad_id
 	}
 
 	public function count_find_propertycomm_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "4");
 		$this->db->where("ad.sub_cat_id", "26");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 
 		if($m_res->num_rows() > 0){
@@ -2406,17 +2481,18 @@ GROUP BY img.ad_id
 
 	/*ads for clothstyle in clothstyle search */
 	public function clothstyle_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		//$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		//echo $this->db->last_query(); exit;
 
@@ -2429,17 +2505,18 @@ GROUP BY img.ad_id
 	}
 
 	public function count_clothstyle_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2453,17 +2530,18 @@ GROUP BY img.ad_id
 
 	/*women view search*/
 	public function women_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "20");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -2475,18 +2553,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function count_women_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "20");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2499,18 +2578,19 @@ GROUP BY img.ad_id
 	}
 
 	public function count_men_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "21");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2522,18 +2602,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function men_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		//$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "21");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -2545,18 +2626,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function count_boys_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "22");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2568,18 +2650,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function count_girls_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "23");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2591,18 +2674,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function count_baby_boy_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "24");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2614,18 +2698,19 @@ GROUP BY img.ad_id
 		}
 	}
 	public function count_baby_girl_view(){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->from("postad AS ad");
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "25");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get();
 		//echo $this->db->last_query(); exit;
 
@@ -2637,17 +2722,18 @@ GROUP BY img.ad_id
 		}
 	}
 	public function boys_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "22");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -2659,17 +2745,18 @@ GROUP BY img.ad_id
 		}
 	}
 	public function girls_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "23");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -2682,17 +2769,18 @@ GROUP BY img.ad_id
 	}
 
 	public function baby_boy_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "24");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -2704,17 +2792,18 @@ GROUP BY img.ad_id
 		}
 	}
 	public function baby_girl_view($data){
-		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
   		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "6");
 		$this->db->where("ad.sub_cat_id", "25");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
-		$this->db->order_by('dtime', 'DESC');
+		$this->db->order_by('ad.approved_on', 'DESC');
 		$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
 		// echo $this->db->last_query(); exit;
 
@@ -3075,6 +3164,578 @@ GROUP BY img.ad_id
 						(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 						AND ad.`category_id` = '2' AND ad.`sub_cat_id`=10 AND ad.sub_scat_id = 50 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 			return $this->db->get()->result();
+			}
+
+			public function count_viewall_sigads(){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("(ad.package_type = 3 OR ad.package_type = 6)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_sigads($data){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(ad.package_type = 3 OR ad.package_type = 6)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+			public function count_viewall_sigads1(){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("(ad.package_type = 3 OR ad.package_type = 6)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_sigads1($data){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(ad.package_type = 3 OR ad.package_type = 6)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+
+			/*most valued view all ads*/
+			public function count_viewallmostads(){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("(ad.package_type = 2 OR ad.package_type = 5)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_mostads($data){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(ad.package_type = 2 OR ad.package_type = 5)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+			public function count_viewall_mostads1(){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("(ad.package_type = 2 OR ad.package_type = 5)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_mostads1($data){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(ad.package_type = 2 OR ad.package_type = 5)");
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+			/*view all business deals*/
+			public function count_viewallbusiness(){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("ad.ad_type",'business');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_business($data){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("ad.ad_type",'business');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+			public function count_viewall_business1(){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("ad.ad_type",'business');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_business1($data){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("ad.ad_type",'business');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+			/*view all consumer deals*/
+			public function count_viewallconsumer(){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("ad.ad_type",'consumer');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_consumer($data){
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("ad.ad_type",'consumer');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				$this->db->order_by('ad.approved_on', 'DESC');
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
+			}
+
+			public function count_viewall_consumer1(){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->from("postad AS ad");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->where("ad.ad_type",'consumer');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get();
+				return $m_res->result();
+			}
+
+			public function viewall_consumer1($data){
+				$dealtitle = $this->session->userdata('dealtitle');
+	        	$dealprice = $this->session->userdata('dealprice');
+	        	$recentdays = $this->session->userdata('recentdays');
+				$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,ad.ad_id as adid");
+				$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("ad.ad_type",'consumer');
+				$this->db->where("ad.ad_status", "1");
+				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+				$this->db->group_by(" img.ad_id");
+				/*deal posted days 24hr/3day/7day/14day/1month */
+					if ($recentdays == 'last24hours'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 day")));
+					}
+					else if ($recentdays == 'last3days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-3 days")));
+					}
+					else if ($recentdays == 'last7days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-7 days")));
+					}
+					else if ($recentdays == 'last14days'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-14 days")));
+					}	
+					else if ($recentdays == 'last1month'){
+						$this->db->where("ad.approved_on >=", date("Y-m-d H:i:s", strtotime("-1 month")));
+					}
+				/*deal title ascending or descending*/
+					if ($dealtitle == 'atoz') {
+						$this->db->order_by("ad.deal_tag","ASC");
+					}
+					else if ($dealtitle == 'ztoa'){
+						$this->db->order_by("ad.deal_tag", "DESC");
+					}
+					/*deal price ascending or descending*/
+					if ($dealprice == 'lowtohigh'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "ASC");
+					}
+					else if ($dealprice == 'hightolow'){
+						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
+					}
+					else{
+						$this->db->order_by('ad.approved_on', 'DESC');
+					}
+				$m_res = $this->db->get('postad AS ad', $data['limit'],$data['start']);
+				if($m_res->num_rows() > 0){
+					return $m_res->result();
+				}
+				else{
+					return array();
+				}
 			}
 
 		

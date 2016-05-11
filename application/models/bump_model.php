@@ -745,13 +745,14 @@ class Bump_model extends CI_Model{
 		}
 
 		public function searchcnt_todaynow($logid,$title,$cat,$loc){
-			$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+			$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,jd.*,lg.*, ad.ad_id as adid");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 				if ($title) {
 					if ($title != '') {
 						$this->db->where("(ad.deal_tag LIKE '%$title%' OR ad.deal_tag LIKE '$title%' OR ad.deal_tag LIKE '%$title' 
@@ -896,11 +897,12 @@ class Bump_model extends CI_Model{
 			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
 			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
 			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
-				$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+				$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,jd.*,ad.ad_id as adid");
         		$this->db->from('postad AS ad');
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
 				$this->db->where('ad.ad_status', 1);
 				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 				$this->db->where("ad.approved_on <= ", date("Y-m-d H:i:s"));

@@ -157,9 +157,7 @@ class Postad_cloths_model extends CI_Model{
                     }
 
                     /*women, men, boy, girls, baby boy, baby girl clothing details*/
-                     if ($this->input->post('sub_sub_id') == '359' || $this->input->post('sub_sub_id') == '363' ||
-                      $this->input->post('sub_sub_id') == '367' || $this->input->post('sub_sub_id') == '370' || 
-                      $this->input->post('sub_sub_id') == '373' || $this->input->post('sub_sub_id') == '375') {
+                     if ($this->input->post('sub_sub_id') == '359') {
                            $women_cloths = array('ad_id' => $insert_id,
                                                 'cloth_type'=>$this->input->post('checkbox_wmcloth'),
                                                 'w_size' => $this->input->post('Size'),
@@ -174,13 +172,30 @@ class Postad_cloths_model extends CI_Model{
                                 );
                         $this->db->insert("lifestyle_clothing", $women_cloths);
                         }
+                        if ($this->input->post('sub_sub_id') == '363' ||
+                      $this->input->post('sub_sub_id') == '367' || $this->input->post('sub_sub_id') == '370' || 
+                      $this->input->post('sub_sub_id') == '373' || $this->input->post('sub_sub_id') == '375') {
+                            $women_cloths = array('ad_id' => $insert_id,
+                                                'cloth_type'=>$this->input->post('checkbox_wmcloth'),
+                                                'w_size' => $this->input->post('wsize'),
+                                                'color' => $this->input->post('color'),
+                                                'brand' => $this->input->post('brand'),
+                                                'no_of_items'=>$this->input->post('noofitem'),
+                                                'fit'=>$this->input->post('cfit'),
+                                                'made_in'=>$this->input->post('madein'),
+                                                'material'=>$this->input->post('material'),
+                                                'washing_instruct'=>$this->input->post('washinst'),
+                                                'length'=>$this->input->post('length')
+                                );
+                        $this->db->insert("lifestyle_clothing", $women_cloths);
+                        }
 
                         /*women, men, boy, girl shoes details*/
                         if ($this->input->post('sub_sub_id') == '360' || $this->input->post('sub_sub_id') == '364' || 
                             $this->input->post('sub_sub_id') == '368' || $this->input->post('sub_sub_id') == '371') {
                            $women_shoes = array('ad_id' => $insert_id,
                                                 'cloth_type'=>$this->input->post('checkbox_wmcloth'),
-                                                'shoe_size' => $this->input->post('size'),
+                                                'shoe_size' => $this->input->post('wsize'),
                                                 'color' => $this->input->post('color'),
                                                 'brand' => $this->input->post('brand'),
                                                 'no_of_items'=>$this->input->post('noofitem'),
@@ -212,7 +227,7 @@ class Postad_cloths_model extends CI_Model{
                      if ($this->input->post('sub_sub_id') == '362' || $this->input->post('sub_sub_id') == '366') {
                            $women_wedding = array('ad_id' => $insert_id,
                                                 'cloth_type'=>$this->input->post('checkbox_wmcloth'),
-                                                'w_size' => $this->input->post('size'),
+                                                'w_size' => $this->input->post('wsize'),
                                                 'color' => $this->input->post('color'),
                                                 'brand' => $this->input->post('brand'),
                                                 'no_of_items'=>$this->input->post('noofitem'),

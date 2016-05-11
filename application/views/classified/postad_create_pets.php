@@ -956,7 +956,7 @@
 														<!-- end Age -->
 														<div class="span6 unit">
 															<!-- start Height -->
-															<label class="label">Height
+															<label class="label">Height / Size
 															<sup data-toggle="tooltip" title="" data-original-title="HIGHT OF THE ANIMAL">
 															<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
 															</sup>

@@ -949,7 +949,7 @@
 																	</label>
 																	<label class="input select">
 																		<?php if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																			<input type="text" id="Size" name="Size" placeholder="Enter Size" onkeypress="return isNumber(event)">
+																			<input type="text" id="Size" name="wsize" placeholder="Enter Size">
 																	<?php	}
 																	if (@$sub_sub_id == '359') { ?>
 																	<select name="Size">
@@ -997,6 +997,8 @@
 																		<select name="color">
 																			<option value="none" selected disabled="">Select Colour</option>
 																			<option value="Brown">Brown Colour</option>
+																			<option value="Black">Black Colour</option>
+																			<option value="Blue">Blue Colour</option>
 																			<option value="Gray">Gray Colour</option>
 																			<option value="Green">Green Colour</option>
 																			<option value="Cream">Cream Colour</option>
@@ -1011,7 +1013,7 @@
 																			<option value="Bronze">Bronze Colour</option>
 																			<option value="Nude">Nude Colour</option>
 																			<option value="Purple">Purple Colour</option>
-																			<option value="teal">teal Colour</option>
+																			<option value="teal">Teal Colour</option>
 																			<option value="Others">Other Colour</option>
 																		</select>
 																		<i></i>
@@ -1043,7 +1045,7 @@
 																		<label class="icon-right" for="Items">
 																			<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 																		</label>
-																		<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+																		<input type="text" id="noofitem" name="noofitem" placeholder="Enter No of Items" >
 																	</div>
 																</div>
 															</div>
@@ -1072,7 +1074,7 @@
 																		<?php }
 																		/*men, boy, girl, kid boy, kid girl*/
 																		if (@$sub_sub_id == '363' || @$sub_sub_id == '367' || @$sub_sub_id == '370' || @$sub_sub_id == '373' || @$sub_sub_id == '375') { ?>
-																			<input type="text" placeholder="Enter Fit" name="Fit" id="Fit" onKeyPress="return ValidateAlpha(event);">
+																			<input type="text" placeholder="Enter Fit" name="cfit" id="cfit" >
 																	<?php	}
 																		 ?>
 																		
@@ -1129,7 +1131,7 @@
 																		<label class="icon-right" for="Length">
 																			<img src="<?php echo base_url(); ?>j-folder/img/length.png" alt="Length" title="Length Icon" class="img-responsive">
 																		</label>
-																		<input type="text" id="length" name="length" placeholder="Enter Length" onkeypress="return isNumber(event)">
+																		<input type="text" id="length" name="length" placeholder="Enter Length" >
 																	</div>
 																</div>
 															</div>
@@ -1149,7 +1151,7 @@
 																<label class="icon-right" for="Size">
 																	<img src="<?php echo base_url(); ?>j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
 																</label>
-																<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
+																<input type="text" id="size" name="wsize" placeholder="Enter Size" >
 															</div>
 														</div>
 														<div class="span6 unit">
@@ -1163,6 +1165,8 @@
 																	<select name="color">
 																		<option value="none" selected disabled="">Select Colour</option>
 																		<option value="Brown">Brown Colour</option>
+																		<option value="Black">Black Colour</option>
+																		<option value="Blue">Blue Colour</option>
 																		<option value="Gray">Gray Colour</option>
 																		<option value="Green">Green Colour</option>
 																		<option value="Cream">Cream Colour</option>
@@ -1177,7 +1181,7 @@
 																		<option value="Bronze">Bronze Colour</option>
 																		<option value="Nude">Nude Colour</option>
 																		<option value="Purple">Purple Colour</option>
-																		<option value="teal">teal Colour</option>
+																		<option value="Teal">Teal Colour</option>
 																		<option value="Others">Other Colour</option>
 																	</select>
 																	<i></i>
@@ -1211,7 +1215,7 @@
 																<label class="icon-right" for="Items">
 																	<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 																</label>
-																<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+																<input type="text" id="noofitem" name="noofitem" placeholder="Enter No of Items" >
 															</div>
 														</div>
 														
@@ -1228,7 +1232,7 @@
 																<label class="icon-right" for="Shoes">
 																	<img src="<?php echo base_url(); ?>j-folder/img/shoes.png" alt="Shoes" title="Shoes Icon" class="img-responsive">
 																</label>
-																<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
+																<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Material">
 															</div>
 														</div>
 														<div class="span6 unit">
@@ -1308,6 +1312,8 @@
 																		<select name="color">
 																			<option value="none" selected disabled="">Select Colour</option>
 																			<option value="Brown">Brown Colour</option>
+																			<option value="Black">Black Colour</option>
+																			<option value="Blue">Blue Colour</option>
 																			<option value="Gray">Gray Colour</option>
 																			<option value="Green">Green Colour</option>
 																			<option value="Cream">Cream Colour</option>
@@ -1322,7 +1328,7 @@
 																			<option value="Bronze">Bronze Colour</option>
 																			<option value="Nude">Nude Colour</option>
 																			<option value="Purple">Purple Colour</option>
-																			<option value="teal">teal Colour</option>
+																			<option value="teal">Teal Colour</option>
 																			<option value="Others">Other Colour</option>
 																		</select>
 																		<i></i>
@@ -1355,7 +1361,7 @@
 																			<label class="icon-right" for="Items">
 																				<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 																			</label>
-																			<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+																			<input type="text" id="noofitem" name="noofitem" placeholder="Enter No of Items" >
 																		</div>
 																	</div>
 																	<div class="span6 unit">
@@ -1368,7 +1374,7 @@
 																			<label class="icon-right" for="material">
 																				<img src="<?php echo base_url(); ?>j-folder/img/material.png" alt="Material" title="Material Icon" class="img-responsive">
 																			</label>
-																			<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Shoes Material">
+																			<input type="text" id="shoesmaterial" name="shoesmaterial" placeholder="Enter Material">
 																		</div>
 																	</div>														
 																</div>
@@ -1403,7 +1409,7 @@
 																	<label class="icon-right" for="Size">
 																		<img src="<?php echo base_url(); ?>j-folder/img/size.png" alt="Size" title="Size Icon" class="img-responsive">
 																	</label>
-																	<input type="text" id="size" name="size" placeholder="Enter Size" onkeypress="return isNumber(event)">
+																	<input type="text" id="size" name="wsize" placeholder="Enter Size" >
 																</div>
 															</div>
 															<div class="span6 unit">
@@ -1417,6 +1423,8 @@
 																		<select name="color">
 																			<option value="none" selected disabled="">Select Colour</option>
 																			<option value="Brown">Brown Colour</option>
+																			<option value="Black">Black Colour</option>
+																			<option value="Blue">Blue Colour</option>
 																			<option value="Gray">Gray Colour</option>
 																			<option value="Green">Green Colour</option>
 																			<option value="Cream">Cream Colour</option>
@@ -1431,7 +1439,7 @@
 																			<option value="Bronze">Bronze Colour</option>
 																			<option value="Nude">Nude Colour</option>
 																			<option value="Purple">Purple Colour</option>
-																			<option value="teal">teal Colour</option>
+																			<option value="teal">Teal Colour</option>
 																			<option value="Others">Other Colour</option>
 																		</select>
 																		<i></i>
@@ -1465,7 +1473,7 @@
 																	<label class="icon-right" for="Items">
 																		<img src="<?php echo base_url(); ?>j-folder/img/items.png" alt="Items" title="Items Icon" class="img-responsive">
 																	</label>
-																	<input type="text" id="noofitem" name="noofitem" placeholder="Enter Item" onkeypress="return isNumber(event)">
+																	<input type="text" id="noofitem" name="noofitem" placeholder="Enter No of Items" >
 																</div>
 															</div>
 															

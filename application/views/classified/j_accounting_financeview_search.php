@@ -103,7 +103,7 @@
 			else if ($sval->currency == 'euro') {
 				$currency = '<span class="euro_sym"></span>';
 			}
-			if ($sval->package_type == '3' && $sval->urgent_package != '0') { ?>
+			if ($sval->package_type == '3' && $sval->urg != '') { ?>
 	<div class="col-md-12">
 		<div class="first_list">
 			<div class="row">
@@ -495,7 +495,7 @@
 	<?php } ?>
 	<!-- platinum package end -->
 	<!-- gold+urgent package starts -->
-	<?php if ($sval->package_type == '2' && $sval->urgent_package != '0') {  ?>
+	<?php if ($sval->package_type == '2' && $sval->urg != '') {  ?>
 	<div class="col-md-12">
 		<div class="first_list gold_bgcolor">
 			<div class="row">
@@ -851,7 +851,7 @@
 	<?php } ?>
 	<!-- gold package end -->
 	<!-- free+urgent package starts -->
-	<?php if ($sval->package_type == '1' && $sval->urgent_package != '0') {  ?>
+	<?php if ($sval->package_type == '1' && $sval->urg != '') {  ?>
 	<div class="col-md-12">
 		<div class="first_list">
 			<div class="row">

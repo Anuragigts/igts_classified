@@ -130,17 +130,17 @@ class hotdealsearch_model extends CI_Model{
 				if ($cat_id == 1) {
 					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 					$this->db->from('sub_category');
-					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
-					$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
-					if ($looking_search) {
 						if ($looking_search != '') {
-							$this->db->where("(postad.deal_tag LIKE '%$looking_search%' OR postad.deal_tag LIKE '$looking_search%' OR postad.deal_tag LIKE '%$looking_search' 
-	  						OR postad.deal_desc LIKE '%$looking_search%' OR postad.deal_desc LIKE '$looking_search%' OR postad.deal_desc LIKE '%$looking_search')");
+							$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') ", "left");
+	  					}
+						else{
+							$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 						}
-					}
 					if ($s_location != '') {
-						$this->db->where("(loc.loc_name LIKE '$s_location%' 
-		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+						$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND loc.loc_name LIKE '%$s_location%'  ", "left");
+					}
+					else{
+						$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					}
 					$this->db->where('sub_category.category_id', $cat_id);
 					$this->db->group_by("sub_category.sub_category_id");
@@ -1466,7 +1466,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
 				
 				$res = $this->db->get();
@@ -1569,7 +1569,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
 					$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
@@ -1590,12 +1590,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "2");
 			$this->db->where("ad.sub_cat_id", "9");
 			$this->db->where("ad.ad_status", "1");
@@ -1675,7 +1676,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
 					$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
@@ -1695,12 +1696,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "2");
 			$this->db->where("ad.sub_cat_id", "10");
 			$this->db->where("ad.ad_status", "1");
@@ -1780,7 +1782,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
 					$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
@@ -1888,9 +1890,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -1903,13 +1905,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "2");
 			$this->db->where("ad.sub_cat_id", "9");
 			$this->db->where("ad.ad_status", "1");
@@ -1989,9 +1992,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -2004,13 +2007,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "2");
 			$this->db->where("ad.sub_cat_id", "10");
 			$this->db->where("ad.ad_status", "1");
@@ -2090,9 +2094,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -2106,12 +2110,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg
+");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.ad_status", "1");
 			if ($search_bustype) {
@@ -2187,9 +2193,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -2219,12 +2225,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg
+");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.ad_status", "1");
 			// if (!empty($profpop)) {
@@ -2303,9 +2311,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by('dtime', 'DESC');
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			// $this->db->order_by('dtime', 'DESC');
+			// $this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -2321,12 +2329,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "20");
 			$this->db->where("ad.ad_status", "1");
@@ -2406,9 +2415,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by('dtime', 'DESC');
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			// $this->db->order_by('dtime', 'DESC');
+			// $this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -2424,12 +2433,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
 			$this->db->where("ad.ad_status", "1");
@@ -2509,9 +2519,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -2524,11 +2534,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "21");
 			$this->db->where("ad.ad_status", "1");
@@ -2608,9 +2619,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -2625,12 +2636,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
 			$this->db->where("ad.ad_status", "1");
@@ -2714,9 +2726,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -2730,11 +2742,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "22");
 			$this->db->where("ad.ad_status", "1");
@@ -2816,9 +2829,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -2832,12 +2845,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
 			$this->db->where("ad.ad_status", "1");
@@ -2920,7 +2934,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -2933,12 +2947,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
 			$this->db->where("ad.ad_status", "1");
@@ -3019,9 +3034,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -3034,12 +3049,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			$this->db->where("ad.ad_status", "1");
@@ -3119,7 +3135,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 				return $m_res->result();
         }
@@ -3132,11 +3148,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "23");
 			$this->db->where("ad.ad_status", "1");
@@ -3216,7 +3233,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -3230,11 +3247,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "24");
 			$this->db->where("ad.ad_status", "1");
@@ -3317,7 +3335,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -3331,11 +3349,12 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "6");
 			$this->db->where("ad.sub_cat_id", "25");
 			$this->db->where("ad.ad_status", "1");
@@ -3415,7 +3434,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 				return $m_res->result();
         }
@@ -3584,9 +3603,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			// echo $this->db->last_query(); exit;
 				return $m_res->result();
@@ -3602,13 +3621,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$search_bustype = $this->session->userdata('search_bustype');
         	$location = $this->session->userdata('location');
-        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
+        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "1");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3681,7 +3701,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad',$data['limit'], $data['start']);
 			   // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -3703,13 +3723,14 @@ class hotdealsearch_model extends CI_Model{
         	$latt = $this->session->userdata('latt');
         	$longg = $this->session->userdata('longg');
         	$location = $this->session->userdata('location');
-        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*");
+        	$this->db->select("ad.*, img.*, COUNT(img.ad_id) AS img_count, loc.*, jd.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('job_details AS jd', "jd.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "1");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3782,7 +3803,7 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("ad.deal_tag", "DESC");
 					}
 					
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			   // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -3803,12 +3824,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "5");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3885,7 +3907,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -3905,13 +3927,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "5");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3989,9 +4012,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4011,12 +4034,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4092,9 +4116,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4112,12 +4136,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4193,9 +4218,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4214,12 +4239,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
 			$this->db->where("ad.ad_status", "1");
@@ -4298,9 +4324,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4320,12 +4346,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
 			$this->db->where("ad.ad_status", "1");
@@ -4404,9 +4431,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4426,12 +4453,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
 			$this->db->where("ad.ad_status", "1");
@@ -4510,9 +4538,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4531,12 +4559,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
 			$this->db->where("ad.ad_status", "1");
@@ -4615,9 +4644,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4636,12 +4665,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
 			$this->db->where("ad.ad_status", "1");
@@ -4720,9 +4750,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4741,12 +4771,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
 			$this->db->where("ad.ad_status", "1");
@@ -4825,9 +4856,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4846,12 +4877,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "66");
 			$this->db->where("ad.ad_status", "1");
@@ -4930,9 +4962,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -4951,12 +4983,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
 			$this->db->where("ad.ad_status", "1");
@@ -5035,9 +5068,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -5055,13 +5088,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -5137,9 +5171,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -5661,13 +5695,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -5742,9 +5777,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -5763,13 +5798,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "59");
 			$this->db->where("ad.ad_status", "1");
@@ -5848,9 +5884,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -5870,12 +5906,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "60");
@@ -5955,9 +5992,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -5976,12 +6013,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "61");
@@ -6061,9 +6099,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6082,12 +6120,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "62");
@@ -6167,9 +6206,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6188,12 +6227,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "63");
@@ -6273,9 +6313,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6294,12 +6334,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "64");
@@ -6379,9 +6420,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6401,12 +6442,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
 			$this->db->where("ad.category_id", "8");
 			$this->db->where("ad.sub_cat_id", "65");
@@ -6486,9 +6529,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6508,7 +6551,7 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
@@ -6593,9 +6636,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6617,13 +6660,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
 			$this->db->where("ad.ad_status", "1");
@@ -6734,9 +6778,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6755,13 +6799,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
 			$this->db->where("ad.ad_status", "1");
@@ -6840,9 +6885,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6861,13 +6906,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
 			$this->db->where("ad.ad_status", "1");
@@ -6946,9 +6992,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -6967,13 +7013,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_plant_farming as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
 			$this->db->where("ad.ad_status", "1");
@@ -7052,9 +7099,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7073,12 +7120,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "17");
 			$this->db->where("ad.ad_status", "1");
@@ -7157,9 +7205,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7178,12 +7226,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "18");
 			$this->db->where("ad.ad_status", "1");
@@ -7262,9 +7311,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7283,12 +7332,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "19");
 			$this->db->where("ad.ad_status", "1");
@@ -7367,9 +7417,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7391,12 +7441,13 @@ class hotdealsearch_model extends CI_Model{
         	$latt = $this->session->userdata('latt');
         	$longg = $this->session->userdata('longg');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
 			$this->db->where("ad.ad_status", "1");
@@ -7508,9 +7559,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7531,12 +7582,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
 			$this->db->where("ad.ad_status", "1");
@@ -7647,9 +7699,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7670,12 +7722,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
 			$this->db->where("ad.ad_status", "1");
@@ -7786,9 +7839,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7809,13 +7862,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_home_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "14");
 			$this->db->where("ad.ad_status", "1");
@@ -7926,9 +7980,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -7950,13 +8004,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "16");
 			$this->db->where("ad.ad_status", "1");
@@ -8067,9 +8122,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -8090,13 +8145,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "15");
 			$this->db->where("ad.ad_status", "1");
@@ -8207,9 +8263,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -8231,13 +8287,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_bike_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
 			$this->db->where("ad.ad_status", "1");
@@ -8348,9 +8405,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -8372,12 +8429,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_car_van_bus_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "12");
 			$this->db->where("ad.ad_status", "1");
@@ -8488,9 +8546,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -8511,12 +8569,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('motor_bike_ads as mc', "mc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.sub_cat_id", "13");
 			$this->db->where("ad.ad_status", "1");
@@ -8627,9 +8686,9 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
 					else{
-						$this->db->order_by("ad.ad_id", "DESC");
+						$this->db->order_by('ad.approved_on', 'DESC');
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -8731,7 +8790,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -8832,7 +8891,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
@@ -8856,13 +8915,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -9000,7 +9060,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -9023,12 +9083,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.sub_cat_id", "11");
@@ -9168,7 +9229,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -9191,12 +9252,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			// $this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.sub_cat_id", "26");
@@ -9336,7 +9398,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
 			 // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -9359,13 +9421,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -9503,7 +9566,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			  // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -9525,13 +9588,14 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.sub_cat_id", "11");
 			$this->db->where("ad.ad_status", "1");
@@ -9670,7 +9734,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			  // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -9692,12 +9756,13 @@ class hotdealsearch_model extends CI_Model{
         	$recentdays = $this->session->userdata('recentdays');
         	$location = $this->session->userdata('location');
         	$seller = $this->session->userdata('seller_deals');
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->join('property_resid_commercial as prc', "ad.ad_id = prc.ad_id", 'join');
 			$this->db->where("ad.category_id", "4");
 			$this->db->where("ad.sub_cat_id", "26");
@@ -9837,7 +9902,7 @@ class hotdealsearch_model extends CI_Model{
 					else if ($dealprice == 'hightolow'){
 						$this->db->order_by("CAST(`ad`.`price` AS UNSIGNED)", "DESC");
 					}
-			$this->db->order_by('dtime', 'DESC');
+			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
 			  // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
@@ -11177,7 +11242,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_serviceprof(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 9 AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+				WHERE ad.category_id = '2' AND sub_cat_id = 9 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 9 AND package_type = 3 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 9 AND package_type = 2 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 9 AND package_type = 1 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11186,7 +11252,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_servicepop(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 10 AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+				WHERE ad.category_id = '2' AND sub_cat_id = 10 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 10 AND package_type = 3 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 10 AND package_type = 2 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '2' AND sub_cat_id = 10 AND package_type = 1 AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11197,7 +11264,8 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for jobs*/
         public function deals_pck_jobs(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+				WHERE ad.category_id = '1' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11208,7 +11276,8 @@ class hotdealsearch_model extends CI_Model{
          /*packages count for pets*/
         public function deals_pck_pets(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+				WHERE ad.category_id = '5' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '6'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '5'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '5' AND package_type = '4'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11219,7 +11288,8 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for motors*/
         public function deals_pck_motors(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+				WHERE ad.category_id = '3' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '3' AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11228,7 +11298,8 @@ class hotdealsearch_model extends CI_Model{
         }
          public function deals_pck_ezone(){
          	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11237,7 +11308,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_phone(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='59' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='59' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11246,7 +11318,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_homes(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='60' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='60' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11255,7 +11328,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_smalls(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='61' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='61' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11264,7 +11338,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_lappy(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='62' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='62' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11273,7 +11348,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_access(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='63' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='63' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11291,7 +11367,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_entertain(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='65' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='65' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11300,7 +11377,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_poto(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '8' AND sub_cat_id='66' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '6'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '5'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS goldcount,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '8'  AND sub_cat_id='66' AND package_type = '4'  AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$data') AS freecount");
@@ -11394,7 +11472,8 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for findproperty*/
         public function deals_pck_property(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '4' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
@@ -11403,7 +11482,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_propertyresi(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '4' AND sub_cat_id = 11 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 11 AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
@@ -11412,7 +11492,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_propertycomm(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '4' AND sub_cat_id = 26 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND package_type = '3'  AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND package_type = '2'  AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id = 26 AND ad_status = 1 AND expire_data >='$data' AND package_type = '1'  AND urgent_package = '0') AS freecount");
@@ -11423,7 +11504,8 @@ class hotdealsearch_model extends CI_Model{
         /*packages count for findproperty*/
         public function deals_pck_clothstyle(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND urgent_package != '0' AND ad_status = 1) AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND package_type = '6' AND urgent_package = '0' AND ad_status = 1) AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND package_type = '5' AND urgent_package = '0' AND ad_status = 1) AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND package_type = '4' AND urgent_package = '0' AND ad_status = 1) AS freecount");
@@ -11433,7 +11515,8 @@ class hotdealsearch_model extends CI_Model{
 
          public function deals_pck_womenview(){
          	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 20 AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND sub_cat_id = 20 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 20 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 20 AND package_type = '5' AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 20 AND package_type = '4' AND urgent_package = '0') AS freecount");
@@ -11442,7 +11525,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_menview(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 21 AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND sub_cat_id = 21 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 21 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 21 AND package_type = '5' AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 21 AND package_type = '4' AND urgent_package = '0') AS freecount");
@@ -11451,7 +11535,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_boysview(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 22 AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND sub_cat_id = 22 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 22 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 22 AND package_type = '5' AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 22 AND package_type = '4' AND urgent_package = '0') AS freecount");
@@ -11460,7 +11545,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_girlsview(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 23 AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND sub_cat_id = 23 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 23 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 23 AND package_type = '5' AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 23 AND package_type = '4' AND urgent_package = '0') AS freecount");
@@ -11469,7 +11555,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_babyboyview(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'   AND sub_cat_id = 24 AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND sub_cat_id = 24 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 24 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 24 AND package_type = '5' AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 24 AND package_type = '4' AND urgent_package = '0') AS freecount");
@@ -11478,7 +11565,8 @@ class hotdealsearch_model extends CI_Model{
         }
         public function deals_pck_babygirlview(){
         	$data = date("Y-m-d H:i:s");
-        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data'  AND sub_cat_id = 25 AND urgent_package != '0') AS urgentcount,
+        	$this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+                    WHERE ad.category_id = '6' AND sub_cat_id = 25 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND package_type = '6' AND urgent_package = '0') AS platinumcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND package_type = '5' AND urgent_package = '0') AS goldcount,
 		(SELECT COUNT(*) FROM postad WHERE category_id = '6' AND ad_status = 1 AND expire_data >='$data' AND sub_cat_id = 25 AND package_type = '4' AND urgent_package = '0') AS freecount");

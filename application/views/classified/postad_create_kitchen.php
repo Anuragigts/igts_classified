@@ -970,7 +970,7 @@
 															<label class="icon-right" for="Colour">
 																<img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
 															</label>
-															<input type="text" id="color" name="color" placeholder="Enter Colour">
+															<input type="text" id="hcolor" name="hcolor" placeholder="Enter Colour">
 														</div>
 													</div>
 													<div class="span6 unit">
@@ -980,10 +980,7 @@
 															</sup>
 														</label>
 														<div class="input">
-															<label class="icon-right" for="assembly">
-																<img src="<?php echo base_url(); ?>j-folder/img/assembly.png" alt="assembly" title="Assembly Icon" class="img-responsive">
-															</label>
-															<input type="text" id="assembly" name="assembly" placeholder="Enter Assembly">
+															<textarea id="assembly" name="assembly" placeholder="Enter Assembly"></textarea>
 														</div>
 													</div>
 												</div>
@@ -1040,10 +1037,7 @@
 															</sup>
 														</label>
 														<div class="input">
-															<label class="icon-right" for="warranty">
-																<img src="<?php echo base_url(); ?>j-folder/img/warranty.png" alt="warranty" title="warranty" class="img-responsive">
-															</label>
-															<input type="text" id="warranty" name="warranty" placeholder="Enter Warranty">
+															<textarea id="warranty" name="warranty" placeholder="Enter Warranty"></textarea>
 														</div>
 													</div>
 												</div>
