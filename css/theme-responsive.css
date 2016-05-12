@@ -460,6 +460,9 @@
 		font-size: 12px;
 		line-height: 24px;
 	}
+	.top_pad_10 {
+	    padding-top: 10px;
+	}
 	.portfolioFilter a {
 		margin: auto 6px;
 		padding-bottom: 0px;
@@ -760,7 +763,12 @@
 	    min-height: 60px;
 	    font-size: 12px;
 	}
-	
+	.content-central {
+		margin-top: -86px;
+	}
+	.hovereffect img {
+	    height: 137px;
+	}
 }
  
  

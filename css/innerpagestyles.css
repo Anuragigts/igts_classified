@@ -4,7 +4,7 @@ section form div .col-md-3{
 }
 
 .section-title-01{
-	height: 137px;
+	height: 90px;
 }
 
 /* ---Activate---*/
@@ -13,7 +13,9 @@ section form div .col-md-3{
 	padding: 51px !important;
 }
 
-
+.content-central {
+    margin-top: -49px !important;
+}
 
 #scroll_area1 {
 	height: 200px !important;
