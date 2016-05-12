@@ -22,27 +22,14 @@ else{ ?>
 ?>
 <li class=" pull-right"><a href="<?php echo base_url(); ?>post-a-deal"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="Free Classifieds Ads" title="Post A Deal"> </a></li>
 </ul>
+
 </nav>
 </header>
 	
 <style>
-#feedback {
-	position: fixed;
-	top: 75%;
-	right: 0;
-	z-index: 151;
-	display: inline-block;
-}
-
-#aa {
-	background: url(<?php echo base_url(); ?>img/icons/feedback.png) no-repeat;
-	width: 40px;
-	height: 144px;
-	border: none;
-	outline: none;
-}
+#feedback {position: fixed;top: 75%;right: 0;z-index: 151;display: inline-block;}
+#aa {background: url(<?php echo base_url(); ?>img/icons/feedback.png) no-repeat;width: 40px;height: 144px;
+border: none;outline: none;}
 </style>
 
-<div id="feedback">
-<div id="aa" data-toggle="modal" data-target="#feedback_1"></div>
-</div>
+<div id="feedback"><div id="aa" data-toggle="modal" data-target="#feedback_1"></div></div>
