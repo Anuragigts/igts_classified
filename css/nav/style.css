@@ -786,7 +786,7 @@
 .header-v3 .flat-mega-menu > label {
   color: #272727;
 }
-.flat-mega-menu > label i{
+.flat-mega-menu > label img{
 	-ms-user-select:none;
 	-moz-user-select:none;
 	-o-user-select:none;
