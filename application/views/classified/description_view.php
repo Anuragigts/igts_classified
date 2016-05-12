@@ -56,8 +56,8 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>unitegallery/jgallery.min.css" />
-		<script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/jgallery.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/touchswipe.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/jgallery.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/touchswipe.js"></script>
 		<link href="<?php echo base_url(); ?>src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 		
 		<script type="text/javascript">
@@ -258,7 +258,7 @@
 							$name = @mysql_result(mysql_query("SELECT first_name FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '$ads_desc_val->ad_id')"), 0, 'first_name');
 							$mobile = @mysql_result(mysql_query("SELECT mobile FROM login WHERE login_id = (SELECT login_id FROM postad WHERE ad_id = '$ads_desc_val->ad_id')"), 0, 'mobile');
 							$posted_on = date("M d, Y H:i:s", strtotime($ads_desc_val->created_on));
-							$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->ad_id;
+							$dealid = $ads_desc_val->ad_prefix.$ads_desc_val->adid;
 							if ($catid !='1') {
 							$price = $currency.number_format($ads_desc_val->price);
 							$ptype = $ads_desc_val->price_type;

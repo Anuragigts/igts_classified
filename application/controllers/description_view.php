@@ -26,6 +26,8 @@ class Description_view extends CI_Controller{
                 $this->load->view("classified_layout/inner_template",$data);
         }
         public function details($id){
+            /*$query = $this->db->get_where('postad', array('ad_id' => $id), 1);
+            echo $slug = url_title($query->row('deal_tag'), 'dash', true);*/
             /*without logi*/
             if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';

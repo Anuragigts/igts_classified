@@ -69,8 +69,8 @@ class Postad_kitchen_model extends CI_Model{
                                     'sub_cat_id'  => $this->input->post('sub_id'),
                                     'sub_scat_id' => $this->input->post('sub_sub_id'),
                                     'ad_type'     => $ad_type,
-                                    'created_on'   => date('d-m-Y h:i:s'),
-                                    'updated_on'   => date('d-m-Y h:i:s'),
+                                    'created_on'   => date('d-m-Y H:i:s'),
+                                    'updated_on'   => date('d-m-Y H:i:s'),
                                     'terms_conditions' =>$this->input->post('terms_condition'),
                                     'payment_status' => $payment,
                                     'ad_status'     => 0,
@@ -930,7 +930,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*kitchen esentials search*/
         public function kesentials_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -953,7 +953,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_kesentials_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -985,7 +985,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -1087,7 +1087,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -1183,7 +1183,7 @@ class Postad_kitchen_model extends CI_Model{
 
          /*home esentials search*/
         public function homeesentials_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -1206,7 +1206,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_homeesentials_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -1238,7 +1238,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -1340,7 +1340,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -1436,7 +1436,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*decor search*/
         public function decor_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -1459,7 +1459,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_decor_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -1491,7 +1491,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -1593,7 +1593,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -1689,7 +1689,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*kitchen tools search*/
         public function ktools_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -1713,7 +1713,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_ktools_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -1746,7 +1746,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -1849,7 +1849,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -1946,7 +1946,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*kitchen storage search*/
         public function kstorage_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -1970,7 +1970,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_kstorage_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -2003,7 +2003,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -2106,7 +2106,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -2203,7 +2203,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*kitchen cookware search*/
         public function cookware_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -2227,7 +2227,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_cookware_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -2260,7 +2260,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -2363,7 +2363,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -2460,7 +2460,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*kitchen bakeware search*/
         public function bakeware_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -2484,7 +2484,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_bakeware_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -2517,7 +2517,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -2620,7 +2620,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -2716,7 +2716,7 @@ class Postad_kitchen_model extends CI_Model{
         }
         /*kitchen cooktops search*/
         public function cooktops_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -2740,7 +2740,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_cooktops_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -2773,7 +2773,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -2876,7 +2876,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -2972,7 +2972,7 @@ class Postad_kitchen_model extends CI_Model{
         }
         /*kitchen bbq search*/
         public function bbq_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -2996,7 +2996,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_bbq_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -3029,7 +3029,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -3132,7 +3132,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -3229,7 +3229,7 @@ class Postad_kitchen_model extends CI_Model{
 
         /*kitchen bbq search*/
         public function linen_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -3253,7 +3253,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_linen_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -3286,7 +3286,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -3389,7 +3389,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -3486,7 +3486,7 @@ class Postad_kitchen_model extends CI_Model{
 
          /*kitchen kitchen others search*/
         public function kothers_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -3510,7 +3510,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_kothers_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -3543,7 +3543,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -3646,7 +3646,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -3742,7 +3742,7 @@ class Postad_kitchen_model extends CI_Model{
         }
          /*home essentials search*/
         public function hbath_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -3766,7 +3766,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hbath_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -3799,7 +3799,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -3902,7 +3902,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -3998,7 +3998,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hbed_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -4022,7 +4022,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hbed_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -4055,7 +4055,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -4158,7 +4158,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -4254,7 +4254,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hcarpets_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -4278,7 +4278,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hcarpets_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -4311,7 +4311,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -4414,7 +4414,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -4510,7 +4510,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hcleaning_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -4534,7 +4534,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hcleaning_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -4567,7 +4567,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -4670,7 +4670,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -4766,7 +4766,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hplumb_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -4790,7 +4790,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hplumb_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -4823,7 +4823,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -4926,7 +4926,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5022,7 +5022,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hwind_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -5046,7 +5046,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hwind_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -5079,7 +5079,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -5182,7 +5182,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5278,7 +5278,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hdoor_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -5302,7 +5302,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hdoor_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -5335,7 +5335,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -5438,7 +5438,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5534,7 +5534,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hgarden_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -5558,7 +5558,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hgarden_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -5591,7 +5591,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -5694,7 +5694,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5790,7 +5790,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hfurniture_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -5814,7 +5814,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hfurniture_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -5847,7 +5847,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -5950,7 +5950,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6046,7 +6046,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hshed_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -6070,7 +6070,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hshed_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -6103,7 +6103,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -6206,7 +6206,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6302,7 +6302,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hplant_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -6326,7 +6326,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hplant_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -6359,7 +6359,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -6462,7 +6462,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6558,7 +6558,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
          public function hdining_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -6582,7 +6582,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hdining_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -6615,7 +6615,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -6718,7 +6718,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6814,7 +6814,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hliving_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -6838,7 +6838,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hliving_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -6871,7 +6871,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -6974,7 +6974,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7070,7 +7070,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function hkids_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -7094,7 +7094,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hkids_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -7127,7 +7127,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -7230,7 +7230,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7326,7 +7326,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function houtdoor_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -7350,7 +7350,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_houtdoor_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -7383,7 +7383,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -7486,7 +7486,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7581,7 +7581,7 @@ class Postad_kitchen_model extends CI_Model{
             }
         }
         public function hstudy_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -7605,7 +7605,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hstudy_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -7638,7 +7638,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -7741,7 +7741,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7837,7 +7837,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
          public function hothers_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -7861,7 +7861,7 @@ class Postad_kitchen_model extends CI_Model{
     }
 
     public function count_hothers_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
@@ -7894,7 +7894,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -7997,7 +7997,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8123,7 +8123,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dcurtain_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8148,7 +8148,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dcurtain_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -8180,7 +8180,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8284,7 +8284,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -8411,7 +8411,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dcandles_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8436,7 +8436,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dcandles_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -8468,7 +8468,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8572,7 +8572,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -8700,7 +8700,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dvases_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8725,7 +8725,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dvases_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -8757,7 +8757,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8861,7 +8861,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -8988,7 +8988,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dwalldecor_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9013,7 +9013,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dwalldecor_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -9045,7 +9045,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9149,7 +9149,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -9276,7 +9276,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dhomeaccent_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9301,7 +9301,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dhomeaccent_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -9333,7 +9333,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9437,7 +9437,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -9565,7 +9565,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dreligion_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9590,7 +9590,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dreligion_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -9622,7 +9622,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9726,7 +9726,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -9854,7 +9854,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dphotoframe_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9879,7 +9879,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dphotoframe_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -9911,7 +9911,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10015,7 +10015,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -10141,7 +10141,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_drugs_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10166,7 +10166,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function drugs_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -10198,7 +10198,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10302,7 +10302,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -10429,7 +10429,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dcushionsthrows_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10454,7 +10454,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dcushionsthrows_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -10486,7 +10486,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10590,7 +10590,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -10717,7 +10717,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dtablelamps_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10742,7 +10742,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dtablelamps_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -10774,7 +10774,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10878,7 +10878,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -11005,7 +11005,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dwalloutdoor_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -11030,7 +11030,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dwalloutdoor_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -11062,7 +11062,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -11166,7 +11166,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -11293,7 +11293,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function count_dotherdecor_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -11318,7 +11318,7 @@ class Postad_kitchen_model extends CI_Model{
         }
 
         public function dotherdecor_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
@@ -11350,7 +11350,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -11454,7 +11454,7 @@ class Postad_kitchen_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");

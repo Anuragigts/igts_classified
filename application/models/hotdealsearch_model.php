@@ -108,11 +108,24 @@ class hotdealsearch_model extends CI_Model{
 				$looking_search =  $this->session->userdata('s_looking_search');
 	         	$cat_id =  $this->session->userdata('s_cat_id');
 	         	$s_location = $this->session->userdata('s_location');
+	         	$search_bustype = $this->session->userdata('s_search_bustype');
 				if ($cat_id == 'all') {
 					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 					$this->db->from('sub_category');
 					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 					$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					if ($looking_search != '' && $search_bustype != 'all') {
+						$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') AND postad.ad_type='$search_bustype' ", "left");
+  					}
+  					else if ($looking_search != '') {
+						$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') ", "left");
+  					}
+  					else if ($search_bustype != 'all') {
+						$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type='$search_bustype' ", "left");
+					}
+					else{
+						$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(postad.deal_tag LIKE '%$looking_search%' OR postad.deal_tag LIKE '$looking_search%' OR postad.deal_tag LIKE '%$looking_search' 
@@ -130,12 +143,19 @@ class hotdealsearch_model extends CI_Model{
 				if ($cat_id == 1) {
 					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 					$this->db->from('sub_category');
-						if ($looking_search != '') {
+						if ($looking_search != '' && $search_bustype != 'all') {
+							$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') AND postad.ad_type='$search_bustype' ", "left");
+	  					}
+	  					else if ($looking_search != '') {
 							$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') ", "left");
 	  					}
+	  					else if ($search_bustype != 'all') {
+							$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type='$search_bustype' ", "left");
+						}
 						else{
 							$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 						}
+						
 					if ($s_location != '') {
 						$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND loc.loc_name LIKE '%$s_location%'  ", "left");
 					}
@@ -145,6 +165,7 @@ class hotdealsearch_model extends CI_Model{
 					$this->db->where('sub_category.category_id', $cat_id);
 					$this->db->group_by("sub_category.sub_category_id");
 					$rs = $this->db->get();
+					 // echo $this->db->last_query(); exit;
 					return $rs->result();
 				}
 			}
@@ -5269,9 +5290,9 @@ class hotdealsearch_model extends CI_Model{
 							if (in_array("0", $dealurgent)) {
 								$this->db->where('ud.valid_to !=', '');
 							}
-							else{
+							/*else{
 								$this->db->where('ad.urgent_package =', '0');
-							}
+							}*/
 							if (in_array(1, $dealurgent)){
 								array_push($pcklist, 1);
 							}
@@ -5294,9 +5315,9 @@ class hotdealsearch_model extends CI_Model{
 							if (in_array("0", $dealurgent)) {
 								$this->db->where('ud.valid_to !=', '');
 							}
-							else{
+							/*else{
 								$this->db->where('ad.urgent_package =', '0');
-							}
+							}*/
 							if (in_array(4, $dealurgent)){
 								array_push($pcklist, 4);
 							}
@@ -5319,9 +5340,9 @@ class hotdealsearch_model extends CI_Model{
 							if (in_array("0", $dealurgent)) {
 								$this->db->where('ud.valid_to !=', '');
 							}
-							else{
+							/*else{
 								$this->db->where("ad.urgent_package = 0");
-							}
+							}*/
 							if (in_array('1,4', $dealurgent)){
 								array_push($pcklist, '1');
 								array_push($pcklist, '4');
@@ -5431,7 +5452,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
-			    // echo $this->db->last_query(); exit;
+			     // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -5519,9 +5540,9 @@ class hotdealsearch_model extends CI_Model{
 							if (in_array("0", $dealurgent)) {
 								$this->db->where('ud.valid_to !=', '');
 							}
-							else{
+							/*else{
 								$this->db->where('ad.urgent_package =', '0');
-							}
+							}*/
 							if (in_array(1, $dealurgent)){
 								array_push($pcklist, 1);
 							}
@@ -5544,9 +5565,9 @@ class hotdealsearch_model extends CI_Model{
 							if (in_array("0", $dealurgent)) {
 								$this->db->where('ud.valid_to !=', '');
 							}
-							else{
+							/*else{
 								$this->db->where('ad.urgent_package =', '0');
-							}
+							}*/
 							if (in_array(4, $dealurgent)){
 								array_push($pcklist, 4);
 							}
@@ -5569,9 +5590,9 @@ class hotdealsearch_model extends CI_Model{
 							if (in_array("0", $dealurgent)) {
 								$this->db->where('ud.valid_to !=', '');
 							}
-							else{
+							/*else{
 								$this->db->where('ad.urgent_package =', '0');
-							}
+							}*/
 							if (in_array('1,4', $dealurgent)){
 								array_push($pcklist, '1');
 								array_push($pcklist, '4');
@@ -5679,7 +5700,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get('postad AS ad', $data['limit'], $data['start']);
-			    // echo $this->db->last_query(); exit;
+			     // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -11579,6 +11600,7 @@ class hotdealsearch_model extends CI_Model{
         	$looking_search =  $this->session->userdata('s_looking_search');
          	$cat_id =  $this->session->userdata('s_cat_id');
          	$s_location = $this->session->userdata('s_location');
+         	$search_bustype = $this->session->userdata('s_search_bustype');
         	if ($cat_id != 'all') {
         		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
         			$this->db->select('COUNT(ud.valid_to) as urgentcount', false);
@@ -11586,6 +11608,11 @@ class hotdealsearch_model extends CI_Model{
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 					$this->db->where("category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11603,6 +11630,11 @@ class hotdealsearch_model extends CI_Model{
 	        		$this->db->from('postad');
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					$this->db->where("category_id = '$cat_id' AND package_type = 3 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11613,12 +11645,48 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$platinumcount = $this->db->get()->row('platinumcount');
+					$this->db->get();
+					$platinumcount = $this->db->last_query();
+					/*urgent label expiry*/
+					$this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 3 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
+					if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+					$platinumcount1 = $this->db->last_query();
+					$query = $this->db->query($platinumcount." UNION ".$platinumcount1);
+					$query1 = $query->result();
+					$platinumsum = 0;
+					foreach ($query1 as $k) {
+						 $platinumsum = $platinumsum + $k->platinumcount;
+					}
+
 
 					$this->db->select('COUNT(*) as goldcount', false);
 	        		$this->db->from('postad');
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					$this->db->where("category_id = '$cat_id' AND package_type = 2 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11629,12 +11697,49 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$goldcount = $this->db->get()->row('goldcount');
+					$this->db->get();
+					$goldcount = $this->db->last_query();
+
+					/*urgent label expiry*/
+					$this->db->select('COUNT(ud.valid_to) as goldcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 2 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
+					if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+					$goldcount1 = $this->db->last_query();
+					$query = $this->db->query($goldcount." UNION ".$goldcount1);
+					$query1 = $query->result();
+					$goldsum = 0;
+					foreach ($query1 as $k) {
+						 $goldsum = $goldsum + $k->goldcount;
+					}
+
 
 					$this->db->select('COUNT(*) as freecount', false);
 	        		$this->db->from('postad');
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					$this->db->where("category_id = '$cat_id' AND package_type = 1 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11645,12 +11750,45 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$freecount = $this->db->get()->row('freecount');
+					$this->db->get();
+					$freecount = $this->db->last_query();
+
+					/*urgent label expiry*/
+					$this->db->select('COUNT(ud.valid_to) as freecount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 1 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
+					if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+					$freecount1 = $this->db->last_query();
+					$query = $this->db->query($freecount." UNION ".$freecount1);
+					$query1 = $query->result();
+					$freesum = 0;
+					foreach ($query1 as $k) {
+						 $freesum = $freesum + $k->freecount;
+					}
+
+
 
 				$res = array('urgentcount'=>$urgentcount,
-							'platinumcount'=>$platinumcount,
-							'goldcount'=>$goldcount,
-							'freecount'=>$freecount);
+							'platinumcount'=>$platinumsum,
+							'goldcount'=>$goldsum,
+							'freecount'=>$freesum);
         	
         		}
         		else{
@@ -11659,6 +11797,11 @@ class hotdealsearch_model extends CI_Model{
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 					$this->db->where("category_id = '$cat_id' AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11675,6 +11818,11 @@ class hotdealsearch_model extends CI_Model{
 	        		$this->db->from('postad');
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					$this->db->where("category_id = '$cat_id' AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11685,12 +11833,48 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$platinumcount = $this->db->get()->row('platinumcount');
+					$this->db->get();
+					$platinumcount = $this->db->last_query();
+
+					/*urgent label expiry*/
+					$this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
+					if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+					$platinumcount1 = $this->db->last_query();
+					$query = $this->db->query($platinumcount." UNION ".$platinumcount1);
+					$query1 = $query->result();
+					$platinumsum = 0;
+					foreach ($query1 as $k) {
+						 $platinumsum = $platinumsum + $k->platinumcount;
+					}
 
 					$this->db->select('COUNT(*) as goldcount', false);
 	        		$this->db->from('postad');
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					$this->db->where("category_id = '$cat_id' AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11701,12 +11885,48 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$goldcount = $this->db->get()->row('goldcount');
+					$this->db->get();
+					$goldcount = $this->db->last_query();
+
+					/*urgent label expiry*/
+					$this->db->select('COUNT(ud.valid_to) as goldcount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
+					if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+					$goldcount1 = $this->db->last_query();
+					$query = $this->db->query($goldcount." UNION ".$goldcount1);
+					$query1 = $query->result();
+					$goldsum = 0;
+					foreach ($query1 as $k) {
+						 $goldsum = $goldsum + $k->goldcount;
+					}
 
 					$this->db->select('COUNT(*) as freecount', false);
 	        		$this->db->from('postad');
 	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					$this->db->where("category_id = '$cat_id' AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11717,12 +11937,43 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$freecount = $this->db->get()->row('freecount');
+					$this->db->get();
+					$freecount = $this->db->last_query();
+
+					/*urgent label expiry */
+					$this->db->select('COUNT(ud.valid_to) as freecount', false);
+	        		$this->db->from('postad');
+	        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+	        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+					$this->db->where("category_id = '$cat_id' AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+					if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
+					if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+					$freecount1 = $this->db->last_query();
+					$query = $this->db->query($freecount." UNION ".$freecount1);
+					$query1 = $query->result();
+					$freesum = 0;
+					foreach ($query1 as $k) {
+						 $freesum = $freesum + $k->freecount;
+					}
 
 				$res = array('urgentcount'=>$urgentcount,
-							'platinumcount'=>$platinumcount,
-							'goldcount'=>$goldcount,
-							'freecount'=>$freecount);
+							'platinumcount'=>$platinumsum,
+							'goldcount'=>$goldsum,
+							'freecount'=>$freesum);
         		
         		}
         	}
@@ -11732,6 +11983,11 @@ class hotdealsearch_model extends CI_Model{
         		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
         		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 				$this->db->where("urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+						if ($search_bustype != 'all') {
+							$this->db->where("ad_type", $search_bustype);
+						}
+					}
 				if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11743,11 +11999,16 @@ class hotdealsearch_model extends CI_Model{
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
 				$urgentcount = $this->db->get()->row('urgentcount');
-
+				
 				$this->db->select('COUNT(*) as platinumcount', false);
         		$this->db->from('postad');
         		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 				$this->db->where("(package_type = 3 || package_type = 6) AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+					if ($search_bustype != 'all') {
+						$this->db->where("ad_type", $search_bustype);
+					}
+				}
 				if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11758,12 +12019,49 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-				$platinumcount = $this->db->get()->row('platinumcount');
+				$this->db->get();
+				$platinumcount = $this->db->last_query();
+
+				/*urgent label expiry*/
+				$this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+        		$this->db->from('postad');
+        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(package_type = 3 || package_type = 6) AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+					if ($search_bustype != 'all') {
+						$this->db->where("ad_type", $search_bustype);
+					}
+				}
+				if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+				$this->db->get();
+				$platinumcount1 = $this->db->last_query();
+				$query = $this->db->query($platinumcount." UNION ".$platinumcount1);
+				$query1 = $query->result();
+				$platinumsum = 0;
+				foreach ($query1 as $k) {
+					 $platinumsum = $platinumsum + $k->platinumcount;
+				}
+
 
 				$this->db->select('COUNT(*) as goldcount', false);
         		$this->db->from('postad');
         		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 				$this->db->where("(package_type = 2 || package_type = 5) AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+					if ($search_bustype != 'all') {
+						$this->db->where("ad_type", $search_bustype);
+					}
+				}
 				if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11774,12 +12072,51 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-				$goldcount = $this->db->get()->row('goldcount');
+					$this->db->get();
+				$goldcount = $this->db->last_query();
+
+				/*urgent label expiry */
+				$this->db->select('COUNT(ud.valid_to) as goldcount', false);
+        		$this->db->from('postad');
+        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(package_type = 2 || package_type = 5) AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+					if ($search_bustype != 'all') {
+						$this->db->where("ad_type", $search_bustype);
+					}
+				}
+				if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+				$goldcount1 = $this->db->last_query();
+				$query = $this->db->query($goldcount." UNION ".$goldcount1);
+				$query1 = $query->result();
+				$goldsum = 0;
+				foreach ($query1 as $k) {
+					 $goldsum = $goldsum + $k->goldcount;
+				}
+
+
 
 				$this->db->select('COUNT(*) as freecount', false);
         		$this->db->from('postad');
         		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 				$this->db->where("(package_type = 1 || package_type = 4) AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+					if ($search_bustype != 'all') {
+						$this->db->where("ad_type", $search_bustype);
+					}
+				}
 				if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
@@ -11790,12 +12127,42 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-				$freecount = $this->db->get()->row('freecount');
+				$this->db->get();
+				$freecount = $this->db->last_query();
 
+				/*urgent label expiry free deals*/
+				$this->db->select('COUNT(ud.valid_to) as freecount', false);
+        		$this->db->from('postad');
+        		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+        		$this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+				$this->db->where("(package_type = 1 || package_type = 4) AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+				if ($search_bustype) {
+					if ($search_bustype != 'all') {
+						$this->db->where("ad_type", $search_bustype);
+					}
+				}
+				if ($looking_search) {
+						if ($looking_search != '') {
+							$this->db->where("(deal_tag LIKE '%$looking_search%' OR deal_tag LIKE '$looking_search%' OR deal_tag LIKE '%$looking_search' 
+	  						OR deal_desc LIKE '%$looking_search%' OR deal_desc LIKE '$looking_search%' OR deal_desc LIKE '%$looking_search')");
+						}
+					}
+					if ($s_location != '') {
+						$this->db->where("(loc.loc_name LIKE '$s_location%' 
+		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+					}
+					$this->db->get();
+				$freecount1 = $this->db->last_query();
+				$query = $this->db->query($freecount." UNION ".$freecount1);
+				$query1 = $query->result();
+				$freesum = 0;
+				foreach ($query1 as $k) {
+					 $freesum = $freesum + $k->freecount;
+				}
 				$res = array('urgentcount'=>$urgentcount,
-							'platinumcount'=>$platinumcount,
-							'goldcount'=>$goldcount,
-							'freecount'=>$freecount);
+							'platinumcount'=>$platinumsum,
+							'goldcount'=>$goldsum,
+							'freecount'=>$freesum);
         	
         	
         	}
