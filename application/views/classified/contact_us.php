@@ -108,7 +108,7 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="row">
-												<div class="col-md-5 col-sm-5 col-xs-12">
+												<div class="col-md-5 col-sm-4 col-xs-12">
 													<aside class="cont_left">
 														<address class="whi_te">
 															<i class="fa fa-map-marker"></i> 99right deals, Building 3, Chiswick Park<br>
@@ -116,7 +116,7 @@
 														</address>
 													</aside>
 												</div>
-												<div class="col-md-3 col-sm-3 col-xs-12 top_pad_10">
+												<div class="col-md-3 col-sm-4 col-xs-12">
 													<aside class="cont_left">
 														<address class="whi_te">
 															<i class="fa fa-phone"></i>  (+44) 02089355446 <br>

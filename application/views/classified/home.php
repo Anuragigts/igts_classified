@@ -51,8 +51,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 		<?php echo $this->load->view('common/tophead'); ?> 
 		<!-- xxx End tophead xxx -->
 		
+		<!--div class="hidden-sm hidden-md">
+			<img src="img/slide/template.jpg" class="img img-responsive" style="width:100%" alt="Free Ads" title="Good & Services">
+		</div-->
+
 		<section class="tp-banner-container">
-			<div class="tp-banner" >
+			<div class="tp-banner">
 				<ul>
 					<li data-transition="slidevertical">
 						<img src="img/slide/all.jpg" class="img img-responsive" alt="Free Ads" title="Good & Services">
@@ -170,7 +174,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 				<form action="<?php echo base_url(); ?>searchview" method="get" autocomplete="off">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 search_menu j-forms">
+							<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 search_menu j-forms">
 								<div class="row">
 									<div class="col-md-4 col-sm-3 col-xs-12">
 										<div class="input">
