@@ -15,7 +15,7 @@ class fbsignup extends CI_Controller{
                 if (!empty($fbdata)) {
                     $already = $this->signup_model->onloadfb_already();
                     if($already == 1){
-                       redirect('home-page');                 
+                        redirect(base_url());                  
                     }
                 }
                 if (!empty($fbdata)) {
@@ -49,11 +49,11 @@ class fbsignup extends CI_Controller{
                 if($this->input->post("submit")){
                         $already = $this->signup_model->fb_already();
                             if($already == 1){
-                                    redirect('home-page');                 
+                                    redirect(base_url());                 
                             }
                         else{
                                 $this->signup_model->fb_create();
-                                redirect('home-page');
+                                 redirect(base_url()); 
                             }
                 }
                 $data   =   array(

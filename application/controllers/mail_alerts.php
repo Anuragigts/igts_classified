@@ -80,7 +80,7 @@ class Mail_alerts extends CI_Controller{
 							<table style='table-layout: auto' id='table' border='0' cellpadding='0' cellspacing='0' >
 								<tbody>
 									<tr>
-										<td style='padding-top: 20px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px' align='center' ><a href='http://99rightdeals.com/home-page' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Home</a></td>
+										<td style='padding-top: 20px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px' align='center' ><a href='http://www.99rightdeals.com/' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Home</a></td>
 										<td style='padding-right: 15px;padding-left: 15px' align='center' ><a href='http://99rightdeals.com/about-us' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none' >About Us</a></td>
 										<td style='padding-top: 10px; padding-right: 15px; padding-bottom: 10px; padding-left: 15px' align='center' ><a href='http://99rightdeals.com/safety-tips' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Assistence</a></td>
 										<td style='padding-top: 10px; padding-right: 15px; padding-bottom: 10px; padding-left: 15px' align='center' ><a href='http://99rightdeals.com/terms-conditions' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Terms & Conditions </a></td>
@@ -253,7 +253,7 @@ class Mail_alerts extends CI_Controller{
 							<table style='table-layout: auto' id='table' border='0' cellpadding='0' cellspacing='0' >
 								<tbody>
 									<tr>
-										<td style='padding-top: 20px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px' align='center' ><a href='http://99rightdeals.com/home-page' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Home</a></td>
+										<td style='padding-top: 20px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px' align='center' ><a href='http://www.99rightdeals.com/' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Home</a></td>
 										<td style='padding-right: 15px;padding-left: 15px' align='center' ><a href='http://99rightdeals.com/about-us' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none' >About Us</a></td>
 										<td style='padding-top: 10px; padding-right: 15px; padding-bottom: 10px; padding-left: 15px' align='center' ><a href='http://99rightdeals.com/safety-tips' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Assistence</a></td>
 										<td style='padding-top: 10px; padding-right: 15px; padding-bottom: 10px; padding-left: 15px' align='center' ><a href='http://99rightdeals.com/terms-conditions' target='_blank' style='font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #313133; text-decoration: none'>Terms & Conditions </a></td>
