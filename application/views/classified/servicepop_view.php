@@ -184,7 +184,7 @@
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>entertainment-services"> Entertainment Services (<?php echo $enter; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motor-services"> Motor Services (<?php echo $motor; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>logistics-transport-services"> Logistics & Transport (<?php echo $logi; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>restaurant-food services"> Restaurant & Food (<?php echo $rest; ?>)</a></li>
+															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>restaurant-food-services"> Restaurant & Food (<?php echo $rest; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>friendship-dating-services"> Friendship & Dating (<?php echo $frnd; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>nannies-services-london-manchester"> Nannies Services (<?php echo $nanni; ?>)</a></li>
 															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>embroidery-services-london"> Embroidery Services (<?php echo $embro; ?>)</a></li>
