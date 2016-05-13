@@ -203,7 +203,7 @@ $route['boy-shoes-footware'] = "boy_shoesview";
 $route['boy-party-accessories'] = "boy_accessoriesview";
 
 /*Girls*/
-$route['girls-clothes-dress-forsale'] = "girls_view";
+$route['girls-clothes-dress-for-sale'] = "girls_view";
 
 $route['girls-stylish-designer-clothing'] = "girl_clothingview";
 $route['girls-shoes-footware'] = "girl_shoesview";
