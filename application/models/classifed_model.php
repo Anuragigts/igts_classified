@@ -1119,10 +1119,9 @@ GROUP BY img.ad_id
 		$this->db->join("ad_img as img", "img.ad_id = ads.ad_id", "join");
 		$this->db->join("urgent_details AS ud", "ud.ad_id=ads.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ads.ad_status", "1");
-		$this->db->where("(ads.package_type =2 OR ads.package_type = 5) OR (ads.package_type =3 OR ads.package_type = 6)");
+		$this->db->where("((ads.package_type =2 OR ads.package_type = 5) OR (ads.package_type =3 OR ads.package_type = 6))");
 		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
-		$this->db->where("(ads.category_id = $catid) OR (ads.sub_cat_id= $subid)");
-		$this->db->like('ads.deal_tag',$title);
+		$this->db->where("(ads.category_id = $catid)");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('ads.approved_on', 'DESC');
 		$this->db->limit(10);

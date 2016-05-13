@@ -112,8 +112,7 @@ class hotdealsearch_model extends CI_Model{
 				if ($cat_id == 'all') {
 					$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 					$this->db->from('sub_category');
-					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
-					$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+					
 					if ($looking_search != '' && $search_bustype != 'all') {
 						$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') AND postad.ad_type='$search_bustype' ", "left");
   					}
@@ -126,6 +125,7 @@ class hotdealsearch_model extends CI_Model{
 					else{
 						$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 					}
+					$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
 					if ($looking_search) {
 						if ($looking_search != '') {
 							$this->db->where("(postad.deal_tag LIKE '%$looking_search%' OR postad.deal_tag LIKE '$looking_search%' OR postad.deal_tag LIKE '%$looking_search' 
