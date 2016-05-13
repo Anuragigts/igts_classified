@@ -338,7 +338,7 @@ Browse
 <label class="icon-right" for="height">
 <img src="<?php echo base_url(); ?>j-folder/img/height.png" alt="height" title="height Icon" class="img-responsive">
 </label>
-<input type="text" id="height" name="height" placeholder="Enter Height" onkeypress="return isNumber(event)">
+<input type="text" id="height" name="height" placeholder="Enter Height" >
 </div>
 </div>
 </div>

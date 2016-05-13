@@ -552,7 +552,7 @@ Browse
 </label>
 <label class="input select">
 <select name="Model" class='car_model'>
-<option value="none" selected disabled="">Select Age</option>
+<option value="none" selected disabled="">Select Model</option>
 <option value="3months">Sample</option>
 </select>
 <input type="text" name="Model1" value="" class='res_model' style='display: none;' >

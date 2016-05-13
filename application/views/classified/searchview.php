@@ -1127,10 +1127,16 @@
 											</div>
 										</div>
 										<!-- sort-by-container-->
-										
+										<?php if (!empty($searchview_result)) { ?>
 										<div class="row list_view_searches motor_result">
 											<?php echo $this->load->view("classified/searchview_search"); ?>
 										</div>
+										<?php }
+										else{ ?>
+										<div class="row list_view_searches motor_result">
+											<?php echo $this->load->view("classified/searchnoresults"); ?>
+										</div>
+										<?php } ?>
 									</div>
 								</div>
 							</div>
