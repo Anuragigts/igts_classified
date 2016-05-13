@@ -746,7 +746,6 @@ Urgent
 </div>
 <div id="dropzone_free"></div>
 </div>
-<div id="errormessages_free"><span style="display: none;"></span></div>
 <div id="overlay_free"></div>
 </div>
 </div>
@@ -776,7 +775,6 @@ Urgent
 </div>
 <div id="dropzone_free_urgent"></div>
 </div>
-<div id="errormessages_free_urgent"><span style="display: none;"></span></div>
 <div id="overlay_free_urgent"></div>
 </div>
 </div>
@@ -829,7 +827,6 @@ Urgent
 </div>
 <div id="dropzone_gold"></div>
 </div>
-<div id="errormessages_gold"><span style="display: none;"></span></div>
 <div id="overlay_gold"></div>
 </div>
 </div>
@@ -873,7 +870,6 @@ Urgent
 </div>
 <div id="dropzone_gold_urgent"></div>
 </div>
-<div id="errormessages_gold_urgent"><span style="display: none;"></span></div>
 <div id="overlay_gold_urgent"></div>
 </div>
 </div>
@@ -917,7 +913,6 @@ Urgent
 </div>
 <div id="dropzone_platinum"></div>
 </div>
-<div id="errormessages_platinum"><span style="display: none;"></span></div>
 <div id="overlay_platinum"></div>
 </div>
 </div>

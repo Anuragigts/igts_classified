@@ -70,7 +70,7 @@
 							</div>
 							<label id="file-error" class="error" for="file" style='display:none;'>Please upload image</label>
 							<div class="span4 unit top_10 img_hide">
-								<img id="blah" src="#" style="display: none;" alt=''/>
+								<img id="blah" src="#" alt='Blash'/>
 							</div>
 						</div>
 						<div class="form-actions">
@@ -86,6 +86,10 @@
 	</div>
 </div>
 <script>
+	$(function(){
+		$("#blah").css('display','none');
+	});
+
 	function view_comment()
 	{
 		val = document.getElementById('ad_status').value; 

@@ -1248,8 +1248,7 @@
 
 		<script src="<?php echo base_url();?>libs/jquery.mixitup.min.js"></script>
 		<script src="<?php echo base_url();?>libs/main.js"></script>
-		<link href="<?php echo base_url(); ?>js/autosearch/style.css" rel="stylesheet" type="text/css">
-   		<script type="text/javascript" src="<?php echo base_url();?>js/autosearch/script1.js"></script>
+		
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->

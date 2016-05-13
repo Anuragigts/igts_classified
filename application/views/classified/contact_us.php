@@ -14,57 +14,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 
 <script>
-
-$(function() {
-jQuery.validator.addMethod("character", function (value) {
-return /^[a-zA-Z\s]+$/.test(value);
-});
-// Setup form validation on the #register-form element
-$("#contact_form").validate({
-
-// Specify the validation rules
-rules: {
-contact_name: {
-required: true,
-character:true
-},
-contact_email: {
-required: true,
-email: true
-},
-contact_no: {
-required: true,
-},
-contact_message: {
-required: true,
-minlength: 60
-}
-},
-
-// Specify the validation error messages
-messages: {
-contact_name: {
-required: "Please enter your name",
-character: "please Enter characters",
-},
-contact_no: {
-required: "Please Enter Mobile No"
-},
-contact_message: {
-required: "Please Enter Message",
-minlength: "Title contains atleast 60 characters"
-},
-contact_email: "Please enter a valid email address",
-},
-
-submitHandler: function(form) {
-// form.submit();
-return true;
-}
-});
-
-});
-
+$(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\s]+$/.test(e)}),$("#contact_form").validate({rules:{contact_name:{required:!0,character:!0},contact_email:{required:!0,email:!0},contact_no:{required:!0},contact_message:{required:!0,minlength:60}},messages:{contact_name:{required:"Please enter your name",character:"please Enter characters"},contact_no:{required:"Please Enter Mobile No"},contact_message:{required:"Please Enter Message",minlength:"Title contains atleast 60 characters"},contact_email:"Please enter a valid email address"},submitHandler:function(e){return!0}})});
 </script>
 
 </head>
@@ -183,7 +133,7 @@ If you ever have any difficulties or want to ask any questions, our customer ser
 <div class="divider_space"></div>	
 <div class="row">
 <div class="col-md-12 col-sm-12 col-xs-12">
-<div id="map"></div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.9836556195237!2d-0.2771068841191099!3d51.49516741941844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760e0cb92b22eb%3A0x1d011036773b15f1!2s99RightDeals!5e0!3m2!1sen!2sin!4v1463118768962" width="100%" height="300" frameborder="0" style="border: 2px solid #9FC955;" allowfullscreen></iframe>
 </div>
 </div>
 </div>
@@ -202,48 +152,8 @@ If you ever have any difficulties or want to ask any questions, our customer ser
 </div>
 
 <script src="<?php echo base_url(); ?>js/jquery.js"></script>
-<script src="<?php echo base_url(); ?>js/maps/gmap3.js"></script>  
 <script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
 
-var mapMarkers = [{
-address: "Building 3, Chiswick Park 566 Chiswick High Road, London, W4 5YA",
-html: "<strong>99 Right deals</strong><br>United States<br><br><a href='#' onclick='mapCenterAt({latitude: 51.495097, longitude: -0.273317, zoom: 16}, event)'>[+] zoom here</a>",
-icon: {
-image: "img/map-marker.png",
-iconsize: [25, 35],
-iconanchor: [12, 46]
-}
-}];
-
-var initLatitude = 51.495097;
-var initLongitude = -0.273317;
-
-var mapSettings = {
-controls: {
-panControl: true,
-zoomControl: true,
-mapTypeControl: true,
-scaleControl: true,
-streetViewControl: true,
-overviewMapControl: true
-},
-scrollwheel: false,
-markers: mapMarkers,
-latitude: initLatitude,
-longitude: initLongitude,
-zoom: 13
-};
-
-$("#map").gMap(mapSettings);
-
-var mapCenterAt = function(options, e) {
-e.preventDefault();
-$("#map").gMap("centerAt", options);
-}
-
-</script>
 
 <script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
 <script type="text/javascript">

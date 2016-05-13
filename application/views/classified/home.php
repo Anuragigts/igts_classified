@@ -279,7 +279,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 						<div class="row">
 							<div class="col-md-8 col-sm-12 col-xs-12">
 								<div class="titles">
-									<h2>TOP <span>CATEGORIES </span></h2>
+									<h1>TOP <span>CATEGORIES </span></h1>
 									<hr class="tall">
 								</div>
 								<div class="row">
@@ -368,7 +368,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 							</div>
 							<div class="col-md-4 col-sm-6 col-xs-12 ">
 								<div class="titles">
-									<h2><span>HOT </span>DEALS</h2>
+									<h1><span>HOT </span>DEALS</h1>
 									<hr class="tall">
 								</div>
 								<div id="page">
@@ -429,12 +429,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 														if ($hot_deals_val->bus_logo != '') {
 														?>
 													<div class="bus_logo">
-														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $hot_deals_val->bus_logo; ?>" /></b>
+														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $hot_deals_val->bus_logo; ?>"  alt='<?php echo $hot_deals_val->bus_logo; ?>'/></b>
 													</div>
 													<?php }
 														else{ ?>
 													<div class="bus_logo">
-														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+														<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 													</div>
 													<?php			}
 														} ?>
@@ -469,7 +469,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 														<h3 class="home_price"><span class="pound_sym"></span>49</h3>
 														<a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 														<div class="bus_logo">
-															<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" /></b>
+															<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" alt='trader' title="Business Logo" /></b>
 														</div>
 														<div class="price11">
 															<span></span><b>
@@ -490,7 +490,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 														<h3 class="home_price"><span class="pound_sym"></span>29</h3>
 														<a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 														<div class="bus_logo">
-															<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" /></b>
+															<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" alt='trader' title="Business Logo" /></b>
 														</div>
 														<div class="price11">
 															<span></span><b>
@@ -567,12 +567,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($val->ad_type == 'business'){
 										 if ($val->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $val->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $val->bus_logo; ?>" alt='<?php echo $val->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 									</div>
 									<?php } 
 										}
@@ -617,12 +617,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($m_ads->ad_type == 'business'){
 										 if ($m_ads->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads->bus_logo; ?>" alt='<?php echo $m_ads->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" alt='Trader'/></b>
 									</div>
 									<?php } 
 										}
@@ -667,12 +667,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($m_ads_services->ad_type == 'business'){
 										 if ($m_ads_services->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_services->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_services->bus_logo; ?>" alt='<?php echo $m_ads_services->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" alt='trader' /></b>
 									</div>
 									<?php } 
 										}
@@ -715,12 +715,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($motor_val->ad_type == 'business'){
 										 if ($motor_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $motor_val->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $motor_val->bus_logo; ?>" alt='<?php echo $motor_val->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" alt='trader' /></b>
 									</div>
 									<?php } 
 										}
@@ -763,12 +763,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($cloth_val->ad_type == 'business'){
 										 if ($cloth_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $cloth_val->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $cloth_val->bus_logo; ?>" alt='<?php echo $cloth_val->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 									</div>
 									<?php } 
 										}
@@ -812,12 +812,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($prop_val->ad_type == 'business'){
 										 if ($prop_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $prop_val->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $prop_val->bus_logo; ?>" alt='<?php echo $prop_val->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 									</div>
 									<?php } 
 										}
@@ -862,12 +862,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($khome_val->ad_type == 'business'){
 										 if ($khome_val->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $khome_val->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $khome_val->bus_logo; ?>" alt='<?php echo $khome_val->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 									</div>
 									<?php } 
 										}
@@ -910,12 +910,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($m_ads_pets->ad_type == 'business'){
 										 if ($m_ads_pets->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_pets->bus_logo; ?>" alt='<?php echo $m_ads_pets->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 									</div>
 									<?php } 
 										}
@@ -960,12 +960,12 @@ Phone: <span itemprop="telephone">02089355446</span>
 										if($m_ads_ezone->ad_type == 'business'){
 										 if ($m_ads_ezone->bus_logo != '') { ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_ads_ezone->bus_logo; ?>" alt='<?php echo $m_ads_ezone->bus_logo; ?>'/></b>
 									</div>
 									<?php }
 										else{ ?>
 									<div class="bus_logo">
-										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" /></b>
+										<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
 									</div>
 									<?php } 
 										}
@@ -1037,10 +1037,10 @@ Phone: <span itemprop="telephone">02089355446</span>
 											<?php
 												if ($b_ads->ad_type != 'consumer') { 
 												if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 											<?php	}
 												else{ ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b></div>
 											<?php	} 	}
 												?>
 											<?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
@@ -1063,10 +1063,10 @@ Phone: <span itemprop="telephone">02089355446</span>
 											<hr class="separator">
 											<?php if ($b_ads->ad_type != 'consumer') { 
 												if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 											<?php	}
 												else{ ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="Trader" title="Business Logo" /></b></div>
 											<?php	}	}
 												?>
 											<?php if ($b_ads->category_id != '1') { ?>
@@ -1131,10 +1131,10 @@ Phone: <span itemprop="telephone">02089355446</span>
 											<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 											<hr class="separator">
 											<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 											<?php	}
 												else{ ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="Trader" title="Business Logo" /></b></div>
 											<?php	}
 												?>
 											<?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
@@ -1156,10 +1156,10 @@ Phone: <span itemprop="telephone">02089355446</span>
 											<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
 											<hr class="separator">
 											<?php if ($b_ads->bus_logo != '') { ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 											<?php	}
 												else{ ?>
-											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+											<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="Trader" title="Business Logo" /></b></div>
 											<?php	}
 												?>
 											<?php if ($b_ads->package_type == 3 || $b_ads->package_type == 6) { ?>
@@ -1282,7 +1282,7 @@ Phone: <span itemprop="telephone">02089355446</span>
 									<?php
 									if (!empty($business_logos)) {
 									 foreach ($business_logos as $bval) { ?>
-									<div style="display: none;">
+									<div id="buss_logo_home">
 										<img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $bval->bus_logo; ?>" alt="<?php echo base_url(); ?>pictures/<?php echo $bval->bus_logo; ?>" title="Business logo" />
 									</div>
 									<?php }
@@ -1349,6 +1349,10 @@ Phone: <span itemprop="telephone">02089355446</span>
 	<script src="<?php echo base_url(); ?>js/box-slider-all.jquery.min.js"></script>
 	
 	<script>
+		$(function(){
+			$("#buss_logo_home").css('display','none');
+		});
+
 		$(function () {
 			// This function runs before the slide transition starts
 			var switchIndicator = function ($c, $n, currIndex, nextIndex) {

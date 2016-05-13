@@ -10,14 +10,14 @@
 </li>
 <?php $lid  =$this->session->userdata("login_id");
 if($lid == ''){ ?>
-<li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>login" class="bor_log">LOGIN</a></li>
-<li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>register" class="bor_reg">REGISTER</a></li>
-<li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>how-it-works" class="bor_reg">HOW IT WORKS</a></li>
+<li class="top_head_margin"><a href="<?php echo base_url(); ?>login" class="bor_log">LOGIN</a></li>
+<li class="top_head_margin"><a href="<?php echo base_url(); ?>register" class="bor_reg">REGISTER</a></li>
+<li class="top_head_margin"><a href="<?php echo base_url(); ?>how-it-works" class="bor_reg">HOW IT WORKS</a></li>
 <?php }
 else{ ?>
-<li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>deals-administrator" class="bor_log">MY DASHBOARD</a></li>
-<li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>login/logout" class="bor_log">LOGOUT</a></li>
-<li style="margin-top: 8px;"><a href="<?php echo base_url(); ?>how-it-works" class="bor_reg">HOW IT WORKS</a></li>
+<li class="top_head_margin"><a href="<?php echo base_url(); ?>deals-administrator" class="bor_log">MY DASHBOARD</a></li>
+<li class="top_head_margin"><a href="<?php echo base_url(); ?>login/logout" class="bor_log">LOGOUT</a></li>
+<li class="top_head_margin"><a href="<?php echo base_url(); ?>how-it-works" class="bor_reg">HOW IT WORKS</a></li>
 <?php  }
 ?>
 <li class=" pull-right"><a href="<?php echo base_url(); ?>post-a-deal"><img src="<?php echo base_url(); ?>img/postanad.png"  alt="Free Classifieds Ads" title="Post A Deal"> </a></li>

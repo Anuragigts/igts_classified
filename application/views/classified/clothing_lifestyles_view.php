@@ -169,7 +169,7 @@
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>womens-clothes-shoes-sale">Women</a> (<?php echo $womencount ?>)</li>
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mens-clothes-for-sale">Men</a> (<?php echo $mencount ?>)</li>
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>boy-shoes-clothes-sale">Boy</a> (<?php echo $boycount ?>)</li>
-															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>girls-clothes-dress-forsale">Girls</a> (<?php echo $girlscount ?>)</li>
+															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>girls-clothes-dress-for-sale">Girls</a> (<?php echo $girlscount ?>)</li>
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>baby-boy-clothes-for-sale">Baby Boy</a> (<?php echo $babyboycount ?>)</li>
 															<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>baby-girls-clothes-accessories">Baby Girl</a> (<?php echo $babygirlcount ?>)</li>
 														</ul>

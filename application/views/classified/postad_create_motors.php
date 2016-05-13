@@ -1514,7 +1514,6 @@ Urgent
 <div id="free_wrapper"><div id=textbox_free></div></div>
 <div id="dropzone_free"></div>
 </div>
-<div id="errormessages_free"><span style="display: none;"></span></div>
 
 <div id="overlay_free"></div>
 </div>
@@ -1542,7 +1541,6 @@ Urgent
 <div id="free_urgent_wrapper"><div id=textbox_free_urgent></div></div>
 <div id="dropzone_free_urgent"></div>
 </div>
-<div id="errormessages_free_urgent"><span style="display: none;"></span></div>
 
 <div id="overlay_free_urgent"></div>
 </div>
@@ -1593,7 +1591,6 @@ Urgent
 <div id="gold_wrapper"><div id=textbox_gold></div></div>
 <div id="dropzone_gold"></div>
 </div>
-<div id="errormessages_gold"><span style="display: none;"></span></div>
 
 <div id="overlay_gold"></div>
 </div>
@@ -1634,7 +1631,6 @@ Urgent
 <div id="gold_urgent_wrapper"><div id=textbox_gold_urgent></div></div>
 <div id="dropzone_gold_urgent"></div>
 </div>
-<div id="errormessages_gold_urgent"><span style="display: none;"></span></div>
 
 <div id="overlay_gold_urgent"></div>
 </div>
@@ -1675,7 +1671,6 @@ Urgent
 <div id="platinum_wrapper"><div id=textbox_platinum></div></div>
 <div id="dropzone_platinum"></div>
 </div>
-<div id="errormessages_platinum"><span style="display: none;"></span></div>
 
 <div id="overlay_platinum"></div>
 </div>
