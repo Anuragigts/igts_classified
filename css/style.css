@@ -430,6 +430,20 @@ iframe.video {
     font-weight: lighter;
     color: #88C425 !important;
 }
+.titles h1 {
+    color: #222;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+.opacy_bg_02 .titles h1 {
+    color: #fff;
+}
+.titles h1 span {
+    font-size: 2.4rem;
+    font-weight: lighter;
+    color: #88C425 !important;
+}
 .titles i {
     color: #F5F6FA;
     position: absolute;
@@ -6316,4 +6330,14 @@ radio i:focus {
     color: #8e8d8d;
     font-size: 14px;
     font-weight: 500;
+}
+.footer_pad_length{
+    padding: 10px 20px 20px 20px !important;
+}
+.no_results_found{
+    background-color: #f4f4f4;
+    padding: 7px 11px;
+    padding-bottom: 0;
+    margin: 0;
+    border: 2px solid #88C425;
 }

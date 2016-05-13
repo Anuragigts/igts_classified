@@ -1073,3 +1073,6 @@ width: 25px;
 .info-details li a{
 	 color:#36BC95;
 }
+.top_head_margin{
+	margin-top: 8px !important;
+}
