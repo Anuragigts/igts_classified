@@ -1,13 +1,1 @@
-		(function()
-		{
-		  if( window.localStorage )
-		  {
-		    if( !localStorage.getItem( 'firstLoad' ) )
-		    {
-		      localStorage[ 'firstLoad' ] = true;
-		      window.location.reload();
-		    }  
-		    else
-		      localStorage.removeItem( 'firstLoad' );
-		  }
-		})();
+!function(){window.localStorage&&(localStorage.getItem("firstLoad")?localStorage.removeItem("firstLoad"):(localStorage.firstLoad=!0,window.location.reload()))}();
