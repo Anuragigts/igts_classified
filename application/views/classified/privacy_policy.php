@@ -65,30 +65,49 @@ font-size: 14px;
 <div class="item_subpages">
 <ul class="">
 <a href='about-us'><li>About US</li></a>
-<a href='contact-us'><li>Contact US</li></a>
 <a href='terms-conditions'><li>Terms & Conditions</li></a>
 <a href='cookies-policy'><li>Cookies Policy</li></a>
 <a href='privacy-policy'><li class="active_page">Privacy Policy</li></a>
 <a href='safety-tips'><li>Assistence</li></a>
-<a href=''><li>Faq</li></a>
+<a href=''><li>FAQ</li></a>
+<a href='contact-us'><li>Contact US</li></a>
 </ul>
 </div>
 </div>
 <div class="col-md-9">
 <p>This privacy policy sets out how <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> uses and protects any information that you give <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> when you use this website.</p>
 
-<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>  refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ' you ' refers to the user or viewer of our website.</p>
+<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is Building3,ChiswickPark,566 Chiswick High Road,LONDON,W4 5YA | TEL: 02089355446 Ext#1 | Company No. 10024238 | Business Hours are 09:00am to 17.00pm Monday to Friday. The term you  refers to the user or viewer of our website.</p>
 
-<p><strong>PERSONAL INFORMATION</strong></p>
-
+<div class="accordion">
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#pone" aria-expanded="true" aria-controls="collapseOne">
+PERSONAL INFORMATION
+</a>
+</h3>
+</div>
+<div id="pone" class="panel-collapse collapse in" role="tabpanel">
+<div class="panel-body">
 <p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.</p>
-
 <p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective from Monday, March 21, 2016.</p>
+</div>
+</div>
+</div>
 
-<p><strong>WHAT WE COLLECT</strong></p>
-
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#ptwo" aria-expanded="true" aria-controls="collapseOne">
+WHAT WE COLLECT
+</a>
+</h3>
+</div>
+<div id="ptwo" class="panel-collapse collapse" role="tabpanel">
+<div class="panel-body">
 <p>We may collect the following information:</p>
-
 <div class="row">
 <div class="col-md-12">
 <ul class="list-styles">
@@ -100,9 +119,20 @@ font-size: 14px;
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
 
-<p><strong>WHAT WE DO WITH THE INFORMATION WE GATHER</strong></p>
-
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pthree" aria-expanded="true" aria-controls="collapseOne">
+WHAT WE DO WITH THE INFORMATION WE GATHER
+</a>
+</h3>
+</div>
+<div id="pthree" class="panel-collapse collapse" role="tabpanel">
+<div class="panel-body">
 <p>We require this information to understand your needs and provide you with a better service, and in particular for the following reasons :</p>
 
 <div class="row">
@@ -118,23 +148,67 @@ font-size: 14px;
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
 
-<p><strong>SECURITY</strong></p>
-
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pfour" aria-expanded="true" aria-controls="collapseOne">
+SECURITY
+</a>
+</h3>
+</div>
+<div id="pfour" class="panel-collapse collapse" role="tabpanel">
+<div class="panel-body">
 <p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online. </p>
+</div>
+</div>
+</div>
 
-<p><strong>HOW WE USE COOKIES</strong></p>
-
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pfive" aria-expanded="true" aria-controls="collapseOne">
+HOW WE USE COOKIES
+</a>
+</h3>
+</div>
+<div id="pfive" class="panel-collapse collapse" role="tabpanel">
+<div class="panel-body">
 <p>A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyze web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences. </p>
 
 <p>A cookie in no way gives us access to your computer or any information about you, other than the data you choose to share with us. You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website.</p>
+</div>
+</div>
+</div>
 
-<p><strong>LINKS TO OTHER WEBSITES</strong></p>
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#psix" aria-expanded="true" aria-controls="collapseOne">
+LINKS TO OTHER WEBSITES
+</a>
+</h3>
+</div>
+<div id="psix" class="panel-collapse collapse" role="tabpanel">
+<div class="panel-body">
+<p><p>Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question. </p></p>
+</div>
+</div>
+</div>
 
-<p>Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question. </p>
-
-<p><strong>CONTROLLING YOUR PERSONAL INFORMATION</strong></p>
-
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pseven" aria-expanded="true" aria-controls="collapseOne">
+CONTROLLING YOUR PERSONAL INFORMATION
+</a>
+</h3>
+</div>
+<div id="pseven" class="panel-collapse collapse" role="tabpanel">
+<div class="panel-body">
 <p>You may choose to restrict the collection or use of your personal information in the following ways :</p>
 
 <div class="row">
@@ -151,6 +225,24 @@ font-size: 14px;
 <p>You may request details of personal information which we hold about you as governed by the laws of United Kingdom.<strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will always adhere to the UK Data protection Legislation. </p>
 
 <p>If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<p><strong></strong></p>
+
+
+
+<p><strong></strong></p>
+
+
+
+
 
 </div>
 </div>

@@ -59,12 +59,12 @@ color: #777 !important;
 <div class="item_subpages">
 <ul class="">
 <a href='about-us'><li>About US</li></a>
-<a href='contact-us'><li>Contact US</li></a>
 <a href='terms-conditions'><li>Terms & Conditions</li></a>
 <a href='cookies-policy'><li>Cookies Policy</li></a>
 <a href='privacy-policy'><li>Privacy Policy</li></a>
 <a href='safety-tips'><li class="active_page">Assistence</li></a>
-<a href=''><li>Faq</li></a>
+<a href=''><li>FAQ</li></a>
+<a href='contact-us'><li>Contact US</li></a>
 </ul>
 </div>
 </div>
@@ -144,14 +144,32 @@ The Transaction
 </div>
 </div>
 
-<h3>Buying Safely</h3>
-<p><strong>You should be well aware of the signs of a deceitful seller to buy safely online. Some of the things that you should look out for are:</strong></p> 	
+
+<div class="accordion">
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#safeone" aria-expanded="true" aria-controls="collapseOne">
+Buying Safely
+</a>
+</h3>
+</div>
+<div id="safeone" class="panel-collapse collapse in" role="tabpanel">
+<div class="panel-body">
+<p><p><strong>You should be well aware of the signs of a deceitful seller to buy safely online. Some of the things that you should look out for are:</strong></p> 	
 <p>When the price of an item is way below the normal market price, you have a strong reason to double check everything.</p> 	
 <p>The classified ads on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is required to have a valid phone number. In case of a valid phone number missing, send us an Email so that we can look into the matter for you.</p> 	
 <p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> provides service only to people living in U.K. Sellers from outside U.K. are not permitted to sell items on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>.</p> 	
 <p>It is important that you inspect the item before making any kind of payment to the seller, especially in case of expensive items like bikes cars and caravans. If, for whatever reasons, you are not able to do so, walk away from the deal.</p> 	
 <p>Payment methods such as Wire cash transfer, including services like Money Gram and Western Union and transfers from overseas bank accounts are prohibited payment methods on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. We suggest that you should avoid using these services to make payments to other buyers and sellers. We discourage you to do so because after sending funds through these services, there is no way the money can be retrieved, in case if something goes wrong. It is better to pay through a familiar, safe and easily traceable payment method. PayPal can be used, however, they should be verified PayPal member and should have a positive online reputation. (Note: Do not fall under an assumption that a payment at PayPal is 100% safe. If you have not received an item, PayPal does not reimburse your money. However, it's an exception if you buy an eligible item from eBay directly)</p> 	
-<p>Neither <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, nor Facebook or PayPal provides a service where your payments will be on hold until the item has been successfully shipped. There's an option of escrow services, but that cannot be relied on either as scammers can sometimes pretend to be one, we suggest you research well on the escrow services before putting in your faith in it.</p> 	
+<p>Neither <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, nor Facebook or PayPal provides a service where your payments will be on hold until the item has been successfully shipped. There's an option of escrow services, but that cannot be relied on either as scammers can sometimes pretend to be one, we suggest you research well on the escrow services before putting in your faith in it.</p> </p>
+
+</div>
+</div>
+</div>
+</div>
+</div>	
 
 <h3>Seller Guide</h3>
 <div class="accordion">
@@ -231,8 +249,18 @@ While transacting:
 </div>
 </div>
 
-
-<h3>Selling Safely</h3>
+<div class="accordion">
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading headback" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#sellingsafeone" aria-expanded="true" aria-controls="collapseOne">
+Selling Safely
+</a>
+</h3>
+</div>
+<div id="sellingsafeone" class="panel-collapse collapse in" role="tabpanel">
+<div class="panel-body">
 <p><strong>There are some common signs of a deceitful buyer, that you should always watch out for. Here are few of them:</strong></p>
 <p>Buyers from outside U.K. are not allowed to use <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. If a buyer from different part of the world contacts you, please report it to us along with the details. </p>
 <p>If the buyer is too courteous and offers to pay more than what you asked, you have a big reason not to trust the buyer. </p>
@@ -240,6 +268,12 @@ While transacting:
 <p>If you're told by the buyer that payments has been made through PayPal, the best way to confirm it is by logging into your account and seeing it for yourself. Often, fake confirmation emails are created and sent to the seller to create the notion that payment has been made. Also, please be extra cautious when high value items like a bike or a car is involved, and when a buyer wants the item to be shipped overseas and wants you to pay for it. </p>
 <p>Always choose to send your items through a registered post. You should be able to track the item if the buyer claims that they have not received the item. </p>
 <p>Always be alert when it comes to check payments. Banks can take some time to notify you that the check you deposited was a fake one. To be on safer side you should go to the bank with the buyer and get the cashier's check issued in person. Make sure you don't send a portion of the money back to the shipping agent, buyer or any other person. </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 
 <h3>Reporting Scams</h3>
 <p>If you find anything suspicious on <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, send us an email. If you see an ad that looks fraud or a scam, if you receive a phishing email or if an overseas Buyer or Seller tried to contact you, it is best that you report it to us. If in case you have been cheated or have been a victim of a fraud, report it to us right away and also file a report to the police.</p>

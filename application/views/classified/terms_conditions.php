@@ -58,12 +58,12 @@ color: #777;
 <div class="item_subpages">
 <ul class="">
 <a href='about-us'><li>About US</li></a>
-<a href='contact-us'><li>Contact US</li></a>
 <a href='terms-conditions'><li class="active_page">Terms & Conditions</li></a>
 <a href='cookies-policy'><li>Cookies Policy</li></a>
 <a href='privacy-policy'><li>Privacy Policy</li></a>
 <a href='safety-tips'><li>Assistence</li></a>
-<a href=''><li>Faq</li></a>
+<a href=''><li>FAQ</li></a>
+<a href='contact-us'><li>Contact US</li></a>
 </ul>
 </div>
 </div>
@@ -86,7 +86,7 @@ INTRODUCTION
 
 <p>You must be at least 18 years of age to use our website; and by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least 18 years of age.</p>
 
-<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is 18202 70th Ave N Maple Grove, MN 55311 USA. The term ‘ you ’ refers to the user or viewer of our website.</p>
+<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is Building3,ChiswickPark,566 Chiswick High Road,LONDON,W4 5YA | TEL: 02089355446 Ext#1 | Company No. 10024238 | Business Hours are 09:00am to 17.00pm Monday to Friday. The term you  refers to the user or viewer of our website.</p>
 </div>
 </div>
 </div>

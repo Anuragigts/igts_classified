@@ -55,12 +55,12 @@
 <div class="item_subpages">
 <ul class="">
 <a href='about-us'><li class="active_page">About US</li></a>
-<a href='contact-us'><li>Contact US</li></a>
 <a href='terms-conditions'><li>Terms & Conditions</li></a>
 <a href='cookies-policy'><li>Cookies Policy</li></a>
 <a href='privacy-policy'><li>Privacy Policy</li></a>
 <a href='safety-tips'><li>Assistence</li></a>
-<a href=''><li>Faq</li></a>
+<a href=''><li>FAQ</li></a>
+<a href='contact-us'><li>Contact US</li></a>
 </ul>
 </div>
 </div>
