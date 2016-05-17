@@ -73,12 +73,12 @@ color: #777;
 <div class="panel panel-default">
 <div class="panel-heading headback" role="tab" id="headingOne">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#one" aria-expanded="true" aria-controls="collapseOne">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#one" aria-expanded="true" aria-controls="collapseOne">
 INTRODUCTION
 </a>
 </h3>
 </div>
-<div id="one" class="panel-collapse collapse in" role="tabpanel">
+<div id="one" class="panel-collapse collapse" role="tabpanel">
 <div class="panel-body">
 <p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with, and be bound by the following terms and conditions of use, which together with our privacy policy govern " 99rightDeals " relationship with you in relation to this website. These terms and conditions are effective from 1st March 2016 and form a legally binding agreement between you and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, any preceding terms and conditions will be superseded by this one. These terms shall take effect when you use the website for the first time. If you disagree with any part of these terms and conditions, please do not use our website.</p>
 
@@ -86,7 +86,7 @@ INTRODUCTION
 
 <p>You must be at least 18 years of age to use our website; and by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least 18 years of age.</p>
 
-<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is Building3,ChiswickPark,566 Chiswick High Road,LONDON,W4 5YA | TEL: 02089355446 Ext#1 | Company No. 10024238 | Business Hours are 09:00am to 17.00pm Monday to Friday. The term you  refers to the user or viewer of our website.</p>
+<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose Operating office is k2C infotech Building3,ChiswickPark,566 Chiswick High Road,LONDON,W4 5YA | TEL: 02089355446 Ext#1 | Company No. 10024238 | Business Hours are 09:00am to 17.00pm Monday to Friday. The term you  refers to the user or viewer of our website.</p>
 </div>
 </div>
 </div>

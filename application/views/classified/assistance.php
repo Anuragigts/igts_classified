@@ -80,12 +80,12 @@ color: #777 !important;
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#one" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#one" aria-expanded="false" aria-controls="collapseTwo">
 Initial Contact
 </a>
 </h3>
 </div>
-<div id="one" class="panel-collapse collapse in" role="tabpanel" >
+<div id="one" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p><strong>Ask Questions</strong> : Articulate your curiosity in the product and ask any questions you may have on your first contact with the seller by phone or email. Ask about the condition and/or history of the product. You may request for photographs as well.</p>
 <p><strong>Personal Information Should Be Limited</strong> : You must share a limited amount of information about yourself (for example, information like your home phone number or address is not required and amputate personal information from your email sig file). However, if your questions have been answered and the seller seems plausible, more information about yourself, such as your name and cell phone number might be required by the seller (but keep it limited to that).</p>
@@ -150,12 +150,12 @@ The Transaction
 <div class="panel panel-default">
 <div class="panel-heading headback" role="tab" id="headingOne">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#safeone" aria-expanded="true" aria-controls="collapseOne">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#safeone" aria-expanded="true" aria-controls="collapseOne">
 Buying Safely
 </a>
 </h3>
 </div>
-<div id="safeone" class="panel-collapse collapse in" role="tabpanel">
+<div id="safeone" class="panel-collapse collapse" role="tabpanel">
 <div class="panel-body">
 <p><p><strong>You should be well aware of the signs of a deceitful seller to buy safely online. Some of the things that you should look out for are:</strong></p> 	
 <p>When the price of an item is way below the normal market price, you have a strong reason to double check everything.</p> 	
@@ -177,12 +177,12 @@ Buying Safely
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#five" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#five" aria-expanded="false" aria-controls="collapseTwo">
 When You Post Your Ad, We Suggest:
 </a>
 </h3>
 </div>
-<div id="five" class="panel-collapse collapse in" role="tabpanel" >
+<div id="five" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p><strong>Use more photos and describe your product well</strong> : When you describe your product properly and give out complete information, the buyer is less likely to be disappointed after seeing the item in person. The photographs help form the correct notion in the minds of the buyers, try to use them as much as you can.</p>
 <p><strong>Avoid giving out personal information</strong> : We suggest that you give out information that does not personally identify you. It is better to give a mobile phone number rather than a home one. Similarly, avoid giving work email address and give a Yahoo, G mail or Hot mail email id instead. </p>
@@ -254,12 +254,12 @@ While transacting:
 <div class="panel panel-default">
 <div class="panel-heading headback" role="tab" id="headingOne">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#sellingsafeone" aria-expanded="true" aria-controls="collapseOne">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#sellingsafeone" aria-expanded="true" aria-controls="collapseOne">
 Selling Safely
 </a>
 </h3>
 </div>
-<div id="sellingsafeone" class="panel-collapse collapse in" role="tabpanel">
+<div id="sellingsafeone" class="panel-collapse collapse" role="tabpanel">
 <div class="panel-body">
 <p><strong>There are some common signs of a deceitful buyer, that you should always watch out for. Here are few of them:</strong></p>
 <p>Buyers from outside U.K. are not allowed to use <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. If a buyer from different part of the world contacts you, please report it to us along with the details. </p>
@@ -283,12 +283,12 @@ Selling Safely
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#repone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#repone" aria-expanded="false" aria-controls="collapseTwo">
 Reporting a listing
 </a>
 </h3>
 </div>
-<div id="repone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="repone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p>Listings that seem to be discriminating in any way, or doing any trademark violations needs to be reported, this also applies to spamming, fraud and activities that are illegal.</p>
 <p>The " Report " button is located on the details page of the listing, at the bottom of the " Description " section.</p>
@@ -383,12 +383,12 @@ What if you are not completely sure?
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#comone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#comone" aria-expanded="false" aria-controls="collapseTwo">
 Online Frauds
 </a>
 </h3>
 </div>
-<div id="comone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="comone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p>Often, scammers put up tempting ads online, selling items at a much lower price. These deceitful sellers claim to be living locally, but are actually outside country. Once you pay the money to these people for that low cost item, neither they nor the transactions are traced.</p>
 <p><strong>Protecting yourself from such frauds</strong> - You should be very careful when you see items priced way lower than market price. If you're asked to transfer money from services like Western Union, you should refuse straight away. Speak to the seller on phone and see the item for yourself before making any kind of payments.</p>
@@ -469,12 +469,12 @@ Malware
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#popone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#popone" aria-expanded="false" aria-controls="collapseTwo">
 Scams Relating To Vehicles (motorcycles, cars, boats, Powersports vehicles, etc.)
 </a>
 </h3>
 </div>
-<div id="popone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="popone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p><strong>How they can be avoided:</strong></p>
 <p>Don't trust the sellers who are reluctant to show you the vehicle. Make sure that you see the vehicle, even get it checked before buying it. Don't be tempted with an attractive deal, chances are that it could be a scam.</p>
@@ -659,12 +659,12 @@ Scams Related to Property
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a  role="button" data-toggle="collapse" data-parent="#accordion" href="#tradone" aria-expanded="false" aria-controls="collapseTwo">
+<a  class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#tradone" aria-expanded="false" aria-controls="collapseTwo">
 Identifying a Scammer
 </a>
 </h3>
 </div>
-<div id="tradone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="tradone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p><strong>Getting familiar with popular and common scams helps you a lot in identifying scams. Additionally, there are certain characteristics that scammers often share:</strong></p>
 <div class="row">
@@ -695,12 +695,12 @@ Identifying a Scammer
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ideone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#ideone" aria-expanded="false" aria-controls="collapseTwo">
 How can I tell if an item is a fake?
 </a>
 </h3>
 </div>
-<div id="ideone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="ideone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p><strong>These are a few tips that can help you identify a fake item.</strong></p>
 <div class="row">
@@ -763,12 +763,12 @@ What needs to be done in case I suspect a fake or counterfeit item?
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#protone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#protone" aria-expanded="false" aria-controls="collapseTwo">
 How your personal information can be kept private?
 </a>
 </h3>
 </div>
-<div id="protone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="protone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <div class="row">
 <div class="col-md-12">
@@ -870,12 +870,12 @@ Online Buying
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#safeone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#safeone2" aria-expanded="false" aria-controls="collapseTwo">
 Banned payment methods
 </a>
 </h3>
 </div>
-<div id="safeone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="safeone2" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p>Money services like Western Union are often used by deceptive buyers and sellers as there is no way to trace the money once it has been transferred using such services. These services are thus banned and we request you to avoid using them unless you know the other party.</p>
 </div>
@@ -940,12 +940,12 @@ What to do when you forget your password?
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#creditone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#creditone" aria-expanded="false" aria-controls="collapseTwo">
 Secure payment processing
 </a>
 </h3>
 </div>
-<div id="creditone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="creditone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p>We at <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> use SSL (Secured Sockets Layer) to make secure credit card payments. SSL is an encryption process used for sending secure information through the internet. It is a standard protocol used by us in order to transfer the confidential information. When a site uses SSL, a padlock image is displayed on the status bar of your browser which indicates that you are in a secure environment.</p>
 </div>
@@ -992,12 +992,12 @@ International credit cards
 <div class="panel panel-default">
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tradsone" aria-expanded="false" aria-controls="collapseTwo">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#tradsone" aria-expanded="false" aria-controls="collapseTwo">
 What can be done for safe trading?
 </a>
 </h3>
 </div>
-<div id="tradsone" class="panel-collapse collapse in" role="tabpanel" >
+<div id="tradsone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
 <p>Few things that you can do to start off:</p>
 <div class="row">

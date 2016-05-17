@@ -75,12 +75,12 @@
 <div class="panel panel-default">
 <div class="panel-heading headback" role="tab" id="headingOne">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#cone" aria-expanded="true" aria-controls="collapseOne">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#cone" aria-expanded="true" aria-controls="collapseOne">
 Session cookies
 </a>
 </h3>
 </div>
-<div id="cone" class="panel-collapse collapse in" role="tabpanel">
+<div id="cone" class="panel-collapse collapse" role="tabpanel">
 <div class="panel-body">
 <p>This cookie will expire at the end of user session or when the browser session ends and also when on our web browser is closed.</p>
 </div>

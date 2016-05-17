@@ -77,19 +77,19 @@ font-size: 14px;
 <div class="col-md-9">
 <p>This privacy policy sets out how <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> uses and protects any information that you give <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> when you use this website.</p>
 
-<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose registered office is Building3,ChiswickPark,566 Chiswick High Road,LONDON,W4 5YA | TEL: 02089355446 Ext#1 | Company No. 10024238 | Business Hours are 09:00am to 17.00pm Monday to Friday. The term you  refers to the user or viewer of our website.</p>
+<p>The term <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> refers to the owner of the website whose Operating office is k2C infotech Building3,ChiswickPark,566 Chiswick High Road,LONDON,W4 5YA | TEL: 02089355446 Ext#1 | Company No. 10024238 | Business Hours are 09:00am to 17.00pm Monday to Friday. The term you  refers to the user or viewer of our website.</p>
 
 <div class="accordion">
 <div class="panel-group" role="tablist" aria-multiselectable="true">
 <div class="panel panel-default">
 <div class="panel-heading headback" role="tab" id="headingOne">
 <h3 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#pone" aria-expanded="true" aria-controls="collapseOne">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pone" aria-expanded="true" aria-controls="collapseOne">
 PERSONAL INFORMATION
 </a>
 </h3>
 </div>
-<div id="pone" class="panel-collapse collapse in" role="tabpanel">
+<div id="pone" class="panel-collapse collapse" role="tabpanel">
 <div class="panel-body">
 <p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.</p>
 <p><strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective from Monday, March 21, 2016.</p>
