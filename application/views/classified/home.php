@@ -1274,8 +1274,6 @@ foreach ($business_logos as $bval) { ?>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 
-
-
 <script>
 jQuery(document).ready(function(e){function i(){var e=d.$Elmt.parentNode.clientWidth;e?(e=Math.min(e,1124),d.$ScaleWidth(e)):window.setTimeout(i,40)}var n={$AutoPlay:!0,$Idle:0,$AutoPlaySteps:4,$SlideDuration:1600,$SlideEasing:$Jease$.$Linear,$PauseOnHover:4,$SlideWidth:115,$Cols:8},d=new $JssorSlider$("jssor_1",n);i(),e(window).bind("load",i),e(window).bind("resize",i),e(window).bind("orientationchange",i)});
 </script>

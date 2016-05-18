@@ -1,399 +1,399 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		
-		<title>Professional Services In London, United Kingdom | 99 Right Deals</title>
-		
-		<meta name="description" content="Find the professionals for house, business, accounting, hostipals, health & fitness services in London, UK on 99 Right Deals." />
-		
-		<!-- xxx Head Content xxx -->
-		<?php echo $this->load->view('common/head');?> 
-		<!-- xxx End xxx -->
-		
-		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
-		<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
-		
-		<script type="text/javascript">
-			$(document).ready(function() {
-			  $('.cd-filter-content').niceScroll({
-				autohidemode: 'false',     
-				cursorborderradius: '0px', 
-				background: '#f4f4f4',     
-				cursorwidth: '8px',       
-				cursorcolor: '#E95413'     
-			  });
-			});
-		</script>
-		
-		
-		  <?php foreach ($public_adview as $publicview) {
-			$left_ad1 = $publicview->sidead_one;
-			$topad = $publicview->topad;
-			$mid_ad = $publicview->mid_ad;
-		  }
-		   ?>
-		 
-		<script type="text/javascript">
-			$(function(){
-				$(".loc_map").click(function(){
-					var val = $(".loc_map").attr("id");
-					var val1 = val.split(",");
-					$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
-				});
-			});
-		</script>
-		<script type="text/javascript">
-			$(document).ready(
-				function()
-				{
-					$("input:checkbox").change(
-						function()
-						{
-								$("form.jforms").submit();
-						}
-					)
-					$('input:radio').click(function() {
-							$("form.jforms").submit();
-						}
-					)
-					$('.dealtitle_sort').change(function() {
-							$("form.jforms").submit();
-						}
-					)
-					$('.price_sort').change(function() {
-							$("form.jforms").submit();
-						}
-					)
-					$('.recentdays_sort').change(function() {
-							$("form.jforms").submit();
-						}
-					)
-					$(".clear_location").click(function(){
-						$('#latt').val('');
-						$('#longg').val('');
-						$('#find_loc').val('');
-						$("form.jforms").submit();
-					});
-				}
-			);
-		</script>
-			<?php 
-				$prof_service = $this->session->userdata('prof_service');
-				$pop_service = $this->session->userdata('pop_service');
-				$seller_deals = $this->session->userdata('seller_deals');
-				$dealurgent = $this->session->userdata('dealurgent');
-				$dealtitle = $this->session->userdata('dealtitle');
-				$dealprice = $this->session->userdata('dealprice');
-				$recentdays = $this->session->userdata('recentdays');
-				$search_bustype = $this->session->userdata('search_bustype');
-				$location = $this->session->userdata('location');
-				$latt = $this->session->userdata('latt');
-				$longg = $this->session->userdata('longg');
+<head>
+
+<title>Professional Services In London, United Kingdom | 99 Right Deals</title>
+
+<meta name="description" content="Find the professionals for house, business, accounting, hostipals, health & fitness services in London, UK on 99 Right Deals." />
+
+<!-- xxx Head Content xxx -->
+<?php echo $this->load->view('common/head');?> 
+<!-- xxx End xxx -->
+
+<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
+<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('.cd-filter-content').niceScroll({
+autohidemode: 'false',     
+cursorborderradius: '0px', 
+background: '#f4f4f4',     
+cursorwidth: '8px',       
+cursorcolor: '#E95413'     
+});
+});
+</script>
+
+
+<?php foreach ($public_adview as $publicview) {
+$left_ad1 = $publicview->sidead_one;
+$topad = $publicview->topad;
+$mid_ad = $publicview->mid_ad;
+}
+?>
+
+<script type="text/javascript">
+$(function(){
+$(".loc_map").click(function(){
+var val = $(".loc_map").attr("id");
+var val1 = val.split(",");
+$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(
+function()
+{
+$("input:checkbox").change(
+function()
+{
+$("form.jforms").submit();
+}
+)
+$('input:radio').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.dealtitle_sort').change(function() {
+$("form.jforms").submit();
+}
+)
+$('.price_sort').change(function() {
+$("form.jforms").submit();
+}
+)
+$('.recentdays_sort').change(function() {
+$("form.jforms").submit();
+}
+)
+$(".clear_location").click(function(){
+$('#latt').val('');
+$('#longg').val('');
+$('#find_loc').val('');
+$("form.jforms").submit();
+});
+}
+);
+</script>
+<?php 
+$prof_service = $this->session->userdata('prof_service');
+$pop_service = $this->session->userdata('pop_service');
+$seller_deals = $this->session->userdata('seller_deals');
+$dealurgent = $this->session->userdata('dealurgent');
+$dealtitle = $this->session->userdata('dealtitle');
+$dealprice = $this->session->userdata('dealprice');
+$recentdays = $this->session->userdata('recentdays');
+$search_bustype = $this->session->userdata('search_bustype');
+$location = $this->session->userdata('location');
+$latt = $this->session->userdata('latt');
+$longg = $this->session->userdata('longg');
 
 
 
-				 foreach ($busconcount as $countval) {
-					$allbustype = $countval->allbustype;
-					$business = $countval->business;
-					$consumer = $countval->consumer;
-				  }
-				  foreach ($deals_pck as $pckval) {
-					$urgentcnt = $pckval->urgentcount;
-					$platinumcnt = $pckval->platinumcount;
-					$goldcnt = $pckval->goldcount;
-					$freecnt = $pckval->freecount;
-				  }
-				  foreach ($sellerneededcount as $sncnt) {
-					$seller = $sncnt->provider;
-					$needed = $sncnt->needed;
-				  }
+foreach ($busconcount as $countval) {
+$allbustype = $countval->allbustype;
+$business = $countval->business;
+$consumer = $countval->consumer;
+}
+foreach ($deals_pck as $pckval) {
+$urgentcnt = $pckval->urgentcount;
+$platinumcnt = $pckval->platinumcount;
+$goldcnt = $pckval->goldcount;
+$freecnt = $pckval->freecount;
+}
+foreach ($sellerneededcount as $sncnt) {
+$seller = $sncnt->provider;
+$needed = $sncnt->needed;
+}
 
-				  foreach ($prof_cnt as $val) {
-					$coach = $val->coach;
-					$bus = $val->bus;
-					$party = $val->party;
-					$it = $val->it;
-					$solic = $val->solic;
-					$acnt = $val->acnt;
-					$home = $val->home;
-					$doctor = $val->doctor;
-					$nurse = $val->nurse;
-					$astr = $val->astr;
-					$loan = $val->loan;
-					$funeral = $val->funeral;
-					$health = $val->health;
-				  }
+foreach ($prof_cnt as $val) {
+$coach = $val->coach;
+$bus = $val->bus;
+$party = $val->party;
+$it = $val->it;
+$solic = $val->solic;
+$acnt = $val->acnt;
+$home = $val->home;
+$doctor = $val->doctor;
+$nurse = $val->nurse;
+$astr = $val->astr;
+$loan = $val->loan;
+$funeral = $val->funeral;
+$health = $val->health;
+}
 
 
-		   ?>
-	</head>
-	
-	<body id="home">
-		
-		<!--Preloader-->
-		<div class="preloader">
-			<div class="status">&nbsp;</div>
-		</div> 
-			   
-		<!-- Start Entire Wrap-->
-		<div id="layout">
-			
-			<!-- xxx tophead Content xxx -->
-			<?php echo $this->load->view('common/tophead'); ?> 
-			<!-- xxx End tophead xxx -->
-			
-			<!-- Inner Page Content Start-->
-			<div class="section-title-01">
-				<div class="bg_parallax image_01_parallax"></div>
-			</div>   
-			
-			<!--Content Central -->
-			<section class="content-central">
-				<div class="semiboxshadow text-center">
-					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
-				</div>
-				<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>serviceprof_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
-					<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
-					<div class="content_info">
-						<div class="paddings">
-							<div class="container pad_bott_50">
-								<div class="row">
-									<div class="col-md-10 col-sm-8 col-md-offset-1 add_top">
-										<?php echo $topad; ?>
-									</div>
-								</div>
-							</div>
-							<div class="container">
-								<div class="row">
-									<!-- Item Table-->
-									<div class="col-md-3 col-sm-3">
-										<div class="container-by-widget-filter bg-dark color-white">
-											<!-- Widget Filter -->
-											<a href="<?php echo base_url(); ?>household-services-london-uk"><h3 class="title-widget">Services Filter</h3></a>
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Professional Filter</h4>
-												<div class="cd-filter-content">
-													<div class="filters_categories">	
-														<ul class="list-styles">
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>educational-coaching-training-services-london"> Coachings & Training (<?php echo $coach; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>business-office-services-london"> Business Services (<?php echo $bus; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>party-wedding-services-london"> Party & Wedding (<?php echo $party; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>it-digital-marketing-services"> IT & Digital Marketing (<?php echo $it; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>solicitor-services-london-manchester"> Solicitor Services (<?php echo $solic; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>accounting-taxation-services-london"> Accounting & Taxation (<?php echo $acnt; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-construction-renovation-services-london"> Home, Construction & Renovation Services (<?php echo $home; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>doctors-hospital-services-london"> Doctors & Hospital (<?php echo $doctor; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>nurse-care-services"> Nurse & Care Services (<?php echo $nurse; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>astrology-numerology-services-london"> Astrology & Numerology (<?php echo $astr; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-car-property-loan-insurance"> Loan & Insurance (<?php echo $loan; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>funeral-services"> Funeral Services (<?php echo $funeral; ?>)</a></li>
-															<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>health-fitness-services-london"> Health & Fitness (<?php echo $health; ?>)</a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-											<div class="cd-filter-block">
-												<h4 class="title-widget ">Seller Type</h4>
+?>
+</head>
 
-												<div class="cd-filter-content" >
-													<div>
-														<label class="checkbox">
-															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_provider',$seller_deals)) echo 'checked = checked';?> value="service_provider" >
-															<i></i> Service provider (<?php echo $seller; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_needed',$seller_deals)) echo 'checked = checked';?> value="service_needed" >
-															<i></i> Service Needed (<?php echo $needed; ?>)
-														</label>
-													</div>
-												</div> 
-											</div>
-											<div class="cd-filter-block">
-												<h4 class="title-widget ">Deal Type</h4>
+<body id="home">
 
-												<div class="cd-filter-content" >
-													<div>
-														<label class="radio">
-															<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?>  >
-															<i></i> All (<?php echo $allbustype; ?>)
-														</label>
-														<label class="radio">
-															<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
-															<i></i> Business (<?php echo $business; ?>)
-														</label>
-														<label class="radio">
-															<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
-															<i></i> Consumer (<?php echo $consumer; ?>)
-														</label>
-													</div>
-												</div>
-											</div>
-											
-											<div class="cd-filter-block">
-												<h4 class="title-widget ">Location</h4>
+<!--Preloader-->
+<div class="preloader">
+<div class="status">&nbsp;</div>
+</div> 
 
-												<div class="cd-filter-content" >
-													<div class="input">
-														<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
-														<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
-														<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
-														<button type='submit' class="btn btn-primary sm-btn pull-right find_location" name='find_location' id='find_location' >Find</button>
-														<button class="btn btn-primary sm-btn pull-right clear_location" name='clear_location' id='clear_location' >Clear</button>
-													</div>
-												</div>
-											</div> 
-											
-											<div class="cd-filter-block">
-												<h4 class="title-widget">Search Only</h4>
+<!-- Start Entire Wrap-->
+<div id="layout">
 
-												<div class="cd-filter-content">
-													<div>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?>>
-															<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3"<?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
-															<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2"<?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?>>
-															<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
-														</label>
-														<label class="checkbox">
-															<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?>>
-															<i></i> Recent Deals (<?php echo $freecnt; ?>)
-														</label>
-													</div>
-												</div>
-											</div> 
-										</div>
-										<div class="row top_20">
-											<div class="col-sm-12 add_left">
-												<?php echo $left_ad1; ?>
-											</div>
-										</div>
-									</div>
-									<!-- End Item Table-->
+<!-- xxx tophead Content xxx -->
+<?php echo $this->load->view('common/tophead'); ?> 
+<!-- xxx End tophead xxx -->
 
-									<!-- Item Table-->
-									<div class="col-md-9 col-sm-9">
-										<div class="sort-by-container tooltip-hover">
-											<div class="row">
-												<div class="col-md-12">
-													<strong>Sort by:</strong>
-													<ul>                            
-														<li>
-															<div class="top_bar_top">
-																<label class="input select">
-																	<select name="dealtitle_sort" class="dealtitle_sort">
-																		<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
-																		<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
-																		<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
-																	</select>
-																	<i></i>
-																</label>
-															</div>
-														</li>
-														<li>
-															<div class="top_bar_top">
-																<label class="input select">
-																	<select name="price_sort" class="price_sort">
-																		<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
-																		<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
-																		<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
-																	</select>
-																	<i></i>
-																</label>
-															</div>
-														</li>
-														<li>
-															<div class="top_bar_top">
-																<label class="input select">
-																		<select name="recentdays_sort" class="recentdays_sort">
-																			<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
-																			<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
-																			<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
-																			<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
-																			<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
-																			<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
-																		</select>
-																		<i></i>
-																	</label>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<!-- sort-by-container-->
-										
-										<div class="row search_result">
-										  <?php echo $this->load->view("classified/serviceprof_view_search"); ?> 
-										</div>
-										
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-			</section>
-			<!-- Inner Page Content End-->
-		
-			<!-- xxx footer Content xxx -->
-			<?php echo $this->load->view('common/footer');?> 
-			<!-- xxx footer End xxx -->
-			
-		</div>
-		<!-- End Entire Wrap -->
-		
-		<!--MAP Modal -->
-		<div class="modal fade" id="map_location" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2>Map Location</h2>
-					</div>
-					<div class="modal-body map_show">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- End Shadow Semiboxed -->
-		<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
-		<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
-		
-		<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-		<script>
-			$('.xuSlider').xuSlider();
-		</script>
-		
-		<script>
-			$(document).ready(function(){
-				$('#find_loc').autocomplete({
-					source: '<?php echo base_url(); ?>classified/search_autocomplete',
-					minLength: 1,
-					messages: {
-						noResults:'No Data Found'
-					}
-				});
-			});
-		</script>
-		
-		<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
-		<script src="<?php echo base_url();?>libs/jquery.mixitup.min.js"></script>
-		<script src="<?php echo base_url();?>libs/main.js"></script>
-		
-		<!-- xxx footerscript Content xxx -->
-		<?php echo $this->load->view('common/footerscript');?> 
-		<!-- xxx footerscript End xxx -->
-			
-	</body>
+<!-- Inner Page Content Start-->
+<div class="section-title-01">
+<div class="bg_parallax image_01_parallax"></div>
+</div>   
+
+<!--Content Central -->
+<section class="content-central">
+<div class="semiboxshadow text-center">
+<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+</div>
+<form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>serviceprof_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
+<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
+<div class="content_info">
+<div class="paddings">
+<div class="container pad_bott_50">
+<div class="row">
+<div class="col-md-10 col-sm-8 col-md-offset-1 add_top">
+<?php echo $topad; ?>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<!-- Item Table-->
+<div class="col-md-3 col-sm-3">
+<div class="container-by-widget-filter bg-dark color-white">
+<!-- Widget Filter -->
+<a href="<?php echo base_url(); ?>household-services-london-uk"><h3 class="title-widget">Services Filter</h3></a>
+<div class="cd-filter-block">
+<h4 class="title-widget">Professional Filter</h4>
+<div class="cd-filter-content">
+<div class="filters_categories">	
+<ul class="list-styles">
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>educational-coaching-training-services-london"> Coachings & Training (<?php echo $coach; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>business-office-services-london"> Business Services (<?php echo $bus; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>party-wedding-services-london"> Party & Wedding (<?php echo $party; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>it-digital-marketing-services"> IT & Digital Marketing (<?php echo $it; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>solicitor-services-london-manchester"> Solicitor Services (<?php echo $solic; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>accounting-taxation-services-london"> Accounting & Taxation (<?php echo $acnt; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-construction-renovation-services-london"> Home, Construction & Renovation Services (<?php echo $home; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>doctors-hospital-services-london"> Doctors & Hospital (<?php echo $doctor; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>nurse-care-services"> Nurse & Care Services (<?php echo $nurse; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>astrology-numerology-services-london"> Astrology & Numerology (<?php echo $astr; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>home-car-property-loan-insurance"> Loan & Insurance (<?php echo $loan; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>funeral-services"> Funeral Services (<?php echo $funeral; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>health-fitness-services-london"> Health & Fitness (<?php echo $health; ?>)</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cd-filter-block">
+<h4 class="title-widget ">Seller Type</h4>
+
+<div class="cd-filter-content" >
+<div>
+<label class="checkbox">
+<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_provider',$seller_deals)) echo 'checked = checked';?> value="service_provider" >
+<i></i> Service provider (<?php echo $seller; ?>)
+</label>
+<label class="checkbox">
+<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('service_needed',$seller_deals)) echo 'checked = checked';?> value="service_needed" >
+<i></i> Service Needed (<?php echo $needed; ?>)
+</label>
+</div>
+</div> 
+</div>
+<div class="cd-filter-block">
+<h4 class="title-widget ">Deal Type</h4>
+
+<div class="cd-filter-content" >
+<div>
+<label class="radio">
+<input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?>  >
+<i></i> All (<?php echo $allbustype; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_bustype" class="search_bustype" value="business" <?php if($search_bustype == 'business') echo 'checked = checked';?> >
+<i></i> Business (<?php echo $business; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_bustype" class="search_bustype" value="consumer" <?php if($search_bustype == 'consumer') echo 'checked = checked';?> >
+<i></i> Consumer (<?php echo $consumer; ?>)
+</label>
+</div>
+</div>
+</div>
+
+<div class="cd-filter-block">
+<h4 class="title-widget ">Location</h4>
+
+<div class="cd-filter-content" >
+<div class="input">
+<input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" name="find_loc" value="<?php echo $location; ?>">
+<input type='hidden' name='latt' id='latt' value='<?php echo $latt; ?>' >
+<input type='hidden' name='longg' id='longg' value='<?php echo $longg; ?>' >
+<button type='submit' class="btn btn-primary sm-btn pull-right find_location" name='find_location' id='find_location' >Find</button>
+<button class="btn btn-primary sm-btn pull-right clear_location" name='clear_location' id='clear_location' >Clear</button>
+</div>
+</div>
+</div> 
+
+<div class="cd-filter-block">
+<h4 class="title-widget">Search Only</h4>
+
+<div class="cd-filter-content">
+<div>
+<label class="checkbox">
+<input type="checkbox" name="dealurgent[]" class="dealurgent"  value="0" <?php if(isset($dealurgent) && in_array('0',$dealurgent)){ echo 'checked = checked';}?>>
+<i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
+</label>
+<label class="checkbox">
+<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3"<?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
+<i></i> Significant Deals (<?php echo $platinumcnt; ?>)
+</label>
+<label class="checkbox">
+<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2"<?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?>>
+<i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
+</label>
+<label class="checkbox">
+<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?>>
+<i></i> Recent Deals (<?php echo $freecnt; ?>)
+</label>
+</div>
+</div>
+</div> 
+</div>
+<div class="row top_20">
+<div class="col-sm-12 add_left">
+<?php echo $left_ad1; ?>
+</div>
+</div>
+</div>
+<!-- End Item Table-->
+
+<!-- Item Table-->
+<div class="col-md-9 col-sm-9">
+<div class="sort-by-container tooltip-hover">
+<div class="row">
+<div class="col-md-12">
+<strong>Sort by:</strong>
+<ul>                            
+<li>
+<div class="top_bar_top">
+<label class="input select">
+<select name="dealtitle_sort" class="dealtitle_sort">
+<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+<option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
+<option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
+</select>
+<i></i>
+</label>
+</div>
+</li>
+<li>
+<div class="top_bar_top">
+<label class="input select">
+<select name="price_sort" class="price_sort">
+<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+<option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
+<option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
+</select>
+<i></i>
+</label>
+</div>
+</li>
+<li>
+<div class="top_bar_top">
+<label class="input select">
+<select name="recentdays_sort" class="recentdays_sort">
+<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+<option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
+<option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
+<option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>
+<option value="last14days" <?php if($recentdays == 'last14days') echo 'selected = selected';?> >Last 14 Days</option>
+<option value="last1month" <?php if($recentdays == 'last1month') echo 'selected = selected';?> >Last 1 month</option>
+</select>
+<i></i>
+</label>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- sort-by-container-->
+
+<div class="row search_result">
+<?php echo $this->load->view("classified/serviceprof_view_search"); ?> 
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</section>
+<!-- Inner Page Content End-->
+
+<!-- xxx footer Content xxx -->
+<?php echo $this->load->view('common/footer');?> 
+<!-- xxx footer End xxx -->
+
+</div>
+<!-- End Entire Wrap -->
+
+<!--MAP Modal -->
+<div class="modal fade" id="map_location" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h2>Map Location</h2>
+</div>
+<div class="modal-body map_show">
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- End Shadow Semiboxed -->
+<script src="<?php echo base_url(); ?>js/jquery.js"></script> 
+<script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
+
+<script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
+<script>
+$('.xuSlider').xuSlider();
+</script>
+
+<script>
+$(document).ready(function(){
+$('#find_loc').autocomplete({
+source: '<?php echo base_url(); ?>classified/search_autocomplete',
+minLength: 1,
+messages: {
+noResults:'No Data Found'
+}
+});
+});
+</script>
+
+<script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
+<script src="<?php echo base_url();?>libs/jquery.mixitup.min.js"></script>
+<script src="<?php echo base_url();?>libs/main.js"></script>
+
+<!-- xxx footerscript Content xxx -->
+<?php echo $this->load->view('common/footerscript');?> 
+<!-- xxx footerscript End xxx -->
+
+</body>
 </html>

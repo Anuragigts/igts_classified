@@ -23,9 +23,7 @@
 <?php echo $this->load->view('common/tophead'); ?> 
 <!-- xxx End tophead xxx -->
 
-<div class="section-title-01">
-<div class="bg_parallax image_01_parallax"></div>
-</div>   
+<div class="section-title-01"><div class="bg_parallax image_01_parallax"></div></div>   
 
 <section class="content-central">
 <div class="semiboxshadow text-center">

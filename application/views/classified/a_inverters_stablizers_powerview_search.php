@@ -13,7 +13,6 @@ window.location.href = "<?php echo base_url(); ?>login";
 var loginid = $("#login_id").val();
 var val = $(".fav"+adid+loginid).hasClass('active_fav');
 
-/*adding to favourite*/
 if (val == false) {
 $.ajax({
 type: "POST",
@@ -22,7 +21,7 @@ data: {
 ad_id: adid, 
 login_id: loginid
 },
-// dataType: "json",
+
 success: function (data) {
 $(".fav"+adid+loginid).removeClass('inactive_fav');
 $(".fav"+adid+loginid).addClass('active_fav');
@@ -32,7 +31,7 @@ $(".fav"+adid+loginid).attr('title','Remove from Pickup Deals');
 
 }
 else{
-/*deleting from favourite*/
+
 $.ajax({
 type: "POST",
 url: "<?php echo base_url();?>description_view/remove_favourite",
@@ -40,7 +39,7 @@ data: {
 ad_id: adid, 
 login_id: loginid
 },
-// dataType: "json",
+
 success: function (data) {
 $(".fav"+adid+loginid).removeClass('active_fav');
 $(".fav"+adid+loginid).addClass('inactive_fav');
@@ -61,7 +60,7 @@ array_push($fav_list, $favourite_list1->ad_id);
 }
 
 ?>
-<!-- platinum+urgent package start -->
+
 <?php
 $ezone_result1 = array_chunk($ezone_result, 10);
 foreach ($ezone_result1 as $sval1) {
@@ -275,7 +274,7 @@ else{ ?>
 </div>
 </div>
 </div>
-</div><!-- End Row-->
+</div>
 </div>
 <div class="row">
 <div class="col-md-12">
@@ -290,12 +289,11 @@ else{ ?>
 </div>
 </div>
 </div><hr class="separator">	
-<!-- End Item Gallery List View-->
+
 </div>
 <?php }    ?>
-<!-- platinum+urgent package end -->
 
-<!-- platinum package start-->
+
 <?php if (($sval->package_type == '6' || $sval->package_type == '3') && $sval->urgent_package == '0') {  ?>
 <div class="col-md-12">
 <div class="first_list">
@@ -491,9 +489,8 @@ else{ ?>
 </div><hr class="separator">	
 </div>
 <?php } ?>
-<!-- platinum package end -->
 
-<!-- gold+urgent package starts -->
+
 <?php if (($sval->package_type == '5' || $sval->package_type == '2') && $sval->urgent_package != '0') {  ?>
 <div class="col-md-12">
 <div class="first_list gold_bgcolor">
@@ -659,7 +656,7 @@ else{ ?>
 </div>
 </div>
 </div>
-</div><!-- End Row-->
+</div>
 </div>
 <div class="row">
 <div class="col-md-12">
@@ -676,9 +673,8 @@ else{ ?>
 </div><hr class="separator">	
 </div>
 <?php } ?>
-<!-- gold+urgent package end -->
 
-<!-- gold package starts -->
+
 <?php if (($sval->package_type == '5' || $sval->package_type == '2') && $sval->urgent_package == '0') {  ?>
 <div class="col-md-12">
 <div class="first_list gold_bgcolor">
@@ -839,7 +835,7 @@ else{ ?>
 </div>
 </div>
 </div>
-</div><!-- End Row-->
+</div>
 </div>
 <div class="row">
 <div class="col-md-12">
@@ -856,9 +852,8 @@ else{ ?>
 </div><hr class="separator">	
 </div>
 <?php } ?>
-<!-- gold package end -->
 
-<!-- free+urgent package starts -->
+
 <?php if (($sval->package_type == '4' || $sval->package_type == '1') && $sval->urgent_package != '0') {  ?>
 <div class="col-md-12">
 <div class="first_list">
@@ -1018,7 +1013,7 @@ else{ ?>
 </div>
 </div>
 </div>
-</div><!-- End Row-->
+</div>
 </div>
 <div class="row">
 <div class="col-md-12">
@@ -1035,9 +1030,8 @@ else{ ?>
 </div><hr class="separator">	
 </div>
 <?php } ?>
-<!-- free+urgent package ends -->
 
-<!-- free package starts -->
+
 <?php if (($sval->package_type == '4' || $sval->package_type == '1') && $sval->urgent_package == '0') {  ?>
 <div class="col-md-12">
 <div class="first_list">
@@ -1193,7 +1187,7 @@ else{ ?>
 </div>
 </div>
 </div>
-</div><!-- End Row-->
+</div>
 </div>
 <div class="row">
 <div class="col-md-12">
@@ -1212,16 +1206,15 @@ else{ ?>
 <?php
 }
 } ?>
-<!-- free Add Start -->
+
 <div class="col-md-12 col-sm-12 col-xs-12 add_middle" >
 <?php foreach ($public_adview as $publicview) {
 echo $mid_ad = $publicview->mid_ad;
 }
 ?>
 </div>
-<!-- free Add ends -->
+
 <?php } ?>
-<!-- free package ends -->
 
 <div class=''>
 <div class='col-md-12'>

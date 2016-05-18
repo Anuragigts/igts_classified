@@ -29,9 +29,7 @@ $(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\
 <?php echo $this->load->view('common/tophead'); ?> 
 <!-- xxx End tophead xxx -->
 
-<div class="section-title-01">
-<div class="bg_parallax image_01_parallax"></div>
-</div>
+<div class="section-title-01"><div class="bg_parallax image_01_parallax"></div></div>
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
@@ -153,9 +151,8 @@ If you ever have any difficulties or want to ask any questions, our customer ser
 
 <script src="<?php echo base_url(); ?>js/jquery.js"></script>
 <script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
-
-
 <script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
+
 <script type="text/javascript">
 setTimeout(function(){
 $(".alert").hide();

@@ -21,9 +21,7 @@ color: #777 !important;
 
 <body id="home">
 
-<div class="preloader">
-<div class="status">&nbsp;</div>
-</div> 
+<div class="preloader"><div class="status">&nbsp;</div></div> 
 
 <div id="layout">
 
@@ -31,9 +29,7 @@ color: #777 !important;
 <?php echo $this->load->view('common/tophead'); ?> 
 <!-- xxx End tophead xxx -->
 
-<div class="section-title-01">
-<div class="bg_parallax image_01_parallax"></div>
-</div>
+<div class="section-title-01"><div class="bg_parallax image_01_parallax"></div></div>
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 

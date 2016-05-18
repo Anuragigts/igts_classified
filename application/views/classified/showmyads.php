@@ -6,7 +6,7 @@
 					<h2>MOST <span>VALUE </span>ADS</h2>
 					<hr class="tall">
 				</div>                    
-		   <!-- Nav Filters -->
+			<!-- Nav Filters -->
 			<!-- <div class="portfolioFilter">
 				<a href="#" data-filter="*" class="current">Show All</a>
 				<a href="#jobs" data-filter=".jobs">jobs</a>
