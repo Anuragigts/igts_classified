@@ -781,7 +781,7 @@ Urgent
 </div>
 </div>
 <div class="span12 unit">
-<label class="label">Website Link 
+<label class="label">Website Link ( Eg.www.99rightdeals.com ) 
 <sup data-toggle="tooltip" title="" data-original-title="Website Link">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
@@ -824,7 +824,7 @@ Urgent
 </div>
 </div>
 <div class="span12 unit">
-<label class="label">Website Link 
+<label class="label">Website Link ( Eg.www.99rightdeals.com ) 
 <sup data-toggle="tooltip" title="" data-original-title="Website Link">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
@@ -867,7 +867,7 @@ Urgent
 </div>
 </div>
 <div class="span12 unit">
-<label class="label">Website Link 
+<label class="label">Website Link ( Eg.www.99rightdeals.com ) 
 <sup data-toggle="tooltip" title="" data-original-title="Website Link">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
@@ -923,7 +923,7 @@ Urgent
 </div>
 </div>
 <div class="span12 unit">
-<label class="label">Website Link 
+<label class="label">Website Link ( Eg.www.99rightdeals.com ) 
 <sup data-toggle="tooltip" title="" data-original-title="Website Link">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
