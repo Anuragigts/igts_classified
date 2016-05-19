@@ -21,7 +21,7 @@ class Postad extends CI_Controller{
             }
                 $plogin_id      =   $this->session->userdata("login_id");
                 $last_insert_id = $this->session->userdata("last_insert_id");
-                if (isset($last_insert_id) && $last_insert_id != '') {
+                if ($last_insert_id != '') {
                    redirect("payments/checkout/".$last_insert_id);
                 }
                

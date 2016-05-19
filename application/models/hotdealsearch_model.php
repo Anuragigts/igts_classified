@@ -10526,6 +10526,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
     		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
@@ -10539,6 +10540,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("postad.ad_type",$search_bustype);
 			}
 			$seller = $this->db->get()->row('seller');
 
@@ -10567,6 +10571,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
@@ -10581,6 +10586,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("postad.ad_type",$search_bustype);
 			}
 			$seller = $this->db->get()->row('seller');
 
@@ -10625,6 +10633,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
     		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
@@ -10638,6 +10647,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("postad.ad_type",$search_bustype);
 			}
 			$seller = $this->db->get()->row('seller');
 
@@ -10796,6 +10808,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select('COUNT(*) as provider', false);
     		$this->db->from('postad');
@@ -10810,6 +10823,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("postad.ad_type",$search_bustype);
 			}
 			$provider = $this->db->get()->row('provider');
 
@@ -10837,6 +10853,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select('COUNT(*) as company', false);
     		$this->db->from('job_details, postad');
@@ -10851,6 +10868,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("postad.ad_type",$search_bustype);
 			}
 			$company = $this->db->get()->row('company');
 
@@ -10898,6 +10918,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
@@ -10912,6 +10933,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("postad.ad_type",$search_bustype);
 			}
 			$seller = $this->db->get()->row('seller');
 
@@ -10962,6 +10986,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select('COUNT(*) as offered', false);
     		$this->db->from('postad AS ad, property_resid_commercial AS prc');
@@ -10976,6 +11001,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("ad.ad_type",$search_bustype);
 			}
 			$offered = $this->db->get()->row('offered');
 
@@ -11004,6 +11032,7 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad AS ad');
@@ -11018,6 +11047,9 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->where("(loc.loc_name LIKE '$s_location%' 
   					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
+			}
+			if ($search_bustype != 'all') {
+				$this->db->where("ad.ad_type",$search_bustype);
 			}
 			$seller = $this->db->get()->row('seller');
 
@@ -12196,22 +12228,25 @@ class hotdealsearch_model extends CI_Model{
         public function subcat_prof_searchdeals(){
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+
         	$date = date("Y-m-d H:i:s");
-        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->select("*, COUNT(postad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' ) ", "left");
-				}
-				else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-				}
+        	if ($looking_search != '' && $search_bustype != 'all') {
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') AND postad.ad_type='$search_bustype' ", "left");
+			}
+			else if ($looking_search != '') {
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') ", "left");
+			}
+			else if ($search_bustype != 'all') {
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type='$search_bustype' ", "left");
 			}
 			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 			}
 			if ($s_location != '') {
-				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
+				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
         	$this->db->where("sscat.sub_category_id", 9);
         	$this->db->group_by("sscat.sub_subcategory_id");
@@ -12222,22 +12257,25 @@ class hotdealsearch_model extends CI_Model{
         public function subcat_pop_searchdeals(){
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+
         	$date = date("Y-m-d H:i:s");
-        	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
+        	$this->db->select("*, COUNT(postad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' ) ", "left");
-				}
-				else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-				}
+        	if ($looking_search != '' && $search_bustype != 'all') {
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') AND postad.ad_type='$search_bustype' ", "left");
+			}
+			else if ($looking_search != '') {
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_desc LIKE '%$looking_search%') ", "left");
+			}
+			else if ($search_bustype != 'all') {
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type='$search_bustype' ", "left");
 			}
 			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
+				$this->db->join("postad", "postad.sub_scat_id = sscat.sub_subcategory_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 			}
 			if ($s_location != '') {
-				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
+				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
         	$this->db->where("sscat.sub_category_id", 10);
         	$this->db->group_by("sscat.sub_subcategory_id");
@@ -12249,19 +12287,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
 				}
 				else{
 					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
 				}
-			}
-			else{
-				$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12276,19 +12317,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
 				}
 				else{
 					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
 				}
-			}
-			else{
-				$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12303,20 +12346,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 			$this->db->from('sub_category');
-			if ($looking_search) {
-				if ($looking_search != '') {
+				if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'AND postad.ad_type='$search_bustype' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_tag LIKE '$looking_search%' OR postad.deal_tag LIKE '%$looking_search' OR postad.deal_desc LIKE '%$looking_search%' OR postad.deal_desc LIKE '$looking_search%' OR postad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND (postad.deal_tag LIKE '%$looking_search%' OR postad.deal_tag LIKE '$looking_search%' OR postad.deal_tag LIKE '%$looking_search' OR postad.deal_desc LIKE '%$looking_search%' OR postad.deal_desc LIKE '$looking_search%' OR postad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-				$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12330,20 +12375,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12356,20 +12403,22 @@ class hotdealsearch_model extends CI_Model{
          	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12383,20 +12432,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
 
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12412,19 +12463,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' ", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12438,19 +12492,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' ", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12464,19 +12520,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' ", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12490,19 +12548,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' ", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12516,19 +12576,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' ", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12542,19 +12604,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' ", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
 				}
-			}
-			else{
-				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' ", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12570,19 +12634,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		
+				if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12596,18 +12663,20 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
-				}
-				else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-				}
+        	if ($looking_search != '' && $search_bustype != 'all') {
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+			}
+			else if ($looking_search != '') {
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+			}
+			else if ($search_bustype != 'all') {
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 			}
 			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
@@ -12622,18 +12691,20 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
-				}
-				else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-				}
+        	if ($looking_search != '' && $search_bustype != 'all') {
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+			}
+			else if ($looking_search != '') {
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+			}
+			else if ($search_bustype != 'all') {
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 			}
 			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
+				$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
@@ -12650,19 +12721,22 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        		
+				if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12677,19 +12751,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12703,19 +12779,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12729,19 +12807,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12755,19 +12835,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12781,19 +12863,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12807,19 +12891,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
@@ -12833,19 +12919,21 @@ class hotdealsearch_model extends CI_Model{
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
         	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
-        	if ($looking_search) {
-				if ($looking_search != '') {
+        	if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($looking_search != '') {
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype'", "left");
 				}
 				else{
 					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
 				}
-			}
-			else{
-					$this->db->join("postad AS ad", "ad.sub_scat_id = sscat.sub_subcategory_id  AND ad.ad_status = 1 AND ad.expire_data >='$date'", "left");
-			}
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}

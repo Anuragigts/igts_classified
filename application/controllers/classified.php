@@ -67,12 +67,7 @@ class Classified extends CI_Controller{
             if ($this->input->post()) {
                $feedbackads_insert = $this->classifed_model->feedbacksite_insert();
                 if ($feedbackads_insert == 1) {
-                    $this->session->set_flashdata('feedbackmsg', 'feedback Sent Successfully!!');
-                    // redirect($this->input->post('curr_url'));
-                }
-                else{
-                   $this->session->set_flashdata('err', 'Internal error occured'); 
-                    // redirect($this->input->post('curr_url'));
+                    $this->session->set_userdata('feedbackmsg', $this->input->post('lastfeedbackpage'));
                 }
             }
             $data = array(

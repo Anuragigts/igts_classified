@@ -1215,5 +1215,7 @@ ef="javascript:void(0);"><i class="fa fa-star-o"></i></a></li>
 <div class='col-md-12'>
 	<?php echo $paging_links; ?>
 </div>
-</div>>
+</div>
+</div>
+</div>
 </div>

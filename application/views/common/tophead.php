@@ -32,4 +32,16 @@ else{ ?>
 border: none;outline: none;}
 </style>
 
-<div id="feedback"><div id="aa" data-toggle="modal" data-target="#feedback_1"></div></div>
+<div id="feedback"><div id="aa" data-toggle="modal" data-target="#feedback_1">
+<input type='hidden' id='lastfeedpage' value=''>
+</div></div>
+
+<script type="text/javascript">
+$(function(){
+	var path = window.location.href;
+	$("#lastfeedpage").val(path);
+	$("#aa").click(function(){
+		$("#lastfeedbackpage").val($("#lastfeedpage").val());
+	});
+});
+</script>

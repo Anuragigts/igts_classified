@@ -14,7 +14,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <?php if($this->session->userdata("pass") == 1 && $this->session->userdata("login_id") != ""){ ?>
+                    <?php if($this->session->userdata("login_id") != ""){ ?>
                         <li><a href="<?php echo base_url();?>login/logout">Logout</a></li>
                     <?php } else { ?>
                         <li><a href="<?php echo base_url();?>login">Login</a></li>

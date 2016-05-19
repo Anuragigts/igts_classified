@@ -35,7 +35,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="titles">
-<h2>Feedback Sent <span>Successfully </span></h2>
+<h2>The Message Sent <span>Successfully </span></h2>
 <hr class="tall">
 </div>
 </div>

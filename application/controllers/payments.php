@@ -116,7 +116,7 @@ class Payments extends CI_Controller
 		
         //Set variables for paypal form
         $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //test PayPal api url
-        $paypalID = 'amanbabu-facilitator@gmail.com'; //business email
+        $paypalID = 'amanbabu-facilitator-1@gmail.com'; //business email
         $returnURL = base_url().'payments/success'; //payment success url
         $cancelURL = base_url().'payments/cancel'; //payment cancel url
        // $notifyURL = base_url().'payment/ipn'; //ipn url

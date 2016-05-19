@@ -34,7 +34,7 @@ if($this->session->userdata("chebox") == 1 && $this->session->userdata("info") !
 <!-- report message alert -->
 <?php if($this->session->flashdata("reportmsg") != ""){ ?>
 <div class="alert">
-    <h3 style='color: red;'>
+    <h3 style='color: #88C425;'>
         <?php echo $this->session->flashdata("reportmsg");?>
     </h3>
 </div>
