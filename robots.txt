@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: 
+Disallow: /login
+Disallow: /register
+Disallow: /how-it-works
+Allow: /
+
+Sitemap: http://www.99rightdeals.com/sitemap.xml
