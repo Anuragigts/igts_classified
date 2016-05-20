@@ -6340,3 +6340,6 @@ radio i:focus {
     margin: 0;
     border: 2px solid #88C425;
 }
+.e-zone-size{
+    font-size:18px !important;
+}
