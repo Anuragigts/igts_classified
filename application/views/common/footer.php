@@ -14,7 +14,7 @@ $(function(){$(".newsletter").click(function(){var F=$("#name").val(),e=$("#emai
 </script>
 
 <script type="text/javascript">
-$(function(){$("#feedbackads").validate({rules:{fbkcontname:{required:!0},feedbackmsg:{required:!0,minlength:60},busemail:{required:!0,email:!0},feedbackno:{required:!0}},messages:{fbkcontname:{required:"Please Enter contact name"},feedbackmsg:{required:"Please Enter feedback message",minlength:"message contains atleast 60 characters"},busemail:{required:"Please Enter valid mail id"},feedbackno:{required:"Please Enter Mobile Number"}},submitHandler:function(e){return!0}})});
+$(function(){$("#feedbackads").validate({rules:{fbkcontname:{required:!0,minlength:3},feedbackmsg:{required:!0,minlength:40},busemail:{required:!0,email:!0},feedbackno:{required:!0,minlength:11}},messages:{fbkcontname:{required:"Please Enter contact name"},feedbackmsg:{required:"Please Enter feedback message",minlength:"message contains atleast 40 characters"},busemail:{required:"Please Enter valid mail id"},feedbackno:{required:"Please Enter Mobile Number",minlength:"Enter 11 digit Mobile Number"}},submitHandler:function(e){return!0}})});
 </script>
 
 <!-- Modal SendNow-->

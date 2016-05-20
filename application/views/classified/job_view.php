@@ -225,34 +225,6 @@ $misc = $val->misc;
 </div>
 
 <div class="cd-filter-block">
-<h4 class="title-widget "> Position For</h4>
-<div class="cd-filter-content">
-<div>
-<label class="checkbox">
-<input type="checkbox" name="positionfor[]" class="positionfor"  value="Student_(Higher_Education_Graduate)" <?php if (isset($positionfor) && in_array('Student_(Higher_Education_Graduate)', $positionfor)) { echo 'checked=checked';	} ?> >
-<i></i>  Student (<?php echo $students; ?>)
-</label>
-<label class="checkbox">
-<input type="checkbox" name="positionfor[]" class="positionfor" value="Entry-level" <?php if (isset($positionfor) && in_array('Entry-level', $positionfor)) { echo 'checked=checked';	} ?> >
-<i></i> Entry-level (<?php echo $entrylevel; ?>)
-</label>
-<label class="checkbox">
-<input type="checkbox" name="positionfor[]" class="positionfor" value="Expirenced_(Non-Manager)" <?php if (isset($positionfor) && in_array('Expirenced_(Non-Manager)', $positionfor)) { echo 'checked=checked';	} ?> >
-<i></i> Expirenced (<?php echo $nonmanager; ?>)
-</label>
-<label class="checkbox">
-<input type="checkbox" name="positionfor[]" class="positionfor" value="Manager_(Managing_the_staff)" <?php if (isset($positionfor) && in_array('Manager_(Managing_the_staff)', $positionfor)) { echo 'checked=checked';	} ?> >
-<i></i> Manager (<?php echo $manager; ?>)
-</label>
-<label class="checkbox">
-<input type="checkbox" name="positionfor[]" class="positionfor" value="Executive_(Director_/_Dept.Head)" <?php if (isset($positionfor) && in_array('Executive_(Director_/_Dept.Head)', $positionfor)) { echo 'checked=checked';	} ?> >
-<i></i> Executive (<?php echo $executive; ?>)
-</label>
-</div>
-</div>
-</div>
-
-<div class="cd-filter-block">
 <h4 class="title-widget ">Deal Type</h4>
 
 <div class="cd-filter-content" >

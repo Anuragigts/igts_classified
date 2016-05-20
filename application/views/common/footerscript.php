@@ -26,5 +26,5 @@ $(function(){$(".bus_consumer").click(function(){var e=$("input[name='checkbox_t
 </script>
 		
 <script type="text/javascript">
-$(function(){$(".send_now_show").click(function(){$("#fdbkads").val($(this).attr("id"))})});
+$(function(){$(".send_now_show").click(function(){$("#fdbkads").val($(this).attr("id"));var path = window.location.href;$(".curr_url").val(path);})});
 </script>

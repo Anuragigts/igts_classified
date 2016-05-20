@@ -279,7 +279,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+									<a href="#" data-toggle="modal"  id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 								</div>
 							</div>
 						</div>
@@ -480,7 +480,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 								</div>
 							</div>
 						</div>
@@ -663,7 +663,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 								</div>
 							</div>
 						</div>
@@ -845,7 +845,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 								</div>
 							</div>
 						</div>
@@ -1023,7 +1023,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 								</div>
 							</div>
 						</div>
@@ -1199,7 +1199,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
 								</div>
 							</div>
 						</div>

@@ -647,6 +647,16 @@ class hotdealsearch_model extends CI_Model{
 				return $rs->result();
 			}
 
+			public function motorcars_cnt(){
+	        	$date = date("Y-m-d H:i:s");
+	        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+	        	$this->db->from("sub_subcategory AS sscat");
+	        	$this->db->join("(SELECT cars.* FROM `postad` AS ad, `motor_car_van_bus_ads` AS cars WHERE cars.`ad_id` = ad.`ad_id` AND ad.ad_status = 1 AND ad.expire_data >='$date') AS result", "result.manufacture = sscat.sub_subcategory_id", "left");
+				$this->db->where("sscat.sub_category_id", 12);
+	        	$this->db->group_by("sscat.sub_subcategory_id");
+	        	$rs = $this->db->get();
+	        	return $rs->result();
+	        }
 			public function petrolcnt(){
 				$data = date("Y-m-d H:i:s");
 				$this->db->select("(SELECT COUNT(*) FROM postad AS ad, sub_category AS scat, motor_car_van_bus_ads AS mc WHERE scat.sub_category_id = ad.sub_cat_id
@@ -1019,6 +1029,12 @@ class hotdealsearch_model extends CI_Model{
 	            $plant_farm = $this->session->userdata('plant_farm');
 	            $boats_sub = $this->session->userdata('boats_sub');
 
+	            $search_proptype = $this->session->userdata('search_proptype');
+				$search_resisub = $this->session->userdata('search_resisub');
+				$search_commsub = $this->session->userdata('search_commsub');
+				$resi_prop = $this->session->userdata('resi_prop');
+				$comm_prop = $this->session->userdata('comm_prop');
+
         		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
         		$this->db->from('postad AS ad');
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
@@ -1070,6 +1086,27 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->join('motor_boats AS mb', "mb.ad_id = ad.ad_id", 'join');
 						$this->db->where_in('mb.manufacture', $boats_sub);
 					}
+				}
+				if ($search_proptype) {
+					if ($search_proptype == '11' || $search_proptype == '26') {
+						$this->db->where("ad.sub_cat_id", $search_proptype);
+					}
+				}
+				if ($search_resisub) {
+					$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+					$this->db->where('resi.property_for', $search_resisub);
+				}
+				if ($search_commsub) {
+					$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+					$this->db->where('resi.property_for', $search_commsub);
+				}
+				if (!empty($resi_prop)) {
+					$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('resi1.property_type', $resi_prop);
+				}
+				if (!empty($comm_prop)) {
+					$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('resi1.property_type', $comm_prop);
 				}
 				if (!empty($search_subsub)) {
 						if ($cat_id == 4) {
@@ -1238,6 +1275,12 @@ class hotdealsearch_model extends CI_Model{
 		        $plant_farm = $this->session->userdata('plant_farm');
 		        $boats_sub = $this->session->userdata('boats_sub');
 
+		        $search_proptype = $this->session->userdata('search_proptype');
+				$search_resisub = $this->session->userdata('search_resisub');
+				$search_commsub = $this->session->userdata('search_commsub');
+				$resi_prop = $this->session->userdata('resi_prop');
+				$comm_prop = $this->session->userdata('comm_prop');
+
 	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
@@ -1291,6 +1334,28 @@ class hotdealsearch_model extends CI_Model{
 					$this->db->join('motor_boats AS mb', "mb.ad_id = ad.ad_id", 'join');
 					$this->db->where_in('mb.manufacture', $boats_sub);
 					}
+				}
+
+				if ($search_proptype) {
+					if ($search_proptype == '11' || $search_proptype == '26') {
+						$this->db->where("ad.sub_cat_id", $search_proptype);
+					}
+				}
+				if ($search_resisub) {
+					$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+					$this->db->where('resi.property_for', $search_resisub);
+				}
+				if ($search_commsub) {
+					$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+					$this->db->where('resi.property_for', $search_commsub);
+				}
+				if (!empty($resi_prop)) {
+					$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('resi1.property_type', $resi_prop);
+				}
+				if (!empty($comm_prop)) {
+					$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+					$this->db->where_in('resi1.property_type', $comm_prop);
 				}
 				if (!empty($search_subsub)) {
 						if ($cat_id == 4) {
@@ -5210,6 +5275,12 @@ class hotdealsearch_model extends CI_Model{
 			return $kms; 
 			} 
          public function count_searchviewsearch(){
+         	$search_proptype = $this->session->userdata('search_proptype');
+         	$search_resisub = $this->session->userdata('search_resisub');
+			$search_commsub = $this->session->userdata('search_commsub');
+			$resi_prop = $this->session->userdata('resi_prop');
+			$comm_prop = $this->session->userdata('comm_prop');
+
          	$miles =  $this->session->userdata('miles');
          	$looking_search =  $this->session->userdata('s_looking_search');
          	$cat_id =  $this->session->userdata('s_cat_id');
@@ -5389,11 +5460,32 @@ class hotdealsearch_model extends CI_Model{
 								$this->db->where_in('mb.manufacture', $boats_sub);
 							}
 						}
+						if ($search_proptype) {
+							if ($search_proptype == '11' || $search_proptype == '26') {
+								$this->db->where("ad.sub_cat_id", $search_proptype);
+							}
+						}
+						if ($search_resisub) {
+							$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+							$this->db->where('resi.property_for', $search_resisub);
+						}
+						if ($search_commsub) {
+							$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+							$this->db->where('resi.property_for', $search_commsub);
+						}
+						if (!empty($resi_prop)) {
+							$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+							$this->db->where_in('resi1.property_type', $resi_prop);
+						}
+						if (!empty($comm_prop)) {
+							$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+							$this->db->where_in('resi1.property_type', $comm_prop);
+						}
 					if (!empty($search_subsub)) {
 							if ($cat_id == 4) {
-							$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
-							$this->db->where_in('resi.property_for', $search_subsub);
-						}
+								$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('resi.property_for', $search_subsub);
+							}
 						else{
 							$this->db->where_in('ad.sub_scat_id', $search_subsub);
 						}
@@ -5461,6 +5553,12 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
         public function searchviewsearch($data){
+        	$search_proptype = $this->session->userdata('search_proptype');
+        	$search_resisub = $this->session->userdata('search_resisub');
+			$search_commsub = $this->session->userdata('search_commsub');
+			$resi_prop = $this->session->userdata('resi_prop');
+			$comm_prop = $this->session->userdata('comm_prop');
+
         	$miles =  $this->session->userdata('miles');
         	$looking_search =  $this->session->userdata('s_looking_search');
         	$cat_id =  $this->session->userdata('s_cat_id');
@@ -5639,6 +5737,27 @@ class hotdealsearch_model extends CI_Model{
 								$this->db->where_in('mb.manufacture', $boats_sub);
 							}
 						}
+						if ($search_proptype) {
+							if ($search_proptype == '11' || $search_proptype == '26') {
+								$this->db->where("ad.sub_cat_id", $search_proptype);
+							}
+						}
+							if ($search_resisub) {
+								$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+								$this->db->where('resi.property_for', $search_resisub);
+							}
+							if ($search_commsub) {
+								$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
+								$this->db->where('resi.property_for', $search_commsub);
+							}
+							if (!empty($resi_prop)) {
+								$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('resi1.property_type', $resi_prop);
+							}
+							if (!empty($comm_prop)) {
+								$this->db->join('property_resid_commercial AS resi1', "resi1.ad_id = ad.ad_id", 'join');
+								$this->db->where_in('resi1.property_type', $comm_prop);
+							}
 					if (!empty($search_subsub)) {
 							if ($cat_id == 4) {
 							$this->db->join('property_resid_commercial AS resi', "resi.ad_id = ad.ad_id", 'join');
@@ -5648,7 +5767,6 @@ class hotdealsearch_model extends CI_Model{
 							$this->db->where_in('ad.sub_scat_id', $search_subsub);
 						}
 					}
-					
 				}
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -6671,6 +6789,7 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function count_cars_search(){
+        	$car_sub = $this->session->userdata('cars_sub');
         	$engine = $this->session->userdata('engine');
         	$nomiles = $this->session->userdata('nomiles');
         	$fueltype = $this->session->userdata('fueltype');
@@ -6693,6 +6812,9 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.sub_cat_id", "12");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			if (!empty($car_sub)) {
+				$this->db->where_in('mc.manufacture', $car_sub);
+			}
 			if ($nomiles) {
 				if ($nomiles != 'all') {
 					if ($nomiles == '15000') {
@@ -8440,6 +8562,7 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function cars_search($data){
+        	$car_sub = $this->session->userdata('cars_sub');
         	$engine = $this->session->userdata('engine');
         	$nomiles = $this->session->userdata('nomiles');
         	$fueltype = $this->session->userdata('fueltype');
@@ -8461,6 +8584,9 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.sub_cat_id", "12");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+			if (!empty($car_sub)) {
+				$this->db->where_in('mc.manufacture', $car_sub);
+			}
 			if ($engine) {
 				if ($engine != 'any') {
 					if ($engine == '1000') {
@@ -9092,6 +9218,11 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
          public function propertyresi_search($data){
+         	$search_proptype = $this->session->userdata('search_proptype');
+			$search_resisub = $this->session->userdata('search_resisub');
+			$search_commsub = $this->session->userdata('search_commsub');
+			$resi_prop = $this->session->userdata('resi_prop');
+			$comm_prop = $this->session->userdata('comm_prop');
 	 		$proptype = $this->session->userdata('proptype');
             $bedrooms = $this->session->userdata('bed_rooms');
             $bathroom = $this->session->userdata('bathroom');
@@ -9121,6 +9252,12 @@ class hotdealsearch_model extends CI_Model{
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_resisub) {
+				$this->db->where('prc.property_for', $search_resisub);
+			}
+			if (!empty($resi_prop)) {
+				$this->db->where_in('prc.property_type', $resi_prop);
 			}
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
@@ -9261,6 +9398,8 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
          public function propertycomm_search($data){
+         	$search_commsub = $this->session->userdata('search_commsub');
+			$comm_prop = $this->session->userdata('comm_prop');
 	 		$proptype = $this->session->userdata('proptype');
             $bedrooms = $this->session->userdata('bed_rooms');
             $bathroom = $this->session->userdata('bathroom');
@@ -9290,6 +9429,12 @@ class hotdealsearch_model extends CI_Model{
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_commsub) {
+				$this->db->where('prc.property_for', $search_commsub);
+			}
+			if (!empty($comm_prop)) {
+				$this->db->where_in('prc.property_type', $comm_prop);
 			}
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
@@ -9598,6 +9743,11 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
         public function count_propertyresi_search(){
+        	$search_proptype = $this->session->userdata('search_proptype');
+			$search_resisub = $this->session->userdata('search_resisub');
+			$search_commsub = $this->session->userdata('search_commsub');
+			$resi_prop = $this->session->userdata('resi_prop');
+			$comm_prop = $this->session->userdata('comm_prop');
         	$proptype = $this->session->userdata('proptype');
             $bedrooms = $this->session->userdata('bed_rooms');
             $bathroom = $this->session->userdata('bathroom');
@@ -9626,6 +9776,12 @@ class hotdealsearch_model extends CI_Model{
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_resisub) {
+				$this->db->where('prc.property_for', $search_resisub);
+			}
+			if (!empty($resi_prop)) {
+				$this->db->where_in('prc.property_type', $resi_prop);
 			}
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
@@ -9766,6 +9922,8 @@ class hotdealsearch_model extends CI_Model{
 			}
         }
         public function count_propertycomm_search(){
+        	$search_commsub = $this->session->userdata('search_commsub');
+			$comm_prop = $this->session->userdata('comm_prop');
         	$proptype = $this->session->userdata('proptype');
             $bedrooms = $this->session->userdata('bed_rooms');
             $bathroom = $this->session->userdata('bathroom');
@@ -9794,6 +9952,12 @@ class hotdealsearch_model extends CI_Model{
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('prc.offered_type', $seller);
+			}
+			if ($search_commsub) {
+				$this->db->where('prc.property_for', $search_commsub);
+			}
+			if (!empty($comm_prop)) {
+				$this->db->where_in('prc.property_type', $comm_prop);
 			}
 			if ($search_bustype) {
 				if ($search_bustype == 'business' || $search_bustype == 'consumer') {
@@ -12283,6 +12447,26 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
 
+
+        public function cnt_findpropery(){
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data') AS propall,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=11 AND ad_status = 1 AND expire_data >='$data') AS resi,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=26 AND ad_status = 1 AND expire_data >='$data') AS comm");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function cnt_findpropery_hotdeal(){
+        	$data = date("Y-m-d H:i:s");
+        	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '75')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '50')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '25'))";
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS propall,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=11 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS resi,
+			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=26 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS comm");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+
+
         public function subcat_resi_searchdeals(){
         	$date = date("Y-m-d H:i:s");
         	$looking_search = $this->session->userdata('s_looking_search'); 
@@ -12310,6 +12494,127 @@ class hotdealsearch_model extends CI_Model{
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function resi_sub(){
+        	$date = date("Y-m-d H:i:s");
+        	$looking_search = $this->session->userdata('s_looking_search'); 
+        	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+        	$search_resisub = $this->session->userdata('search_resisub');
+
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_sub_subcategory AS ssscat");
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+				else if ($looking_search != '') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype') AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+				else{
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+			if ($s_location != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
+			}
+			if($search_resisub){
+				$this->db->where("ssscat.sub_subcategory_id", $search_resisub);	
+			}
+			
+        	$this->db->group_by("ssscat.sub_sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function resi_sub_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+			$locname = $this->session->userdata('location');
+			$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$search_resisub = $this->session->userdata('search_resisub');
+
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_sub_subcategory AS ssscat");
+        		if ($bustype !='all') {
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+	        	}
+	        	else{
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+	        	}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}
+			if($search_resisub){
+				$this->db->where("ssscat.sub_subcategory_id", $search_resisub);	
+			}			
+        	$this->db->group_by("ssscat.sub_sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function comm_sub(){
+        	$date = date("Y-m-d H:i:s");
+        	$looking_search = $this->session->userdata('s_looking_search'); 
+        	$s_location = $this->session->userdata('s_location');
+        	$search_bustype = $this->session->userdata('s_search_bustype');
+        	$search_commsub = $this->session->userdata('search_commsub');
+
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_sub_subcategory AS ssscat");
+        		if ($looking_search != '' && $search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+				else if ($looking_search != '') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND (ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' OR ad.deal_desc LIKE '%$looking_search%' OR ad.deal_desc LIKE '$looking_search%' OR ad.deal_desc LIKE '%$looking_search' )) AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+				else if ($search_bustype != 'all') {
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND ad.ad_type='$search_bustype') AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+				else{
+					$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+				}
+			if ($s_location != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
+			}
+			if($search_commsub){
+				$this->db->where("ssscat.sub_subcategory_id", $search_commsub);	
+			}
+			
+        	$this->db->group_by("ssscat.sub_sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function comm_sub_hotdeals(){
+        	$date = date("Y-m-d H:i:s");
+        	$bustype = $this->session->userdata('bus_id');
+			$locname = $this->session->userdata('location');
+			$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$search_commsub = $this->session->userdata('search_commsub');
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_sub_subcategory AS ssscat");
+        		if ($bustype !='all') {
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype AND ad.ad_type='$bustype') AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+	        	}
+	        	else{
+	        		$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND $pcktype) AS result", "result.property_type = ssscat.`sub_sub_subcategory_id`", "left");
+	        	}
+			if ($locname != '') {
+				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+			}		
+			if($search_commsub){
+				$this->db->where("ssscat.sub_subcategory_id", $search_commsub);	
+			}
+        	$this->db->group_by("ssscat.sub_sub_subcategory_id");
+        	$rs = $this->db->get();
+        	 // echo $this->db->last_query(); exit;
         	return $rs->result();
         }
 

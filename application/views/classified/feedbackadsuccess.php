@@ -43,7 +43,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="titles">
-<a href="javascript: window.history.go(-1);" >Go To Previous page</a>
+<a href="<?php echo @$curr_url; ?>" >Go To Previous page</a>
 </div>
 </div>
 </div>
@@ -63,7 +63,7 @@
 <script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
-setTimeout(function(){ window.history.go(-1); }, 7000);
+setTimeout(function(){ window.location.href='<?php echo @$curr_url; ?>'; }, 7000);
 </script>
 
 <!-- xxx footerscript Content xxx -->

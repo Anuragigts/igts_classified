@@ -938,8 +938,16 @@ GROUP BY img.ad_id
 
 
 	/*review inserting*/
+	public function review_exists(){
+			$this->db->select();
+			$this->db->from('review_rating');
+			$this->db->where('ad_id',$this->input->post('ad_id'));
+			$this->db->where('logid',$this->session->userdata('login_id'));
+			return $this->db->count_all_results();
+	}
 	public function review_insert(){
 		$data = array('ad_id'=> $this->input->post('ad_id'),
+						'logid'	=>	$this->session->userdata('login_id'),
 						'review_title'	=> $this->input->post('review_title'),
 						'review_msg'	=> $this->input->post('review_msg'),
 						'review_name'	=> $this->input->post('review_name'),
@@ -948,6 +956,22 @@ GROUP BY img.ad_id
 						'status' => 1
 			);
 			$this->db->insert("review_rating", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	public function review_update(){
+		$data = array('review_title'	=> $this->input->post('review_title'),
+						'review_msg'	=> $this->input->post('review_msg'),
+						'review_name'	=> $this->input->post('review_name'),
+						'rating'		=> $this->input->post('user_rating'),
+						'review_time'	=> date("d-m-Y H:i:s"),
+						'status' => 1);
+			$this->db->update("review_rating", $data,array('ad_id'=> $this->input->post('ad_id'),'logid'=>	$this->session->userdata('login_id')));
 			if ($this->db->affected_rows() > 0) {
 				return 1;
 			}

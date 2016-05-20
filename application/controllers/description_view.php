@@ -52,9 +52,13 @@ class Description_view extends CI_Controller{
                 foreach ($detailed_desc as $value) {
                     /*services*/
                     if ($value->category_id == '2') {
-                        $body_content = array('Service' => $value->services,
-                                            'Type of service'=>$value->service_type,
-                                            'Price Type'=> $value->price_type );
+                        if ($value->services == 'service_provider') {
+                            $ser = 'Provided';
+                        }
+                        else{
+                            $ser = 'Needed';
+                        }
+                        $body_content = array('Type of service'=>$ser);
                     }
                     /*pets*/
                     if ($value->category_id == '5' && $value->sub_cat_id != 7) {
@@ -417,6 +421,19 @@ class Description_view extends CI_Controller{
                 }
             /*add review*/
                 $adid = $this->input->post('ad_id');
+                $exist_review = $this->classifed_model->review_exists();
+                if ($exist_review > 0) {
+                   $review_update = $this->classifed_model->review_update();
+                    if ($review_update == 1) {
+                        $this->session->set_flashdata('msg', 'Review Updated Successfully!!');
+                        redirect("description_view/details/$adid");
+                    }
+                    else{
+                       $this->session->set_flashdata('err', 'Internal error occured'); 
+                        redirect("description_view/details/$adid");
+                    }
+                }
+                else{
                 $review_insert = $this->classifed_model->review_insert();
                     if ($review_insert == 1) {
                         $this->session->set_flashdata('msg', 'Review added Successfully!!');
@@ -426,7 +443,7 @@ class Description_view extends CI_Controller{
                        $this->session->set_flashdata('err', 'Internal error occured'); 
                         redirect("description_view/details/$adid");
                     }
-                
+                }
         }
 
         /*favourite ads*/

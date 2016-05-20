@@ -116,6 +116,7 @@ $seller = $sncnt->seller;
 $needed = $sncnt->needed;
 $forhire = $sncnt->forhire;
 }
+$car_van_bus = $this->session->userdata('cars_sub');
 $engine = $this->session->userdata('engine');
 $nomiles = $this->session->userdata('nomiles');
 $fueltype = $this->session->userdata('fueltype');
@@ -164,7 +165,19 @@ $longg = $this->session->userdata('longg');
 <div class="col-md-3 col-sm-3">
 <div class="container-by-widget-filter bg-dark color-white">
 <a href="<?php echo base_url(); ?>motor-point-used-cars-sale"><h3 class="title-widget">Motors Filter</h3></a>
-<a href=""><h4 class="title-widget">Cars Filter</h4></a>
+<div class="cd-filter-block">
+<h4 class="title-widget">Cars Filters</h4>
+<div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($motor_sub as $motor_subval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="cars_sub[]" class="cars_sub" value="<?php echo $motor_subval->sub_subcategory_id; ?>" <?php if (in_array($motor_subval->sub_subcategory_id,$car_van_bus)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $motor_subval->sub_subcategory_name; ?> (<?php echo $motor_subval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
 <div class="cd-filter-block">
 <h4 class="title-widget">Fuel type</h4>
 

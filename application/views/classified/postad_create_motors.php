@@ -668,8 +668,12 @@ Browse
 <option value="3">3</option>
 <option value="4">4</option>
 <option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
+<option value="6-15">6-15</option>
+<option value="16-25">16-25</option>
+<option value="26-35">26-35</option>
+<option value="36-45">36-45</option>
+<option value="46-55">46-55</option>
+<option value="56-65">56-65</option>
 </select>
 <i></i>
 </label>

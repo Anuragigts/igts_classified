@@ -73,6 +73,8 @@
 				$location = $this->session->userdata('location');
 				$latt = $this->session->userdata('latt');
 				$longg = $this->session->userdata('longg');
+				$search_commsub = $this->session->userdata('search_commsub');
+				$comm_prop = $this->session->userdata('comm_prop');
 		   ?>
 		   <script type="text/javascript">
 			$(document).ready(
@@ -84,7 +86,11 @@
 									$("form.jforms").submit();
 						   }
 						)
-						$('input:radio').click(function() {
+						$('.search_bustype').click(function() {
+								$("form.jforms").submit();
+							}
+						)
+						$('.search_commsub').click(function() {
 								$("form.jforms").submit();
 							}
 						)
@@ -152,6 +158,34 @@
 										<div class="container-by-widget-filter bg-dark color-white">
 											<!-- Widget Filter -->
 											<a href="<?php echo base_url(); ?>commercial-property-for-sale"><h3 class="title-widget">Property Filter</h3></a>
+											<div class="cd-filter-block">
+											<h4 class="title-widget">Commercial</h4>
+											<div class="cd-filter-content">
+											<div>
+											<?php foreach ($subcat_comm as $subcat_commval) { ?>
+											<label class="radio">
+											<input type="radio" name="search_commsub" class="search_commsub" value="<?php echo $subcat_commval->sub_subcategory_id; ?>" <?php if ($subcat_commval->sub_subcategory_id == $search_commsub) { echo "checked = checked"; } ?> >
+											<i></i> <?php echo $subcat_commval->sub_subcategory_name; ?> (<?php echo $subcat_commval->no_ads; ?>)
+											</label>
+											<?php } ?>
+											</div>
+											</div>
+											</div>
+											<?php if($search_commsub != ''){  ?>
+											<div class="cd-filter-block">
+											<h4 class="title-widget">Commercial Type</h4>
+											<div class="cd-filter-content">
+											<div>
+											<?php foreach ($comm_sub as $val) { ?>
+											<label class="checkbox">
+											<input type="checkbox" name="comm_prop[]" class="comm_prop" value="<?php echo $val->sub_sub_subcategory_id; ?>" <?php if (in_array($val->sub_sub_subcategory_id, $comm_prop)) { echo "checked = checked"; } ?> >
+											<i></i> <?php echo $val->sub_sub_subcategory_name; ?> (<?php echo $val->no_ads; ?>)
+											</label>
+											<?php } ?>
+											</div>
+											</div>
+											</div>
+											<?php } ?>
 											<div class="cd-filter-block">
 												<h4 class="title-widget">No. of BedRooms</h4>
 												<div class="cd-filter-content" >

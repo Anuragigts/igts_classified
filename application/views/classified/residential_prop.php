@@ -59,6 +59,12 @@ foreach ($sellerneededcount as $sncnt) {
 $offered = $sncnt->offered;
 $wanted = $sncnt->wanted;
 }
+/*property resi commercial*/
+foreach ($cnt_findpropery as $val) {
+$allproptype = $val->propall;
+$resicnt = $val->resi;
+$commcnt = $val->comm;
+}
 $proptype = $this->session->userdata('proptype');
 $bed_rooms = $this->session->userdata('bed_rooms');
 $bathroom = $this->session->userdata('bathroom');
@@ -73,6 +79,12 @@ $search_bustype = $this->session->userdata('search_bustype');
 $location = $this->session->userdata('location');
 $latt = $this->session->userdata('latt');
 $longg = $this->session->userdata('longg');
+
+$search_proptype = $this->session->userdata('search_proptype');
+$search_resisub = $this->session->userdata('search_resisub');
+$search_commsub = $this->session->userdata('search_commsub');
+$resi_prop = $this->session->userdata('resi_prop');
+$comm_prop = $this->session->userdata('comm_prop');
 ?>
 <script type="text/javascript">
 $(document).ready(
@@ -84,7 +96,19 @@ function()
 $("form.jforms").submit();
 }
 )
-$('input:radio').click(function() {
+$('.search_bustype').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.search_proptype').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.search_commsub').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.search_resisub').click(function() {
 $("form.jforms").submit();
 }
 )
@@ -152,6 +176,34 @@ $("form.jforms").submit();
 <div class="container-by-widget-filter bg-dark color-white">
 <!-- Widget Filter -->
 <a href="<?php echo base_url(); ?>flats-villas-apartment-property-for-sale"><h3 class="title-widget">Property Filter</h3></a>
+<div class="cd-filter-block">
+<h4 class="title-widget">Residential</h4>
+<div class="cd-filter-content">
+<div>
+<?php foreach ($subcat_resi as $subcat_resival) { ?>
+<label class="radio">
+<input type="radio" name="search_resisub" class="search_resisub" value="<?php echo $subcat_resival->sub_subcategory_id; ?>" <?php if ($subcat_resival->sub_subcategory_id == $search_resisub) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $subcat_resival->sub_subcategory_name; ?> (<?php echo $subcat_resival->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
+<?php if($search_resisub != ''){  ?>
+<div class="cd-filter-block">
+<h4 class="title-widget">Residential Type</h4>
+<div class="cd-filter-content">
+<div>
+<?php foreach ($resi_sub as $val) { ?>
+<label class="checkbox">
+<input type="checkbox" name="resi_prop[]" class="resi_prop" value="<?php echo $val->sub_sub_subcategory_id; ?>" <?php if (in_array($val->sub_sub_subcategory_id, $resi_prop)) { echo "checked = checked"; } ?> >
+<i></i> <?php echo $val->sub_sub_subcategory_name; ?> (<?php echo $val->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
+<?php } ?>
 <div class="cd-filter-block">
 <h4 class="title-widget">No. of BedRooms</h4>
 <div class="cd-filter-content" >

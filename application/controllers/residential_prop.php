@@ -13,6 +13,11 @@ class  Residential_prop extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
+            $this->session->set_userdata('search_proptype','');
+            $this->session->set_userdata('search_resisub','');
+            $this->session->set_userdata('search_commsub','');
+            $this->session->set_userdata('resi_prop',array());
+            $this->session->set_userdata('comm_prop',array());
                 $this->session->set_userdata('proptype',array());
                 $this->session->set_userdata('bed_rooms',array());
                 $this->session->set_userdata('bathroom',array());
@@ -86,12 +91,22 @@ class  Residential_prop extends CI_Controller{
                  /*packages count*/
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_propertyresi();
                 $data['public_adview'] = $public_adview;
+                $data['cnt_findpropery'] = $this->hotdealsearch_model->cnt_findpropery();
+               $data['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_searchdeals();
+               $data['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_searchdeals();
+               $data['resi_sub'] = $this->hotdealsearch_model->resi_sub();
+               $data['comm_sub'] = $this->hotdealsearch_model->comm_sub();
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }
 
          public function search_filters(){
             if($this->input->post()){
+                    $this->session->set_userdata('search_proptype','');
+                    $this->session->set_userdata('search_resisub','');
+                    $this->session->set_userdata('search_commsub','');
+                    $this->session->set_userdata('resi_prop',array());
+                    $this->session->set_userdata('comm_prop',array());
                     $this->session->set_userdata('proptype',array());
                     $this->session->set_userdata('bed_rooms',array());
                     $this->session->set_userdata('bathroom',array());
@@ -106,6 +121,31 @@ class  Residential_prop extends CI_Controller{
                     $this->session->set_userdata('location');
                     $this->session->set_userdata('latt','');
                     $this->session->set_userdata('longg','');
+                    if($this->input->post('resi_prop')){
+                       $this->session->set_userdata('resi_prop',$this->input->post('resi_prop'));
+                }else{
+                     $this->session->set_userdata('resi_prop',array());
+                }
+                if($this->input->post('comm_prop')){
+                       $this->session->set_userdata('comm_prop',$this->input->post('comm_prop'));
+                }else{
+                     $this->session->set_userdata('comm_prop',array());
+                }
+                if($this->input->post('search_resisub')){
+                       $this->session->set_userdata('search_resisub',$this->input->post('search_resisub'));
+                }else{
+                     $this->session->set_userdata('search_resisub','');
+                }
+                if($this->input->post('search_commsub')){
+                       $this->session->set_userdata('search_commsub',$this->input->post('search_commsub'));
+                }else{
+                     $this->session->set_userdata('search_commsub','');
+                }
+                if($this->input->post('search_proptype')){
+                       $this->session->set_userdata('search_proptype',$this->input->post('search_proptype'));
+                }else{
+                     $this->session->set_userdata('search_proptype','all');
+                }
                     if($this->input->post('proptype')){
                        $this->session->set_userdata('proptype',$this->input->post('proptype'));
                 }else{
@@ -221,6 +261,11 @@ class  Residential_prop extends CI_Controller{
             $result['busconcount'] = $this->hotdealsearch_model->busconcount_propertyresi();
              /*seller and needed count for findproperty*/
             $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property1resi();
+             $result['cnt_findpropery'] = $this->hotdealsearch_model->cnt_findpropery();
+               $result['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_searchdeals();
+               $result['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_searchdeals();
+               $result['resi_sub'] = $this->hotdealsearch_model->resi_sub();
+               $result['comm_sub'] = $this->hotdealsearch_model->comm_sub();
              /*packages count*/
             $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_propertyresi();
              $this->load->view("classified_layout/inner_template",$result);

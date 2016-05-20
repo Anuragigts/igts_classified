@@ -19,6 +19,12 @@ class  Searchview extends CI_Controller{
                    $this->session->unset_userdata('saved_msg');
                 }
              if($this->input->get()){
+                $this->session->unset_userdata('search_proptype');
+                $this->session->unset_userdata('search_resisub');
+                $this->session->unset_userdata('search_commsub');
+                $this->session->unset_userdata('resi_prop');
+                $this->session->unset_userdata('comm_prop');
+
                 $this->session->unset_userdata('miles');
                 $this->session->unset_userdata('s_cat_id');
                 $this->session->unset_userdata('s_looking_search'); 
@@ -39,6 +45,31 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('bikes_sub');
                 $this->session->unset_userdata('plant_farm');
                 $this->session->unset_userdata('boats_sub');
+                if($this->input->get('resi_prop')){
+                       $this->session->set_userdata('resi_prop',$this->input->get('resi_prop'));
+                }else{
+                     $this->session->set_userdata('resi_prop',array());
+                }
+                if($this->input->get('comm_prop')){
+                       $this->session->set_userdata('comm_prop',$this->input->get('comm_prop'));
+                }else{
+                     $this->session->set_userdata('comm_prop',array());
+                }
+                if($this->input->get('search_resisub')){
+                       $this->session->set_userdata('search_resisub',$this->input->get('search_resisub'));
+                }else{
+                     $this->session->set_userdata('search_resisub','');
+                }
+                if($this->input->get('search_commsub')){
+                       $this->session->set_userdata('search_commsub',$this->input->get('search_commsub'));
+                }else{
+                     $this->session->set_userdata('search_commsub','');
+                }
+                if($this->input->get('search_proptype')){
+                       $this->session->set_userdata('search_proptype',$this->input->get('search_proptype'));
+                }else{
+                     $this->session->set_userdata('search_proptype','all');
+                }
                 if($this->input->get('car_van_bus')){
                      $this->session->set_userdata('car_van_bus',$this->input->get('car_van_bus'));
                 }
@@ -217,8 +248,11 @@ class  Searchview extends CI_Controller{
                $result['subcat_prof'] = $this->hotdealsearch_model->subcat_prof_searchdeals();
                $result['subcat_pop'] = $this->hotdealsearch_model->subcat_pop_searchdeals();
                /*find a property sub sub*/
+               $result['cnt_findpropery'] = $this->hotdealsearch_model->cnt_findpropery();
                $result['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_searchdeals();
                $result['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_searchdeals();
+               $result['resi_sub'] = $this->hotdealsearch_model->resi_sub();
+               $result['comm_sub'] = $this->hotdealsearch_model->comm_sub();
                /*pets sub sub*/
                $result['subcat_pets'] = $this->hotdealsearch_model->subcat_pets_searchdeals();
                $result['subcat_bigpets'] = $this->hotdealsearch_model->subcat_bigpets_searchdeals();

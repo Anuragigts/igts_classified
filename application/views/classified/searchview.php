@@ -50,7 +50,19 @@ function()
 $("form.jforms").submit();
 }
 )
-$('input:radio').click(function() {
+$('.search_bustype').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.search_proptype').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.search_commsub').click(function() {
+$("form.jforms").submit();
+}
+)
+$('.search_resisub').click(function() {
 $("form.jforms").submit();
 }
 )
@@ -106,6 +118,15 @@ $topad = $publicview->topad;
 $mid_ad = $publicview->mid_ad;
 }
 
+/*property resi commercial*/
+foreach ($cnt_findpropery as $val) {
+$allproptype = $val->propall;
+$resicnt = $val->resi;
+$commcnt = $val->comm;
+}
+
+
+
 $miles =  $this->session->userdata('miles');
 $looking_search = $this->session->userdata('s_looking_search'); 
 $cat_id =  $this->session->userdata('s_cat_id');
@@ -120,6 +141,13 @@ $latt = $this->session->userdata('s_latt');
 $longg = $this->session->userdata('s_longg');
 $seller_deals = $this->session->userdata('s_seller_deals');
 $dealurgent = $this->session->userdata('s_dealurgent');
+
+$search_proptype = $this->session->userdata('search_proptype');
+$search_resisub = $this->session->userdata('search_resisub');
+$search_commsub = $this->session->userdata('search_commsub');
+$resi_prop = $this->session->userdata('resi_prop');
+$comm_prop = $this->session->userdata('comm_prop');
+
 if ($cat_id == 1) {
 if (array_key_exists('company', $sellerneededcount)) {
 $company = $sellerneededcount['company'];
@@ -152,10 +180,6 @@ $forhire = $sellerneededcount['forhire'];
 }
 }
 if ($cat_id == 4) {
-/*foreach ($sellerneededcount as $sncnt) {
-$offered = $sncnt->offered;
-$wanted = $sncnt->wanted;
-}*/
 if (array_key_exists('offered', $sellerneededcount)) {
 $offered = $sellerneededcount['offered'];
 }
@@ -164,10 +188,6 @@ $wanted = $sellerneededcount['wanted'];
 }
 }
 if ($cat_id == 5) {
-/*foreach ($sellerneededcount as $sncnt) {
-$seller = $sncnt->seller;
-$needed = $sncnt->needed;
-}*/
 if (array_key_exists('seller', $sellerneededcount)) {
 $seller = $sellerneededcount['seller'];
 }
@@ -176,11 +196,6 @@ $needed = $sellerneededcount['needed'];
 }
 }
 if ($cat_id == 6) {
-/*foreach ($sellerneededcount as $sncnt) {
-$seller = $sncnt->seller;
-$needed = $sncnt->needed;
-$charity = $sncnt->charity;
-}*/
 if (array_key_exists('seller', $sellerneededcount)) {
 $seller = $sellerneededcount['seller'];
 }
@@ -192,11 +207,6 @@ $charity = $sellerneededcount['charity'];
 }
 }
 if($cat_id == 7) {
-/*foreach ($sellerneededcount as $sncnt) {
-$seller = $sncnt->seller;
-$needed = $sncnt->needed;
-$charity = $sncnt->charity; 
-}*/
 if (array_key_exists('seller', $sellerneededcount)) {
 $seller = $sellerneededcount['seller'];
 }
@@ -208,10 +218,6 @@ $charity = $sellerneededcount['charity'];
 }
 }
 if($cat_id == 8) {
-/*foreach ($sellerneededcount as $sncnt) {
-$seller = $sncnt->seller;
-$needed = $sncnt->needed;
-}*/
 if (array_key_exists('seller', $sellerneededcount)) {
 $seller = $sellerneededcount['seller'];
 }
@@ -219,7 +225,6 @@ if (array_key_exists('needed', $sellerneededcount)) {
 $needed = $sellerneededcount['needed'];
 }
 }
-// print_r($deals_pck);
 if (array_key_exists('urgentcount', $deals_pck)) {
 $urgentcnt = $deals_pck['urgentcount'];
 }
@@ -579,31 +584,86 @@ if ($cat_id != 'all') { ?>
 <!-- find a property -->
 <?php if ($cat_id == '4') { ?>
 <div class="cd-filter-block">
+<h4 class="title-widget ">Find A Property</h4>
+
+<div class="cd-filter-content" >
+<div>
+<label class="radio">
+<input type="radio" name="search_proptype" class="search_proptype" value="all" <?php if($search_proptype == 'all') echo 'checked = checked';?> checked >
+<i></i> All (<?php echo $allproptype; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_proptype" class="search_proptype" value="11" <?php if($search_proptype == '11') echo 'checked = checked';?> >
+<i></i> Residential (<?php echo $resicnt; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_proptype" class="search_proptype" value="26" <?php if($search_proptype == '26') echo 'checked = checked';?> >
+<i></i> Commercial (<?php echo $commcnt; ?>)
+</label>
+</div>
+</div>
+</div>
+<?php  if($search_proptype == '11'){ ?>
+<div class="cd-filter-block">
 <h4 class="title-widget">Residential</h4>
 <div class="cd-filter-content">
 <div>
 <?php foreach ($subcat_resi as $subcat_resival) { ?>
-<label class="checkbox">
-<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_resival->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_resival->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+<label class="radio">
+<input type="radio" name="search_resisub" class="search_resisub" value="<?php echo $subcat_resival->sub_subcategory_id; ?>" <?php if ($subcat_resival->sub_subcategory_id == $search_resisub) { echo "checked = checked";	} ?> >
 <i></i> <?php echo $subcat_resival->sub_subcategory_name; ?> (<?php echo $subcat_resival->no_ads; ?>)
 </label>
 <?php } ?>
 </div>
 </div>
 </div>
+<?php } ?>
+
+<?php  if($search_proptype == '26'){ ?>
 <div class="cd-filter-block">
 <h4 class="title-widget">Commercial</h4>
 <div class="cd-filter-content">
 <div>
 <?php foreach ($subcat_comm as $subcat_commval) { ?>
-<label class="checkbox">
-<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_commval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_commval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+<label class="radio">
+<input type="radio" name="search_commsub" class="search_commsub" value="<?php echo $subcat_commval->sub_subcategory_id; ?>" <?php if ($subcat_commval->sub_subcategory_id == $search_commsub) { echo "checked = checked"; } ?> >
 <i></i> <?php echo $subcat_commval->sub_subcategory_name; ?> (<?php echo $subcat_commval->no_ads; ?>)
 </label>
 <?php } ?>
 </div>
 </div>
 </div>
+<?php } ?>
+<?php if($search_resisub != ''){  ?>
+<div class="cd-filter-block">
+<h4 class="title-widget">Residential Type</h4>
+<div class="cd-filter-content">
+<div>
+<?php foreach ($resi_sub as $val) { ?>
+<label class="checkbox">
+<input type="checkbox" name="resi_prop[]" class="resi_prop" value="<?php echo $val->sub_sub_subcategory_id; ?>" <?php if (in_array($val->sub_sub_subcategory_id, $resi_prop)) { echo "checked = checked"; } ?> >
+<i></i> <?php echo $val->sub_sub_subcategory_name; ?> (<?php echo $val->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
+<?php } ?>
+<?php if($search_commsub != ''){  ?>
+<div class="cd-filter-block">
+<h4 class="title-widget">Commercial Type</h4>
+<div class="cd-filter-content">
+<div>
+<?php foreach ($comm_sub as $val) { ?>
+<label class="checkbox">
+<input type="checkbox" name="comm_prop[]" class="comm_prop" value="<?php echo $val->sub_sub_subcategory_id; ?>" <?php if (in_array($val->sub_sub_subcategory_id, $comm_prop)) { echo "checked = checked"; } ?> >
+<i></i> <?php echo $val->sub_sub_subcategory_name; ?> (<?php echo $val->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
+<?php } ?>
 <div class="cd-filter-block">
 <h4 class="title-widget ">Seller Type</h4>
 

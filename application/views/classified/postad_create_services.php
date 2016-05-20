@@ -260,19 +260,6 @@ Browse
 <input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 </div>
 </div>
-<div class="span6 unit">
-<label class="label">Type of Service 
-<sup data-toggle="tooltip" title="" data-original-title="Type of Service">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
-</sup>
-</label>
-<div class="input">
-<label class="icon-right" for="dealtag">
-<img src="<?php echo base_url(); ?>j-folder/img/type.png" alt="type" title="Type">
-</label>
-<input type="text" id="typeservice" name="typeservice" placeholder="Type of Service">
-</div>
-</div>
 </div>
 <div class="j-row">
 <div class="span12 unit">
