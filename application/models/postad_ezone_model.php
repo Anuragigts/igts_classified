@@ -178,7 +178,19 @@ class Postad_ezone_model extends CI_Model{
 
                     /*ezone details*/
                     if ($this->input->post('category_id') == '8') {
-                        $pets_details = array('ad_id' => $insert_id,
+                        if($this->input->post('sub_id') == 72){
+                             $pets_details = array('ad_id' => $insert_id,
+                                        'brand_name' => $this->input->post('brandname'),
+                                        'size' => $this->input->post('no_of_pcs'),
+                                        'model_name'=>$this->input->post('modelname'),
+                                        'operating_system'=>$this->input->post('softwareos'),
+                                        'warranty'=>$this->input->post('subscripvalidity'),
+                                        'manufacture'=>$this->input->post('media_format')
+                                    );
+                            $this->db->insert("ezone_details", $pets_details);
+                        }
+                        else{
+                             $pets_details = array('ad_id' => $insert_id,
                                     'brand_name' => $this->input->post('brandname'),
                                     'size' => $this->input->post('screensize'),
                                     'color' => $this->input->post('color'),
@@ -190,6 +202,7 @@ class Postad_ezone_model extends CI_Model{
                                     'manufacture'=>$this->input->post('ezone_manufacture')
                                 );
                         $this->db->insert("ezone_details", $pets_details);
+                        }
                     }
 
                    

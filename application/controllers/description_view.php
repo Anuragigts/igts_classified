@@ -313,40 +313,60 @@ class Description_view extends CI_Controller{
 
                 if ($value->category_id == '8') {
                     /*ezone*/
-                    if ($value->sub_cat_id == '59' || $value->sub_cat_id == '60'
-                        || $value->sub_cat_id == '61' || $value->sub_cat_id == '62'
-                        || $value->sub_cat_id == '63' || $value->sub_cat_id == '64'
-                        || $value->sub_cat_id == '65' || $value->sub_cat_id == '66') {
+                    if ($value->sub_cat_id == '60' || $value->sub_cat_id == '61'|| $value->sub_cat_id == '63' || $value->sub_cat_id == '64' || $value->sub_cat_id == '66'
+                        || $value->sub_cat_id == '70' || $value->sub_cat_id == '71') {
                 $detailed_ezones = $this->classifed_model->ads_detailed_ezones();  
                     foreach ($detailed_ezones as $val) {
-                        if ($val->operating_system == 0 || $val->storage == 0) {
-                            $body_content = array('Service Type'=>$value->services,
-                                        'Brand_name'=>$val->brand_name,
-                                        'Size'=>$val->size,
-                                        'Colour'=>$val->color,
-                                        'Model name'=>$val->model_name,/*
-                                        'Operating system'=>$val->operating_system,
-                                        'Storage'=>$val->storage,*/
-                                        'Made in'=>$val->made_in,
-                                        'Warranty'=>$val->warranty,
-                                        'Manufacture'=>$val->manufacture
-                                        );
-                        }
-                        else{
-                            $body_content = array('Service Type'=>$value->services,
-                                        'Brand_name'=>$val->brand_name,
-                                        'Size'=>$val->size,
-                                        'Colour'=>$val->color,
-                                        'Model name'=>$val->model_name,
-                                        'Operating system'=>$val->operating_system,
-                                        'Made in'=>$val->made_in,
-                                        'Storage'=>$val->storage,
-                                        'Warranty'=>$val->warranty,
-                                        'Manufacture'=>$val->manufacture
-                                        );
-                        }
-                    
-                                    }       
+                        $body_content = array('Accessories Type'=>str_replace("_", " ", $value->service_type),
+                            'Service Type'=>$value->services,
+                                'Brand_name'=>$val->brand_name,
+                                'Colour'=>$val->color,
+                                'Model name'=>$val->model_name,
+                                'Made in'=>$val->made_in,
+                                'Warranty'=>$val->warranty,
+                                'Manufacture'=>$val->manufacture
+                                );
+                            }       
+                    }
+                    else if ($value->sub_cat_id == '59' || $value->sub_cat_id == '62') {
+                        foreach ($detailed_ezones as $val) {
+                         $body_content = array('Service Type'=>$value->services,
+                                'Brand_name'=>$val->brand_name,
+                                'Size'=>$val->size,
+                                'Colour'=>$val->color,
+                                'Model name'=>$val->model_name,
+                                'Operating system'=>$val->operating_system,
+                                'Made in'=>$val->made_in,
+                                'Storage'=>$val->storage,
+                                'Warranty'=>$val->warranty,
+                                'Manufacture'=>$val->manufacture
+                                );
+                            }  
+                    }
+                    else if ($value->sub_cat_id == '65') {
+                        foreach ($detailed_ezones as $val) {
+                         $body_content = array('Service Type'=>$value->services,
+                                'Brand_name'=>$val->brand_name,
+                                'Size'=>$val->size,
+                                'Colour'=>$val->color,
+                                'Model name'=>$val->model_name,
+                                'Made in'=>$val->made_in,
+                                'Warranty'=>$val->warranty,
+                                'Manufacture'=>$val->manufacture
+                                );
+                            }  
+                    }
+                    else if ($value->sub_cat_id == '72') {
+                        foreach ($detailed_ezones as $val) {
+                         $body_content = array('Service Type'=>$value->service_type,
+                                'Brand_name'=>$val->brand_name,
+                                'Operating system'=>$val->operating_system,
+                                'Number of PCs'=>$val->size,
+                                'Model name'=>$val->model_name,
+                                'Subscription Validity'=>$val->warranty,
+                                'Media Format'=>$val->manufacture
+                                );
+                            }  
                     }
                     # code...
                 }
