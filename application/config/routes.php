@@ -65,13 +65,6 @@ $route['used-phones-tablets'] = "phones_tablets_view";
 
 $route['used-phones-for-sale-london'] = "pt_mobile_phonesview";
 $route['tablets-ipods-for-sale'] = "pt_tablets_ipadsview";
-$route['sell-bluetooth-devices'] = "pt_bluetoothdevicesview";
-$route['used-landline-phones-sale'] = "pt_landline_phonesview";
-$route['used-adaptors-connectors-sale'] = "pt_adaptors_connectorsview";
-$route['dock-keypads-sale-uk'] = "pt_docks_keypadsview";
-$route['mobile-cases-sleeves-sale'] = "pt_cases_sleevesview";
-$route['mobile-tv-screen-guards-sale'] = "pt_screen_guardsview";
-$route['used-power-banks-sale'] = "pt_powerbanksview";
 $route['wearable-devices-sale'] = "pt_wearable_devicesview";
 
 /*Home Appliances*/
@@ -89,6 +82,8 @@ $route['room-heaters-sale-london'] = "ha_room_heatersview";
 $route['automatic-sewing-machine-sale'] = "ha_sewing_machineview";
 $route['secondhand-dryers-for-sale'] = "ha_dryersview";
 $route['emergency-light-for-sale'] = "ha_emergency_lightview";
+$route['inverters-for-sale'] = "ha_invertersview";
+$route['others-home-applications-for-sale'] = "ha_othersview";
 
 /*Small Appliances*/
 $route['used-secondhand-small-appliances'] = "small_applicaances_view";
@@ -105,35 +100,22 @@ $route['fryers-snack-makers-sale'] = "sa_fryers_snack_makersview";
 $route['used-water-purifiers-sale'] = "sa_water_purifiersview";
 $route['used-dishwashers-for-sale'] = "sa_dishwashersview";
 $route['secondhand-flour-mill-sale'] = "sa_flour_millview";
+$route['stablizers-for-sale'] = "sa_stabilizersview";
+$route['others-small-applications-for-sale'] = "sa_othersview";
 
 /*Laptop & Computers*/
 $route['secondhand-laptop-computers-for-sale'] = "laptop_computers_view";
 
-$route['used-secondhand-laptop-sale'] = "lc_laptopsview";
-$route['all-in-one-accesseories-sale'] = "lc_all_in_oneview";
-$route['used-secondhand-printers-sale'] = "lc_printersview";
-$route['secondhand-wi-fi-devices-sale'] = "lc_wifi_devicesview";
-$route['external-hard-drive-sale'] = "lc_external_hard_drivesview";
-$route['pen-drives-sale-london'] = "lc_pen_drivesview";
-$route['keyboards-sale-london'] = "lc_keyboardsview";
-$route['mouse-sale-london-wells'] = "lc_mouseview";
-$route['headsets-sale-london-peterborough'] = "lc_headsetsview";
-$route['cable-connectors-for-sale'] = "lc_cables_connectorsview";
-$route['ink-toner-sale-london'] = "lc_ink_tonerview";
-$route['softwares-sale-london-canterbury'] = "lc_softwaresview";
-
 /*Accessories*/
 $route['phones-ipods-camera-accessories-sale'] = "accessories_view";
 
-$route['tablet-ipad-accessories-sale'] = "a_tablet_ipad_accessoriesview";
-$route['iphone-accessories-for-sale'] = "a_iphone_accessoriesview";
-$route['mobile-accessories-for-sale'] = "a_mobile_accessoriesview";
+$route['mobile-tablet-accessories-sale'] = "a_mobile_tablet_accessoriesview";
 $route['computer-accessories-for-sale'] = "a_computer_accessoriesview";
 $route['headphones-earphones-for-sale'] = "a_headphones_earphonesview";
 $route['audio-video-accessories-sale'] = "a_audio_video_accessoriesview";
 $route['camera-accessories-for-sale'] = "a_camera_accessoriesview";
-$route['inverters-stablizers-power-sale'] = "a_inverters_stablizers_powerview";
 $route['used-secondhand-battery-sale'] = "a_batteryview";
+$route['used-secondhand-battery-sale'] = "a_otherview";
 
 /*Personal Care*/
 $route['body-care-stuff-for-sale'] = "personal_care_view";
@@ -147,17 +129,15 @@ $route['epilators-for-sale'] = "pc_epilatorsview";
 $route['used-pedometers-for-sale'] = "pc_pedometers";
 $route['monitors-for-sale'] = "pc_monitorsview";
 $route['secondhand-massagers-for-sale'] = "pc_massagersview";
+$route['others-personal-care-for-sale'] = "pc_othersview";
 
 /*Home Entertainment*/
 $route['home-entertainment-items-sale'] = "home_entertainment_view";
 
 $route['lcd-led-television-sale'] = "he_lcd_led_televisionsview";
-$route['home-theatre-systems-sale'] = "he_home_theatre_systemsview";
-$route['dvd-blue-ray-players-sale'] = "he_dvd_blueray_playersview";
-$route['audio-systems-for-sale'] = "he_audio_systemsview";
 $route['secondhand-gaming-for-sale'] = "he_gamingview";
 $route['used-musical-instruments-sale'] = "he_musical_instrumentsview";
-$route['used-secondhand-projectors-sale'] = "he_projectorsview";
+$route['others-home-entertainment-for-sale'] = "he_othersview";
 
 /*Photography*/
 $route['used-digital-camera-for-sale'] = "photography_view";
