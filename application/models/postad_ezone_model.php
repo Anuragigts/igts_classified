@@ -50,6 +50,27 @@ class Postad_ezone_model extends CI_Model{
               if ($this->input->post('package_type') == 6) {
                             $url = $this->input->post("platinum_weblink");
                         }
+                        /*accessories type*/
+                       if ($this->input->post('sub_sub_id') == 431 || $this->input->post('sub_sub_id') == 432
+                        || $this->input->post('sub_sub_id') == 433 || $this->input->post('sub_sub_id') == 434 || 
+                        $this->input->post('sub_sub_id') == 435) {
+                            $service_type = $this->input->post("accessoriestype");
+                        }
+                        else if($this->input->post('sub_id') == 70){
+                             $service_type = $this->input->post("peripheraltype");
+                        }
+                        else if($this->input->post('sub_id') == 71){
+                             $service_type = $this->input->post("component_type");
+                        }
+                        else if($this->input->post('sub_id') == 72){
+                             $service_type = $this->input->post("software_type");
+                        }
+                        else{
+                             $service_type = '';
+                        }
+                                 
+
+
 
 
                         $data = array('ad_prefix' => $cur_date,
@@ -60,7 +81,7 @@ class Postad_ezone_model extends CI_Model{
                                     'deal_tag'    => $this->input->post('dealtag'),
                                     'deal_desc'   =>$this->input->post('dealdescription'),
                                      'currency'   =>$this->input->post('checkbox_toggle1'),
-                                    'service_type'=> '',
+                                    'service_type'=> $service_type,
                                     'services'    => $this->input->post('checkbox_motbike'),
                                     'price_type'  => $this->input->post('price_type'),
                                     'price'       => $this->input->post('priceamount'),

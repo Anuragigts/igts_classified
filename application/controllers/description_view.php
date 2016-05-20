@@ -324,9 +324,9 @@ class Description_view extends CI_Controller{
                                         'Brand_name'=>$val->brand_name,
                                         'Size'=>$val->size,
                                         'Colour'=>$val->color,
-                                        'Model name'=>$val->model_name,
+                                        'Model name'=>$val->model_name,/*
                                         'Operating system'=>$val->operating_system,
-                                        'Storage'=>$val->storage,
+                                        'Storage'=>$val->storage,*/
                                         'Made in'=>$val->made_in,
                                         'Warranty'=>$val->warranty,
                                         'Manufacture'=>$val->manufacture

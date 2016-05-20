@@ -268,6 +268,234 @@ Browse
 <input type="text" id="dealtag" name="dealtag" placeholder="Enter Deal Tag">
 </div>
 </div>
+<div class="span6 unit">
+
+
+	<!-- mobiles -->
+	<?php if ($sub_sub_id == '431') { ?>
+	<label class="label">Accessories Type
+<sup data-toggle="tooltip" title="" data-original-title="Accessories Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="accessoriestype">
+<option value="none" selected disabled="">Select Accessories Type</option>
+<option value="Cases_&_Covers">Cases & Covers</option>
+<option value="Wall_chargers">Wall chargers</option>
+<option value="Cables">Cables</option>
+<option value="Screen_Guards">Screen Guards</option>
+<option value="Memory_Cards">Memory Cards</option>
+<option value="Power_Banks">Power Banks</option>
+<option value="OTG_Pendrives">OTG Pendrives</option>
+<option value="Sleeves">Sleeves</option>
+<option value="Docks_&_Keypads">Docks & Keypads</option>
+<option value="Adaptors">Adaptors</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+<!-- computers -->
+<?php if ($sub_sub_id == '432') { ?>
+<label class="label">Accessories Type
+<sup data-toggle="tooltip" title="" data-original-title="Accessories Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="accessoriestype">
+<option value="none" selected disabled="">Select Accessories Type</option>
+<option value="External_Hard_Disk">External Hard Disk</option>
+<option value="Laptop_Bags">Laptop Bags</option>
+<option value="Mouse">Mouse</option>
+<option value="Laptop_Skins">Laptop Skins</option>
+<option value="KeyBoard">KeyBoard</option>
+<option value="USB_Gadgets">USB Gadgets</option>
+<option value="Spike_Buster">Spike Buster</option>
+<option value="Laptop_Adaptors">Laptop Adaptors</option>
+<option value="Laptop_Battery">Laptop Battery</option>
+<option value="KeyBoard_Skin">KeyBoard Skin</option>
+<option value="Mouse_Pads">Mouse Pads</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+<!-- Headphones -->
+<?php if ($sub_sub_id == '433') { ?>
+<label class="label">Accessories Type
+<sup data-toggle="tooltip" title="" data-original-title="Accessories Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="accessoriestype">
+<option value="none" selected disabled="">Select Accessories Type</option>
+<option value="Head_Phones">Head Phones</option>
+<option value="Head_Phones(With Mic)">Head Phones(With Mic)</option>
+<option value="Bluetooth_HeadPhones(With Mic)">Bluetooth HeadPhones(With Mic)</option>
+<option value="Earphones">Earphones</option>
+<option value="Earphones(With Mic)">Earphones(With Mic)</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+<!-- Audio and video -->
+<?php if ($sub_sub_id == '434') { ?>
+<label class="label">Accessories Type
+<sup data-toggle="tooltip" title="" data-original-title="Accessories Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="accessoriestype">
+<option value="none" selected disabled="">Select Accessories Type</option>
+<option value="Home_Theaters">Home Theaters</option>
+<option value="Multimedia_Speakers">Multimedia Speakers</option>
+<option value="Bluetooth_Speakers">Bluetooth Speakers</option>
+<option value="Soundbars">Soundbars</option>
+<option value="Ipods">Ipods</option>
+<option value="MP3_Players">MP3 Players</option>
+<option value="MP4_Players">MP4 Players</option>
+<option value="DVD_&_Bluray_Players">DVD & Bluray Players</option>
+<option value="Media_streaming_Devices">Media streaming Devices</option>
+<option value="FM_Radio">FM Radio</option>
+<option value="Boombox">Boombox</option>
+<option value="3D_Glasses">3D Glasses</option>
+<option value="Remote_Controllers">Remote Controllers</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+<!-- Camera accessories -->
+<?php if ($sub_sub_id == '435') { ?>
+<label class="label">Accessories Type
+<sup data-toggle="tooltip" title="" data-original-title="Accessories Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="accessoriestype">
+<option value="none" selected disabled="">Select Accessories Type</option>
+<option value="Lens">Lens</option>
+<option value="Memory_Card">Memory Card</option>
+<option value="Camera_tripod">Camera tripod</option>
+<option value="Camera_Bag">Camera Bag</option>
+<option value="Digital_Photoframe">Digital Photoframe</option>
+<option value="Binoculars_&_Optics">Binoculars & Optics</option>
+<option value="Flash">Flash</option>
+<option value="Battery">Battery</option>
+<option value="Chargers">Chargers</option>
+<option value="Filters">Filters</option>
+<option value="Screen_Guards">Screen Guards</option>
+<option value="Lens_Cleaner">Lens Cleaner</option>
+<option value="Lens_Cap">Lens Cap</option>
+<option value="Lens_Hood">Lens Hood</option>
+<option value="Remote_control">Remote control</option>
+<option value="Selfie_Sticks_&_Monopads">Selfie Sticks & Monopads</option>
+<option value="Tripod_ball_Head">Tripod ball Head</option>
+<option value="Strap">Strap</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+
+<!-- Computer peripherals  -->
+<?php if ($sub_id == '70') { ?>
+<label class="label">Peripheral Type
+<sup data-toggle="tooltip" title="" data-original-title="Peripheral Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="peripheraltype">
+<option value="none" selected disabled="">Select Peripheral Type</option>
+<option value="All_in_one_desktops">All in one desktops</option>
+<option value="Mini_PCs">Mini PCs</option>
+<option value="Printer">Printer</option>
+<option value="Ink">Ink</option>
+<option value="Toner">Toner</option>
+<option value="Monitor">Monitor</option>
+<option value="CPU">CPU</option>
+<option value="Projector">Projector</option>
+<option value="Scanner">Scanner</option>
+<option value="Portable_Projector">Portable Projector</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+
+<!-- Network Components  -->
+<?php if ($sub_id == '71') { ?>
+<label class="label">Component Type
+<sup data-toggle="tooltip" title="" data-original-title="Component Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="component_type">
+<option value="none" selected disabled="">Select Component Type</option>
+<option value="Routers">Routers</option>
+<option value="Wireless_USB_Adaptors">Wireless USB Adaptors</option>
+<option value="Switches">Switches</option>
+<option value="Accesspoints">Accesspoints</option>
+<option value="Cable">Cable</option>
+<option value="Datacards">Datacards</option>
+<option value="Network_interface_Cards">Network interface Cards</option>
+<option value="Internal_Modems">Internal Modems</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+
+<!-- Softwares  -->
+<?php if ($sub_id == '72') { ?>
+<label class="label">Software Type
+<sup data-toggle="tooltip" title="" data-original-title="Software Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="software_type">
+<option value="none" selected disabled="">Select Software Type</option>
+<option value="Security">Security</option>
+<option value="Anti_Virus">Anti Virus</option>
+<option value="Office_&_Business">Office & Business</option>
+<option value="Operating_System">Operating System</option>
+<option value="Others">Others</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+
+<!-- Gaming  -->
+<?php if ($sub_sub_id == '451') { ?>
+<label class="label">Gaming Accessories Type
+<sup data-toggle="tooltip" title="" data-original-title="Gaming Accessories Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input select">
+<select name="accessoriestype">
+<option value="none" selected disabled="">Gaming Accessories Type</option>
+<option value="Consoles(Handheld)">Consoles(Handheld)</option>
+<option value="Motion_Controllers">Motion Controllers</option>
+<option value="Joy_sticks">Joy sticks</option>
+<option value="Games">Games</option>
+<option value="Keyboards">Keyboards</option>
+<option value="Mouse">Mouse</option>
+</select>
+<i></i>
+</label>
+<?php } ?>
+
+</div>
 <!-- end Deal Tag -->
 </div>
 <div class="j-row">
@@ -298,6 +526,21 @@ Browse
 <input type="text" id="brandname" name="brandname" placeholder="Enter Brand Name">
 </div>
 </div>
+<?php if($sub_id == '72') { ?>
+<div class="span6 unit">
+<label class="label">Operating System 
+<sup data-toggle="tooltip" title="" data-original-title="Operating System">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<label class="icon-right" for="Operating System">
+<img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Operating System" title="Operating System Icon" class="img-responsive">
+</label>
+<input type="text" id="softwareos" name="softwareos" placeholder="Enter Operating System">
+</div>
+</div>
+<?php }else{ ?>
 <div class="span6 unit">
 <label class="label">Colour 
 <sup data-toggle="tooltip" title="" data-original-title="Colour">
@@ -311,6 +554,7 @@ Browse
 <input type="text" id="color" name="color" placeholder="Enter Colour">
 </div>
 </div>
+<?php } ?>
 </div>
 <div class="j-row">
 <div class="span6 unit">
@@ -326,6 +570,21 @@ Browse
 <input type="text" id="modelname" name="modelname" placeholder="Enter Model Name">
 </div>
 </div>
+<?php if($sub_id == '72') { ?>
+<div class="span6 unit">
+<label class="label">Number of PCs 
+<sup data-toggle="tooltip" title="" data-original-title="Number of PCs">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<label class="icon-right" for="Made In">
+<img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
+</label>
+<input type="text" id="no_of_pcs" name="no_of_pcs" placeholder="Enter Number of PCs">
+</div>
+</div>
+<?php }else{ ?>
 <div class="span6 unit">
 <label class="label">Made In 
 <sup data-toggle="tooltip" title="" data-original-title="Made In ">
@@ -339,9 +598,25 @@ Browse
 <input type="text" id="ezone_madein" name="ezone_madein" placeholder="Enter Made in">
 </div>
 </div>
+<?php } ?>
 </div>
 
 <div class="j-row">
+<?php if($sub_id == '72') { ?>
+<div class="span6 unit">
+<label class="label">Subscription Validity 
+<sup data-toggle="tooltip" title="" data-original-title="Subscription Validity">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<label class="icon-right" for="subscription">
+<img src="<?php echo base_url(); ?>j-folder/img/warranty.png" alt="warranty" title="warranty" class="img-responsive">
+</label>
+<input type="text" id="subscripvalidity" name="subscripvalidity" placeholder="Enter Subscription Validity">
+</div>
+</div>
+<?php }else{ ?>
 <div class="span6 unit">
 <label class="label">Warranty 
 <sup data-toggle="tooltip" title="" data-original-title="Warranty">
@@ -355,6 +630,22 @@ Browse
 <input type="text" id="warranty" name="warranty" placeholder="Enter Warranty">
 </div>
 </div>
+<?php } ?>
+<?php if($sub_id == '72') { ?>
+<div class="span6 unit">
+<label class="label">Media Format
+<sup data-toggle="tooltip" title="" data-original-title="Media Format ">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<label class="icon-right" for="manufacture">
+<img src="<?php echo base_url(); ?>j-folder/img/manufacture.png" alt="manufacture" title="Manufacture" class="img-responsive">
+</label>
+<input type="text" id="media_format" name="media_format" placeholder="Enter Media Format">
+</div>
+</div>
+<?php }else{ ?>
 <div class="span6 unit">
 <label class="label">Manufacturer part number 
 <sup data-toggle="tooltip" title="" data-original-title="Manufacturer part number ">
@@ -368,6 +659,7 @@ Browse
 <input type="text" id="ezone_manufacture" name="ezone_manufacture" placeholder="Enter Manufacturer part number ">
 </div>
 </div>
+<?php } ?>
 </div>
 
 <div class="j-row">
