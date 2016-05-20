@@ -82,8 +82,8 @@ $route['room-heaters-sale-london'] = "ha_room_heatersview";
 $route['automatic-sewing-machine-sale'] = "ha_sewing_machineview";
 $route['secondhand-dryers-for-sale'] = "ha_dryersview";
 $route['emergency-light-for-sale'] = "ha_emergency_lightview";
-$route['inverters-for-sale'] = "ha_invertersview";
-$route['others-home-applications-for-sale'] = "ha_othersview";
+$route['secondhand-inverters-sale'] = "ha_invertersview";
+$route['other-home-appliances-for-sale'] = "ha_othersview";
 
 /*Small Appliances*/
 $route['used-secondhand-small-appliances'] = "small_applicaances_view";
@@ -100,22 +100,22 @@ $route['fryers-snack-makers-sale'] = "sa_fryers_snack_makersview";
 $route['used-water-purifiers-sale'] = "sa_water_purifiersview";
 $route['used-dishwashers-for-sale'] = "sa_dishwashersview";
 $route['secondhand-flour-mill-sale'] = "sa_flour_millview";
-$route['stablizers-for-sale'] = "sa_stabilizersview";
-$route['others-small-applications-for-sale'] = "sa_othersview";
+$route['new-used-stablizers-sale'] = "sa_stabilizersview";
+$route['other-small-appliances-for-sale'] = "sa_othersview";
 
 /*Laptop & Computers*/
-$route['secondhand-laptop-computers-for-sale'] = "laptop_computers_view";
+$route['used-secondhand-laptop-sale'] = "laptop_computers_view";
 
 /*Accessories*/
 $route['phones-ipods-camera-accessories-sale'] = "accessories_view";
 
-$route['mobile-tablet-accessories-sale'] = "a_mobile_tablet_accessoriesview";
+$route['mobile-tablet-accessories-for-sale'] = "a_mobile_tablet_accessoriesview";
 $route['computer-accessories-for-sale'] = "a_computer_accessoriesview";
 $route['headphones-earphones-for-sale'] = "a_headphones_earphonesview";
 $route['audio-video-accessories-sale'] = "a_audio_video_accessoriesview";
 $route['camera-accessories-for-sale'] = "a_camera_accessoriesview";
 $route['used-secondhand-battery-sale'] = "a_batteryview";
-$route['used-secondhand-battery-sale'] = "a_otherview";
+$route['other-accessories-for-sale'] = "a_otherview";
 
 /*Personal Care*/
 $route['body-care-stuff-for-sale'] = "personal_care_view";
@@ -129,7 +129,7 @@ $route['epilators-for-sale'] = "pc_epilatorsview";
 $route['used-pedometers-for-sale'] = "pc_pedometers";
 $route['monitors-for-sale'] = "pc_monitorsview";
 $route['secondhand-massagers-for-sale'] = "pc_massagersview";
-$route['others-personal-care-for-sale'] = "pc_othersview";
+$route['other-personal-care-stuff-sale'] = "pc_othersview";
 
 /*Home Entertainment*/
 $route['home-entertainment-items-sale'] = "home_entertainment_view";
@@ -145,6 +145,16 @@ $route['used-digital-camera-for-sale'] = "photography_view";
 $route['digital-slr-cameras-sale'] = "p_digital_slr_camerasview";
 $route['point-shoot-cameras-sale'] = "p_point_shoot_camerasview";
 $route['digital-camcorders-for-sale'] = "p_camcordersview";
+$route['photography-items-accessories-sale'] = "p_othersview";
+
+/*Computer peripherals*/
+$route['computer-peripherals-for-sale'] = "computer_peripherals_view";
+
+/*Network components*/
+$route['network-component-for-sale'] = "network_components_view";
+
+/*Software*/
+$route['softwares-sale-london-canterbury'] = "softwares_view";
 
 
 /* --------------------Motor Point Category --------------------*/
