@@ -86,14 +86,26 @@
 <div class="col-md-3 clearfix">
 <h3>Phones & Tablets</h3>
 <?php foreach ($ezone_phones as $ezone_phones_val) { ?>
-<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
+<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
+<h3 class='e-zone-size'>Home Entertainment</h3>
+<?php foreach ($ezone_entertainment as $ezone_entertainment_val) { ?>
+<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_entertainment_val['sub_category_id'].','.$ezone_entertainment_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_entertainment_val['sub_subcategory_name']; ?></a></h4>
+<?php	} ?>
+<h3>Photography</h3>
+<?php foreach ($ezone_photo as $ezone_photo_val) { ?>
+<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
+<?php	} ?>
+<a href="javascript:void(0);" class="edit_ezone_detail" id='62,0,0'><h3 class='e-zone-size'>Laptops</h3></a>
+<a href="javascript:void(0);" class="edit_ezone_detail" id='70,0,0'><h3 class='e-zone-size'>Computer peripherals</h3></a>
 </div>
 <div class="col-md-3 clearfix">
 <h3>Home Appliances</h3>
 <?php foreach ($ezone_home as $ezone_home_val) { ?>
 <h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
+<a href="javascript:void(0);" class="edit_ezone_detail" id='71,0,0'><h3 class='e-zone-size'>Network components</h3></a>
+<a href="javascript:void(0);" class="edit_ezone_detail" id='72,0,0'><h3 class='e-zone-size'>Softwares</h3></a>
 </div>
 <div class="col-md-3 clearfix">
 <h3>Small Appliances</h3>
@@ -102,9 +114,13 @@
 <?php	} ?>
 </div>
 <div class="col-md-3 clearfix">
-<h3>Laptop & Computers</h3>
-<?php foreach ($ezone_laptops as $ezone_laptops_val) { ?>
-<h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_laptops_val['sub_category_id'].','.$ezone_laptops_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_laptops_val['sub_subcategory_name']; ?></a></h4>
+<h3>Accessories</h3>
+<?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
+<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
+<?php	} ?>
+<h3>Personal Care</h3>
+<?php foreach ($ezone_pcare as $ezone_pcare_val) { ?>
+<h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_pcare_val['sub_category_id'].','.$ezone_pcare_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_pcare_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
 </div>
