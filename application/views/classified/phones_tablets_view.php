@@ -172,13 +172,6 @@ $wdevice = $ptablets_sub1->wdevice;
 ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-phones-for-sale-london">Mobile Phones (<?php echo $mphone; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>tablets-ipods-for-sale">Tablets & iPads (<?php echo $ipad; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>sell-bluetooth-devices">Bluetooth Devices (<?php echo $btooth; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-landline-phones-sale">Landline Phones (<?php echo $land; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-adaptors-connectors-sale">Adaptors & Connectors (<?php echo $adap; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>dock-keypads-sale-uk">Docks & Keypads (<?php echo $docks; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-cases-sleeves-sale">Cases & Sleeves (<?php echo $cases; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-tv-screen-guards-sale">Screen Guards (<?php echo $guard; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-power-banks-sale">Powerbanks (<?php echo $pbank; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>wearable-devices-sale">Wearable Devices (<?php echo $wdevice; ?>)</a></li>
 </ul>
 </div>

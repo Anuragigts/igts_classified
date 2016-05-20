@@ -180,6 +180,8 @@ $elight = $happ_sub1->elight;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>automatic-sewing-machine-sale">Sewing Machine (<?php echo $sewing; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-dryers-for-sale">Dryers (<?php echo $dryers; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>emergency-light-for-sale">Emergency Light (<?php echo $elight; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>inverters-for-sale">Inverters </a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>others-home-applications-for-sale">Others </a></li>
 </ul>
 </div>
 </div>

@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>New & Used or Second Hand Laptops And Computers For Sale In UK |99 Right Deals</title>
+<title> | 99 Right Deals</title>
 
-<meta name="description" content="Find the new and used laptops and computers accessories for sale in london, UK on 99 Right Deals. And get the quik respones on your deals at best price" />
+<meta name="description" content="" />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 
@@ -13,8 +13,8 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -92,9 +92,7 @@ $mid_ad = $publicview->mid_ad;
 foreach ($sellerneededcount as $sncnt) {
 $seller = $sncnt->seller;
 $needed = $sncnt->needed;
-$forhire = $sncnt->forhire;
 }
-$lappy_sub12 = $this->session->userdata('lappy_sub');
 $seller_deals = $this->session->userdata('seller_deals');
 $dealurgent = $this->session->userdata('dealurgent');
 $dealtitle = $this->session->userdata('dealtitle');
@@ -126,12 +124,12 @@ $longg = $this->session->userdata('longg');
 <div class="bg_parallax image_01_parallax"></div>
 </div>   
 
-<!--Content Central -->
 <section class="content-central">
+<!-- Shadow Semiboxed -->
 <div class="semiboxshadow text-center">
 <img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
-<form id="j-forms2" action="<?php echo base_url(); ?>laptop_computers_view/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+<form id="j-forms2" action="<?php echo base_url(); ?>he_othersview/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 <div class="content_info">
 <div class="paddings">
 <div class="container pad_bott_50">
@@ -148,11 +146,14 @@ $longg = $this->session->userdata('longg');
 <div class="container-by-widget-filter bg-dark color-white">
 <!-- Widget Filter -->
 <a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
-<h4 class="title-widget">Laptops</h4>
-<div class="cd-filter-block">
-<h4 class="title-widget">Seller Type</h4>
 
-<div class="cd-filter-content">
+<a href="<?php echo base_url(); ?>home-entertainment-items-sale"><h4 class="title-widget">Home Entertainment</h4></a>
+<h4 class="title-widget ">Others</h4>
+
+<div class="cd-filter-block">
+<h4 class="title-widget ">Seller Type</h4>
+
+<div class="cd-filter-content" >
 <div>
 <label class="checkbox">
 <input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Seller',$seller_deals)) echo 'checked = checked';?> value="Seller" >
@@ -162,18 +163,14 @@ $longg = $this->session->userdata('longg');
 <input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('Needed',$seller_deals)) echo 'checked = checked';?> value="Needed" >
 <i></i> Needed Deals (<?php echo $needed; ?>)
 </label>
-<label class="checkbox">
-<input type="checkbox" name="seller_deals[]" class='seller_deals' <?php if(isset($seller_deals) && in_array('ForHire',$seller_deals)) echo 'checked = checked';?> value="ForHire" >
-<i></i> ForHire Deals (<?php echo $forhire; ?>)
-</label>
 </div>
 </div> 
 </div>
 
 <div class="cd-filter-block">
-<h4 class="title-widget">Deal Type</h4>
+<h4 class="title-widget ">Deal Type</h4>
 
-<div class="cd-filter-content">
+<div class="cd-filter-content" >
 <div>
 <label class="radio">
 <input type="radio" name="search_bustype" class="search_bustype" value="all" <?php if($search_bustype == 'all') echo 'checked = checked';?> checked >
@@ -192,9 +189,9 @@ $longg = $this->session->userdata('longg');
 </div>
 
 <div class="cd-filter-block">
-<h4 class="title-widget">Location</h4>
+<h4 class="title-widget ">Location</h4>
 
-<div class="cd-filter-content">
+<div class="cd-filter-content" >
 <div class="input">
 <input type="text" placeholder="Enter Location" id="find_loc" class="find_loc_search" value="<?php echo $location; ?>" name="find_loc">
 <input type='hidden' name='latt' id='latt' value='' >
@@ -229,6 +226,10 @@ $longg = $this->session->userdata('longg');
 </div>
 </div>
 </div> 
+
+
+
+
 </div>
 <div class="row top_20">
 <div class="col-sm-12 add_left">
@@ -291,7 +292,7 @@ $longg = $this->session->userdata('longg');
 <!-- sort-by-container-->
 
 <div class="row list_view_searches motor_result">
-<?php echo $this->load->view("classified/small_applicaances_view_search"); ?>
+<?php echo $this->load->view("classified/he_othersview_search"); ?>
 </div>
 </div>
 </div>
@@ -309,8 +310,11 @@ $longg = $this->session->userdata('longg');
 </div>
 <!-- End Entire Wrap -->
 
+<!--MAP Modal -->
 <div class="modal fade" id="map_location" role="dialog">
 <div class="modal-dialog">
+<!-- Modal content-->
+<!-- <form action="#" method="post" class="j-forms " > -->
 <div class="modal-content">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -320,9 +324,11 @@ $longg = $this->session->userdata('longg');
 
 </div>
 </div>
+<!-- </form> -->
 </div>
 </div>
 
+<!-- End Shadow Semiboxed -->
 <script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 <script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
