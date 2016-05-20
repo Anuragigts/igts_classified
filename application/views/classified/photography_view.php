@@ -164,6 +164,7 @@ $camcorder = $potosubcnt1->camcorder;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>digital-slr-cameras-sale">Digital SLR Cameras (<?php echo $digital; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>point-shoot-cameras-sale">Point & Shoot Cameras (<?php echo $pointshoot; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>digital-camcorders-for-sale">Camcorders (<?php echo $camcorder; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>photography-items-accessories-sale">Others (<?php echo $camcorder; ?>)</a></li>
 </ul>
 </div>
 </div>

@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>New & Used Mobiles & Tablet Accessories For Sale In UK | 99 Right Deals</title>
+<title>New & Used Mobile And Tablet Accessories For Sale In UK | 99 Right Deals</title>
 
-<meta name="description" content="Find New or Used Mobiles & Tablet Accessories for Sale in United Kingdom on 99 Right Deals at affordable price. Create own free classifieds ads for products or accessories." />
+<meta name="description" content="Find Local Classifieds Ads for Mobile & Tablet Accessories for sale in United Kingdom on 99 Right Deals. Create online ads for mobile &  tablet accessories for sale." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

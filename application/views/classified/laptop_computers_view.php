@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>New & Used or Second Hand Laptops And Computers For Sale In UK |99 Right Deals</title>
+<title>New & Second Hand Laptop For Sale In UK | 99 Right Deals</title>
 
-<meta name="description" content="Find the new and used laptops and computers accessories for sale in london, UK on 99 Right Deals. And get the quik respones on your deals at best price" />
+<meta name="description" content="Find new or used or second-hand laptop for sale in United Kingdom on 99 Right Deals. And create own free classifieds ads for goods or products and services.." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

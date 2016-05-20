@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title> | 99 Right Deals</title>
+<title>New & Used Small Appliances Tools & Stuff For Sale In UK | 99 Right Deals</title>
 
-<meta name="description" content="" />
+<meta name="description" content="Find the New & Used or Second Hand household & kitchen tools for sale in London, United Kingdom on 99 Right Deals. Get the best deals on your stuff soon." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

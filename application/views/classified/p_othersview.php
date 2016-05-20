@@ -2,10 +2,9 @@
 <html>
 <head>
 
-<title>E-Zone In UK | Classified Ad Websites| Classifieds Ads| 99 Right Deals</title>
+<title>Buy Digital Camera | Photography Accessories For Sale in UK | 99 Right Deals</title>
 
-<meta name="description" content="We provides free classified ads online for electronic products on 99 Right Deals like phones & tablets, home appliances,small appliances, laptop and computer for online buying and selling." />
-<meta name="keywords" content="electronics classified ads,used electronics classified,Electronics in the UK,Elelctronic free ads, phones & tables, tablets & ipods, air conditioners & refigerators,microwave ovens & mixer grinder," />
+<meta name="description" content=" Shop all new & used or  second hand digital camera and photography stuff for sale in London, United Kingdom at best price on 99 Right Deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 
@@ -74,7 +73,6 @@ $("form.jforms").submit();
 }
 );
 </script>
-
 <?php foreach ($busconcount as $countval) {
 $allbustype = $countval->allbustype;
 $business = $countval->business;
@@ -109,24 +107,29 @@ $longg = $this->session->userdata('longg');
 
 <body id="home">
 
-<div class="preloader"><div class="status">&nbsp;</div></div> 
+<!--Preloader-->
+<div class="preloader">
+<div class="status">&nbsp;</div>
+</div> 
 
+<!-- Start Entire Wrap-->
 <div id="layout">
 
 <!-- xxx tophead Content xxx -->
 <?php echo $this->load->view('common/tophead'); ?> 
 <!-- xxx End tophead xxx -->
 
+<!-- Inner Page Content Start-->
 <div class="section-title-01">
 <div class="bg_parallax image_01_parallax"></div>
 </div>   
 
 <section class="content-central">
-
+<!-- Shadow Semiboxed -->
 <div class="semiboxshadow text-center">
 <img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
-<form id="j-forms2" action="<?php echo base_url(); ?>ezone_view/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+<form id="j-forms2" action="<?php echo base_url(); ?>p_othersview/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 <div class="content_info">
 <div class="paddings">
 <div class="container pad_bott_50">
@@ -138,41 +141,14 @@ $longg = $this->session->userdata('longg');
 </div>
 <div class="container">
 <div class="row">
-
+<!-- Item Table-->
 <div class="col-md-3 col-sm-3">
 <div class="container-by-widget-filter bg-dark color-white">
-
+<!-- Widget Filter -->
 <a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
 
-<div class="cd-filter-block">
-<h4 class="title-widget">All Ezone</h4>
-<div class="cd-filter-content">
-<div class="filters_categories">	
-<ul class="list-styles">
-<?php foreach ($ezone_sub as $ezone_sub1) {
-$phonescnt = $ezone_sub1->phones;
-$homescnt = $ezone_sub1->homes;
-$smallcnt = $ezone_sub1->small;
-$lappycnt = $ezone_sub1->lappy;
-$accesscnt = $ezone_sub1->access;
-$pcarecnt = $ezone_sub1->pcare;
-$entertaincnt = $ezone_sub1->entertain;
-$grapycnt = $ezone_sub1->grapy;
-} ?>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-phones-tablets">Phones & Tablets (<?php echo $phonescnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-appliances-for-sale">Home Appliances (<?php echo $homescnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-small-appliances">Small Appliances (<?php echo $smallcnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-laptop-sale">Laptop (<?php echo $lappycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>phones-ipods-camera-accessories-sale">Accessories (<?php echo $accesscnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>body-care-stuff-for-sale">Personal Care (<?php echo $pcarecnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-entertainment-items-sale">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-digital-camera-for-sale">Photography (<?php echo $grapycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-peripherals-for-sale">Computer peripherals (<?php echo $grapycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>network-component-for-sale">Network Component (<?php echo $grapycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>softwares-sale-london-canterbury">Software (<?php echo $grapycnt; ?>)</a></li></ul>
-</div>
-</div>
-</div> 
+<a href="<?php echo base_url(); ?>used-digital-camera-for-sale"><h4 class="title-widget">Photography</h4></a>
+<h4 class="title-widget ">Others</h4>
 
 <div class="cd-filter-block">
 <h4 class="title-widget ">Seller Type</h4>
@@ -261,7 +237,9 @@ $grapycnt = $ezone_sub1->grapy;
 </div>
 </div>
 </div>
+<!-- End Item Table-->
 
+<!-- Item Table-->
 <div class="col-md-9 col-sm-9">
 <div class="sort-by-container tooltip-hover">
 <div class="row">
@@ -311,9 +289,10 @@ $grapycnt = $ezone_sub1->grapy;
 </div>
 </div>
 </div>
+<!-- sort-by-container-->
 
 <div class="row list_view_searches motor_result">
-<?php echo $this->load->view("classified/ezone_view_search"); ?>
+<?php echo $this->load->view("classified/p_othersview_search"); ?>
 </div>
 </div>
 </div>
@@ -322,15 +301,20 @@ $grapycnt = $ezone_sub1->grapy;
 </div>
 </form>
 </section>
+<!-- Inner Page Content End-->
 
 <!-- xxx footer Content xxx -->
 <?php echo $this->load->view('common/footer');?> 
 <!-- xxx footer End xxx -->
 
 </div>
+<!-- End Entire Wrap -->
 
+<!--MAP Modal -->
 <div class="modal fade" id="map_location" role="dialog">
 <div class="modal-dialog">
+<!-- Modal content-->
+<!-- <form action="#" method="post" class="j-forms " > -->
 <div class="modal-content">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -340,9 +324,11 @@ $grapycnt = $ezone_sub1->grapy;
 
 </div>
 </div>
+<!-- </form> -->
 </div>
 </div>
 
+<!-- End Shadow Semiboxed -->
 <script src="<?php echo base_url(); ?>js/jquery.js"></script> 
 <script src="<?php echo base_url();?>j-folder/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
@@ -350,6 +336,7 @@ $grapycnt = $ezone_sub1->grapy;
 <script>
 $('.xuSlider').xuSlider();
 </script>
+
 
 <script>
 $(document).ready(function(){
@@ -364,6 +351,7 @@ noResults:'No Data Found'
 </script>
 
 <script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script> 
+
 <script src="<?php echo base_url();?>libs/jquery.mixitup.min.js"></script>
 <script src="<?php echo base_url();?>libs/main.js"></script>
 

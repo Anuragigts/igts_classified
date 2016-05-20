@@ -158,15 +158,13 @@ $camera = $accesssubcnt1->camera;
 $inverter = $accesssubcnt1->inverter;
 $battery = $accesssubcnt1->battery;
 } ?>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>tablet-ipad-accessories-sale">Tablet & iPad Accessories (<?php echo $tablet; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>iphone-accessories-for-sale">iPhone Accessories (<?php echo $iphone; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-accessories-for-sale">Mobile Accessories (<?php echo $maccess; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-accessories-for-sale">Computer Accessories (<?php echo $caccess; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-tablet-accessories-for-sale">Mobile & Tablet (<?php echo $tablet; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-accessories-for-sale">Computer (<?php echo $caccess; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>headphones-earphones-for-sale">Headphones & Earphones (<?php echo $headphone; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>audio-video-accessories-sale">Audio Video Accessories (<?php echo $avaccess; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>camera-accessories-for-sale">Camera Accessories (<?php echo $camera; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>inverters-stablizers-power-sale">Inverters, Stablizers & Power (<?php echo $inverter; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>audio-video-accessories-sale">Audio Video (<?php echo $avaccess; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>camera-accessories-for-sale">Camera (<?php echo $camera; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-battery-sale">Battery (<?php echo $battery; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-accessories-for-sale">Others (<?php echo $battery; ?>)</a></li>
 </ul>
 </div>
 </div>

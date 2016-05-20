@@ -179,6 +179,8 @@ $flour = $smallapp1->flour;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-water-purifiers-sale">Water Purifiers (<?php echo $purifier; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-dishwashers-for-sale">Dishwashers (<?php echo $dishwash; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-flour-mill-sale">Flour Mill (<?php echo $flour; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>new-used-stablizers-sale">Stablizers (<?php echo $dishwash; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-small-appliances-for-sale">Others (<?php echo $flour; ?>)</a></li>
 </ul>
 </div>
 </div>

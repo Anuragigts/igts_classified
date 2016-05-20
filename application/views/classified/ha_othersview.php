@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>New & Used Others Home Applications  For Sale In UK | 99 Right Deals</title>
+<title>Home Appliances For Sale In United Kingdom | 99 Right Deals</title>
 
-<meta name="description" content="" />
+<meta name="description" content="Sell your used or second hand home appliances in London, United Kingdom. And get the quick response on 99 Right Deals at the best price." />
 
 
 <!-- xxx Head Content xxx -->

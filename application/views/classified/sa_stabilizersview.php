@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>New & Used Stablizers For Sale In UK | 99 Right Deals</title>
+<title>New & Used or Second Hand Stablizers For Sale In United Kingdom | 99 Right Deals</title>
 
-<meta name="description" content="Find used Stablizer for Sale in United Kingdom. Buy or Sell online variety of stablizer for sale on 99 Right Deals." />
+<meta name="description" content="Used or Second Hand Stablizers for sale in London, UK at best price on 99 Right Deals. And get quick respones on your deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

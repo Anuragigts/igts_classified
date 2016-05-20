@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>| 99 Right Deals</title>
+<title>Buy & Sell Personal Care Stuff For Sale In United Kingdom | 99 Right Deals</title>
 
-<meta name="description" content="" />
+<meta name="description" content="Shop now all essential beauty & body care stuff for sale in London, UK at the best price on 99 Right Deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

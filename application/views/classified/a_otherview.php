@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>| 99 Right Deals</title>
+<title>Mobile | Tablet | iPod | Audio & Video | Computer Accessories For Sale In UK | 99 Right Deals</title>
 
-<meta name="description" content="" />
+<meta name="description" content="Find the all electronic items accessories for sale in United Kingdom on 99 Right Deals. And get the hot deals on all items." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

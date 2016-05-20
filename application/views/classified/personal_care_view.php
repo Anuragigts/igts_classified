@@ -172,8 +172,8 @@ $massage = $pcaresubcnt1->massage;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>hair-stylers-for-sale">Hair Stylers (<?php echo $stylers; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>epilators-for-sale">Epilators (<?php echo $epilator; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-pedometers-for-sale">Pedometers (<?php echo $pedometer; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>monitors-for-sale">Monitors (<?php echo $monitor; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-massagers-for-sale">Massagers (<?php echo $massage; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-personal-care-stuff-sale">Others (<?php echo $monitor; ?>)</a></li>
 </ul>
 </div>
 </div>

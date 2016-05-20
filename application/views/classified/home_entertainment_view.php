@@ -164,13 +164,10 @@ $gaming = $entertainsubcnt1->gaming;
 $musical = $entertainsubcnt1->musical;
 $projector = $entertainsubcnt1->projector;
 } ?>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>lcd-led-television-sale">LCD LED Televisions (<?php echo $lcdled; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-theatre-systems-sale">Home Theatre Systems (<?php echo $theatre; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>dvd-blue-ray-players-sale">DVD & Blue-Ray Players (<?php echo $bluray; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>audio-systems-for-sale">Audio Systems (<?php echo $audio; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>lcd-led-television-sale">LCD & LED Televisions (<?php echo $lcdled; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-gaming-for-sale">Gaming (<?php echo $gaming; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-musical-instruments-sale">Musical Instruments (<?php echo $musical; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-projectors-sale">Projectors (<?php echo $projector; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>others-home-entertainment-for-sale">Others (<?php echo $projector; ?>)</a></li>
 </ul>
 </div>
 </div>
