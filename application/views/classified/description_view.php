@@ -145,6 +145,7 @@
 							
 							success: function (data) {
 								$(".likes_count").html(data);
+								$('.bg_clr1').attr('title', 'Dislike Deal');
 							}
 						})
 					}
@@ -159,6 +160,7 @@
 						
 						success: function (data) {
 							$(".likes_count").html(data);
+							$('.bg_clr1').attr('title', 'Like Deal');
 						}
 					})
 						$(this).css('color', '#727272');
@@ -174,9 +176,11 @@
 				var ads_likes = <?php echo count($ads_likes); ?>;
 				if (ads_likes > 0) {
 					$('.bg_clr1').css('color', '#E24A14');
+					$('.bg_clr1').attr('title', 'Dislike Deal');
 				}
 				else{
 					$('.bg_clr1').css('color', '#727272');
+					$('.bg_clr1').attr('title', 'Like Deal');
 				}
 			});
 		</script>
@@ -632,7 +636,8 @@
 											
 												rules: {
 													fbkcontname: {
-														required: true
+														required: true,
+														minlength: 3
 													},
 													feedbackmsg: {
 														required: true,
@@ -643,13 +648,15 @@
 														email: true
 													},
 													feedbackno: {
-														required: true
+														required: true,
+														minlength:11
 													}
 												},
 											
 												messages: {
 													fbkcontname: {
-														required: "Please Enter contact name"
+														required: "Please Enter contact name",
+														minlength: "Enter atleast 3 characters"
 													},
 													feedbackmsg: {
 														required: "Please Enter feedback message",
@@ -659,7 +666,8 @@
 														required: "Please Enter valid mail id"
 													},
 													feedbackno: {
-														required: "Please Enter Mobile Number"
+														required: "Please Enter Mobile Number",
+														minlength: "Enter 11 digit Mobile Number"
 													}
 												},
 											
@@ -814,13 +822,13 @@
 										<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
 									</div>
 									<!-- feedback message alert -->
-									<?php if($this->session->flashdata("feedbackmsg") != ""){ ?>
-									<div class="alert">
+									<?php //if($this->session->flashdata("feedbackmsg") != ""){ ?>
+									<!-- <div class="alert">
 									    <h3 style='color: red;'>
 									        <?php echo $this->session->flashdata("feedbackmsg");?>
 									    </h3>
-									</div>
-									<?php } ?>
+									</div> -->
+									<?php //} ?>
 									<form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="send_now_desc">
 										<aside class="widget view_sidebar send_now_hide" style="display:none;">
 											<div class="j-row">

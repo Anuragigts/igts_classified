@@ -284,6 +284,7 @@ class Deal_page extends CI_Controller{
          $data['subcat_home'] = $this->hotdealsearch_model->subcat_home_hotdeals();
          $data['subcat_decor'] = $this->hotdealsearch_model->subcat_decor_hotdeals();
          /*ezone*/
+         $data['cnt_ezone'] = $this->hotdealsearch_model->cnt_ezone_hotdeals();
          $data['subcat_phone'] = $this->hotdealsearch_model->subcat_phone_hotdeals();
          $data['subcat_homeapp'] = $this->hotdealsearch_model->subcat_homeapp_hotdeals();
          $data['subcat_smallapp'] = $this->hotdealsearch_model->subcat_smallapp_hotdeals();

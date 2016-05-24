@@ -137,7 +137,7 @@ $longg = $this->session->userdata('longg');
 </div>
 <div class="container">
 <div class="row">
-<div class="col-sm-3">
+<div class="col-sm-3 col-md-3">
 <div class="container-by-widget-filter bg-dark color-white">
 
 <a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
@@ -149,14 +149,13 @@ $longg = $this->session->userdata('longg');
 <ul class="list-styles">
 <?php foreach ($accesssubcnt as $accesssubcnt1) {
 $tablet = $accesssubcnt1->tablet;
-$iphone = $accesssubcnt1->iphone;
-$maccess = $accesssubcnt1->maccess;
 $caccess = $accesssubcnt1->caccess;
 $headphone = $accesssubcnt1->headphone;
 $avaccess = $accesssubcnt1->avaccess;
 $camera = $accesssubcnt1->camera;
 $inverter = $accesssubcnt1->inverter;
 $battery = $accesssubcnt1->battery;
+$others = $accesssubcnt1->others;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>mobile-tablet-accessories-for-sale">Mobile & Tablet (<?php echo $tablet; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-accessories-for-sale">Computer (<?php echo $caccess; ?>)</a></li>
@@ -164,7 +163,7 @@ $battery = $accesssubcnt1->battery;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>audio-video-accessories-sale">Audio Video (<?php echo $avaccess; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>camera-accessories-for-sale">Camera (<?php echo $camera; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-battery-sale">Battery (<?php echo $battery; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-accessories-for-sale">Others (<?php echo $battery; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-accessories-for-sale">Others (<?php echo $others; ?>)</a></li>
 </ul>
 </div>
 </div>

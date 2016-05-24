@@ -327,7 +327,13 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS entertain,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS grapy");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS grapy,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=70 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS computer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=71 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS network,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=72 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS software");
 									return $this->db->get()->result();
 			}
 
@@ -383,7 +389,11 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 403 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dryers,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 404 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS elight");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 404 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS elight,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 494 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS inverters,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=60 AND ad.sub_scat_id = 495 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 									return $this->db->get()->result();
 			}
 			/*small appliances for ezone*/
@@ -412,7 +422,11 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 415 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS dishwash,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 416 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS flour");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 416 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS flour,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 496 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS stabilizer,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=61 AND ad.sub_scat_id = 497 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 									return $this->db->get()->result();
 			}
 			/*laptop and computers */
@@ -450,10 +464,6 @@ class hotdealsearch_model extends CI_Model{
 				        	$this->db->select("(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 429 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS tablet,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 430 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS iphone,
-							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 431 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS maccess,
-							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 432 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS caccess,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 433 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS headphone,
@@ -464,7 +474,9 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 436 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS inverter,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 437 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS battery");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 436 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS battery,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=63 AND ad.sub_scat_id = 437 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 									return $this->db->get()->result();
 			}
 			/*personal care for ezone */
@@ -485,9 +497,9 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 444 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pedometer,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 445 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS monitor,
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 445 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS massage,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 446 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS massage");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=64 AND ad.sub_scat_id = 446 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 									return $this->db->get()->result();
 			}
 			/*Home Entertainment for ezone */
@@ -506,7 +518,7 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 452 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS musical,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 453 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS projector");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=65 AND ad.sub_scat_id = 453 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 									return $this->db->get()->result();
 			}
 			/*Home Entertainment for ezone */
@@ -517,7 +529,9 @@ class hotdealsearch_model extends CI_Model{
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
 							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 455 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS pointshoot,
 							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
-							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 456 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS camcorder");
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 456 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS camcorder,
+							(SELECT COUNT(*) FROM postad AS ad, `sub_category` AS scat WHERE scat.sub_category_id = ad.sub_cat_id
+							AND ad.`category_id` = '8' AND ad.`sub_cat_id`=66 AND ad.sub_scat_id = 498 AND ad.ad_status = 1 AND ad.expire_data >='$data') AS others");
 									return $this->db->get()->result();
 			}
 
@@ -1035,11 +1049,12 @@ class hotdealsearch_model extends CI_Model{
 				$resi_prop = $this->session->userdata('resi_prop');
 				$comm_prop = $this->session->userdata('comm_prop');
 
-        		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+        		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
         		$this->db->from('postad AS ad');
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 				$this->db->where('ad.ad_status', 1);
 				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 				if ($cat_id) {
@@ -1281,10 +1296,11 @@ class hotdealsearch_model extends CI_Model{
 				$resi_prop = $this->session->userdata('resi_prop');
 				$comm_prop = $this->session->userdata('comm_prop');
 
-	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count");
+	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+				$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 				$this->db->where('ad.ad_status', 1);
 				$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 				if ($cat_id) {
@@ -12351,12 +12367,29 @@ class hotdealsearch_model extends CI_Model{
         	$rs = $this->db->get();
         	return $rs->result();
         }
+        public function cnt_ezone(){
+        	$data = date("Y-m-d H:i:s");
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'AND sub_cat_id=70 AND ad_status = 1 AND expire_data >='$data') AS computer,
+								(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id=71 AND ad_status = 1 AND expire_data >='$data') AS network,
+								(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id=72 AND ad_status = 1 AND expire_data >='$data') AS software");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
         public function cnt_findpropery_hotdeal(){
         	$data = date("Y-m-d H:i:s");
         	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '75')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '50')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '25'))";
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS propall,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=11 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS resi,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=26 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS comm");
+        	$rs = $this->db->get();
+        	return $rs->result();
+        }
+        public function cnt_ezone_hotdeals(){
+        	$data = date("Y-m-d H:i:s");
+        	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '75')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '50')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '25'))";
+        	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'AND sub_cat_id=70 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS computer,
+								(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id=71 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS network,
+								(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id=72 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS software");
         	$rs = $this->db->get();
         	return $rs->result();
         }
@@ -12385,6 +12418,17 @@ class hotdealsearch_model extends CI_Model{
 			if ($s_location != '') {
 				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
+			$this->db->where("sscat.sub_category_id", 11);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+        public function subcat_resi_deals(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
 			$this->db->where("sscat.sub_category_id", 11);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
@@ -12536,6 +12580,18 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->join("location as loc", "loc.ad_id = result.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
         	$this->db->where("sscat.sub_category_id", 26);
+        	$this->db->group_by("sscat.sub_subcategory_id");
+        	$rs = $this->db->get();
+        	// echo $this->db->last_query(); exit;
+        	return $rs->result();
+        }
+
+        public function subcat_comm_deals(){
+        	$date = date("Y-m-d H:i:s");
+        	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
+        	$this->db->from("sub_subcategory AS sscat");
+        	$this->db->join("(SELECT resi.* FROM postad AS ad, property_resid_commercial AS resi WHERE resi.`ad_id` = ad.`ad_id` AND ad.`ad_status` = 1 AND ad.expire_data >='$date') AS result", "result.property_for = sscat.`sub_subcategory_id`", "left");
+			$this->db->where("sscat.sub_category_id", 26);
         	$this->db->group_by("sscat.sub_subcategory_id");
         	$rs = $this->db->get();
         	// echo $this->db->last_query(); exit;

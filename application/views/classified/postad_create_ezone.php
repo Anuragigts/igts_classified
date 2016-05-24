@@ -97,7 +97,7 @@ echo ucfirst(@$cat11); ?></b>
 <input type='hidden' name='sub_sub_id' id='sub_sub_id' value="<?php echo @$sub_sub_id; ?>" />
 /
 </li>
-<li><b><?php echo ucfirst(@$sub_name); ?></b> /</li>
+<li><b><?php echo ucfirst(@$sub_name); ?></b> <?php if ($sub_sub_id != '0') { ?>/<?php } ?></li>
 <li><b><?php echo ucfirst(@$sub_sub_name); ?></b></li>
 </ul>
 </div>
@@ -581,7 +581,7 @@ Browse
 <label class="icon-right" for="Made In">
 <img src="<?php echo base_url(); ?>j-folder/img/madein.png" alt="Made In" title="Made In Icon" class="img-responsive">
 </label>
-<input type="text" id="no_of_pcs" name="no_of_pcs" placeholder="Enter Number of PCs">
+<input type="text" id="no_of_pcs" name="no_of_pcs" placeholder="Enter Number of PCs" onkeypress="return isNumber(event)">
 </div>
 </div>
 <?php }else{ ?>
@@ -1515,7 +1515,7 @@ $(document).ready(function(){$("#postalcode").autocomplete({source:"<?php echo b
 <?php foreach ($ezone_photo as $ezone_photo_val) { ?>
 <h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_photo_val['sub_category_id'].','.$ezone_photo_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_photo_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
-<a href="javascript:void(0);" class="edit_ezone_detail" id='62,0,0'><h3 class='e-zone-size'>Laptops</h3></a>
+<a href="javascript:void(0);" class="edit_ezone_detail" id='62,0,0'><h3 class='e-zone-size'>Laptops & Computers</h3></a>
 <a href="javascript:void(0);" class="edit_ezone_detail" id='70,0,0'><h3 class='e-zone-size'>Computer peripherals</h3></a>
 </div>
 <div class="col-md-3 clearfix">

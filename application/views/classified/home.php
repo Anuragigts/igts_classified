@@ -424,7 +424,7 @@ else{ ?>
 <?php }
 ?>
 <?php  if ($hot_deals_val->package_type == '2' || $hot_deals_val->package_type == '5') {?>
-<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Crown" title="Right Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Thumb" title="Right Deal"></b>
 <?php }
 ?>
 </div>

@@ -66,10 +66,10 @@ class Description_view extends CI_Controller{
                         foreach ($detailed_pets as $val) {
                             $body_content = array('Service Type' => $value->services,
                                                     'Family Race' => $val->family_race,
-                                                    'Pet Type'=>$val->pet_type,
-                                                    'Pet Age'=> $val->pet_age,
-                                                    'height'=>$val->height,
-                                                    'gender'=>$val->gender );
+                                                    'Type'=>$val->pet_type,
+                                                    'Age'=> $val->pet_age,
+                                                    'Height / Size'=>$val->height,
+                                                    'Gender'=>$val->gender );
                         } 
                     }
                     /*clothes and lifestyles*/
@@ -160,15 +160,15 @@ class Description_view extends CI_Controller{
                             $detailed_prop = $this->classifed_model->ads_detailed_prop();
                                  foreach ($detailed_prop as $val) {
                                     $body_content = array('Offered type' => $val->offered_type,
-                                                            'property For'=>$val->prop_for,
-                                                            'Type of property'=> $val->prop_type,
-                                                            'No of Bedrooms'=>$val->bed_rooms,
-                                                            'No of Bathrooms'=>$val->bath_rooms,
-                                                            'Area'=>$val->build_area,
+                                                            'Property For'=>$val->prop_for,
+                                                            'Property Type'=> $val->prop_type,
+                                                            'Bedrooms'=>$val->bed_rooms,
+                                                            'Bathrooms'=>$val->bath_rooms,
+                                                            'Super built-up Area'=>$val->build_area,
                                                             'Position'=>$val->position,
                                                             'Property Age'=>$val->property_age,
-                                                            'Owner'=>$val->property_ownership,
-                                                            'Floor No.'=>$val->floor_number);
+                                                            'Property Ownership'=>$val->property_ownership,
+                                                            'Floor Number'=>$val->floor_number);
                                     } 
                         }
                         /*commercial*/
@@ -176,14 +176,14 @@ class Description_view extends CI_Controller{
                             $detailed_prop = $this->classifed_model->ads_detailed_prop();
                                  foreach ($detailed_prop as $val) {
                                     $body_content =  array('Offered type' => $val->offered_type,
-                                                            'property For'=>$val->prop_for,
-                                                            'Type of property'=> $val->prop_type,
-                                                            'No of Bathrooms'=>$val->bath_rooms,
-                                                            'Area'=>$val->build_area,
+                                                            'Property For'=>$val->prop_for,
+                                                            'Property Type'=> $val->prop_type,
+                                                            'Bathrooms'=>$val->bath_rooms,
+                                                            'Super built-up Area'=>$val->build_area,
                                                             'Position'=>$val->position,
                                                             'Property Age'=>$val->property_age,
-                                                            'Owner'=>$val->property_ownership,
-                                                            'Floor No.'=>$val->floor_number);
+                                                            'Property Ownership'=>$val->property_ownership,
+                                                            'Floor Number'=>$val->floor_number);
                                     } 
                         }
                     }
@@ -200,13 +200,14 @@ class Description_view extends CI_Controller{
                         }
 
                                  foreach ($detailed_jobs as $val) {
-                                    $body_content = array('Job type' => $val->jobtype,
+                                    $body_content = array('Organisation Type' => $val->jobtype_title,
+                                                        'Type of Job' => $val->jobtype,
                                                         'Company Name'=>$val->companyname,
-                                                        'Minmum Salary'=> $currency.$val->salarymin,
-                                                        'Maximum Salary'=>$currency.$val->salarymax,
+                                                        'Salary Min'=> $currency.$val->salarymin,
+                                                        'Salary Max'=>$currency.$val->salarymax,
                                                         'Salary Type'=>$val->salarytype,
                                                         'Suitable Skills'=>$val->suitableskils,
-                                                        'Position For'=>str_replace("_", " ", $val->positionfor),
+                                                        'Position Type'=>str_replace("_", " ", $val->positionfor),
                                                         'Salary'=>$sal);
                                     }
 
@@ -218,6 +219,7 @@ class Description_view extends CI_Controller{
                  $detailed_bikes = $this->classifed_model->ads_detailed_bikes();   
                  foreach ($detailed_bikes as $val) {
                     $body_content = array(
+                                        'Type of Service'=>$value->services,
                                         'Manufacture'=>$val->manufacture1,
                                         'Bike Type'=> $val->btype,
                                         'Model'=>$val->bmodel,
@@ -236,18 +238,19 @@ class Description_view extends CI_Controller{
                 $detailed_cars = $this->classifed_model->ads_detailed_cars();        
                 foreach ($detailed_cars as $val) {
                     $body_content = array(
+                                        'Type of Service'=>$value->services,
                                         'Manufacture'=>$val->manufacture1,
                                         'Model'=>$val->cmodel,
                                         'Colour'=>$val->color,
-                                        'Reg year'=>$val->reg_year,
+                                        'Registration Year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fueltype,
                                         'Transmission'=>$val->transmission,
-                                        'Engine size'=>$val->engine_size,
-                                        'No of doors'=>$val->noofdoors,
-                                        'No of seats'=>$val->noofseats,
-                                        'No of miles'=>$val->tot_miles,
+                                        'Engine Size'=>$val->engine_size,
+                                        'No of Doors'=>$val->noofdoors,
+                                        'No of Seats'=>$val->noofseats,
+                                        'No of Miles Covered'=>$val->tot_miles,
                                         'MOT Status'=>$val->mot_status,
-                                        'Road tax'=>$val->road_tax
+                                        'Road TAX Status'=>$val->road_tax
                                         );
                                     } 
                     }
@@ -255,19 +258,21 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '14') {
                 $detailed_motorhomes = $this->classifed_model->ads_detailed_motorhomes();
                  foreach ($detailed_motorhomes as $val) {
-                    $body_content = array('Type of motors' => $val->typeofmotorhome,
+                    $body_content = array(
+                                        'Type of Service'=>$value->services,
+                                        'Type of motors' => $val->typeofmotorhome,
                                         'Manufacture'=>$val->manufacture1,
                                         'Model'=>$val->cmodel,
                                         'Colour'=>$val->color,
-                                        'Reg year'=>$val->reg_year,
+                                        'Registration year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fueltype,
                                         'Transmission'=>$val->transmission,
                                         'Engine size'=>$val->engine_size,
-                                        'No of doors'=>$val->noofdoors,
-                                        'No of seats'=>$val->noofseats,
-                                        'No of miles'=>$val->tot_miles,
+                                        'No of Doors'=>$val->noofdoors,
+                                        'No of Seats'=>$val->noofseats,
+                                        'No of Miles Covered'=>$val->tot_miles,
                                         'MOT Status'=>$val->mot_status,
-                                        'Road tax'=>$val->road_tax
+                                        'Road TAX Status'=>$val->road_tax
                                         );
                                     } 
                     }
@@ -275,7 +280,9 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '19') {
                 $detailed_boats = $this->classifed_model->ads_detailed_boats();  
                     foreach ($detailed_boats as $val) {
-                    $body_content = array('Manufacture'=>$val->manufacture,
+                    $body_content = array(
+                                        'Type of Service'=>$value->services,
+                                        'Manufacture'=>$val->manufacture,
                                         'Year'=>$val->year,
                                         'Model'=>$val->model,
                                         'Colour'=>$val->color,
@@ -289,7 +296,9 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '17') {
                 $detailed_plant = $this->classifed_model->ads_detailed_plants();  
                     foreach ($detailed_plant as $val) {
-                    $body_content = array('Manufacture'=>$val->manufacture1,
+                    $body_content = array(
+                                        'Type of Service'=>$value->services,
+                                        'Manufacture'=>$val->manufacture1,
                                         'Year'=>$val->reg_year,
                                         'Model'=>$val->cmodel,
                                         'Colour'=>$val->color,
@@ -301,7 +310,8 @@ class Description_view extends CI_Controller{
                     if ($value->sub_cat_id == '18') {
                         $detailed_plant = $this->classifed_model->ads_detailed_farms();  
                         foreach ($detailed_plant as $val) {
-                        $body_content = array('Manufacture'=>$val->manufacture1,
+                        $body_content = array('Type of Service'=>$value->services,
+                                            'Manufacture'=>$val->manufacture1,
                                             'Year'=>$val->reg_year,
                                             'Model'=>$val->model,
                                             'Colour'=>$val->color,
@@ -313,18 +323,19 @@ class Description_view extends CI_Controller{
 
                 if ($value->category_id == '8') {
                     /*ezone*/
+                    $detailed_ezones = $this->classifed_model->ads_detailed_ezones(); 
                     if ($value->sub_cat_id == '60' || $value->sub_cat_id == '61'|| $value->sub_cat_id == '63' || $value->sub_cat_id == '64' || $value->sub_cat_id == '66'
                         || $value->sub_cat_id == '70' || $value->sub_cat_id == '71') {
-                $detailed_ezones = $this->classifed_model->ads_detailed_ezones();  
+                 
                     foreach ($detailed_ezones as $val) {
                         $body_content = array('Accessories Type'=>str_replace("_", " ", $value->service_type),
                             'Service Type'=>$value->services,
                                 'Brand_name'=>$val->brand_name,
                                 'Colour'=>$val->color,
-                                'Model name'=>$val->model_name,
+                                'Model Name / Number'=>$val->model_name,
                                 'Made in'=>$val->made_in,
                                 'Warranty'=>$val->warranty,
-                                'Manufacture'=>$val->manufacture
+                                'Manufacturer Part Number'=>$val->manufacture
                                 );
                             }       
                     }
@@ -334,12 +345,12 @@ class Description_view extends CI_Controller{
                                 'Brand_name'=>$val->brand_name,
                                 'Size'=>$val->size,
                                 'Colour'=>$val->color,
-                                'Model name'=>$val->model_name,
+                                'Model Name / Number'=>$val->model_name,
                                 'Operating system'=>$val->operating_system,
                                 'Made in'=>$val->made_in,
                                 'Storage'=>$val->storage,
                                 'Warranty'=>$val->warranty,
-                                'Manufacture'=>$val->manufacture
+                                'Manufacturer Part Number'=>$val->manufacture
                                 );
                             }  
                     }
@@ -349,26 +360,27 @@ class Description_view extends CI_Controller{
                                 'Brand_name'=>$val->brand_name,
                                 'Size'=>$val->size,
                                 'Colour'=>$val->color,
-                                'Model name'=>$val->model_name,
+                                'Model Name / Number'=>$val->model_name,
                                 'Made in'=>$val->made_in,
                                 'Warranty'=>$val->warranty,
-                                'Manufacture'=>$val->manufacture
+                                'Manufacturer Part Number'=>$val->manufacture
                                 );
                             }  
                     }
                     else if ($value->sub_cat_id == '72') {
+
                         foreach ($detailed_ezones as $val) {
-                         $body_content = array('Service Type'=>$value->service_type,
+                         $body_content = array('Software Type'=>$value->service_type,
+                                'Service Type'=>$value->services,
                                 'Brand_name'=>$val->brand_name,
                                 'Operating system'=>$val->operating_system,
+                                'Model Name / Number'=>$val->model_name,
                                 'Number of PCs'=>$val->size,
-                                'Model name'=>$val->model_name,
                                 'Subscription Validity'=>$val->warranty,
                                 'Media Format'=>$val->manufacture
-                                );
+                                                );
                             }  
                     }
-                    # code...
                 }
 
                 if ($value->category_id == '7') {
@@ -384,12 +396,11 @@ class Description_view extends CI_Controller{
                                         'Assembly'=>$val->assembly,
                                         'Dimensions'=>$val->dimensions,
                                         'Capacity'=>$val->capacity,
-                                        'Items condition'=>$val->items_condition,
+                                        'Items conditions'=>$val->items_condition,
                                         'Warranty'=>$val->warranty
                                         );
                                     }       
                     }
-                    # code...
                 }
 
             }

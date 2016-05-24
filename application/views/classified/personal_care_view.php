@@ -162,8 +162,8 @@ $dryers = $pcaresubcnt1->dryers;
 $stylers = $pcaresubcnt1->stylers;
 $epilator = $pcaresubcnt1->epilator;
 $pedometer = $pcaresubcnt1->pedometer;
-$monitor = $pcaresubcnt1->monitor;
 $massage = $pcaresubcnt1->massage;
+$others = $pcaresubcnt1->others;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>online-shavers-sale">Shavers (<?php echo $shavers; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>sell-used-trimmers-sale">Trimmers (<?php echo $trimmer; ?>)</a></li>
@@ -173,7 +173,7 @@ $massage = $pcaresubcnt1->massage;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>epilators-for-sale">Epilators (<?php echo $epilator; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-pedometers-for-sale">Pedometers (<?php echo $pedometer; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-massagers-for-sale">Massagers (<?php echo $massage; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-personal-care-stuff-sale">Others (<?php echo $monitor; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-personal-care-stuff-sale">Others (<?php echo $others; ?>)</a></li>
 </ul>
 </div>
 </div>

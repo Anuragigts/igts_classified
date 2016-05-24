@@ -162,12 +162,12 @@ $bluray = $entertainsubcnt1->bluray;
 $audio = $entertainsubcnt1->audio;
 $gaming = $entertainsubcnt1->gaming;
 $musical = $entertainsubcnt1->musical;
-$projector = $entertainsubcnt1->projector;
+$others = $entertainsubcnt1->others;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>lcd-led-television-sale">LCD & LED Televisions (<?php echo $lcdled; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-gaming-for-sale">Gaming (<?php echo $gaming; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-musical-instruments-sale">Musical Instruments (<?php echo $musical; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>others-home-entertainment-for-sale">Others (<?php echo $projector; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>others-home-entertainment-for-sale">Others (<?php echo $others; ?>)</a></li>
 </ul>
 </div>
 </div>

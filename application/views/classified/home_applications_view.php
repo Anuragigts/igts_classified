@@ -167,6 +167,8 @@ $rheater = $happ_sub1->rheater;
 $sewing = $happ_sub1->sewing;
 $dryers = $happ_sub1->dryers;
 $elight = $happ_sub1->elight;
+$inverters = $happ_sub1->inverters;
+$others = $happ_sub1->others;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-air-conditioners-sale">Air Conditioners (<?php echo $ac; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-air-coolers-sale">Air Coolers (<?php echo $acooler; ?>)</a></li>
@@ -180,8 +182,8 @@ $elight = $happ_sub1->elight;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>automatic-sewing-machine-sale">Sewing Machine (<?php echo $sewing; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-dryers-for-sale">Dryers (<?php echo $dryers; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>emergency-light-for-sale">Emergency Light (<?php echo $elight; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-inverters-sale">Inverters </a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-home-appliances-for-sale">Others </a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-inverters-sale">Inverters (<?php echo $inverters; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-home-appliances-for-sale">Others (<?php echo $others; ?>)</a></li>
 </ul>
 </div>
 </div>

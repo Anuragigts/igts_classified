@@ -92,8 +92,8 @@ class  Residential_prop extends CI_Controller{
                 $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_propertyresi();
                 $data['public_adview'] = $public_adview;
                 $data['cnt_findpropery'] = $this->hotdealsearch_model->cnt_findpropery();
-               $data['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_searchdeals();
-               $data['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_searchdeals();
+               $data['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_deals();
+               $data['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_deals();
                $data['resi_sub'] = $this->hotdealsearch_model->resi_sub();
                $data['comm_sub'] = $this->hotdealsearch_model->comm_sub();
                 
@@ -263,7 +263,7 @@ class  Residential_prop extends CI_Controller{
             $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_property1resi();
              $result['cnt_findpropery'] = $this->hotdealsearch_model->cnt_findpropery();
                $result['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_searchdeals();
-               $result['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_searchdeals();
+               $result['subcat_comm'] = $this->hotdealsearch_model->subcat_comm_deals();
                $result['resi_sub'] = $this->hotdealsearch_model->resi_sub();
                $result['comm_sub'] = $this->hotdealsearch_model->comm_sub();
              /*packages count*/

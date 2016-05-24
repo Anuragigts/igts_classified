@@ -270,6 +270,7 @@ class  Searchview extends CI_Controller{
                $result['subcat_home'] = $this->hotdealsearch_model->subcat_home_searchdeals();
                $result['subcat_decor'] = $this->hotdealsearch_model->subcat_decor_searchdeals();
                /*ezone*/
+               $result['cnt_ezone'] = $this->hotdealsearch_model->cnt_ezone();
                $result['subcat_phone'] = $this->hotdealsearch_model->subcat_phone_searchdeals();
                $result['subcat_homeapp'] = $this->hotdealsearch_model->subcat_homeapp_searchdeals();
                $result['subcat_smallapp'] = $this->hotdealsearch_model->subcat_smallapp_searchdeals();

@@ -166,6 +166,8 @@ $fryer = $smallapp1->fryer;
 $purifier = $smallapp1->purifier;
 $dishwash = $smallapp1->dishwash;
 $flour = $smallapp1->flour;
+$stabilizer = $smallapp1->stabilizer;
+$others = $smallapp1->others;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>microwave-ovens-otg-sale">Microwave Ovens & OTG (<?php echo $oven; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>food-processors-sale-london">Food Processors (<?php echo $fprocess; ?>)</a></li>
@@ -179,8 +181,8 @@ $flour = $smallapp1->flour;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-water-purifiers-sale">Water Purifiers (<?php echo $purifier; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-dishwashers-for-sale">Dishwashers (<?php echo $dishwash; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>secondhand-flour-mill-sale">Flour Mill (<?php echo $flour; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>new-used-stablizers-sale">Stablizers (<?php echo $dishwash; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-small-appliances-for-sale">Others (<?php echo $flour; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>new-used-stablizers-sale">Stablizers (<?php echo $stabilizer; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>other-small-appliances-for-sale">Others (<?php echo $others; ?>)</a></li>
 </ul>
 </div>
 </div>

@@ -124,6 +124,12 @@ $allproptype = $val->propall;
 $resicnt = $val->resi;
 $commcnt = $val->comm;
 }
+/*ezone*/
+foreach ($cnt_ezone as $val) {
+$computercnt = $val->computer;
+$networkcnt = $val->network;
+$softwarecnt = $val->software;
+}
 
 
 
@@ -916,6 +922,25 @@ if ($cat_id != 'all') { ?>
 <?php } ?>
 <?php if ($cat_id == 8) { ?>
 <div class="cd-filter-block">
+<h4 class="title-widget">E-zone Filters</h4>
+<div class="cd-filter-content">
+<div>
+<label class="checkbox">
+<input type="checkbox" name="search_sub[]" class="search_sub" value="70" <?php if (isset($search_sub) && in_array(70, $search_sub)) { echo "checked = checked";	} ?> >
+<i></i> Computer peripherals (<?php echo $computercnt; ?>)
+</label>
+<label class="checkbox">
+<input type="checkbox" name="search_sub[]" class="search_sub" value="71" <?php if (isset($search_sub) && in_array(71, $search_sub)) { echo "checked = checked";	} ?> >
+<i></i> Network components (<?php echo $networkcnt; ?>)
+</label>
+<label class="checkbox">
+<input type="checkbox" name="search_sub[]" class="search_sub" value="72" <?php if (isset($search_sub) && in_array(72, $search_sub)) { echo "checked = checked";	} ?> >
+<i></i> Softwares (<?php echo $softwarecnt; ?>)
+</label>
+</div>
+</div>
+</div>
+<div class="cd-filter-block">
 <h4 class="title-widget">Phones & Tablets</h4>
 <div class="cd-filter-content">
 <div id='limit_scrol'>
@@ -1019,6 +1044,7 @@ if ($cat_id != 'all') { ?>
 </div>
 </div>
 </div>
+
 <div class="cd-filter-block">
 <h4 class="title-widget">Seller Type</h4>
 

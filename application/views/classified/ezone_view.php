@@ -158,6 +158,9 @@ $accesscnt = $ezone_sub1->access;
 $pcarecnt = $ezone_sub1->pcare;
 $entertaincnt = $ezone_sub1->entertain;
 $grapycnt = $ezone_sub1->grapy;
+$computercnt = $ezone_sub1->computer;
+$networkcnt = $ezone_sub1->network;
+$softwarecnt = $ezone_sub1->software;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-phones-tablets">Phones & Tablets (<?php echo $phonescnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-appliances-for-sale">Home Appliances (<?php echo $homescnt; ?>)</a></li>
@@ -167,9 +170,9 @@ $grapycnt = $ezone_sub1->grapy;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>body-care-stuff-for-sale">Personal Care (<?php echo $pcarecnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-entertainment-items-sale">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-digital-camera-for-sale">Photography (<?php echo $grapycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-peripherals-for-sale">Computer peripherals (<?php echo $grapycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>network-component-for-sale">Network Component (<?php echo $grapycnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>softwares-sale-london-canterbury">Software (<?php echo $grapycnt; ?>)</a></li></ul>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>computer-peripherals-for-sale">Computer peripherals (<?php echo $computercnt; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>network-component-for-sale">Network Component (<?php echo $networkcnt; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>softwares-sale-london-canterbury">Software (<?php echo $softwarecnt; ?>)</a></li></ul>
 </div>
 </div>
 </div> 
