@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Clothing & Lifestyle In UK | 99 Right Deals</title>
+<title>Clothing & Lifestyle In UK | UK Classified Sites | Free Classifieds UK |99 Right Deals</title>
 
 <meta name="description" content="Post free ads for second hand designer clothes online UK on 99 Right Deals.Find the best place to sell clothes online in UK. Also get hot & great deals on clothing & lifestyle." />
 <meta name="keywords" content="buy and sell clothes online uk, electronic classified ads, used furniture ads, mobile phones, laptop & desktop pc ads, toys and tools,buy and sell used clothes online" />

@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>E-Zone In UK | Classified Ad Websites| Classifieds Ads| 99 Right Deals</title>
+<title>E-Zone | Free Ads UK | UK Classifieds | Classifieds Ads | 99 Right Deals</title>
 
-<meta name="description" content="We provides free classified ads online for electronic products on 99 Right Deals like phones & tablets, home appliances,small appliances, laptop and computer for online buying and selling." />
+<meta name="description" content="Place free classified ads online for electronic products on 99 Right Deals like phones & tablets, home appliances,small appliances, laptop and computer for online buying and selling. " />
 <meta name="keywords" content="electronics classified ads,used electronics classified,Electronics in the UK,Elelctronic free ads, phones & tables, tablets & ipods, air conditioners & refigerators,microwave ovens & mixer grinder," />
 
 <!-- xxx Head Content xxx -->

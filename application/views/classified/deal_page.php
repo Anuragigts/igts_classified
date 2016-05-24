@@ -2,10 +2,10 @@
 <html>
 <head>
 
-<title>Local Classifieds Ads | UK Classifieds Ads | 99 Right Deals</title>
+<title>Local Classifieds Ads | UK Classifieds Ads | Post Free Classified Ads | 99 Right Deals</title>
 
-<meta name="description" content="Hot Deals - category list in 99 Right Deals.Create free local cassified ads for getting most exciting hot deals on different products time to time." />
-<meta name="keywords" content="free advertising sites,post ads for free ,free ad posting sites,post free classified ads,free online advertising,free business advertising,free advertising online,free classified ads sites," />
+<meta name="description" content="Hot Deals - Post free ads for category list in 99 Right Deals.Create free local cassified ads for getting most exciting hot deals on different products time to time." />
+<meta name="keywords" content="free advertising sites,post ads for free ,free ad posting sites,post free classified ads,free online advertising,free business advertising,free advertising online,free classified ads sites," />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>Home And Kitchen Services In UK | 99 Right Deals</title>
+<title>Home And Kitchen Services In UK | Free Online Classified Ads  | 99 Right Deals</title>
 
-<meta name="description" content="We provides free classified ads for used furniture ,interior designing, modular kitchen related serivces, buy and sell used electronic products on valuable price." />
+<meta name="description" content="We provides free classified ads for used dinning, living, garden, home furniture and accessories and modular kitchen tools,equipments or utensils on 99 Right Deals." />
 <meta name="keywords" content="home cleaning services, house cleaning services, housekeeping services, residential cleaning services, professional cleaning services,kitchen cleaning services ,kitchen deep cleaning,modular kitchen design, modular kitchen in uk,modular kitchen companies in uk" />
 
 <!-- xxx Head Content xxx -->

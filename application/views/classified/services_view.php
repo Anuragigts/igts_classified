@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Services For Sale In London - United Kingdom | 99 Right Deals</title>
+<title>Services For Sale| UK Free Classifieds | Free Classified Ads In UK |99 Right Deals</title>
 
 <meta name="description" content="Post free ads for finding service experts in Business Development, Interior Designing, electronic and home appliances repairs and services, Beauty and Hair care experts, Events Managing experts and top service proviers." />
 <meta name="keywords" content="free services ads, lease and loan insurance services uk, beauty & hair care services, event management services, courier delivery services, home based services ads, housekeeping classified ads,cleaning services classified ads,legal advisor financial services" />

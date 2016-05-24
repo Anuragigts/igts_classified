@@ -5,7 +5,7 @@
 <title>Pets For Sale |Pet Classified Ads, Pets For Sale Online | 99 Right Deals</title>
 
 <meta name="description" content="Post free online classified for pets classified ads or puppies for sale in UK. And find buy pets online uk, pets for sale in uk and local classifieds ads for pets on 99 Right Deals." />
-<meta name="keywords" content="buy pets online uk, pets classified ads, free ads pets for sale, puppies for sale in uk, pet for sale online, pets for sale in uk, classified pets for sale, local classified ads pets, pug puppies for sale, pets for sale online, pets for sale uk, sell pets online, pets for sale websites, pet classified ads, pets for sale" />
+<meta name="keywords" content="Post free online classified for pets classified ads or puppies for sale in UK. And find buy pets online uk, pets for sale in uk and local classifieds ads for pets on 99 Right Deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 
