@@ -298,9 +298,9 @@ class Description_view extends CI_Controller{
                     foreach ($detailed_plant as $val) {
                     $body_content = array(
                                         'Type of Service'=>$value->services,
-                                        'Manufacture'=>$val->manufacture1,
+                                        'Type of Plant-Machinery'=>$val->manufacture1,
                                         'Year'=>$val->reg_year,
-                                        'Model'=>$val->cmodel,
+                                        'Manufacture'=>$val->cmodel,
                                         'Colour'=>$val->color,
                                         'Condition'=>$val->condition
                                         );
@@ -311,7 +311,7 @@ class Description_view extends CI_Controller{
                         $detailed_plant = $this->classifed_model->ads_detailed_farms();  
                         foreach ($detailed_plant as $val) {
                         $body_content = array('Type of Service'=>$value->services,
-                                            'Manufacture'=>$val->manufacture1,
+                                            'Type of Farming Vehicle'=>$val->manufacture1,
                                             'Year'=>$val->reg_year,
                                             'Model'=>$val->model,
                                             'Colour'=>$val->color,

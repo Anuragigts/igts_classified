@@ -601,7 +601,8 @@
 														maxlength: 60
 													},
 													review_name: {
-														required: true
+														required: true,
+														minlength: 3
 													},
 													user_rating: {
 														required: true
@@ -612,18 +613,19 @@
 													review_title: {
 														required: "Please Enter review title",
 														minlength: "Title contains atleast 5 characters",
-														maxlength: "Title contains maximum 25 characters"
+														maxlength: "Title contains maximum 25 characters Only"
 													},
 													review_msg: {
 														required: "Please Enter review message",
-														minlength: "Title contains atleast 12 characters",
-														maxlength: "Title contains maximum 60 characters"
+														minlength: "review contains atleast 12 characters",
+														maxlength: "review contains maximum 60 characters Only"
 													},
 													review_name: {
-														required: "Please Enter review name"
+														required: "Please Enter Name",
+														minlength: "Name contains atleast 3 characters"
 													},
 													user_rating: {
-														required: "Please give review rating"
+														required: "Please give review"
 													}
 												},
 											

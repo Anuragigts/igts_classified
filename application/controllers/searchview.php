@@ -31,7 +31,7 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('s_search_sub'); 
                 $this->session->unset_userdata('s_search_subsub'); 
                 $this->session->unset_userdata('s_dealurgent');
-                $this->session->set_userdata('s_seller_deals');
+                $this->session->unset_userdata('s_seller_deals');
                 $this->session->unset_userdata('s_search_bustype');
                 $this->session->unset_userdata('s_dealtitle');
                 $this->session->unset_userdata('s_dealprice');

@@ -1060,15 +1060,24 @@ Browse
 <?php if (@$sub_id == '17' || @$sub_id == '18') { ?>
 <div class="j-row">
 <div class="span6 unit">
-<label class="label">Manufacture 
+<?php if (@$sub_id == '17') { ?>
+<label class="label">Type of Plant-Machinery
+<sup data-toggle="tooltip" title="" data-original-title="Type of Plant-Machinery">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<?php } ?>
+<?php if (@$sub_id == '18') { ?>
+<label class="label">Type of Farming Vehicle 
 <sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
+<?php } ?>
 <?php if (@$sub_id == '17') { ?>
 <div class="input select">
-<select name="manufacture" class='plant_manufacture'>
-<option value="none" selected disabled="">Select manufacture</option>
+<select name="manufacture_plant" class='plant_manufacture'>
+<option value="none" selected disabled="">Select Plant-Machinery type</option>
 <?php foreach ($plants as $plantsval) { ?>
 <option value="<?php echo $plantsval->sub_subcategory_id; ?>"><?php echo $plantsval->sub_subcategory_name; ?></option>
 <?php } ?>
@@ -1079,8 +1088,8 @@ Browse
 else{ ?>
 <div class="input">
 <label class="input select">
-<select name="manufacture">
-<option value="none" selected disabled="">Select manufacture</option>
+<select name="manufacture_farming">
+<option value="none" selected disabled="">Select Farming Vehicle Type</option>
 <?php foreach ($farming as $farmval) { ?>
 <option value="<?php echo $farmval->sub_subcategory_id; ?>"><?php echo $farmval->sub_subcategory_name; ?></option>
 <?php } ?>
@@ -1108,16 +1117,25 @@ else{ ?>
 
 <div class="j-row">
 <div class="span6 unit">
+<?php if (@$sub_id == '17') { ?>
+<label class="label">Manufacture 
+<sup data-toggle="tooltip" title="" data-original-title="Manufacture">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<?php }
+else{ ?>
 <label class="label">Model 
 <sup data-toggle="tooltip" title="" data-original-title="Model ">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
+<?php } ?>
 <label class="input">
 <?php if (@$sub_id == '17') { ?>
 <label class="input select">
-<select name="plant_model" class='plant_model'>
-<option value="none" selected disabled="">Select Model</option>
+<select name="plant_model1" class='plant_model'>
+<option value="none" selected disabled="">Select Manufacture</option>
 <option value="">Sample</option>
 </select>
 <i></i>

@@ -155,15 +155,15 @@ $resi_prop = $this->session->userdata('resi_prop');
 $comm_prop = $this->session->userdata('comm_prop');
 
 if ($cat_id == 1) {
-if (array_key_exists('company', $sellerneededcount)) {
-$company = $sellerneededcount['company'];
-}
-if (array_key_exists('Agency', $sellerneededcount)) {
-$agency = $sellerneededcount['Agency'];
-}
-if (array_key_exists('Other', $sellerneededcount)) {
-$other = $sellerneededcount['Other'];
-}
+	if (array_key_exists('company', $sellerneededcount)) {
+	$company = $sellerneededcount['company'];
+	}
+	if (array_key_exists('Agency', $sellerneededcount)) {
+	$agency = $sellerneededcount['Agency'];
+	}
+	if (array_key_exists('Other', $sellerneededcount)) {
+	$other = $sellerneededcount['Other'];
+	}
 }
 if ($cat_id == 2) {
 if (array_key_exists('provider', $sellerneededcount)) {

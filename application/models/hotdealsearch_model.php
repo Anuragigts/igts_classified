@@ -1014,15 +1014,7 @@ class hotdealsearch_model extends CI_Model{
 			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
 			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
 			
-			$pcktype = '(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
-			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
-			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
-			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
-			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
-			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
+			
 				$cat_id =  $this->session->userdata('cat_id');
 				$seller_id =  $this->session->userdata('seller_id');
 				$bus_id =  $this->session->userdata('bus_id');
@@ -1048,6 +1040,23 @@ class hotdealsearch_model extends CI_Model{
 				$search_commsub = $this->session->userdata('search_commsub');
 				$resi_prop = $this->session->userdata('resi_prop');
 				$comm_prop = $this->session->userdata('comm_prop');
+
+				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+					$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") )';
+				}
+			if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
+					$pcktype = '(
+			(ad.package_type = "3" OR ad.package_type = "6") OR 
+			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )';
+				}
 
         		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
         		$this->db->from('postad AS ad');
@@ -1226,9 +1235,12 @@ class hotdealsearch_model extends CI_Model{
 			/*top category*/
 			
 
-			
+				if ($cat_id) {
+					if ($cat_id != 'all') {
+						$this->db->where($pcktype);
+					}
+				}
 				
-				$this->db->where($pcktype);
 				$this->db->group_by("img.ad_id");
 				/*deal title ascending or descending*/
 					if ($dealtitle == 'atoz') {
@@ -1261,15 +1273,7 @@ class hotdealsearch_model extends CI_Model{
 			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
 			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
 			
-			$pcktype = '(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
-			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
-			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
-			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
-			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
-			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")   )';
+			
 	    		$cat_id =  $this->session->userdata('cat_id');
 	    		$seller_id =  $this->session->userdata('seller_id');
 	    		$bus_id =  $this->session->userdata('bus_id');
@@ -1295,6 +1299,23 @@ class hotdealsearch_model extends CI_Model{
 				$search_commsub = $this->session->userdata('search_commsub');
 				$resi_prop = $this->session->userdata('resi_prop');
 				$comm_prop = $this->session->userdata('comm_prop');
+
+				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+					$pcktype = '(
+					(ad.package_type = "3" OR ad.package_type = "6") OR 
+					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+					OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+					OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+					OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'"))';
+				}
+				if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
+					$pcktype = '(
+					(ad.package_type = "3" OR ad.package_type = "6") OR 
+					((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
+					OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+					OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+					OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )';
+				}
 
 	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
@@ -1466,8 +1487,11 @@ class hotdealsearch_model extends CI_Model{
   					OR loc.loc_name LIKE '%$s_location' OR loc.loc_name LIKE '%$s_location%')");
 			}
 
-			
-				$this->db->where($pcktype);
+				if ($cat_id) {
+					if ($cat_id != 'all') {
+						$this->db->where($pcktype);
+					}
+				}
 				$this->db->group_by("img.ad_id");
 				/*deal title ascending or descending*/
 				if ($dealtitle == 'atoz') {
@@ -10011,36 +10035,75 @@ class hotdealsearch_model extends CI_Model{
 
         /*business and consumer count in hotdeals*/
         public function busconcount_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('cat_id');
         	if ($cat_id) {
 	        	if ($cat_id != 'all') {
-	        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
+	        		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+	        			$this->db->select("(SELECT COUNT(*) FROM postad WHERE
 	        			(
 					(package_type = '3' OR package_type = '6') OR 
 					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
-					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
-					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
-					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '$freeurgent')
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '$free')
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '$gold')   ) AND
 	        		 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
 					(SELECT COUNT(*) FROM postad WHERE
 						(
 					(package_type = '3' OR package_type = '6') OR 
 					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
-					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
-					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
-					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '$freeurgent')
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '$free')
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '$gold')   ) AND
 					 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'business') AS business,
 					(SELECT COUNT(*) FROM postad WHERE
 						(
 					(package_type = '3' OR package_type = '6') OR 
 					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
-					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '75')
-					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '50')
-					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '25')   ) AND
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '$freeurgent')
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '$free')
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '$gold')   ) AND
 					 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'consumer') AS consumer");
 							$rs = $this->db->get();
 		        			return $rs->result();
+	        		}
+	        		else{
+	        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
+	        			(
+					(package_type = '3' OR package_type = '6') OR 
+					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '$low_freeurgent')
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '$low_free')
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '$low_gold')   ) AND
+	        		 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND (ad_type = 'business' || ad_type = 'consumer')) AS allbustype,
+					(SELECT COUNT(*) FROM postad WHERE
+						(
+					(package_type = '3' OR package_type = '6') OR 
+					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '$low_freeurgent')
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '$low_free')
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '$low_gold')   ) AND
+					 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'business') AS business,
+					(SELECT COUNT(*) FROM postad WHERE
+						(
+					(package_type = '3' OR package_type = '6') OR 
+					((package_type = '2' OR package_type = '5' )AND urgent_package != '0' )
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package != '0' AND likes_count >= '$low_freeurgent')
+					OR ((package_type = '1' OR package_type = '4' )AND urgent_package = '0' AND likes_count >= '$low_free')
+					OR ((package_type = '2' OR package_type = '5' )AND urgent_package = '0' AND likes_count >= '$low_gold')   ) AND
+					 category_id = '$cat_id' AND ad_status = 1 AND expire_data >='$date' AND ad_type = 'consumer') AS consumer");
+							$rs = $this->db->get();
+		        			return $rs->result();	
+	        		}
 	        	}
 	        	else{
 	        		$this->db->select("(SELECT COUNT(*) FROM postad WHERE
@@ -12376,8 +12439,12 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
         public function cnt_findpropery_hotdeal(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$data = date("Y-m-d H:i:s");
-        	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '75')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '50')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '25'))";
+        	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '$freeurgent')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '$free')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '$gold'))";
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS propall,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=11 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS resi,
 			(SELECT COUNT(*) FROM postad WHERE category_id = '4' AND sub_cat_id=26 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS comm");
@@ -12385,8 +12452,12 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
         public function cnt_ezone_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$data = date("Y-m-d H:i:s");
-        	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '75')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '50')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '25'))";
+        	$pcktype = "((package_type = '3') OR ((package_type = '2')AND urgent_package != '0' ) OR ((package_type = '1')AND urgent_package != '0' AND likes_count >= '$low_freeurgent')OR ((package_type = '1')AND urgent_package = '0' AND likes_count >= '$low_free')OR ((package_type = '2')AND urgent_package = '0' AND likes_count >= '$low_gold'))";
         	$this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '8'AND sub_cat_id=70 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS computer,
 								(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id=71 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS network,
 								(SELECT COUNT(*) FROM postad WHERE category_id = '8' AND sub_cat_id=72 AND ad_status = 1 AND expire_data >='$data' AND $pcktype) AS software");
@@ -12471,10 +12542,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function resi_sub_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
 			$locname = $this->session->userdata('location');
-			$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+			$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	$search_resisub = $this->session->userdata('search_resisub');
 
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
@@ -12532,10 +12607,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function comm_sub_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
 			$locname = $this->session->userdata('location');
-			$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+			$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	$search_commsub = $this->session->userdata('search_commsub');
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_sub_subcategory AS ssscat");
@@ -13428,6 +13507,10 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function jobs_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         		$date = date("Y-m-d H:i:s");
         		$bustype = $this->session->userdata('bus_id');
         		$locname = $this->session->userdata('location');
@@ -13436,14 +13519,14 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->from('sub_category');
 				if ($bustype) {
 		        	if ($bustype !='all') {
-		        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type ='$bustype' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+		        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND postad.ad_type ='$bustype' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '$freeurgent') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '$free')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '$gold'))", "left");
 		        	}
 		        	else{
-		        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+		        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '$freeurgent') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '$free')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '$gold'))", "left");
 		        	}
 		        }
 		        else{
-	        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '75') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '25'))", "left");
+	        		$this->db->join("postad", "postad.sub_cat_id = sub_category.sub_category_id AND postad.ad_status = 1 AND postad.expire_data >='$date' AND ((postad.package_type = '3' OR postad.package_type = '6') OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package != '0') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package != '0' AND postad.likes_count >= '$freeurgent') OR ((postad.package_type = '1' OR postad.package_type = '4' )AND postad.urgent_package = '0' AND postad.likes_count >= '$free')OR ((postad.package_type = '2' OR postad.package_type = '5' )AND postad.urgent_package = '0' AND postad.likes_count >= '$gold'))", "left");
 	        	}
 
 	        	if ($locname != '') {
@@ -13453,16 +13536,31 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->where('sub_category.category_id', 1);
 				$this->db->group_by("sub_category.sub_category_id");
 				$rs = $this->db->get();
-				// echo $this->db->last_query(); exit;
+				 // echo $this->db->last_query(); exit;
 				return $rs->result();
 			}
 
 			public function hotdeals_pck_hotdeals(){
+				/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
+
+			/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
+
 				$date = date("Y-m-d H:i:s");
         	$cat_id =  $this->session->userdata('cat_id');
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$freeurgent.'") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$gold.'"))';
+        	}
+        	else{
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$low_freeurgent.'") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_gold.'"))';
+        	}
         	if ($cat_id != 'all') {
         		if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
 
@@ -13638,9 +13736,13 @@ class hotdealsearch_model extends CI_Model{
         }
 
 		public function sellerneededhot_jobs(){
+			/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
 			$date = date("Y-m-d H:i:s");
 			$bustype = $this->session->userdata('bus_id');
-			$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25")   )';
+			$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$freeurgent.'")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$gold.'")   )';
         	$locname = $this->session->userdata('location');
 
         	$this->db->select('COUNT(*) as company', false);
@@ -13688,10 +13790,14 @@ class hotdealsearch_model extends CI_Model{
 
          /*services seller and needed count*/
         public function sellerneededhot_services(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$freeurgent.'")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$freeurgent.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$freeurgent.'"))';
         	
         	$this->db->select('COUNT(*) as provider', false);
     		$this->db->from('postad');
@@ -13725,10 +13831,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function sellerneededhot_motors(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$locname = $this->session->userdata('location');
         	$bustype = $this->session->userdata('bus_id');
-        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$freeurgent.'")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$gold.'"))';
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
     		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
@@ -13773,10 +13883,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
          public function sellerneededhot_property(){
+         	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
          	$date = date("Y-m-d H:i:s");
          	$locname = $this->session->userdata('location');
          	$bustype = $this->session->userdata('bus_id');
-         	$pcktype = '((ad.package_type = "3" OR ad.package_type = "6") OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" ) OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "75")	OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "50") OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "25"))';
+         	$pcktype = '((ad.package_type = "3" OR ad.package_type = "6") OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" ) OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")	OR ((ad.package_type = "1" OR ad.package_type = "4" )AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'") OR ((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'"))';
 			
 			$this->db->select('COUNT(*) as offered', false);
     		$this->db->from('postad AS ad, property_resid_commercial AS prc');
@@ -13809,10 +13923,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function sellerneededhot_pets(){
+        				/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$locname = $this->session->userdata('location');
         	$bustype = $this->session->userdata('bus_id');
-        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$low_freeurgent.'")	OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_gold.'"))';
         	
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
@@ -13844,10 +13962,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function sellerneededhot_clothstyle(){
+        				/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$locname = $this->session->userdata('location');
         	$bustype = $this->session->userdata('bus_id');
-        	$pcktype = '((package_type = "3" OR package_type = "6") OR ((package_type = "2" OR package_type = "5" )AND urgent_package != "0" ) OR ((package_type = "1" OR package_type = "4" )AND urgent_package != "0" AND likes_count >= "75")	OR ((package_type = "1" OR package_type = "4" )AND urgent_package = "0" AND likes_count >= "50") OR ((package_type = "2" OR package_type = "5" )AND urgent_package = "0" AND likes_count >= "25"))';
+        	$pcktype = '((package_type = "3" OR package_type = "6") OR ((package_type = "2" OR package_type = "5" )AND urgent_package != "0" ) OR ((package_type = "1" OR package_type = "4" )AND urgent_package != "0" AND likes_count >= "'.$low_freeurgent.'")	OR ((package_type = "1" OR package_type = "4" )AND urgent_package = "0" AND likes_count >= "'.$low_free.'") OR ((package_type = "2" OR package_type = "5" )AND urgent_package = "0" AND likes_count >= "'.$low_gold.'"))';
         	
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
@@ -13893,10 +14015,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
          public function sellerneededhot_kitchen(){
+         				/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
          	$date = date("Y-m-d H:i:s");
          	$locname = $this->session->userdata('location');
          	$bustype = $this->session->userdata('bus_id');
-         	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+         	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$low_freeurgent.'") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_gold.'"))';
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
     		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
@@ -13941,10 +14067,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function sellerneededhot_ezone(){
+        				/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$locname = $this->session->userdata('location');
         	$bustype = $this->session->userdata('bus_id');
-        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "75") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "50") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "25"))';
+        	$pcktype = '((postad.package_type = "3" OR postad.package_type = "6") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package != "0" ) OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package != "0" AND postad.likes_count >= "'.$low_freeurgent.'") OR ((postad.package_type = "1" OR postad.package_type = "4" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_free.'") OR ((postad.package_type = "2" OR postad.package_type = "5" )AND postad.urgent_package = "0" AND postad.likes_count >= "'.$low_gold.'"))';
         	$this->db->select('COUNT(*) as seller', false);
     		$this->db->from('postad');
     		$this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
@@ -13976,10 +14106,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_prof_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->where("sscat.sub_category_id", 9);
@@ -14004,10 +14138,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_pop_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	$this->db->where("sscat.sub_category_id", 10);
@@ -14033,10 +14171,14 @@ class hotdealsearch_model extends CI_Model{
 
         /*find a property*/
         public function subcat_resi_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14061,10 +14203,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_comm_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14090,10 +14236,14 @@ class hotdealsearch_model extends CI_Model{
 
         /*pets sub sub*/
         public function subcat_pets_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((postad.package_type = '6') OR ((postad.package_type = '5')AND postad.urgent_package != '0' ) OR ((postad.package_type = '4')AND postad.urgent_package != '0' AND postad.likes_count >= '75')OR ((postad.package_type = '4')AND postad.urgent_package = '0' AND postad.likes_count >= '50')OR ((postad.package_type = '5')AND postad.urgent_package = '0' AND postad.likes_count >= '25'))";
+        	$pcktype = "((postad.package_type = '6') OR ((postad.package_type = '5')AND postad.urgent_package != '0' ) OR ((postad.package_type = '4')AND postad.urgent_package != '0' AND postad.likes_count >= '$low_freeurgent')OR ((postad.package_type = '4')AND postad.urgent_package = '0' AND postad.likes_count >= '$low_free')OR ((postad.package_type = '5')AND postad.urgent_package = '0' AND postad.likes_count >= '$low_gold'))";
         	$this->db->select("sub_category.*, COUNT(postad.sub_cat_id) AS no_ads");
 			$this->db->from('sub_category');
         	if ($bustype) {
@@ -14117,10 +14267,14 @@ class hotdealsearch_model extends CI_Model{
 			return $rs->result();
         }
         public function subcat_bigpets_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14143,10 +14297,14 @@ class hotdealsearch_model extends CI_Model{
         	return $rs->result();
         }
          public function subcat_smallpets_hotdeals(){
+         	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
          	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14170,10 +14328,14 @@ class hotdealsearch_model extends CI_Model{
         }
 
         public function subcat_petsaccess_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14199,10 +14361,14 @@ class hotdealsearch_model extends CI_Model{
         /*cloths hot deals*/
         /*women*/
         public function subcat_women_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14226,10 +14392,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*men*/
         public function subcat_men_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14253,10 +14423,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*boy*/
         public function subcat_boy_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14280,10 +14454,14 @@ class hotdealsearch_model extends CI_Model{
         }
          /*girl*/
         public function subcat_girl_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14307,10 +14485,14 @@ class hotdealsearch_model extends CI_Model{
         }
          /*bboy*/
         public function subcat_bboy_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14334,10 +14516,14 @@ class hotdealsearch_model extends CI_Model{
         }
          /*bgirl*/
         public function subcat_bgirl_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14363,10 +14549,14 @@ class hotdealsearch_model extends CI_Model{
         /*kitchen home hot deals*/
         /*kitchen*/
         public function subcat_kitchen_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14390,10 +14580,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*home*/
         public function subcat_home_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14417,10 +14611,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*decor*/
         public function subcat_decor_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14446,10 +14644,14 @@ class hotdealsearch_model extends CI_Model{
         /*ezone*/
         /*phone tablets*/
         public function subcat_phone_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14473,10 +14675,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*home apps*/
         public function subcat_homeapp_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14500,10 +14706,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*small apps*/
         public function subcat_smallapp_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14527,10 +14737,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*laptop apps*/
         public function subcat_lappy_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14554,10 +14768,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*accessories*/
         public function subcat_access_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14581,10 +14799,14 @@ class hotdealsearch_model extends CI_Model{
         }
        	/*personal care*/
         public function subcat_pcare_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '6') OR ((ad.package_type = '5')AND ad.urgent_package != '0' ) OR ((ad.package_type = '4')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '4')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '5')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14608,10 +14830,14 @@ class hotdealsearch_model extends CI_Model{
         }
          /*home entertainment*/
         public function subcat_henter_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14635,10 +14861,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*Photography*/
         public function subcat_pgraphy_hotdeals(){
+        	/*low category*/
+			$low_free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'4','manage_likes.is_top'=>0))->row('likes_count');
+			$low_freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'5','manage_likes.is_top'=>0))->row('likes_count');
+			$low_gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'6','manage_likes.is_top'=>0))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$low_freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$low_gold'))";
         	$this->db->select("*, COUNT(ad.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
         	if ($bustype) {
@@ -14664,10 +14894,14 @@ class hotdealsearch_model extends CI_Model{
         /*motor point*/
         /*cars*/
         public function subcat_cars_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14694,10 +14928,14 @@ class hotdealsearch_model extends CI_Model{
 
         /*bikes*/
         public function subcat_bikes_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14725,10 +14963,14 @@ class hotdealsearch_model extends CI_Model{
 
         /*motor homes*/
         public function subcat_motorhomes_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14754,10 +14996,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*vans*/
         public function subcat_vans_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14783,10 +15029,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*coaches buses*/
         public function subcat_buses_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14812,10 +15062,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*plant machinery*/
         public function subcat_plant_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14843,10 +15097,14 @@ class hotdealsearch_model extends CI_Model{
 
         /*farming vehicles*/
         public function subcat_farming_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
@@ -14872,10 +15130,14 @@ class hotdealsearch_model extends CI_Model{
         }
         /*boating */
         public function subcat_boats_hotdeals(){
+        	/*top category*/
+			$free = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'1','manage_likes.is_top'=>1))->row('likes_count');
+			$freeurgent = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'2','manage_likes.is_top'=>1))->row('likes_count');
+			$gold = $this->db->get_Where('manage_likes', array('manage_likes.id'=>'3','manage_likes.is_top'=>1))->row('likes_count');
         	$date = date("Y-m-d H:i:s");
         	$bustype = $this->session->userdata('bus_id');
         	$locname = $this->session->userdata('location');
-        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '75')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '50')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '25'))";
+        	$pcktype = "((ad.package_type = '3') OR ((ad.package_type = '2')AND ad.urgent_package != '0' ) OR ((ad.package_type = '1')AND ad.urgent_package != '0' AND ad.likes_count >= '$freeurgent')OR ((ad.package_type = '1')AND ad.urgent_package = '0' AND ad.likes_count >= '$free')OR ((ad.package_type = '2')AND ad.urgent_package = '0' AND ad.likes_count >= '$gold'))";
         	
         	$this->db->select("*, COUNT(result.ad_id) AS no_ads");
         	$this->db->from("sub_subcategory AS sscat");
