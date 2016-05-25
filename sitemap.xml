@@ -15,14 +15,6 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/register</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/how-it-works</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
   <loc>http://www.99rightdeals.com/hot-deals-post-classifieds-ads</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -119,7 +111,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/secondhand-laptop-computers-for-sale</loc>
+  <loc>http://www.99rightdeals.com/used-secondhand-laptop-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -136,6 +128,18 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/used-digital-camera-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/computer-peripherals-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/network-component-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/softwares-sale-london-canterbury</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -208,10 +212,6 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/commercial-property-for-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/used-kitchen-essential-stuff-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -519,34 +519,6 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/sell-bluetooth-devices</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/used-landline-phones-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/used-adaptors-connectors-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/dock-keypads-sale-uk</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/mobile-cases-sleeves-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/mobile-tv-screen-guards-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/used-power-banks-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
   <loc>http://www.99rightdeals.com/wearable-devices-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -599,6 +571,14 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>http://www.99rightdeals.com/secondhand-inverters-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/other-home-appliances-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>http://www.99rightdeals.com/microwave-ovens-otg-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -647,63 +627,15 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/used-secondhand-laptop-sale</loc>
+  <loc>http://www.99rightdeals.com/new-used-stablizers-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/all-in-one-accesseories-sale</loc>
+  <loc>http://www.99rightdeals.com/other-small-appliances-for-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/used-secondhand-printers-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/secondhand-wi-fi-devices-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/external-hard-drive-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/pen-drives-sale-london</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/keyboards-sale-london</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/mouse-sale-london-wells</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/headsets-sale-london-peterborough</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/cable-connectors-for-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/ink-toner-sale-london</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/softwares-sale-london-canterbury</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/tablet-ipad-accessories-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/iphone-accessories-for-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/mobile-accessories-for-sale</loc>
+  <loc>http://www.99rightdeals.com/mobile-tablet-accessories-for-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -723,11 +655,11 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/inverters-stablizers-power-sale</loc>
+  <loc>http://www.99rightdeals.com/used-secondhand-battery-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/used-secondhand-battery-sale</loc>
+  <loc>http://www.99rightdeals.com/other-accessories-for-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -759,27 +691,15 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/monitors-for-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
   <loc>http://www.99rightdeals.com/secondhand-massagers-for-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>http://www.99rightdeals.com/other-personal-care-stuff-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>http://www.99rightdeals.com/lcd-led-television-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/home-theatre-systems-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/dvd-blue-ray-players-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/audio-systems-for-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -791,7 +711,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/used-secondhand-projectors-sale</loc>
+  <loc>http://www.99rightdeals.com/others-home-entertainment-for-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -804,6 +724,10 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/digital-camcorders-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/photography-items-accessories-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -980,38 +904,6 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/others-popular-services-london</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/second-hand-used-kitchen-tools</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/used-kitchen-storage</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/second-hand-cookware-sale-london</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/bakeware-for-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/used-cooktops-burners-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/barbeque-furniture-for-sale-london</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/table-linen-for-sale</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/others-kitchen-essential-tools-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
