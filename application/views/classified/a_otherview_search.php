@@ -269,7 +269,7 @@ else{ ?>
 <h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -467,7 +467,7 @@ else{ ?>
 <h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -651,7 +651,7 @@ else{ ?>
 <h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -830,7 +830,7 @@ else{ ?>
 <h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -1008,7 +1008,7 @@ else{ ?>
 <h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -1182,7 +1182,7 @@ else{ ?>
 <h3 class="view_price"><?php echo $currency.number_format($sval->price); ?></h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" <?php echo $sval->ad_id; ?> class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>

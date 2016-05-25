@@ -821,7 +821,7 @@
 										</div>
 									</aside>
 									<div class="text_center">
-										<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Now</span></a>
+										<a class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right"><span>Send Message</span></a>
 									</div>
 									<!-- feedback message alert -->
 									<?php //if($this->session->flashdata("feedbackmsg") != ""){ ?>

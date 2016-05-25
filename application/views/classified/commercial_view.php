@@ -460,7 +460,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -567,7 +567,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -661,7 +661,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -752,7 +752,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -840,7 +840,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -925,7 +925,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
@@ -1014,7 +1014,7 @@ cursorcolor: '#E95413'
 <h3 class="view_price">£1106</h3>
 </div>
 <div class="col-xs-12">
-<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Now</span></a>
+<a href="#" data-toggle="modal" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 </div>
 </div>
 </div>
