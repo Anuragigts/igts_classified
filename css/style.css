@@ -160,7 +160,7 @@ h3,
 h4,
 h5,
 h6 {
-    padding: 5px 0 15px 0;
+    padding: 5px 0 10px 0;
     margin: 0;
     color: #272727;
     font-weight: normal;
@@ -247,13 +247,13 @@ ul.single-carousel,
     padding: 50px 0;
 }
 .paddings-mini {
-    padding: 50px 0;
+    padding: 25px 0;
 }
 .padding-top {
     padding-top: 70px;
 }
 .padding-bottom {
-    padding-bottom: 100px;
+    padding-bottom: 80px;
 }
 .padding-bottom-mini {
     padding-bottom: 40px;
@@ -2563,9 +2563,9 @@ hr.separator:before {
     position: relative;
     text-align: center;
     border: solid #dedede 1px;
-    padding: 20px 12px 30px 12px;
+    padding: 8px 12px 25px 12px;
     margin-bottom: 40px;
-    min-height: 200px;
+    min-height: 170px;
 }
 #boxes-carousel .info-gallery {
     border-right: 0;
@@ -4080,6 +4080,7 @@ body {
 .hovereffect img {
     width: 100%;
     display: block;
+	height: 128px;
     position: relative;
     -webkit-transition: all .4s linear;
     transition: all .4s linear;
@@ -4374,7 +4375,7 @@ a .login-op-btn:hover {
     padding-top: 10px;
     position: fixed;
     left: 246px;
-    top: -20px;
+    top: -23px;
     z-index: 7;
 }
 .serch_bus_logo img {
@@ -5093,7 +5094,7 @@ h4 a:hover {
     border-radius: 8px;
 }
 .recentad_heig {
-    height: 359px;
+    height: 330px;
 	width: 100%;
 }
 .des_rec_heig {
@@ -5467,12 +5468,13 @@ td {
 .home_price {
     font-size: 30px !important;
     color: #E95413 !important;
-    min-height: 53px;
+    min-height: 44px;
+    line-height: 16px;
 }
 .job_price{
     font-size: 22px !important;
     color: #E95413 !important;
-    min-height: 53px;
+    min-height: 46px;
 }
 .active_filter {
     color: #E95413 !important;
@@ -6342,4 +6344,7 @@ radio i:focus {
 }
 .e-zone-size{
     font-size:18px !important;
+}
+#Feedback{
+	font-weight:normal !important;
 }
