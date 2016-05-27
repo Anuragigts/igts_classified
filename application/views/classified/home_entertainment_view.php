@@ -277,7 +277,7 @@ $others = $entertainsubcnt1->others;
 <div class="top_bar_top">
 <label class="input select">
 <select name="dealtitle_sort" class="dealtitle_sort">
-<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Title</option>
 <option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
 <option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 </select>
@@ -289,7 +289,7 @@ $others = $entertainsubcnt1->others;
 <div class="top_bar_top">
 <label class="input select">
 <select name="price_sort" class="price_sort">
-<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Pricing</option>
 <option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
 <option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 </select>
@@ -301,7 +301,7 @@ $others = $entertainsubcnt1->others;
 <div class="top_bar_top">
 <label class="input select">
 <select name="recentdays_sort" class="recentdays_sort">
-<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Posted On</option>
 <option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
 <option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
 <option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>

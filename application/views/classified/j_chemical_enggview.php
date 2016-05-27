@@ -273,7 +273,7 @@ $other = $sncnt->other;
 <div class="top_bar_top">
 <label class="input select">
 <select name="dealtitle_sort" class="dealtitle_sort">
-<option value="Any" <?php if($dealtitle == 'Any') echo 'selected';?> >Any</option>
+<option value="Any" <?php if($dealtitle == 'Any') echo 'selected';?> >Title</option>
 <option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected';?> >A to Z</option>
 <option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected';?> >Z to A</option>
 </select>
@@ -285,7 +285,7 @@ $other = $sncnt->other;
 <div class="top_bar_top">
 <label class="input select">
 <select name="recentdays_sort" class="recentdays_sort">
-<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Any(posted on)</option>
+<option value="Any" <?php if($recentdays == 'Any') echo 'selected = selected';?> >Posted On</option>
 <option value="last24hours" <?php if($recentdays == 'last24hours') echo 'selected = selected';?> >Last 24 Hours</option>
 <option value="last3days" <?php if($recentdays == 'last3days') echo 'selected = selected';?> >Last 3 Days</option>
 <option value="last7days" <?php if($recentdays == 'last7days') echo 'selected = selected';?> >Last 7 Days</option>

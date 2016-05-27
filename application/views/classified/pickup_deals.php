@@ -106,7 +106,7 @@ $dealprice = $this->session->userdata('dealprice');
 <div class="top_bar_top">
 <label class="input select">
 <select name="dealtitle_sort" class="dealtitle_sort">
-<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Any</option>
+<option value="Any" <?php if($dealtitle == 'Any') echo 'selected = selected';?> >Title</option>
 <option value="atoz" <?php if($dealtitle == 'atoz') echo 'selected = selected';?> >A to Z</option>
 <option value="ztoa" <?php if($dealtitle == 'ztoa') echo 'selected = selected';?> >Z to A</option>
 </select>
@@ -118,7 +118,7 @@ $dealprice = $this->session->userdata('dealprice');
 <div class="top_bar_top">
 <label class="input select">
 <select name="price_sort" class="price_sort">
-<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Any(Pricing)</option>
+<option value="Any" <?php if($dealprice == 'Any') echo 'selected = selected';?> >Pricing</option>
 <option value="lowtohigh" <?php if($dealprice == 'lowtohigh') echo 'selected = selected';?> >Low to High</option>
 <option value="hightolow" <?php if($dealprice == 'hightolow') echo 'selected = selected';?> >High to Low</option>
 </select>
