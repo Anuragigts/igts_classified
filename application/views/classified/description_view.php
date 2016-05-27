@@ -968,7 +968,7 @@
 													<img src="<?php echo base_url(); ?>img/icons/thumb.png" class="pull-right" alt="Thumb" title="Right Deal"></b>
 												</div>
 												<?php	 } ?>
-												<p><?php echo substr(strip_tags($b_ads->deal_desc),0,46); ?> </p>
+												
 												<?php if ($b_ads->category_id != '1') { ?>
 												<h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 												<?php }
