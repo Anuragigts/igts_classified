@@ -5206,7 +5206,7 @@ h4 a:hover {
     border-radius: 50px;
 	color: #fff;
     overflow: hidden;
-    padding: 11px 33px 12px 29px;
+    padding: 12px 29px 14px 18px;
     background-color: #e24a14;
 }
 .btn-4:active {
@@ -5236,7 +5236,7 @@ h4 a:hover {
     top: 0;
 }
 .btn-4a:hover:before {
-    left: 80%;
+    left: 86%;
 }
 .imp_tant {
     font-size: 17px;
