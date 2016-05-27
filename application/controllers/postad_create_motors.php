@@ -117,7 +117,7 @@ class Postad_create_motors extends CI_Controller{
 
         /*car model*/
         public function get_car_models(){
-            $cst     =   '<option value="none" selected disabled="">Select car model</option>';
+            $cst     =   '<option value="none" selected disabled="">Select Vehicle model</option>';
                $va      =   $this->postad_motor_model->car_models();
                foreach ($va as $st){
                         $cst    .=   '<option value='.$st->id.'>'.$st->car_model.'</option>';

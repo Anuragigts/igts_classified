@@ -728,19 +728,14 @@ Browse
 <?php if (@$sub_id == '19') { ?>
 <div class="j-row">
 <div class="span6 unit">
-<label class="label">Manufacture 
-<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
+<label class="label">Type of Boat 
+<sup data-toggle="tooltip" title="" data-original-title="Type of Boat ">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
 <div class="input">
-<label class="input select">
-<select name="manufacture" class='manufacture'>
-<option value="none" selected disabled="">Select manufacture</option>
-<?php foreach ($cars_list as $carval) { ?>
-<option value="<?php echo $carval['sub_subcategory_id']; ?>"><?php echo $carval['sub_subcategory_name']; ?></option>
-<?php } ?>
-</select>
+<label class="input">
+<input type="text" id="typeofBoat" name="typeofBoat" placeholder="Enter type of Boat" >
 <i></i>
 </label>
 </div>
@@ -761,16 +756,16 @@ Browse
 </div>
 <div class="j-row">
 <div class="span6 unit">
-<label class="label">Model 
-<sup data-toggle="tooltip" title="" data-original-title="Model ">
+<label class="label">Manufacturer 
+<sup data-toggle="tooltip" title="" data-original-title="Manufacturer">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
-<label class="input select">
-<select name="Model" class='car_model'>
-<option value="none" selected disabled="">Select Age</option>
-<option value="3months">Sample</option>
-</select>
+<label class="input">
+<label class="input">
+<input type="text" id="Manufacturer" name="Manufacturer" placeholder="Enter Manufacturer" >
+<i></i>
+</label>
 <i></i>
 </label>
 </div>
@@ -784,7 +779,7 @@ Browse
 <label class="icon-right" for="Colour">
 <img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
 </label>
-<input type="text" id="color" name="color" placeholder="Enter Colour">
+<input type="text" id="boatcolor" name="boatcolor" placeholder="Enter Boat Colour">
 </div>
 </div>
 </div>
@@ -1003,8 +998,12 @@ Browse
 <option value="3">3</option>
 <option value="4">4</option>
 <option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
+<option value="6-15">6-15</option>
+<option value="16-25">16-25</option>
+<option value="26-35">26-35</option>
+<option value="36-45">36-45</option>
+<option value="46-55">46-55</option>
+<option value="56-65">56-65</option>
 </select>
 <i></i>
 </label>
@@ -1125,8 +1124,8 @@ else{ ?>
 </label>
 <?php }
 else{ ?>
-<label class="label">Model 
-<sup data-toggle="tooltip" title="" data-original-title="Model ">
+<label class="label">Manufacture 
+<sup data-toggle="tooltip" title="" data-original-title="Manufacture ">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
@@ -1142,7 +1141,7 @@ else{ ?>
 </label>
 <?php }
 else{ ?>
-<input type="text" id="Model" name="plant_model" placeholder="Enter Model">
+<input type="text" id="Model" name="plant_model" placeholder="Enter Manufacture">
 <?php	} ?>
 
 

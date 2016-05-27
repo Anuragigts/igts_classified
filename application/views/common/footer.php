@@ -24,7 +24,7 @@ $(function(){$("#feedbackads").validate({rules:{fbkcontname:{required:!0,minleng
 <div class="modal dialog3" id="feedback_1" role="dialog">
 <div class="modal-dialog3">
 <script type="text/javascript">
-function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r>31&&(48>r||r>57)?!1:!0}$(function(){$("#site_feedback").validate({rules:{category:{required:!0},return_site:{required:!0},frnd_ref:{required:!0},fdbk_mail:{required:!0,email:!0},Feedback:{required:!0,minlength: 12,maxlength: 60},fdbk_mobile:{required:!0,minlength:11}},messages:{category:{required:"Please select category"},return_site:{required:"Please select option"},frnd_ref:{required:"Please select option"},fdbk_mail:{required:"Enter email id",email:"Please enter a valid email id"},Feedback:{required:"Enter feedback message",minlength: "Enter minimum 12 characters",maxlength: "Enter Less than 60 characters"},fdbk_mobile:{required:"Enter Mobile number",minlength:'Enter 11 digit Mobile Number'}},submitHandler:function(e){return!0}})});
+function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r>31&&(48>r||r>57)?!1:!0}$(function(){$("#site_feedback").validate({rules:{category:{required:!0},return_site:{required:!0},frnd_ref:{required:!0},fdbk_mail:{required:!0,email:!0},Feedback:{required:!0,minlength: 12,maxlength: 60},fdbk_mobile:{required:!0,minlength:11}},messages:{category:{required:"Please select a category"},return_site:{required:"Please select an option"},frnd_ref:{required:"Please select an option"},fdbk_mail:{required:"Please Enter your email id",email:"Please Enter a valid email id"},Feedback:{required:"Please Enter your feedback",minlength: "Enter minimum 12 characters",maxlength: "Enter Less than 60 characters"},fdbk_mobile:{required:"Please Enter Your Mobile number",minlength:'Enter 11 digit Mobile Number'}},submitHandler:function(e){return!0}})});
 </script>
 
 <form action="<?php echo base_url(); ?>classified/feedback_site" method="post" id='site_feedback' class="j-forms tooltip-hover" >
@@ -42,7 +42,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 								<label class="label">Which category are you most interested in ?</label>
 								<label class="input select">
 									<select name="category">
-										<option value="none" selected disabled="">Please select an option</option>
+										<option value="none" selected disabled="">Please select a Category</option>
 										<option value="1">Jobs</option>
 										<option value="2">Services</option>
 										<option value="3">Motor Point</option>

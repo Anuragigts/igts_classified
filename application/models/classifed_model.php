@@ -887,13 +887,11 @@ GROUP BY img.ad_id
 
 	/*motor boats*/
 	public function ads_detailed_boats(){
-		$this->db->select("(SELECT sub_subcategory_name FROM sub_subcategory sscat WHERE sscat.sub_subcategory_id = mb.manufacture) AS manufacture,
-		year,
-		(SELECT car_model FROM car_model AS cm WHERE cm.id = mb.model) AS model,
-		color,fueltype,condition");
+		$this->db->select("*");
 		$this->db->from("motor_boats AS mb");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
+		// echo $this->db->last_query(); exit;
 		return $res->result();
 	}
 
@@ -1012,7 +1010,7 @@ GROUP BY img.ad_id
 										<p>Contact Person : ".$this->input->post('fbkcontname')."</p>
 										<p>Contact mobile : ".$this->input->post('feedbackno')."</p>
 										<p>Contact email : ".$this->input->post('busemail')."</p>
-										<p style='word-break: break-all;'>Message : ".$this->input->post('feedbackmsg')."</p>
+										<p style='word-break: break-word;'>Message : ".$this->input->post('feedbackmsg')."</p>
 										<p>Best Wishes,</p>
 										<p>The <a href=''><strong style='color:#9FC955;'>99RightDeals </strong></a>Team</p>
 									</div>
@@ -1146,6 +1144,7 @@ GROUP BY img.ad_id
 		$this->db->where("((ads.package_type =2 OR ads.package_type = 5) OR (ads.package_type =3 OR ads.package_type = 6))");
 		$this->db->where("ads.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->where("(ads.category_id = $catid)");
+		$this->db->where("(ads.ad_id != '".$this->uri->segment(3)."')");
 		$this->db->group_by('img.ad_id');
 		$this->db->order_by('ads.approved_on', 'DESC');
 		$this->db->limit(10);

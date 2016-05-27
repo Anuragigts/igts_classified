@@ -661,7 +661,7 @@
 														minlength: "Enter atleast 3 characters"
 													},
 													feedbackmsg: {
-														required: "Please Enter feedback message",
+														required: "Please Enter Your Message",
 														minlength: "message contains atleast 60 characters"
 													},
 													busemail: {
@@ -882,7 +882,7 @@
 														</sup>
 													</label>
 													<div class="input">
-														<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea>
+														<textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Message"></textarea>
 													</div>
 												</div>
 												<div class="unit">													

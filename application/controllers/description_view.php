@@ -282,9 +282,9 @@ class Description_view extends CI_Controller{
                     foreach ($detailed_boats as $val) {
                     $body_content = array(
                                         'Type of Service'=>$value->services,
-                                        'Manufacture'=>$val->manufacture,
+                                        'Type of Boat'=>$val->manufacture,
                                         'Year'=>$val->year,
-                                        'Model'=>$val->model,
+                                        'Manufacture'=>$val->model,
                                         'Colour'=>$val->color,
                                         'Fuel Type'=>$val->fueltype,
                                         'Condition'=>$val->condition
@@ -313,7 +313,7 @@ class Description_view extends CI_Controller{
                         $body_content = array('Type of Service'=>$value->services,
                                             'Type of Farming Vehicle'=>$val->manufacture1,
                                             'Year'=>$val->reg_year,
-                                            'Model'=>$val->model,
+                                            'Manufacture'=>$val->model,
                                             'Colour'=>$val->color,
                                             'Condition'=>$val->condition
                                             );

@@ -78,7 +78,7 @@
 		$dealsresult1 = array_chunk($dealsresult, 10);
 		 foreach ($dealsresult1 as $sval1) {
 		 foreach ($sval1 as $sval) {
-		 	$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$sval->ad_id' AND status = 1 GROUP BY ad_id");
+		 	$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$sval->adid' AND status = 1 GROUP BY ad_id");
 		 	if (mysql_num_rows($qry) > 0) {
 		 		$no_ratings = mysql_result($qry,0,'no_ratings');
 		 		$rating_sum = mysql_result($qry,0,'rating_sum');
@@ -116,7 +116,7 @@
 					<div class="xuSlider">
 						<ul class="sliders">
 							<?php 
-								$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->ad_id'");
+								$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->adid'");
 								while ($res = mysql_fetch_object($pic)) { ?>
 							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
@@ -149,11 +149,11 @@
 								<div class="col-xs-10">
 									<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 								</div>
-								<?php if (in_array($sval->ad_id, $fav_list)) { ?>
+								<?php if (in_array($sval->adid, $fav_list)) { ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -162,8 +162,8 @@
 								<?php }else{ ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -269,7 +269,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -281,7 +281,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal"  id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
+									<a href="#" data-toggle="modal"  id="<?php echo $sval->adid; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 								</div>
 							</div>
 						</div>
@@ -298,7 +298,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -317,7 +317,7 @@
 					<div class="xuSlider">
 						<ul class="sliders">
 							<?php 
-								$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->ad_id'");
+								$pic = mysql_query("select * from ad_img WHERE ad_id = '$sval->adid'");
 								while ($res = mysql_fetch_object($pic)) { ?>
 							<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
 							<?php	
@@ -350,11 +350,11 @@
 								<div class="col-xs-10">
 									<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 								</div>
-								<?php if (in_array($sval->ad_id, $fav_list)) { ?>
+								<?php if (in_array($sval->adid, $fav_list)) { ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -363,8 +363,8 @@
 								<?php }else{ ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -470,7 +470,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -482,7 +482,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->adid; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 								</div>
 							</div>
 						</div>
@@ -498,7 +498,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -519,7 +519,7 @@
 					<?php } ?>
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
-						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
 						<div class="price11">
@@ -535,11 +535,11 @@
 								<div class="col-xs-10">
 									<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 								</div>
-								<?php if (in_array($sval->ad_id, $fav_list)) { ?>
+								<?php if (in_array($sval->adid, $fav_list)) { ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -548,8 +548,8 @@
 								<?php }else{ ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -655,7 +655,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -667,7 +667,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->adid; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 								</div>
 							</div>
 						</div>
@@ -684,7 +684,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -701,7 +701,7 @@
 				<div class="col-sm-4 ">
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
-						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
 						<div class="price11">
@@ -717,11 +717,11 @@
 								<div class="col-xs-10">
 									<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 								</div>
-								<?php if (in_array($sval->ad_id, $fav_list)) { ?>
+								<?php if (in_array($sval->adid, $fav_list)) { ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -730,8 +730,8 @@
 								<?php }else{ ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -837,7 +837,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -849,7 +849,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->adid; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 								</div>
 							</div>
 						</div>
@@ -866,7 +866,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -887,7 +887,7 @@
 					<?php } ?>
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
-						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
 				<div class="col-sm-8 middle_text">
@@ -897,11 +897,11 @@
 								<div class="col-xs-10">
 									<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 								</div>
-								<?php if (in_array($sval->ad_id, $fav_list)) { ?>
+								<?php if (in_array($sval->adid, $fav_list)) { ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -910,8 +910,8 @@
 								<?php }else{ ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1017,7 +1017,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -1029,7 +1029,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->adid; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 								</div>
 							</div>
 						</div>
@@ -1046,7 +1046,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>
@@ -1063,7 +1063,7 @@
 				<div class="col-sm-4 view_img">
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
-						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
 				<div class="col-sm-8 middle_text">
@@ -1073,11 +1073,11 @@
 								<div class="col-xs-10">
 									<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
 								</div>
-								<?php if (in_array($sval->ad_id, $fav_list)) { ?>
+								<?php if (in_array($sval->adid, $fav_list)) { ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> active_fav" title="Remove from Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1086,8 +1086,8 @@
 								<?php }else{ ?>
 								<div class="col-xs-2">
 									<div class="add-to-favourite-list pull-right">
-										<a href="javascript:void(0);" id='<?php echo $sval->ad_id; ?>' class="favourite_label">
-										<span class="fav<?php echo $sval->ad_id.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
+										<a href="javascript:void(0);" id='<?php echo $sval->adid; ?>' class="favourite_label">
+										<span class="fav<?php echo $sval->adid.$login; ?> inactive_fav" title="Add to Pickup Deals"></span>
 										<input type="hidden" name="login_id" id="login_id" value="<?php echo @$login; ?>" />
 										<input type='hidden' name="login_status" id="login_status" value="<?php echo @$login_status; ?>" />
 										</a>
@@ -1193,7 +1193,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?> </p>
 								</div>
 								<div class="col-xs-12">
-									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -1205,7 +1205,7 @@
 								</div>
 								<?php } ?>
 								<div class="col-xs-12">
-									<a href="#" data-toggle="modal" id="<?php echo $sval->ad_id; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
+									<a href="#" data-toggle="modal" id="<?php echo $sval->adid; ?>" data-target="#sendnow" class="send_now_show btn_v btn-4 btn-4a fa fa-arrow-right top_4"><span>Send Message</span></a>
 								</div>
 							</div>
 						</div>
@@ -1222,7 +1222,7 @@
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
 						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
-						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
+						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
 			</div>

@@ -254,10 +254,10 @@ class Postad_motor_model extends CI_Model{
                         /*motor_boats details*/
                         if ($this->input->post('sub_id') == '19') {
                             $motor_boats = array('ad_id' => $insert_id,
-                                            'manufacture' => $this->input->post('manufacture'),
+                                            'manufacture' => $this->input->post('typeofBoat'),
                                             'year' => $this->input->post('year_boat'),
-                                            'model'=>$this->input->post('Model'),
-                                            'color'=>$this->input->post('color'),
+                                            'model'=>$this->input->post('Manufacturer'),
+                                            'color'=>$this->input->post('boatcolor'),
                                             'fueltype'=>$this->input->post('FuelType'),
                                             'condition'=>$this->input->post('Condition')
                                 );

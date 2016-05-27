@@ -239,15 +239,15 @@ $softwarecnt = $ezone_sub1->software;
 <i></i> Urgent Deals (<?php echo $urgentcnt; ?>)
 </label>
 <label class="checkbox">
-<input type="checkbox" name="dealurgent[]" class="dealurgent" value="3" <?php if(isset($dealurgent) && in_array('3',$dealurgent)){ echo 'checked = checked';}?> >
+<input type="checkbox" name="dealurgent[]" class="dealurgent" value="6" <?php if(isset($dealurgent) && in_array('6',$dealurgent)){ echo 'checked = checked';}?> >
 <i></i> Significant Deals (<?php echo $platinumcnt; ?>)
 </label>
 <label class="checkbox">
-<input type="checkbox" name="dealurgent[]" class="dealurgent" value="2" <?php if(isset($dealurgent) && in_array('2',$dealurgent)){ echo 'checked = checked';}?> >
+<input type="checkbox" name="dealurgent[]" class="dealurgent" value="5" <?php if(isset($dealurgent) && in_array('5',$dealurgent)){ echo 'checked = checked';}?> >
 <i></i> Most Valued Deals (<?php echo $goldcnt; ?>)
 </label>
 <label class="checkbox">
-<input type="checkbox" name="dealurgent[]" class="dealurgent" value="1" <?php if(isset($dealurgent) && in_array('1',$dealurgent)){ echo 'checked = checked';}?> >
+<input type="checkbox" name="dealurgent[]" class="dealurgent" value="4" <?php if(isset($dealurgent) && in_array('4',$dealurgent)){ echo 'checked = checked';}?> >
 <i></i> Recent Deals (<?php echo $freecnt; ?>)
 </label>
 </div>

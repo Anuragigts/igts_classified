@@ -1058,7 +1058,7 @@ class hotdealsearch_model extends CI_Model{
 			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )';
 				}
 
-        		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
+        		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg, ad.ad_id as adid");
         		$this->db->from('postad AS ad');
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
@@ -1258,7 +1258,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 				$this->db->order_by("ad.approved_on", "DESC");
 				$m_res = $this->db->get();
-				// echo $this->db->last_query(); exit;
+				 // echo $this->db->last_query(); exit;
 				return $m_res->result();
 		}
 
@@ -1317,7 +1317,7 @@ class hotdealsearch_model extends CI_Model{
 					OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )';
 				}
 
-	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg");
+	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg, ad.ad_id as adid");
 				$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 				$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 				$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
