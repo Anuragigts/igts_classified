@@ -27,7 +27,7 @@
 @import url("slide/extralayers.css");
 @import url("../js/rs-plugin/css/settings.css");
 
-@font-face{font-family:Arvo;font-style:normal;font-weight:400;src:local('Arvo'),url('../font/J0GYVYTizO1mjpT3aOcSbQ.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
+@import url("https://fonts.googleapis.com/css?family=Arvo");
 
 .login_left {
     background-color: #5EC3A3;
@@ -407,7 +407,7 @@ iframe.video {
 }
 
 .titles {
-    margin: 25px auto;
+    margin: 15px auto;
     text-align: center;
     position: relative;
 }
@@ -454,7 +454,7 @@ iframe.video {
     color: rgba(255, 255, 255, 0.2);
 }
 hr.tall {
-    margin: 24px auto;
+    margin: 12px auto;
     border: 0;
     max-width: 90%;
     height: 1px;
@@ -1938,8 +1938,8 @@ hr.separator:before {
 }
 
 #footer {
-    margin-top: 60px;
-    padding-top: 150px;
+    margin-top: 85px;
+    padding-top: 100px;
     font-size: 0.8125rem;
     line-height: 20px;
 }
@@ -1951,7 +1951,7 @@ hr.separator:before {
 }
 #footer h3 {
     font-size: 18px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 #footer ul {
     margin: 0;
@@ -2239,8 +2239,8 @@ hr.separator:before {
 }
 
 .footer-down {
-    margin-top: 60px;
-     padding: 13px 0 14px 0;
+    margin-top: 35px;
+    padding: 13px 0 17px 0;
     background: rgba(0, 0, 0, 0.5);
 }
 .footer-down p {
@@ -3952,7 +3952,7 @@ address strong {
 }
 .login_padd {
     border: 2px solid rgb(159, 201, 85);
-    padding: 29px;
+    padding: 32px 23px 56px;
 }
 .star_valid {
     color: red;
@@ -4009,7 +4009,7 @@ body {
     overflow-y: scroll;
 }
 .modal-body .row div h4 {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 0.6;
 }
 .ezone_h3 div h3 {
@@ -4018,7 +4018,7 @@ body {
 }
 .recen_ad {
     border: 5px solid #417FB0;
-    padding: 15px;
+    padding: 10px;
 }
 .login_bor {
     border: 2px solid #9FC955;
@@ -6347,4 +6347,7 @@ radio i:focus {
 }
 #Feedback{
 	font-weight:normal !important;
+}
+.pound_sym{
+	padding-right:5px !important;
 }
