@@ -34,13 +34,6 @@
 				display: block;
 				cursor: pointer !important;
 			}
-			.jgallery[data-jgallery-id="1"] .jgallery-thumbnails a {
-				width: 100px !important;
-				height:60px;
-			}
-			.jgallery {
-				height:480px !important;
-			}
 			.owl-item{
 				width: 283px !important;
 			}
@@ -55,9 +48,10 @@
 		
 		<link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>unitegallery/jgallery.min.css" />
-		<script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/jgallery.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>unitegallery/touchswipe.js"></script>
+		<link href="<?php echo base_url(); ?>/unitegallery/thumbnail-slider.css" rel="stylesheet" type="text/css" />
+	    <link href="<?php echo base_url(); ?>/unitegallery/ninja-slider.css" rel="stylesheet" type="text/css" />
+	    <script src="<?php echo base_url(); ?>/unitegallery/thumbnail-slider.js" type="text/javascript"></script>
+	    <script src="<?php echo base_url(); ?>/unitegallery/ninja-slider.js" type="text/javascript"></script>
 		<link href="<?php echo base_url(); ?>src/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
 		
 		<script type="text/javascript">
@@ -404,20 +398,25 @@
 											</div>
 											
 											<div class="col-sm-12 col-xs-12">
-												<script type="text/javascript">
-													$( function() {
-														$( '#gallery').jGallery();
-													} );
-												</script>
-												<div id="gallery">
-													<div class="album" data-jgallery-album-title="Album 1">
-														<?php foreach ($ads_pics as $ads_pics_val) {
-															$busimg = $ads_pics_val->bus_logo;
-															?>
-														<a href="<?php echo base_url(); ?>pictures/<?php echo $ads_pics_val->img_name; ?>"><img src="<?php echo base_url(); ?>pictures/<?php echo $ads_pics_val->img_name; ?>" alt="Photo 1" /></a>
-														<?php }	 ?>
-													</div>
-												</div>
+												<div id='ninja-slider'>
+											        <div>
+											            <div class="slider-inner">
+											                <ul>
+											                    <li><a class="ns-img" href="<?php echo base_url(); ?>img/featured/cars.jpg"></a></li>
+											                </ul>
+											                <div class="fs-icon" title="Expand/Close"></div>
+											            </div>
+											            <div id="thumbnail-slider">
+											                <div class="inner">
+											                    <ul>
+											                        <li>
+											                            <a class="thumb" href="<?php echo base_url(); ?>img/featured/cars.jpg"></a>
+											                        </li>
+											                    </ul>
+											                </div>
+											            </div>
+											        </div>
+											    </div>
 											</div>
 											
 											<div class="col-sm-12 col-xs-12 top_20">
