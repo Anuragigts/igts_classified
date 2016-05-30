@@ -155,7 +155,6 @@
 	  margin: 20px auto;
 	}
 	.promotion-box{
-		max-width: 350px;
 		margin:0 auto 30px auto;
 	}
 	.info-testimonial{
@@ -442,6 +441,9 @@
 	.seach_btn {
 		width: 100%;
 	}
+	.modal-dialog3 {
+		padding-top: 140px;
+	}
 	.featured_badge_view {
 		right: 0px;
 	}
@@ -466,11 +468,6 @@
 	.portfolioFilter a {
 		margin: auto 6px;
 		padding-bottom: 0px;
-	}
-	.post_deal_bor {
-		border: 2px solid rgb(155, 147, 147);
-		width: 256px;
-		padding: 0px 6px 0px;
 	}
 	.selector1 select {
 		height: 50px;
@@ -501,9 +498,7 @@
 	.fa-bars{
 		color:#333;
 	}
-	.modal-dialog3 {
-		padding-top: 100px;
-	}
+	
 	.modal-dialog3 .j-forms .label {
 		font-size: 11px;
 	}
@@ -654,7 +649,13 @@
 	.significant_badge {
 		left: 236px;
 	}
-	
+	.modal-dialog {
+		width: 320px;
+		margin: 30px auto;
+	}
+	.modal-body{
+		padding:34px;
+	}
 }
 
 

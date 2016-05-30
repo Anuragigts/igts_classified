@@ -253,7 +253,7 @@ ul.single-carousel,
     padding-top: 70px;
 }
 .padding-bottom {
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .padding-bottom-mini {
     padding-bottom: 40px;
@@ -309,7 +309,7 @@ hr.tall {
 .promotion-box-info .list-styles li {
     font-weight: bold;
 }
-.list-styles li .fancybox {
+.list-styles li .exam_ple {
     color: #0DC5B2;
 }
 .list-styles li a,
@@ -1751,6 +1751,15 @@ hr.separator:before {
     line-height: 3.625rem;
     display: inline-block;
 }
+.promotion-box-center .view_example {
+    font-size:16px;
+    line-height: 3.625rem;
+	padding-right: 10px;
+    display: inline-block;
+}
+.promotion-box-center .view_example a{
+    color:#fff;
+}
 .promotion-box-center .percentage {
     font-size: 2.3rem;
     position: relative;
@@ -2564,7 +2573,7 @@ hr.separator:before {
     text-align: center;
     border: solid #dedede 1px;
     padding: 8px 12px 25px 12px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     min-height: 170px;
 }
 #boxes-carousel .info-gallery {
@@ -4343,7 +4352,7 @@ a .login-op-btn:hover {
 }
 .featured-badge {
     width: 136px;
-    height: 86px;
+    height: 44px;
     background: transparent url("../img/icons/reco.png") no-repeat;
     position: absolute;
     top: 0;
@@ -5536,7 +5545,7 @@ input[name="range"]::-webkit-slider-thumb:after {
 }
 
 .hotdeal_minheight {
-    min-height: 600px;
+    min-height: 630px;
 }
 
 .middle_ad {
@@ -5637,10 +5646,10 @@ img::-moz-selection {
     color: #fff;
 }
 .list-styles {
-    padding-left: 15px;
+    padding-left: 18px;
 }
 .list-styles li i {
-    margin-left: -20px;
+    margin-left: -24px;
 }
 
 .blog-item {
@@ -6357,3 +6366,12 @@ radio i:focus {
 	text-transform: uppercase;
 	font-size: 16px;
 }
+.modal_img img{
+	width:100%;
+}
+.modal_img p{
+	padding: 0px 0 10px;
+	margin: 0;
+}
+
+
