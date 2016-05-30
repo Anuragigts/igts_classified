@@ -132,3 +132,178 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 
 </div>
 </div>
+
+<div class="modal" id="recent_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Recent Deal Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<img src="<?php echo base_url(); ?>img/recentdeal.jpg" class="img-responsive" alt="Recent Deal">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="bump_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Bump Deal Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<p align="justify">At 99rightdeal a BUMB will take your ad back to the top top of the search results once again. When your ad as deal online since few days</p>
+						<p align="justify"> Bumping will definite that more buyers see your ad. So you have better chance of selling your item.</p>
+						<img src="<?php echo base_url(); ?>img/bumpdeal.jpg" class="img-responsive" alt="Bump Deal">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="gold_deal_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Gold Deal Highlight Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<img src="<?php echo base_url(); ?>img/golddeal.jpg" class="img-responsive" alt="Gold Deal Highlight">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="mostvalued_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Most Valued Deal Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<p align="justify"> This ad will highlight in search results which will draw buyers attention to it by having coloured background. So that it will give closer look at search results for potential buyer</p>
+						<p align="justify"> Initially it will be appear at home page most valued deals</p>
+						<p align="justify"> 5 * more Views and responses</p>
+						<p align="justify"> More people read and reply to this ad</p>
+						<img src="<?php echo base_url(); ?>img/mostvaluedeal.jpg" class="img-responsive" alt="Most Valued Deal">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="sign_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Significant Deal Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<p align="justify"> The Search results is where potential buyer will first see your item.Our Slide rotation will draw the buyer attention it will certainly stand out among all the other ad and draw the buyers attention to it.</p>
+						<p align="justify"> It will appear main page significant deal</p>
+						<p align="justify"> 9 * more Views and responses</p>
+						<p align="justify"> Number of people read and reply to this ad </p>
+						<img src="<?php echo base_url(); ?>img/significantdeal.jpg" class="img-responsive" alt="Significant Deal">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="slide_by_slide_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Slide By Slide Deal Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<img src="<?php echo base_url(); ?>img/slidebyslidedeal.jpg" class="img-responsive" alt="Slide By Slide Deal">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="youtube_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>You Tube Video Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<img src="<?php echo base_url(); ?>img/video.jpg" class="img-responsive" alt="You Tube Video">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="hot_deals_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Hot Deals Title Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<img src="<?php echo base_url(); ?>img/marqueedeal.jpg" class="img-responsive" alt="Hot Deals Title">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="urgent_label_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2>Urgent Label Example</h2>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12 modal_img">
+						<p align="justify"> Urgent label will indicate the buyer that you are eager to sell.</p>
+						<p align="justify"> This will attract potential Buyer to your ad</p>
+						<p align="justify"> 3 * more Views and responses</p>
+						<img src="<?php echo base_url(); ?>img/urgentlabeldeal.jpg" class="img-responsive" alt="Urgent Label">
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

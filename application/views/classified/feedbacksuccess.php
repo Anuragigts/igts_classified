@@ -31,7 +31,7 @@
 <img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 
-<div class="content_info">
+<div class="content_info hotdeal_minheight">
 <div class="paddings">
 
 <div class="container about_text">

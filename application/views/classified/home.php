@@ -262,7 +262,7 @@ else{
 <hr class="tall">
 </div>
 <div class="row">
-<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
 <div class="overlay">
@@ -271,7 +271,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/ezone.jpg" alt="electronics in the uk " title="ezone Category">
 <div class="overlay">
@@ -280,7 +280,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/cars.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
 <div class="overlay">
@@ -289,7 +289,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/clothing.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
 <div class="overlay">
@@ -298,7 +298,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/services.jpg" alt="free services ads" title="Services Category">
 <div class="overlay">
@@ -307,7 +307,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/property.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
 <div class="overlay">
@@ -316,7 +316,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/kitchen.jpg" alt="home cleaning services" title="Home & Kitchen Category">
 <div class="overlay">
@@ -325,7 +325,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/pets.jpg" alt="free online pet ads" title="Pets Category">
 <div class="overlay">
@@ -334,7 +334,7 @@ else{
 </div>
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
 <img class="img-responsive" src="img/featured/jobs.jpg"  alt="classified jobs ads" title="Jobs Category">
 <div class="overlay">

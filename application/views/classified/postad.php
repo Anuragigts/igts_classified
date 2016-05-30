@@ -12,7 +12,7 @@
 <!-- xxx End xxx -->
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/postadpagestyles.css" />
 
 </head>
 
@@ -83,7 +83,7 @@
 <div class="row ezone_h3 mod_pad">
 <div class="col-md-12 post_deal_bor">
 <div class="row">
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Phones & Tablets</h3>
 <?php foreach ($ezone_phones as $ezone_phones_val) { ?>
 <h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
@@ -99,7 +99,7 @@
 <a href="javascript:void(0);" class="ezone_detail" id='62,0,0'><h3 class='e-zone-size'>Laptops & Computers</h3></a>
 <a href="javascript:void(0);" class="ezone_detail" id='70,0,0'><h3 class='e-zone-size'>Computer peripherals</h3></a>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Home Appliances</h3>
 <?php foreach ($ezone_home as $ezone_home_val) { ?>
 <h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
@@ -107,13 +107,13 @@
 <a href="javascript:void(0);" class="ezone_detail" id='71,0,0'><h3 class='e-zone-size'>Network components</h3></a>
 <a href="javascript:void(0);" class="ezone_detail" id='72,0,0'><h3 class='e-zone-size'>Softwares</h3></a>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Small Appliances</h3>
 <?php foreach ($ezone_small as $ezone_small_val) { ?>
 <h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Accessories</h3>
 <?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
 <h4><a href="javascript:void(0);" class="ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>
@@ -157,7 +157,7 @@
 <div class="row ezone_h3 ">
 <div class='col-md-12 post_deal_bor'>
 <div class="row">
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>
 <input type='hidden' name='motor_cat' id='motor_cat' value='3' />
 <input type='hidden' name='motor_sub' id='motor_sub' value='' />
@@ -166,32 +166,32 @@
 <a href="javascript:void(0);" id="12,0,0" class="cars_cars">Cars</a>
 </h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3><a href="javascript:void(0);" id="13,0,0" class="bike_scooters">
 Bikes & Scooters</a>
 </h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>
 <a href="javascript:void(0);" id="17,0,0" class="motor_plant_machinery">
 Plant Machinery</a>
 </h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3><a href="javascript:void(0);" id="15,0,0" class="motor_vans_trucks">Vans, Trucks & SUV's</a></h3>
 </div>
 </div>
 <div class="row">
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3><a href="javascript:void(0);" id="16,0,0" class="motor_coach_bus">Coaches & Busses</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3><a href="javascript:void(0);" id="14,0,0" class="motor_caravans">Motorhomes & Caravans</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3><a href="javascript:void(0);" id="18,0,0" class="motor_farming">Farming Vehicles</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3><a href="javascript:void(0);" id="19,0,0" class="motor_boats">Boats</a></h3>
 </div>
 </div>
@@ -227,9 +227,9 @@ Plant Machinery</a>
 <form method='post' id='cloths_form' action="<?php echo base_url(); ?>postad_create_cloths">
 <div class="modal-body">
 <div class="row">
-<div class="col-md-12 post_deal_bor">
+<div class="col-md-12 col-sm-12 post_deal_bor">
 <div class="row">
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <input type='hidden' name='cloths_cat' id='cloths_cat' value='6' />
 <input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
 <input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
@@ -238,13 +238,13 @@ Plant Machinery</a>
 <h4><a id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" class="cloths_women"  href="javascript:void(0);"  ><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Men</h3>
 <?php foreach ($cloths_men as $c_men) { ?>
 <h4><a id="<?php echo  $c_men['sub_category_id'].','.$c_men['sub_subcategory_id']; ?>" class="cloths_men"  href="javascript:void(0);"  ><?php echo $c_men['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Boy</h3>
 <?php foreach ($cloths_boy as $c_boy) { ?>
 <h4><a id="<?php echo  $c_boy['sub_category_id'].','.$c_boy['sub_subcategory_id']; ?>" class="cloths_boy"  href="javascript:void(0);"  ><?php echo $c_boy['sub_subcategory_name']; ?></a></h4>
@@ -252,19 +252,19 @@ Plant Machinery</a>
 </div>
 </div>
 <div class="row">
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Girls</h3>
 <?php foreach ($cloths_girls as $c_girl) { ?>
 <h4><a id="<?php echo  $c_girl['sub_category_id'].','.$c_girl['sub_subcategory_id']; ?>" class="cloths_girl"  href="javascript:void(0);"  ><?php echo $c_girl['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Baby Boy</h3>
 <?php foreach ($cloths_baby_boy as $c_bboy) { ?>
 <h4><a id="<?php echo  $c_bboy['sub_category_id'].','.$c_bboy['sub_subcategory_id']; ?>" class="cloths_bboy"  href="javascript:void(0);"  ><?php echo $c_bboy['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Baby Girl</h3>
 <?php foreach ($cloths_baby_girl as $c_bgirl) { ?>
 <h4><a id="<?php echo  $c_bgirl['sub_category_id'].','.$c_bgirl['sub_subcategory_id']; ?>" class="cloths_bgirl"  href="javascript:void(0);"  ><?php echo $c_bgirl['sub_subcategory_name']; ?></a></h4>
@@ -304,7 +304,7 @@ Plant Machinery</a>
 <div class="row">
 <div class="col-md-12 post_deal_bor">
 <div class="row">
-<div class="col-md-6 clearfix">
+<div class="col-md-6 col-sm-6 clearfix">
 <h3>Professional
 <input type='hidden' name='services_cat' id='services_cat' value='2' />
 <input type='hidden' name='services_sub' id='services_sub' value='' />
@@ -314,7 +314,7 @@ Plant Machinery</a>
 <h4><a href="javascript:void(0)" id="<?php echo  $serv_prof['sub_category_id'].','.$serv_prof['sub_subcategory_id']; ?>" class='service_prof'><?php echo ucfirst($serv_prof['sub_subcategory_name']); ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-6 clearfix">
 <h3>Popular</h3>
 <?php foreach ($services_sub_pop as $serv_pop) { ?>
 <h4><a href="javascript:void(0)" id="<?php echo  $serv_pop['sub_category_id'].','.$serv_pop['sub_subcategory_id']; ?>" class='service_pop'><?php echo ucfirst($serv_pop['sub_subcategory_name']); ?></a></h4>
@@ -405,19 +405,19 @@ Plant Machinery</a>
 <div class="row">
 <div class="col-md-12 post_deal_bor">
 <div class="row">
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Kitchen Essentials</h3>
 <?php foreach ($kitchen_essentials as $kitchen_essentials_val) { ?>
 <h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_essentials_val['sub_category_id'].','.$kitchen_essentials_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_essentials_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Home Essentials</h3>
 <?php foreach ($kitchen_home as $kitchen_home_val) { ?>
 <h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_home_val['sub_category_id'].','.$kitchen_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_home_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Decor</h3>
 <?php foreach ($kitchen_decor as $kitchen_decor_val) { ?>
 <h4><a href="javascript:void(0);" class="kitchen_detail" id="<?php echo  $kitchen_decor_val['sub_category_id'].','.$kitchen_decor_val['sub_subcategory_id'].',0'; ?>" ><?php echo $kitchen_decor_val['sub_subcategory_name']; ?></a></h4>
@@ -457,7 +457,7 @@ Plant Machinery</a>
 <div class="row">
 <div class="col-md-12 post_deal_bor">
 <div class="row">
-<div class="col-md-2 clearfix">
+<div class="col-md-2 col-sm-4 clearfix">
 <input type='hidden' name='pets_cat' id='pets_cat' value='5' />
 <input type='hidden' name='pets_sub' id='pets_sub' value='' />
 <input type='hidden' name='pets_sub_sub' id='pets_sub_sub' value='' />
@@ -465,19 +465,19 @@ Plant Machinery</a>
 <h3><a id="<?php echo $p_sub['sub_category_id']; ?>" href="javascript:void(0);" class="pets_others"  ><?php echo ucfirst($p_sub['sub_category_name']); ?></a></h3>
 <?php	} ?>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3>Big Animals</h3>
 <?php foreach ($pets_big_animal as $p_animal) { ?>
 <h4><a class="pets_big" id="<?php echo  $p_animal['sub_category_id'].','.$p_animal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_animal['sub_subcategory_name']); ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3>Small Animals</h3>
 <?php foreach ($pets_small_animal as $p_sanimal) { ?>
 <h4><a class="pets_small" id="<?php echo  $p_sanimal['sub_category_id'].','.$p_sanimal['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_sanimal['sub_subcategory_name']); ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Pet Accessories</h3>
 <?php foreach ($pets_accessories as $p_accessories) { ?>
 <h4><a class="pets_accessories" id="<?php echo  $p_accessories['sub_category_id'].','.$p_accessories['sub_subcategory_id']; ?>" href="javascript:void(0);"><?php echo ucfirst($p_accessories['sub_subcategory_name']); ?></a></h4>
@@ -521,7 +521,7 @@ Plant Machinery</a>
 <input type='hidden' name='jobs_sub' id='jobs_sub' value='' />
 <input type='hidden' name='jobs_sub_sub' id='jobs_sub_sub' value='' />
 <?php foreach ($jobs as $j_val) { ?>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h4><a href="javascript:void(0)" class='job_detail' id='<?php echo $j_val['sub_category_id'].",0"; ?>' ><?php echo $j_val['sub_category_name']; ?></a></h4>
 </div>
 <?php } ?>

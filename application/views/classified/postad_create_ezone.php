@@ -832,7 +832,7 @@ Free
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $free_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $freepck_img; ?> Images</li>
-<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="<?php echo base_url(); ?>img/free.png" class="fancybox"><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="" class='exam_ple' data-toggle='modal' data-target='#recent_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i>Deal will be HOT Deal with <?php echo $free_likes; ?> Likes </li>
 <li class="text_center"> <br> </li>
 <li class="text_center"><br></li>
@@ -872,9 +872,9 @@ Gold
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $gold_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $goldpck_img; ?> Images</li>
-<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result</li>
-<li><i class="fa fa-check"></i> Deal will Highlight in search result</li>
-<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result <a href="" class='exam_ple' data-toggle='modal' data-target='#bump_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Deal will Highlight in search result <a href="" class='exam_ple' data-toggle='modal' data-target='#gold_deal_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="" class='exam_ple' data-toggle='modal' data-target='#mostvalued_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Deal will be HOT Deals with <?php echo $gold_likes; ?> Likes</li>
 <li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
 <li class="text_center"> <br> </li>
@@ -914,11 +914,11 @@ Platinum
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $ptm_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $ptmpck_img; ?> Images</li>
-<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result</li>
-<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days<a href="<?php echo base_url(); ?>img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
-<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result</li>
-<li><i class="fa fa-check"></i> Youtube Video can provide </li>
-<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result <a href="" class='exam_ple' data-toggle='modal' data-target='#bump_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days <a href="" class='exam_ple' data-toggle='modal' data-target='#sign_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result <a href="" class='exam_ple' data-toggle='modal' data-target='#slide_by_slide_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Youtube Video can provide <a href="" class='exam_ple' data-toggle='modal' data-target='#youtube_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="" class='exam_ple' data-toggle='modal' data-target='#hot_deals_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Crown symbol will attach  </li>
 <li><i class="fa fa-check"></i> Deal will automatically in HOT Deals</li>
 <div class="platinum_bg text_center free_pound" style="display:none;">
@@ -952,6 +952,9 @@ Select Platinum
 <div class="promotion-box-center color-2">
 <div class="prince">
 URGENT LABLE 
+</div>
+<div class="pull-right view_example">
+<a href="" class='exam_ple' data-toggle='modal' data-target='#urgent_label_modal'> View Example</a>
 </div>
 </div>
 
@@ -1502,7 +1505,7 @@ $(document).ready(function(){$("#postalcode").autocomplete({source:"<?php echo b
 <div class="row ezone_h3 mod_pad">
 <div class="col-md-12 post_deal_bor">
 <div class="row">
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Phones & Tablets</h3>
 <?php foreach ($ezone_phones as $ezone_phones_val) { ?>
 <h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_phones_val['sub_category_id'].','.$ezone_phones_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_phones_val['sub_subcategory_name']; ?></a></h4>
@@ -1518,7 +1521,7 @@ $(document).ready(function(){$("#postalcode").autocomplete({source:"<?php echo b
 <a href="javascript:void(0);" class="edit_ezone_detail" id='62,0,0'><h3 class='e-zone-size'>Laptops & Computers</h3></a>
 <a href="javascript:void(0);" class="edit_ezone_detail" id='70,0,0'><h3 class='e-zone-size'>Computer peripherals</h3></a>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Home Appliances</h3>
 <?php foreach ($ezone_home as $ezone_home_val) { ?>
 <h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_home_val['sub_category_id'].','.$ezone_home_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_home_val['sub_subcategory_name']; ?></a></h4>
@@ -1528,13 +1531,13 @@ $(document).ready(function(){$("#postalcode").autocomplete({source:"<?php echo b
 <a href="javascript:void(0);" class="edit_ezone_detail" id='72,0,0'><h3 class='e-zone-size'>Softwares</h3></a>
 
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Small Appliances</h3>
 <?php foreach ($ezone_small as $ezone_small_val) { ?>
 <h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_small_val['sub_category_id'].','.$ezone_small_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_small_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-6 clearfix">
 <h3>Accessories</h3>
 <?php foreach ($ezone_accesories as $ezone_accesories_val) { ?>
 <h4><a href="javascript:void(0);" class="edit_ezone_detail" id="<?php echo  $ezone_accesories_val['sub_category_id'].','.$ezone_accesories_val['sub_subcategory_id'].',0'; ?>" ><?php echo $ezone_accesories_val['sub_subcategory_name']; ?></a></h4>

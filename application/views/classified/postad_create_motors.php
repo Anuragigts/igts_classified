@@ -1291,7 +1291,7 @@ Free
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $free_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $freepck_img; ?> Images</li>
-<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="<?php echo base_url(); ?>img/free.png" class="fancybox"><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="" class='exam_ple' data-toggle='modal' data-target='#recent_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i>Deal will be HOT Deal with <?php echo $free_likes; ?> Likes </li>
 <li class="text_center"> <br> </li>
 <li class="text_center"><br></li>
@@ -1332,10 +1332,10 @@ Gold
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $gold_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $goldpck_img; ?> Images</li>
-<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result</li>
-<li><i class="fa fa-check"></i> Deal will Highlight in search result</li>
+<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result <a href="" class='exam_ple' data-toggle='modal' data-target='#bump_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Deal will Highlight in search result <a href="" class='exam_ple' data-toggle='modal' data-target='#gold_deal_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Deal will be HOT Deals with <?php echo $gold_likes; ?> Likes</li>
-<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="" class='exam_ple' data-toggle='modal' data-target='#mostvalued_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
 <li class="text_center"> <br> </li>
 <li class="text_center"> <br> </li>
@@ -1373,11 +1373,11 @@ Platinum
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $ptm_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $ptmpck_img; ?> Images</li>
-<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result</li>
-<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days<a href="<?php echo base_url(); ?>img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
-<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result</li>
-<li><i class="fa fa-check"></i> Youtube Video can provide </li>
-<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="<?php echo base_url(); ?>img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result <a href="" class='exam_ple' data-toggle='modal' data-target='#bump_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days <a href="" class='exam_ple' data-toggle='modal' data-target='#sign_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result <a href="" class='exam_ple' data-toggle='modal' data-target='#slide_by_slide_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Youtube Video can provide <a href="" class='exam_ple' data-toggle='modal' data-target='#youtube_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="" class='exam_ple' data-toggle='modal' data-target='#hot_deals_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Crown symbol will attach  </li>
 <li><i class="fa fa-check"></i> Deal will automatically in HOT Deals</li>
 <div class="platinum_bg text_center free_pound" style="display:none;">
@@ -1414,6 +1414,9 @@ Select Platinum
 <div class="promotion-box-center color-2">
 <div class="prince">
 URGENT LABLE 
+</div>
+<div class="pull-right view_example">
+<a href="" class='exam_ple' data-toggle='modal' data-target='#urgent_label_modal'> View Example</a>
 </div>
 </div>
 <div class="j-row">
@@ -1942,7 +1945,7 @@ $(document).ready(function(){$("#postalcode").autocomplete({source:"<?php echo b
 <div class="row ezone_h3 ">
 <div class='col-md-12 post_deal_bor'>
 <div class="row">
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3>
 <input type='hidden' name='motor_cat' id='motor_cat' value='3' />
 <input type='hidden' name='motor_sub' id='motor_sub' value='' />
@@ -1951,30 +1954,30 @@ $(document).ready(function(){$("#postalcode").autocomplete({source:"<?php echo b
 <a href="javascript:void(0);" id="12,0,0" class="edit_cars_cars">Cars</a>
 </h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="13,0,0" class="edit_bike_scooters">
 Bikes & Scooters</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3>
 <a href="javascript:void(0);" id="17,0,0" class="edit_plant_machinery">
 Plant Machinery</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="15,0,0" class="edit_motor_vans_trucks">Vans, Trucks & SUV's</a></h3>
 </div>
 </div>
 <div class="row">
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="16,0,0" class="edit_motor_coach_bus">Coaches & Busses</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="14,0,0" class="edit_motor_caravans">Motorhomes & Caravans</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="18,0,0" class="edit_motor_farming">Farming Vehicles</a></h3>
 </div>
-<div class="col-md-3 clearfix">
+<div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="19,0,0" class="edit_motor_boats">Boats</a></h3>
 </div>
 </div>

@@ -982,7 +982,7 @@ Free
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $free_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $freepck_img; ?> Images</li>
-<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="img/free.png" class="fancybox"><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i>Initially displayed in recent ads on Homepage <a href="" class='exam_ple' data-toggle='modal' data-target='#recent_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i>Deal will be HOT Deal with <?php echo $free_likes; ?> Likes </li>
 <li class="text_center"> <br> </li>
 <li class="text_center"><br></li>
@@ -1023,9 +1023,9 @@ Gold
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $gold_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $goldpck_img; ?> Images</li>
-<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result</li>
-<li><i class="fa fa-check"></i> Deal will Highlight in search result</li>
-<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="img/gold.png" class="fancybox"><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Bump up to <?php echo $gold_bump_search; ?>days in result <a href="" class='exam_ple' data-toggle='modal' data-target='#bump_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Deal will Highlight in search result <a href="" class='exam_ple' data-toggle='modal' data-target='#gold_deal_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Displayed at Most valued deals on Home Page <a href="" class='exam_ple' data-toggle='modal' data-target='#mostvalued_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Deal will be HOT Deals with <?php echo $gold_likes; ?> Likes</li>
 <li><i class="fa fa-check"></i> Thumps Up  Symbol will attach</li>
 <li class="text_center"> <br> </li>
@@ -1064,11 +1064,11 @@ Platinum
 <ul class="list-styles">
 <li><i class="fa fa-check"></i> Validity : <?php echo $ptm_duration; ?> days</li>
 <li><i class="fa fa-check"></i> Up to <?php echo $ptmpck_img; ?> Images</li>
-<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result</li>
-<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days<a href="<?php echo base_url(); ?>img/platinum.png" class="fancybox"><strong>Example</strong></a></li>
-<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result</li>
-<li><i class="fa fa-check"></i> Youtube Video can provide </li>
-<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="img/marqueimg.png" class="fancybox"> <strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Bump up to <?php echo $ptm_bump_search; ?>days in result <a href="" class='exam_ple' data-toggle='modal' data-target='#bump_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Ad will display on Homepage Significant Ads for <?php echo $ptm_bump_home; ?> days <a href="" class='exam_ple' data-toggle='modal' data-target='#sign_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Image will be display as Slide by Slide in Result <a href="" class='exam_ple' data-toggle='modal' data-target='#slide_by_slide_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Youtube Video can provide <a href="" class='exam_ple' data-toggle='modal' data-target='#youtube_modal'><strong>Example</strong></a></li>
+<li><i class="fa fa-check"></i> Title displayed in Hot deals Marquee <a href="" class='exam_ple' data-toggle='modal' data-target='#hot_deals_modal'><strong>Example</strong></a></li>
 <li><i class="fa fa-check"></i> Crown symbol will attach  </li>
 <li><i class="fa fa-check"></i> Deal will automatically in HOT Deals</li>
 <div class="platinum_bg text_center free_pound" style="display:none;">
@@ -1104,6 +1104,9 @@ Select Platinum
 <div class="promotion-box-center color-2">
 <div class="prince">
 URGENT LABLE 
+</div>
+<div class="pull-right view_example">
+<a href="" class='exam_ple' data-toggle='modal' data-target='#urgent_label_modal'> View Example</a>
 </div>
 </div>
 <div class="j-row">
@@ -1649,7 +1652,7 @@ noResults:'No Data Found'
 <div class="row">
 <div class="col-md-10 col-md-offset-1 post_deal_bor">
 <div class="row">
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <input type='hidden' name='cloths_cat' id='cloths_cat' value='6' />
 <input type='hidden' name='cloths_sub' id='cloths_sub' value='' />
 <input type='hidden' name='cloths_sub_sub' id='cloths_sub_sub' value='' />
@@ -1658,13 +1661,13 @@ noResults:'No Data Found'
 <h4><a id="<?php echo  $c_val['sub_category_id'].','.$c_val['sub_subcategory_id']; ?>" class="edit_cloths_women"  href="javascript:void(0);"  ><?php echo $c_val['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Men</h3>
 <?php foreach ($cloths_men as $c_men) { ?>
 <h4><a id="<?php echo  $c_men['sub_category_id'].','.$c_men['sub_subcategory_id']; ?>" class="edit_cloths_men"  href="javascript:void(0);"  ><?php echo $c_men['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Boy</h3>
 <?php foreach ($cloths_boy as $c_boy) { ?>
 <h4><a id="<?php echo  $c_boy['sub_category_id'].','.$c_boy['sub_subcategory_id']; ?>" class="edit_cloths_boy"  href="javascript:void(0);"  ><?php echo $c_boy['sub_subcategory_name']; ?></a></h4>
@@ -1672,19 +1675,19 @@ noResults:'No Data Found'
 </div>
 </div>
 <div class="row">
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Girls</h3>
 <?php foreach ($cloths_girls as $c_girl) { ?>
 <h4><a id="<?php echo  $c_girl['sub_category_id'].','.$c_girl['sub_subcategory_id']; ?>" class="edit_cloths_girl"  href="javascript:void(0);"  ><?php echo $c_girl['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Baby Boy</h3>
 <?php foreach ($cloths_baby_boy as $c_bboy) { ?>
 <h4><a id="<?php echo  $c_bboy['sub_category_id'].','.$c_bboy['sub_subcategory_id']; ?>" class="edit_cloths_bboy"  href="javascript:void(0);"  ><?php echo $c_bboy['sub_subcategory_name']; ?></a></h4>
 <?php	} ?>
 </div>
-<div class="col-md-4 clearfix">
+<div class="col-md-4 col-sm-4 clearfix">
 <h3>Baby Girl</h3>
 <?php foreach ($cloths_baby_girl as $c_bgirl) { ?>
 <h4><a id="<?php echo  $c_bgirl['sub_category_id'].','.$c_bgirl['sub_subcategory_id']; ?>" class="edit_cloths_bgirl"  href="javascript:void(0);"  ><?php echo $c_bgirl['sub_subcategory_name']; ?></a></h4>
