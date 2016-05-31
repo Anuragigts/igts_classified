@@ -291,7 +291,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<a href="javascript:window.history.go(-2);"><i class="fa fa-mail-reply-all fa-2x"></i></a>
+									<a href="javascript:window.history.go(-1);"><i class="fa fa-mail-reply-all fa-2x"></i></a>
 								</div>
 							</div>
 							<div class="row">
@@ -406,7 +406,9 @@
 											<div class="col-sm-12 col-xs-12">
 												<script type="text/javascript">
 													$( function() {
-														$( '#gallery').jGallery();
+														$( '#gallery' ).jGallery( {
+													        browserHistory: false
+													    } );
 													} );
 												</script>
 												<div id="gallery">

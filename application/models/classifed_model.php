@@ -5,7 +5,7 @@ Class Classifed_model extends CI_model{
 
 	/*marquee title*/
 	public function marquee(){
-		$this->db->select("pads.marquee, ad.ad_id");
+		$this->db->select("pads.marquee, ad.ad_id, ad.deal_tag");
 		$this->db->from("postad as ad");
 		$this->db->join("platinum_ads as pads", "pads.ad_id = ad.ad_id","join");
 		$this->db->where('ad.ad_status', 1);
@@ -889,6 +889,15 @@ GROUP BY img.ad_id
 	public function ads_detailed_boats(){
 		$this->db->select("*");
 		$this->db->from("motor_boats AS mb");
+		$this->db->where('ad_id', $this->uri->segment(3));
+		$res = $this->db->get();
+		// echo $this->db->last_query(); exit;
+		return $res->result();
+	}
+	/*motor accessories*/
+	public function ads_detailed_accessories(){
+		$this->db->select("*");
+		$this->db->from("motor_accessories AS ma");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$res = $this->db->get();
 		// echo $this->db->last_query(); exit;

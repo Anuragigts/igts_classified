@@ -25,7 +25,7 @@ class Description_view extends CI_Controller{
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }
-        public function details($id){
+        public function details($id,$title){
             /*$query = $this->db->get_where('postad', array('ad_id' => $id), 1);
             echo $slug = url_title($query->row('deal_tag'), 'dash', true);*/
             /*without logi*/
@@ -288,6 +288,17 @@ class Description_view extends CI_Controller{
                                         'Colour'=>$val->color,
                                         'Fuel Type'=>$val->fueltype,
                                         'Condition'=>$val->condition
+                                        );
+                                    }       
+                    }
+                    /*accessories*/
+                    if ($value->sub_cat_id == '73') {
+                $detailed_accessories = $this->classifed_model->ads_detailed_accessories();  
+                    foreach ($detailed_accessories as $val) {
+                    $body_content = array('Manufacture'=>$val->manufacture,
+                                        'Model'=>$val->model,
+                                        'Part Type'=>$val->part_type,
+                                        'Year'=>$val->year,
                                         );
                                     }       
                     }

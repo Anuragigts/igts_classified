@@ -195,6 +195,11 @@ Plant Machinery</a>
 <h3><a href="javascript:void(0);" id="19,0,0" class="motor_boats">Boats</a></h3>
 </div>
 </div>
+<div class='row'>
+<div class="col-md-3 clearfix">
+<h3><a href="javascript:void(0);" id="73,0,0" class="motor_accessories">Accessories</a></h3>
+</div>
+</div>
 </div>
 </div>
 </div>

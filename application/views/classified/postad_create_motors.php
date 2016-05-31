@@ -819,6 +819,60 @@ Browse
 
 <?php } ?>
 
+<?php if (@$sub_id == '73') { ?>
+<div class="j-row">
+<div class="span6 unit">
+<label class="label">Manufacture 
+<sup data-toggle="tooltip" title="" data-original-title="Manufacture">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<label class="input">
+<input type="text" id="access_Manufacture" name="access_Manufacture" placeholder="Enter Manufacture" >
+<i></i>
+</label>
+</div>
+</div>
+<div class="span6 unit">
+<label class="label">Model
+<sup data-toggle="tooltip" title="" data-original-title="Model">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<input type="text" id="access_model" name="access_model" placeholder="Enter Model" onkeypress="return isNumber(event)">
+</div>
+</div>
+</div>
+<div class="j-row">
+<div class="span6 unit">
+<label class="label">Part Type 
+<sup data-toggle="tooltip" title="" data-original-title="Part Type">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<label class="input">
+<label class="input">
+<input type="text" id="access_type" name="access_type" placeholder="Enter Part Type" >
+<i></i>
+</label>
+<i></i>
+</label>
+</div>
+<div class="span6 unit">
+<label class="label">Year
+<sup data-toggle="tooltip" title="" data-original-title="Year">
+<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+</sup>
+</label>
+<div class="input">
+<input type="text" id="access_year" name="access_year" placeholder="Enter Year">
+</div>
+</div>
+</div>
+<?php } ?>
+
 <?php if (@$sub_id == '14') { ?>
 <div class="j-row">
 <div class="span6 unit">
@@ -1979,6 +2033,11 @@ Plant Machinery</a></h3>
 </div>
 <div class="col-md-3 col-sm-4 clearfix">
 <h3><a href="javascript:void(0);" id="19,0,0" class="edit_motor_boats">Boats</a></h3>
+</div>
+</div>
+<div class='row'>
+<div class="col-md-3 clearfix">
+<h3><a href="javascript:void(0);" id="73,0,0" class="edit_motor_accessories">Accessories</a></h3>
 </div>
 </div>
 </div>

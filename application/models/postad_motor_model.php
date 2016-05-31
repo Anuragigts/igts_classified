@@ -264,6 +264,17 @@ class Postad_motor_model extends CI_Model{
                         $this->db->insert("motor_boats", $motor_boats);
                         }
 
+                        /*motor accessories details*/
+                        if ($this->input->post('sub_id') == '73') {
+                            $motor_accessories = array('ad_id' => $insert_id,
+                                                        'manufacture' => $this->input->post('access_Manufacture'),
+                                                        'model' => $this->input->post('access_model'),
+                                                        'part_type'=>$this->input->post('access_type'),
+                                                        'year'=>$this->input->post('access_year')
+                                );
+                        $this->db->insert("motor_accessories", $motor_accessories);
+                        }
+
                         /*Campervans and Motor homes details*/
                         if ($this->input->post('sub_id') == '14') {
                             $motor_homes = array('ad_id' => $insert_id,

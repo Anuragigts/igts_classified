@@ -123,6 +123,8 @@ class Deal_page extends CI_Controller{
             }
             if($this->input->get('business_type')){
                  $this->session->set_userdata('bus_id',$this->input->get('business_type'));
+            }else{
+                $this->session->set_userdata('bus_id','all');
             }
 
             if($this->input->get('search_sub')){
@@ -349,7 +351,5 @@ class Deal_page extends CI_Controller{
             echo 0;
           }
         }
-
-
 }
 

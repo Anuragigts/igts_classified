@@ -234,7 +234,7 @@ foreach ($show_all as $show_val) { ?>
 <?php
 if (!empty($news)) {
 foreach ($news as $n_val) { ?>
-<li><a href="<?php echo base_url(); ?>description_view/details/<?php echo $n_val->ad_id; ?>" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
+<li><a href="<?php echo base_url(); ?>description_view/details/<?php echo $n_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $n_val->deal_tag)); ?>" target="_self"><?php echo ucfirst($n_val->marquee); ?> </a></li>
 <?php	}
 }
 else{
@@ -382,17 +382,15 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 ?>
 <figure class="slide jbs-current">
 <?php 
-if ($hot_deals_val->urgent_package != 0) {
-if ($hot_deals_val->urg !='') {
+if ($hot_deals_val->urgent_package != '0' && !is_null($hot_deals_val->urg)) {
 ?>
 <div class="significant_badge">
 </div>
 <?php }
-}
 ?>
 <div class="img-hover significant_ad">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $hot_deals_val->img_name; ?>" alt="<?php echo $hot_deals_val->img_name; ?>" title="significant" class="img-responsive">
-<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->adid; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="description_view/details/<?php echo $hot_deals_val->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $hot_deals_val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery slider_bg">
 <h3><?php echo substr($hot_deals_val->deal_tag, 0, 20); ?></h3>
@@ -403,7 +401,7 @@ if ($hot_deals_val->urg !='') {
 else{ ?>
 <h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 <?php } ?>
-<a href="description_view/details/<?php echo $hot_deals_val->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $hot_deals_val->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $hot_deals_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php  if ($hot_deals_val->ad_type == 'business') {
 if ($hot_deals_val->bus_logo != '') {
 ?>
@@ -530,7 +528,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $val->img_name; ?>" alt="<?php echo $val->img_name; ?>" title="jobs" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($val->deal_tag,0,17); ?></h3>
@@ -541,7 +539,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 else{?>
 <h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 <?php } ?>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($val->ad_type == 'business'){
 if ($val->bus_logo != '') { ?>
@@ -583,13 +581,13 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads->img_name; ?>" alt="<?php echo $m_ads->img_name; ?>" title="jobs" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($m_ads->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($m_ads->ad_type == 'business'){
 if ($m_ads->bus_logo != '') { ?>
@@ -632,13 +630,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads_services->img_name; ?>" alt="<?php echo $m_ads_services->img_name; ?>" title="services" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads_services->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($m_ads_services->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($m_ads_services->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_services->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads_services->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($m_ads_services->ad_type == 'business'){
 if ($m_ads_services->bus_logo != '') { ?>
@@ -679,13 +677,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $motor_val->img_name; ?>" alt="<?php echo $motor_val->img_name; ?>" title="services" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $motor_val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($motor_val->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($motor_val->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $motor_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $motor_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($motor_val->ad_type == 'business'){
 if ($motor_val->bus_logo != '') { ?>
@@ -726,13 +724,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $cloth_val->img_name; ?>" alt="<?php echo $cloth_val->img_name; ?>" title="services" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $cloth_val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($cloth_val->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($cloth_val->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $cloth_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $cloth_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($cloth_val->ad_type == 'business'){
 if ($cloth_val->bus_logo != '') { ?>
@@ -774,13 +772,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $prop_val->img_name; ?>" alt="<?php echo $prop_val->img_name; ?>" title="services" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $prop_val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($prop_val->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($prop_val->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $prop_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $prop_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($prop_val->ad_type == 'business'){
 if ($prop_val->bus_logo != '') { ?>
@@ -823,13 +821,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $khome_val->img_name; ?>" alt="<?php echo $khome_val->img_name; ?>" title="services" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $khome_val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($khome_val->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($khome_val->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $khome_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $khome_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($khome_val->ad_type == 'business'){
 if ($khome_val->bus_logo != '') { ?>
@@ -870,13 +868,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads_pets->img_name; ?>" alt="<?php echo $m_ads_pets->img_name; ?>" title="pets" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads_pets->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($m_ads_pets->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($m_ads_pets->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_pets->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads_pets->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($m_ads_pets->ad_type == 'business'){
 if ($m_ads_pets->bus_logo != '') { ?>
@@ -919,13 +917,13 @@ $currency = '<span class="euro_sym"></span>';
 <?php	} ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_ads_ezone->img_name; ?>" alt="<?php echo $m_ads_ezone->img_name; ?>" title="ezone" class="img-responsive">
-<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads_ezone->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
 <h3><?php echo substr($m_ads_ezone->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <h3 class="home_price"><?php echo $currency.number_format($m_ads_ezone->price); ?></h3>
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_ads_ezone->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_ads_ezone->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <?php
 if($m_ads_ezone->ad_type == 'business'){
 if ($m_ads_ezone->bus_logo != '') { ?>
@@ -998,7 +996,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 <?php } ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
 <div class="info-gallery">
@@ -1025,7 +1023,7 @@ else{ ?>
 else{ ?>
 <h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 <?php } ?>
-<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <?php }else{ ?>
 <div class="info-gallery">
@@ -1042,7 +1040,7 @@ else{ ?>
 <?php if ($b_ads->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 <?php } ?>
-<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <?php	} ?>
 </div>
@@ -1094,7 +1092,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 <?php } ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
 <div class="info-gallery">
@@ -1119,7 +1117,7 @@ else{ ?>
 else{ ?>
 <h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 <?php } ?>
-<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <?php }else{ ?>
 <div class="info-gallery">
@@ -1141,7 +1139,7 @@ else{ ?>
 <?php if ($b_ads->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
 <?php } ?>
-<a href="description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <?php	} ?>
 </div>
@@ -1193,7 +1191,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 <?php } ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $free_val->img_name; ?>" alt="<?php echo $free_val->img_name; ?>" class="img-responsive">
-<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+<div class="overlay"><a href="description_view/details/<?php echo $free_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $free_val->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <?php if ($free_val->package_type == 2 || $free_val->package_type == 5) { ?>
 <div class="info-gallery">
@@ -1205,7 +1203,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 else{ ?>
 <h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 <?php } ?>
-<a href="description_view/details/<?php echo $free_val->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $free_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $free_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <div class="price">
 <?php if ($free_val->package_type == 3 || $free_val->package_type == 6) { ?>
 <span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
