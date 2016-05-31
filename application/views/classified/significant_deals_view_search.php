@@ -257,7 +257,7 @@ else{ ?>
 <p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
 <div class="col-xs-12">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 </div>
 </div>
@@ -458,7 +458,7 @@ else{ ?>
 <p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
 <div class="col-xs-12">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 </div>
 </div>
