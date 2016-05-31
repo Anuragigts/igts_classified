@@ -1,33 +1,4 @@
-@charset "utf-8";
 
-
-@import url("bootstrap/bootstrap.css");
-@import url("bootstrap/bootstrap-theme.css");
-@import url("bootstrap/bootstrap-slider.css");
-
-
-@import url("nav/style.css");
-
-@import url("../js/fancybox/jquery.fancybox.css");
-
-@import url("skins/theme-options.css");
-
-@import url("animations/animate.css");
-
-@import url("carousel/owl.carousel.css");
-@import url("carousel/owl.theme.css");
-
-@import url("flickr/flickr.css");
-
-@import url("icons/font-awesome.min.css");
-
-@import url("calendar/calendar.css");
-
-@import url("slide/revolution.css");
-@import url("slide/extralayers.css");
-@import url("../js/rs-plugin/css/settings.css");
-
-@import url("https://fonts.googleapis.com/css?family=Arvo");
 
 .login_left {
     background-color: #5EC3A3;
@@ -6390,4 +6361,3 @@ radio i:focus {
 .alert {
 	padding: 10px 13px 10px !important;
 }
-
