@@ -944,7 +944,7 @@
 											<?php } ?>
 											<div class="img-hover related_ads">
 												<img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-												<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>" ><i class="fa fa-link"></i></a></div>
+												<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<div class="info-gallery recommanded">
 												<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
@@ -978,7 +978,7 @@
 												<h3 class="home_price"></h3>
 												<?php	}
 													?>
-												<a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 											</div>
 										</div>
 										<?php	} ?>

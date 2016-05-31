@@ -175,7 +175,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,70); ?> </p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -360,7 +360,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,70); ?> </p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -411,7 +411,7 @@
 					<?php } ?>
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
 						<div class="price11">
@@ -531,7 +531,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -579,7 +579,7 @@
 				<div class="col-sm-4 ">
 					<div class="img-hover view_img">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="no_image.png" title="significant" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 					<div class="">
 						<div class="price11">
@@ -699,7 +699,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -751,7 +751,7 @@
 					<?php } ?>
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
 				<div class="col-sm-8 middle_text">
@@ -865,7 +865,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
@@ -913,7 +913,7 @@
 				<div class="col-sm-4 view_img">
 					<div class="img-hover">
 						<img src="<?php echo base_url(); ?>pictures/<?php echo $pvalue->img_name; ?>" alt="img_1" title="img_1" class="img-responsive">
-						<div class="overlay"><a href="description_view/details/<?php echo $pvalue->adid; ?>"><i class="top_20 fa fa-link"></i></a></div>
+						<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a></div>
 					</div>
 				</div>
 				<div class="col-sm-8 middle_text">
@@ -1027,7 +1027,7 @@
 									<p class=""><?php echo substr(strip_tags($pvalue->deal_desc),0,70); ?></p>
 								</div>
 								<div class="col-xs-12">
-									<a href="description_view/details/<?php echo $pvalue->adid; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+									<a href="<?php echo base_url(); ?>description_view/details/<?php echo $pvalue->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $pvalue->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 							</div>
 						</div>
