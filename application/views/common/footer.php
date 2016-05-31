@@ -161,7 +161,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<p align="justify">At 99rightdeal a BUMB will take your ad back to the top top of the search results once again. When your ad as deal online since few days</p>
+						<p align="justify">At 99rightdeals a BUMP will take your ad back to the top of the search results once again. When your ad as deal online since few days.</p>
 						<p align="justify"> Bumping will definite that more buyers see your ad. So you have better chance of selling your item.</p>
 						<img src="<?php echo base_url(); ?>img/bumpdeal.jpg" class="img-responsive" alt="Bump Deal">
 					</div>
@@ -199,10 +199,10 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<p align="justify"> This ad will highlight in search results which will draw buyers attention to it by having coloured background. So that it will give closer look at search results for potential buyer</p>
-						<p align="justify"> Initially it will be appear at home page most valued deals</p>
-						<p align="justify"> 5 * more Views and responses</p>
-						<p align="justify"> More people read and reply to this ad</p>
+						<p align="justify"> This ad will highlight in search results which will draw buyers attention to it by having coloured background. So that it will give closer look at search results for potential buyer.</p>
+						<p align="justify"> Initially it will be appear on home page in the most valued deals.</p>
+						<p align="justify"> 5 * more Views and responses.</p>
+						<p align="justify"> More people read and reply to this ad.</p>
 						<img src="<?php echo base_url(); ?>img/mostvaluedeal.jpg" class="img-responsive" alt="Most Valued Deal">
 					</div>
 				</div>
@@ -222,9 +222,9 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 				<div class="row">
 					<div class="col-sm-12 modal_img">
 						<p align="justify"> The Search results is where potential buyer will first see your item.Our Slide rotation will draw the buyer attention it will certainly stand out among all the other ad and draw the buyers attention to it.</p>
-						<p align="justify"> It will appear main page significant deal</p>
-						<p align="justify"> 9 * more Views and responses</p>
-						<p align="justify"> Number of people read and reply to this ad </p>
+						<p align="justify"> It will be appear on home page in the significant deal.</p>
+						<p align="justify"> 9 * more Views and responses.</p>
+						<p align="justify"> Number of people read and reply to this ad. </p>
 						<img src="<?php echo base_url(); ?>img/significantdeal.jpg" class="img-responsive" alt="Significant Deal">
 					</div>
 				</div>
@@ -297,9 +297,9 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<p align="justify"> Urgent label will indicate the buyer that you are eager to sell.</p>
-						<p align="justify"> This will attract potential Buyer to your ad</p>
-						<p align="justify"> 3 * more Views and responses</p>
+						<p align="justify"> Urgent label indicates the buyer that you are eager to sell.</p>
+						<p align="justify"> This will attract potential Buyer to your ad.</p>
+						<p align="justify"> 3 * more Views and responses.</p>
 						<img src="<?php echo base_url(); ?>img/urgentlabeldeal.jpg" class="img-responsive" alt="Urgent Label">
 					</div>
 				</div>

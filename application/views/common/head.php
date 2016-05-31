@@ -1,6 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <link href="<?php echo base_url(); ?>css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"/>
 <link href="<?php echo base_url(); ?>css/bootstrap/bootstrap-theme.css" rel="stylesheet" media="screen"/>
 <link href="<?php echo base_url(); ?>css/bootstrap/bootstrap-slider.css" rel="stylesheet" media="screen"/>
@@ -17,7 +16,6 @@
 <link href="<?php echo base_url(); ?>css/slide/extralayers.css" rel="stylesheet" media="screen"/>
 <link href="<?php echo base_url(); ?>js/rs-plugin/css/settings.css" rel="stylesheet" media="screen"/>
 <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" media="screen"/>
-
 
 <link rel="shortcut icon" href="<?php echo base_url(); ?>img/icons/icon.png" type="image/x-icon">
 <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" media="screen"/>
