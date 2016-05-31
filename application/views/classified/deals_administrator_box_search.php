@@ -161,7 +161,7 @@ else{ ?>
 <h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php	}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <div class="price">
 <b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 </div>
@@ -192,7 +192,7 @@ else{ ?>
 <h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php	}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 </div>
 </div>
 <?php } ?>
