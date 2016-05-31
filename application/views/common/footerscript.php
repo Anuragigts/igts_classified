@@ -28,3 +28,15 @@ $(function(){$(".bus_consumer").click(function(){var e=$("input[name='checkbox_t
 <script type="text/javascript">
 $(function(){$(".send_now_show").click(function(){$("#fdbkads").val($(this).attr("id"));var path = window.location.href;$(".curr_url").val(path);})});
 </script>
+
+
+<script type="text/javascript">
+$(".descurl").click(function(){
+	var pathname = window.location.href;
+	$.ajax({
+     type: "POST",
+     url: "<?php echo base_url(); ?>classified/getcurrent_url",
+     data:{path:pathname},
+   }).done(function( msg ) {});
+});
+</script>

@@ -590,6 +590,7 @@ GROUP BY img.ad_id
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get();
@@ -635,6 +636,7 @@ GROUP BY img.ad_id
 		$this->db->join('urgent_pkg_label as u_lab','u_lab.u_pkg_id = ad.urgent_package','left');
 		$this->db->join('pkg_duration_list as pl','pl.pkg_dur_id = ad.package_type','inner');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
@@ -1015,7 +1017,7 @@ GROUP BY img.ad_id
 									<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
 										<h3>Hi ".$loginname.",</h3>
 										<p>Welcome to 99Rightdeals.com</p>
-										<p><a href='".base_url()."description_view/details/".$this->input->post('ad_id')."'>$deal_tag</a></p>
+										<p><a href='".base_url()."description_view/details/".$this->input->post('ad_id')."/$deal_tag'>$deal_tag</a></p>
 										<p>Contact Person : ".$this->input->post('fbkcontname')."</p>
 										<p>Contact mobile : ".$this->input->post('feedbackno')."</p>
 										<p>Contact email : ".$this->input->post('busemail')."</p>

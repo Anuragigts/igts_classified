@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 
 <script type="text/javascript">
@@ -117,7 +118,7 @@ $(".deals_search_result").html(data);
 </div>
 </div>
 
-<table class="table table-striped table-bordered">
+<table id='deal_status' class="table table-striped table-bordered bootstrap-datatable datatable">
 <thead>
 <tr>
 <th>Deal Tag</th>
@@ -171,7 +172,7 @@ if ($date_diff <= 10) { ?>
 <?php }?>
 </tbody>
 </table>
-<?php echo $paging_links; ?>
+<?php //echo $paging_links; ?>
 </div>
 
 </div>
@@ -211,7 +212,12 @@ console.log(response);
 <script src="<?php echo base_url(); ?>j-folder/js/jquery.form.min.js"></script>
 <script src="<?php echo base_url(); ?>j-folder/js/j-forms.min.js"></script>   
 <script type="text/javascript" src="<?php echo base_url(); ?>libs/jquery.xuSlider.js"></script>
-
+<script src='<?php echo base_url(); ?>admin_template_files/js/jquery.dataTables.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#deal_status').DataTable();
+	});
+</script>
 <!-- xxx footerscript Content xxx -->
 <?php echo $this->load->view('common/footerscript');?> 
 <!-- xxx footerscript End xxx -->
