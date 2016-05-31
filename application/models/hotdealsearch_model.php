@@ -11788,8 +11788,8 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where("(loc.loc_name LIKE '$s_location%' 
 		  					OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')");
 					}
-					$urgentcount = $this->db->get();//->row('urgentcount');
-					echo $this->db->last_query(); exit;
+					$urgentcount = $this->db->get()->row('urgentcount');
+
 
 					$this->db->select('COUNT(*) as platinumcount', false);
 	        		$this->db->from('postad');
