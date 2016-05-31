@@ -838,10 +838,24 @@ hr.tall {
     background: #36BC95;
     color: #fff;
 }
-
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #fff;
+  cursor: default;
+  background-color: #88C425 !important;
+  border: 1px solid #88C425;
+  border-bottom-color: transparent;
+}
+.nav-tabs > li > a:hover {
+  background-color: #88C425 !important;
+}
+.tab_pad{
+	padding: 0px 10px 16px 10px;
+}
 .tabs-detailed .nav-tabs {
     max-width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .tabs-detailed .nav-tabs li a {
     border-radius: 5px;
@@ -6364,7 +6378,7 @@ radio i:focus {
 
 .imp strong{
 	text-transform: uppercase;
-	font-size: 16px;
+	font-size: 13px;
 }
 .modal_img img{
 	width:100%;
@@ -6373,5 +6387,7 @@ radio i:focus {
 	padding: 0px 0 10px;
 	margin: 0;
 }
-
+.alert {
+	padding: 10px 13px 10px !important;
+}
 
