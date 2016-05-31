@@ -463,27 +463,29 @@ class Description_view extends CI_Controller{
                 }
             /*add review*/
                 $adid = $this->input->post('ad_id');
+                $deal_tag     =       $this->db->get_where("postad",array("ad_id" => $this->input->post("ad_id")))->row_array();
+                $deal_tag1 = str_replace(" ", "-", str_replace("&", "", $deal_tag['deal_tag']));
                 $exist_review = $this->classifed_model->review_exists();
                 if ($exist_review > 0) {
                    $review_update = $this->classifed_model->review_update();
                     if ($review_update == 1) {
                         $this->session->set_flashdata('msg', 'Review Updated Successfully!!');
-                        redirect("description_view/details/$adid");
+                        redirect("description_view/details/$adid/$deal_tag1");
                     }
                     else{
                        $this->session->set_flashdata('err', 'Internal error occured'); 
-                        redirect("description_view/details/$adid");
+                        redirect("description_view/details/$adid/$deal_tag1");
                     }
                 }
                 else{
                 $review_insert = $this->classifed_model->review_insert();
                     if ($review_insert == 1) {
                         $this->session->set_flashdata('msg', 'Review added Successfully!!');
-                        redirect("description_view/details/$adid");
+                        redirect("description_view/details/$adid/$deal_tag1");
                     }
                     else{
                        $this->session->set_flashdata('err', 'Internal error occured'); 
-                        redirect("description_view/details/$adid");
+                        redirect("description_view/details/$adid/$deal_tag1");
                     }
                 }
         }
