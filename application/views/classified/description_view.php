@@ -422,19 +422,27 @@
 												</div>
 											</div>
 											
-											<div class="col-sm-12 col-xs-12 top_20">
-												<div id="parentHorizontalTab">
-													<ul class="resp-tabs-list hor_1">
-														<li>Description</li>
-														<li>Reviews</li>
-														<li>Map View</li>
-														<li>Report</li>
+											<div class="col-md-12 col-sm-12 col-xs-12 top_20">
+												<div class="tabs-detailed tab_pad">
+													<!-- Nav Tabs-->
+													<ul class="nav nav-tabs" id="myTab">
+													   <li class="active">
+															<a href="#description" data-toggle="tab"> DESCRIPTION</a>
+														</li>
+														<li>
+															<a href="#review" data-toggle="tab"> REVIEW</a>
+														</li>
+													   <li>
+															<a href="#mapview" data-toggle="tab"> MAP VIEW</a>
+														</li>
+														<li>
+															<a href="#report" data-toggle="tab"> REPORT</a>
+														</li>
 													</ul>
-													<div class="resp-tabs-container hor_1">
-														<div>
+													
+													<div class="tab-content">
+														<div class="tab-pane active" id="description">    
 															<p><?php echo $desc; ?></p>
-															<br>
-															<p>
 															
 															<div class="row">
 																<?php
@@ -456,9 +464,9 @@
 																	}
 																	} ?>
 															</div>
-															</p>
 														</div>
-														<div>
+														
+														<div class="tab-pane" id="review">
 															<div class="comments-container">
 																<ul id="comments-list" class="comments-list">
 																	<?php foreach ($ads_review as $r_val) { ?>
@@ -484,13 +492,16 @@
 																	<?php	} ?>
 																</ul>
 															</div>
+
 														</div>
-														<div>
+														
+														<div class="tab-pane" id="mapview">
 															<p>
 																<iframe src = "https://maps.google.com/maps?q=<?php echo $ads_loc->latt; ?>,<?php echo $ads_loc->longg; ?>&hl=es;z=11&amp;output=embed" width="500px" height="500px"></iframe>
 															</p>
 														</div>
-														<div>
+														
+														<div class="tab-pane" id="report">
 															<form action="<?php echo base_url(); ?>description_view/reportforads" method="post" id='reportforads' class="j-forms tooltip-hover">
 																<aside class="widget view_sidebar">
 																	<div class="j-row">
@@ -525,8 +536,9 @@
 																</aside>
 															</form>
 														</div>
-													</div>
+													</div>  
 												</div>
+												
 											</div>
 											
 											<div class="col-sm-12 col-xs-12">
