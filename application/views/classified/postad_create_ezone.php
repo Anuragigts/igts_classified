@@ -20,6 +20,10 @@
 <script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
+<style>
+.pound_sym_black{background: url("./img/icons/pound_sym_black.png") no-repeat left !important;}
+</style>
+
 <script type="text/javascript">
 function isNumber(e){e=e?e:window.event;var c=e.which?e.which:e.keyCode;return c>31&&(48>c||c>57)?!1:!0}$(function(){$(".select_pack").change(function(){var e=$('input[name="select_packge"]:checked').val();if(4==e){var c=$("#fimg_pck_count").val();$(".free_pck").css("display","block"),$(".gold_pck").css("display","none"),$(".platinum_pck").css("display","none"),document.getElementById("package_type").value="4",$(".freeurgent").attr("checked",!1),$(".platinumurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=c}if(5==e){var t=$("#gimg_pck_count").val();$(".free_pck").css("display","none"),$(".gold_pck").css("display","block"),$(".platinum_pck").css("display","none"),document.getElementById("package_type").value="5",$(".freeurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),$(".platinumurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=t}if(6==e){var n=$("#pimg_pck_count").val();$(".free_pck").css("display","none"),$(".gold_pck").css("display","none"),$(".platinum_pck").css("display","block"),document.getElementById("package_type").value="6",$(".freeurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),$(".platinumurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=n}}),$(".select_urgent_pack").change(function(){var e=$(this).val();$("#package_urgent").val(e)})}),$(function(){$(".multi-submit-btn").click(function(){var e=$("#image_count").val(),c=parseInt($("#package_type").val()),t=parseInt($("#pck_img_limit").val());return 4==c?0==e?($(".free_img_error").css("display","block"),!1):4==c&&e>t?($(".free_img_error").css("display","block"),!1):($(".free_img_error").css("display","none"),!0):5==c?0==e?($(".gold_img_error").css("display","block"),!1):5==c&&e>t?($(".gold_img_error").css("display","block"),!1):($(".gold_img_error").css("display","none"),!0):6==c?0==e?($(".platinum_img_error").css("display","block"),!1):6==c&&e>t?($(".platinum_img_error").css("display","block"),!1):($(".platinum_img_error").css("display","none"),!0):void 0})}),$(function(){$("#del_img").click(function(){$("#file_input").val(""),$("#file").val(""),$("#file_remove").removeClass("error-view"),$("span#file-error").hide(),$("img#blah").css("display","none"),$("#blah").css("border","none"),$("#blah").css("border-radius","none"),$("#del_img").css("display","none")})});
 </script>
@@ -737,7 +741,7 @@ Browse
 <div class="inline-group">
 <label class="radio">
 <input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
-<i></i> <span class="pound_sym"></span> (Pound) 
+<i></i> <span class="pound_sym pound_sym_black"></span> (Pound) 
 </label>
 
 </div>
@@ -962,7 +966,7 @@ URGENT LABLE
 
 <div class="promotion-box-info free_pound" style='display:none;'>
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> <span class="pound_sym"></span> <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span> <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
 <div class="free_bg text_center " >
 <h3 class="price_amt"><span class="pound_sym"></span> <?php echo $u_pkg_pound_cost1 ?> </h3>
 </div>
@@ -994,7 +998,7 @@ Urgent
 <div class="span4 bor_right">
 <div class="promotion-box-info free_pound" style='display:none;'>
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> <span class="pound_sym"></span><?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span><?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
 <div class="free_bg text_center " >
 <h3 class="price_amt"><span class="pound_sym"></span><?php echo $u_pkg_pound_cost2 ?></h3>
 </div>
@@ -1026,7 +1030,7 @@ Urgent
 <div class="span4">
 <div class="promotion-box-info free_pound" style='display:none;'>
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> <span class="pound_sym"></span><?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span><?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
 <div class="free_bg text_center " >
 <h3 class="price_amt"><span class="pound_sym"></span><?php echo $u_pkg_pound_cost3; ?></h3>
 </div>

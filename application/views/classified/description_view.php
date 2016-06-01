@@ -47,6 +47,7 @@
 			.nav-bottom .fade{
 				display:none;
 			}
+			
 		</style>
 		
 		<!-- xxx Head Content xxx -->
@@ -930,7 +931,9 @@
 								<h2><span>RECOMMENDED </span>DEALS</h2>
 							</div>
 						</div>
-						
+						<style>
+						.pound_sym_recomended{padding-right: 18px !important;background: url("<?php echo base_url(); ?>img/icons/pound_safarin.png") no-repeat left !important;}
+						</style>
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-3">
@@ -942,7 +945,7 @@
 										<?php foreach ($recommanded_ads as $b_ads) {
 											/*currency symbol*/ 
 										if ($b_ads->currency == 'pound') {
-											$currency = '<span class="pound_sym"></span>';
+											$currency = '<span class="pound_sym pound_sym_recomended"></span>';
 										}
 										else if ($b_ads->currency == 'euro') {
 											$currency = '<span class="euro_sym"></span>';

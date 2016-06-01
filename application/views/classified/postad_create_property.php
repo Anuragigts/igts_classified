@@ -20,6 +20,10 @@
 <script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
+<style>
+.pound_sym_black{background: url("./img/icons/pound_sym_black.png") no-repeat left !important;}
+</style>
+
 <script type="text/javascript">
 $(function(){
 $('.property_for').change(function(){
@@ -544,7 +548,7 @@ Browse
 <div class="inline-group">
 <label class="radio">
 <input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
-<i></i> £ (Pound) 
+<i></i> <span class="pound_sym pound_sym_black"></span> (Pound) 
 </label>
 </div>
 </div>
@@ -755,9 +759,9 @@ URGENT LABLE
 <div class="span4 bor_right">
 <div class="promotion-box-info free_pound" style="display:none;">
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> £ <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span> <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
 <div class="free_bg text_center " >
-<h3 class="price_amt">£ <?php echo $u_pkg_pound_cost1 ?> </h3>
+<h3 class="price_amt"><span class="pound_sym"></span> <?php echo $u_pkg_pound_cost1 ?> </h3>
 </div>
 </ul>
 <div class="hot_deal_rad">
@@ -787,9 +791,9 @@ Urgent
 <div class="span4 bor_right">
 <div class="promotion-box-info free_pound" style="display:none;">
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> £<?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span> <?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
 <div class="free_bg text_center " >
-<h3 class="price_amt">£<?php echo $u_pkg_pound_cost2 ?></h3>
+<h3 class="price_amt"><span class="pound_sym"></span> <?php echo $u_pkg_pound_cost2 ?></h3>
 </div>
 </ul>
 <div class="hot_deal_rad">
@@ -819,9 +823,9 @@ Urgent
 <div class="span4">
 <div class="promotion-box-info free_pound" style="display:none;">
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> £<?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span> <?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
 <div class="free_bg text_center " >
-<h3 class="price_amt">£<?php echo $u_pkg_pound_cost3; ?></h3>
+<h3 class="price_amt"><span class="pound_sym"></span> <?php echo $u_pkg_pound_cost3; ?></h3>
 </div>
 </ul>
 <div class="hot_deal_rad">

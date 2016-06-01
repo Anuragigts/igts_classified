@@ -20,6 +20,10 @@
 <script src="<?php echo base_url(); ?>imgupload/imageupload.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
+<style>
+.pound_sym_black{background: url("./img/icons/pound_sym_black.png") no-repeat left !important;}
+</style>
+
 <script type="text/javascript">
 function isNumber(e){e=e?e:window.event;var c=e.which?e.which:e.keyCode;return c>31&&(48>c||c>57)?!1:!0}$(function(){$(".select_pack").change(function(){var e=$('input[name="select_packge"]:checked').val();if(4==e){var c=$("#fimg_pck_count").val();$(".free_pck").css("display","block"),$(".gold_pck").css("display","none"),$(".platinum_pck").css("display","none"),document.getElementById("package_type").value="4",$(".freeurgent").attr("checked",!1),$(".platinumurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=c}if(5==e){var t=$("#gimg_pck_count").val();$(".free_pck").css("display","none"),$(".gold_pck").css("display","block"),$(".platinum_pck").css("display","none"),document.getElementById("package_type").value="5",$(".freeurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),$(".platinumurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=t}if(6==e){var n=$("#pimg_pck_count").val();$(".free_pck").css("display","none"),$(".gold_pck").css("display","none"),$(".platinum_pck").css("display","block"),document.getElementById("package_type").value="6",$(".freeurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),$(".platinumurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=n}}),$(".select_urgent_pack").change(function(){var e=$(this).val();$("#package_urgent").val(e)})}),$(function(){$(".multi-submit-btn").click(function(){var e=$("#image_count").val(),c=parseInt($("#package_type").val()),t=parseInt($("#pck_img_limit").val());return 4==c?0==e?($(".free_img_error").css("display","block"),!1):4==c&&e>t?($(".free_img_error").css("display","block"),!1):($(".free_img_error").css("display","none"),!0):5==c?0==e?($(".gold_img_error").css("display","block"),!1):5==c&&e>t?($(".gold_img_error").css("display","block"),!1):($(".gold_img_error").css("display","none"),!0):6==c?0==e?($(".platinum_img_error").css("display","block"),!1):6==c&&e>t?($(".platinum_img_error").css("display","block"),!1):($(".platinum_img_error").css("display","none"),!0):void 0})}),$(function(){$("#del_img").click(function(){$("#file_input").val(""),$("#file").val(""),$("#file_remove").removeClass("error-view"),$("span#file-error").hide(),$("img#blah").css("display","none"),$("#blah").css("border","none"),$("#blah").css("border-radius","none"),$("#del_img").css("display","none")})});
 </script>
@@ -43,12 +47,6 @@ jQuery(document).ready(function($){var outputHandlerFunc=function(e){var a=funct
 <script type='text/javascript'>
 jQuery(document).ready(function($){var outputHandlerFunc=function(e){var a=function(e,a,n,t){var i,l,o=document.createElement("canvas");return e.width<a&&e.height<n&&void 0==t?(i=e.width,l=e.height):(i=a,l=parseInt(e.height*(a/e.width)),l>n&&(l=n,i=parseInt(e.width*(n/e.height)))),o.width=i,o.height=l,o.getContext("2d").drawImage(e,0,0,i,l),$(o).attr("title","Original size: "+e.width+"x"+e.height),$(o).attr("name","file_img[]"),o};$(new Image).on("load",function(n){console.log("imgobj",n);var t=$('<li class="new-item"><div class="list-content"><span class="preview"></span><span class="options"><span class="imagedelete" title="Remove image"></span></span></div></li>').appendTo("#output_platinum ul");$(".imagedelete",t).one("click",function(e){var a=document.getElementById("image_count").value;document.getElementById("image_count").value=parseInt(a)-1,t.toggleClass("new-item").addClass("removed-item"),t.one("animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd",function(e){t.remove()})});var i=a(n.target,50,50),l="<input type='hidden' name='pic_hide[]' id='pic_hide' value='"+e.imgSrc+"'>";$('<a rel="fancybox">').attr({target:"_blank",href:e.imgSrc}).append(i).append(l).appendTo($(".preview",t))}).attr("src",e.imgSrc)};$("a[rel=fancybox]").fancybox();var fileReaderAvailable="undefined"!=typeof FileReader,clipBoardAvailable=window.clipboardData!==!1,pasteAvailable=Boolean(clipBoardAvailable&fileReaderAvailable&!eval("/*@cc_on !@*/false"));fileReaderAvailable?($("#dropzone_platinum").imageUpload({errorContainer:$("span","#errormessages_platinum"),trigger:"dblclick",enableCliboardCapture:pasteAvailable,onBeforeUpload:function(){$("body").css("background-color","green"),console.log("start",Date.now())},onAfterUpload:function(){$("body").css("background-color","#eee"),console.log("end",Date.now())},outputHandler:outputHandlerFunc}),$("#dropzone_platinum").prev("#platinum_wrapper").find("#textbox_platinum").append('<p class="large">Drag and Drop<br>Image File here</p><p class="small">Doubleclick<br>for file requester</p>')):$("body").addClass("nofilereader"),pasteAvailable||$("body").addClass("nopaste")});
 </script>
-
-<style>
-.section-title-01{height:220px;background-color:#262626;text-align:center;position:relative;width: 100%;overflow: hidden;}
-ul#free,ul#free li {margin: 0;padding: 0;}
-ul#free li {display: inline-block;vertical-align: top;margin-left: 10px;}
-</style>
 
 <script type="text/javascript">
 function setup_map(e,n){var o={lat:e,lng:n},a={zoom:12,center:o},t=new google.maps.Map(document.getElementById("map"),a);new google.maps.Marker({position:a.center,map:t})}window.onload=function(){setup_map(51.5073509,-.12775829999998223)};
@@ -415,7 +413,7 @@ Browse
 <div class="inline-group">
 <label class="radio">
 <input type="radio" name="checkbox_toggle1" id="next-step-radio" class='currency' value="pound">
-<i></i> <span class="pound_sym"></span> (Pound) 
+<i></i> <span class="pound_sym pound_sym_black"></span> (Pound) 
 </label>
 
 </div>
@@ -634,7 +632,7 @@ URGENT LABLE
 <div class="span4 bor_right">
 <div class="promotion-box-info free_pound" style='display:none;'>
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> <span class="pound_sym"></span> <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span> <?php echo $u_pkg_pound_cost1 ?> - <?php echo $u_pkg_days1 ?> Days (Exclusive VAT)</li>
 <div class="free_bg text_center " >
 <h3 class="price_amt"><span class="pound_sym"></span> <?php echo $u_pkg_pound_cost1 ?> </h3>
 </div>
@@ -667,7 +665,7 @@ Urgent
 
 <div class="promotion-box-info free_pound" style='display:none;'>
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> <span class="pound_sym"></span><?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span><?php echo $u_pkg_pound_cost2 ?> -<?php echo $u_pkg_days2; ?> days (Exclusive VAT)</li>
 <div class="free_bg text_center " >
 <h3 class="price_amt"><span class="pound_sym"></span><?php echo $u_pkg_pound_cost2 ?></h3>
 </div>
@@ -699,7 +697,7 @@ Urgent
 <div class="span4">
 <div class="promotion-box-info free_pound" style='display:none;'>
 <ul class="list-styles">
-<li><i class="fa fa-check"></i> <span class="pound_sym"></span><?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
+<li><i class="fa fa-check"></i> <span class="pound_sym pound_sym_black"></span><?php echo $u_pkg_pound_cost3 ?>-<?php echo $u_pkg_days3; ?> Days(Exclusive VAT)</li>
 <div class="free_bg text_center " >
 <h3 class="price_amt"><span class="pound_sym"></span><?php echo $u_pkg_pound_cost3; ?></h3>
 </div>
