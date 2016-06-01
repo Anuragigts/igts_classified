@@ -6032,12 +6032,6 @@ strong {
 .range.range-success input[type="range"] {
     outline-color: #5EC3A3;
 }
-.pound_sym:before {
-    content: '£';
-}
-.euro_sym:before {
-    content: '€';
-}
 
 .view_sidebar1 p{
 	font-size: 15px;
@@ -6344,9 +6338,13 @@ radio i:focus {
 	font-weight:normal !important;
 }
 .pound_sym{
-	padding-right:5px !important;
+	padding-right: 25px !important;
+    background: url("../img/icons/pound_safarin.png") no-repeat left;
 }
 
+.euro_sym:before {
+    content: '€';
+}
 .imp strong{
 	text-transform: uppercase;
 	font-size: 13px;
