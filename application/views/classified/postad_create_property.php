@@ -648,7 +648,7 @@ Free
 <li class="text_center"> <br> </li>
 <li class="text_center"> <br> </li>
 <div class="free_bg text_center free_pound" style="display:none;">
-<h3 class="price_amt">£<?php echo $c_pund; ?></h3>
+<h3 class="price_amt"><span class="pound_sym"></span> <?php echo $c_pund; ?></h3>
 </div>
 <div class="free_bg text_center free_euro" style="display:none;">
 <h3 class="price_amt"><span class="euro_sym"></span><?php echo $c_euro; ?></h3>
@@ -685,7 +685,7 @@ Gold
 <li class="text_center"> <br> </li>
 <li class="text_center"> <br> </li>
 <div class="gold_bg text_center free_pound" style="display:none;">
-<h3 class="price_amt">£<?php echo $gc_pund; ?></h3>
+<h3 class="price_amt"><span class="pound_sym"></span> <?php echo $gc_pund; ?></h3>
 </div>
 <div class="gold_bg text_center free_euro" style="display:none;">
 <h3 class="price_amt"><span class="euro_sym"></span><?php echo $gc_euro; ?></h3>
@@ -721,7 +721,7 @@ Platinum
 <li><i class="fa fa-check"></i> Crown symbol will attach  </li>
 <li><i class="fa fa-check"></i> Deal will automatically in HOT Deals</li>
 <div class="platinum_bg text_center free_pound" style="display:none;">
-<h3 class="price_amt">£<?php echo $ptm_pound; ?></h3>
+<h3 class="price_amt"><span class="pound_sym"></span> <?php echo $ptm_pound; ?></h3>
 </div>
 <div class="platinum_bg text_center free_euro" style="display:none;">
 <h3 class="price_amt"><span class="euro_sym"></span><?php echo $ptm_euro; ?></h3>
