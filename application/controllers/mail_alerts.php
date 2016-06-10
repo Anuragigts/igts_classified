@@ -112,7 +112,7 @@ class Mail_alerts extends CI_Controller{
 							     			$msg .= "<table border='0' cellpadding='0' cellspacing='0' summary='' width='48%' align='left'>
 														<tr>
 															<td class='sectionArticleImage' style='padding: 0px 0px 20px 0px;' align='center'>
-																<a href='http://99rightdeals.com/description_view/details/".$val1->adid."' target='_blank'>
+																<a href='http://99rightdeals.com/description_view/details/".$val1->adid."/".str_replace(" ", "-", str_replace("&", "", $val1->deal_tag))."' target='_blank'>
 																<img src='http://99rightdeals.com/pictures/".$val1->img_name."' style='width: 80% !important; border-radius:10px; -ms-interpolation-mode: bicubic; display: block;' width='250' height='150' alt='' />
 																</a>
 															</td>
@@ -135,7 +135,7 @@ class Mail_alerts extends CI_Controller{
 															<td>&nbsp;</td>
 														</tr>
 														<tr>
-															<td align='center'><a href='http://99rightdeals.com/description_view/details/".$val1->adid."' style='padding: 12px 42px;background-color: #3A89C9;color: #fff;text-decoration: none;' target='_blank'>
+															<td align='center'><a href='http://99rightdeals.com/description_view/details/".$val1->adid."/".str_replace(" ", "-", str_replace("&", "", $val1->deal_tag))."' style='padding: 12px 42px;background-color: #3A89C9;color: #fff;text-decoration: none;' target='_blank'>
 															VIEW DETAILS</a></td><td>&nbsp;</td>
 														</tr>
 														<tr>
@@ -285,7 +285,7 @@ class Mail_alerts extends CI_Controller{
 							     			$msg .= "<table border='0' cellpadding='0' cellspacing='0' summary='' width='48%' align='left'>
 														<tr>
 															<td class='sectionArticleImage' style='padding: 0px 0px 20px 0px;' align='center'>
-																<a href='http://99rightdeals.com/description_view/details/".$val1->adid."' target='_blank'>
+																<a href='http://99rightdeals.com/description_view/details/".$val1->adid."/".str_replace(" ", "-", str_replace("&", "", $val1->deal_tag))."' target='_blank'>
 																<img src='http://99rightdeals.com/pictures/".$val1->img_name."' style='width: 80% !important; border-radius:10px; -ms-interpolation-mode: bicubic; display: block;' width='250' height='150' alt='' />
 																</a>
 															</td>
@@ -308,7 +308,7 @@ class Mail_alerts extends CI_Controller{
 															<td>&nbsp;</td>
 														</tr>
 														<tr>
-															<td align='center'><a href='http://99rightdeals.com/description_view/details/".$val1->adid."' style='padding: 12px 42px;background-color: #3A89C9;color: #fff;text-decoration: none;' target='_blank'>
+															<td align='center'><a href='http://99rightdeals.com/description_view/details/".$val1->adid."/".str_replace(" ", "-", str_replace("&", "", $val1->deal_tag))."' style='padding: 12px 42px;background-color: #3A89C9;color: #fff;text-decoration: none;' target='_blank'>
 															VIEW DETAILS</a></td><td>&nbsp;</td>
 														</tr>
 														<tr>

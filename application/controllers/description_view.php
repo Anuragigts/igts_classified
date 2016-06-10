@@ -337,9 +337,17 @@ class Description_view extends CI_Controller{
                     $detailed_ezones = $this->classifed_model->ads_detailed_ezones(); 
                     if ($value->sub_cat_id == '60' || $value->sub_cat_id == '61'|| $value->sub_cat_id == '63' || $value->sub_cat_id == '64' || $value->sub_cat_id == '66'
                         || $value->sub_cat_id == '70' || $value->sub_cat_id == '71') {
-                 
+                    if ($value->sub_cat_id == '70' || $value->sub_cat_id == '71') {
+                        $servicetype = @mysql_result(mysql_query("SELECT `sub_subcategory_name` FROM `sub_subcategory` WHERE `sub_subcategory_id`='$value->service_type' "), 0,'sub_subcategory_name');
+                    }
+                    else if ($value->sub_scat_id == '431' || $value->sub_scat_id == '432' || $value->sub_scat_id == '433' || $value->sub_scat_id == '434' || $value->sub_scat_id == '435') {
+                        $servicetype = @mysql_result(mysql_query("SELECT `sub_sub_subcategory_name` FROM `sub_sub_subcategory` WHERE `sub_sub_subcategory_id`='$value->service_type' "), 0,'sub_sub_subcategory_name');
+                    }
+                    else{
+                        $servicetype = $value->service_type;
+                    }
                     foreach ($detailed_ezones as $val) {
-                        $body_content = array('Accessories Type'=>str_replace("_", " ", $value->service_type),
+                        $body_content = array('Accessories Type'=> $servicetype,
                             'Service Type'=>$value->services,
                                 'Brand_name'=>$val->brand_name,
                                 'Colour'=>$val->color,
@@ -366,7 +374,24 @@ class Description_view extends CI_Controller{
                             }  
                     }
                     else if ($value->sub_cat_id == '65') {
-                        foreach ($detailed_ezones as $val) {
+                        if ($value->sub_scat_id == '451') {
+                            $servicetype = @mysql_result(mysql_query("SELECT `sub_sub_subcategory_name` FROM `sub_sub_subcategory` WHERE `sub_sub_subcategory_id`='$value->service_type' "), 0,'sub_sub_subcategory_name');
+                            foreach ($detailed_ezones as $val) {
+                         $body_content = array(
+                            'Accessories Type'=>$servicetype,
+                            'Service Type'=>$value->services,
+                                'Brand_name'=>$val->brand_name,
+                                'Size'=>$val->size,
+                                'Colour'=>$val->color,
+                                'Model Name / Number'=>$val->model_name,
+                                'Made in'=>$val->made_in,
+                                'Warranty'=>$val->warranty,
+                                'Manufacturer Part Number'=>$val->manufacture
+                                );
+                            } 
+                        }
+                        else{
+                            foreach ($detailed_ezones as $val) {
                          $body_content = array('Service Type'=>$value->services,
                                 'Brand_name'=>$val->brand_name,
                                 'Size'=>$val->size,
@@ -376,12 +401,13 @@ class Description_view extends CI_Controller{
                                 'Warranty'=>$val->warranty,
                                 'Manufacturer Part Number'=>$val->manufacture
                                 );
-                            }  
+                            } 
+                        }
                     }
                     else if ($value->sub_cat_id == '72') {
-
+                            $servicetype = @mysql_result(mysql_query("SELECT `sub_subcategory_name` FROM `sub_subcategory` WHERE `sub_subcategory_id`='$value->service_type' "), 0,'sub_subcategory_name');
                         foreach ($detailed_ezones as $val) {
-                         $body_content = array('Software Type'=>$value->service_type,
+                         $body_content = array('Software Type'=>$servicetype,
                                 'Service Type'=>$value->services,
                                 'Brand_name'=>$val->brand_name,
                                 'Operating system'=>$val->operating_system,
@@ -450,7 +476,7 @@ class Description_view extends CI_Controller{
                         "total_likes"=>$total_likes,
                         "login_status"=>$login_status,
                         "login"=>$login,
-                        'req_url'=> base_url()."description_view/details/".$id
+                        'req_url'=> base_url()."description_view/details/".$id."/".str_replace(" ", "-", str_replace("&", "", $title))
                 );
                 
                 $this->load->view("classified_layout/inner_template",$data);
@@ -459,6 +485,9 @@ class Description_view extends CI_Controller{
         /*review rating*/
         public function review(){
              if ($this->session->userdata('login_id') == '') {
+                $this->session->set_userdata("reviewadid",$this->input->post('ad_id'));
+                $this->session->set_userdata("reviewpath",$this->input->post('curr_url'));
+                $this->session->set_userdata("reviewdata",$this->input->post());
                    redirect('login');
                 }
             /*add review*/
@@ -580,6 +609,31 @@ class Description_view extends CI_Controller{
                    $this->session->set_flashdata('err', 'Internal error occured'); 
                     redirect($this->input->post('curr_url'));
                 }
+        }
+
+        public function favouritelogin(){
+            // $this->session->set_userdata('favadid', $this->input->post('ad_id'));
+        }
+
+        public function add_favexists(){
+            $this->session->set_userdata('favadid', $this->input->post('ad_id'));
+            $this->session->set_userdata('favpath', $this->input->post('favpath'));
+            echo $this->session->userdata('favadid');
+        }
+        public function likexists(){
+            $this->session->set_userdata('likeadid', $this->input->post('ad_id'));
+            $this->session->set_userdata('likepath', $this->input->post('likepath'));
+            echo $this->session->userdata('likeadid');
+        }
+
+        public function savesearchexists(){
+            $this->session->set_userdata('search_cat', $this->input->post('search_cat'));
+            $this->session->set_userdata('saveddata', $this->input->post());
+            echo $this->session->userdata('search_cat');
+        }
+        public function hotsearchexists(){
+            $this->session->set_userdata('hotcat_id',$this->session->userdata("cat_id"));
+            echo $this->session->userdata('hotcat_id');
         }
 }
 

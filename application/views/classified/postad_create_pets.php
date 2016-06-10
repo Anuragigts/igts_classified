@@ -286,7 +286,7 @@ Browse
 <div class="span6 unit">
 <label class="label">Family Race
 <sup data-toggle="tooltip" title="" data-original-title="DISTINGWISH CHARACTERISTICS AND GUALITY BASED ON THE BREED">
-<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+<img src="img/icons/i.png" title="Help label" alt="I" class="img-responsive">
 </sup>
 </label>
 <div class="input">
@@ -299,7 +299,7 @@ Browse
 <div class="span6 unit">
 <label class="label">Type
 <sup data-toggle="tooltip" title="" data-original-title="Type">
-<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+<img src="img/icons/i.png" title="Help label" alt="I" class="img-responsive">
 </sup>
 </label>
 <div class="input">
@@ -314,7 +314,7 @@ Browse
 <div class="span6 unit">
 <label class="label">Age
 <sup data-toggle="tooltip" title="" data-original-title="Age of the animal">
-<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+<img src="img/icons/i.png" title="Help label" alt="I" class="img-responsive">
 </sup>
 </label>
 <label class="input select">
@@ -334,8 +334,8 @@ Browse
 </div>
 <div class="span6 unit">
 <label class="label">Height / Size
-<sup data-toggle="tooltip" title="" data-original-title="HIGHT OF THE ANIMAL">
-<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+<sup data-toggle="tooltip" title="" data-original-title="Height / Size of the animal">
+<img src="img/icons/i.png" title="Help label" alt="I" class="img-responsive">
 </sup>
 </label>
 <div class="input">
@@ -350,7 +350,7 @@ Browse
 <div class="span6 unit">
 <label class="label">Gender
 <sup data-toggle="tooltip" title="" data-original-title="GENDER OF THE ANIMAL  Eg: Male or female">
-<img src="img/icons/i.png" title="I Error" alt="I" class="img-responsive">
+<img src="img/icons/i.png" title="Help label" alt="I" class="img-responsive">
 </sup>
 </label>
 <div class="input">

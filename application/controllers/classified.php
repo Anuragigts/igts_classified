@@ -162,9 +162,7 @@ SELECT town AS uk_keyword FROM `uk_postcodes` WHERE town LIKE '".$keyword."%' GR
 
         public function getcurrent_url()
         {
-            $this->session->unset_userdata('path');
             $this->session->set_userdata('path',$this->input->post('path'));
-            echo $this->session->userdata('path');
         }
 
 

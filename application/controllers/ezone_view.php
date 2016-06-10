@@ -91,19 +91,16 @@ class  Ezone_view extends CI_Controller{
                 $this->session->unset_userdata('longg');
 
                 if($this->input->post('seller_deals')){
-                   // $data['seller_deals'] = $this->input->post('seller_deals');
                        $this->session->set_userdata('seller_deals',$this->input->post('seller_deals'));
                 }else{
                      $this->session->set_userdata('seller_deals',array());
                 }
                  if($this->input->post('dealurgent')){
-                    //$data['dealurgent'] = $this->input->post('dealurgent');
                        $this->session->set_userdata('dealurgent' ,$this->input->post('dealurgent'));
                 }else{
                      $this->session->set_userdata('dealurgent',array());
                 }
                  if($this->input->post('search_bustype')){
-                    //$data['search_bustype'] = $this->input->post('search_bustype');
                        $this->session->set_userdata('search_bustype',$this->input->post('search_bustype'));
                 }else{
                      $this->session->set_userdata('search_bustype','all');

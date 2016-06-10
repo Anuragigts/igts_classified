@@ -10,6 +10,7 @@ class Login extends CI_Controller{
                 parent::__construct();
                 $this->load->model("login_model");
                 $this->load->model("signup_model");
+                $this->load->model("classifed_model");
                  $this->load->library('facebook');
         }
         public function index(){
@@ -93,6 +94,97 @@ class Login extends CI_Controller{
                 if($this->input->post("submit")){
                     $ins    = $this->login_model->check();
     				if($ins>0){
+                        /*favourite without login*/
+                        if ($this->session->userdata('favadid')) {
+                            $exists = $this->classifed_model->favexists();
+                            if ($exists == 1) {//yes
+                                $remove = $this->classifed_model->remove_fav();
+                                if ($remove == 1) {
+                                    $this->session->unset_userdata('favadid');
+                                    redirect($this->session->userdata('favpath'));
+                                }
+                            }
+                            else{
+                                $add = $this->classifed_model->add_fav();
+                                if ($add == 1) {
+                                    $this->session->unset_userdata('favadid');
+                                    redirect($this->session->userdata('favpath'));
+                                }
+                            }
+
+                        }
+                        /*likes without login*/
+                        if ($this->session->userdata('likeadid')) {
+                           $exists = $this->classifed_model->likexists();
+                            if ($exists == 1) {//yes
+                                $remove = $this->classifed_model->removelikeslogin();
+                                if ($remove == 1) {
+                                    $this->session->unset_userdata('likeadid');
+                                    redirect($this->session->userdata('likepath'));
+                                }
+                            }
+                            else{
+                                $add = $this->classifed_model->addlikeslogin();
+                                if ($add == 1) {
+                                    $this->session->unset_userdata('likeadid');
+                                    redirect($this->session->userdata('likepath'));
+                                }
+                            }
+                        }
+                        /*reviews without login*/
+                        if ($this->session->userdata('reviewadid')) {
+
+                           $exists = $this->classifed_model->reviewexistslogin();
+                           $a = $this->session->userdata('reviewpath');
+                            if ($exists == 1) {//yes
+                                $update = $this->classifed_model->reviewupdate1();
+                                if ($update == 1) {
+                                    $this->session->unset_userdata('reviewadid');
+                                    $this->session->set_flashdata('msg', 'Review Updated Successfully!!');
+                                    redirect($this->session->userdata('reviewpath'));
+                                }
+                            }
+                            else{
+                                $add = $this->classifed_model->reviewinsert1();
+                                if ($add == 1) {
+                                    $this->session->unset_userdata('reviewadid');
+                                    $this->session->set_flashdata('msg', 'Review added Successfully!!');
+                                    redirect($this->session->userdata('reviewpath'));
+                                }
+                            }
+                        }
+                         /*savedsearch without login*/
+                        if ($this->session->userdata('search_cat')) {
+                                $exist = $this->classifed_model->addexist_search(); 
+                                if ($exist > 0) {
+                                    $this->session->unset_userdata('search_cat');
+                                    redirect($this->session->userdata("saved_search"));
+                                }
+                                else{
+                                  $save = $this->classifed_model->addsavedsearchlogin();
+                                  if ($save == 1) {
+                                     $this->session->unset_userdata('search_cat');
+                                    redirect($this->session->userdata("saved_search"));
+                                  }
+                                }
+                            }
+
+                        /*hotdealsearch without login*/
+                        if ($this->session->userdata('hotcat_id')) {
+
+                            $exist = $this->classifed_model->hotdealsexists(); 
+                            if ($exist > 0) {
+                                $this->session->unset_userdata('hotcat_id');
+                                redirect($this->session->userdata("saved_search1"));
+                            }
+                            else{
+                              $save = $this->classifed_model->addsaved_hotdeals();
+                              if ($save == 1) {
+                                 $this->session->unset_userdata('hotcat_id');
+                                redirect($this->session->userdata("saved_search1"));
+                              }
+                            }
+                        }
     						redirect("post-a-deal");
     				}else{
     						$this->session->set_flashdata("err","Login Failed : Please Check your Email Id or Password");

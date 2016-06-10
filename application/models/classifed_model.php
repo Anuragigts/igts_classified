@@ -590,7 +590,6 @@ GROUP BY img.ad_id
 		$this->db->join('ad_img as img', "img.ad_id = ad.ad_id", 'join');
 		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
-		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get();
@@ -636,7 +635,6 @@ GROUP BY img.ad_id
 		$this->db->join('urgent_pkg_label as u_lab','u_lab.u_pkg_id = ad.urgent_package','left');
 		$this->db->join('pkg_duration_list as pl','pl.pkg_dur_id = ad.package_type','inner');
 		$this->db->where('ad.login_id', $this->session->userdata('login_id'));
-		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by("img.ad_id");
 		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get("postad as ad", $data['limit'], $data['start']);
@@ -954,6 +952,14 @@ GROUP BY img.ad_id
 			$this->db->where('logid',$this->session->userdata('login_id'));
 			return $this->db->count_all_results();
 	}
+	public function reviewexistslogin(){
+			$a = $this->session->userdata("reviewdata");
+            $this->db->select("*");
+			$this->db->from('review_rating');
+			$this->db->where('ad_id',$a['ad_id']);
+			$this->db->where('logid',$this->session->userdata('login_id'));
+			return $this->db->count_all_results();
+	}
 	public function review_insert(){
 		$data = array('ad_id'=> $this->input->post('ad_id'),
 						'logid'	=>	$this->session->userdata('login_id'),
@@ -961,6 +967,26 @@ GROUP BY img.ad_id
 						'review_msg'	=> $this->input->post('review_msg'),
 						'review_name'	=> $this->input->post('review_name'),
 						'rating'		=> $this->input->post('user_rating'),
+						'review_time'	=> date("d-m-Y H:i:s"),
+						'status' => 1
+			);
+			$this->db->insert("review_rating", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	public function reviewinsert1(){
+		$a = $this->session->userdata("reviewdata");
+		$data = array('ad_id'=> $a['ad_id'],
+						'logid'	=>	$this->session->userdata('login_id'),
+						'review_title'	=> $a['review_title'],
+						'review_msg'	=> $a['review_msg'],
+						'review_name'	=> $a['review_name'],
+						'rating'		=> $a['user_rating'],
 						'review_time'	=> date("d-m-Y H:i:s"),
 						'status' => 1
 			);
@@ -981,6 +1007,23 @@ GROUP BY img.ad_id
 						'review_time'	=> date("d-m-Y H:i:s"),
 						'status' => 1);
 			$this->db->update("review_rating", $data,array('ad_id'=> $this->input->post('ad_id'),'logid'=>	$this->session->userdata('login_id')));
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	public function reviewupdate1(){
+		$a = $this->session->userdata("reviewdata");
+		$data = array('review_title'	=> $a['review_title'],
+						'review_msg'	=> $a['review_msg'],
+						'review_name'	=> $a['review_name'],
+						'rating'		=> $a['user_rating'],
+						'review_time'	=> date("d-m-Y H:i:s"),
+						'status' => 1);
+			$this->db->update("review_rating", $data,array('ad_id'=> $a['ad_id'],'logid'=>	$this->session->userdata('login_id')));
 			if ($this->db->affected_rows() > 0) {
 				return 1;
 			}
@@ -1277,11 +1320,55 @@ GROUP BY img.ad_id
 			}
 	}
 
+	public function favexists(){
+		$this->db->select("*");
+		$this->db->from("favourite_deals");
+		$this->db->where('ad_id', $this->session->userdata('favadid'));
+        $this->db->where('login_id', $this->session->userdata('login_id'));
+        return $this->db->count_all_results();
+	}
+
+	public function likexists(){
+		$this->db->select("*");
+		$this->db->from("likes_deals");
+		$this->db->where('ad_id', $this->session->userdata('likeadid'));
+        $this->db->where('login_id', $this->session->userdata('login_id'));
+        return $this->db->count_all_results();
+	}
+
+	public function add_fav(){
+		$data = array('ad_id'=> $this->session->userdata('favadid'),
+						'login_id'	=> $this->session->userdata('login_id'),
+						'status'	=> '1'
+			);
+			$this->db->insert("favourite_deals", $data);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
 	/*remove favourites to logged user*/
 	public function remove_favourite(){
 			$wr = array(
 			'ad_id'=> $this->input->post('ad_id'),
 			'login_id'	=> $this->input->post('login_id')
+			);
+			$this->db->delete("favourite_deals", $wr);
+			if ($this->db->affected_rows() > 0) {
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	public function remove_fav(){
+			$wr = array(
+			'ad_id'=> $this->session->userdata('favadid'),
+			'login_id'	=> $this->session->userdata('login_id')
 			);
 			$this->db->delete("favourite_deals", $wr);
 			if ($this->db->affected_rows() > 0) {
@@ -1309,6 +1396,21 @@ GROUP BY img.ad_id
 			}
 	}
 
+	public function addlikeslogin(){
+		$data = array('ad_id'=> $this->session->userdata('likeadid'),
+			'login_id'	=> $this->session->userdata('login_id'));
+			$this->db->insert("likes_deals", $data);
+			if ($this->db->affected_rows() > 0) {
+				$this->db->where('ad_id', $this->session->userdata('likeadid'));
+				$this->db->set('likes_count', 'likes_count+1', FALSE);
+				$this->db->update('postad');
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
 	/*remove_likes to logged user*/
 	public function remove_likes(){
 			$wr = array(
@@ -1318,6 +1420,23 @@ GROUP BY img.ad_id
 			$this->db->delete("likes_deals", $wr);
 			if ($this->db->affected_rows() > 0) {
 				$this->db->where('ad_id', $this->input->post('ad_id'));
+				$this->db->set('likes_count', 'likes_count-1', FALSE);
+				$this->db->update('postad');
+				return 1;
+			}
+			else{
+				return 0;
+			}
+	}
+
+	public function removelikeslogin(){
+			$wr = array(
+			'ad_id'=> $this->session->userdata('likeadid'),
+			'login_id'	=> $this->session->userdata('login_id')
+			);
+			$this->db->delete("likes_deals", $wr);
+			if ($this->db->affected_rows() > 0) {
+				$this->db->where('ad_id', $this->session->userdata('likeadid'));
 				$this->db->set('likes_count', 'likes_count-1', FALSE);
 				$this->db->update('postad');
 				return 1;
@@ -1794,6 +1913,25 @@ GROUP BY img.ad_id
 
 		return $m_res->result();
 	}
+	public function count_motoraccessories_view(){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->from("postad AS ad");
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "73");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.approved_on', 'DESC');
+		$m_res = $this->db->get();
+
+		return $m_res->result();
+	}
 	public function count_boats_view(){
 		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
 		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
@@ -1846,6 +1984,29 @@ GROUP BY img.ad_id
 		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 		$this->db->where("ad.category_id", "3");
 		$this->db->where("ad.sub_cat_id", "18");
+		$this->db->where("ad.ad_status", "1");
+		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+		$this->db->group_by(" img.ad_id");
+		$this->db->order_by('ad.approved_on', 'DESC');
+		$m_res = $this->db->get("postad AS ad", $data['limit'], $data['start']);
+
+		if($m_res->num_rows() > 0){
+			return $m_res->result();
+		}
+		else{
+			return array();
+		}
+	}
+	public function motoraccessories_view($data){
+		$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
+		$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
+		$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
+		$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+		$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+		$this->db->where("ad.category_id", "3");
+		$this->db->where("ad.sub_cat_id", "73");
 		$this->db->where("ad.ad_status", "1");
 		$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 		$this->db->group_by(" img.ad_id");
@@ -2938,10 +3099,35 @@ GROUP BY img.ad_id
 		}
 	}
 
+	public function addsavedsearchlogin(){
+		$a = $this->session->userdata('saveddata');
+		$data = array(
+					  'login_id' => $this->session->userdata("login_id"),
+					  'search_title' => $a["search_title"],
+					  'search_cat' => $a["search_cat"],
+					  'save_search' => $this->session->userdata("saved_search"),
+					  'search_loc' => $a["search_loc"],
+					  'saved_on' => date("Y-m-d H:i:s"));
+		$this->db->insert("saved_searchs", $data);
+		if ($this->db->affected_rows() > 0) {
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+
 	public function addexist_search(){
 		$this->db->where("save_search", $this->session->userdata("saved_search"));
 		$this->db->where("login_id", $this->session->userdata("login_id"));
 		$rs = $this->db->count_all_results("saved_searchs");
+		return $rs;
+	}
+
+	public function hotdealsexists(){
+		$this->db->where("save_search", $this->session->userdata("saved_search1"));
+		$this->db->where("login_id", $this->session->userdata("login_id"));
+		$rs = $this->db->count_all_results("saved_searchhot");
 		return $rs;
 	}
 

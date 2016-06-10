@@ -195,10 +195,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jacnts(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 27 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 27 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 27 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 27 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 27 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 27 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 27 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 27 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 27 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 27 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 27 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -485,10 +491,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jbank(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 30 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 30 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 30 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 30 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 30 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 30 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 30 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 30 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 30 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 30 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 30 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -775,10 +787,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jnews(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 33 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 33 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 33 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 33 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 33 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 33 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 33 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 33 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 33 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 33 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 33 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -1064,10 +1082,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jtelecom(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 36 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 36 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 36 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 36 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 36 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 36 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 36 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 36 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 36 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 36 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 36 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -1353,10 +1377,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jhr(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 39 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 39 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 39 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 39 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 39 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 39 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 39 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 39 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 39 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 39 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 39 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -1642,10 +1672,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jpa(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 42 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 42 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 42 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 42 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 42 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 42 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 42 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 42 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 42 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 42 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 42 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -1931,10 +1967,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jfront(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 45 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 45 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 45 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 45 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 45 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 45 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 45 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 45 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 45 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 45 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 45 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -2220,10 +2262,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jelectro(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 48 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 48 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 48 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 48 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 48 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 48 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 48 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 48 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 48 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 48 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 48 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -2509,10 +2557,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jmanage(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 52 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 52 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 52 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 52 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 52 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 52 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 52 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 52 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 52 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 52 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 52 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -2798,10 +2852,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jpower(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 55 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 55 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 55 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 55 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 55 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 55 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 55 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 55 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 55 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 55 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 55 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -3087,10 +3147,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jmisc(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 58 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 58 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 58 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 58 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 58 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 58 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 58 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 58 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 58 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 58 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 58 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -3376,10 +3442,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jconstr(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 28 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 28 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 28 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 28 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 28 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 28 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 28 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 28 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 28 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 28 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 28 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -3665,10 +3737,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jbuild(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 31 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 31 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 31 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 31 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 31 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 31 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 31 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 31 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 31 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 31 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 31 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -3954,10 +4032,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jretail(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 34 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 34 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 34 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 34 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 34 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 34 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 34 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 34 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 34 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 34 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 34 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -4243,10 +4327,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jhard(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 37 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 37 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 37 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 37 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 37 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 37 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 37 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 37 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 37 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 37 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 37 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -4532,10 +4622,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jadmin(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 40 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 40 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 40 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 40 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 40 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 40 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 40 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 40 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 40 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 40 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 40 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -4821,10 +4917,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jarchi(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 43 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 43 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 43 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 43 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 43 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 43 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 43 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 43 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 43 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 43 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 43 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -5111,10 +5213,16 @@ class Postad_job_model extends CI_Model{
                 public function deals_pck_jplumb(){
                     $data = date("Y-m-d H:i:s");
                     $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 46 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 46 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 46 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-                    (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 46 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 46 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 46 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 46 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 46 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 46 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 46 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 46 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
                     $rs = $this->db->get();
                     return $rs->result();
                 }
@@ -5402,10 +5510,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jlogistic(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 49 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 49 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 49 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 49 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 49 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 49 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 49 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 49 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 49 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 49 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 49 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -5693,10 +5807,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jtelesale(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 53 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 53 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 53 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 53 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 53 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 53 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 53 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 53 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 53 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 53 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 53 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -5984,10 +6104,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jgrad(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 56 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 56 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 56 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 56 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 56 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 56 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 56 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 56 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 56 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 56 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 56 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -6277,10 +6403,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jfinancial(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 29 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 29 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 29 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 29 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 29 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 29 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 29 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 29 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 29 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 29 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 29 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -6569,10 +6701,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jsalesmark(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 32 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 32 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 32 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 32 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 32 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 32 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 32 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 32 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 32 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 32 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 32 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -6860,10 +6998,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jpurchasing(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 35 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 35 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 35 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 35 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 35 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 35 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 35 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 35 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 35 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 35 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 35 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -7151,10 +7295,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jhealthcare(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 38 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 38 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 38 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 38 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 38 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 38 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 38 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 38 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 38 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 38 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 38 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -7442,10 +7592,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jdriving(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 41 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 41 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 41 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 41 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 41 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 41 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 41 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 41 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 41 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 41 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 41 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -7733,10 +7889,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jcatering(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 44 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 44 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 44 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 44 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 44 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 44 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 44 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 44 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 44 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 44 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 44 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -8023,10 +8185,17 @@ class Postad_job_model extends CI_Model{
         }
         public function deals_pck_jchemical(){
             $data = date("Y-m-d H:i:s");
-            $this->db->select("(SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND urgent_package != '0'  AND ad_status = 1 AND expire_data >='$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 47 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 47 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 47 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 47 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 47 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -8314,10 +8483,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jmechanical(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 50 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 50 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 50 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 50 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 50 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 50 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 50 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 50 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 50 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 50 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 50 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -8606,10 +8781,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jdentists(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 51 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 51 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 51 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 51 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 51 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 51 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 51 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 51 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 51 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 51 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 51 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -8897,10 +9078,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jpetrolem(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 54 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 54 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 54 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 54 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 54 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 54 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 54 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 54 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 54 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 54 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 54 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }
@@ -9188,10 +9375,16 @@ class Postad_job_model extends CI_Model{
         public function deals_pck_jnursing(){
             $data = date("Y-m-d H:i:s");
             $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '1' AND sub_cat_id = 57 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 57 AND package_type = '3'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS platinumcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 57 AND package_type = '2'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS goldcount,
-            (SELECT COUNT(*) FROM postad WHERE category_id = '1' AND sub_cat_id = 57 AND package_type = '1'  AND urgent_package = '0'  AND ad_status = 1 AND expire_data >='$data') AS freecount");
+            WHERE ad.category_id = '1' AND ad.sub_cat_id = 57 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
+            (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 57 AND package_type = '3' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 57 AND package_type =  '3' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
+            (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 57 AND package_type = '2' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 57 AND package_type =  '2' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
+            (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '1' AND sub_cat_id = 57 AND package_type = '1' AND urgent_package = '0' 
+            AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
+            WHERE category_id =  '1' AND sub_cat_id = 57 AND package_type =  '1' AND urgent_package !=  '0' AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
             $rs = $this->db->get();
             return $rs->result();
         }

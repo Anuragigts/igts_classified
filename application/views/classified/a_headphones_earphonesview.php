@@ -93,6 +93,7 @@ foreach ($sellerneededcount as $sncnt) {
 $seller = $sncnt->seller;
 $needed = $sncnt->needed;
 }
+$access_sub = $this->session->userdata('access_sub');
 $seller_deals = $this->session->userdata('seller_deals');
 $dealurgent = $this->session->userdata('dealurgent');
 $dealtitle = $this->session->userdata('dealtitle');
@@ -140,7 +141,20 @@ $longg = $this->session->userdata('longg');
 
 <a href="<?php echo base_url(); ?>phones-ipods-camera-accessories-sale"><h4 class="title-widget">Accessories</h4></a>
 <h4 class="title-widget ">Headphones & Earphones</h4>
+<div class="cd-filter-block">
+<h4 class="title-widget ">Accessories Type</h4>
+<div class="cd-filter-content" >
+<div id='limit_scrol'>
+<?php foreach ($ezone_sub as $val) { ?>
+<label class="checkbox">
+<input type="checkbox" name="access_sub[]" class='access_sub' <?php if(isset($access_sub) && in_array($val->sub_sub_subcategory_id,$access_sub)){ echo 'checked = checked';} ?> value="<?php echo $val->sub_sub_subcategory_id; ?>" >
+<i></i> <?php echo $val->sub_sub_subcategory_name; ?> (<?php echo $val->no_ads; ?>)
+</label>
+<?php } ?>
 
+</div>
+</div> 
+</div>
 <div class="cd-filter-block">
 <h4 class="title-widget ">Seller Type</h4>
 

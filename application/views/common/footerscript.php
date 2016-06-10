@@ -33,10 +33,32 @@ $(function(){$(".send_now_show").click(function(){$("#fdbkads").val($(this).attr
 <script type="text/javascript">
 $(".descurl").click(function(){
 	var pathname = window.location.href;
-	$.ajax({
-     type: "POST",
-     url: "<?php echo base_url(); ?>classified/getcurrent_url",
-     data:{path:pathname},
-   }).done(function( msg ) {});
+	sessionStorage.descurl = pathname;
+});
+
+$(".opendescurl").click(function(){
+	window.location.href = sessionStorage.getItem('descurl');
+});
+
+$(".favourite_label").click(function(){
+					var adid = $(this).attr('id');
+				var log = $("#login_status").val();
+				if (log == 'no') {
+					var path = window.location.href;
+				   $.ajax({
+				      type: "POST",
+				      url: "<?php echo base_url();?>description_view/add_favexists",
+				      data: { ad_id: adid, favpath:  path}
+				   }).done(function( msg ) {
+				     window.location.href = "<?php echo base_url(); ?>login";
+				   });
+				}
+});
+
+/*price paste restrict*/
+$(document).ready(function(){
+  $('#priceamount').bind("cut copy paste",function(e) {
+      e.preventDefault();
+  });
 });
 </script>

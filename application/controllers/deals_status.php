@@ -43,7 +43,6 @@ class  Deals_status extends CI_Controller{
                         'log_name'=>$log_name,
                          'paging_links' =>$this->pagination->create_links()
                 );
-                // echo "<pre>"; print_r($this);
                 
                 $this->load->view("classified_layout/inner_template",$data);
         }

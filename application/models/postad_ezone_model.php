@@ -53,7 +53,7 @@ class Postad_ezone_model extends CI_Model{
                         /*accessories type*/
                        if ($this->input->post('sub_sub_id') == 431 || $this->input->post('sub_sub_id') == 432
                         || $this->input->post('sub_sub_id') == 433 || $this->input->post('sub_sub_id') == 434 || 
-                        $this->input->post('sub_sub_id') == 435) {
+                        $this->input->post('sub_sub_id') == 435 || $this->input->post('sub_sub_id') == 451) {
                             $service_type = $this->input->post("accessoriestype");
                         }
                         else if($this->input->post('sub_id') == 70){
@@ -9454,6 +9454,7 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
+                $access_sub = $this->session->userdata('access_sub');
                 $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -9467,6 +9468,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "429");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -9558,6 +9562,7 @@ class Postad_ezone_model extends CI_Model{
                 $recentdays = $this->session->userdata('recentdays');
                 $location = $this->session->userdata('location');
                 $seller = $this->session->userdata('seller_deals');
+                $access_sub = $this->session->userdata('access_sub');
                 $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
                 $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
                 '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
@@ -9570,7 +9575,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "429");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-                
+                if (!empty($access_sub)) {
+                $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -9733,6 +9740,7 @@ class Postad_ezone_model extends CI_Model{
                 }
             }
             public function count_acomputer_search(){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -9753,6 +9761,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "432");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -9837,6 +9848,7 @@ class Postad_ezone_model extends CI_Model{
                     }
                 }
             public function acomputer_search($data){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -9856,7 +9868,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "432");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-                
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -10019,6 +10033,7 @@ class Postad_ezone_model extends CI_Model{
                 }
             }
             public function count_aheadphomes_search(){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -10039,6 +10054,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "433");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -10123,6 +10141,7 @@ class Postad_ezone_model extends CI_Model{
                     }
                 }
             public function aheadphomes_search($data){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -10142,7 +10161,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "433");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-                
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -10305,6 +10326,7 @@ class Postad_ezone_model extends CI_Model{
                 }
             }
             public function count_aaudiovideo_search(){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -10325,6 +10347,10 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "434");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
+
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -10409,6 +10435,7 @@ class Postad_ezone_model extends CI_Model{
                     }
                 }
             public function aaudiovideo_search($data){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -10428,7 +10455,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "434");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-                
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -10591,6 +10620,7 @@ class Postad_ezone_model extends CI_Model{
                 }
             }
             public function count_acamera_search(){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -10611,6 +10641,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "435");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -10695,6 +10728,7 @@ class Postad_ezone_model extends CI_Model{
                     }
                 }
             public function acamera_search($data){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -10714,7 +10748,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "435");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-                
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -14601,6 +14637,7 @@ class Postad_ezone_model extends CI_Model{
                 }
             }
             public function count_hegaming_search(){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -14621,6 +14658,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "451");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }
@@ -14705,6 +14745,7 @@ class Postad_ezone_model extends CI_Model{
                     }
                 }
             public function hegaming_search($data){
+                $access_sub = $this->session->userdata('access_sub');
                 $search_bustype = $this->session->userdata('search_bustype');
                 $dealurgent = $this->session->userdata('dealurgent');
                 $dealtitle = $this->session->userdata('dealtitle');
@@ -14724,7 +14765,9 @@ class Postad_ezone_model extends CI_Model{
                 $this->db->where("ad.sub_scat_id", "451");
                 $this->db->where("ad.ad_status", "1");
                 $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
-                
+                if (!empty($access_sub)) {
+                    $this->db->where_in('ad.service_type', $access_sub);
+                }
                 if (!empty($seller)) {
                     $this->db->where_in('ad.services', $seller);
                 }

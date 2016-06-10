@@ -362,6 +362,34 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
             return $rs->result_array();
         }
 
+        /*mobile and tablets*/
+        public function accesories_mtablets(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE `sub_subcategory_id` = 431");
+            return $rs->result_array();
+        }
+        /*computers*/
+        public function accesories_computers(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE `sub_subcategory_id` = 432");
+            return $rs->result_array();
+        }
+        /*headphone*/
+        public function accesories_headphone(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE `sub_subcategory_id` = 433");
+            return $rs->result_array();
+        }
+
+        /*audio video*/
+        public function accesories_audiovideo(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE `sub_subcategory_id` = 434");
+            return $rs->result_array();
+        }
+
+        /*camera*/
+        public function accesories_camera(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE `sub_subcategory_id` = 435");
+            return $rs->result_array();
+        }
+
         /*person care*/
         public function ezone_pcare(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 64");
@@ -377,6 +405,27 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
         /*person care*/
         public function ezone_photo(){
             $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 66");
+            return $rs->result_array();
+        }
+
+        /*computers*/
+        public function ezone_computers(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 70");
+            return $rs->result_array();
+        }
+        /*networks*/
+        public function ezone_networks(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 71");
+            return $rs->result_array();
+        }
+        /*softwares*/
+        public function ezone_softwares(){
+            $rs = $this->db->query("SELECT * FROM `sub_subcategory` WHERE `sub_category_id` = 72");
+            return $rs->result_array();
+        }
+        /*softwares*/
+        public function ezone_gaming(){
+            $rs = $this->db->query("SELECT * FROM `sub_sub_subcategory` WHERE `sub_subcategory_id` = 451");
             return $rs->result_array();
         }
 

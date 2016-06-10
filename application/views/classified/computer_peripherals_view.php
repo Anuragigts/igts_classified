@@ -94,7 +94,7 @@ $seller = $sncnt->seller;
 $needed = $sncnt->needed;
 $forhire = $sncnt->forhire;
 }
-$poto_sub12 = $this->session->userdata('poto_sub');
+$computer_sub = $this->session->userdata('computer_sub');
 $seller_deals = $this->session->userdata('seller_deals');
 $dealurgent = $this->session->userdata('dealurgent');
 $dealtitle = $this->session->userdata('dealtitle');
@@ -150,7 +150,19 @@ $longg = $this->session->userdata('longg');
 <div class="container-by-widget-filter bg-dark color-white">
 <!-- Widget Filter -->
 <a href="<?php echo base_url(); ?>e-zone-phones-tablets-sale"><h3 class="title-widget">Ezone Filter</h3></a>
-<h4 class="title-widget">Computer peripherals</h4> 
+<div class="cd-filter-block">
+<h4 class="title-widget">Computer peripherals</h4>
+<div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($computersub as $computersubval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="computer_sub[]" class="computer_sub" value="<?php echo $computersubval->sub_subcategory_id; ?>" <?php if (isset($computer_sub) && in_array($computersubval->sub_subcategory_id, $computer_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $computersubval->sub_subcategory_name; ?> (<?php echo $computersubval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
 
 <div class="cd-filter-block">
 <h4 class="title-widget">Seller Type</h4>

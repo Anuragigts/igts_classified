@@ -14,6 +14,7 @@ class  A_computer_accessoriesview extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
+            $this->session->set_userdata('access_sub',array());
             $this->session->set_userdata('seller_deals',array());
             $this->session->set_userdata('dealurgent',array());
             $this->session->set_userdata('dealtitle','');
@@ -64,7 +65,7 @@ class  A_computer_accessoriesview extends CI_Controller{
                 );
                 
                 /*motor*/
-                $data['ezone_sub'] = $this->hotdealsearch_model->ezone_sub_search();
+                $data['ezone_sub'] = $this->hotdealsearch_model->accesories_computers();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
@@ -81,6 +82,7 @@ class  A_computer_accessoriesview extends CI_Controller{
 
         public function search_filters(){
              if($this->input->post()){
+                $this->session->unset_userdata('access_sub');
                 $this->session->unset_userdata('seller_deals');
                 $this->session->unset_userdata('dealurgent');
                 $this->session->unset_userdata('search_bustype');
@@ -90,7 +92,11 @@ class  A_computer_accessoriesview extends CI_Controller{
                 $this->session->unset_userdata('location');
                 $this->session->unset_userdata('latt');
                 $this->session->unset_userdata('longg');
-
+                if($this->input->post('access_sub')){
+                       $this->session->set_userdata('access_sub',$this->input->post('access_sub'));
+                }else{
+                     $this->session->set_userdata('access_sub',array());
+                }
                 if($this->input->post('seller_deals')){
                    // $data['seller_deals'] = $this->input->post('seller_deals');
                        $this->session->set_userdata('seller_deals',$this->input->post('seller_deals'));
@@ -178,7 +184,7 @@ class  A_computer_accessoriesview extends CI_Controller{
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
-                $result['ezone_sub'] = $this->hotdealsearch_model->ezone_sub_search();
+                $result['ezone_sub'] = $this->hotdealsearch_model->accesories_computers();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->postad_ezone_model->busconcount_acomputer();
                  /*seller and needed count for pets*/

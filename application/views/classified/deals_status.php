@@ -131,7 +131,7 @@ $(".deals_search_result").html(data);
 <tbody>
 <?php foreach($my_ads_details as $ads){?>
 <tr>
-<td><?php echo ucwords($ads->deal_tag);?></td>
+<td><?php echo ucwords(substr($ads->deal_tag,0,20));?></td>
 <!-- <td><?php echo ucwords($ads->pkg_dur_name);?></td> -->
 <td><?php if($ads->u_pkg_id == 0) echo 'No';else echo 'Yes';?></td>
 <td><?php 
@@ -161,7 +161,7 @@ echo "Rejected";
 }
 ?></td>
 <td class="pay_btn"><?php 
-if ($ads->expire_data != '0000-00-00 00:00:00' && $ads->ad_status == 1) {
+if (($ads->expire_data > date('Y-m-d H:i:s')) && $ads->ad_status == 1) {
 $date_diff =  (strtotime($ads->expire_data) - time())/(60*60*24);
 if ($date_diff <= 10) { ?>
 <a href="<?php base_url();?>payments/adrenewal/<?php echo $ads->ad_id;?>" class='adrenewal' title="Ad Renewal" >Ad Renewal</a>
@@ -172,7 +172,6 @@ if ($date_diff <= 10) { ?>
 <?php }?>
 </tbody>
 </table>
-<?php //echo $paging_links; ?>
 </div>
 
 </div>

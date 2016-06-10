@@ -16,7 +16,7 @@ class Payments extends CI_Controller
         $post_paypal = $this->input->post();
 		if(!empty($paypalInfo)){
 			$data['product_id'] = $paypalInfo['item_number']; 
-			$data['txn_id'] = $paypalInfo["tx"];
+			$data['txn_id'] = $paypalInfo["txn_id"];
 			$data['gross_amt'] = $paypalInfo["amt"];
 			$data['currency_code'] = $paypalInfo["cc"];
 			$data['payment_status'] = $paypalInfo["st"];

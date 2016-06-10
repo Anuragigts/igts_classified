@@ -325,7 +325,7 @@ Browse
 </div>
 <div class="j-row">
 <div class="span6 unit">
-<label class="label">Bed Room
+<label class="label">Bed Rooms
 <sup data-toggle="tooltip" title="" data-original-title="Number of bedrooms in the property">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
@@ -334,27 +334,27 @@ Browse
 <label class="icon-right" for="Bedrooms">
 <img src="<?php echo base_url(); ?>j-folder/img/bed.png" alt="bed room" title="Bed room">
 </label>
-<input type="text" id="Bedrooms" name="Bedrooms" placeholder="Enter Bed room" onkeypress="return isNumber(event)">
+<input type="text" id="Bedrooms" name="Bedrooms" placeholder="Enter Number of bed rooms" onkeypress="return isNumber(event)">
 </div>
 </div>
 <div class="span6 unit">
-<label class="label">Bath Room
-<sup data-toggle="tooltip" title="" data-original-title="Number of bathroom in the property">
+<label class="label">Bath Rooms
+<sup data-toggle="tooltip" title="" data-original-title="Number of bathrooms in the property">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
 <div class="input">
-<label class="icon-right" for="BathRoom">
-<img src="<?php echo base_url(); ?>j-folder/img/bath.png" alt="bed room" title="Bed room">
+<label class="icon-right" for="BathRooms">
+<img src="<?php echo base_url(); ?>j-folder/img/bath.png" alt="bed rooms" title="Bed room">
 </label>
-<input type="text" id="Bathrooms" name="Bathrooms" placeholder="Enter bath room" onkeypress="return isNumber(event)">
+<input type="text" id="Bathrooms" name="Bathrooms" placeholder="Enter Number of bathrooms" onkeypress="return isNumber(event)">
 </div>
 </div>
 </div>
 <div class="j-row">
 <div class="span6 unit">
 <label class="label">Super built-up area
-<sup data-toggle="tooltip" title="" data-original-title="Super built-up area">
+<sup data-toggle="tooltip" title="" data-original-title="Super built-up area is a construction of a property which is a combination of built up areas ,carpet area and area of walls and columns. it can be notified with sq.meters">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
@@ -362,7 +362,7 @@ Browse
 <label class="icon-right" for="area">
 <img src="<?php echo base_url(); ?>j-folder/img/area.png" alt="Area" title="area">
 </label>
-<input type="text" id="area" name="area" placeholder="Enter Super built-up area" onkeypress="return isNumber(event)">
+<input type="text" id="area" name="area" placeholder="Enter Super built-up area" >
 </div>
 </div>
 <div class="span6 unit">
@@ -382,7 +382,7 @@ Browse
 <div class="j-row">
 <div class="span6 unit">
 <label class="label">Property Age
-<sup data-toggle="tooltip" title="" data-original-title="Property Age">
+<sup data-toggle="tooltip" title="" data-original-title="Number of years since the property has been built">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
@@ -390,12 +390,12 @@ Browse
 <label class="icon-right" for="propertyage">
 <img src="<?php echo base_url(); ?>j-folder/img/bed.png" alt="Property Age" title="Property Age">
 </label>
-<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" onkeypress="return isNumber(event)">
+<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age">
 </div>
 </div>
 <div class="span6 unit">
 <label class="label">Property Ownership 
-<sup data-toggle="tooltip" title="" data-original-title="Property Ownership">
+<sup data-toggle="tooltip" title="" data-original-title="Type of property ownership">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
@@ -410,7 +410,7 @@ Browse
 <div class="j-row">
 <div class="span6 unit">
 <label class="label">Floor number 
-<sup data-toggle="tooltip" title="" data-original-title="Floor number">
+<sup data-toggle="tooltip" title="" data-original-title="The location of the property situated on a specific floor">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
 </label>
@@ -476,7 +476,7 @@ Browse
 <label class="icon-right" for="area">
 <img src="<?php echo base_url(); ?>j-folder/img/area.png" alt="Area" title="area">
 </label>
-<input type="text" id="area" name="area" placeholder="Enter Super built-up area" onkeypress="return isNumber(event)">
+<input type="text" id="area" name="area" placeholder="Enter Super built-up area" >
 </div>
 </div>
 </div>
@@ -504,7 +504,7 @@ Browse
 <label class="icon-right" for="propertyage">
 <img src="<?php echo base_url(); ?>j-folder/img/bed.png" alt="Property Age" title="Property Age">
 </label>
-<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" onkeypress="return isNumber(event)">
+<input type="text" id="propertyage" name="propertyage" placeholder="Enter property age" >
 </div>
 </div>
 </div>

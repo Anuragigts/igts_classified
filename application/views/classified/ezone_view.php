@@ -75,26 +75,25 @@ $("form.jforms").submit();
 );
 </script>
 
-<?php foreach ($busconcount as $countval) {
-$allbustype = $countval->allbustype;
-$business = $countval->business;
-$consumer = $countval->consumer;
-}
-foreach ($deals_pck as $pckval) {
-$urgentcnt = $pckval->urgentcount;
-$platinumcnt = $pckval->platinumcount;
-$goldcnt = $pckval->goldcount;
-$freecnt = $pckval->freecount;
-}
+<?php 
+$allbustype = $busconcount['allbustype'];
+$business = $busconcount['business'];
+$consumer = $busconcount['consumer'];
+
+$urgentcnt = $deals_pck['urgentcount'];
+$platinumcnt = $deals_pck['platinumcount'];
+$goldcnt = $deals_pck['goldcount'];
+$freecnt = $deals_pck['freecount'];
+
 foreach ($public_adview as $publicview) {
 $left_ad1 = $publicview->sidead_one;
 $topad = $publicview->topad;
 $mid_ad = $publicview->mid_ad;
 }
-foreach ($sellerneededcount as $sncnt) {
-$seller = $sncnt->seller;
-$needed = $sncnt->needed;
-}
+
+$seller = $sellerneededcount['seller'];
+$needed = $sellerneededcount['needed'];
+
 $seller_deals = $this->session->userdata('seller_deals');
 $dealurgent = $this->session->userdata('dealurgent');
 $dealtitle = $this->session->userdata('dealtitle');
@@ -165,7 +164,7 @@ $softwarecnt = $ezone_sub1->software;
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-phones-tablets">Phones & Tablets (<?php echo $phonescnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-appliances-for-sale">Home Appliances (<?php echo $homescnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-small-appliances">Small Appliances (<?php echo $smallcnt; ?>)</a></li>
-<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-laptop-sale">Laptop (<?php echo $lappycnt; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>used-secondhand-laptop-sale">Laptop & Computers (<?php echo $lappycnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>phones-ipods-camera-accessories-sale">Accessories (<?php echo $accesscnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>body-care-stuff-for-sale">Personal Care (<?php echo $pcarecnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i> <a href="<?php echo base_url(); ?>home-entertainment-items-sale">Home Entertainment (<?php echo $entertaincnt; ?>)</a></li>

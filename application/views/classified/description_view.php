@@ -83,7 +83,14 @@
 				$(".favourite_label").click(function(){
 					var log = $("#login_id").val();
 					if (log == '') {
-						window.location.href = "<?php echo base_url(); ?>login";
+							var path = window.location.href;
+						   $.ajax({
+						      type: "POST",
+						      url: "<?php echo base_url();?>description_view/add_favexists",
+						      data: { ad_id: $("#ad_id").val(), favpath:  path}
+						   }).done(function( msg ) {
+						     window.location.href = "<?php echo base_url(); ?>login";
+						   });
 					}
 					var val = $(".favourite_label1").hasClass('active');
 					
@@ -131,7 +138,15 @@
 				$('.bg_clr1').click( function() {
 					var log = $("#login_id").val();
 					if (log == '') {
-						window.location.href = "<?php echo base_url(); ?>login";
+						// window.location.href = "<?php echo base_url(); ?>login";
+						var path = window.location.href;
+						   $.ajax({
+						      type: "POST",
+						      url: "<?php echo base_url();?>description_view/likexists",
+						      data: { ad_id: $("#ad_id").val(), likepath:  path}
+						   }).done(function( msg ) {
+						     window.location.href = "<?php echo base_url(); ?>login";
+						   });
 					}
 					if (rgb2hex($(this).css('color')) == '#727272') {
 						$(this).css('color', '#E24A14');
@@ -278,7 +293,6 @@
 					
 					}
 					 ?>
-				
 				<div class="content_info">
 					<div class="paddings-mini">
 						<div class="container pad_bott_50">
@@ -291,7 +305,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<a href="<?php echo $this->session->userdata('path'); ?>"><i class="fa fa-mail-reply-all fa-2x"></i></a>
+									<a href="javascript:void(0);"><i class="fa fa-mail-reply-all fa-2x opendescurl"></i></a>
 								</div>
 							</div>
 							<div class="row">
@@ -732,6 +746,7 @@
 														</label>
 														<input type="text" id="review_title" name="review_title" placeholder="Enter Review Title">
 														<input type="hidden" name="ad_id" value="<?php echo $ad_id_no; ?>">
+														<input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
 													</div>
 												</div>
 												<div class="span12 unit">
@@ -958,7 +973,7 @@
 											<?php } ?>
 											<div class="img-hover related_ads">
 												<img src="<?php echo base_url(); ?>pictures/<?php echo $b_ads->img_name; ?>" alt="<?php echo $b_ads->img_name; ?>" title="business-image1" class="img-responsive">
-												<div class="overlay"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
+												<div class="overlay descurl"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 											</div>
 											<div class="info-gallery recommanded">
 												<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
@@ -992,7 +1007,7 @@
 												<h3 class="home_price"></h3>
 												<?php	}
 													?>
-												<a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
+												<a href="<?php echo base_url(); ?>description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
 											</div>
 										</div>
 										<?php	} ?>

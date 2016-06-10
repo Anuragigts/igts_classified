@@ -13,7 +13,7 @@ class  Softwares_view extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
-            $this->session->set_userdata('poto_sub',array());
+            $this->session->set_userdata('software_sub',array());
             $this->session->set_userdata('seller_deals',array());
             $this->session->set_userdata('dealurgent',array());
             $this->session->set_userdata('dealtitle','');
@@ -64,7 +64,7 @@ class  Softwares_view extends CI_Controller{
                 );
                 
                 /*motor*/
-                $data['poto_sub'] = $this->hotdealsearch_model->poto_sub_search();
+                $data['softwaresub'] = $this->hotdealsearch_model->software_sub_search();
                 $data['potosubcnt'] = $this->hotdealsearch_model->photography_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
@@ -82,7 +82,7 @@ class  Softwares_view extends CI_Controller{
 
         public function search_filters(){
              if($this->input->post()){
-                $this->session->unset_userdata('poto_sub');
+                $this->session->unset_userdata('software_sub');
                 $this->session->unset_userdata('seller_deals');
                 $this->session->unset_userdata('dealurgent');
                 $this->session->unset_userdata('search_bustype');
@@ -92,11 +92,10 @@ class  Softwares_view extends CI_Controller{
                 $this->session->unset_userdata('location');
                 $this->session->unset_userdata('latt');
                 $this->session->unset_userdata('longg');
-                if($this->input->post('poto_sub')){
-                   // $data['poto_sub'] = $this->input->post('poto_sub');
-                       $this->session->set_userdata('poto_sub',$this->input->post('poto_sub'));
+                if($this->input->post('software_sub')){
+                       $this->session->set_userdata('software_sub',$this->input->post('software_sub'));
                 }else{
-                     $this->session->set_userdata('poto_sub',array());
+                     $this->session->set_userdata('software_sub',array());
                 }
                 if($this->input->post('seller_deals')){
                    // $data['seller_deals'] = $this->input->post('seller_deals');
@@ -185,7 +184,7 @@ class  Softwares_view extends CI_Controller{
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
-                $result['poto_sub'] = $this->hotdealsearch_model->poto_sub_search();
+                $result['softwaresub'] = $this->hotdealsearch_model->software_sub_search();
                 $result['potosubcnt'] = $this->hotdealsearch_model->photography_search();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_softwares();

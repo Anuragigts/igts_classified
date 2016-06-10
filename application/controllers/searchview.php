@@ -19,11 +19,17 @@ class  Searchview extends CI_Controller{
                    $this->session->unset_userdata('saved_msg');
                 }
              if($this->input->get()){
+               $this->session->unset_userdata('subcat_boats');
+                $this->session->unset_userdata('s_search_subsubsub');
+                $this->session->unset_userdata('accessories_sub');
+                $this->session->unset_userdata('s_access_sub');
+                $this->session->unset_userdata('laptop_sub');
                 $this->session->unset_userdata('search_proptype');
                 $this->session->unset_userdata('search_resisub');
                 $this->session->unset_userdata('search_commsub');
                 $this->session->unset_userdata('resi_prop');
                 $this->session->unset_userdata('comm_prop');
+                $this->session->unset_userdata('search_acctype');
 
                 $this->session->unset_userdata('miles');
                 $this->session->unset_userdata('s_cat_id');
@@ -45,6 +51,16 @@ class  Searchview extends CI_Controller{
                 $this->session->unset_userdata('bikes_sub');
                 $this->session->unset_userdata('plant_farm');
                 $this->session->unset_userdata('boats_sub');
+                if($this->input->get('search_subsubsub')){
+                       $this->session->set_userdata('s_search_subsubsub',$this->input->get('search_subsubsub'));
+                }else{
+                     $this->session->set_userdata('s_search_subsubsub',array());
+                }
+                if($this->input->get('access_sub')){
+                       $this->session->set_userdata('s_access_sub',$this->input->get('access_sub'));
+                }else{
+                     $this->session->set_userdata('s_access_sub',array());
+                }
                 if($this->input->get('resi_prop')){
                        $this->session->set_userdata('resi_prop',$this->input->get('resi_prop'));
                 }else{
@@ -69,6 +85,26 @@ class  Searchview extends CI_Controller{
                        $this->session->set_userdata('search_proptype',$this->input->get('search_proptype'));
                 }else{
                      $this->session->set_userdata('search_proptype','all');
+                }
+                if($this->input->get('search_acctype')){
+                       $this->session->set_userdata('search_acctype',$this->input->get('search_acctype'));
+                }else{
+                     $this->session->set_userdata('search_acctype','all');
+                }
+                if($this->input->get('accessories_sub')){
+                       $this->session->set_userdata('accessories_sub',$this->input->get('accessories_sub'));
+                }else{
+                     $this->session->set_userdata('accessories_sub','');
+                }
+                if($this->input->get('subcat_boats')){
+                       $this->session->set_userdata('subcat_boats',$this->input->get('subcat_boats'));
+                }else{
+                     $this->session->set_userdata('subcat_boats','');
+                }
+                if($this->input->get('laptop_sub')){
+                       $this->session->set_userdata('laptop_sub',$this->input->get('laptop_sub'));
+                }else{
+                     $this->session->set_userdata('laptop_sub','');
                 }
                 if($this->input->get('car_van_bus')){
                      $this->session->set_userdata('car_van_bus',$this->input->get('car_van_bus'));
@@ -270,15 +306,27 @@ class  Searchview extends CI_Controller{
                $result['subcat_home'] = $this->hotdealsearch_model->subcat_home_searchdeals();
                $result['subcat_decor'] = $this->hotdealsearch_model->subcat_decor_searchdeals();
                /*ezone*/
+               $result['cnt_accessories'] = $this->hotdealsearch_model->cnt_accessories();
                $result['cnt_ezone'] = $this->hotdealsearch_model->cnt_ezone();
                $result['subcat_phone'] = $this->hotdealsearch_model->subcat_phone_searchdeals();
                $result['subcat_homeapp'] = $this->hotdealsearch_model->subcat_homeapp_searchdeals();
                $result['subcat_smallapp'] = $this->hotdealsearch_model->subcat_smallapp_searchdeals();
                $result['subcat_lappy'] = $this->hotdealsearch_model->subcat_lappy_searchdeals();
                $result['subcat_access'] = $this->hotdealsearch_model->subcat_access_searchdeals();
+               $result['accesories_mtablets'] = $this->hotdealsearch_model->accesories_mtablets();
+               $result['accesories_computers'] = $this->hotdealsearch_model->accesories_computers();
+               $result['accesories_headphone'] = $this->hotdealsearch_model->accesories_headphone();
+               $result['accesories_audiovideo'] = $this->hotdealsearch_model->accesories_audiovideo();
+               $result['accesories_camera'] = $this->hotdealsearch_model->accesories_camera();
+
                $result['subcat_pcare'] = $this->hotdealsearch_model->subcat_pcare_searchdeals();
                $result['subcat_henter'] = $this->hotdealsearch_model->subcat_henter_searchdeals();
+               $result['subcat_gaming'] = $this->hotdealsearch_model->subcat_gaming_searchdeals();
                $result['subcat_pgraphy'] = $this->hotdealsearch_model->subcat_pgraphy_searchdeals();
+               $result['subcat_computers'] = $this->hotdealsearch_model->subcat_computers_searchdeals();
+               $result['subcat_networks'] = $this->hotdealsearch_model->subcat_networks_searchdeals();
+               $result['subcat_softwares'] = $this->hotdealsearch_model->subcat_softwares_searchdeals();
+               $result['subcat_laptops_cnt'] = $this->hotdealsearch_model->subcat_laptops_cnt();
 
 
                /*motor sub sub*/
@@ -290,13 +338,12 @@ class  Searchview extends CI_Controller{
                $result['subcat_plant'] = $this->hotdealsearch_model->subcat_plant_searchdeals();
                $result['subcat_farming'] = $this->hotdealsearch_model->subcat_farming_searchdeals();
                $result['subcat_boats'] = $this->hotdealsearch_model->subcat_boats_searchdeals();
+               $result['subcat_accessories'] = $this->hotdealsearch_model->subcat_accessories_cnt();
+               $result['subcat_boatscnt'] = $this->hotdealsearch_model->subcat_boats_cnt();
 
                /*business and consumer count*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_search();
                 $result['login_id'] = $this->session->userdata('login_id');
-                 /*seller and needed count for pets*/
-                // $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_search();
-                 /*packages count*/
                 $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_search();
             $this->load->view("classified_layout/inner_template",$result);
         }

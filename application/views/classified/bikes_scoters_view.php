@@ -99,12 +99,12 @@ $allbustype = $countval->allbustype;
 $business = $countval->business;
 $consumer = $countval->consumer;
 }
-foreach ($deals_pck as $pckval) {
-$urgentcnt = $pckval->urgentcount;
-$platinumcnt = $pckval->platinumcount;
-$goldcnt = $pckval->goldcount;
-$freecnt = $pckval->freecount;
-}
+
+$urgentcnt = $deals_pck['urgentcount'];
+$platinumcnt = $deals_pck['platinumcount'];
+$goldcnt = $deals_pck['goldcount'];
+$freecnt = $deals_pck['freecount'];
+
 foreach ($public_adview as $publicview) {
 $left_ad1 = $publicview->sidead_one;
 $topad = $publicview->topad;
@@ -115,6 +115,7 @@ $seller = $sncnt->seller;
 $needed = $sncnt->needed;
 $forhire = $sncnt->forhire;
 }
+$bikes_sub = $this->session->userdata('bikes_sub');
 $engine = $this->session->userdata('engine');
 $nomiles = $this->session->userdata('nomiles');
 $fueltype = $this->session->userdata('fueltype');
@@ -163,7 +164,20 @@ $longg = $this->session->userdata('longg');
 <div class="col-md-3 col-sm-3">
 <div class="container-by-widget-filter bg-dark color-white">
 <a href="<?php echo base_url(); ?>motor-point-used-cars-sale"><h3 class="title-widget">Motors Filter</h3></a>
-<a href=""><h4 class="title-widget">Bikes Scooter Filter</h4></a>
+<div class="cd-filter-block">
+<h4 class="title-widget">Bikes Scooter Filter</h4>
+<div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($motor_sub as $motor_subval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="bikes_sub[]" class="bikes_sub" value="<?php echo $motor_subval->sub_subcategory_id; ?>" <?php if (in_array($motor_subval->sub_subcategory_id,$bikes_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $motor_subval->sub_subcategory_name; ?> (<?php echo $motor_subval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
+
 <div class="cd-filter-block">
 <h4 class="title-widget">Fuel type</h4>
 <div class="cd-filter-content">

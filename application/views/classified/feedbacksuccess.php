@@ -46,7 +46,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="titles">
-<a href="<?php echo $this->session->userdata('feedbackmsg'); ?>">Go To Homepage</a>
+<a href="<?php echo $this->session->userdata('feedbackmsg'); ?>">Go To Previous Page</a>
 </div>
 </div>
 </div>

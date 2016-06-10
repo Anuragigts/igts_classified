@@ -25,11 +25,16 @@ class Deal_page extends CI_Controller{
                    $this->session->unset_userdata('saved_msg1');
                 }
           if ($this->input->get()) {
+            $this->session->unset_userdata('search_subsubsub');
+            $this->session->unset_userdata('access_sub');
+            $this->session->unset_userdata('hotlaptop_sub');
+            $this->session->unset_userdata('accessories');
             $this->session->unset_userdata('search_proptype');
             $this->session->unset_userdata('search_resisub');
             $this->session->unset_userdata('search_commsub');
             $this->session->unset_userdata('resi_prop');
             $this->session->unset_userdata('comm_prop');
+            $this->session->unset_userdata('search_acctype');
 
           $this->session->unset_userdata('cat_id');
           $this->session->unset_userdata('seller_id');
@@ -51,6 +56,21 @@ class Deal_page extends CI_Controller{
             $this->session->unset_userdata('bikes_sub');
             $this->session->unset_userdata('plant_farm');
             $this->session->unset_userdata('boats_sub');
+            if($this->input->get('search_subsubsub')){
+                       $this->session->set_userdata('search_subsubsub',$this->input->get('search_subsubsub'));
+                }else{
+                     $this->session->set_userdata('search_subsubsub',array());
+                }
+            if($this->input->get('access_sub')){
+                       $this->session->set_userdata('access_sub',$this->input->get('access_sub'));
+                }else{
+                     $this->session->set_userdata('access_sub',array());
+                }
+            if($this->input->get('search_acctype')){
+                       $this->session->set_userdata('search_acctype',$this->input->get('search_acctype'));
+                }else{
+                     $this->session->set_userdata('search_acctype','all');
+                }
             if($this->input->get('resi_prop')){
                        $this->session->set_userdata('resi_prop',$this->input->get('resi_prop'));
                 }else{
@@ -75,6 +95,17 @@ class Deal_page extends CI_Controller{
                        $this->session->set_userdata('search_proptype',$this->input->get('search_proptype'));
                 }else{
                      $this->session->set_userdata('search_proptype','all');
+                }
+                if($this->input->get('accessories')){
+                       $this->session->set_userdata('accessories',$this->input->get('accessories'));
+                }else{
+                     $this->session->set_userdata('accessories','');
+                }
+
+                if($this->input->get('hotlaptop_sub')){
+                       $this->session->set_userdata('hotlaptop_sub',$this->input->get('hotlaptop_sub'));
+                }else{
+                     $this->session->set_userdata('hotlaptop_sub','');
                 }
 
 
@@ -106,7 +137,7 @@ class Deal_page extends CI_Controller{
                      $this->session->set_userdata('boats_sub',$this->input->get('boats_sub'));
                 }
                 else{
-                    $this->session->set_userdata('boats_sub',array());
+                    $this->session->set_userdata('boats_sub','');
                 }
                 /*motor point ends*/
 
@@ -146,11 +177,6 @@ class Deal_page extends CI_Controller{
                    $this->session->set_userdata('dealtitle','Any');
               }
               if($this->input->get('dealurgent')){
-                       $this->session->set_userdata('dealurgent' ,$this->input->get('dealurgent'));
-                }else{
-                     $this->session->set_userdata('dealurgent',array());
-                }
-                if($this->input->get('dealurgent')){
                        $this->session->set_userdata('dealurgent' ,$this->input->get('dealurgent'));
                 }else{
                      $this->session->set_userdata('dealurgent',array());
@@ -262,7 +288,8 @@ class Deal_page extends CI_Controller{
          $data['subcat_buses'] = $this->hotdealsearch_model->subcat_buses_hotdeals();
          $data['subcat_plant'] = $this->hotdealsearch_model->subcat_plant_hotdeals();
          $data['subcat_farming'] = $this->hotdealsearch_model->subcat_farming_hotdeals();
-         $data['subcat_boats'] = $this->hotdealsearch_model->subcat_boats_hotdeals();
+         $data['subcat_boats'] = $this->hotdealsearch_model->subcat_boatscnt_hotdeals();
+         $data['subcat_motoraccess'] = $this->hotdealsearch_model->subcat_motoraccess_hotdeals();
            /*find a property sub sub*/
          $data['cnt_findpropery'] = $this->hotdealsearch_model->cnt_findpropery_hotdeal();
          $data['subcat_resi'] = $this->hotdealsearch_model->subcat_resi_hotdeals();
@@ -286,15 +313,27 @@ class Deal_page extends CI_Controller{
          $data['subcat_home'] = $this->hotdealsearch_model->subcat_home_hotdeals();
          $data['subcat_decor'] = $this->hotdealsearch_model->subcat_decor_hotdeals();
          /*ezone*/
-         $data['cnt_ezone'] = $this->hotdealsearch_model->cnt_ezone_hotdeals();
+         $data['cnt_accessories'] = $this->hotdealsearch_model->cnt_accessories_hotdeals();
+         // $data['cnt_ezone'] = $this->hotdealsearch_model->cnt_ezone_hotdeals();
          $data['subcat_phone'] = $this->hotdealsearch_model->subcat_phone_hotdeals();
          $data['subcat_homeapp'] = $this->hotdealsearch_model->subcat_homeapp_hotdeals();
          $data['subcat_smallapp'] = $this->hotdealsearch_model->subcat_smallapp_hotdeals();
          $data['subcat_lappy'] = $this->hotdealsearch_model->subcat_lappy_hotdeals();
          $data['subcat_access'] = $this->hotdealsearch_model->subcat_access_hotdeals();
+         $data['accesories_mtablets'] = $this->hotdealsearch_model->accesories_mtablets_hotdeals();
+         $data['accesories_computers'] = $this->hotdealsearch_model->accesories_computers_hotdeals();
+         $data['accesories_headphone'] = $this->hotdealsearch_model->accesories_headphone_hotdeals();
+         $data['accesories_audiovideo'] = $this->hotdealsearch_model->accesories_audiovideo_hotdeals();
+         $data['accesories_camera'] = $this->hotdealsearch_model->accesories_camera_hotdeals();
+
          $data['subcat_pcare'] = $this->hotdealsearch_model->subcat_pcare_hotdeals();
          $data['subcat_henter'] = $this->hotdealsearch_model->subcat_henter_hotdeals();
+         $data['subcat_gaming'] = $this->hotdealsearch_model->subcat_gaming_hotdeals();
          $data['subcat_pgraphy'] = $this->hotdealsearch_model->subcat_pgraphy_hotdeals();
+         $data['subcat_computers'] = $this->hotdealsearch_model->subcat_computers_hotdeals();
+         $data['subcat_networks'] = $this->hotdealsearch_model->subcat_networks_hotdeals();
+         $data['subcat_softwares'] = $this->hotdealsearch_model->subcat_softwares_hotdeals();
+         $data['hotlaptops_cnt'] = $this->hotdealsearch_model->hotlaptops_cnt();
            /*packages count*/
           $data['deals_pck'] = $this->hotdealsearch_model->hotdeals_pck_hotdeals();
             $this->load->view("classified_layout/inner_template",$data);

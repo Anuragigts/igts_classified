@@ -25,9 +25,18 @@ class Postad_create_ezone extends CI_Controller{
                             "ezone_small"       => $this->category_model->ezone_small(),
                             "ezone_laptops"     => $this->category_model->ezone_laptops(),
                             "ezone_accesories"  => $this->category_model->ezone_accesories(),
+                            "accesories_mtablets"  => $this->category_model->accesories_mtablets(),
+                            "accesories_computers"  => $this->category_model->accesories_computers(),
+                            "accesories_headphone"  => $this->category_model->accesories_headphone(),
+                            "accesories_audiovideo"  => $this->category_model->accesories_audiovideo(),
+                            "accesories_camera"  => $this->category_model->accesories_camera(),
                             "ezone_pcare"       => $this->category_model->ezone_pcare(),
                             "ezone_entertainment"   => $this->category_model->ezone_entertainment(),
                             "ezone_photo"   => $this->category_model->ezone_photo(),
+                            "ezone_computers"   => $this->category_model->ezone_computers(),
+                            "ezone_networks"   => $this->category_model->ezone_networks(),
+                            "ezone_softwares"   => $this->category_model->ezone_softwares(),
+                            "ezone_gaming"   => $this->category_model->ezone_gaming(),
                                 "title"     =>  "Classifieds",
                                 "content"   =>  "postad_create_ezone"
                         );

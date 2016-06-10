@@ -2,10 +2,10 @@
 <html>
 <head>
 
-<title>Commercial Fishing Boat For Sale | New And Used Boats | 99 Right Deals</title>
+<title>Agricultural Vehicles | Farming Vehicles For Sale | 99 Right Deals</title>
 
-<meta name="description" content="Search the new or used boats and for sale in UK. And Find boat house for sale, fishing boats for sale used or UK boat sales on 99 Right Deals." />
-<meta name="keywords" content="used aluminum boats, used boats for sale by owner, boat house for sale, boat houses for sale, uk boat sales, commercial fishing boat for sale, fishing boats for sale used, buy a used boat, rinker boats for sale, wood boat for sale" />
+<meta name="description" content="Find the used or new farming vehicles for sale in United Kingdom and also create free ads for used agriculture vehicles Tractor for sale on 99 Right Deals." />
+<meta name="keywords" content="farm vehicles, agricultural tractors, agricultural machinery uk, small farm vehicles, farm machines, farm vehicle, agricultural vehicles, farm machinery online, farming tractors, agriculture equipment, agricultural vehicles for sale" />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 
@@ -13,6 +13,9 @@
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -26,10 +29,6 @@ cursorcolor: '#E95413'
 });
 </script>
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>libs/slider.css">
-<link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jssor.slider.min.js"></script>
-
 <script type="text/javascript">
 $(function(){
 $(".loc_map").click(function(){
@@ -42,7 +41,8 @@ $(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','
 
 <script type="text/javascript">
 $(document).ready(
-function(){
+function()
+{
 $("input:checkbox").change(
 function()
 {
@@ -96,8 +96,7 @@ foreach ($sellerneededcount as $sncnt) {
 $seller = $sncnt->seller;
 $needed = $sncnt->needed;
 $forhire = $sncnt->forhire;
-}
-$boats_sub12 = $this->session->userdata('boats_sub');
+}  
 $seller_deals = $this->session->userdata('seller_deals');
 $dealurgent = $this->session->userdata('dealurgent');
 $dealtitle = $this->session->userdata('dealtitle');
@@ -108,6 +107,7 @@ $location = $this->session->userdata('location');
 $latt = $this->session->userdata('latt');
 $longg = $this->session->userdata('longg');
 ?>
+
 </head>
 
 <body id="home">
@@ -120,16 +120,14 @@ $longg = $this->session->userdata('longg');
 <?php echo $this->load->view('common/tophead'); ?> 
 <!-- xxx End tophead xxx -->
 
-<div class="section-title-01">
-<div class="bg_parallax image_01_parallax"></div>
-</div>   
+<div class="section-title-01"><div class="bg_parallax image_01_parallax"></div></div>   
 
 <section class="content-central">
 
 <div class="semiboxshadow text-center">
 <img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
-<form id="j-forms2" action="<?php echo base_url(); ?>boats_view/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
+<form id="j-forms2" action="<?php echo base_url(); ?>motoraccessoriesview/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 <div class="content_info">
 <div class="paddings">
 <div class="container pad_bott_50">
@@ -146,7 +144,7 @@ $longg = $this->session->userdata('longg');
 <div class="container-by-widget-filter bg-dark color-white">
 
 <a href="<?php echo base_url(); ?>motor-point-used-cars-sale"><h3 class="title-widget">Motors Filter</h3></a>
-<h4 class="title-widget">Boats</h4>
+
 <div class="cd-filter-block">
 <h4 class="title-widget">Seller Type</h4>
 
@@ -227,6 +225,7 @@ $longg = $this->session->userdata('longg');
 </div>
 </div>
 </div> 
+
 </div>
 <div class="row top_20">
 <div class="col-sm-12 add_left">
@@ -286,7 +285,7 @@ $longg = $this->session->userdata('longg');
 </div>
 
 <div class="row list_view_searches motor_result">
-<?php echo $this->load->view("classified/boats_view_search"); ?>
+<?php echo $this->load->view("classified/motoraccessoriesview_search"); ?>
 </div>
 </div>
 </div>

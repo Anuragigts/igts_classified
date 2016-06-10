@@ -5,16 +5,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class  A_camera_accessoriesview extends CI_Controller{
-       public function __construct(){
+class  Motoraccessoriesview extends CI_Controller{
+         public function __construct(){
                 parent::__construct();
                 $this->load->model("classifed_model");
                 $this->load->model("hotdealsearch_model");
-                $this->load->model("postad_ezone_model");
                 $this->load->library('pagination');
         }
         public function index(){
-            $this->session->set_userdata('access_sub',array());
             $this->session->set_userdata('seller_deals',array());
             $this->session->set_userdata('dealurgent',array());
             $this->session->set_userdata('dealtitle','');
@@ -25,8 +23,8 @@ class  A_camera_accessoriesview extends CI_Controller{
             $this->session->set_userdata('latt','');
             $this->session->set_userdata('longg','');
             $config = array();
-            $config['base_url'] = base_url().'a_camera_accessoriesview/index';
-            $config['total_rows'] = count($this->postad_ezone_model->count_acamera_view());
+            $config['base_url'] = base_url().'motoraccessoriesview/index';
+            $config['total_rows'] = count($this->classifed_model->count_motoraccessories_view());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -38,6 +36,8 @@ class  A_camera_accessoriesview extends CI_Controller{
                 'limit' =>$config['per_page'],
                 'start' =>$page
                 );
+
+
                 if ($this->session->userdata('login_id') == '') {
                     $login_status = 'no';
                     $login = '';
@@ -48,41 +48,40 @@ class  A_camera_accessoriesview extends CI_Controller{
                     $login = $this->session->userdata('login_id');
                     $favourite_list = $this->classifed_model->favourite_list();
                 }
-                $ezone_result = $this->postad_ezone_model->acamera_view($search_option);
-            foreach ($ezone_result as $pview) {
+                $farming_result = $this->classifed_model->motoraccessories_view($search_option);
+            foreach ($farming_result as $pview) {
                 $loginid = $pview->login_id;
             }
-            $public_adview = $this->classifed_model->publicads_ezone();
+            $public_adview = $this->classifed_model->publicads_motor();
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid'"), 0, 'first_name');
                 $data   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "a_camera_accessoriesview",
-                         "ezone_result" => $ezone_result,
+                        "content"   =>  "motoraccessoriesview",
+                         "farming_result" => $farming_result,
                          'log_name' => $log_name,
                          'paging_links' =>$this->pagination->create_links()
                 );
                 
                 /*motor*/
-                $data['ezone_sub'] = $this->hotdealsearch_model->accesories_camera();
+                $data['farming_sub'] = $this->hotdealsearch_model->farming_sub_search();
                 $data['login_status'] =$login_status;
                     $data['login'] = $login;
                     $data['favourite_list']=$favourite_list;
 
                 /*business and consumer count for pets*/
-                $data['busconcount'] = $this->postad_ezone_model->busconcount_acamera();
+                $data['busconcount'] = $this->hotdealsearch_model->busconcount_motoraccessories();
                  /*seller and needed count for pets*/
-                $data['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_acamera();
+                $data['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motoraccessories();
                  /*packages count*/
-                $data['deals_pck'] = $this->postad_ezone_model->deals_pck_acamera();
+                $data['deals_pck'] = $this->hotdealsearch_model->deals_pck_motoraccessories();
                 $data['public_adview'] = $public_adview;
                 $this->load->view("classified_layout/inner_template",$data);
         }
 
         public function search_filters(){
              if($this->input->post()){
-                $this->session->unset_userdata('access_sub');
                 $this->session->unset_userdata('seller_deals');
                 $this->session->unset_userdata('dealurgent');
                 $this->session->unset_userdata('search_bustype');
@@ -92,26 +91,17 @@ class  A_camera_accessoriesview extends CI_Controller{
                 $this->session->unset_userdata('location');
                 $this->session->unset_userdata('latt');
                 $this->session->unset_userdata('longg');
-                
-                if($this->input->post('access_sub')){
-                       $this->session->set_userdata('access_sub',$this->input->post('access_sub'));
-                }else{
-                     $this->session->set_userdata('access_sub',array());
-                }
                 if($this->input->post('seller_deals')){
-                   // $data['seller_deals'] = $this->input->post('seller_deals');
                        $this->session->set_userdata('seller_deals',$this->input->post('seller_deals'));
                 }else{
                      $this->session->set_userdata('seller_deals',array());
                 }
                  if($this->input->post('dealurgent')){
-                    //$data['dealurgent'] = $this->input->post('dealurgent');
                        $this->session->set_userdata('dealurgent' ,$this->input->post('dealurgent'));
                 }else{
                      $this->session->set_userdata('dealurgent',array());
                 }
                  if($this->input->post('search_bustype')){
-                    //$data['search_bustype'] = $this->input->post('search_bustype');
                        $this->session->set_userdata('search_bustype',$this->input->post('search_bustype'));
                 }else{
                      $this->session->set_userdata('search_bustype','all');
@@ -139,8 +129,8 @@ class  A_camera_accessoriesview extends CI_Controller{
             }
 
             $config = array();
-            $config['base_url'] = base_url().'a_camera_accessoriesview/search_filters';
-            $config['total_rows'] = count($this->postad_ezone_model->count_acamera_search());
+            $config['base_url'] = base_url().'motoraccessoriesview/search_filters';
+            $config['total_rows'] = count($this->hotdealsearch_model->count_motoraccessories_search());
             $config['per_page'] = 30;
              $config['next_link'] = 'Next';
               $config['prev_link'] = 'Previous';
@@ -165,7 +155,7 @@ class  A_camera_accessoriesview extends CI_Controller{
                 }
             /*location list*/
              $loc_list = $this->hotdealsearch_model->loc_list();
-             $rs = $this->postad_ezone_model->acamera_search($search_option);
+             $rs = $this->hotdealsearch_model->motoraccessories_search($search_option);
              if (!empty($rs)) {
                 foreach ($rs as $sview) {
                         $loginid = $sview->login_id;
@@ -173,9 +163,9 @@ class  A_camera_accessoriesview extends CI_Controller{
              }
               $result   =   array(
                         "title"     =>  "Classifieds",
-                        "content"   =>  "a_camera_accessoriesview");
-            $result['ezone_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads_ezone();
+                        "content"   =>  "motoraccessoriesview");
+            $result['farming_result'] = $rs;
+            $public_adview = $this->classifed_model->publicads_motor();
             $log_name = @mysql_result(mysql_query("SELECT first_name FROM `login` WHERE `login_id` = '$loginid' "), 0, 'first_name');
             $result['log_name'] = $log_name;
             $result['public_adview'] = $public_adview;
@@ -184,14 +174,12 @@ class  A_camera_accessoriesview extends CI_Controller{
             $result['login'] = $login;
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
-              /*motor sub*/
-                $result['ezone_sub'] = $this->hotdealsearch_model->accesories_camera();
               /*business and consumer count for pets*/
-                $result['busconcount'] = $this->postad_ezone_model->busconcount_acamera();
+                $result['busconcount'] = $this->hotdealsearch_model->busconcount_motoraccessories();
                  /*seller and needed count for pets*/
-                $result['sellerneededcount'] = $this->postad_ezone_model->sellerneeded_acamera();
+                $result['sellerneededcount'] = $this->hotdealsearch_model->sellerneeded_motoraccessories();
                  /*packages count*/
-                $result['deals_pck'] = $this->postad_ezone_model->deals_pck_acamera();
+                $result['deals_pck'] = $this->hotdealsearch_model->deals_pck_motoraccessories();
             $this->load->view("classified_layout/inner_template",$result);
         }
         

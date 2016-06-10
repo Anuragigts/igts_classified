@@ -66,6 +66,10 @@ $('.search_resisub').click(function() {
 $("form.jforms").submit();
 }
 )
+$('.search_acctype').click(function() {
+$("form.jforms").submit();
+}
+)
 $('.dealtitle_sort').change(function() {
 $("form.jforms").submit();
 }
@@ -79,6 +83,10 @@ $("form.jforms").submit();
 }
 )
 $(".seach_btn").click(function(){
+	$("input:checkbox").removeAttr('checked');
+	$('input[name=search_bustype][value="all"]').prop('checked', true);
+	$('input[name=search_proptype][value="all"]').prop('checked', true);
+	$('input[name=search_acctype][value="all"]').prop('checked', true);
 if ($('#find_loc').val() == '') {
 $('#latt').val('');
 $('#longg').val('');
@@ -124,6 +132,17 @@ $allproptype = $val->propall;
 $resicnt = $val->resi;
 $commcnt = $val->comm;
 }
+foreach ($cnt_accessories as $val) {
+$accessall = $val->accessall;
+$mtablet = $val->mtablet;
+$computer = $val->computer;
+$headphone = $val->headphone;
+$audio = $val->audio;
+$camera = $val->camera;
+$battery = $val->battery;
+$others = $val->others;
+}
+
 /*ezone*/
 foreach ($cnt_ezone as $val) {
 $computercnt = $val->computer;
@@ -132,12 +151,12 @@ $softwarecnt = $val->software;
 }
 
 
-
 $miles =  $this->session->userdata('miles');
 $looking_search = $this->session->userdata('s_looking_search'); 
 $cat_id =  $this->session->userdata('s_cat_id');
 $search_sub = $this->session->userdata('s_search_sub'); 
 $search_subsub =  $this->session->userdata('s_search_subsub');
+$search_subsubsub =  $this->session->userdata('s_search_subsubsub');
 $dealtitle = $this->session->userdata('s_dealtitle');
 $dealprice = $this->session->userdata('s_dealprice');
 $recentdays = $this->session->userdata('s_recentdays');
@@ -147,12 +166,16 @@ $latt = $this->session->userdata('s_latt');
 $longg = $this->session->userdata('s_longg');
 $seller_deals = $this->session->userdata('s_seller_deals');
 $dealurgent = $this->session->userdata('s_dealurgent');
+$access_sub = $this->session->userdata('s_access_sub');
+
 
 $search_proptype = $this->session->userdata('search_proptype');
 $search_resisub = $this->session->userdata('search_resisub');
 $search_commsub = $this->session->userdata('search_commsub');
 $resi_prop = $this->session->userdata('resi_prop');
 $comm_prop = $this->session->userdata('comm_prop');
+
+$search_acctype = $this->session->userdata('search_acctype');
 
 if ($cat_id == 1) {
 	if (array_key_exists('company', $sellerneededcount)) {
@@ -243,7 +266,9 @@ $goldcnt = $deals_pck['goldcount'];
 if (array_key_exists('freecount', $deals_pck)) {
 $freecnt = $deals_pck['freecount'];
 }
-
+$subcat_boats = $this->session->userdata('subcat_boats');
+$accessories_sub = $this->session->userdata('accessories_sub');
+$laptop_sub = $this->session->userdata('laptop_sub');
 $car_van_bus = $this->session->userdata('car_van_bus');
 $motor_hm = $this->session->userdata('motor_hm');
 $bikes_sub = $this->session->userdata('bikes_sub');
@@ -556,13 +581,22 @@ if ($cat_id != 'all') { ?>
 <div class="cd-filter-block">
 <h4 class="title-widget">Boats</h4>
 <div class="cd-filter-content">
-<div id='limit_scrol'>
-<?php foreach ($subcat_boats as $subcat_boatsval) { ?>
+<div>
 <label class="checkbox">
-<input type="checkbox" name="boats_sub[]" class="boats_sub" value="<?php echo $subcat_boatsval->sub_subcategory_id; ?>" <?php if (isset($boats_sub) && in_array($subcat_boatsval->sub_subcategory_id, $boats_sub)) { echo "checked = checked";	} ?> >
-<i></i> <?php echo $subcat_boatsval->sub_subcategory_name; ?> (<?php echo $subcat_boatsval->no_ads; ?>)
+<input type="checkbox" name="subcat_boats" class="subcat_boats" value="19" <?php if ($subcat_boats == 19) { echo "checked = checked";	} ?> >
+<i></i> Boats(<?php echo $subcat_boatscnt; ?>)
 </label>
-<?php } ?>
+</div>
+</div>
+</div>
+<div class="cd-filter-block">
+<h4 class="title-widget">Accessories</h4>
+<div class="cd-filter-content">
+<div>
+<label class="checkbox">
+<input type="checkbox" name="accessories_sub" class="accessories_sub" value="73" <?php if ($accessories_sub == 73) { echo "checked = checked";	} ?> >
+<i></i> Accessories(<?php echo $subcat_accessories; ?>)
+</label>
 </div>
 </div>
 </div>
@@ -921,29 +955,50 @@ if ($cat_id != 'all') { ?>
 </div>
 <?php } ?>
 <?php if ($cat_id == 8) { ?>
+
 <div class="cd-filter-block">
-<h4 class="title-widget">E-zone Filters</h4>
+<h4 class="title-widget">Computer peripherals</h4>
 <div class="cd-filter-content">
-<div>
+<div id='limit_scrol'>
+<?php foreach ($subcat_computers as $subcat_computersval) { ?>
 <label class="checkbox">
-<input type="checkbox" name="search_sub[]" class="search_sub" value="70" <?php if (isset($search_sub) && in_array(70, $search_sub)) { echo "checked = checked";	} ?> >
-<i></i> Computer peripherals (<?php echo $computercnt; ?>)
+<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_computersval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_computersval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $subcat_computersval->sub_subcategory_name; ?> (<?php echo $subcat_computersval->no_ads; ?>)
 </label>
+<?php } ?>
+</div>
+</div>
+</div>
+<div class="cd-filter-block">
+<h4 class="title-widget">Network components</h4>
+<div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($subcat_networks as $subcat_networksval) { ?>
 <label class="checkbox">
-<input type="checkbox" name="search_sub[]" class="search_sub" value="71" <?php if (isset($search_sub) && in_array(71, $search_sub)) { echo "checked = checked";	} ?> >
-<i></i> Network components (<?php echo $networkcnt; ?>)
+<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_networksval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_networksval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $subcat_networksval->sub_subcategory_name; ?> (<?php echo $subcat_networksval->no_ads; ?>)
 </label>
+<?php } ?>
+</div>
+</div>
+</div>
+<div class="cd-filter-block">
+<h4 class="title-widget">Softwares</h4>
+<div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($subcat_softwares as $subcat_softwaresval) { ?>
 <label class="checkbox">
-<input type="checkbox" name="search_sub[]" class="search_sub" value="72" <?php if (isset($search_sub) && in_array(72, $search_sub)) { echo "checked = checked";	} ?> >
-<i></i> Softwares (<?php echo $softwarecnt; ?>)
+<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_softwaresval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_softwaresval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $subcat_softwaresval->sub_subcategory_name; ?> (<?php echo $subcat_softwaresval->no_ads; ?>)
 </label>
+<?php } ?>
 </div>
 </div>
 </div>
 <div class="cd-filter-block">
 <h4 class="title-widget">Phones & Tablets</h4>
 <div class="cd-filter-content">
-<div id='limit_scrol'>
+<div>
 <?php foreach ($subcat_phone as $subcat_phoneval) { ?>
 <label class="checkbox">
 <input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_phoneval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_phoneval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
@@ -982,28 +1037,121 @@ if ($cat_id != 'all') { ?>
 <div class="cd-filter-block">
 <h4 class="title-widget">Laptop & Computers</h4>
 <div class="cd-filter-content">
-<div id='limit_scrol'>
-<?php foreach ($subcat_lappy as $subcat_lappyval) { ?>
+<div>
 <label class="checkbox">
-<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_lappyval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_lappyval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
-<i></i> <?php echo $subcat_lappyval->sub_subcategory_name; ?> (<?php echo $subcat_lappyval->no_ads; ?>)
+<input type="checkbox" name="laptop_sub[]" class="laptop_sub" value="62" <?php if ($laptop_sub == 62 ) { echo "checked = checked";	} ?> >
+<i></i> Laptop & Computers (<?php echo $subcat_laptops_cnt; ?>)
 </label>
-<?php } ?>
 </div>
 </div>
 </div>
 <div class="cd-filter-block">
 <h4 class="title-widget">Accessories</h4>
-<div class="cd-filter-content">
+<div class="cd-filter-content" >
 <div id='limit_scrol'>
-<?php foreach ($subcat_access as $subcat_accessval) { ?>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="all" checked  <?php  if($search_acctype == 'all') echo 'checked = checked'; ?> >
+<i></i> None (<?php echo $accessall; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="431" <?php if($search_acctype == '431') echo 'checked = checked';?> >
+<i></i> Mobile & Tablet (<?php echo $mtablet; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="432" <?php if($search_acctype == '432') echo 'checked = checked';?> >
+<i></i> Computer (<?php echo $computer; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="433" <?php if($search_acctype == '433') echo 'checked = checked';?> >
+<i></i> Headphones & Earphones (<?php echo $headphone; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="434" <?php if($search_acctype == '434') echo 'checked = checked';?> >
+<i></i> Audio Video Accessories (<?php echo $audio; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="435" <?php if($search_acctype == '435') echo 'checked = checked';?> >
+<i></i> Camera Accessories (<?php echo $camera; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="436" <?php if($search_acctype == '436') echo 'checked = checked';?> >
+<i></i> Battery (<?php echo $battery; ?>)
+</label>
+<label class="radio">
+<input type="radio" name="search_acctype" class="search_acctype" value="437" <?php if($search_acctype == '437') echo 'checked = checked';?> >
+<i></i> Others (<?php echo $others; ?>)
+</label>
+</div>
+</div>
+<?php if($search_acctype == '431'){ ?>
+<h4 class="title-widget">Mobile & Tablet</h4>
+ <div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($accesories_mtablets as $accesories_mtabletsval) { ?>
 <label class="checkbox">
-<input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_accessval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_accessval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
-<i></i> <?php echo $subcat_accessval->sub_subcategory_name; ?> (<?php echo $subcat_accessval->no_ads; ?>)
+<input type="checkbox" name="access_sub[]" class="access_sub" value="<?php echo $accesories_mtabletsval->sub_sub_subcategory_id; ?>" <?php if (isset($access_sub) && in_array($accesories_mtabletsval->sub_sub_subcategory_id, $access_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $accesories_mtabletsval->sub_sub_subcategory_name; ?> (<?php echo $accesories_mtabletsval->no_ads; ?>)
 </label>
 <?php } ?>
 </div>
+</div> 
+<?php } ?>
+
+<?php if($search_acctype == '432'){ ?>
+<h4 class="title-widget">Computer</h4>
+ <div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($accesories_computers as $accesories_computersval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="access_sub[]" class="access_sub" value="<?php echo $accesories_computersval->sub_sub_subcategory_id; ?>" <?php if (isset($access_sub) && in_array($accesories_computersval->sub_sub_subcategory_id, $access_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $accesories_computersval->sub_sub_subcategory_name; ?> (<?php echo $accesories_computersval->no_ads; ?>)
+</label>
+<?php } ?>
 </div>
+</div> 
+<?php } ?> 
+
+<?php if($search_acctype == '433'){ ?>
+<h4 class="title-widget">Headphones & Earphones</h4>
+ <div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($accesories_headphone as $accesories_headphoneval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="access_sub[]" class="access_sub" value="<?php echo $accesories_headphoneval->sub_sub_subcategory_id; ?>" <?php if (isset($access_sub) && in_array($accesories_headphoneval->sub_sub_subcategory_id, $access_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $accesories_headphoneval->sub_sub_subcategory_name; ?> (<?php echo $accesories_headphoneval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div> 
+<?php } ?>
+
+<?php if($search_acctype == '434'){ ?>
+<h4 class="title-widget">Audio Video Accessories</h4>
+ <div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($accesories_audiovideo as $accesories_audiovideoval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="access_sub[]" class="access_sub" value="<?php echo $accesories_audiovideoval->sub_sub_subcategory_id; ?>" <?php if (isset($access_sub) && in_array($accesories_audiovideoval->sub_sub_subcategory_id, $access_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $accesories_audiovideoval->sub_sub_subcategory_name; ?> (<?php echo $accesories_audiovideoval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div> 
+<?php } ?>
+
+<?php if($search_acctype == '435'){ ?>
+<h4 class="title-widget">Camera Accessories</h4>
+ <div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($accesories_camera as $accesories_cameraval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="access_sub[]" class="access_sub" value="<?php echo $accesories_cameraval->sub_sub_subcategory_id; ?>" <?php if (isset($access_sub) && in_array($accesories_cameraval->sub_sub_subcategory_id, $access_sub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $accesories_cameraval->sub_sub_subcategory_name; ?> (<?php echo $accesories_cameraval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div> 
+<?php } ?>
 </div>
 <div class="cd-filter-block">
 <h4 class="title-widget">Personal Care</h4>
@@ -1021,11 +1169,24 @@ if ($cat_id != 'all') { ?>
 <div class="cd-filter-block">
 <h4 class="title-widget">Home Entertainment</h4>
 <div class="cd-filter-content">
-<div id='limit_scrol'>
+<div>
 <?php foreach ($subcat_henter as $subcat_henterval) { ?>
 <label class="checkbox">
 <input type="checkbox" name="search_subsub[]" class="search_subsub" value="<?php echo $subcat_henterval->sub_subcategory_id; ?>" <?php if (isset($search_subsub) && in_array($subcat_henterval->sub_subcategory_id, $search_subsub)) { echo "checked = checked";	} ?> >
 <i></i> <?php echo $subcat_henterval->sub_subcategory_name; ?> (<?php echo $subcat_henterval->no_ads; ?>)
+</label>
+<?php } ?>
+</div>
+</div>
+</div>
+<div class="cd-filter-block">
+<h4 class="title-widget">Gaming</h4>
+<div class="cd-filter-content">
+<div id='limit_scrol'>
+<?php foreach ($subcat_gaming as $subcat_gamingval) { ?>
+<label class="checkbox">
+<input type="checkbox" name="search_subsubsub[]" class="search_subsubsub" value="<?php echo $subcat_gamingval->sub_sub_subcategory_id; ?>" <?php if (isset($search_subsubsub) && in_array($subcat_gamingval->sub_sub_subcategory_id, $search_subsubsub)) { echo "checked = checked";	} ?> >
+<i></i> <?php echo $subcat_gamingval->sub_sub_subcategory_name; ?> (<?php echo $subcat_gamingval->no_ads; ?>)
 </label>
 <?php } ?>
 </div>
@@ -1262,8 +1423,20 @@ $(function(){
 $(".saved_link").click(function(){
 var login_id = <?php if ($this->session->userdata('login_id')){ echo $this->session->userdata('login_id'); }else{ echo 0; } ?>;
 if (login_id == '' || login_id == 0) {
-window.location.href = '<?php echo base_url(); ?>login';
-return false;
+// window.location.href = '<?php echo base_url(); ?>login';
+// return false;
+var path = window.location.href;
+$.ajax({
+type: "POST",
+url: "<?php echo base_url();?>description_view/savesearchexists",
+data: {
+search_title: $("#search_title").val(),
+search_cat: $("#search_cat").val(),
+search_loc: $("#search_loc").val()
+}
+}).done(function( msg ) {
+window.location.href = "<?php echo base_url(); ?>login";
+});
 }
 else{
 $.ajax({

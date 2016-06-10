@@ -13,6 +13,7 @@ class  Motorhomes_caravans_view  extends CI_Controller{
                 $this->load->library('pagination');
         }
         public function index(){
+            $this->session->set_userdata('mhomes_sub',array());
             $this->session->set_userdata('engine','any');
             $this->session->set_userdata('nomiles','all');
             $this->session->set_userdata('fueltype',array());
@@ -68,7 +69,7 @@ class  Motorhomes_caravans_view  extends CI_Controller{
                 );
                 
                 /*motor*/
-                // $data['motor_sub'] = $this->hotdealsearch_model->motor_sub_search();
+                $data['motor_sub'] = $this->hotdealsearch_model->motorhomes_cnt();
                 $data['petrolcnt'] = $this->hotdealsearch_model->caravans_petrolcnt();
                 $data['milagecnt'] = $this->hotdealsearch_model->caravans_milagecnt();
                 $data['enginecnt'] = $this->hotdealsearch_model->caravans_enginecnt();
@@ -88,6 +89,7 @@ class  Motorhomes_caravans_view  extends CI_Controller{
 
         public function search_filters(){
              if($this->input->post()){
+              $this->session->unset_userdata('mhomes_sub');
                 $this->session->unset_userdata('engine');
                 $this->session->unset_userdata('nomiles');
                 $this->session->unset_userdata('fueltype');
@@ -100,6 +102,11 @@ class  Motorhomes_caravans_view  extends CI_Controller{
                 $this->session->unset_userdata('location');
                 $this->session->unset_userdata('latt');
                 $this->session->unset_userdata('longg');
+                if($this->input->post('mhomes_sub')){
+                       $this->session->set_userdata('mhomes_sub',$this->input->post('mhomes_sub'));
+                }else{
+                     $this->session->set_userdata('mhomes_sub',array());
+                }
                 if($this->input->post('engine')){
                        $this->session->set_userdata('engine',$this->input->post('engine'));
                 }else{
@@ -202,7 +209,7 @@ class  Motorhomes_caravans_view  extends CI_Controller{
             $result['favourite_list']=$favourite_list;
             $result['paging_links'] = $this->pagination->create_links();
               /*motor sub*/
-                $result['motor_sub'] = $this->hotdealsearch_model->motor_sub_search();
+                $result['motor_sub'] = $this->hotdealsearch_model->motorhomes_cnt();
               /*business and consumer count for pets*/
                 $result['busconcount'] = $this->hotdealsearch_model->busconcount_caravans();
                  /*seller and needed count for pets*/

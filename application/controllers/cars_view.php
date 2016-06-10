@@ -163,8 +163,8 @@ class  Cars_view extends CI_Controller{
             $config['base_url'] = base_url().'cars_view/search_filters';
             $config['total_rows'] = count($this->hotdealsearch_model->count_cars_search());
             $config['per_page'] = 30;
-             $config['next_link'] = 'Next';
-              $config['prev_link'] = 'Previous';
+            $config['next_link'] = 'Next';
+            $config['prev_link'] = 'Previous';
             $config['full_tag_open'] ='<div id="pagination" style="color:red;border:2px solid:blue">';
             $config['full_tag_close'] ='</div>';
             $this->pagination->initialize($config);

@@ -79,12 +79,12 @@ $allbustype = $countval->allbustype;
 $business = $countval->business;
 $consumer = $countval->consumer;
 }
-foreach ($deals_pck as $pckval) {
-$urgentcnt = $pckval->urgentcount;
-$platinumcnt = $pckval->platinumcount;
-$goldcnt = $pckval->goldcount;
-$freecnt = $pckval->freecount;
-}
+
+$urgentcnt = $deals_pck['urgentcount'];
+$platinumcnt = $deals_pck['platinumcount'];
+$goldcnt = $deals_pck['goldcount'];
+$freecnt = $deals_pck['freecount'];
+
 foreach ($public_adview as $publicview) {
 $left_ad1 = $publicview->sidead_one;
 $topad = $publicview->topad;
@@ -163,6 +163,7 @@ $busescnt = $motor_sub1->buses;
 $plantscnt = $motor_sub1->plants;
 $farmingcnt = $motor_sub1->farming;
 $bloatscnt = $motor_sub1->bloats;
+$accessoriescnt = $motor_sub1->accessories;
 } ?>
 <li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>cars-for-sale-london"> Cars (<?php echo $carcnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>bikes-scooters-for-sale"> Bikes & Scoters (<?php echo $bikescnt; ?>)</a></li>
@@ -172,6 +173,7 @@ $bloatscnt = $motor_sub1->bloats;
 <li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>plant-machinery-for-sale"> Plant Machinery (<?php echo $plantscnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>agricultural-farming-vehicles-for-sale"> Farming Vehicles (<?php echo $farmingcnt; ?>)</a></li>
 <li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>used-boats-for-sale"> Boats (<?php echo $bloatscnt; ?>)</a></li>
+<li><i class="fa fa-arrow-circle-o-right"></i><a href="<?php echo base_url(); ?>motor-accessories-for-sale"> Accessories (<?php echo $accessoriescnt; ?>)</a></li>
 </ul>
 </div>
 </div>

@@ -15,52 +15,17 @@ class Signup_model extends CI_Model{
                 'smtp_pass' => 'S@ibaba2016',
                 'mailtype'  => 'html',
                 'charset'   => 'iso-8859-1'
-                /*'protocol' => 'smtp',
-                'smtp_host' => 'ssl://luna.servers.prgn.misp.co.uk',
-                'smtp_port' => 465,
-                'smtp_user' => 'admin@99rightdeals.com',
-                'smtp_pass' => 'Admin@123',
-                'mailtype'  => 'html',
-                'charset'   => 'iso-8859-1'*/
-
-                 /*'protocol' => 'smtp',
-                 'smtp_host' => 'ssl://rep.tnphost.com',
-                 'smtp_port' => 465,
-                 'smtp_user' => 'admin@99rightdeals.com',
-                 'smtp_pass' => 'Admin@123',*/
                  );
             $is_confirm = md5(rand(10000,99999));
             if($this->input->post('signup_type') == '7') {
-                    $fname = $this->input->post('con_fname');
-                    $mail = $this->input->post('con_email');
-
-                    $login_data = array(
-                                    'user_type'=>7,
-                                    'login_email'=>$this->input->post('con_email'),
-                                    'login_password'=> md5($this->input->post('con_password')),
-                                    'is_confirm'=>$is_confirm,
-                                    'login_status'=>1,
-                                    'first_name' => $this->input->post('con_fname'),
-                                    'lastname' => $this->input->post('con_lname'),
-                                    'mobile'=>$this->input->post('con_mobile'));
-                    $this->db->insert('login', $login_data);
+                $fname = $this->input->post('con_fname');
+                $mail = $this->input->post('con_email');
             }
-            else{
-                        $fname = $this->input->post('bus_fname');
-                        $mail = $this->input->post('bus_email');
-                        $data = array('user_type'=>6,
-                                    'login_email'=>$this->input->post('bus_email'),
-                                    'login_password'=> md5($this->input->post('bus_password')),
-                                    'is_confirm'=>$is_confirm,
-                                    'login_status'=>1,
-                                    'first_name' => $this->input->post('bus_fname'),
-                                    'lastname' => $this->input->post('bus_lname'),
-                                    'mobile'=>$this->input->post('bus_mobile'),
-                                    'bus_name'=>$this->input->post('bus_name'),
-                                    'bus_addr'=>$this->input->post('bus_address'),
-                                    'vat_number'=> $this->input->post('vat_number'));
-                        $this->db->insert('login', $data);
+            else if($this->input->post('signup_type') == '6') {
+                $fname = $this->input->post('bus_fname');
+                $mail = $this->input->post('bus_email');
             }
+            
                 $this->load->library('email', $config);
                 $this->email->set_newline("\r\n");
                 $this->email->from('admin@99rightdeals.com', "99RightDeals");
