@@ -79,12 +79,10 @@ $allbustype = $countval->allbustype;
 $business = $countval->business;
 $consumer = $countval->consumer;
 }
-foreach ($deals_pck as $pckval) {
-$urgentcnt = $pckval->urgentcount;
-$platinumcnt = $pckval->platinumcount;
-$goldcnt = $pckval->goldcount;
-$freecnt = $pckval->freecount;
-}
+$urgentcnt = $deals_pck['urgentcount'];
+$platinumcnt = $deals_pck['platinumcount'];
+$goldcnt = $deals_pck['goldcount'];
+$freecnt = $deals_pck['freecount'];
 foreach ($sellerneededcount as $sncnt) {
 $seller = $sncnt->seller;
 $needed = $sncnt->needed;

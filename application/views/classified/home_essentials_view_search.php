@@ -96,8 +96,10 @@ if ($sval->package_type == '6' && $sval->urgent_package != '0') { ?>
 <div class="first_list">
 <div class="row">
 <div class="col-sm-4">
+<?php if ($sval->urg != '' && $sval->urg >= date("Y-m-d H:i:s")) { ?>
 <div class="featured-badge">
 </div>
+<?php } ?>
 <div class="xuSlider">
 <ul class="sliders">
 <?php 
@@ -494,8 +496,10 @@ else{ ?>
 <div class="first_list gold_bgcolor">
 <div class="row">
 <div class="col-sm-4">
+<?php if ($sval->urg != '' && $sval->urg >= date("Y-m-d H:i:s")) { ?>
 <div class="featured-badge">
 </div>
+<?php } ?>
 <div class="img-hover view_img">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 <div class="overlay descurl"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a></div>
@@ -856,8 +860,10 @@ else{ ?>
 <div class="first_list">
 <div class="row">
 <div class="col-sm-4 view_img">
+<?php if ($sval->urg != '' && $sval->urg >= date("Y-m-d H:i:s")) { ?>
 <div class="featured-badge">
 </div>
+<?php } ?>
 <div class="img-hover">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $sval->img_name; ?>" class="img-responsive" alt="<?php echo $sval->img_name; ?>" title="<?php echo $sval->img_name; ?>">
 <div class="overlay descurl"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a></div>
