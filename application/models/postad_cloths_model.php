@@ -266,20 +266,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_wcloths(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 359 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 359 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 359 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 359 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 359 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 359 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 359 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_wcloths_view(){
@@ -365,10 +454,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -385,6 +476,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -468,10 +562,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -488,6 +584,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -563,20 +662,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_wshoes(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 360 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 360 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 360 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 360 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 360 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 360 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 360 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_wshoes_view(){
@@ -662,10 +850,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -682,6 +872,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -765,10 +958,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -785,6 +980,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -858,20 +1056,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_waccessories(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 361 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 361 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 361 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 361 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 361 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 361 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+               $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 361 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_waccessories_view(){
@@ -957,10 +1244,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -977,6 +1266,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1060,10 +1352,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1080,6 +1374,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1154,20 +1451,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_wwidding(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 362 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 362 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 362 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 362 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '20' AND sub_scat_id = 362 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '20' AND sub_scat_id = 362 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+               $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='20' AND sub_scat_id = 362 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_wwidding_view(){
@@ -1253,10 +1639,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1273,6 +1661,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1356,10 +1747,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1376,6 +1769,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1448,20 +1844,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_mclothing(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 363 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 363 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 363 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 363 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 363 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 363 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 363 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_mclothing_view(){
@@ -1547,10 +2032,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1567,6 +2054,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1650,10 +2140,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1670,6 +2162,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1744,20 +2239,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_mshoes(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 364 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 364 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 364 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 364 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 364 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 364 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 364 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_mshoes_view(){
@@ -1843,10 +2427,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1863,6 +2449,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -1946,10 +2535,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -1966,6 +2557,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2038,20 +2632,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_maccessories(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 365 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 365 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 365 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 365 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 365 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 365 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 365 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_maccessories_view(){
@@ -2137,10 +2820,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -2157,6 +2842,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2240,10 +2928,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -2260,6 +2950,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2333,20 +3026,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_mwedding(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 366 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 366 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 366 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 366 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '21' AND sub_scat_id = 366 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '21' AND sub_scat_id = 366 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+               $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='21' AND sub_scat_id = 366 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_mwedding_view(){
@@ -2432,10 +3214,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -2452,6 +3236,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2535,10 +3322,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -2555,6 +3344,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2628,20 +3420,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_bclothing(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 367 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 367 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 367 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 367 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 367 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 367 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 367 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_bclothing_view(){
@@ -2727,10 +3608,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -2747,6 +3630,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2830,10 +3716,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -2850,6 +3738,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -2922,20 +3813,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_bshoes(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 368 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 368 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 368 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 368 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 368 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 368 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 368 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_bshoes_view(){
@@ -3021,10 +4001,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3041,6 +4023,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -3124,10 +4109,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3144,6 +4131,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -3217,20 +4207,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_baccessories(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 369 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 369 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 369 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 369 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '22' AND sub_scat_id = 369 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '22' AND sub_scat_id = 369 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='22' AND sub_scat_id = 369 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_baccessories_view(){
@@ -3316,10 +4395,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3336,6 +4417,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -3419,10 +4503,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3439,6 +4525,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -3512,20 +4601,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_gclothing(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 370 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 370 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 370 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 370 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 370 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 370 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 370 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_gclothing_view(){
@@ -3611,10 +4789,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3631,6 +4811,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -3714,10 +4897,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3734,6 +4919,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -3807,20 +4995,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_gshoes(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 371 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 371 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 371 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 371 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 371 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 371 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 371 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_gshoes_view(){
@@ -3906,10 +5183,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -3926,6 +5205,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4009,10 +5291,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4029,6 +5313,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4101,20 +5388,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_gaccessories(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 372 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 372 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 372 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 372 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '23' AND sub_scat_id = 372 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '23' AND sub_scat_id = 372 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='23' AND sub_scat_id = 372 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_gaccessories_view(){
@@ -4200,10 +5576,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4220,6 +5598,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4303,10 +5684,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4323,6 +5706,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4397,20 +5783,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_bbclothing(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '24' AND sub_scat_id = 373 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '24' AND sub_scat_id = 373 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '24' AND sub_scat_id = 373 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '24' AND sub_scat_id = 373 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '24' AND sub_scat_id = 373 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '24' AND sub_scat_id = 373 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 373 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_bbclothing_view(){
@@ -4496,10 +5971,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4516,6 +5993,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4599,10 +6079,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4619,6 +6101,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4693,20 +6178,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_bbaccessories(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '24' AND sub_scat_id = 374 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '24' AND sub_scat_id = 374 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '24' AND sub_scat_id = 374 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '24' AND sub_scat_id = 374 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '24' AND sub_scat_id = 374 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '24' AND sub_scat_id = 374 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='24' AND sub_scat_id = 374 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_bbaccessories_view(){
@@ -4792,10 +6366,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4812,6 +6388,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4895,10 +6474,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -4915,6 +6496,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -4989,20 +6573,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_bgclothing(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '25' AND sub_scat_id = 375 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '25' AND sub_scat_id = 375 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '25' AND sub_scat_id = 375 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '25' AND sub_scat_id = 375 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '25' AND sub_scat_id = 375 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '25' AND sub_scat_id = 375 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 375 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_bgclothing_view(){
@@ -5088,10 +6761,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -5108,6 +6783,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -5191,10 +6869,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -5211,6 +6891,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -5284,20 +6967,109 @@ class Postad_cloths_model extends CI_Model{
                 return $rs->result();
             }
             public function deals_pck_bgaccessories(){
-                $data = date("Y-m-d H:i:s");
-                $this->db->select("(SELECT COUNT(ud.valid_to) AS aa FROM postad AS ad LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >='$data'
-                    WHERE ad.category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND ad.urgent_package != '0' AND ad.ad_status = 1 AND ad.expire_data >= '$data') AS urgentcount,
-                    (SELECT SUM(a) AS platinumcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '25' AND sub_scat_id = 376 AND package_type = '6' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '25' AND sub_scat_id = 376 AND package_type =  '6' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS platinumcount,
-                    (SELECT SUM(a) AS goldcount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '25' AND sub_scat_id = 376 AND package_type = '5' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '25' AND sub_scat_id = 376 AND package_type =  '5' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS goldcount,
-                    (SELECT SUM(a) AS freecount FROM ((SELECT COUNT(*) AS a FROM postad WHERE category_id = '6' AND sub_cat_id = '25' AND sub_scat_id = 376 AND package_type = '4' AND urgent_package = '0' 
-                    AND ad_status = 1 AND expire_data >= '$data') UNION ALL (SELECT COUNT(*) AS a FROM postad JOIN  urgent_details AS ud ON ud.ad_id = postad.ad_id AND ud.valid_to <  '$data'
-                    WHERE category_id =  '6' AND sub_cat_id =  '25' AND sub_scat_id = 376 AND package_type =  '4' AND urgent_package !=  '0'  AND ad_status =1 AND expire_data >=  '$data')) AS aa) AS freecount");
-                $rs = $this->db->get();
-                return $rs->result();
+                $bustype = $this->session->userdata('search_bustype');
+                $date = date("Y-m-d H:i:s");
+                $this->db->select('COUNT(ud.valid_to) as urgentcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $urgentcount = $this->db->get()->row('urgentcount');
+
+                $this->db->select('COUNT(*) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND package_type = 6 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount = $this->db->last_query();
+
+                
+                $this->db->select('COUNT(ud.valid_to) as platinumcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND package_type = 6 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $platinumcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(platinumcount) AS platinumcount FROM (".$platinumcount." UNION ALL ".$platinumcount1.") AS a");
+                $query1 = $query->row('platinumcount');
+                $platinumsum = $query1;
+
+                $this->db->select('COUNT(*) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND package_type = 5 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as goldcount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND package_type = 5 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $goldcount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(goldcount) AS goldcount FROM (".$goldcount." UNION ALL ".$goldcount1.") AS a");
+                $query1 = $query->row('goldcount');
+                $goldsum = $query1;
+
+                $this->db->select('COUNT(*) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND package_type = 4 AND urgent_package = '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount = $this->db->last_query();
+
+                $this->db->select('COUNT(ud.valid_to) as freecount', false);
+                $this->db->from('postad');
+                $this->db->join("location as loc", "loc.ad_id = postad.ad_id", "left");
+                $this->db->join("urgent_details AS ud", "ud.ad_id=postad.ad_id AND ud.valid_to < '".date("Y-m-d H:i:s")."'", "left");
+                $this->db->where("category_id = '6' AND sub_cat_id='25' AND sub_scat_id = 376 AND package_type = 4 AND urgent_package != '0' AND ad_status = 1 AND expire_data >='$date'");
+                if ($bustype) {
+                    if ($bustype != 'all') {
+                        $this->db->where("ad_type", $bustype);
+                    }
+                }
+                $this->db->get();
+                $freecount1 = $this->db->last_query();
+                $query = $this->db->query("SELECT SUM(freecount) AS freecount FROM (".$freecount." UNION ALL ".$freecount1.") AS a");
+                $query1 = $query->row('freecount');
+                $freesum = $query1;
+                $res = array('urgentcount'=>$urgentcount,
+                            'platinumcount'=>$platinumsum,
+                            'goldcount'=>$goldsum,
+                            'freecount'=>$freesum);
+                return $res;
             }
 
             public function count_bgaccessories_view(){
@@ -5383,10 +7155,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -5403,6 +7177,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
@@ -5485,10 +7262,12 @@ class Postad_cloths_model extends CI_Model{
             if (!empty($dealurgent)) {
                 $pcklist = [];
                 if (in_array("0", $dealurgent)) {
-                    $this->db->where('ad.urgent_package !=', '0');
+                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+                                $this->db->where('ad.urgent_package !=', '0');
                 }
                 else{
-                    $this->db->where('ad.urgent_package =', '0');
+                    $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+                                $this->db->where("(ad.urgent_package = '0' OR (ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' ))");
                 }
                 if (in_array("6", $dealurgent)){
                     array_push($pcklist, '6');
@@ -5505,6 +7284,9 @@ class Postad_cloths_model extends CI_Model{
                 
             }
 
+            else{
+                $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+            }
             /*seller search*/
             if (!empty($seller)) {
                 $this->db->where_in('ad.services', $seller);
