@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="libs/slider.css">
 <script type="text/javascript" src="js/jssor.slider.min.js"></script>
-
+<style>
+.pound_sym_recomended{padding-right: 25px !important;background: url("<?php echo base_url(); ?>img/icons/pound_safarin.png") no-repeat left !important;}
+</style>
 
 <div class="row">
 <?php
 foreach ($my_ads_details as $m_details) {
 
 if ($m_details->currency == 'pound') {
-$currency = '<span class="pound_sym"></span>';
+$currency = '<span class="pound_sym pound_sym_recomended"></span>';
 }
 else if ($m_details->currency == 'euro') {
 $currency = '<span class="euro_sym"></span>';
