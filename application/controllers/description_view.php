@@ -99,7 +99,9 @@ class Description_view extends CI_Controller{
                                 $value->sub_scat_id == '374' || $value->sub_scat_id == '376') {
                                 $detailed_styles = $this->classifed_model->ads_detailed_acces();
                                 foreach ($detailed_styles as $val) {
-                                    $body_content = array('Service type' => $val->cloth_type,
+                                    $body_content = array(
+                                                            'Brand name' => $val->brand,
+                                                            'Service type' => $val->cloth_type,
                                                             'Colour'=> $val->color,
                                                             'No of Items'=>$val->no_of_items,
                                                             'Material'=>$val->material,
@@ -119,7 +121,7 @@ class Description_view extends CI_Controller{
                                                                     'Brand Name'=>$val->brand,
                                                                     'No of Items'=>$val->no_of_items,
                                                                     'Heel details'=>$val->heel_details,
-                                                                    'Material'=>$val->shoe_material,
+                                                                    'Shoe Material'=>$val->shoe_material,
                                                                     'Shoe style'=>$val->shoe_style,
                                                                     'Made In'=>$val->made_in);
                                         }
@@ -129,7 +131,7 @@ class Description_view extends CI_Controller{
                                                                     'Colour'=> $val->color,
                                                                     'Brand Name'=>$val->brand,
                                                                     'No of Items'=>$val->no_of_items,
-                                                                    'Material'=>$val->shoe_material,
+                                                                    'Shoe Material'=>$val->shoe_material,
                                                                     'Shoe style'=>$val->shoe_style,
                                                                     'Made In'=>$val->made_in);
                                         }
@@ -224,11 +226,11 @@ class Description_view extends CI_Controller{
                                         'Bike Type'=> $val->btype,
                                         'Model'=>$val->bmodel,
                                         'Colour'=>$val->color,
-                                        'Reg year'=>$val->reg_year,
+                                        'Registration Year'=>$val->reg_year,
                                         'Fuel Type'=>$val->fuel_type,
-                                        'No of miles'=>$val->no_of_miles,
+                                        'No of Miles Covered'=>$val->no_of_miles,
                                         'Engine size'=>$val->engine_size,
-                                        'Road tax'=>$val->road_tax,
+                                        'Road TAX Status'=>$val->road_tax,
                                         'Condition'=>$val->condition
                                         );
                                     }    
@@ -339,30 +341,50 @@ class Description_view extends CI_Controller{
                         || $value->sub_cat_id == '70' || $value->sub_cat_id == '71') {
                     if ($value->sub_cat_id == '70' || $value->sub_cat_id == '71') {
                         $servicetype = @mysql_result(mysql_query("SELECT `sub_subcategory_name` FROM `sub_subcategory` WHERE `sub_subcategory_id`='$value->service_type' "), 0,'sub_subcategory_name');
-                    }
-                    else if ($value->sub_scat_id == '431' || $value->sub_scat_id == '432' || $value->sub_scat_id == '433' || $value->sub_scat_id == '434' || $value->sub_scat_id == '435') {
-                        $servicetype = @mysql_result(mysql_query("SELECT `sub_sub_subcategory_name` FROM `sub_sub_subcategory` WHERE `sub_sub_subcategory_id`='$value->service_type' "), 0,'sub_sub_subcategory_name');
-                    }
-                    else{
-                        $servicetype = $value->service_type;
-                    }
-                    foreach ($detailed_ezones as $val) {
+                        foreach ($detailed_ezones as $val) {
                         $body_content = array('Accessories Type'=> $servicetype,
                             'Service Type'=>$value->services,
-                                'Brand_name'=>$val->brand_name,
+                                'Brand name'=>$val->brand_name,
                                 'Colour'=>$val->color,
                                 'Model Name / Number'=>$val->model_name,
                                 'Made in'=>$val->made_in,
                                 'Warranty'=>$val->warranty,
                                 'Manufacturer Part Number'=>$val->manufacture
                                 );
-                            }       
+                            }  
+                    }
+                    else if ($value->sub_scat_id == '431' || $value->sub_scat_id == '432' || $value->sub_scat_id == '433' || $value->sub_scat_id == '434' || $value->sub_scat_id == '435') {
+                        $servicetype = @mysql_result(mysql_query("SELECT `sub_sub_subcategory_name` FROM `sub_sub_subcategory` WHERE `sub_sub_subcategory_id`='$value->service_type' "), 0,'sub_sub_subcategory_name');
+                        foreach ($detailed_ezones as $val) {
+                        $body_content = array('Accessories Type'=> $servicetype,
+                            'Service Type'=>$value->services,
+                                'Brand name'=>$val->brand_name,
+                                'Colour'=>$val->color,
+                                'Model Name / Number'=>$val->model_name,
+                                'Made in'=>$val->made_in,
+                                'Warranty'=>$val->warranty,
+                                'Manufacturer Part Number'=>$val->manufacture
+                                );
+                            }  
+                    }
+                    else{
+                        foreach ($detailed_ezones as $val) {
+                        $body_content = array('Service Type'=>$value->services,
+                                'Brand name'=>$val->brand_name,
+                                'Colour'=>$val->color,
+                                'Model Name / Number'=>$val->model_name,
+                                'Made in'=>$val->made_in,
+                                'Warranty'=>$val->warranty,
+                                'Manufacturer Part Number'=>$val->manufacture
+                                );
+                            }  
+                        }     
                     }
                     else if ($value->sub_cat_id == '59' || $value->sub_cat_id == '62') {
                         foreach ($detailed_ezones as $val) {
                          $body_content = array('Service Type'=>$value->services,
-                                'Brand_name'=>$val->brand_name,
-                                'Size'=>$val->size,
+                                'Brand name'=>$val->brand_name,
+                                'Screen Size'=>$val->size,
                                 'Colour'=>$val->color,
                                 'Model Name / Number'=>$val->model_name,
                                 'Operating system'=>$val->operating_system,
@@ -380,8 +402,8 @@ class Description_view extends CI_Controller{
                          $body_content = array(
                             'Accessories Type'=>$servicetype,
                             'Service Type'=>$value->services,
-                                'Brand_name'=>$val->brand_name,
-                                'Size'=>$val->size,
+                                'Brand name'=>$val->brand_name,
+                                'Screen Size'=>$val->size,
                                 'Colour'=>$val->color,
                                 'Model Name / Number'=>$val->model_name,
                                 'Made in'=>$val->made_in,
@@ -393,8 +415,8 @@ class Description_view extends CI_Controller{
                         else{
                             foreach ($detailed_ezones as $val) {
                          $body_content = array('Service Type'=>$value->services,
-                                'Brand_name'=>$val->brand_name,
-                                'Size'=>$val->size,
+                                'Brand name'=>$val->brand_name,
+                                'Screen Size'=>$val->size,
                                 'Colour'=>$val->color,
                                 'Model Name / Number'=>$val->model_name,
                                 'Made in'=>$val->made_in,
@@ -409,7 +431,7 @@ class Description_view extends CI_Controller{
                         foreach ($detailed_ezones as $val) {
                          $body_content = array('Software Type'=>$servicetype,
                                 'Service Type'=>$value->services,
-                                'Brand_name'=>$val->brand_name,
+                                'Brand name'=>$val->brand_name,
                                 'Operating system'=>$val->operating_system,
                                 'Model Name / Number'=>$val->model_name,
                                 'Number of PCs'=>$val->size,
@@ -427,13 +449,13 @@ class Description_view extends CI_Controller{
                 $detailed_kitchen = $this->classifed_model->ads_detailed_kitchen();  
                     foreach ($detailed_kitchen as $val) {
                     $body_content = array('Service Type'=>$value->services,
-                                        'Brand_name'=>$val->brand_name,
+                                        'Brand name'=>$val->brand_name,
                                         'Material'=>$val->material,
                                         'Colour'=>$val->color,
                                         'Assembly'=>$val->assembly,
                                         'Dimensions'=>$val->dimensions,
                                         'Capacity'=>$val->capacity,
-                                        'Items conditions'=>$val->items_condition,
+                                        'Item condition'=>$val->items_condition,
                                         'Warranty'=>$val->warranty
                                         );
                                     }       

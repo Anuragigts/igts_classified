@@ -142,8 +142,8 @@ class Admin_model extends CI_Model{
 			if($seg_type!=''){
 				$this->db->select("l_in.*");
 				$this->db->where('l_in.user_type',$user_type);
+				$this->db->where('l_in.is_confirm','confirm');
                 $this->db->from("login as l_in");
-                //$this->db->join("profile as p","l_in.login_id = p.login_id","inner");
 				$info = $this->db->get()->result();
 				return $info;
 			}
@@ -297,12 +297,13 @@ class Admin_model extends CI_Model{
 				}
 			}
 			$this->db->where('pkg_l.status',1);
-			$this->db->where('p_ad.ad_status',1);
+			// $this->db->where('p_ad.ad_status',1);
 			$this->db->join("pkg_duration_list as pkg_l","p_ad.package_type = pkg_l.pkg_dur_id","inner");
 			$this->db->group_by('pkg_l.pkg_dur_name');
 			
 			$count_ads = $this->db->get()->result();
-			//echo $this->db->last_query();//exit;
+			// echo $this->db->last_query();
+			// exit;
 			return $count_ads;
 		}
 		function get_pkg_details(){

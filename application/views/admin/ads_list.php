@@ -50,10 +50,13 @@
 							<label class="control-label" for="pkg_type">Package Type</label>
 							<div class="controls">
 								<select id="pkg_type" name='pkg_type' >
-									<option value='' >Select Package</option>
-									<?php foreach($packages_details as $pkgs){if($pkgs->status == 1){?>
-									<option value='<?php echo $pkgs->pkg_dur_id; ?>'<?php if(isset($filter_details)&& ($filter_details['pkg_type'] == $pkgs->pkg_dur_id)) echo 'selected';?>><?php echo ucwords($pkgs->pkg_dur_name); ?></option>
-									<?php }}?>
+									<option value='' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == '')) echo 'selected';?> >Select Package</option>
+									<option value='14' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == 14)) echo 'selected';?> >Free</option>
+									<option value='25' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == 25)) echo 'selected';?> >Gold</option>
+									<option value='36' <?php if(isset($filter_details)&& ($filter_details['pkg_type'] == 36)) echo 'selected';?> >Platinum</option>
+									<?php //foreach($packages_details as $pkgs){if($pkgs->status == 1){?>
+									<!-- <option value='<?php echo $pkgs->pkg_dur_id; ?>'<?php if(isset($filter_details)&& ($filter_details['pkg_type'] == $pkgs->pkg_dur_id)) echo 'selected';?>><?php echo ucwords($pkgs->pkg_dur_name); ?></option> -->
+									<?php //}} ?>
 								</select>
 							</div>
 						</div>
@@ -80,7 +83,7 @@
 							</div>
 						</div>
 						<div class="control-group span4">
-							<label class="control-label" for="focusedInput">Date Start</label>
+							<label class="control-label" for="focusedInput">Start Date</label>
 							<div class="controls">
 								<input type="text" name="start_date" value="<?php if(isset($filter_details)&& ($filter_details['start_date'] !=''))echo $filter_details['start_date']; ?>" class="datepicker form-control start_date" placeholder="Start Date" /> 
 							</div>
@@ -196,6 +199,7 @@
 					<div style='display:none;' class='comment'>
 						<textarea name='comment' id='comment' placeholder='Enter Reason' cols='40' rows='5'></textarea>
 					</div>
+					<div class='comment_error' style="color:red; display:none;">Please Enter Reason</div>
 				</form>
 			</div>
 		</div>
@@ -243,14 +247,25 @@
 			if (status == '') {
 				$(".status_error").show();
 				$(".select_error").hide();
+				$(".comment_error").hide();
 				return false;
 			}
 			else if (ads == '') {
 				$(".select_error").show();
 				$(".status_error").hide();	
+				$(".comment_error").hide();
+				return false;
+			}
+			else if (status == '4' && $("#comment").val() == '') {
+				$(".select_error").hide();
+				$(".status_error").hide();	
+				$(".comment_error").show();
 				return false;
 			}
 			else{
+				$(".select_error").hide();
+				$(".status_error").hide();	
+				$(".comment_error").hide();
 				return true;
 			}
 		});

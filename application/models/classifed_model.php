@@ -580,6 +580,7 @@ GROUP BY img.ad_id
 			}
 		$this->db->order_by('dtime', 'DESC');
 		$res = $this->db->get();
+		// echo $this->db->last_query(); exit;
 		return $res->result();
 	}
 	public function count_my_ads_user(){

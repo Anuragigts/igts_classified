@@ -98,7 +98,7 @@ if ($sval->package_type == '6' && $sval->urgent_package != '0') { ?>
 <div class="first_list">
 <div class="row">
 <div class="col-sm-4">
-<?php if ($sval->urg != '') { ?>
+<?php if ($sval->urg != '' && $sval->urg >= date("Y-m-d H:i:s")) { ?>
 <div class="featured-badge">
 </div>
 <?php } ?>
@@ -499,7 +499,7 @@ else{ ?>
 <div class="first_list gold_bgcolor">
 <div class="row">
 <div class="col-sm-4">
-<?php if ($sval->urg != '') { ?>
+<?php if ($sval->urg != '' && $sval->urg >= date("Y-m-d H:i:s")) { ?>
 <div class="featured-badge">
 </div>
 <?php } ?>
@@ -863,7 +863,7 @@ else{ ?>
 <div class="first_list">
 <div class="row">
 <div class="col-sm-4 view_img">
-<?php if ($sval->urg != '') { ?>
+<?php if ($sval->urg != '' && $sval->urg >= date("Y-m-d H:i:s")) { ?>
 <div class="featured-badge">
 </div>
 <?php } ?>

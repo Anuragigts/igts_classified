@@ -68,11 +68,11 @@
 							<td id='act_status<?php echo $coup->c_id;?>'><?php if($coup->c_status == 1)echo 'Active'; else echo 'In-Active';?></td>
 							<?php if($coup->c_status == 1){?>
 							<td id='status<?php echo $coup->c_id; ?>'>
-								<span class='btn btn-success'><i class="halflings-icon minus-sign active_coupon  white" id='coupon_<?php echo $coup->c_id; ?>'title="In-Activate Coupon "></i></span>
+								<span class='btn btn-success active_coupon' id='coupon_<?php echo $coup->c_id; ?>'><i class="halflings-icon minus-sign   white" title="In-Activate Coupon "></i></span>
 							</td>
 							<?php }else{?>
 							<td id='status<?php echo $coup->c_id; ?>'>
-							<span class='btn btn-danger'><i class="halflings-icon plus-sign inactive_coupon white" id='coupon_<?php echo $coup->c_id; ?>'title="Activate Coupon "></i></span>
+							<span class='btn btn-danger inactive_coupon' id='coupon_<?php echo $coup->c_id; ?>'><i class="halflings-icon plus-sign  white" title="Activate Coupon "></i></span>
 							</td>
 							<?php }?>
 						</tr>

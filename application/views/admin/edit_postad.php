@@ -76,7 +76,7 @@
 							<div class="controls">
 								<select id="ad_type" name='ad_type' disabled>
 									<option value='2' <?php if($ads_details->ad_type == 'consumer')echo 'selected'; ?>>Consumer</option>
-									<option value='1'<?php if($ads_details->package_type == 'business')echo 'selected'; ?>>Business</option>
+									<option value='1'<?php if($ads_details->ad_type == 'business')echo 'selected'; ?>>Business</option>
 								</select>
 							</div>
 						</div>
@@ -128,14 +128,15 @@
 								</select>
 							</div>
 						</div>
-						<div class="control-group admin_comment">
+						<div class="control-group admin_comment" style='display:none;'>
 							<label class="control-label" for="pkg_comment_admin">Comment</label>
 							<div class="controls">
 								<textarea style='width: 300px;height:100px;' id='pkg_comment_admin' name='pkg_comment_admin'><?php echo $ads_details->admin_comment; ?></textarea>
 							</div>
+							<div class='comment_error' style="color:red; display:none;">Please Enter Reason</div>
 						</div>
 						<div class="form-actions">
-							<button type="submit" class="btn btn-primary">Update changes</button>
+							<button type="submit" class="btn btn-primary" onclick='return validate()'>Update changes</button>
 							<a href='<?php echo SITE_URL; ?>ads/aprovals' class="btn">Cancel</a>
 						</div>
 						<input type='hidden' value='<?php echo current_url();?>' name='curr_url'>
@@ -150,11 +151,22 @@
 <script>
 	function view_comment()
 	{
-		val = document.getElementById('ad_status').value; 
-		if(val != 1)
+		var val = document.getElementById('ad_status').value;
+		if(val == 4){
 			$('.admin_comment').show();
-		else 
+		}
+		else {
 			$('.admin_comment').hide();
+		}		
+	}
+	function validate(){
+		var val = document.getElementById('ad_status').value;
+		var comment = document.getElementById('pkg_comment_admin').value;
+
+		if (val == 4 && comment == '') {
+			$('.comment_error').show();
+			return false;
+		};
 	}
 	
 </script>

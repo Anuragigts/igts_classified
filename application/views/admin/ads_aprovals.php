@@ -84,7 +84,7 @@
 							</div>
 						</div>
 						<div class="control-group span4">
-							<label class="control-label" for="focusedInput">Date Start</label>
+							<label class="control-label" for="focusedInput">Start Date</label>
 							<div class="controls">
 								<input type="text" name="start_date" value="<?php if(isset($filter_details)&& ($filter_details['start_date'] !=''))echo $filter_details['start_date']; ?>" class="datepicker form-control start_date" placeholder="Start Date" /> 
 							</div>
@@ -210,6 +210,7 @@
 					<div style='display:none;' class='comment'>
 						<textarea name='comment' id='comment' placeholder='Enter Reason' cols='40' rows='5'></textarea>
 					</div>
+					<div class='comment_error' style="color:red; display:none;">Please Enter Reason</div>
 				</form>
 			</div>
 		</div>
@@ -244,11 +245,19 @@
 			if (status == '') {
 				$(".status_error").show();
 				$(".select_error").hide();
+				$(".comment_error").hide();
 				return false;
 			}
 			else if (ads == '') {
 				$(".select_error").show();
 				$(".status_error").hide();	
+				$(".comment_error").hide();
+				return false;
+			}
+			else if (status == '4' && $("#comment").val() == '') {
+				$(".select_error").hide();
+				$(".status_error").hide();	
+				$(".comment_error").show();
 				return false;
 			}
 			else{

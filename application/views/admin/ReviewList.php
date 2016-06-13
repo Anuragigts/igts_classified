@@ -71,9 +71,9 @@
 								else echo 'InActive';?>
 							</td>
 							<td id='status<?php echo $ads->id; ?>'>
-								<?php if($ads->status == 1){?><span class='btn btn-success'><i class="halflings-icon minus-sign active_review  white" id='review_<?php echo $ads->id; ?>'title="In-Activate Review "></i></span>
+								<?php if($ads->status == 1){?><span class='btn btn-success active_review' id='review_<?php echo $ads->id; ?>'><i class="halflings-icon minus-sign white" title="In-Activate Review "></i></span>
 								<?php }else{?>
-								<span class='btn btn-danger'><i class="halflings-icon plus-sign inactive_review white" id='review_<?php echo $ads->id; ?>'title="Activate Review "></i></span>
+								<span class='btn btn-danger inactive_review' id='review_<?php echo $ads->id; ?>'><i class="halflings-icon plus-sign white" title="Activate Review "></i></span>
 								<?php }?>
 								&nbsp;
 							</td>
@@ -102,7 +102,7 @@
 			success: function (data) {
 				$('#status'+review).html(data);
 				$('#act_status'+review).html('Active');
-				$('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully Activated </p></div>');   
+				// $('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully Activated </p></div>');   
 				window.location.reload();
 			}
 		});
@@ -121,7 +121,7 @@
 			success: function (data) {
 				$('#status'+review).html(data);
 				$('#act_status'+review).html('InActive');
-				$('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully De-Activated </p></div>');   
+				// $('.msg').html('<div class="alert alert-block alert-info fade in"><button data-dismiss="alert" class="close" type="button">×</button><p>Coupoun Code has successfully De-Activated </p></div>');   
 				window.location.reload();
 			}
 		});

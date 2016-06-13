@@ -69,9 +69,9 @@
 			$status = $this->input->post('status');
 			$review = $this->input->post('coupon');
 			if($status == 0){
-				echo "<span class='btn btn-danger'><i class='halflings-icon plus-sign active_coupon' id='review_".$review."'title='Activate Review'></i></span>";
+				echo "<span class='btn btn-danger active_coupon' id='review_".$review."'><i class='halflings-icon plus-sign' title='Activate Review'></i></span>";
 			}else{
-				echo "<span class='btn btn-success'><i class='halflings-icon minus-sign inactive_coupon' id='review_".$review."'title='In-Activate Review'></i></span>";
+				echo "<span class='btn btn-success inactive_coupon' id='review_".$review."'><i class='halflings-icon minus-sign' title='In-Activate Review'></i></span>";
 			}
 			//echo $this->db->last_query();
 			//return $change_status;

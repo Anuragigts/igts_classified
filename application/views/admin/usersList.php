@@ -5,7 +5,7 @@
 			<a href="<?php echo base_url();?>admin_dashboard">Home</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="">Ads List</a></li>
+		<li><a href="">List of Users</a></li>
 	</ul>
 	<?php if($this->session->flashdata('err') != ''){?>
 	<div class="alert alert-block alert-danger fade in">

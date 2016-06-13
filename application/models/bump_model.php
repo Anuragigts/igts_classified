@@ -107,12 +107,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+							/*transaction update*/
+							if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+								$this->db->where('product_id', $adid);
+								$this->db->update('payments', array('product_id' => $last_insert_id)); 
+							}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}		
-
+							/*reviews*/
+							$this->db->where('ad_id', $adid);
+							$this->db->update('review_rating', $data); 
+							/*feedbackforads*/
+							$this->db->where('ad_id', $adid);
+							$this->db->update('feedbackforads', $data); 
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -175,11 +185,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+					/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -245,11 +266,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+							/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -328,11 +360,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+							/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -398,11 +441,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+							/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -468,11 +522,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+							/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -547,11 +612,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+							/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
@@ -618,11 +694,22 @@ class Bump_model extends CI_Model{
 								$this->db->where('ad_id', $adid);
 								$this->db->update('platinum_ads', $data); 
 							}
+					/*transaction update*/
+					if ($rs1->package_type == 2 || $rs1->package_type == 3 || $rs1->package_type == 5 || $rs1->package_type == 6) {
+						$this->db->where('product_id', $adid);
+						$this->db->update('payments', array('product_id' => $last_insert_id)); 
+					}
 							/*urgent label or not*/		
 					if ($rs1->urgent_package != 0) {
 								$this->db->where('ad_id', $adid);
 								$this->db->update('urgent_details', $data); 
 							}
+							/*reviews*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('review_rating', $data); 
+					/*feedbackforads*/
+					$this->db->where('ad_id', $adid);
+					$this->db->update('feedbackforads', $data);
 
 							
 					$this->db->where('ad_id', $adid);

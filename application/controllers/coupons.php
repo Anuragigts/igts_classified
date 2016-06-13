@@ -76,9 +76,9 @@
 			$status = $this->input->post('status');
 			$coupon = $this->input->post('coupon');
 			if($status == 0){
-				echo "<span class='btn btn-danger'><i class='halflings-icon plus-sign active_coupon' id='coupon_".$coupon."'title='Activate Coupon'></i></span>";
+				echo "<span class='btn btn-danger active_coupon' id='coupon_".$coupon."'><i class='halflings-icon plus-sign' title='Activate Coupon'></i></span>";
 			}else{
-				echo "<span class='btn btn-success'><i class='halflings-icon minus-sign inactive_coupon' id='coupon_".$coupon."'title='In-Activate Coupon'></i></span>";
+				echo "<span class='btn btn-success inactive_coupon' id='coupon_".$coupon."'><i class='halflings-icon minus-sign' title='In-Activate Coupon'></i></span>";
 			}
 			//echo $this->db->last_query();
 			//return $change_status;

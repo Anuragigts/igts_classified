@@ -19,7 +19,7 @@ class Category_model extends CI_Model{
                 }
         }
         public function view(){
-                $this->db->order_by("category_id","desc");
+                $this->db->order_by("category_id","asc");
                 return $this->db->get("catergory")->result();
         }
         public function categoryActDea(){
@@ -643,6 +643,7 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
         public function fdkads(){
             $this->db->select();
             $this->db->from("feedbackforads");
+            $this->db->join('postad as ad','feedbackforads.ad_id = ad.ad_id','join');
             $this->db->where("status", 1);
             return $this->db->count_all_results();
         }
@@ -650,6 +651,7 @@ sub_category.`sub_category_id` = sub_subcategory.`sub_category_id` GROUP BY sub_
         public function rptads(){
             $this->db->select();
             $this->db->from("reportforads");
+            $this->db->join('postad as ad','reportforads.ad_id = ad.ad_id','join');
             $this->db->where("status", 1);
             return $this->db->count_all_results();
         }

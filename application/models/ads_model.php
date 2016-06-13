@@ -723,6 +723,8 @@ class Ads_model extends CI_Model{
 			return array();
 		else{
 			$this->db->select('p_ad.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,a_status.status_name,pay.*');
+		$this->db->select("DATE_FORMAT(STR_TO_DATE(p_ad.created_on,
+  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 		$this->db->join('catergory as cat','cat.category_id = p_ad.category_id','inner');
 		$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_ad.package_type','inner');
 		$this->db->join('ad_status as a_status','a_status.id = p_ad.ad_status','inner');
@@ -732,9 +734,11 @@ class Ads_model extends CI_Model{
 			$this->db->where_in('p_ad.category_id',$cats_list);
 		}
 		if($filter_details['start_date'] !='')
-			$this->db->where('p_ad.created_on >=', date( 'd-m-Y H:i:s',strtotime($filter_details['start_date'])));
+			$this->db->where('DATE_FORMAT(STR_TO_DATE(p_ad.created_on,
+  		"%d-%m-%Y %H:%i:%s"), "%Y-%m-%d %H:%i:%s") >=', date( 'Y-m-d H:i:s',strtotime($filter_details['start_date'])));
 		if($filter_details['end_date'] !='')
-			$this->db->where('p_ad.created_on <=', date( 'd-m-Y H:i:s',strtotime($filter_details['end_date'])));
+			$this->db->where('DATE_FORMAT(STR_TO_DATE(p_ad.created_on,
+  		"%d-%m-%Y %H:%i:%s"), "%Y-%m-%d %H:%i:%s") <=', date( 'Y-m-d H:i:s',strtotime($filter_details['end_date'])));
 		if($filter_details['pkg_type'] != 0 && $filter_details['pkg_type'] !=''){
 		if($filter_details['cat_type'] != 0 && $filter_details['cat_type'] != ''){
 				if (in_array($filter_details['cat_type'], array(1,2,3,4))) {

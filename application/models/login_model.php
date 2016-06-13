@@ -10,7 +10,8 @@ class Login_model extends CI_Model{
                 $pa  =  $this->input->post("password");
                 $this->db->select("*");
                 $this->db->from("login");
-                $this->db->where("login_email",$this->input->post("email"));
+                // $this->db->where("login_email",$this->input->post("email"));
+                $this->db->where('login_email like binary "'.$this->input->post("email").'"', NULL, FALSE);
                 if($pa){
                          $this->session->set_userdata("pass","1");
                          $this->db->where("login_password",md5($pa));

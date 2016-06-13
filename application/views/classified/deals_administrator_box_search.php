@@ -22,43 +22,39 @@ $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id
 if (($m_details->package_type == '3' || $m_details->package_type == '6') && $m_details->urgent_package != '0') {
 ?>
 <div class="col-xs-12 col-sm-6 col-md-4">
-<div class="featured-badge">
-</div>
-<div class="xuSlider xuSlider_plat_urgtnt">
-<ul class="sliders">
-<?php 
-$pic = mysql_query("select * from ad_img WHERE ad_id = '$m_details->ad_id'");
-while ($res = mysql_fetch_object($pic)) { ?>
-<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
-<?php	
-}
-?>
-</ul>
-<div class="direction-nav">
-<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-</div>
-<div class="control-nav">
-<li data-id="1"><a href="javascript:;">1</a></li>
-<li data-id="2"><a href="javascript:;">2</a></li>
-<li data-id="3"><a href="javascript:;">3</a></li>
-<li data-id="4"><a href="javascript:;">4</a></li>
-<li data-id="5"><a href="javascript:;">5</a></li>
-</div>	
+	<div class="most_valued_badge">
+	</div>
+<div class="img-hover box_img">
+<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="<?php echo $m_details->img_name; ?>" title="jobs" class="img-responsive">
+<div class="overlay descurl"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
-<h3><?php echo substr($m_details->deal_tag,0,21); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 <?php }
+else{?>
+<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobtype."-<span class='pound_sym'></span>".$jobmax; ?></h3>
+<?php } ?>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
+<?php
+if($m_details->ad_type == 'business'){
+if ($m_details->bus_logo != '') { ?>
+<div class="bus_logo">
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt='<?php echo $m_details->bus_logo; ?>'/></b>
+</div>
+<?php }
 else{ ?>
-<h3 class="home_price"><?php echo $jobtype; ?></h3>		
-<?php	}
+<div class="bus_logo">
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+</div>
+<?php } 
+}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
-<div class="price">
-<b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b> 
+<div class="sig_price">
+<span></span><b>
+<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -69,41 +65,37 @@ else{ ?>
 if (($m_details->package_type == 3 || $m_details->package_type == 6) && $m_details->urgent_package == 0) {
 ?>
 <div class="col-xs-12 col-sm-6 col-md-4">
-<div class="xuSlider xuSlider_plat">
-<ul class="sliders">
-<?php 
-$pic = mysql_query("select * from ad_img WHERE ad_id = '$m_details->ad_id'");
-while ($res = mysql_fetch_object($pic)) { ?>
-<li><img src="<?php echo base_url(); ?>pictures/<?php echo $res->img_name; ?>" class="img-responsive" alt="<?php echo $res->img_name; ?>" title="<?php echo $res->img_name; ?>"></li>
-<?php	
-}
-?>
-</ul>
-<div class="direction-nav">
-<a href="javascript:;" class="prev icon-circle-arrow-left icon-4x"><i>Previous</i></a>
-<a href="javascript:;" class="next icon-circle-arrow-right icon-4x"><i>Next</i></a>
-</div>
-<div class="control-nav">
-<li data-id="1"><a href="javascript:;">1</a></li>
-<li data-id="2"><a href="javascript:;">2</a></li>
-<li data-id="3"><a href="javascript:;">3</a></li>
-<li data-id="4"><a href="javascript:;">4</a></li>
-<li data-id="5"><a href="javascript:;">5</a></li>
-</div>	
+<div class="img-hover box_img">
+<img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="<?php echo $m_details->img_name; ?>" title="jobs" class="img-responsive">
+<div class="overlay descurl"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
-<h3><?php echo substr($m_details->deal_tag,0,21); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,17); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 <?php }
+else{?>
+<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobtype."-<span class='pound_sym'></span>".$jobmax; ?></h3>
+<?php } ?>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
+<?php
+if($m_details->ad_type == 'business'){
+if ($m_details->bus_logo != '') { ?>
+<div class="bus_logo">
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $m_details->bus_logo; ?>" alt='<?php echo $m_details->bus_logo; ?>'/></b>
+</div>
+<?php }
 else{ ?>
-<h3 class="home_price"><?php echo $jobtype; ?></h3>		
-<?php	}
+<div class="bus_logo">
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+</div>
+<?php } 
+}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
-<div class="price">
-<b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
+<div class="sig_price">
+<span></span><b>
+<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -120,7 +112,7 @@ if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_detai
 <div class="img-hover box_img">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 <div class="overlay descurl">
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
 </div>
 </div>
 <div class="info-gallery gold_bgcolor">
@@ -133,7 +125,7 @@ else{ ?>
 <h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php	}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 <div class="price">
 <b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 </div>
@@ -148,7 +140,7 @@ if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_detai
 <div class="img-hover box_img">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 <div class="overlay descurl">
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
 </div>
 </div>
 <div class="info-gallery gold_bgcolor">
@@ -161,7 +153,7 @@ else{ ?>
 <h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php	}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 <div class="price">
 <b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="Thumb" title="Right Deal"></b>
 </div>
@@ -179,7 +171,7 @@ if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_detai
 <div class="img-hover box_img">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 <div class="overlay descurl">
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
 </div>
 </div>
 <div class="info-gallery">
@@ -192,7 +184,7 @@ else{ ?>
 <h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php	}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 </div>
 <?php } ?>
@@ -205,7 +197,7 @@ if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_detai
 <div class="img-hover box_img">
 <img src="<?php echo base_url(); ?>pictures/<?php echo $m_details->img_name; ?>" alt="" class="img-responsive">
 <div class="overlay descurl">
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>"><i class="top_20 fa fa-link"></i></a>
 </div>
 </div>
 <div class="info-gallery">
@@ -218,7 +210,7 @@ else{ ?>
 <h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php	}
 ?>
-<a href="description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 </div>
 <?php } ?>

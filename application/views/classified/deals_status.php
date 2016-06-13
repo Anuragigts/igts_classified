@@ -214,7 +214,9 @@ console.log(response);
 <script src='<?php echo base_url(); ?>admin_template_files/js/jquery.dataTables.min.js'></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	    $('#deal_status').DataTable();
+	    $('#deal_status').DataTable({
+	    	"aaSorting": []
+	    });
 	});
 </script>
 <!-- xxx footerscript Content xxx -->

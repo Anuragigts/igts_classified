@@ -72,7 +72,7 @@
 						<?php $i = 0;
 							foreach($Staff_list as $users){$i++; ?>
 						<tr class="odd gradeX">
-							<td><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
+							<td style='word-break: break-all;'><?php echo ucwords($users->first_name).'&nbsp;'.ucwords($users->lastname);?></td>
 							<td><?php echo $users->login_email;?></td>
 							<td><?php echo $users->mobile;?></td>
 							<?php if( $sess_user_type != '1'){?>

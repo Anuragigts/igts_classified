@@ -11,6 +11,7 @@ class Reports extends CI_Controller {
 			$this->load->model("report_model");
 			$this->load->model("ads_model");
 			$this->load->model("category_model");
+			$this->load->model('transaction_models');
         }
         public function Ads(){
 			
@@ -89,6 +90,28 @@ class Reports extends CI_Controller {
 			 foreach($result as $list){
                     $data_array[] = array(
 							$list->nl_email, 
+							);
+			 }
+			  $xls = new Excel_XML;
+            $xls->addArray ($data_array);
+            $xls->generateXML (time());
+		}
+
+		public function get_transactions(){
+			$this->load->helper('php-excel');
+			 $ins_status = $this->transaction_models->get_Transactions();
+			 $data_array[] = array( "Transaction Id","Deal Tag","User id", 
+			 	"User Name","Done On","E-Mail", "Gross Amount", "Payment Status",);
+			 foreach($ins_status as $list){
+                    $data_array[] = array(
+							$list->txn_id, 
+							$list->deal_tag,
+							$list->login_id,
+							ucwords($list->first_name).'&nbsp;'.ucwords($list->lastname),
+							date("d-m-Y H:i:s", strtotime($list->payment_date)),
+							$list->login_email,
+							$list->gross_amt,
+							$list->payment_status
 							);
 			 }
 			  $xls = new Excel_XML;

@@ -7,6 +7,7 @@ class Payments extends CI_Controller
 		$this->load->model('transaction_models');
 		$this->load->model('payment_models');
 		$this->load->model('coupons_model');
+		$this->load->model('category_model');
 		$this->load->helper('url');
      }
      
@@ -29,6 +30,8 @@ class Payments extends CI_Controller
 			$data['product_id'] = $post_paypal["item_number"];
 			$data['payment_date'] = date('Y-m-d H:i:s');
 		}
+		/*echo "<pre>";
+		print_r($post_paypal); exit;*/
 		$coup_status  = $this->payment_models->update_coupon_status($data['product_id']);
 		$ins_status = $this->payment_models->insert_tran($data);
 		$ins_status = $this->payment_models->update_ad_pay_status($data['product_id'],$data['gross_amt']);
@@ -70,7 +73,6 @@ class Payments extends CI_Controller
         }
     }
 	function transactions(){
-        //paypal return transaction details array
 		$ins_status = $this->transaction_models->get_Transactions();
 		$data   =   array(
                         "title"         	=>     "Classifieds :: Admin Category",
@@ -79,6 +81,7 @@ class Payments extends CI_Controller
                         "content"       	=>     "transaction_lists",
 						"tran_details"     	=>  	$ins_status,
 			);
+		$data['category_list'] = $this->category_model->view();
 			$this->load->view("admin_layout/inner_template",$data);	
     }
 	public function pay(){

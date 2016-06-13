@@ -167,6 +167,8 @@ class Profile_model extends CI_Model{
                 $this->db->where($whr);
                $this->db->update('login', array('is_confirm' => 'confirm'));
                if($this->db->affected_rows() > 0){
+                $this->db->where('login_id', $url4);
+                $this->db->delete('deactive_accounts');
                 return 1;
                }else{
                 return 0;

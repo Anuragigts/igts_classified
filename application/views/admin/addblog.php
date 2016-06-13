@@ -106,6 +106,7 @@
 					reader.onload = function (e) {
 						$('.img_hide').show();
 						$('#del_img').css('display', 'block');
+						$("#file-error").css('display', 'none');
 						$('#blah')
 							.show()
 							.attr('src', e.target.result)
@@ -152,7 +153,7 @@
 							required: true,
 						},
 						file: {
-			                required: !0,
+			                required: true,
 			                extension: "jpg|png"
 			            },
 					},
@@ -177,8 +178,8 @@
 					},
 					
 					submitHandler: function(form) {
-						// return true;
-						form.submit();
+						 return true;
+						// form.submit();
 					}
 				});
 				

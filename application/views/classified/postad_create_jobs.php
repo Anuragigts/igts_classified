@@ -422,7 +422,7 @@ Browse
 </div>
 <div class="span6 unit">
 
-<label class="label">Price Type 
+<label class="label">Salary 
 <sup data-toggle="tooltip" title="" data-original-title="It indicates if the product price is fixed or negotiable">
 <img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
 </sup>
