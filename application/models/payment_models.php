@@ -123,11 +123,13 @@ class Payment_models extends CI_Model{
 		}
 	}
 	public function get_ad_details($ad_id){
-		$this->db->select('p_ad.*,p_list.*,u_lab.*,a_img.img_name');
+		$this->db->select('p_ad.*,p_list.*,u_lab.*,a_img.img_name,v.*,pads.*,p_ad.ad_id as adid');
 		$this->db->where('p_ad.ad_id',$ad_id);
 		$this->db->join('ad_img as a_img', "a_img.ad_id = p_ad.ad_id", 'join');
 		$this->db->join('pkg_duration_list as p_list', "p_list.pkg_dur_id = p_ad.package_type", 'join');
 		$this->db->join('urgent_pkg_label as u_lab', "u_lab.u_pkg_id = p_ad.urgent_package", 'left');
+		$this->db->join('videos as v', "v.ad_id = p_ad.ad_id", 'left');
+		$this->db->join('platinum_ads as pads', "pads.ad_id = p_ad.ad_id", 'left');
 		$this->db->group_by('a_img.ad_id');
 		$this->db->from('postad as p_ad');
 		$p_details = $this->db->get()->row();

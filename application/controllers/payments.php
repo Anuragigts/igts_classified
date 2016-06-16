@@ -420,4 +420,28 @@ class Payments extends CI_Controller
      public function adrenewal_imgdelete(){
      	mysql_query("DELETE FROM ad_img WHERE ad_img_id='".$this->input->post('id')."'");
      }
+
+     public function adrenewal_data(){
+     	// echo $this->input->post('hotdeal').$this->input->post('youtubelink').$this->input->post('weblink').$this->input->post('adid');
+     	/*youtube link*/
+     	$hot = mysql_query("SELECT * FROM videos WHERE ad_id='".$this->input->post('adid')."'");
+     	if (mysql_num_rows($hot) > 0) {
+     		@mysql_query("UPDATE videos SET video_name='".$this->input->post('youtubelink')."' WHERE ad_id='".$this->input->post('adid')."'");
+     	}
+     	else{
+     		@mysql_query("INSERT INTO videos(ad_id, video_name, uploaded_time) 
+     			VALUES ('".$this->input->post('adid')."','".$this->input->post('youtubelink')."','".date("d-m-Y H:i:s")."')");
+     	}
+     	/*hotdeals title*/
+     	$hot = mysql_query("SELECT * FROM platinum_ads WHERE ad_id='".$this->input->post('adid')."'");
+     	if (mysql_num_rows($hot) > 0) {
+     		@mysql_query("UPDATE platinum_ads SET marquee='".$this->input->post('hotdeal')."' WHERE ad_id='".$this->input->post('adid')."'");
+     	}
+     	else{
+     		@mysql_query("INSERT INTO platinum_ads(ad_id, marquee, posted_date) 
+     			VALUES ('".$this->input->post('adid')."','".$this->input->post('hotdeal')."','".date("d-m-Y H:i:s")."')");
+     	}
+     	/*weblink*/
+     	@mysql_query("UPDATE postad SET web_link='".$this->input->post('weblink')."' WHERE ad_id='".$this->input->post('adid')."'");
+	}
 }

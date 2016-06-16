@@ -50,6 +50,32 @@ $price1 = $price + $vat;
 }
 ?>
 </div>
+<table>
+	<tr>
+	<td colspan='4'>
+		<table id='imgcontent'>
+			<?php 
+				$img_details1 = array_chunk($img_details, 6);
+				foreach ($img_details1 as $val) {
+			 ?>
+			<tr>
+				<?php foreach ($val as $value) { ?>
+					<td class='del<?php echo $value->ad_img_id ?>'><img src="<?php echo base_url(); ?>pictures/<?php echo $value->img_name ?>" width='120' height='120'> <a href="javascript:void(0);" class='delimg' id='<?php echo $value->ad_img_id ?>' >delete</a></td>
+				<?php } ?>
+			</tr>	
+			<?php } ?>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td colspan='4'>
+		<a href="javascript:void(0);" data-toggle="modal" data-target="#adrenewal_img">Add More Images</a> 
+		<div class='deleteimgs'>
+			
+		</div>
+	</td>
+</tr>
+</table>
 <table class="table table-responsive">
 <thead>
 <tr>
@@ -73,27 +99,6 @@ $price1 = $price + $vat;
 <td class="total">
 <?php echo $price; ?>
 </td>
-</tr>
-<tr>
-	<td colspan='4'>
-		<table id='imgcontent'>
-			<?php 
-				$img_details1 = array_chunk($img_details, 6);
-				foreach ($img_details1 as $val) {
-			 ?>
-			<tr>
-				<?php foreach ($val as $value) { ?>
-					<td class='del<?php echo $value->ad_img_id ?>'><img src="<?php echo base_url(); ?>pictures/<?php echo $value->img_name ?>" width='120' height='120'> <a href="javascript:void(0);" class='delimg' id='<?php echo $value->ad_img_id ?>' >delete</a></td>
-				<?php } ?>
-			</tr>	
-			<?php } ?>
-		</table>
-	</td>
-</tr>
-<tr>
-	<td colspan='4'>
-		<a href="javascript:void(0);" data-toggle="modal" data-target="#adrenewal_img">Add More Images</a> 
-	</td>
 </tr>
 <tr>
 <td class="package_ckech">
@@ -122,6 +127,23 @@ $price1 = $price + $vat;
 </td>
 <th>VAT</th>
 <th class='vat_tax'><?php echo substr($vat, 0,strpos($vat,".")+3); ?></th>
+</tr>
+<tr>
+<td colspan='4'>
+	<div class='hotdeals'>
+		<label class="label">HotDeal Title</label>
+		<input type="text" name="hotdeal" id='hotdeal' placeholder="Enter Hotdeals Title" value="<?php echo $tran_details->marquee; ?>" >
+	</div>
+	<div class='youtubelink'>
+		<label class="label">Youtube Link</label>
+		<input type="text" name="youtubelink" id='youtubelink' placeholder="Enter youtube link" value="<?php echo $tran_details->video_name; ?>" >
+	</div>
+	<div class='weblink'>
+		<label class="label">Web Link</label>
+		<input type="text" name="weblink" id='weblink' placeholder="Enter web link" value="<?php echo $tran_details->web_link; ?>" >
+		<input type="hidden" name="adid" id='adid' value="<?php echo $tran_details->adid; ?>" >
+	</div>
+</td>
 </tr>
 </tbody>
 <thead>
@@ -250,8 +272,49 @@ url: "<?php echo base_url();?>payments/adrenewal_limit",
 data: {pckid: $(".pcktype").val() },
 success: function (data) {
 	$("#imglimit").val(data);
+	if ($(".pcktype").val() == 3 || $(".pcktype").val() == 6) {
+	$(".hotdeals").css('display','block');
+	$(".youtubelink").css('display','block');
+	$(".weblink").css('display','block');
+	};
+	if ($(".pcktype").val() == 2 || $(".pcktype").val() == 5) {
+		$(".hotdeals").css('display','none');
+		$(".youtubelink").css('display','none');
+		$(".weblink").css('display','block');
+	};
+	if ($(".pcktype").val() == 1 || $(".pcktype").val() == 4) {
+		$(".hotdeals").css('display','none');
+		$(".youtubelink").css('display','none');
+		$(".weblink").css('display','none');
+	};
 }
 })
+
+$(".pcktype").change(function(){
+	$.ajax({
+type: "POST",
+url: "<?php echo base_url();?>payments/adrenewal_limit",
+data: {pckid: $(".pcktype").val() },
+success: function (data) {
+	$("#imglimit").val(data);
+	if ($(".pcktype").val() == 3 || $(".pcktype").val() == 6) {
+	$(".hotdeals").css('display','block');
+	$(".youtubelink").css('display','block');
+	$(".weblink").css('display','block');
+	};
+	if ($(".pcktype").val() == 2 || $(".pcktype").val() == 5) {
+		$(".hotdeals").css('display','none');
+		$(".youtubelink").css('display','none');
+		$(".weblink").css('display','block');
+	};
+	if ($(".pcktype").val() == 1 || $(".pcktype").val() == 4) {
+		$(".hotdeals").css('display','none');
+		$(".youtubelink").css('display','none');
+		$(".weblink").css('display','none');
+	};
+}
+})
+});
 
 $(".upload").click(function(){
 	var img = $("#imglimit").val();
@@ -280,6 +343,46 @@ $(".delimg").click(function(){
 	})
 });
 
+$(".chck_bg_clr").click(function(){
+	var ex = $("#existimgcount").val();
+	var limit = $("#imglimit").val();
+	// alert($(".pcktype").val());
+	if (parseInt(ex) > parseInt(limit)) {
+		$("div.deleteimgs").html("<div class='alert alert-danger'><strong>Error!</strong> Maximum "+limit+" images allowed, please delete some images </div>");
+		return false;
+	}
+	else{
+		$(".deleteimgs").html('');
+		// return false;
+	}
+
+	
+
+	if ($(".pcktype").val() == 3 || $(".pcktype").val() == 6) {
+		$.ajax({
+		type: "POST",
+		url: "<?php echo base_url();?>payments/adrenewal_data",
+		data: {hotdeal: $("#hotdeal").val(),youtubelink: $("#youtubelink").val(),weblink:$("#weblink").val(), adid: $("#adid").val() },
+		success: function (data) {
+			// alert(data);
+		}
+		})
+		// return false;
+	}
+	if ($(".pcktype").val() == 2 || $(".pcktype").val() == 5) {
+		$.ajax({
+		type: "POST",
+		url: "<?php echo base_url();?>payments/adrenewal_data",
+		data: {weblink:$("#weblink").val(), adid: $("#adid").val() },
+		success: function (data) {
+			// alert(data);
+		}
+		})
+		// return false;
+	}
+	// return false;
+});
+
 });
 </script>
 
@@ -304,7 +407,7 @@ $(".delimg").click(function(){
 				<input type="file" name="adrenewalimgs[]" id='adrenewalimgs' multiple='multiple' />
 				<input type="hidden" name="existimgcount" id='existimgcount' value='<?php echo count($img_details); ?>' />
 				<input type="hidden" name="imglimit" id='imglimit' value='' />
-				<input type='hidden' name='adid' id='adid' value='<?php echo $tran_details->ad_id; ?>'>
+				<input type='hidden' name='adid' id='adid' value='<?php echo $tran_details->adid; ?>'>
 				<div>
 					<input type='submit' name='upload' class='upload' value='Upload' />
 				</div>
