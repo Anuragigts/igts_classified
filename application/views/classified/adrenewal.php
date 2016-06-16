@@ -60,7 +60,14 @@ $price1 = $price + $vat;
 			 ?>
 			<tr>
 				<?php foreach ($val as $value) { ?>
-					<td class='del<?php echo $value->ad_img_id ?>'><img src="<?php echo base_url(); ?>pictures/<?php echo $value->img_name ?>" width='120' height='120'> <a href="javascript:void(0);" class='delimg' id='<?php echo $value->ad_img_id ?>' >delete</a></td>
+					<td class='del<?php echo $value->ad_img_id ?>'>
+						<div class="img_hover_renuval">
+							<img src="<?php echo base_url(); ?>pictures/<?php echo $value->img_name ?>" alt='<?php echo $value->img_name ?>'>
+							<div class="overlay">
+								<a href="javascript:void(0);" class='delimg' id='<?php echo $value->ad_img_id ?>'><i class="fa fa-minus-circle"></i></a>
+							</div>
+						</div>
+					</td>
 				<?php } ?>
 			</tr>	
 			<?php } ?>
@@ -68,8 +75,8 @@ $price1 = $price + $vat;
 	</td>
 </tr>
 <tr>
-	<td colspan='4'>
-		<a href="javascript:void(0);" data-toggle="modal" data-target="#adrenewal_img">Add More Images</a> 
+	<td colspan='4' class='add_renu_a'>
+		<a href="javascript:void(0);" class='btn btn-primary btn1 pull-left' data-toggle="modal" data-target="#adrenewal_img">Add More Images</a> 
 		<div class='deleteimgs'>
 			
 		</div>
@@ -400,16 +407,16 @@ $(".chck_bg_clr").click(function(){
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
 			<h2>Adrenewal Images</h2>
 		</div>
-		<div class="modal-body footer_pad_length">
+		<div class="modal-body footer_pad_length ad_ren_heig">
 			<div class='errorimg'>
 			</div>
-			<div class="fead_back_modal">
+			<div class="">
 				<input type="file" name="adrenewalimgs[]" id='adrenewalimgs' multiple='multiple' />
 				<input type="hidden" name="existimgcount" id='existimgcount' value='<?php echo count($img_details); ?>' />
 				<input type="hidden" name="imglimit" id='imglimit' value='' />
 				<input type='hidden' name='adid' id='adid' value='<?php echo $tran_details->adid; ?>'>
-				<div>
-					<input type='submit' name='upload' class='upload' value='Upload' />
+				<div class='up_load_height'>
+					<button name='upload' class="upload btn btn-primary btn1 pull-left" type='submit'>Upload</button>
 				</div>
 			</div>
 		</div>
