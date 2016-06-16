@@ -1098,7 +1098,6 @@ class hotdealsearch_model extends CI_Model{
 				$bus_id =  $this->session->userdata('bus_id');
 				$search_sub =  $this->session->userdata('search_sub');
 				$search_subsub =  $this->session->userdata('search_subsub');
-				$search_bustype = $this->session->userdata('search_bustype');
 				$dealtitle = $this->session->userdata('dealtitle');
 				$dealprice = $this->session->userdata('dealprice');
 				$dealurgent = $this->session->userdata('dealurgent');
@@ -1124,23 +1123,25 @@ class hotdealsearch_model extends CI_Model{
 				$search_subsubsub =  $this->session->userdata('search_subsubsub');
 
 				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
-					// $pck = '((ad.package_type = "3" AND ad.urgent_package != "0") OR(ad.package_type = 2 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$gold.')OR(ad.package_type=1 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >='.$free.')) ';
 					$pcktype = '(
 			(ad.package_type = "3" OR ad.package_type = "6") OR 
 			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.' )
 			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
 			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
-			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") )';
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$free.'")  
+			OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$gold.'") )';
 				}
 			if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
-				// $pck = '((ad.package_type = "6" AND ad.urgent_package != "0") OR(ad.package_type = 5 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.')OR(ad.package_type=4 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >='.$low_free.')) ';
-					$pcktype = '
+				$pcktype = '
 					(
 			(ad.package_type = "3" OR ad.package_type = "6") OR 
 			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.')
 			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
 			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
-			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )';
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_free.'")  
+			OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_gold.'") )';
 				}
 
         		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg, ad.ad_id as adid");
@@ -1155,12 +1156,10 @@ class hotdealsearch_model extends CI_Model{
 					}
 					else if (!in_array("0", $dealurgent)){
 						$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
-						// $this->db->where("ad.urgent_package = 0 OR(ad.urgent_package != '0' AND ud.valid_to >= '".date("Y-m-d H:i:s")."') ");
 					}
 				}
 				else{
-					$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-					// $this->db->where("(ad.package_type = '6' AND ad.urgent_package != '0') OR(ad.package_type=5 AND ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' AND ad.likes_count >='$low_gold')OR(ad.package_type=4 AND ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."' AND ad.likes_count >='$low_free') ");
+					$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
 				}
 				
 				$this->db->where('ad.ad_status', 1);
@@ -1261,11 +1260,6 @@ class hotdealsearch_model extends CI_Model{
 				if ($bus_id != 'all') {
 					$this->db->where('ad.ad_type', $bus_id);
 				}
-				if ($search_bustype) {
-					if ($search_bustype == 'business' || $search_bustype == 'consumer') {
-						$this->db->where("ad.ad_type", $search_bustype);
-					}
-				}
 			
 			if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
 						/*package search*/
@@ -1300,11 +1294,7 @@ class hotdealsearch_model extends CI_Model{
 						}
 					}
 
-					/*if (!empty($pcklist) && !in_array(0, $pcklist)) {
-							$this->db->where_in('ad.package_type', $pcklist);
-							$this->db->where('ad.urgent_package = 0 OR (ad.urgent_package != 0 )');
-						}
-						else*/ if (!empty($pcklist)){
+					if (!empty($pcklist)){
 							$this->db->where_in('ad.package_type', $pcklist);
 						}
 				/*deal posted days 24hr/3day/7day/14day/1month */
@@ -1338,19 +1328,40 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where('('.$pcktype.')');
 					}
 					else{
-						$this->db->where('(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
-			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
-			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") ) OR (
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
-			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
-			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )');
+						$this->db->where('(ad.package_type = "3" OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+						OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+						OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+						OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+
+						OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$free.'")  
+						OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$gold.'"))
+
+						OR (ad.package_type = "6" OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+						OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+						OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+						OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
+
+						OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_free.'")  
+						OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_gold.'") )');
 					}
 				}
+				else{
+						$this->db->where('(ad.package_type = "3" OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+						OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+						OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+						OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+
+						OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$free.'")  
+						OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$gold.'"))
+
+						OR (ad.package_type = "6" OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+						OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+						OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+						OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
+
+						OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_free.'")  
+						OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_gold.'") )');
+					}
 				
 				$this->db->group_by("img.ad_id");
 				/*deal title ascending or descending*/
@@ -1369,7 +1380,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 				$this->db->order_by("ad.approved_on", "DESC");
 				$m_res = $this->db->get();
-				  // echo $this->db->last_query(); exit;
+				   // echo $this->db->last_query(); exit;
 				return $m_res->result();
 		}
 
@@ -1416,23 +1427,25 @@ class hotdealsearch_model extends CI_Model{
 				$search_subsubsub =  $this->session->userdata('search_subsubsub');
 
 				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
-					// $pck = '((ad.package_type = "3" AND ad.urgent_package != "0") OR(ad.package_type = 2 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$gold.')OR(ad.package_type=1 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >='.$free.')) ';
 					$pcktype = '(
 			(ad.package_type = "3" OR ad.package_type = "6") OR 
 			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.' )
 			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
 			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
-			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") )';
+			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") 
+			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$free.'")  
+			OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$gold.'"))';
 				}
 			if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
-				// $pck = '((ad.package_type = "6" AND ad.urgent_package != "0") OR(ad.package_type = 5 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.')OR(ad.package_type=4 AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >='.$low_free.')) ';
 					$pcktype = '
 					(
 			(ad.package_type = "3" OR ad.package_type = "6") OR 
 			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.')
 			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
 			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
-			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )';
+			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
+			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_free.'")  
+			OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_gold.'") )';
 				}
 
 	    		$this->db->select("*, COUNT(`img`.`ad_id`) AS img_count,ud.valid_to AS urg, ad.ad_id as adid");
@@ -1446,7 +1459,6 @@ class hotdealsearch_model extends CI_Model{
 					}
 					else{
 						$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
-						// $this->db->where("ad.urgent_package = 0 OR(ad.urgent_package != '0' AND ud.valid_to < '".date("Y-m-d H:i:s")."') ");
 					}
 				}
 				else{
@@ -1623,18 +1635,39 @@ class hotdealsearch_model extends CI_Model{
 						$this->db->where('('.$pcktype.')');
 					}
 					else{
-						$this->db->where('(
-						(ad.package_type = "3" OR ad.package_type = "6") OR 
-						((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-						OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
-						OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
-						OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") ) OR (
-						(ad.package_type = "3" OR ad.package_type = "6") OR 
-						((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" )
-						OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
-						OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
-						OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'") )');
+						$this->db->where('(ad.package_type = "3" OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+					OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+					OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+					OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+
+					OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$free.'")  
+					OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$gold.'"))
+
+					OR (ad.package_type = "6" OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+					OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+					OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+					OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
+
+					OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_free.'")  
+					OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_gold.'") )');
 					}
+				}
+				else{
+					$this->db->where('(ad.package_type = "3" OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+					OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
+					OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
+					OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
+
+					OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$free.'")  
+					OR (ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$gold.'"))
+
+					OR (ad.package_type = "6" OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
+					OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
+					OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
+					OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
+
+					OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_free.'")  
+					OR (ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= "'.$low_gold.'") )');
 				}
 				$this->db->group_by("img.ad_id");
 				/*deal title ascending or descending*/

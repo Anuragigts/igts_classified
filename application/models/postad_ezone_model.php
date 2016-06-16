@@ -95,7 +95,8 @@ class Postad_ezone_model extends CI_Model{
                                 'terms_conditions' =>$this->input->post('terms_condition'),
                                 'payment_status' => $payment,
                                 'ad_status'     => 0,
-                                'is_free' => $isfree
+                                'is_free' => $isfree,
+                                'adrenewal' => 0
                                 );
             // echo "<pre>"; print_r($data); exit;
                 $this->db->insert('postad', $data);

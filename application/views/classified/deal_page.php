@@ -175,7 +175,7 @@ $bus_id =  $this->session->userdata('bus_id');
 $seller_deals =  $this->session->userdata('seller_id');
 $search_sub =  $this->session->userdata('search_sub');
 $search_subsub =  $this->session->userdata('search_subsub');
-$search_bustype = $this->session->userdata('search_bustype');
+
 $dealtitle = $this->session->userdata('dealtitle');
 $dealprice = $this->session->userdata('dealprice');
 $dealurgent = $this->session->userdata('dealurgent');
@@ -303,8 +303,14 @@ $access_sub = $this->session->userdata('access_sub');
 <hr class="tall">
 </div>
 <div class="row">
-<div class="col-sm-4 col-sm-offset-4">
+<div class="col-sm-6 col-sm-offset-3">
 <div class="unit check logic-block-radio">
+<div class="inline-group hot_deal_rad">
+<label class="radio">
+<input type="radio" name="business_type" class='bus_type' value="all" <?php if ($bus_id == 'all') {	echo "checked=checked";	} ?>checked  >
+<i></i>ALL 
+</label>
+</div>
 <div class="inline-group hot_deal_rad">
 <label class="radio">
 <input type="radio" name="business_type" class='bus_type' value="business" <?php if ($bus_id == 'business') {	echo "checked=checked";	} ?> >

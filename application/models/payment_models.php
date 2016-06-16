@@ -108,12 +108,15 @@ class Payment_models extends CI_Model{
 		else{
 			$urg1 = $this->session->userdata['pcksession']['urglbl'];
 		}
+		$adrenewal = @mysql_result(mysql_query("SELECT adrenewal FROM postad WHERE ad_id = '$ad_id' "), 0, 'adrenewal');
 		$pck_data = array('package_type'=>$this->session->userdata['pcksession']['pcktype'],
 						'urgent_package'=>$urg1,
 						'payment_status'=>1,
 						'paid_amt'=>$paid_amt,
 						'approved_on'=>date("Y-m-d H:i:s"),
-						'expire_data'=>$ad_days);
+						'expire_data'=>$ad_days,
+						'adrenewal'=>$adrenewal+1,
+						'adrenewaldate'=>date("Y-m-d H:i:s"));
 		$this->db->where('login_id',$this->session->userdata('login_id'));
 		$this->db->where('ad_id',$ad_id);
 		$this->db->update('postad',$pck_data);
@@ -129,6 +132,14 @@ class Payment_models extends CI_Model{
 		$this->db->from('postad as p_ad');
 		$p_details = $this->db->get()->row();
 		return $p_details;
+	}
+
+	public function get_img_details($ad_id){
+		$this->db->select();
+		$this->db->where('ad_id',$ad_id);
+		$this->db->from('ad_img');
+		$p_details = $this->db->get();
+		return $p_details->result();
 	}
 
 	public function pcktypetop(){
@@ -178,5 +189,23 @@ class Payment_models extends CI_Model{
 		return $rs;
 	}
 
+	public function insert_img(){
+		$file = [];
+		$tpath = "pictures/";
+		for ($i=0; $i < count($_FILES['adrenewalimgs']['name']); $i++) { 
+     		$new_name = explode(".", $_FILES["adrenewalimgs"]["name"][$i]);
+     		$imgpath = time().$i.".".end($new_name);
+           if (move_uploaded_file($_FILES["adrenewalimgs"]["tmp_name"][$i],$tpath.$imgpath)) {
+           		array_push($file, $imgpath);
+            	$data = array(
+					'ad_id'		=>	$this->input->post('adid'),
+					'img_name'	=>	$imgpath,
+					'img_time'	=>	date("d-m-Y H:i:s"),
+					'status'	=>	1
+				);
+				$this->db->insert('ad_img',$data);
+            }
+     	}
+	}
 }
 ?>

@@ -146,6 +146,9 @@ class Deal_page extends CI_Controller{
             if($this->input->get('category_name')){
                  $this->session->set_userdata('cat_id',$this->input->get('category_name'));
             }
+            else{
+                $this->session->set_userdata('cat_id','all'); 
+            }
             if($this->input->get('seller_deals')){
                  $this->session->set_userdata('seller_id',$this->input->get('seller_deals'));
             }
@@ -180,11 +183,6 @@ class Deal_page extends CI_Controller{
                        $this->session->set_userdata('dealurgent' ,$this->input->get('dealurgent'));
                 }else{
                      $this->session->set_userdata('dealurgent',array());
-                }
-              if($this->input->get('search_bustype')){
-                       $this->session->set_userdata('search_bustype',$this->input->get('search_bustype'));
-                }else{
-                     $this->session->set_userdata('search_bustype','all');
                 }
               if($this->input->get('price_sort')){
                      $this->session->set_userdata('dealprice',$this->input->get('price_sort'));
@@ -244,7 +242,8 @@ class Deal_page extends CI_Controller{
                         'paging_links' =>$this->pagination->create_links(),
                         'favourite_list'=>$favourite_list,
                         "public_adview" => $public_adview,
-                        "saved_searchexist"=>$saved_searchexist
+                        "saved_searchexist"=>$saved_searchexist,
+                        "onhotdeal" =>$this->session->userdata('onhotdeal')
                 );
            /*business and consumer count for hot deals*/
           $data['busconcount'] = $this->hotdealsearch_model->busconcount_hotdeals();

@@ -267,7 +267,7 @@ else{
 <img class="img-responsive" src="img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
 <div class="overlay">
 <h3>Hot Deals</h3>
-<a class="info" href="hot-deals-post-classifieds-ads">View Details</a>
+<a class="info onhotdeal" href="hot-deals-post-classifieds-ads">View Details</a>
 </div>
 </div>
 </div>

@@ -166,6 +166,7 @@ class Payments extends CI_Controller
      function adrenewal(){
 		$ad_id = $this->uri->segment(3);
         $ins_status = $this->payment_models->get_ad_details($ad_id);
+        $img_details = $this->payment_models->get_img_details($ad_id);
         if ($ins_status->category_id == 1 || $ins_status->category_id == 2 ||
         	$ins_status->category_id == 3 || $ins_status->category_id == 4) {
         	$pcktype = $this->payment_models->pcktypetop();
@@ -181,6 +182,7 @@ class Payments extends CI_Controller
                         "metakey"       	=>     "Classifieds :: Admin Category",
                         "content"       	=>     "adrenewal",
 						"tran_details"     	=>  	$ins_status,
+						"img_details"     	=>  	$img_details,
 						"pcktype"			=>		$pcktype,
 						"urg_label"			=>		$urg_label
 			);
@@ -405,5 +407,17 @@ class Payments extends CI_Controller
 			$this->session->set_flashdata('payment','Your Payment has successfully Completed');
 			redirect('deals-status');
      }
-	
+
+     public function adrenewal_limit(){
+     	echo ltrim(@mysql_result(mysql_query("SELECT img_count FROM pkg_duration_list WHERE pkg_dur_id = ".$this->input->post('pckid')), 0,'img_count'),' ');
+     }
+
+     public function adrenewal_img(){
+     	$ins_img = $this->payment_models->insert_img();
+     	redirect(base_url()."payments/adrenewal/".$this->input->post('adid'));
+     }
+
+     public function adrenewal_imgdelete(){
+     	mysql_query("DELETE FROM ad_img WHERE ad_img_id='".$this->input->post('id')."'");
+     }
 }

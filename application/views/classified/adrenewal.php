@@ -53,7 +53,7 @@ $price1 = $price + $vat;
 <table class="table table-responsive">
 <thead>
 <tr>
-<th class="preview">Preview</th>
+<th class="preview"><!-- Preview --></th>
 <th class="product">Ad Title</th>
 <th class="price">Price</th>
 <th class="total">Total</th>
@@ -62,7 +62,7 @@ $price1 = $price + $vat;
 <tbody>
 <tr>
 <td class="preview cart_image">
-<img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>">
+<!-- <img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>"> -->
 </td>
 <td class="product">
 <h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
@@ -73,6 +73,27 @@ $price1 = $price + $vat;
 <td class="total">
 <?php echo $price; ?>
 </td>
+</tr>
+<tr>
+	<td colspan='4'>
+		<table id='imgcontent'>
+			<?php 
+				$img_details1 = array_chunk($img_details, 6);
+				foreach ($img_details1 as $val) {
+			 ?>
+			<tr>
+				<?php foreach ($val as $value) { ?>
+					<td class='del<?php echo $value->ad_img_id ?>'><img src="<?php echo base_url(); ?>pictures/<?php echo $value->img_name ?>" width='120' height='120'> <a href="javascript:void(0);" class='delimg' id='<?php echo $value->ad_img_id ?>' >delete</a></td>
+				<?php } ?>
+			</tr>	
+			<?php } ?>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td colspan='4'>
+		<a href="javascript:void(0);" data-toggle="modal" data-target="#adrenewal_img">Add More Images</a> 
+	</td>
 </tr>
 <tr>
 <td class="package_ckech">
@@ -223,6 +244,42 @@ window.location.href= "<?php echo base_url(); ?>deals-status";
 }
 })
 });
+$.ajax({
+type: "POST",
+url: "<?php echo base_url();?>payments/adrenewal_limit",
+data: {pckid: $(".pcktype").val() },
+success: function (data) {
+	$("#imglimit").val(data);
+}
+})
+
+$(".upload").click(function(){
+	var img = $("#imglimit").val();
+	var flen = $("#adrenewalimgs")[0].files.length;
+	var maxlen = parseInt($("#imglimit").val())-parseInt($("#existimgcount").val());
+	 if (flen > maxlen) {
+		$("div.errorimg").html('<div class="alert alert-danger gold_img_error"><strong>Error!</strong> Please upload '+maxlen+' images only </div>');
+		return false;
+	 };
+	
+});
+
+setTimeout(function(){
+	$(".alert").hide(1000);
+},5000);
+
+$(".delimg").click(function(){
+	// alert($(this).attr('id'));
+	$.ajax({
+	type: "POST",
+	url: "<?php echo base_url();?>payments/adrenewal_imgdelete",
+	data: {id: $(this).attr('id') },
+	success: function (data) {
+		window.location.reload();
+	}
+	})
+});
+
 });
 </script>
 
@@ -232,3 +289,28 @@ window.location.href= "<?php echo base_url(); ?>deals-status";
 
 </body>
 </html>
+<div class="modal dialog3" id="adrenewal_img" role="dialog">
+<div class="modal-dialog3">
+<form action="<?php echo base_url(); ?>payments/adrenewal_img" method="post" id='adrenewalimg' class="j-forms tooltip-hover" enctype="multipart/form-data" >
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h2>Adrenewal Images</h2>
+		</div>
+		<div class="modal-body footer_pad_length">
+			<div class='errorimg'>
+			</div>
+			<div class="fead_back_modal">
+				<input type="file" name="adrenewalimgs[]" id='adrenewalimgs' multiple='multiple' />
+				<input type="hidden" name="existimgcount" id='existimgcount' value='<?php echo count($img_details); ?>' />
+				<input type="hidden" name="imglimit" id='imglimit' value='' />
+				<input type='hidden' name='adid' id='adid' value='<?php echo $tran_details->ad_id; ?>'>
+				<div>
+					<input type='submit' name='upload' class='upload' value='Upload' />
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</div>
+</div>
