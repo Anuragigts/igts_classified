@@ -6360,3 +6360,58 @@ radio i:focus {
 	padding: 10px 13px 10px !important;
 }
 .tooltip-inner {background-color: #E95413;}
+
+/* add renuval */
+
+.img_hover_renuval img {
+    height:110px;
+}
+.img_hover_renuval {
+    position: relative;
+    overflow: hidden;
+	width:125px;
+	padding-bottom:20px;
+}
+.img_hover_renuval img {
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+    width: 100%;
+}
+.img_hover_renuval .overlay {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 85%;
+    left: 0;
+    z-index: 99;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+.img_hover_renuval:hover .overlay {
+    opacity: 1;
+}
+.img_hover_renuval:hover img {
+    cursor: pointer;
+}
+.img_hover_renuval .overlay a {
+    padding-top: 26%;
+    display: block;
+    font-size: 2.5rem;
+    color: #fff;
+}
+.img_hover_renuval .overlay a:hover {
+    text-decoration: none;
+}
+.add_renu_a a:hover{
+	color:#fff !important;
+}
+.ad_ren_heig{
+	height:130px;
+}
+.up_load_height{
+	padding-top: 20px;	
+}
