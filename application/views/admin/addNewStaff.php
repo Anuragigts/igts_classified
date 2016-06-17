@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<div class="box-content">
-				<form class="form-horizontal" action='<?php echo current_url();?>' method='post'>
+				<form class="form-horizontal" action='<?php echo current_url();?>' method='post' id='addnewstaff'>
 					<fieldset>
 						<div class="control-group">
 							<label class="control-label" for="staff_f_name"> First Name</label>
@@ -104,7 +104,7 @@
 						<div class="control-group">
 							<label class="control-label" for="staff_dur"> Password</label>
 							<div class="controls">
-								<input type='password' name='staff_pw' class='staff_pw' value=''> <span><?php echo form_error('staff_pw'); ?></span>
+								<input type='password' name='staff_pw' id='staff_pw' class='staff_pw' value=''> <span><?php echo form_error('staff_pw'); ?></span>
 							</div>
 						</div>
 						<div class="control-group">
@@ -125,6 +125,7 @@
 </div>
 </div>
 </div>
+<script src="<?php echo base_url(); ?>j-folder/js/jquery.validate.min.js"></script>
 <script>
 	$(document).ready(function() {
 	    $("#con_number").keydown(function (e) {
@@ -151,5 +152,71 @@
 		}else{
 			$('#pw_err' ).text( '' );
 		}
+	});
+
+
+	$(function(){
+		$("#addnewstaff").validate({
+			rules: {
+				staff_f_name: {
+					required: true,
+					minlength: 3,
+					maxlength: 12
+				},
+				login_email: {
+					required: true,
+					email: true
+				},
+				con_number: {
+					required: true,
+					minlength: 11
+				},
+				staff_type: {
+					required: true
+				},
+				staff_status: {
+					required: true
+				},
+				staff_pw: {
+					required: true
+				},
+				c_staff_pw: {
+					required: true,
+					equalTo : "#staff_pw"
+				}
+			},
+		
+			messages: {
+				staff_f_name: {
+					required: "Please Enter First Name",
+					minlength: "Title contains atleast 3 characters",
+					maxlength: "Title contains maximum 12 characters Only"
+				},
+				login_email: {
+					required: "Please Enter Email",
+					email: "Enter a valid email id"
+				},
+				con_number: {
+					required: 'Please Enter mobile number',
+					minlength: "11 digit mobile number allowed"
+				},
+				staff_type: {
+					required: 'Please Select staff type'
+				},
+				staff_status: {
+					required: 'Please Select staff Status'
+				},
+				staff_pw: {
+					required: 'Please Enter password'
+				},
+				c_staff_pw: {
+					required: 'Please Enter Confirm password'
+				}
+			},
+		
+			submitHandler: function(form) {
+				return true;
+			}
+		});
 	});
 </script>
