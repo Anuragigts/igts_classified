@@ -20,6 +20,7 @@
 						<?php $sess_user_type = $this->session->userdata('user_type');
 							if($sess_user_type == 1 || $sess_user_type == 2){?>
 							<li><a href="<?php echo base_url();?>payments/transactions"><i class="icon-dashboard"></i><span class="hidden-tablet"> Transactions</span></a></li>	
+							<li><a href="<?php echo base_url();?>payments/adrenewal_lists"><i class="icon-dashboard"></i><span class="hidden-tablet"> Ad Renewals</span></a></li>	
 						<?php }?>
 						<?php 
 						if($sess_user_type !=5 && $sess_user_type !=6 && $sess_user_type !=7){?>

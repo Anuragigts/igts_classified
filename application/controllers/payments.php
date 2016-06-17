@@ -444,4 +444,17 @@ class Payments extends CI_Controller
      	/*weblink*/
      	@mysql_query("UPDATE postad SET web_link='".$this->input->post('weblink')."' WHERE ad_id='".$this->input->post('adid')."'");
 	}
+
+	function adrenewal_lists(){
+		$ins_status = $this->transaction_models->adrenewal_lists();
+		$data   =   array(
+                        "title"         	=>     "Classifieds :: Admin Category",
+                        "metadesc"     		=>     "Classifieds :: Admin Category",
+                        "metakey"       	=>     "Classifieds :: Admin Category",
+                        "content"       	=>     "adrenewal_lists",
+						"ad_details"     	=>  	$ins_status,
+			);
+		$data['category_list'] = $this->category_model->view();
+			$this->load->view("admin_layout/inner_template",$data);	
+    }
 }

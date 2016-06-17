@@ -26,5 +26,13 @@
 			 // echo $this->db->last_query();exit;
 			return $transactions;
 		}
+		public function adrenewal_lists(){
+			$this->db->select();
+			$this->db->join('login as l', "l.login_id = ad.login_id", 'join');
+			$this->db->where('adrenewal > 0');
+			$this->db->from('postad AS ad');
+			$adrenewal = $this->db->get()->result();
+			return $adrenewal;
+		}
 	}
 ?>

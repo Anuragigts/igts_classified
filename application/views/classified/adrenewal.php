@@ -77,6 +77,10 @@ $price1 = $price + $vat;
 <tr>
 	<td colspan='4' class='add_renu_a'>
 		<a href="javascript:void(0);" class='btn btn-primary btn1 pull-left' data-toggle="modal" data-target="#adrenewal_img">Add More Images</a> 
+	</td>
+</tr>
+<tr>
+	<td colspan='4'>
 		<div class='deleteimgs'>
 			
 		</div>
@@ -326,9 +330,15 @@ success: function (data) {
 $(".upload").click(function(){
 	var img = $("#imglimit").val();
 	var flen = $("#adrenewalimgs")[0].files.length;
+	if (flen == 0) {
+		$('.noimage').show();
+		return false;
+	};
 	var maxlen = parseInt($("#imglimit").val())-parseInt($("#existimgcount").val());
 	 if (flen > maxlen) {
 		$("div.errorimg").html('<div class="alert alert-danger gold_img_error"><strong>Error!</strong> Please upload '+maxlen+' images only </div>');
+		$(".jpgpng").hide();
+        $('.noimage').hide();	
 		return false;
 	 };
 	
@@ -339,7 +349,6 @@ setTimeout(function(){
 },5000);
 
 $(".delimg").click(function(){
-	// alert($(this).attr('id'));
 	$.ajax({
 	type: "POST",
 	url: "<?php echo base_url();?>payments/adrenewal_imgdelete",
@@ -353,14 +362,12 @@ $(".delimg").click(function(){
 $(".chck_bg_clr").click(function(){
 	var ex = $("#existimgcount").val();
 	var limit = $("#imglimit").val();
-	// alert($(".pcktype").val());
 	if (parseInt(ex) > parseInt(limit)) {
 		$("div.deleteimgs").html("<div class='alert alert-danger'><strong>Error!</strong> Maximum "+limit+" images allowed, please delete some images </div>");
 		return false;
 	}
 	else{
 		$(".deleteimgs").html('');
-		// return false;
 	}
 
 	
@@ -371,10 +378,8 @@ $(".chck_bg_clr").click(function(){
 		url: "<?php echo base_url();?>payments/adrenewal_data",
 		data: {hotdeal: $("#hotdeal").val(),youtubelink: $("#youtubelink").val(),weblink:$("#weblink").val(), adid: $("#adid").val() },
 		success: function (data) {
-			// alert(data);
 		}
 		})
-		// return false;
 	}
 	if ($(".pcktype").val() == 2 || $(".pcktype").val() == 5) {
 		$.ajax({
@@ -382,12 +387,9 @@ $(".chck_bg_clr").click(function(){
 		url: "<?php echo base_url();?>payments/adrenewal_data",
 		data: {weblink:$("#weblink").val(), adid: $("#adid").val() },
 		success: function (data) {
-			// alert(data);
 		}
 		})
-		// return false;
 	}
-	// return false;
 });
 
 });
@@ -401,7 +403,7 @@ $(".chck_bg_clr").click(function(){
 </html>
 <div class="modal dialog3" id="adrenewal_img" role="dialog">
 <div class="modal-dialog3">
-<form action="<?php echo base_url(); ?>payments/adrenewal_img" method="post" id='adrenewalimg' class="j-forms tooltip-hover" enctype="multipart/form-data" >
+<form action="<?php echo base_url(); ?>payments/adrenewal_img" method="post" id='adrenewalimg' class="j-forms tooltip-hover" enctype="multipart/form-data" onsubmit="return Validate(this);" >
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -410,6 +412,8 @@ $(".chck_bg_clr").click(function(){
 		<div class="modal-body footer_pad_length ad_ren_heig">
 			<div class='errorimg'>
 			</div>
+			<div class='alert alert-danger noimage' style='display:none;'><strong>Error!</strong>Please upload alteast one image</div>
+			<div class='alert alert-danger jpgpng' style='display:none;' ><strong>Error!</strong>Images should be jpg or png</div>
 			<div class="">
 				<input type="file" name="adrenewalimgs[]" id='adrenewalimgs' multiple='multiple' />
 				<input type="hidden" name="existimgcount" id='existimgcount' value='<?php echo count($img_details); ?>' />
@@ -424,3 +428,35 @@ $(".chck_bg_clr").click(function(){
 </form>
 </div>
 </div>
+
+
+<script type="text/javascript">
+var _validFileExtensions = [".jpg", ".jpeg", ".png"];    
+function Validate(oForm) {
+    var arrInputs = oForm.getElementsByTagName("input");
+    for (var i = 0; i < arrInputs.length; i++) {
+        var oInput = arrInputs[i];
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+                
+                if (!blnValid) {
+                    $(".jpgpng").show();
+                    $('.noimage').hide();
+                    return false;
+                }
+            }
+        }
+    }
+  
+    return true;
+}
+</script>
