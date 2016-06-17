@@ -4003,7 +4003,7 @@ body {
     overflow-y: scroll;
 }
 .modal-body .row div h4 {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 0.6;
 }
 .ezone_h3 div h3 {
@@ -6410,7 +6410,7 @@ radio i:focus {
 	color:#fff !important;
 }
 .ad_ren_heig{
-	height:130px;
+	height:180px;
 }
 .up_load_height{
 	padding-top: 20px;	
