@@ -189,8 +189,8 @@
 			messages: {
 				staff_f_name: {
 					required: "Please Enter First Name",
-					minlength: "Title contains atleast 3 characters",
-					maxlength: "Title contains maximum 12 characters Only"
+					minlength: "First Name contains atleast 3 characters",
+					maxlength: "First Name contains maximum 12 characters Only"
 				},
 				login_email: {
 					required: "Please Enter Email",
