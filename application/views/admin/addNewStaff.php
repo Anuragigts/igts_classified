@@ -156,6 +156,18 @@
 
 
 	$(function(){
+
+		 jQuery.validator.addMethod("email1", function (value, element) {
+         var regtag = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+         if(regtag.test(value)){
+                  return true;
+                 }
+                else{
+                 return false;
+                 };
+        }, "Enter a valid email id");
+
+
 		$("#addnewstaff").validate({
 			rules: {
 				staff_f_name: {
@@ -165,7 +177,7 @@
 				},
 				login_email: {
 					required: true,
-					email: true
+					email1: true
 				},
 				con_number: {
 					required: true,
@@ -194,7 +206,7 @@
 				},
 				login_email: {
 					required: "Please Enter Email",
-					email: "Enter a valid email id"
+					email1: "Enter a valid email id"
 				},
 				con_number: {
 					required: 'Please Enter mobile number',
