@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>New & Used Cookers | Steamers For Sale In UK | 99 Right Deals</title>
+<title>New & Used Cookers For Sale | Steamers For Sale In UK | 99 Right Deals</title>
 
 <meta name="description" content="Find Local free ads for new or used cookers & steamers for sale in United Kingdom on 99 Right Deals." />
 

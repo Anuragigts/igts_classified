@@ -4,7 +4,7 @@
 
 <title>New & Used Electronic Accessories For Sale In London, UK | 99 Right Deals</title>
 
-<meta name="description" content="Find the new & second hand electronic accessories like phones, ipods, camera, audio, tablets, headphones and battery for sale in Manchester, UK on 99 Right Deals." />
+<meta name="description" content="Find the new & second hand electronic accessories like mobile phones, ipods, camera, audio, tablets, headphones and battery for sale in Manchester, UK on 99 Right Deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

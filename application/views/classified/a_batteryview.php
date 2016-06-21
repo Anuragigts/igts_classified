@@ -4,7 +4,7 @@
 
 <title>Buy & Sell Used Battery For Sale In United Kingdom | 99 Right Deals</title>
 
-<meta name="description" content="Buy used or second hand battery for sale in United Kingdom on 99 Right Deals. Find variety of free ads related to Cars, Bike, Truck, Scooters and so on batteries." />
+<meta name="description" content="Buy used or second hand battery for sale in UK on 99 Right Deals. Find variety of free ads related to Cars, Bike, Truck, Scooters and so on batteries." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

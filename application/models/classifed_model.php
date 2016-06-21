@@ -355,20 +355,24 @@ JOIN ad_img AS img ON img.ad_id = ad.ad_id
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
-((ad.package_type = 2)AND ad.urgent_package != 0 ))
+((ad.package_type = 2)AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 2) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_gold')
+OR ((ad.package_type = 1) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_free'))
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
 /*services*/
 (SELECT *,ud.valid_to AS urg,ad.ad_id as adid FROM postad AS ad 
 JOIN ad_img AS img ON img.ad_id = ad.ad_id
 LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date' 
-WHERE ad.`category_id` = 2 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' AND
+WHERE ad.category_id = 2 AND ad.ad_status = 1 AND ad.expire_data >='$date' AND
 (((ad.package_type = 1)AND ad.urgent_package != 0 AND ad.likes_count >= '$top_freeurgent')OR
 ((ad.package_type = 1)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_free')OR
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
-((ad.package_type = 2)AND ad.urgent_package != 0 ))
+((ad.package_type = 2)AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 2) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_gold')
+OR ((ad.package_type = 1) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_free'))
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
 /*motor point*/
@@ -381,7 +385,9 @@ WHERE ad.`category_id` = 3 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' A
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
-((ad.package_type = 2)AND ad.urgent_package != 0 ))
+((ad.package_type = 2)AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 2) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_gold')
+OR ((ad.package_type = 1) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_free'))
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
 /*find a property*/
@@ -394,7 +400,9 @@ WHERE ad.`category_id` = 4 AND ad.`ad_status` = 1 AND ad.expire_data >='$date' A
 ((ad.package_type = 2)AND ad.urgent_package = 0 AND ad.likes_count >= '$top_gold')OR
 ((ad.package_type = 3) AND ad.urgent_package != 0)OR
 ((ad.package_type = 3) AND ad.urgent_package = 0)OR
-((ad.package_type = 2)AND ad.urgent_package != 0 ))
+((ad.package_type = 2)AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 2) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_gold')
+OR ((ad.package_type = 1) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$top_free'))
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2)UNION
 /*pets*/
@@ -407,7 +415,9 @@ LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date'
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
- ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 5) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_gold')
+OR ((ad.package_type = 4) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_free'))
 GROUP BY img.ad_id
 ORDER BY ad.approved_on DESC LIMIT 2) UNION
  /*cloths*/
@@ -420,7 +430,9 @@ LEFT JOIN urgent_details AS ud ON ud.ad_id = ad.ad_id AND ud.valid_to >= '$date'
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
- ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 5) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_gold')
+OR ((ad.package_type = 4) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_free'))
 GROUP BY img.ad_id 
  ORDER BY ad.approved_on DESC LIMIT 2) UNION
  /*home and kitchen*/
@@ -434,7 +446,9 @@ GROUP BY img.ad_id
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
- ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 5) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_gold')
+OR ((ad.package_type = 4) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_free'))
 GROUP BY img.ad_id 
  ORDER BY ad.approved_on DESC LIMIT 2) UNION
  /*ezone*/
@@ -448,12 +462,14 @@ WHERE ad.`category_id` = 8
  ((ad.package_type = 5 )AND ad.urgent_package = 0 AND ad.likes_count >= '$low_gold')OR
  ((ad.package_type = 6) AND ad.urgent_package != 0)OR
  ((ad.package_type = 6) AND ad.urgent_package = 0)OR
- ((ad.package_type = 5 )AND ad.urgent_package != 0 ))
+ ((ad.package_type = 5 )AND ad.urgent_package != 0 AND ud.valid_to >= '$date')
+OR ((ad.package_type = 5) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_gold')
+OR ((ad.package_type = 4) AND ad.urgent_package != 0 AND ud.valid_to < '$date' AND ad.likes_count >= '$low_free'))
 GROUP BY img.ad_id 
  ORDER BY ad.approved_on DESC LIMIT 2) 
  
  ");
-	// echo $this->db->last_query(); exit;
+	 // echo $this->db->last_query(); exit;
 	return $query->result();
 	}
 

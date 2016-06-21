@@ -88,31 +88,10 @@ $price1 = $price + $vat;
 </tr>
 </table>
 <table class="table table-responsive">
-<thead>
-<tr>
-<th class="preview"><!-- Preview --></th>
-<th class="product">Ad Title</th>
-<th class="price">Price</th>
-<th class="total">Total</th>
-</tr>
-</thead>
+
 <tbody>
 <tr>
-<td class="preview cart_image">
-<!-- <img src="<?php echo base_url(); ?>pictures/<?php echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>"> -->
-</td>
-<td class="product">
-<h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
-</td>
-<td class="price">
-<?php echo $price; ?>
-</td>
-<td class="total">
-<?php echo $price; ?>
-</td>
-</tr>
-<tr>
-<td class="package_ckech">
+<td colspan='2' class="package_ckech">
 <label class="label">Package Type</label>
 <label class="input select">
 <select name="pcktype" class='pcktype'>
@@ -124,7 +103,7 @@ $price1 = $price + $vat;
 <i></i>
 </label>
 </td>
-<td class="product">
+<td colspan='2' class="product">
 <label class="label">Urgent Label</label>
 <label class="input select">
 <select name="urglbl" class='urglbl'>
@@ -136,8 +115,7 @@ $price1 = $price + $vat;
 <i></i>
 </label>
 </td>
-<th>VAT</th>
-<th class='vat_tax'><?php echo substr($vat, 0,strpos($vat,".")+3); ?></th>
+
 </tr>
 <tr>
 <td colspan='4'>
@@ -157,7 +135,33 @@ $price1 = $price + $vat;
 </td>
 </tr>
 </tbody>
-<thead>
+<tr>
+<th class="preview"><!-- Preview --></th>
+<th class="product">Ad Title</th>
+<th class="price">Price</th>
+<th class="total">Total</th>
+</tr>
+<tbody>
+<tr>
+<td class="preview cart_image">
+<!-- <img src="<?php echo base_url(); ?>pictures/<?php //echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>"> -->
+</td>
+<td class="product">
+<h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
+</td>
+<td class="price">
+<?php echo $price; ?>
+</td>
+<td class="total">
+<?php echo $price; ?>
+</td>
+</tr>
+</tbody>
+<tr>
+<th colspan="2">&nbsp;</th>
+<th>VAT</th>
+<th class='vat_tax'><?php echo substr($vat, 0,strpos($vat,".")+3); ?></th>
+</tr>
 <tr class='disc_info'>
 <th colspan="2">&nbsp;</th>
 <th>Discount :</th>
@@ -178,7 +182,6 @@ $price1 = $price + $vat;
 <tr>
 <td colspan='4'class='response_coupon'></td>
 </tr>
-</thead>
 </table>
 </div>
 </div>
@@ -285,7 +288,9 @@ success: function (data) {
 	$("#imglimit").val(data);
 	if ($(".pcktype").val() == 3 || $(".pcktype").val() == 6) {
 	$(".hotdeals").css('display','block');
+	$(".hotdeals").css('padding-bottom','10px');
 	$(".youtubelink").css('display','block');
+	$(".youtubelink").css('padding-bottom','10px');
 	$(".weblink").css('display','block');
 	};
 	if ($(".pcktype").val() == 2 || $(".pcktype").val() == 5) {
@@ -362,13 +367,17 @@ $(".delimg").click(function(){
 $(".chck_bg_clr").click(function(){
 	var ex = $("#existimgcount").val();
 	var limit = $("#imglimit").val();
-	if (parseInt(ex) > parseInt(limit)) {
-		$("div.deleteimgs").html("<div class='alert alert-danger'><strong>Error!</strong> Maximum "+limit+" images allowed, please delete some images </div>");
+	if (parseInt(ex) == 0) {
+		$("div.deleteimgs").html("<div class='alert1 alert-danger'><strong>Error!</strong> please upload atleast one image </div>");
 		return false;
 	}
-	else{
-		$(".deleteimgs").html('');
+	if (parseInt(ex) > parseInt(limit)) {
+		$("div.deleteimgs").html("<div class='alert1 alert-danger'><strong>Error!</strong> Maximum "+limit+" images allowed, please delete some images </div>");
+		return false;
 	}
+	// else{
+		$(".deleteimgs").html('');
+	// }
 
 	
 

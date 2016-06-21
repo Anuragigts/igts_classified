@@ -25,11 +25,13 @@ class Forgot_password extends CI_Controller{
                                 $mail_check = $this->login_model->forgot($mail);
                                 if ($mail_check == 1) {
                                     $this->session->set_flashdata("err","Please Check your Email Id");
-                                            redirect("forgot-password");
+                                            // redirect(base_url()."forgot-password");
+                                    echo'<script>window.location.href = "'.base_url().'forgot-password";</script>';
                                 }
                                 else{
                                     $this->session->set_flashdata("msg","Verification Link has been sent");
-                                            redirect("forgot-password");
+                                            // redirect("forgot-password");
+                                    echo'<script>window.location.href = "'.base_url().'forgot-password";</script>';
                                 }
                             }
                          }

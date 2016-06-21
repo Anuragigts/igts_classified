@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>New & Used Blenders & Choppers For Sale In UK | 99 Right Deals</title>
+<title>New & Used Blenders And Choppers For Sale In UK | 99 Right Deals</title>
 
 <meta name="description" content="Find free online local ads for buy or sell and used blenders & choppers for sale in United Kingdom on 99 Right Deals." />
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>New & Used Small Home & Kitchen Appliances For Sale UK | 99 Right Deals</title>
+<title>New & Used Home And Kitchen Appliances For Sale UK | 99 Right Deals</title>
 
 <meta name="description" content="Browse the used and new home and kitchen small appliances for sale like Microwave Ovens, Cookers, Grinder Juicers, Coffee Tea Makers in United Kingdom" />
 

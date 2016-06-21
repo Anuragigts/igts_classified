@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title>Second Hand & Used Grills | Tandooris For Sale In UK | 99 Right Deals</title>
+<title>Second Hand & Used Grills Sale | Tandooris For Sale In UK | 99 Right Deals</title>
 
-<meta name="description" content="Find online classifieds ads for used or send hand grills & tandooris for sale in United Kingdom on 99 Right Deals." />
+<meta name="description" content="Find online classifieds ads for used or second hand grills & tandooris for sale in United Kingdom on 99 Right Deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

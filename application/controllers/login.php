@@ -84,7 +84,7 @@ class Login extends CI_Controller{
                             // $data['logout_url'] = $this->facebook->getLogoutUrl();
 
                         } else {
-                            echo "<script> window.opener.location = 'fbsignup'; window.close(); </script>";
+                            // echo "<script> window.opener.location = 'fbsignup'; window.close(); </script>";
                             $data['login_url'] = $this->facebook->getLoginUrl(
                                 array(
                                 'redirect_uri' => site_url('login'), 

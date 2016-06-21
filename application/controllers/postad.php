@@ -17,12 +17,13 @@ class Postad extends CI_Controller{
         }
         public function index(){
             if($this->session->userdata("login_id") == ''){
-                redirect("login");
+                // redirect(base_url()."login");
+                echo'<script>window.location.href = "'.base_url().'login";</script>';
             }
                 $plogin_id      =   $this->session->userdata("login_id");
                 $last_insert_id = $this->session->userdata("last_insert_id");
                 if ($last_insert_id != '') {
-                   redirect("payments/checkout/".$last_insert_id);
+                   redirect(base_url()."payments/checkout/".$last_insert_id);
                 }
                
                 if ($this->session->userdata("postad_time") != '') {

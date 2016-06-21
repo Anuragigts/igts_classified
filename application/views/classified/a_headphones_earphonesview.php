@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>New & Used Headphones | Earphones For Sale In UK | 99 Right Deals</title>
+<title>New & Used Headphones, Earphones For Sale In UK | 99 Right Deals</title>
 
 <meta name="description" content="Buy or Sell New/ Used Headphones & Earphones for Sale in United Kingdom. Post Free Ads for online buying or selling headphones or earphones on 99 Right Deals." />
 
