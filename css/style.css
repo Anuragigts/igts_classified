@@ -6415,3 +6415,29 @@ radio i:focus {
 .up_load_height{
 	padding-top: 20px;	
 }
+.sitemap_htage h2 a{
+	color:#46B38C !important;
+	font-size: 30px;
+}
+.sitemap_htage h2 a:hover{
+	color:#2E8062  !important;
+}
+.sitemap_htage h3 a{
+	color:#88C425 !important;
+	font-size:22px;
+}
+.sitemap_htage h3 a:hover{
+	color:#C1E486  !important;
+}
+.sitemap_htage h4 a:hover{
+	color:#88C425 !important;
+}
+.page_four_error a{
+	background: rgb(236, 102, 43) none repeat scroll 0% 0%;
+	color: #fff;
+	padding: 9px;
+	border-radius: 5px;
+}
+.page_four_error a:hover{
+	color:#f4f4f4 !important;
+}
