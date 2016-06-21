@@ -27,7 +27,25 @@
 <div class="section-title-01">
 <div class="bg_parallax image_01_parallax"></div>
 </div>
-<h3>404 page not found</h3>
+
+<section class="content-central">
+<div class="semiboxshadow text-center">
+<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+</div>
+<div class="content_info">
+<div class="paddings">
+<div class="container">
+<div class="page-error page_four_error">
+<h1>404 <i class="fa fa-unlink"></i></h1>
+<hr class="tall">
+<p class="lead">We're sorry, but the page you were looking for doesn't exist.</p>
+<a href="<?php echo base_url(); ?>">Go To Home Page</a>       
+</div>
+</div>
+</div>
+</div>   
+</section>
+
 <!-- xxx footer Content xxx -->
 <?php echo $this->load->view('common/footer');?> 
 <!-- xxx footer End xxx -->
