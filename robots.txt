@@ -1,8 +1,26 @@
-User-Agent: *
-Disallow: 
-Disallow: /login
-Disallow: /register
-Disallow: /how-it-works
+User-agent: *
+disallow: /pictures
+disallow: /ad_img
+disallow: /postad
+disallow: /motor_accessories
+disallow: /motor_bike_ads
+disallow: /motor_car_van_bus_ads
+disallow: /motor_boats
+disallow: /motor_home_ads
+disallow: /motor_plant_farming
+disallow: /property_resid_commercial
+disallow: /pets_details
+disallow: /lifestyle_accessories
+disallow: /lifestyle_clothing
+disallow: /lifestyle_shoes
+disallow: /lifestyle_wedding
+disallow: /kitchenhome_ads
+disallow: /ezone_details
+disallow: /review_rating
+disallow: /ad_status
+disallow: /favourite_deals
+disallow: /saved_searchs
+disallow: /saved_searchhot
 Allow: /
 
 Sitemap: http://www.99rightdeals.com/sitemap.xml
