@@ -166,6 +166,7 @@ $route['coaches-buses-for-sale'] = "coaches_busses_view";
 $route['plant-machinery-for-sale'] = "plantmachinery_view";
 $route['agricultural-farming-vehicles-for-sale'] = "farmingvehicles_view";
 $route['used-boats-for-sale'] = "boats_view";
+$route['motor-accessories-for-sale'] = "motoraccessoriesview";
 
 /*--------------------Clothing Life Styles Category--------------------*/
 
@@ -400,7 +401,7 @@ $route['forgot-password'] = "forgot_password";
 $route['safety-tips'] = "assistance";
 
 
-$route['404_override'] = '';
+$route['404_override'] = 'my404';
 
 
 /* End of file routes.php */
