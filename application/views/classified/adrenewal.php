@@ -119,15 +119,15 @@ $price1 = $price + $vat;
 </tr>
 <tr>
 <td colspan='4'>
-	<div class='hotdeals'>
+	<div class='hotdeals pad_bot_10'>
 		<label class="label">HotDeal Title</label>
 		<input type="text" name="hotdeal" id='hotdeal' placeholder="Enter Hotdeals Title" value="<?php echo $tran_details->marquee; ?>" >
 	</div>
-	<div class='youtubelink'>
+	<div class='youtubelink pad_bot_10'>
 		<label class="label">Youtube Link</label>
 		<input type="text" name="youtubelink" id='youtubelink' placeholder="Enter youtube link" value="<?php echo $tran_details->video_name; ?>" >
 	</div>
-	<div class='weblink'>
+	<div class='weblink pad_bot_10'>
 		<label class="label">Web Link</label>
 		<input type="text" name="weblink" id='weblink' placeholder="Enter web link" value="<?php echo $tran_details->web_link; ?>" >
 		<input type="hidden" name="adid" id='adid' value="<?php echo $tran_details->adid; ?>" >
@@ -135,54 +135,53 @@ $price1 = $price + $vat;
 </td>
 </tr>
 </tbody>
-<tr>
-<th class="preview"><!-- Preview --></th>
-<th class="product">Ad Title</th>
-<th class="price">Price</th>
-<th class="total">Total</th>
-</tr>
-<tbody>
-<tr>
-<td class="preview cart_image">
-<!-- <img src="<?php echo base_url(); ?>pictures/<?php //echo $tran_details->img_name; ?>"  alt="<?php echo $tran_details->img_name; ?>" title="<?php echo $tran_details->img_name; ?>"> -->
-</td>
-<td class="product">
-<h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
-</td>
-<td class="price">
-<?php echo $price; ?>
-</td>
-<td class="total">
-<?php echo $price; ?>
-</td>
-</tr>
-</tbody>
-<tr>
-<th colspan="2">&nbsp;</th>
-<th>VAT</th>
-<th class='vat_tax'><?php echo substr($vat, 0,strpos($vat,".")+3); ?></th>
-</tr>
-<tr class='disc_info'>
-<th colspan="2">&nbsp;</th>
-<th>Discount :</th>
-<th class='disc_val'>0.00</th>
-</tr>
-<tr>
-<th colspan="2">
-<div class="input pull-left">
-<input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
-<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id; ?>' >
-<input type="hidden" id="pkg_disc_amt" value='' >
-</div>
-<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
-</th>
-<th class="tot_top">Total :</th>
-<th class="tot_top total_amt"><?php echo substr($price1, 0,strpos($price1,".")+3); ?></th>
-</tr>
-<tr>
-<td colspan='4'class='response_coupon'></td>
-</tr>
 </table>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th class="product">Ad Title</th>
+			<th class="price">Price</th>
+			<th class="total">Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="product">
+			<h4><?php echo substr(ucwords($tran_details->deal_tag),0,25); ?></h4>
+			</td>
+			<td class="price">
+			<?php echo $price; ?>
+			</td>
+			<td class="total">
+			<?php echo $price; ?>
+			</td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<th>VAT</th>
+			<th class='vat_tax'><?php echo substr($vat, 0,strpos($vat,".")+3); ?></th>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Discount :</th>
+			<th class='disc_val'>0.00</th>
+		</tr>
+		<tr>
+			<th>
+				<div class="input pull-left">
+				<input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
+				<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id; ?>' >
+				<input type="hidden" id="pkg_disc_amt" value='' >
+				</div>
+				<span class="btn btn-primary btn1 pull-left c_check" id='' >Apply</span>
+			</th>
+			<th class="tot_top">Total :</th>
+			<th class="tot_top total_amt"><?php echo substr($price1, 0,strpos($price1,".")+3); ?></th>
+		</tr>
+	</tbody>
+</table>
+<div class='response_coupon'></div>
 </div>
 </div>
 <div class="row top_20">
