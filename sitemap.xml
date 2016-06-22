@@ -11,7 +11,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/login</loc>
+  <loc>http://www.99rightdeals.com/post-a-deal</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -95,7 +95,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/forgot-password</loc>
+  <loc>http://www.99rightdeals.com/login</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -175,6 +175,10 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>http://www.99rightdeals.com/motor-accessories-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>http://www.99rightdeals.com/womens-clothes-shoes-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -212,6 +216,10 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/commercial-property-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/used-kitchen-essential-stuff-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -467,18 +475,6 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://www.99rightdeals.com/blog/blog_view/8</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/blog/blog_view/7</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://www.99rightdeals.com/blog/blog_view/5</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
   <loc>http://www.99rightdeals.com/blog/blogcat/1</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -508,6 +504,10 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/blog/blogcat/8</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/forgot-password</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -904,6 +904,38 @@
 </url>
 <url>
   <loc>http://www.99rightdeals.com/others-popular-services-london</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/second-hand-used-kitchen-tools</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/used-kitchen-storage</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/second-hand-cookware-sale-london</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/bakeware-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/used-cooktops-burners-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/barbeque-furniture-for-sale-london</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/table-linen-for-sale</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.99rightdeals.com/others-kitchen-essential-tools-sale</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>

@@ -21,6 +21,7 @@ disallow: /ad_status
 disallow: /favourite_deals
 disallow: /saved_searchs
 disallow: /saved_searchhot
+
 Allow: /
 
 Sitemap: http://www.99rightdeals.com/sitemap.xml
