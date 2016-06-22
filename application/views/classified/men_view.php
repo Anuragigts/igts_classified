@@ -28,6 +28,16 @@ cursorcolor: '#E95413'
 });
 </script>
 
+<script type="text/javascript">
+$(function(){
+$(".loc_map").click(function(){
+var val = $(this).attr("id");
+var val1 = val.split(",");
+$(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
+});
+});
+</script>
+
 <?php foreach ($busconcount as $countval) {
 $allbustype = $countval->allbustype;
 $business = $countval->business;

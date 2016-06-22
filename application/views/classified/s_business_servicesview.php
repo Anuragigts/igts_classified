@@ -39,7 +39,7 @@ $mid_ad = $publicview->mid_ad;
 <script type="text/javascript">
 $(function(){
 $(".loc_map").click(function(){
-var val = $(".loc_map").attr("id");
+var val = $(this).attr("id");
 var val1 = val.split(",");
 $(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','+val1[1]+'&hl=es;z=5&amp;output=embed" width="950px" height="300px"></iframe>');
 });
