@@ -52,7 +52,7 @@
 						<?php $i=1; foreach ($nl_data as $nl_dataval) { ?>
 							<tr>
 								<td><?php echo $i; ?></td>
-								<td><?php echo $nl_dataval->nl_name; ?></td>
+								<td style='word-break: break-all;'><?php echo $nl_dataval->nl_name; ?></td>
 								<td><?php echo $nl_dataval->nl_email; ?></td>
 								<td><?php echo date("d-m-Y H:i:s", strtotime($nl_dataval->created_on)); ?></td>
 							</tr>

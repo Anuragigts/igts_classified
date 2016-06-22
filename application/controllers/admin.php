@@ -14,11 +14,13 @@ class Admin extends CI_Controller {
                                 $ins = $this->admin_model->login();
                                 if($ins == 1){
                                         $this->session->set_flashdata("msg","Login Success");
-                                        redirect("admin_dashboard");
+                                        // redirect("admin_dashboard");
+                                        echo'<script>window.location.href = "'.base_url().'admin_dashboard";</script>';
                                 }
                                 else{
                                         $this->session->set_flashdata("err","Login Failed");
-                                        redirect("admin/index");
+                                        // redirect("admin/index");
+                                        echo'<script>window.location.href = "'.base_url().'admin/index";</script>';
                                 }
                         }
                 }

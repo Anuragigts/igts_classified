@@ -29,7 +29,7 @@
 	</div>
 	<br>
 	<?php }?>
-	<div style='margin-bottom:10px;margin-right:25px; float:right;' >
+	<div style='margin-bottom:10px;margin-right:25px; float:right; width: 100%;' >
 		<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>

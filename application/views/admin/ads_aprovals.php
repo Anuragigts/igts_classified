@@ -177,7 +177,7 @@
 							<td><?php echo $ads->gross_amt." ".$ads->currency_code; ?></td>
 							<?php } ?>
 							<td>
-								<a class="" href="<?php echo base_url();?>description_view/details/<?php echo $ads->ad_id.'/';?>" target='_blank'title="View Ad Content" style=''>View</a>
+								<a class="" href="<?php echo base_url();?>description_view/details/<?php echo $ads->ad_id;?>/<?php echo str_replace(" ", "-", str_replace("&", "", $ads->deal_tag));?>" target='_blank'title="View Ad Content" style=''>View</a>
 							</td>
 							<td>
 								<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/aprovals/<?php echo $ads->ad_id.'/edit/';?>" title="Edit Ad Details">
@@ -289,6 +289,7 @@
 	    		$(".comment").show(1000);
 	    	}else{
 	    		$(".comment").hide(1000);
+	    		$(".comment_error").hide();
 	    	}
 
 	    });

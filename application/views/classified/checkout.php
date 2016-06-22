@@ -90,7 +90,7 @@ echo "+".substr($vat,0,strpos($vat,".") + 3);
 <th colspan="2">
 <div class="input pull-left">
 <input type="text" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
-<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id;?>' >
+<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->adid;?>' >
 <input type="hidden" id="pkg_disc_amt" value='' >
 </div>
 <span class="btn btn-primary btn1 pull-left c_check" >Apply</span>
@@ -101,7 +101,7 @@ else{ ?>
 <th colspan="2">
 <div class="input pull-left">
 <input type="hidden" class="c_code" name="c_code" placeholder="Enter Coupon Code" value="" >
-<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->ad_id;?>' >
+<input type="hidden" name="ad_id" id="ad_id" value='<?php echo $tran_details->adid;?>' >
 <input type="hidden" id="pkg_disc_amt" value='' >
 </div>
 </th>

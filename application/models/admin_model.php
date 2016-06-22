@@ -7,6 +7,11 @@
  */
 class Admin_model extends CI_Model{
         public function login(){
+        		$ad_active = 0;
+        		$ad_hold = 0;
+        		$ad_pending = 0;
+        		$ad_reject = 0;
+        		$new = 0;
                 $this->db->select("l.*,");
                 $this->db->from("login as l");
                 //$this->db->join("profile as p","l.login_id = p.login_id","inner");
