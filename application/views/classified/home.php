@@ -347,7 +347,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
 <div class="titles">
-<h1><span>HOT </span>DEALS</h1>
+<h2><span>HOT </span>DEALS</h2>
 <hr class="tall">
 </div>
 <div id="page">
