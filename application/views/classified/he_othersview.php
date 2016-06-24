@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<title> | 99 Right Deals</title>
+<title> Used Home And Kitchen Appliances For Sale | 99 Right Deals</title>
 
-<meta name="description" content="" />
+<meta name="description" content="Shop for new and second hand home and kitchen appliances for sale in London, United Kingdom at the affordable price. get the quick response on your deals." />
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 
