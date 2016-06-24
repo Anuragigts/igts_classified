@@ -754,6 +754,16 @@ GROUP BY img.ad_id
 		$res = $this->db->get();
 		return $res->result();
 	}
+	/*facebook share*/
+	public function ads_description_fb(){
+		$this->db->select("*,ad.ad_id as adid");
+		$this->db->from("postad as ad");
+		$this->db->join('ad_img AS img',"img.ad_id= ad.ad_id",'join');
+		$this->db->where('ad.ad_id', $this->uri->segment(3));
+		$this->db->group_by("ad.ad_id");
+		$res = $this->db->get();
+		return $res->row();
+	}
 	/*ad description view video*/
 	public function ads_description_videos(){
 		$this->db->select("video_name");

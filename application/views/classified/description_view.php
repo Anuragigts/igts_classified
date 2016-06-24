@@ -551,7 +551,7 @@
 												<div class="post-footer">
 													<ul class="post-social tooltip-hover">
 														<li>
-															<a href="javascript:void(0);" class="social-facebook fb_share" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
+															<a href="javascript:void(0);" class="social-facebook fb_share" id="<?php echo $ads_fbshare->adid; ?>,<?php echo $ads_fbshare->img_name; ?>,<?php echo str_replace(" ", "-", str_replace("&", "", $ads_fbshare->deal_tag)); ?>" data-toggle="tooltip" title="" data-original-title="Share on Facebook">
 																<i class="fa fa-facebook"></i>
 																<i class="fa fa-facebook facebook"></i>
 															</a>
@@ -1043,13 +1043,14 @@
 			$(function(){
 				/*facebook share*/
 				$(".fb_share").click(function(e){
+					var val = $(this).attr('id');
+					val1 = val.split(",");
 						e.preventDefault();
 						FB.ui( {
 					        method: 'feed',
-					        name: "Your Page Title",
-					        link: "http://www.99rightdeals.com/blog/blog_view/13",
-					        picture: "http://www.99rightdeals.com/pictures/blogs/1466587260.jpg",
-					        caption: "Some description here"
+					        name: val1[2],
+					        link: "<?php echo base_url(); ?>description_view/details/"+val1[0]+"/"+val1[2]+"/",
+					        picture: "<?php echo base_url(); ?>pictures/"+val1[1]
 					    }, function( response ) {
 					        // do nothing
 					    } );

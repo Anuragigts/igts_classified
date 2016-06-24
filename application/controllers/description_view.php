@@ -488,6 +488,7 @@ class Description_view extends CI_Controller{
                         "content"   =>  "description_view",
                         "ads_desc"=> $ads_description_details,
                         "ads_pics"=> $ads_description_pics,
+                        "ads_fbshare"=> $this->classifed_model->ads_description_fb(),
 						"ad_video"=>$ads_description_videos,
                         "ads_loc"=> $ads_description_loc,
                         "body_content"=>$body_content,
