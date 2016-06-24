@@ -6360,6 +6360,9 @@ radio i:focus {
 .alert {
 	padding: 10px 13px 10px !important;
 }
+.alert1 {
+    padding: 10px 13px 10px !important;
+}
 .tooltip-inner {background-color: #E95413;}
 
 /* add renuval */
