@@ -2258,14 +2258,14 @@ var JGallery = ( function( outerHtml, historyPushState, isInternetExplorer, isIn
                                 }
                                 self.hide();
                             }
-                            if ( event.which === 37 ) {
+                            /*if ( event.which === 37 ) {
                                 event.preventDefault();
                                 self.zoom.showPrevPhoto();
                             }
                             if ( event.which === 39 ) {
                                 event.preventDefault();
                                 self.zoom.showNextPhoto();
-                            }
+                            }*/
                         }
                     }
                 } );
