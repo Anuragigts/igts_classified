@@ -406,7 +406,6 @@ class Postad_model extends CI_Model{
                 }
                 
             }
-
              else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
             }
@@ -796,6 +795,9 @@ class Postad_model extends CI_Model{
             }
             
         }
+        else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+        }
 
         /*seller search*/
         if (!empty($seller)) {
@@ -899,7 +901,6 @@ class Postad_model extends CI_Model{
                 }
                 
             }
-            
              else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
             }
@@ -1183,6 +1184,9 @@ class Postad_model extends CI_Model{
             }
             
         }
+        else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+        }
 
         /*seller search*/
         if (!empty($seller)) {
@@ -1285,9 +1289,7 @@ class Postad_model extends CI_Model{
                     $this->db->where_in('ad.package_type', $pcklist);
                 }
                 
-            }
-            
-             else{
+            }else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
             }
             /*seller search*/
@@ -1570,6 +1572,9 @@ class Postad_model extends CI_Model{
             }
             
         }
+        else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+        }
 
         /*seller search*/
         if (!empty($seller)) {
@@ -1673,7 +1678,6 @@ class Postad_model extends CI_Model{
                 }
                 
             }
-            
              else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
             }
@@ -1956,6 +1960,9 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }
+        else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -2343,6 +2350,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -2730,6 +2739,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -3118,6 +3129,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -3506,6 +3519,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -3894,6 +3909,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -4281,6 +4298,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -4668,6 +4687,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -5055,6 +5076,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -5443,6 +5466,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -5830,6 +5855,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -6218,6 +6245,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -6605,6 +6634,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -6992,6 +7023,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -7380,6 +7413,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -7768,6 +7803,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -8155,6 +8192,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -8543,6 +8582,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -8930,6 +8971,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -9317,6 +9360,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -9704,6 +9749,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/
@@ -10092,6 +10139,8 @@ class Postad_model extends CI_Model{
                 $this->db->where_in('ad.package_type', $pcklist);
             }
             
+        }else{
+            $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
         }
 
         /*seller search*/

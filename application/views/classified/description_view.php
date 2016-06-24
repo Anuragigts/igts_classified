@@ -230,14 +230,6 @@
 					if ($ad_video != '0') {
 						$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
 					}
-					/*if (isset($ad_video->video_name)) {
-						if ($ad_video->video_name != '') {
-					$video_name = explode("https://www.youtube.com/watch?v=",$ad_video->video_name);
-					}
-					else{
-						$video_name = 	'';
-					}
-					};*/
 					
 					foreach ($ads_desc as $ads_desc_val) {
 						$qry = mysql_query("select ad_id,COUNT(*) AS no_ratings, SUM(rating) AS rating_sum FROM review_rating WHERE ad_id = '$ads_desc_val->ad_id' AND status = 1 GROUP BY ad_id");
@@ -1050,8 +1042,17 @@
 		<script type="text/javascript">
 			$(function(){
 				/*facebook share*/
-				$(".fb_share").click(function(){
-					   window.open('http://www.facebook.com/share.php?u=<?php echo $req_url; ?>/&title=Deal Description', "Deal Description", '_blank', "width=400, height=400");
+				$(".fb_share").click(function(e){
+						e.preventDefault();
+						FB.ui( {
+					        method: 'feed',
+					        name: "Your Page Title",
+					        link: "http://www.99rightdeals.com/blog/blog_view/13",
+					        picture: "http://www.99rightdeals.com/pictures/blogs/1466587260.jpg",
+					        caption: "Some description here"
+					    }, function( response ) {
+					        // do nothing
+					    } );
 				});
 				/*twitter_share share*/
 				$(".twitter_share").click(function(){
@@ -1075,6 +1076,18 @@
 		<!-- xxx footerscript Content xxx -->
 		<?php echo $this->load->view('common/footerscript');?> 
 		<!-- xxx footerscript End xxx -->
-			
+			<div id="fb-root"></div>
+			<script>
+			window.fbAsyncInit = function() {
+			FB.init({appId: '455502441327582', status: true, cookie: true,
+			xfbml: true});
+			};
+			(function() {
+			var e = document.createElement('script'); e.async = true;
+			e.src = document.location.protocol +
+			'//connect.facebook.net/en_US/all.js';
+			document.getElementById('fb-root').appendChild(e);
+			}());
+			</script>
 	</body>
 </html>

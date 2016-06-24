@@ -46,6 +46,28 @@ class Payment_models extends CI_Model{
         $insert = $this->db->insert('payments',$data);
         return $insert?true:false;
     }
+
+    public function insert_adrenewalhistory($data = array()){
+    	$ad_id = $data['product_id'];
+    	if ($this->session->userdata['pcksession']['urglbl'] == '') {
+			$urg1 = 0;
+		}
+		else{
+			$urg1 = $this->session->userdata['pcksession']['urglbl'];
+		}
+    	/*adrenewal history*/
+		$oldpck = @mysql_result(mysql_query("SELECT package_type FROM postad WHERE ad_id = '$ad_id' "), 0, 'package_type');
+		$oldurg = @mysql_result(mysql_query("SELECT urgent_package FROM postad WHERE ad_id = '$ad_id' "), 0, 'urgent_package');
+		$hdata = array(	'ad_id'=>$ad_id,
+						'packagefrom'=>$oldpck,
+						'packageto'=>$this->session->userdata['pcksession']['pcktype'],
+						'urgfrom'=>$oldurg,
+						'urgto'=>$urg1,
+						'transid'=>$data['gross_amt'],
+						'updatedon'=>date("Y-m-d H:i:s"));
+		$this->db->insert('adrenewalhistory',$hdata);
+    }
+
 	public function update_coupon_status($ad_id){
 		$this->db->select('ad_id');
 		$this->db->where('ad_id',$ad_id);

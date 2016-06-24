@@ -58,7 +58,7 @@
 
 <div>
 <ul class="social-team  pull-right">
-<li><a href="javascript:void(0);"><i class="fa fa-facebook fb_share" id='<?php echo $val->id; ?>'></i></a></li>
+<li><a href="javascript:void(0);"><i class="fa fa-facebook fb_share" id='<?php echo $val->id; ?>,<?php echo $val->blog_title; ?>,<?php echo base_url(); ?>pictures/blogs/<?php echo $val->blog_image; ?>'></i></a></li>
 <li><a href="javascript:void(0);"><i class="fa fa-google-plus gmail_share"></i></a></li>
 <li><a href="javascript:void(0);"><i class="fa fa-twitter twitter_share"></i></a></li>
 <li><a href="javascript:void(0);"><i class="fa fa-linkedin linkdin_share"></i></a></li>
@@ -113,7 +113,22 @@
 <script type="text/javascript">
 $(function(){
 $(".fb_share").click(function(){
-window.open('http://www.facebook.com/share.php?u=<?php echo base_url(); ?>blog/blog_view/'+$(this).attr('id')+'/&title=Blog View', "Blog View", '_blank', "width=400, height=400");
+	var val = $(this).attr('id');
+	val1 = val.split(",");
+// window.open('http://www.facebook.com/share.php?u=<?php echo base_url(); ?>blog/blog_view/'+$(this).attr('id')+'/&title=Blog View', "Blog View", '_blank', "width=400, height=400");
+				/*facebook share*/
+				$(".fb_share").click(function(e){
+						e.preventDefault();
+						FB.ui( {
+					        method: 'feed',
+					        name: val1[1],
+					        link: "<?php echo base_url(); ?>blog/blog_view/"+val1[0]+"/",
+					        picture: val1[2],
+					       // caption: "Some description here"
+					    }, function( response ) {
+					        // do nothing
+					    } );
+				});
 });
 
 $(".twitter_share").click(function(){
@@ -136,7 +151,19 @@ location.reload();
 });
 });
 </script>
-
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+FB.init({appId: '455502441327582', status: true, cookie: true,
+xfbml: true});
+};
+(function() {
+var e = document.createElement('script'); e.async = true;
+e.src = document.location.protocol +
+'//connect.facebook.net/en_US/all.js';
+document.getElementById('fb-root').appendChild(e);
+}());
+</script>
 <!-- xxx footerscript Content xxx -->
 <?php echo $this->load->view('common/footerscript');?> 
 <!-- xxx footerscript End xxx -->

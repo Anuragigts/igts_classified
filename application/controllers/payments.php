@@ -396,6 +396,7 @@ class Payments extends CI_Controller
 		}
 		$coup_status  = $this->payment_models->update_coupon_status($data['product_id']);
 		$ins_status = $this->payment_models->insert_tran($data);
+		$ins_status = $this->payment_models->insert_adrenewalhistory($data);
 		$ins_status = $this->payment_models->update_adrenewal($data['product_id'],$data['gross_amt']);
 
 		$this->session->unset_userdata("last_insert_id");
@@ -455,6 +456,17 @@ class Payments extends CI_Controller
 						"ad_details"     	=>  	$ins_status,
 			);
 		$data['category_list'] = $this->category_model->view();
+			$this->load->view("admin_layout/inner_template",$data);	
+    }
+    function adrenewal_history(){
+		$ins_status = $this->transaction_models->adrenewal_history();
+		$data   =   array(
+                        "title"         	=>     "Classifieds :: Admin Category",
+                        "metadesc"     		=>     "Classifieds :: Admin Category",
+                        "metakey"       	=>     "Classifieds :: Admin Category",
+                        "content"       	=>     "adrenewal_history",
+						"ad_details"     	=>  	$ins_status,
+			);
 			$this->load->view("admin_layout/inner_template",$data);	
     }
 }

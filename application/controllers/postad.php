@@ -17,8 +17,7 @@ class Postad extends CI_Controller{
         }
         public function index(){
             if($this->session->userdata("login_id") == ''){
-                // redirect(base_url()."login");
-                echo'<script>window.location.href = "'.base_url().'login";</script>';
+                redirect(base_url()."login");
             }
                 $plogin_id      =   $this->session->userdata("login_id");
                 $last_insert_id = $this->session->userdata("last_insert_id");

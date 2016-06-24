@@ -4442,7 +4442,6 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
-			$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 			$this->db->where("ad.category_id", "3");
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -21177,7 +21176,7 @@ class hotdealsearch_model extends CI_Model{
 			$this->db->where("ad.ad_status", "1");
 			$this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
 			if (!empty($network_sub)) {
-				$this->db->where_in('ad.service_type', $poto_sub);
+				$this->db->where_in('ad.service_type', $network_sub);
 			}
 			if (!empty($seller)) {
 				$this->db->where_in('ad.services', $seller);

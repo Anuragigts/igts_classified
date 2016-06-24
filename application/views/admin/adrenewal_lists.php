@@ -30,7 +30,7 @@
 	<br>
 	<?php }?>
 	<div style='margin-bottom:10px;margin-right:25px; float:right; width: 100%;' >
-		<div class="row-fluid sortable">
+		<!-- <div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
 				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Filter Details</h2>
@@ -79,7 +79,7 @@
 				</fieldset>
 			</div>
 		</div>
-	</div>
+	</div> -->
 		<div class="row-fluid ">
 			<div class="box span12">
 				<div class="box-header" data-original-title>
@@ -92,6 +92,7 @@
 								<th>S NO</th>
 								<th>Deal Tag</th>
 								<th>User Name</th>
+								<th>View History</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -101,6 +102,9 @@
 									<td> <?php echo $i;?></td>
 									<td> <?php echo ucwords($val->deal_tag);?></td>
 									<td><?php echo ucwords($val->first_name).'&nbsp;'.ucwords($val->lastname);?></td>
+									<td>
+										<a href="<?php echo base_url();?>payments/adrenewal_history/<?php echo $val->adid;?>" title="View Ad Renewal History" style=''>View</a>
+									</td>
 								</tr>
 							<?php } ?>
 						</tbody>

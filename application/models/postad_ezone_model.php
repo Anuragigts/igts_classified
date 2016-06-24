@@ -194,7 +194,7 @@ class Postad_ezone_model extends CI_Model{
                          $pets_details = array('ad_id' => $insert_id,
                                 'brand_name' => $this->input->post('brandname'),
                                 'size' => $this->input->post('screensize'),
-                                'color' => $this->input->post('color'),
+                                'color' => $this->input->post('ezonecolor'),
                                 'model_name'=>$this->input->post('modelname'),
                                 'operating_system'=>$this->input->post('opersys'),
                                 'made_in'=>$this->input->post('ezone_madein'),

@@ -183,7 +183,7 @@ class Common_model extends CI_Model{
 
 
         public function signup_activate($ui){
-            $up = array('is_confirm' => 'confirm');
+            $up = array('is_confirm' => 'confirm','login_status'=>2);
             $this->db->update("login",$up, array('is_confirm' => $ui ));
             if($this->db->affected_rows() > 0){
                         return 1;

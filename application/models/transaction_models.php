@@ -27,11 +27,24 @@
 			return $transactions;
 		}
 		public function adrenewal_lists(){
-			$this->db->select();
+			$this->db->select("*, ad.ad_id as adid");
 			$this->db->join('login as l', "l.login_id = ad.login_id", 'join');
+			$this->db->join('adrenewalhistory as adrenewal', "adrenewal.ad_id = ad.ad_id", 'join');
 			$this->db->where('adrenewal > 0');
 			$this->db->from('postad AS ad');
 			$adrenewal = $this->db->get()->result();
+			return $adrenewal;
+		}
+		public function adrenewal_history(){
+			$this->db->select("*,(SELECT pkg_dur_name FROM pkg_duration_list WHERE pkg_dur_id= adrenewalhistory.packagefrom) AS pckfrom,
+				(SELECT pkg_dur_name FROM pkg_duration_list WHERE pkg_dur_id= adrenewalhistory.packageto) AS pckto,
+				(SELECT u_pkg_name FROM urgent_pkg_label WHERE u_pkg_id= adrenewalhistory.urgfrom) as urgfrom,
+				(SELECT u_pkg_name FROM urgent_pkg_label WHERE u_pkg_id= adrenewalhistory.urgto) as urgto");
+			$this->db->where('ad_id', $this->uri->segment(3));
+			$this->db->from('adrenewalhistory');
+			$this->db->order_by('updatedon','DESC');
+			$adrenewal = $this->db->get()->result();
+			// echo $this->db->last_query(); exit;
 			return $adrenewal;
 		}
 	}

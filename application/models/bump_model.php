@@ -127,7 +127,10 @@ class Bump_model extends CI_Model{
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ad_img', $data); 
 					$this->db->where('ad_id', $adid);
-					$this->db->update('location', $data); 
+					$this->db->update('location', $data);
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
 						return 1;
 					}
 					else{
@@ -209,6 +212,9 @@ class Bump_model extends CI_Model{
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('job_details', $data); 
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
 						return 1;
 					}
 					else{
@@ -303,6 +309,10 @@ class Bump_model extends CI_Model{
 					$this->db->where('ad_id', $adid);
 					$this->db->update('motor_plant_farming', $data); 
 
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
+
 						return 1;
 					}
 					else{
@@ -384,6 +394,11 @@ class Bump_model extends CI_Model{
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('property_resid_commercial', $data); 
+
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
+
 						return 1;
 					}
 					else{
@@ -465,6 +480,11 @@ class Bump_model extends CI_Model{
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('pets_details', $data); 
+
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
+
 						return 1;
 					}
 					else{
@@ -555,6 +575,11 @@ class Bump_model extends CI_Model{
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('lifestyle_wedding', $data); 
+
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
+
 						return 1;
 					}
 					else{
@@ -636,6 +661,10 @@ class Bump_model extends CI_Model{
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('kitchenhome_ads', $data); 
+
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
 
 						return 1;
 					}
@@ -719,6 +748,10 @@ class Bump_model extends CI_Model{
 
 					$this->db->where('ad_id', $adid);
 					$this->db->update('ezone_details', $data); 
+
+					/*adrenewal history*/ 
+					$this->db->where('ad_id', $adid);
+					$this->db->update('adrenewalhistory', $data);
 					
 						return 1;
 					}

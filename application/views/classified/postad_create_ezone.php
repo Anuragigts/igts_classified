@@ -489,7 +489,7 @@ Browse
 <label class="icon-right" for="Colour">
 <img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
 </label>
-<input type="text" id="color" name="color" placeholder="Enter Colour">
+<input type="text" id="color" name="ezonecolor" placeholder="Enter Colour">
 </div>
 </div>
 <?php } ?>

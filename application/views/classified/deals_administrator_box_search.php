@@ -17,6 +17,8 @@ $currency = '<span class="euro_sym"></span>';
 
 if ($m_details->category_id == '1') {
 $jobtype = mysql_result(mysql_query("select jobtype from job_details WHERE ad_id = '$m_details->ad_id'"),0,'jobtype');
+$jobmin = mysql_result(mysql_query("select salarymin from job_details WHERE ad_id = '$m_details->ad_id'"),0,'salarymin');
+$jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_id = '$m_details->ad_id'"),0,'salarymax');
 }
 ?>
 
@@ -37,7 +39,7 @@ if (($m_details->package_type == '3' || $m_details->package_type == '6') && $m_d
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 <?php }
 else{?>
-<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobtype."-<span class='pound_sym'></span>".$jobmax; ?></h3>
+<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php } ?>
 <a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
 <?php
@@ -78,7 +80,7 @@ if (($m_details->package_type == 3 || $m_details->package_type == 6) && $m_detai
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
 <?php }
 else{?>
-<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobtype."-<span class='pound_sym'></span>".$jobmax; ?></h3>
+<h3 class="home_price"><?php echo $jobtype; ?></h3>		
 <?php } ?>
 <a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
 <?php

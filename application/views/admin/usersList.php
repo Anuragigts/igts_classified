@@ -70,8 +70,9 @@
 							<?php }?>
 							<td><?php if($users->login_status == 2)echo 'Active';
 								else if($users->login_status == 1)echo 'New User';
-								else if($users->login_status == 4 || $users->login_status == 3)echo 'In-Active';
-								else if($users->login_status == 5)echo 'Blocked';?></td>
+								else if($users->login_status == 3)echo 'Pending';
+								else if($users->login_status == 4)echo 'In-Active';
+								else if($users->login_status == 5)echo 'Deleted';?></td>
 							<!--<td>
 								<a class="btn btn-success edit_postadd"  href="<?php echo base_url();?>ads/aprovals/<?php echo $users->login_id;?>" title="Edit User Details">
 								<i class="halflings-icon edit white"></i> 
@@ -87,15 +88,17 @@
 				</table>
 				<form name='change_status' method='post' action='<?php echo base_url()?>users/change_user_status' >
 				<?php //echo '<pre>';print_r($user_status);echo '</pre>';?>
-					<select name='change_status'>
-						<option>Select status </option>
+					<select name='change_status' class='change_status'>
+						<option value=''>Select status </option>
 						<?php foreach($user_status as $u_status){?>
 						<option value='<?php echo $u_status->user_status_id?>'><?php echo ucwords($u_status->user_status);?></option>
 						<?php }?>
 					</select>
 					<input type='hidden' name='cur_url' class='cur_url' id='cur_url' value='<?php echo current_url();?>'>
 					<input type='hidden' name='selected_users' class='selected_users' id='selected_users' value=''>
-					<input type='submit' name='active' class='btn success'value='Change Status' >
+					<input type='submit' name='active' class='btn success chg_status'value='Change Status' >
+					<div class="status_error" style="color: red; display:none;">Please select Users</div>
+					<div class="status_error1" style="color: red; display:none;">Please select status</div>
 				</form>
 			</div>
 		</div>
@@ -123,4 +126,30 @@
 		document.getElementById('selected_users').value = selected_users;
 	}
 	
+
+	$(function(){
+		$(".chg_status").click(function(){
+			if ($("#selected_users").val() == '') {
+				$(".status_error").css('display','block');
+				$(".status_error1").css('display','none');
+				return false;
+			};
+			if ($(".change_status").val() == '') {
+				$(".status_error1").css('display','block');
+				$(".status_error").css('display','none');
+				return false;
+			}
+		});
+		$('.change_status').change(function(){
+			if ($(this).val() != '') {
+				$(".chg_status").css('background-color','#578EBE');
+			}
+			else{
+				$(".chg_status").css('background-color','');
+			}
+		});
+		setTimeout(function(){
+			$(".alert").hide();
+		},5000);
+	});
 </script>

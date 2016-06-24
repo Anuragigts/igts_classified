@@ -16,6 +16,7 @@ class Login_model extends CI_Model{
                          $this->session->set_userdata("pass","1");
                          $this->db->where("login_password",md5($pa));
                          $this->db->where("is_confirm",'confirm');
+                         $this->db->where("login_status",2);
                 }                
                 $uq     =       $this->db->get();
 
@@ -109,7 +110,8 @@ class Login_model extends CI_Model{
      public function forgot_update($pwd, $rcode){
          $data = array(
                'login_password' => $pwd,
-               'is_confirm' => 'confirm'
+               'is_confirm' => 'confirm',
+               'login_status'=> 2
                      );
                 $this->db->where('is_confirm', $rcode);
                 $this->db->update('login', $data); 

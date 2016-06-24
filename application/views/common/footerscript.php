@@ -61,4 +61,9 @@ $(document).ready(function(){
       e.preventDefault();
   });
 });
+$(function(){
+	setTimeout(function(){
+		$(".letter_success").css('display','none');
+	},5000);
+});
 </script>
