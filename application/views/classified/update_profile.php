@@ -86,7 +86,7 @@ $mobile = $prof_data['mobile'];
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <div class="content_info">
 <div class="paddings">
@@ -146,7 +146,7 @@ UPDATE PROFILE
 <h3>Change Profile</h3>
 <label class="label">First Name 
 <sup data-toggle="tooltip" title="" data-original-title="First Name">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="I Error" title="Error view">
 </sup>
 </label>
 <div class="input">
@@ -160,7 +160,7 @@ UPDATE PROFILE
 <div class="col-sm-12 unit">
 <label class="label">Last Name 
 <sup data-toggle="tooltip" title="" data-original-title="Last Name">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="I Error" title="Error view">
 </sup>
 </label>
 <div class="input">
@@ -173,7 +173,7 @@ UPDATE PROFILE
 <div class="col-sm-12 unit">
 <label class="label">Contact Number 
 <sup data-toggle="tooltip" title="" data-original-title="Contact Number">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="I Error" title="Error view">
 </sup>
 </label>
 <div class="input">
@@ -197,7 +197,7 @@ UPDATE PROFILE
 <h3>Change password</h3>
 <label class="label">Current Password 
 <sup data-toggle="tooltip" title="" data-original-title="Current Password ">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="I Error" title="Error view">
 </sup>
 </label>
 <div class="input">
@@ -211,7 +211,7 @@ UPDATE PROFILE
 <div class="col-sm-12 unit">
 <label class="label">New password 
 <sup data-toggle="tooltip" title="" data-original-title="Atleast 8 characters, one uppercase, one lowercase and one special character">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="I Error" title="Error view">
 </sup>
 </label>
 <div class="input">
@@ -225,7 +225,7 @@ UPDATE PROFILE
 <div class="col-sm-12 unit">
 <label class="label">Confirm password 
 <sup data-toggle="tooltip" title="" data-original-title="Should match with new password">
-<img src="<?php echo base_url(); ?>img/icons/i.png" alt="I Error" title="Error view">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="I Error" title="Error view">
 </sup>
 </label>
 <div class="input">

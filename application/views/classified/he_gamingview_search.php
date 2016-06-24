@@ -138,7 +138,7 @@
 					<div class="">
 						<div class="price11">
 							<span></span><b>
-							<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+							<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 						</div>
 					</div>
 				</div>
@@ -256,7 +256,7 @@
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -337,7 +337,7 @@
 					<div class="">
 						<div class="price11">
 							<span></span><b>
-							<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+							<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 						</div>
 					</div>
 				</div>
@@ -455,7 +455,7 @@
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -639,7 +639,7 @@
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -819,7 +819,7 @@
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -997,7 +997,7 @@
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}
@@ -1172,7 +1172,7 @@
 							<?php }
 							else{ ?>
 								<div class="col-xs-4 serch_bus_logo">
-								<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+								<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 								</div>
 						<?php	}
 							}

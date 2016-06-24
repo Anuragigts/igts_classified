@@ -42,7 +42,7 @@ cursorcolor: '#E95413'
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <form id="j-forms" action="#" class="j-forms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 <div class="content_info">
@@ -407,7 +407,7 @@ cursorcolor: '#E95413'
 <div class="">
 <div class="price11">
 <span></span><b>
-<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+<img src="img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 </div>
 </div>
 </div>
@@ -514,7 +514,7 @@ cursorcolor: '#E95413'
 <div class="">
 <div class="price11">
 <span></span><b>
-<img src="img/icons/crown.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
+<img src="img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Crown Icon"></b>
 </div>
 </div>
 </div>

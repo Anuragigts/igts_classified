@@ -218,13 +218,13 @@ foreach ($show_all as $show_val) { ?>
 ?>
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <section class="content_info">
 <div class="">
 <div class="row marque_sty">
 <div class="col-sm-3 col-xs-3 hidden-xs">
-<img src="<?php echo base_url(); ?>img/marquee.png" class="fa fa-plane img-responsive" alt="hot deals uk" title="Hot Deals on 99 Right Deals">
+<img src="<?php echo base_url(); ?>img/marquee-120x60.png" class="fa fa-plane img-responsive" alt="hot deals uk" title="Hot Deals on 99 Right Deals">
 </div>
 <div class="col-sm-9 col-xs-12 marque_text">
 <div class="ticker3 modern-ticker mt-round">
@@ -264,7 +264,7 @@ else{
 <div class="row">
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
+<img class="img-responsive" src="img/featured/deals-250x150.jpg" alt="hot deals uk" title="Hot Deals Category">
 <div class="overlay">
 <h3>Hot Deals</h3>
 <a class="info onhotdeal" href="hot-deals-post-classifieds-ads">View Details</a>
@@ -273,7 +273,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/ezone.jpg" alt="electronics in the uk " title="ezone Category">
+<img class="img-responsive" src="img/featured/ezone-250x150.jpg" alt="electronics in the uk " title="ezone Category">
 <div class="overlay">
 <h3>E-Zone</h3>
 <a class="info" href="e-zone-phones-tablets-sale">View Details</a>
@@ -282,7 +282,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/cars.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
+<img class="img-responsive" src="img/featured/cars-250x150.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
 <div class="overlay">
 <h3>Motor Point</h3>
 <a class="info" href="motor-point-used-cars-sale">View Details</a>
@@ -291,7 +291,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/clothing.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
+<img class="img-responsive" src="img/featured/clothing-250x150.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
 <div class="overlay">
 <h3 class="cloth_head_font">Clothing & LifeStyles</h3>
 <a class="info" href="clothes-for-sale-uk">View Details</a>
@@ -300,7 +300,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/services.jpg" alt="free services ads" title="Services Category">
+<img class="img-responsive" src="img/featured/services-250x150.jpg" alt="free services ads" title="Services Category">
 <div class="overlay">
 <h3>Services</h3>
 <a class="info" href="household-services-london-uk">View Details</a>
@@ -309,7 +309,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/property.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
+<img class="img-responsive" src="img/featured/property-250x150.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
 <div class="overlay">
 <h3>Find a Property</h3>
 <a class="info" href="residential-commercial-property-for-sale">View Details</a>
@@ -318,7 +318,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/kitchen.jpg" alt="home cleaning services" title="Home & Kitchen Category">
+<img class="img-responsive" src="img/featured/kitchen-250x150.jpg" alt="home cleaning services" title="Home & Kitchen Category">
 <div class="overlay">
 <h3>Home & Kitchen</h3>
 <a class="info" href="home-kitchen-services-uk">View Details</a>
@@ -327,7 +327,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 top_pad_10 desk_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/pets.jpg" alt="free online pet ads" title="Pets Category">
+<img class="img-responsive" src="img/featured/pets-250x150.jpg" alt="free online pet ads" title="Pets Category">
 <div class="overlay">
 <h3>Pets</h3>
 <a class="info" href="pet-for-sale-online">View Details</a>
@@ -336,7 +336,7 @@ else{
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mob_pad_10 desk_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="img/featured/jobs.jpg"  alt="classified jobs ads" title="Jobs Category">
+<img class="img-responsive" src="img/featured/jobs-250x150.jpg"  alt="classified jobs ads" title="Jobs Category">
 <div class="overlay">
 <h3>Jobs</h3>
 <div><a class="info" href="part-full-time-jobs-london">View Details</a></div>
@@ -411,14 +411,14 @@ if ($hot_deals_val->bus_logo != '') {
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php			}
 } ?>
 <div class="price11">
 <span></span><b>
 <?php  if ($hot_deals_val->package_type == '3' || $hot_deals_val->package_type == '6') {?>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 <?php }
 ?>
 <?php  if ($hot_deals_val->package_type == '2' || $hot_deals_val->package_type == '5') {?>
@@ -446,11 +446,11 @@ else{ ?>
 <h3 class="home_price"><span class="pound_sym"></span>49</h3>
 <a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <div class="price11">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </figure>
@@ -467,11 +467,11 @@ else{ ?>
 <h3 class="home_price"><span class="pound_sym"></span>29</h3>
 <a href="#" class="btn_v btn-3 btn-3d fa fa-arrow-right"><span>View Details</span></a>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>img/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <div class="price11">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </figure>
@@ -549,14 +549,14 @@ if ($val->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -597,14 +597,14 @@ if ($m_ads->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" alt='Trader'/></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" alt='Trader'/></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -646,14 +646,14 @@ if ($m_ads_services->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" alt='trader' /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" alt='trader' /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -693,14 +693,14 @@ if ($motor_val->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" alt='trader' /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" alt='trader' /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -740,14 +740,14 @@ if ($cloth_val->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -788,14 +788,14 @@ if ($prop_val->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -837,14 +837,14 @@ if ($khome_val->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -884,14 +884,14 @@ if ($m_ads_pets->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -933,14 +933,14 @@ if ($m_ads_ezone->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -1008,7 +1008,7 @@ if ($b_ads->bus_logo != '') { ?>
 <div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 <?php	}
 else{ ?>
-<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b></div>
+<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b></div>
 <?php	} 	}
 ?>
 <?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
@@ -1034,7 +1034,7 @@ if ($b_ads->bus_logo != '') { ?>
 <div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 <?php	}
 else{ ?>
-<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="Trader" title="Business Logo" /></b></div>
+<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="Trader" title="Business Logo" /></b></div>
 <?php	}	}
 ?>
 <?php if ($b_ads->category_id != '1') { ?>
@@ -1062,7 +1062,7 @@ else{ ?>
 <div class="row">
 <div class="col-sm-3 col-xs-12">
 <a href="<?php echo base_url(); ?>view-all-business-deals">
-<img src="img/business_deals.jpg" alt="buy and sell online" title="Business Deals" class="recentad_heig img-responsive">
+<img src="img/business_deals-262x388.jpg" alt="buy and sell online" title="Business Deals" class="recentad_heig img-responsive">
 </a>
 </div>
 <div class="col-sm-9 col-xs-12">
@@ -1102,7 +1102,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 <div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 <?php	}
 else{ ?>
-<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="Trader" title="Business Logo" /></b></div>
+<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="Trader" title="Business Logo" /></b></div>
 <?php	}
 ?>
 <?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
@@ -1127,13 +1127,13 @@ else{ ?>
 <div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
 <?php	}
 else{ ?>
-<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="Trader" title="Business Logo" /></b></div>
+<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="Trader" title="Business Logo" /></b></div>
 <?php	}
 ?>
 <?php if ($b_ads->package_type == 3 || $b_ads->package_type == 6) { ?>
 <div class="business_crown">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 <?php	 } ?>
 <?php if ($b_ads->category_id != '1') { ?>
@@ -1161,7 +1161,7 @@ else{ ?>
 <div class="row">
 <div class="col-sm-3 col-xs-12">
 <a href="<?php echo base_url(); ?>view-all-recent-deals">
-<img src="img/recentad.jpg" alt="local classifieds ads" title="Recent Deals" class="recentad_heig img-responsive">
+<img src="img/recentad- 262x388.jpg" alt="local classifieds ads" title="Recent Deals" class="recentad_heig img-responsive">
 </a>
 </div>
 <div class="col-sm-9 col-xs-12">
@@ -1206,7 +1206,7 @@ else{ ?>
 <a href="description_view/details/<?php echo $free_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $free_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
 <div class="price">
 <?php if ($free_val->package_type == 3 || $free_val->package_type == 6) { ?>
-<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
+<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" alt="crown" title="Best Deal"></b>
 <?php	} ?>
 <?php if ($free_val->package_type == 2 || $free_val->package_type == 5) { ?>
 <span></span><b><img src="<?php echo base_url(); ?>img/icons/thumb.png" alt="thumb" title="Right Deal"></b>
@@ -1226,7 +1226,7 @@ else{ ?>
 <a href="description_view/details/<?php echo $free_val->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $free_val->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
 <div class="price">
 <?php if ($free_val->package_type == 3 || $free_val->package_type == 6) { ?>
-<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown.png" alt="crown" title="Best Deal"></b>
+<span></span><b><img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" alt="crown" title="Best Deal"></b>
 <?php	} ?>
 </div>
 </div>

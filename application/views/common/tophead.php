@@ -6,7 +6,7 @@
 
 <ul class="collapse">
 <li class="title">
-<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>img/99deals.png"  alt="Logo" title="99 Right Deals"></a> 
+<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>img/99deals-180 x 65.png"  alt="Logo" title="99 Right Deals"></a> 
 </li>
 <?php $lid  =$this->session->userdata("login_id");
 if($lid == ''){ ?>

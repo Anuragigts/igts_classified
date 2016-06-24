@@ -35,7 +35,7 @@
 	<section class="content-central">
 		<!-- Shadow Semiboxed -->
 		<div class="semiboxshadow text-center">
-			<img src="img/img-theme/shp.png" class="img-responsive" alt="">
+			<img src="img/img-theme/shp-1090x457.png" class="img-responsive" alt="">
 		</div>
 		
 		<!-- content info - Blog-->

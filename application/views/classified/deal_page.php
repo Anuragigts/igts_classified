@@ -290,7 +290,7 @@ $access_sub = $this->session->userdata('access_sub');
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <form action="<?php echo base_url(); ?>deal_page/index" method="get" class="j-forms jforms" style="background-color: white ! important;">
 <div class="content_info hotdeal_minheight">

@@ -226,7 +226,7 @@ if ($sval->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="col-xs-4 serch_bus_logo">
-<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 </div>
 <?php	}
 }
@@ -408,7 +408,7 @@ if ($sval->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="col-xs-4 serch_bus_logo">
-<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="intel" title="intel logo" class="img-responsive">
+<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="intel" title="intel logo" class="img-responsive">
 </div>
 <?php	}
 }

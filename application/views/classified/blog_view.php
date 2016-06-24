@@ -29,7 +29,7 @@
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <div class="content_info">
 <form action="" id="comment_form" method="post" class="j-forms tooltip-hover" style="background-color:#ffffff !important;">

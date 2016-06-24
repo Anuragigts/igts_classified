@@ -27,7 +27,7 @@
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="">
 </div>
 
 <div class="content_info">
@@ -41,7 +41,7 @@
 <h3>Activate Account</h3>
 <label class="label">Email 
 <sup data-toggle="tooltip" title="" data-original-title="Email">
-<img src="<?php echo base_url(); ?>img/icons/i.png">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png">
 </sup>
 </label>
 <div class="input">
@@ -54,7 +54,7 @@
 <div class="span12 unit">
 <label class="label">Password 
 <sup data-toggle="tooltip" title="" data-original-title="Password">
-<img src="<?php echo base_url(); ?>img/icons/i.png">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png">
 </sup>
 </label>
 <div class="input">
@@ -68,7 +68,7 @@
 <div class="span12 unit">
 <label class="label">Confirm Password
 <sup data-toggle="tooltip" title="" data-original-title="Confirm Password ">
-<img src="<?php echo base_url(); ?>img/icons/i.png">
+<img src="<?php echo base_url(); ?>img/icons/i-16x16.png">
 </sup>
 </label>
 <div class="input">

@@ -33,7 +33,7 @@ $(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <div class="content_info">
 <form id="contact_form" action="" class="j-forms" method="post" style="background-color:#fff;">

@@ -29,7 +29,7 @@
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 
 <form id="j-forms" action="<?php echo base_url();?>payments/pay/" class="j-forms" method="post" style="background-color:#fff;">

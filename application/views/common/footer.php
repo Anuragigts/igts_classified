@@ -18,7 +18,7 @@ $(function(){$("#feedbackads").validate({rules:{fbkcontname:{required:!0,minleng
 </script>
 
 <!-- Modal SendNow-->
-<div class="modal dialog1 fade send_now_top_100" id="sendnow" role="dialog"><div class="modal-dialog1"><form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="feedbackads" ><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h2>Send <span>NOW </span></h2></div><div class="modal-body"><div class="j-row"><div class="unit"><label class="label">Contact Name<sup data-toggle="tooltip" title="" data-original-title="Contact Name"><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label><div class="input"><label class="icon-right" for="name"><i class="fa fa-user"></i></label><input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name "><input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'><input type="hidden" name="ad_id" id='fdbkads' value=""></div></div><div class="unit"><label class="label">Mobile Number<sup data-toggle="tooltip" title="" data-original-title="Mobile Number"><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label><div class="input"><label class="icon-right" for="phone"><i class="fa fa-phone"></i></label><input type="text" id="feedbackno" name="feedbackno" maxlength='11' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number "></div></div><div class="unit"><label class="label">Email<sup data-toggle="tooltip" title="" data-original-title="Email"><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label><div class="input"><label class="icon-right" for="email"><i class="fa fa-envelope-o"></i></label><input type="email" id="busemail" name="busemail" placeholder="Enter Your Email"></div></div><div class="unit"><label class="label">Message<sup data-toggle="tooltip" title="" data-original-title="Message"><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label><div class="input"><textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea></div></div><div class="unit"><button class="btn btn-primary " id='change_pwd'>Send Now</button></div></div></div></div></form></div></div>
+<div class="modal dialog1 fade send_now_top_100" id="sendnow" role="dialog"><div class="modal-dialog1"><form action="<?php echo base_url(); ?>description_view/feedbackforads" method="post" class="j-forms tooltip-hover" id="feedbackads" ><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h2>Send <span>NOW </span></h2></div><div class="modal-body"><div class="j-row"><div class="unit"><label class="label">Contact Name<sup data-toggle="tooltip" title="" data-original-title="Contact Name"><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label><div class="input"><label class="icon-right" for="name"><i class="fa fa-user"></i></label><input type="text" id="fbkcontname" name="fbkcontname" placeholder="Enter Contact Person Name "><input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'><input type="hidden" name="ad_id" id='fdbkads' value=""></div></div><div class="unit"><label class="label">Mobile Number<sup data-toggle="tooltip" title="" data-original-title="Mobile Number"><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label><div class="input"><label class="icon-right" for="phone"><i class="fa fa-phone"></i></label><input type="text" id="feedbackno" name="feedbackno" maxlength='11' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number "></div></div><div class="unit"><label class="label">Email<sup data-toggle="tooltip" title="" data-original-title="Email"><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label><div class="input"><label class="icon-right" for="email"><i class="fa fa-envelope-o"></i></label><input type="email" id="busemail" name="busemail" placeholder="Enter Your Email"></div></div><div class="unit"><label class="label">Message<sup data-toggle="tooltip" title="" data-original-title="Message"><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label><div class="input"><textarea type="text" id="feedbackmsg" name="feedbackmsg" placeholder="Enter Your Feedback "></textarea></div></div><div class="unit"><button class="btn btn-primary " id='change_pwd'>Send Now</button></div></div></div></div></form></div></div>
 
 <!-- Modal Feedback-->
 <div class="modal dialog3" id="feedback_1" role="dialog">
@@ -110,17 +110,17 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 				</div>
 				<div class="row">
 					<div class="col-sm-6 unit">
-						<label class="label">Feedback <sup data-toggle="tooltip" title="" data-original-title="Feedback"><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label>
+						<label class="label">Feedback <sup data-toggle="tooltip" title="" data-original-title="Feedback"><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label>
 						<div class="input"><textarea type="text" id="Feedback" name="Feedback" placeholder="Enter Your Feedback "></textarea></div>
 					</div>
 					<div class="col-sm-6 unit">
-						<label class="label">Email <sup data-toggle="tooltip" title="" data-original-title="Email"><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label>
+						<label class="label">Email <sup data-toggle="tooltip" title="" data-original-title="Email"><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label>
 						<div class="input"><label class="icon-right" for="email"><i class="fa fa-envelope-o"></i></label><input type="email" id="fdbk_mail" name="fdbk_mail" placeholder="Enter Your Email"></div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6 unit">
-						<label class="label">Mobile Number <sup data-toggle="tooltip" title="" data-original-title="Mobile Number "><img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label"></sup></label>
+						<label class="label">Mobile Number <sup data-toggle="tooltip" title="" data-original-title="Mobile Number "><img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label"></sup></label>
 						<div class="input"><label class="icon-right" for="phone"><i class="fa fa-phone"></i></label><input type="text" id="fdbk_mobile" name="fdbk_mobile" maxlength='11' onkeypress="return isNumber(event)" placeholder="Enter Your Mobile Number "></div>
 					</div>
 					<div class="col-sm-12 unit"><button class="btn_v btn-4 btn-4a fa fa-arrow-right pull-right"><span>Submit</span></button></div>
@@ -143,7 +143,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<img src="<?php echo base_url(); ?>img/recentdeal.jpg" class="img-responsive" alt="Recent Deal">
+						<img src="<?php echo base_url(); ?>img/recentdeal 613x1579.jpg" class="img-responsive" alt="Recent Deal">
 					</div>
 				</div>
 			</div>
@@ -163,7 +163,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 					<div class="col-sm-12 modal_img">
 						<p align="justify">At 99rightdeals a BUMP will take your ad back to the top of the search results once again. When your ad as deal online since few days.</p>
 						<p align="justify"> Bumping will definite that more buyers see your ad. So you have better chance of selling your item.</p>
-						<img src="<?php echo base_url(); ?>img/bumpdeal.jpg" class="img-responsive" alt="Bump Deal">
+						<img src="<?php echo base_url(); ?>img/bumpdeal-800x600.jpg" class="img-responsive" alt="Bump Deal">
 					</div>
 				</div>
 			</div>
@@ -181,7 +181,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<img src="<?php echo base_url(); ?>img/golddeal.jpg" class="img-responsive" alt="Gold Deal Highlight">
+						<img src="<?php echo base_url(); ?>img/golddeal-1280x923.jpg" class="img-responsive" alt="Gold Deal Highlight">
 					</div>
 				</div>
 			</div>
@@ -225,7 +225,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 						<p align="justify"> It will be appear on home page in the significant deal.</p>
 						<p align="justify"> 9 * more Views and responses.</p>
 						<p align="justify"> Number of people read and reply to this ad. </p>
-						<img src="<?php echo base_url(); ?>img/significantdeal.jpg" class="img-responsive" alt="Significant Deal">
+						<img src="<?php echo base_url(); ?>img/significantdeal-613x863.jpg" class="img-responsive" alt="Significant Deal">
 					</div>
 				</div>
 			</div>
@@ -243,7 +243,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<img src="<?php echo base_url(); ?>img/slidebyslidedeal.jpg" class="img-responsive" alt="Slide By Slide Deal">
+						<img src="<?php echo base_url(); ?>img/slidebyslidedeal-800x600.jpg" class="img-responsive" alt="Slide By Slide Deal">
 					</div>
 				</div>
 			</div>
@@ -261,7 +261,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<img src="<?php echo base_url(); ?>img/video.jpg" class="img-responsive" alt="You Tube Video">
+						<img src="<?php echo base_url(); ?>img/video-800x600.jpg" class="img-responsive" alt="You Tube Video">
 					</div>
 				</div>
 			</div>
@@ -279,7 +279,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
             <div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12 modal_img">
-						<img src="<?php echo base_url(); ?>img/marqueedeal.jpg" class="img-responsive" alt="Hot Deals Title">
+						<img src="<?php echo base_url(); ?>img/marqueedeal-613x1094.jpg" class="img-responsive" alt="Hot Deals Title">
 					</div>
 				</div>
 			</div>
@@ -300,7 +300,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 						<p align="justify"> Urgent label indicates the buyer that you are eager to sell.</p>
 						<p align="justify"> This will attract potential Buyer to your ad.</p>
 						<p align="justify"> 3 * more Views and responses.</p>
-						<img src="<?php echo base_url(); ?>img/urgentlabeldeal.jpg" class="img-responsive" alt="Urgent Label">
+						<img src="<?php echo base_url(); ?>img/urgentlabeldeal-800x600.jpg" class="img-responsive" alt="Urgent Label">
 					</div>
 				</div>
 			</div>

@@ -51,14 +51,14 @@ if ($m_details->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>
@@ -92,14 +92,14 @@ if ($m_details->bus_logo != '') { ?>
 <?php }
 else{ ?>
 <div class="bus_logo">
-<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt='trader' title="Business Logo" /></b>
+<span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt='trader' title="Business Logo" /></b>
 </div>
 <?php } 
 }
 ?>
 <div class="sig_price">
 <span></span><b>
-<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 </div>
 </div>
 </div>

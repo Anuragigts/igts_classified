@@ -129,7 +129,7 @@ $longg = $this->session->userdata('longg');
 <section class="content-central">
 <!-- Shadow Semiboxed -->
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <form id="j-forms2" action="<?php echo base_url(); ?>pet_toys_training_view/search_filters" class="j-forms jforms" method="post" style="background-color: rgb(255, 255, 255) !important;">
 <div class="content_info">

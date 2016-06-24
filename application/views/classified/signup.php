@@ -35,7 +35,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="">
 </div>
 
 <div class="content_info">

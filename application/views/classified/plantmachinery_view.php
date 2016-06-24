@@ -133,7 +133,7 @@ $longg = $this->session->userdata('longg');
 <section class="content-central">
 <!-- Shadow Semiboxed -->
 <div class="semiboxshadow text-center">
-<img src="img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <form id="j-forms2" action="<?php echo base_url(); ?>plantmachinery_view/search_filters" method='post' class="j-forms jforms" style="background-color: rgb(255, 255, 255) !important;">
 <div class="content_info">

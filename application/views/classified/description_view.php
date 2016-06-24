@@ -223,7 +223,7 @@
 			
 			<section class="content-central">
 				<div class="semiboxshadow text-center">
-					<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+					<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 				</div>
 				<?php 
 					/* ad video details */
@@ -312,7 +312,7 @@
 												<div class="post-header">
 													<?php if ($package_type == 3 || $package_type == 6) { ?>
 													<div class="hidden-xs post-format-icon post-format-standard">
-														<img src="<?php echo base_url(); ?>img/icons/crown.png" alt="Crown" title="Best Deal">
+														<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" alt="Crown" title="Best Deal">
 													</div>
 													<?php	} ?>
 													<?php if ($package_type == 2 || $package_type == 5) { ?>
@@ -729,7 +729,7 @@
 												<div class="span12 unit">
 													<label class="label">Review Title 
 														<sup data-toggle="tooltip" title="" data-original-title="Review Title">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -744,7 +744,7 @@
 												<div class="span12 unit">
 													<label class="label">Your Review 
 														<sup data-toggle="tooltip" title="" data-original-title="Your Review ">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -754,7 +754,7 @@
 												<div class="span12 unit">
 													<label class="label">Name 
 														<sup data-toggle="tooltip" title="" data-original-title="Name">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -767,7 +767,7 @@
 												<div class="span4 rating-group">
 													<label class="label">Your Rating
 														<sup data-toggle="tooltip" title="" data-original-title="Your Rating">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="ratings">
@@ -808,7 +808,7 @@
 										<hr>
 										<?php }
 											else{ ?>
-										<img src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="trader" class="img-responsive business_logo_height">
+										<img src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="trader" class="img-responsive business_logo_height">
 										<hr>
 										<?php }
 											?>
@@ -858,7 +858,7 @@
 												<div class="unit">
 													<label class="label">Contact Name
 														<sup data-toggle="tooltip" title="" data-original-title="Contact Name">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -873,7 +873,7 @@
 												<div class="unit">
 													<label class="label">Mobile Number
 														<sup data-toggle="tooltip" title="" data-original-title="Mobile Number">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -886,7 +886,7 @@
 												<div class="unit">
 													<label class="label">Email
 														<sup data-toggle="tooltip" title="" data-original-title="Email">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -899,7 +899,7 @@
 												<div class="unit">
 													<label class="label">Message
 														<sup data-toggle="tooltip" title="" data-original-title="Message">
-															<img src="<?php echo base_url(); ?>img/icons/i.png" alt="Help" title="Help Label">
+															<img src="<?php echo base_url(); ?>img/icons/i-16x16.png" alt="Help" title="Help Label">
 														</sup>
 													</label>
 													<div class="input">
@@ -975,14 +975,14 @@
 												<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="business_logo1" title="business-logo1" /></b></div>
 												<?php	}
 													else{ ?>
-												<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader.png" alt="business_logo1" title="business-logo1" /></b></div>
+												<div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/trader-130x50.png" alt="business_logo1" title="business-logo1" /></b></div>
 												<?php	}
 													}
 													 ?>
 												<?php if ($b_ads->package_type == '3' || $b_ads->package_type == '6') { ?>
 												<div class="business_crown">
 													<span></span><b>
-													<img src="<?php echo base_url(); ?>img/icons/crown.png" class="pull-right" alt="Crown" title="Best Deal"></b>
+													<img src="<?php echo base_url(); ?>img/icons/crown-35x35.png" class="pull-right" alt="Crown" title="Best Deal"></b>
 												</div>
 												<?php	 } ?>
 												<?php if ($b_ads->package_type == '2' || $b_ads->package_type == '5') { ?>

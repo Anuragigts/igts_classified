@@ -32,7 +32,7 @@
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 
 <div class="content_info">
@@ -49,7 +49,7 @@
 <div class="row">
 <div class="col-md-4 col-sm-4 col-xs-12">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals.jpg" alt="hot deals uk" title="Hot Deals Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/deals-250x150.jpg" alt="hot deals uk" title="Hot Deals Category">
 <div class="overlay">
 <h3>Hot Deals</h3>
 <a class="info" href="hot-deals-post-classifieds-ads">View Details</a>
@@ -58,7 +58,7 @@
 </div>
 <div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone.jpg" alt="electronics in the uk " title="ezone Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/ezone-250x150.jpg" alt="electronics in the uk " title="ezone Category">
 <div class="overlay">
 <h3>E-Zone</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#Zone">View Details</a>
@@ -137,7 +137,7 @@
 
 <div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/cars-250x150.jpg" alt="buy and sell new and used cars" title="Motor Point Category">
 <div class="overlay">
 <h3>Motor Point</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#Motor">View Details</a>
@@ -214,7 +214,7 @@ Plant Machinery</a>
 <div class="row top_13">
 <div class="col-md-4 col-sm-4 col-xs-12">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/clothing-250x150.jpg" alt="buy and sell clothes online uk" title="Clothing & LifeStyles">
 <div class="overlay">
 <h3 class="cloth_head_font">Clothing & LifeStyles</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#LifeStyles">View Details</a>
@@ -289,7 +289,7 @@ Plant Machinery</a>
 
 <div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services.jpg" alt="free services ads" title="Services Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/services-250x150.jpg" alt="free services ads" title="Services Category">
 <div class="overlay">
 <h3>Services</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#Services" >View Details</a>
@@ -339,7 +339,7 @@ Plant Machinery</a>
 
 <div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/property-250x150.jpg" alt="residential or commercial property for sale" title="Find a Property Category">
 <div class="overlay">
 <h3>Find a Property</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#Property">View Details</a>
@@ -386,7 +386,7 @@ Plant Machinery</a>
 <div class="row top_13">
 <div class="col-md-4 col-sm-4 col-xs-12">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen.jpg" alt="home cleaning services" title="Home & Kitchen Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/kitchen-250x150.jpg" alt="home cleaning services" title="Home & Kitchen Category">
 <div class="overlay">
 <h3>Home & Kitchen</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#Kitchen">View Details</a>
@@ -442,7 +442,7 @@ Plant Machinery</a>
 
 <div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets.jpg" alt="free online pet ads" title="Pets Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/pets-250x150.jpg" alt="free online pet ads" title="Pets Category">
 <div class="overlay">
 <h3>Pets</h3>
 <a class="info" href="#" data-toggle="modal" data-target="#Pets">View Details</a>
@@ -502,7 +502,7 @@ Plant Machinery</a>
 
 <div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
 <div class="hovereffect">
-<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs.jpg" alt="classified jobs ads" title="Jobs Category">
+<img class="img-responsive" src="<?php echo base_url(); ?>img/featured/jobs-250x150.jpg" alt="classified jobs ads" title="Jobs Category">
 <div class="overlay">
 <h3>Jobs</h3>
 <div><a class="info" href="#" data-toggle="modal" data-target="#Jobs">View Details</a></div>

@@ -91,7 +91,7 @@ $recentdays = $this->session->userdata('recentdays');
 
 <section class="content-central">
 <div class="semiboxshadow text-center">
-<img src="<?php echo base_url(); ?>img/img-theme/shp.png" class="img-responsive" alt="Shadow" title="Shadow view">
+<img src="<?php echo base_url(); ?>img/img-theme/shp-1090x457.png" class="img-responsive" alt="Shadow" title="Shadow view">
 </div>
 <form id="j-forms2" name="jforms"method='post' action="<?php echo base_url(); ?>business_deals_view/search_filters" class="jforms j-forms" style="background-color: rgb(255, 255, 255) !important;">
 <input type='hidden' class='curr_url' name='curr_url' value='<?php echo current_url();?>'>
