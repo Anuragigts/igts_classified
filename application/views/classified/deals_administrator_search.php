@@ -74,7 +74,7 @@ while ($res = mysql_fetch_object($pic)) { ?>
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-12">
-<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 24) ?></h3>
+<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 23) ?></h3>
 </div>
 </div>
 <div class="row">
@@ -260,7 +260,7 @@ while ($res = mysql_fetch_object($pic)) { ?>
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-12">
-<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 24) ?></h3>
+<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 23) ?></h3>
 </div>
 </div>
 <div class="row">
@@ -427,7 +427,7 @@ if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_detai
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-12">
-<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 24) ?></h3>
+<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 23) ?></h3>
 </div>
 </div>
 <div class="row">
@@ -596,7 +596,7 @@ if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_detai
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-12">
-<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 24) ?></h3>
+<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 23) ?></h3>
 </div>
 </div>
 <div class="row">
@@ -756,7 +756,7 @@ if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_detai
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-12">
-<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 24) ?></h3>
+<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 23) ?></h3>
 </div>
 </div>
 <div class="row">
@@ -919,7 +919,7 @@ if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_detai
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-12">
-<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 24) ?></h3>
+<h3 class="list_title"><?php echo substr(strip_tags($m_details->deal_tag), 0, 23) ?></h3>
 </div>
 </div>
 <div class="row">

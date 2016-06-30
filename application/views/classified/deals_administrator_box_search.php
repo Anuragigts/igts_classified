@@ -74,7 +74,7 @@ if (($m_details->package_type == 3 || $m_details->package_type == 6) && $m_detai
 <div class="overlay descurl"><a href="<?php echo base_url(); ?>description_view/details/<?php echo $m_details->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $m_details->deal_tag)); ?>" ><i class="fa fa-link"></i></a></div>
 </div>
 <div class="info-gallery">
-<h3><?php echo substr($m_details->deal_tag,0,17); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -120,7 +120,7 @@ if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_detai
 </div>
 </div>
 <div class="info-gallery gold_bgcolor">
-<h3><?php echo substr($m_details->deal_tag,0,21); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -148,7 +148,7 @@ if (($m_details->package_type == 2 || $m_details->package_type == 5) && $m_detai
 </div>
 </div>
 <div class="info-gallery gold_bgcolor">
-<h3><?php echo substr($m_details->deal_tag,0,21); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -179,7 +179,7 @@ if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_detai
 </div>
 </div>
 <div class="info-gallery">
-<h3><?php echo substr($m_details->deal_tag,0,21); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
@@ -205,7 +205,7 @@ if (($m_details->package_type == 1 || $m_details->package_type == 4) && $m_detai
 </div>
 </div>
 <div class="info-gallery">
-<h3><?php echo substr($m_details->deal_tag,0,21); ?></h3>
+<h3><?php echo substr($m_details->deal_tag,0,18); ?></h3>
 <hr class="separator">
 <?php if ($m_details->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($m_details->price); ?></h3>
