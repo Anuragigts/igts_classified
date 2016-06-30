@@ -1000,7 +1000,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 </div>
 <?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
 <div class="info-gallery">
-<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+<h3><?php echo substr($b_ads->deal_tag,0,19); ?></h3>
 <hr class="separator">
 <?php
 if ($b_ads->ad_type != 'consumer') { 
@@ -1027,7 +1027,7 @@ else{ ?>
 </div>
 <?php }else{ ?>
 <div class="info-gallery">
-<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+<h3><?php echo substr($b_ads->deal_tag,0,19); ?></h3>
 <hr class="separator">
 <?php if ($b_ads->ad_type != 'consumer') { 
 if ($b_ads->bus_logo != '') { ?>
@@ -1096,7 +1096,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 </div>
 <?php if ($b_ads->package_type == 2 || $b_ads->package_type == 5) { ?>
 <div class="info-gallery">
-<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+<h3><?php echo substr($b_ads->deal_tag,0,19); ?></h3>
 <hr class="separator">
 <?php if ($b_ads->bus_logo != '') { ?>
 <div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
@@ -1121,7 +1121,7 @@ else{ ?>
 </div>
 <?php }else{ ?>
 <div class="info-gallery">
-<h3><?php echo substr($b_ads->deal_tag,0,20); ?></h3>
+<h3><?php echo substr($b_ads->deal_tag,0,19); ?></h3>
 <hr class="separator">
 <?php if ($b_ads->bus_logo != '') { ?>
 <div class="bus_logo"><span></span><b><img data-u="image" src="<?php echo base_url(); ?>pictures/business_logos/<?php echo $b_ads->bus_logo; ?>" alt="<?php echo $b_ads->bus_logo; ?>" title="Business Logo" /></b></div>
@@ -1195,7 +1195,7 @@ $jobmax = mysql_result(mysql_query("select salarymax from job_details WHERE ad_i
 </div>
 <?php if ($free_val->package_type == 2 || $free_val->package_type == 5) { ?>
 <div class="info-gallery">
-<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
+<h3><?php echo substr($free_val->deal_tag,0,19); ?></h3>
 <hr class="separator">
 <?php if ($free_val->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
@@ -1215,7 +1215,7 @@ else{ ?>
 </div>
 <?php }else{ ?>
 <div class="info-gallery">
-<h3><?php echo substr($free_val->deal_tag,0,20); ?></h3>
+<h3><?php echo substr($free_val->deal_tag,0,19); ?></h3>
 <hr class="separator">
 <?php if ($free_val->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($free_val->price); ?></h3>
