@@ -11,6 +11,8 @@
 <?php echo $this->load->view('common/head');?> 
 <!-- xxx End xxx -->
 
+<style>.col-sm-offset-3 {margin-left: 29%;}</style>
+
 <link rel="stylesheet" href="<?php echo base_url(); ?>j-folder/css/j-forms.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>js/filter.css"> 
@@ -329,7 +331,7 @@ $access_sub = $this->session->userdata('access_sub');
 <div class="row top_20">
 <div class="col-sm-8 col-sm-offset-2">
 <div class="row">
-<div class="span6 unit">
+<div class="col-sm-6 col-xs-12 unit">
 <label class="input select">
 <select name="category_name" id="category_name">
 <option value="all" selected <?php if ($cat_id == 'all') { echo "selected=selected"; } ?> >All</option>
@@ -340,7 +342,7 @@ $access_sub = $this->session->userdata('access_sub');
 <i></i>
 </label>
 </div>
-<div class="span6 unit">
+<div class="col-sm-6 col-xs-12 unit">
 <div class="widget right-130">
 <div class="input">
 <input type="text" placeholder="Enter Location" id="list-autocomplete" name="list-autocomplete" value="<?php echo $location; ?>">
