@@ -13,7 +13,7 @@
 <meta name="ICBM" content="51.495097, -0.273317" />
 <meta content="www.99rightdeals.com" name="author" />
 
-<meta name="description" content="99 Right Deals is freeads classified ads website in UK. Free Ads & Buy or Sell products and services like e-zone, lifestyles, property, home & kitchen, pets, jobs in UK." />
+<meta name="description" content="99 Right Deals is free classified ads website in UK. Find free classifieds Ads & Buy or Sell products and services in different categories like e-zone, lifestyles, property, home & kitchen, pets, jobs in UK." />
 <meta name="keywords" content="local classifieds ads, classified ad websites, uk classified ads, free online classified, classifieds site, uk free classified ads, freeads classifieds, buying and selling on the internet, best classified sites, free classifieds sites list, free classified websites list" />
 
 <!-- xxx Head Content xxx -->

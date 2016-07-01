@@ -15,7 +15,6 @@ class Contact_us extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "contact_us"
                 );
-
                 if ($this->input->post("submit")) {
                     $ins = $this->classifed_model->contactus_create();
                     if ($ins == 1) {
@@ -26,7 +25,6 @@ class Contact_us extends CI_Controller{
                         $this->session->set_flashdata("err", "Internal error occured");   
                     }
                 }
-                
                 $this->load->view("classified_layout/inner_template",$data);
         }
 }

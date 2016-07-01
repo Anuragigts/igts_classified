@@ -196,7 +196,7 @@ class  Vans_trunks_svu_view extends CI_Controller{
                         "title"     =>  "Classifieds",
                         "content"   =>  "vans_trunks_svu_view");
             $result['vans_result'] = $rs;
-            $public_adview = $this->classifed_model->publicads();
+            $public_adview = $this->classifed_model->publicads_motor();
              $result['petrolcnt'] = $this->hotdealsearch_model->vans_petrolcnt();
             $result['milagecnt'] = $this->hotdealsearch_model->vans_milagecnt();
             $result['enginecnt'] = $this->hotdealsearch_model->vans_enginecnt();

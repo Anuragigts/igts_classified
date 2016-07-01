@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 
 <script>
-$(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\s]+$/.test(e)}),$("#contact_form").validate({rules:{contact_name:{required:!0,character:!0},contact_email:{required:!0,email:!0},contact_no:{required:!0},contact_message:{required:!0,minlength:60}},messages:{contact_name:{required:"Please enter your name",character:"please Enter characters"},contact_no:{required:"Please Enter Mobile No"},contact_message:{required:"Please Enter Message",minlength:"Title contains atleast 60 characters"},contact_email:"Please enter a valid email address"},submitHandler:function(e){return!0}})});
+$(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\s]+$/.test(e)}),$("#contact_form").validate({rules:{contact_name:{required:!0,character:!0,minlength:3,maxlength:12},contact_email:{required:!0,email:!0},contact_no:{required:!0,minlength:11},contact_message:{required:!0,minlength:60,maxlength:200}},messages:{contact_name:{required:"Please enter your name",character:"please Enter characters",minlength:"Enter minimum 3 characters",maxlength:"Maximum 12 characters allowed"},contact_no:{required:"Please Enter Mobile No",minlength:"Please Enter 11 digit number"},contact_message:{required:"Please Enter Message",minlength:"Title contains atleast 60 characters",maxlength:"Maximum 200 characters allowed"},contact_email:"Please enter a valid email address"},submitHandler:function(e){return!0}})});
 </script>
 
 </head>

@@ -153,8 +153,8 @@
 							required: true,
 						},
 						file: {
-			                required: true,
-			                extension: "jpg|png"
+			                required: true/*,
+			                extension: "jpg|png"*/
 			            },
 					},
 				
@@ -172,8 +172,8 @@
 							required: "Please Select any category",
 						},
 						file: {
-			                required: "Please upload blog image",
-			                extension: "Incorrect file format"
+			                required: "Please upload blog image"/*,
+			                extension: "Incorrect file format"*/
 			            },
 					},
 					

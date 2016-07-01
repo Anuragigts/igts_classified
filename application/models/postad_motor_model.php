@@ -303,7 +303,7 @@ class Postad_motor_model extends CI_Model{
                                             'manufacture'=> $this->input->post('manufacture_plant'),
                                             'reg_year'=> $this->input->post('year_boat'),
                                             'model'=> $this->input->post('plant_model1'),
-                                            'color'=> $this->input->post('color'),
+                                            'color'=> $this->input->post('pfcolor'),
                                             'condition'=>$this->input->post('Condition')
                                 );
                         $this->db->insert("motor_plant_farming", $motor_homes);
@@ -313,7 +313,7 @@ class Postad_motor_model extends CI_Model{
                                             'manufacture'=> $this->input->post('manufacture_farming'),
                                             'reg_year'=> $this->input->post('year_boat'),
                                             'model'=> $this->input->post('plant_model'),
-                                            'color'=> $this->input->post('color'),
+                                            'color'=> $this->input->post('pfcolor'),
                                             'condition'=>$this->input->post('Condition')
                                 );
                         $this->db->insert("motor_plant_farming", $motor_homes);

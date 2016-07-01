@@ -865,8 +865,9 @@ GROUP BY img.ad_id
 		$this->db->from("motor_bike_ads, sub_subcategory, bike_type, bike_model");
 		$this->db->where('ad_id', $this->uri->segment(3));
 		$this->db->where('sub_subcategory.sub_subcategory_id = motor_bike_ads.manufacture');
-		$this->db->where('bike_type.id = motor_bike_ads.bike_type');
-		$this->db->where('bike_model.id = motor_bike_ads.model');
+		// $this->db->where('bike_type.id = motor_bike_ads.bike_type');
+		// $this->db->where('bike_model.id = motor_bike_ads.model');
+		$this->db->group_by('ad_id');
 		$res = $this->db->get();
 		return $res->result();
 		}
@@ -886,9 +887,11 @@ GROUP BY img.ad_id
 		$this->db->select("*, sub_subcategory.sub_subcategory_name AS manufacture1, car_model.car_model as cmodel");
 		$this->db->from("motor_car_van_bus_ads, sub_subcategory, car_model");
 		$this->db->where('sub_subcategory.sub_subcategory_id = motor_car_van_bus_ads.manufacture');
-		$this->db->where('car_model.id = motor_car_van_bus_ads.model');
+		// $this->db->where('car_model.id = motor_car_van_bus_ads.model');
 		$this->db->where('ad_id', $this->uri->segment(3));
+		$this->db->group_by('ad_id');
 		$res = $this->db->get();
+		// echo $this->db->last_query(); exit;
 		return $res->result();
 				}
 		else{
@@ -898,7 +901,6 @@ GROUP BY img.ad_id
 		$res = $this->db->get();
 		return $res->result();	
 		}
-		
 	}
 
 	/*motor home caravans*/
@@ -3254,20 +3256,58 @@ GROUP BY img.ad_id
 
 
 		public function contactus_create(){
-			$ins = array(
-					'cname'=> $this->input->post('contact_name'),
-					'email'	=> $this->input->post('contact_email'),
-					'mobile'	=> $this->input->post('contact_no'),
-					'msg'	=> $this->input->post('contact_message'),
-					'posted_on' => date("Y-m-d H:i:s")
-					);
-					$this->db->insert("contactus", $ins);
-					if ($this->db->affected_rows() > 0) {
-						return 1;
-					}
-					else{
-						return 0;
-					}
+			$config = Array(
+				            'protocol' => 'smtp',
+				            'smtp_host' => 'ssl://smtp.googlemail.com',
+				            'smtp_port' => 465,
+				            'smtp_user' => '99rightdeals@googlemail.com',
+				            'smtp_pass' => 'S@ibaba2016',
+				            'mailtype'  => 'html',
+				            'charset'   => 'iso-8859-1'
+				             );
+			$this->load->library('email', $config);
+            $this->email->set_newline("\r\n");
+            $this->email->from($this->input->post('contact_email'), "99 Right Deals");
+            $this->email->to('support@99rightdeals.com');
+            $this->email->subject("Customer Contact Details");
+            $message    =   "<div style='padding: 81px 150px;'>
+								<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 10px;background-color: #9FC955;'>
+									<h2 style='color: #fff;padding-top: 10px;float:right;'><span>WELCOME </span></h2>
+									<img src='http://99rightdeals.com/img/maillogo.png'>
+								</div>
+								<div style='margin-top:20px'></div>
+								<div style='border: 2px solid #9FC955;border-radius: 20px;padding: 23px;'>
+									<h2>Customer details</h2>
+									<table border='0'><tr><td style='width: 100px;'>Contact Name </td><td>".$this->input->post('contact_name')."</td></tr>
+									<tr><td style='width: 100px;'>Contact Email </td><td>".$this->input->post('contact_email')."</td></tr>
+									<tr><td style='width: 100px;'>Contact Number </td><td>".$this->input->post('contact_no')."</td></tr>
+									<tr><td style='width: 100px;' valign='top'>Message </td><td style='word-break: break-all;'>".$this->input->post('contact_message')."</td></tr>
+									</table>
+									<p>Best Wishes,</p>
+									<p>The <a href=''><b style='color:#9FC955;'>99RightDeals </b></a>Team</p>
+								</div>
+							</div>";
+            $this->email->message($message);
+            if (!$this->email->send()) {
+                // Raise error message
+                show_error($this->email->print_debugger());
+                    }
+                    else{
+                    	$ins = array(
+						'cname'=> $this->input->post('contact_name'),
+						'email'	=> $this->input->post('contact_email'),
+						'mobile'	=> $this->input->post('contact_no'),
+						'msg'	=> $this->input->post('contact_message'),
+						'posted_on' => date("Y-m-d H:i:s")
+						);
+						$this->db->insert("contactus", $ins);
+						if ($this->db->affected_rows() > 0) {
+							return 1;
+						}
+						else{
+							return 0;
+						}
+                    }
 		}
 
 		

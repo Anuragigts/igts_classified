@@ -622,7 +622,8 @@
 													},
 													review_name: {
 														required: true,
-														minlength: 3
+														minlength: 3,
+														maxlength: 12
 													},
 													user_rating: {
 														required: true
@@ -642,7 +643,8 @@
 													},
 													review_name: {
 														required: "Please Enter Name",
-														minlength: "Name contains atleast 3 characters"
+														minlength: "Name contains atleast 3 characters",
+														maxlength: "Maximum 12 characters allowed"
 													},
 													user_rating: {
 														required: "Please give review"
@@ -659,11 +661,13 @@
 												rules: {
 													fbkcontname: {
 														required: true,
-														minlength: 3
+														minlength: 3,
+														maxlength: 12
 													},
 													feedbackmsg: {
 														required: true,
-														minlength: 60
+														minlength: 60,
+														maxlength:200
 													},
 													busemail: {
 														required: true,
@@ -678,11 +682,13 @@
 												messages: {
 													fbkcontname: {
 														required: "Please Enter contact name",
-														minlength: "Enter atleast 3 characters"
+														minlength: "Enter atleast 3 characters",
+														maxlength: "Maximum 12 characters allowed"
 													},
 													feedbackmsg: {
 														required: "Please Enter Your Message",
-														minlength: "message contains atleast 60 characters"
+														minlength: "message contains atleast 60 characters",
+														maxlength: "Maximum 200 characters allowed"
 													},
 													busemail: {
 														required: "Please Enter valid mail id"

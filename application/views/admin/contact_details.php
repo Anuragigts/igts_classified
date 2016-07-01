@@ -50,10 +50,10 @@
 						<?php $i=1; foreach ($nl_data as $nl_dataval) { ?>
 							<tr>
 								<td><?php echo $i; ?></td>
-								<td><?php echo $nl_dataval->cname; ?></td>
-								<td><?php echo $nl_dataval->email; ?></td>
-								<td><?php echo $nl_dataval->msg; ?></td>
-								<td><?php echo $nl_dataval->mobile; ?></td>
+								<td style='word-break: break-all;'><?php echo $nl_dataval->cname; ?></td>
+								<td style='word-break: break-all;'><?php echo $nl_dataval->email; ?></td>
+								<td style='word-break: break-all;'><?php echo $nl_dataval->msg; ?></td>
+								<td style='word-break: break-all;'><?php echo $nl_dataval->mobile; ?></td>
 							</tr>
 						<?php $i++; } ?>
 					</tbody>

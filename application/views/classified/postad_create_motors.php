@@ -25,7 +25,66 @@
 </style>
 
 <script type="text/javascript">
-$(function(){$(".find_vrm").click(function(){$(".manualentry").text(""),$(".pleasewait").css("display","block"),$.ajax({type:"POST",url:"<?php echo base_url();?>postad_create_motors/vrm_api",dataType:"json",data:{vrm:$(".veh_regno").val()},success:function(e){if(""!=e.make){$(".res_manufacture").parent().removeClass("error-view"),$(".res_manufacture").parent().addClass("success-view"),$(".res_manufacture").css("display","block"),$(".manufacture").css("display","none"),$(".res_manufacture").val(e.make),$(".res_model").parent().removeClass("error-view"),$(".res_model").parent().addClass("success-view"),$(".car_model").css("display","none"),$(".res_model").val(e.model),$(".res_model").css("display","block"),$("#color").val(e.colour),$("#reg_year").val(e.manufacture_year),$(".fueltype option[value="+e.fuel_type+"]").attr("selected","selected");var a=e.engine_size,t=a.split("cc");$("#eng_size").val(t[0]),$("#mot_status").val(e.mot),$("#road_tax").val(e.road_tax)}else $(".manualentry").text("Enter Manually");$(".pleasewait").css("display","none")}})}),$(".find_bikevrm").click(function(){$(".manualentry_bike").text(""),$(".pleasewait_bike").css("display","block"),$.ajax({type:"POST",url:"<?php echo base_url();?>postad_create_motors/bikesvrm_api",dataType:"json",data:{vrm:$(".bikeveh_regno").val()},success:function(e){if(""!=e.make){$(".manufacture_bike").parent().removeClass("error-view"),$(".manufacture_bike").parent().addClass("success-view"),$(".manufacture_bike").css("display","block"),$(".bike_manufacture").css("display","none"),$(".manufacture_bike").val(e.make),$(".model_bike").parent().removeClass("error-view"),$(".model_bike").parent().addClass("success-view"),$(".bike_model").css("display","none"),$(".model_bike").val(e.model),$(".model_bike").css("display","block"),$(".bike_type1").parent().removeClass("error-view"),$(".bike_type1").parent().addClass("success-view"),$(".bike_type1").val("bike"),$(".bike_type1").css("display","block"),$(".bike_type").css("display","none"),$("#color").val(e.colour),$("#reg_year").val(e.manufacture_year),$(".fueltype option[value="+e.fuel_type+"]").attr("selected","selected");var a=e.engine_size,t=a.split("cc");$("#eng_size").val(t[0]),$("#road_tax").val(e.road_tax)}else $(".manualentry_bike").text("Enter Manually");$(".pleasewait_bike").css("display","none")}})})}),$(function(){$(".select_pack").change(function(){var e=$('input[name="select_packge"]:checked').val();if(1==e){var a=$("#fimg_pck_count").val();$(".free_pck").css("display","block"),$(".gold_pck").css("display","none"),$(".platinum_pck").css("display","none"),document.getElementById("package_type").value="1",$(".freeurgent").removeAttr("disabled"),$(".platinumurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=a}if(2==e){var t=$("#gimg_pck_count").val();$(".free_pck").css("display","none"),$(".gold_pck").css("display","block"),$(".platinum_pck").css("display","none"),document.getElementById("package_type").value="2",$(".freeurgent").attr("checked",!1),$(".goldurgent").removeAttr("disabled"),$(".platinumurgent").attr("checked",!1),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=t}if(3==e){var l=$("#pimg_pck_count").val();$(".free_pck").css("display","none"),$(".gold_pck").css("display","none"),$(".platinum_pck").css("display","block"),document.getElementById("package_type").value="3",$(".freeurgent").attr("checked",!1),$(".goldurgent").attr("checked",!1),$(".platinumurgent").removeAttr("disabled"),document.getElementById("package_urgent").value="0",document.getElementById("image_count").value="0",document.getElementById("pck_img_limit").value=l}}),$(".select_urgent_pack").change(function(){var e=$(this).val();$("#package_urgent").val(e)})});
+$(function() {
+    $(".find_vrm").click(function() {
+        $(".manualentry").text(""), $(".pleasewait").css("display", "block"), $.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>postad_create_motors/vrm_api",
+            dataType: "json",
+            data: {
+                vrm: $(".veh_regno").val()
+            },
+            success: function(e) {
+                if ("" != e.make) {
+                   $(".manufacture option:contains(" + e.make + ")").attr('selected', 'selected'),
+                    $(".res_model").parent().removeClass("error-view"), $(".res_model").parent().addClass("success-view"), $(".car_model").css("display", "none"), $(".res_model").val(e.model), $(".res_model").css("display", "block"), $("#color").val(e.colour), $("#reg_year").val(e.manufacture_year), $(".fueltype option[value=" + e.fuel_type + "]").attr("selected", "selected");
+                    var a = e.engine_size,
+                        t = a.split("cc");
+                    $("#eng_size").val(t[0]), $("#mot_status").val(e.mot), $("#road_tax").val(e.road_tax)
+                } else $(".manualentry").text("Enter Manually");
+                $(".pleasewait").css("display", "none")
+            }
+        })
+    }), $(".find_bikevrm").click(function() {
+        $(".manualentry_bike").text(""), $(".pleasewait_bike").css("display", "block"), $.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>postad_create_motors/bikesvrm_api",
+            dataType: "json",
+            data: {
+                vrm: $(".bikeveh_regno").val()
+            },
+            success: function(e) {
+                if ("" != e.make) {
+                    $(".bike_manufacture option:contains(" + e.make + ")").attr('selected', 'selected'),
+                    $(".model_bike").parent().removeClass("error-view"), $(".model_bike").parent().addClass("success-view"), $(".bike_model").css("display", "none"), $(".model_bike").val(e.model), $(".model_bike").css("display", "block"), $(".bike_type1").parent().removeClass("error-view"), $(".bike_type1").parent().addClass("success-view"), $(".bike_type1").val("bike"), $(".bike_type1").css("display", "block"), $(".bike_type").css("display", "none"), $("#color").val(e.colour), $("#reg_year").val(e.manufacture_year), $(".fueltype option[value=" + e.fuel_type + "]").attr("selected", "selected");
+                    var a = e.engine_size,
+                        t = a.split("cc");
+                    $("#eng_size").val(t[0]), $("#road_tax").val(e.road_tax)
+                } else $(".manualentry_bike").text("Enter Manually");
+                $(".pleasewait_bike").css("display", "none")
+            }
+        })
+    })
+}), $(function() {
+    $(".select_pack").change(function() {
+        var e = $('input[name="select_packge"]:checked').val();
+        if (1 == e) {
+            var a = $("#fimg_pck_count").val();
+            $(".free_pck").css("display", "block"), $(".gold_pck").css("display", "none"), $(".platinum_pck").css("display", "none"), document.getElementById("package_type").value = "1", $(".freeurgent").removeAttr("disabled"), $(".platinumurgent").attr("checked", !1), $(".goldurgent").attr("checked", !1), document.getElementById("package_urgent").value = "0", document.getElementById("image_count").value = "0", document.getElementById("pck_img_limit").value = a
+        }
+        if (2 == e) {
+            var t = $("#gimg_pck_count").val();
+            $(".free_pck").css("display", "none"), $(".gold_pck").css("display", "block"), $(".platinum_pck").css("display", "none"), document.getElementById("package_type").value = "2", $(".freeurgent").attr("checked", !1), $(".goldurgent").removeAttr("disabled"), $(".platinumurgent").attr("checked", !1), document.getElementById("package_urgent").value = "0", document.getElementById("image_count").value = "0", document.getElementById("pck_img_limit").value = t
+        }
+        if (3 == e) {
+            var l = $("#pimg_pck_count").val();
+            $(".free_pck").css("display", "none"), $(".gold_pck").css("display", "none"), $(".platinum_pck").css("display", "block"), document.getElementById("package_type").value = "3", $(".freeurgent").attr("checked", !1), $(".goldurgent").attr("checked", !1), $(".platinumurgent").removeAttr("disabled"), document.getElementById("package_urgent").value = "0", document.getElementById("image_count").value = "0", document.getElementById("pck_img_limit").value = l
+        }
+    }), $(".select_urgent_pack").change(function() {
+        var e = $(this).val();
+        $("#package_urgent").val(e)
+    })
+});
 
 
 $(function(){
@@ -845,7 +904,7 @@ Browse
 </sup>
 </label>
 <div class="input">
-<input type="text" id="access_model" name="access_model" placeholder="Enter Model" onkeypress="return isNumber(event)">
+<input type="text" id="access_model" name="access_model" placeholder="Enter Model" >
 </div>
 </div>
 </div>
@@ -871,7 +930,7 @@ Browse
 </sup>
 </label>
 <div class="input">
-<input type="text" id="access_year" name="access_year" placeholder="Enter Year">
+<input type="text" id="access_year" name="access_year" placeholder="Enter Year" onkeypress="return isNumber(event)">
 </div>
 </div>
 </div>
@@ -1216,7 +1275,7 @@ else{ ?>
 <label class="icon-right" for="Colour">
 <img src="<?php echo base_url(); ?>j-folder/img/color.png" alt="Colour" title="Colour Icon" class="img-responsive">
 </label>
-<input type="text" id="color" name="color" placeholder="Enter Colour">
+<input type="text" id="pfcolor" name="pfcolor" placeholder="Enter Colour">
 </div>
 </div>
 </div>

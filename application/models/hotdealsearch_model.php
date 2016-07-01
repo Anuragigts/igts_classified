@@ -5682,7 +5682,7 @@ class hotdealsearch_model extends CI_Model{
 			$lon2 = $lon1 + atan2(sin($bearing) * sin($distance / $earthRadius) * cos($lat1), cos($distance / $earthRadius) - sin($lat1) * sin($lat2));
 			$latt = substr(rad2deg($lat2),0,strpos(rad2deg($lat2),".") + 5);
 			$longg = substr(rad2deg($lon2),0,strpos(rad2deg($lon2),".") + 5);
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg, ad.ad_id as adid");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
@@ -5810,7 +5810,7 @@ class hotdealsearch_model extends CI_Model{
 							
 						}
 						else{
-							$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+							$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 						}
 					}
 					
@@ -5946,7 +5946,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
-			     // echo $this->db->last_query(); exit;
+			        // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -6003,7 +6003,7 @@ class hotdealsearch_model extends CI_Model{
 			$lon2 = $lon1 + atan2(sin($bearing) * sin($distance / $earthRadius) * cos($lat1), cos($distance / $earthRadius) - sin($lat1) * sin($lat2));
 			$latt = substr(rad2deg($lat2),0,strpos(rad2deg($lat2),".") + 5);
 			$longg = substr(rad2deg($lon2),0,strpos(rad2deg($lon2),".") + 5);
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg, ad.ad_id as adid");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
@@ -6066,7 +6066,7 @@ class hotdealsearch_model extends CI_Model{
 							
 						}
 						else{
-							$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
+							$this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
 						}
 					}
 					if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
@@ -17072,9 +17072,10 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '$s_location%' OR loc.loc_name LIKE '%$s_location%')", "left");
 			}
 			$this->db->where('sub_category.category_id', 5);
+			$this->db->where('sub_category.sub_category_id NOT IN(5,6,7)');
 			$this->db->group_by("sub_category.sub_category_id");
-			$this->db->limit(4);
 			$rs = $this->db->get();
+			// echo $this->db->last_query(); exit;
 			return $rs->result();
         }
         public function subcat_bigpets_searchdeals(){
@@ -19061,10 +19062,9 @@ class hotdealsearch_model extends CI_Model{
 				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
 			}
 			$this->db->where('sub_category.category_id', 5);
+			$this->db->where('sub_category.sub_category_id NOT IN (5, 6, 7)');
 			$this->db->group_by("sub_category.sub_category_id");
-			$this->db->limit(4);
 			$rs = $this->db->get();
-			// echo $this->db->last_query(); exit;
 			return $rs->result();
         }
         public function subcat_bigpets_hotdeals(){
