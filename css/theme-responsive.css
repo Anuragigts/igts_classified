@@ -573,9 +573,6 @@ only screen and (max-width: 470px) {
     .modal-body {
         padding: 34px
     }
-    section form div .col-md-3 {
-	    padding: 20px !important;
-	}
 }
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .filter-title {
@@ -600,17 +597,17 @@ only screen and (max-width: 470px) {
     }
     .add_top iframe,
     .add_top img {
-        width: 719px;
+        width: 706px;
         height: 159px
     }
     .add_left iframe,
     .add_left img {
-        width: 158px;
+        width: 100%;
         height: 108px
     }
     .add_middle iframe,
     .add_middle img {
-        width: 539px;
+        width: 100%;
         height: 90px
     }
     .desc_bot_img iframe,
@@ -620,6 +617,11 @@ only screen and (max-width: 470px) {
         width: 719px;
         height: 129px
     }
+    .modal-dialog3 {
+	    width: 100%;
+	    padding-top: 111px;
+	    margin: 30px auto;
+	}
 }
 @media screen and (max-width: 1037px) {
     .tp-caption.large_bold_white {
