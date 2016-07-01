@@ -118,7 +118,7 @@ $currency = '<span class="euro_sym"></span>';
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-10">
-<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
+<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,16); ?></h3>
 </div>
 <?php if (in_array($sval->ad_id, $fav_list)) { ?>
 <div class="col-xs-2">
@@ -300,7 +300,7 @@ else{ ?>
 <div class="col-sm-8">
 <div class="row">
 <div class="col-xs-10">
-<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,20); ?></h3>
+<h3 class="list_title"><?php echo substr($sval->deal_tag, 0,16); ?></h3>
 </div>
 <?php if (in_array($sval->ad_id, $fav_list)) { ?>
 <div class="col-xs-2">

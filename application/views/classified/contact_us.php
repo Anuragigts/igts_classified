@@ -59,7 +59,7 @@ $(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\
 </address>
 </aside>
 </div>
-<div class="col-md-3 col-sm-4 col-xs-12">
+<div class="col-sm-4 col-xs-12">
 <aside class="cont_left">
 <address class="whi_te">
 <i class="fa fa-phone"></i>  (+44) 02089355446 <br>

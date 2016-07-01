@@ -171,7 +171,7 @@ data-easing="easeOutExpo">Helping You Find the Property of Your Dream
 <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 search_menu j-forms">
 <div class="row">
 <div class="col-md-4 col-sm-3 col-xs-12">
-<div class="input">
+<div class="input Mbl_Padding_Bootm">
 <!--label class="icon-left" for="">
 <i class="fa fa-search"></i>
 </label-->
@@ -179,7 +179,7 @@ data-easing="easeOutExpo">Helping You Find the Property of Your Dream
 </div>
 </div>
 <div class="col-md-3 col-sm-3 col-xs-12 top_pad_10">
-<label class="input select">
+<label class="input select Mbl_Padding_Bootm">
 <select class="guests-input" name="category_name">
 <option value="all">All</option>
 <?php
@@ -195,14 +195,14 @@ foreach ($show_all as $show_val) { ?>
 <div class="col-md-5 col-sm-6 col-xs-12 top_pad_10">
 <div class="row">
 <div class="col-md-8 col-sm-8 col-xs-12">
-<div class="input">
+<div class="input Mbl_Padding_Bootm">
 <label class="icon-left" for="">
 <i class="fa fa-search"></i>
 </label>
 <input type="text" placeholder="Enter a Location" id="list-autocomplete" name="list-autocomplete">
 </div>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10">
+<div class="col-md-4 col-sm-4 col-xs-12 top_pad_10 ">
 <input type="submit" class="primary-btn seach_btn" name='' Value="Search">
 </div>
 </div>

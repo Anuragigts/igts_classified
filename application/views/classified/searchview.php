@@ -313,7 +313,7 @@ $boats_sub = $this->session->userdata('boats_sub');
 <input type="text" id="looking_search" name="looking_search" placeholder="I'm looking for" value="<?php echo $looking_search; ?>">
 </div>
 </div>
-<div class="col-md-3 col-sm-3 col-xs-12 top_pad_10">
+<div class="col-sm-3 col-xs-12 top_pad_10">
 <label class="input select">
 <select class="guests-input" name="category_name">
 <option value="all" <?php if ($cat_id == 'all') { echo "selected=selected"; } ?>>All</option>
