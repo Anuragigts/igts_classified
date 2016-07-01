@@ -57,7 +57,7 @@ class Bump extends CI_Controller{
             			}
             		}
             		elseif ($total_ads1->package_type == 5) {
-            			if ($date_diff1 <= $g_cnt1 && $date_diff1 > 0) {
+            			if (($date_diff1 <= $g_cnt1) && $date_diff1 > 0) {
             				/*Pets*/
             				if ($total_ads1->category_id == 5) {
             					$bump_ad = $this->bump_model->bump_ad_pets($total_ads1->ad_id);

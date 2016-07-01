@@ -1124,8 +1124,8 @@ class hotdealsearch_model extends CI_Model{
 
 				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
 					$pcktype = '(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$gold.' )
+			ad.package_type = "3" OR 
+			(ad.package_type = "2" AND ad.urgent_package != "0"  AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
 			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
 			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
 			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'")
@@ -1135,8 +1135,8 @@ class hotdealsearch_model extends CI_Model{
 			if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
 				$pcktype = '
 					(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.')
+			ad.package_type = "6" OR 
+			(ad.package_type = "5" AND ad.urgent_package != "0"  AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
 			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
 			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
 			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
@@ -1380,7 +1380,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 				$this->db->order_by("ad.approved_on", "DESC");
 				$m_res = $this->db->get();
-				   // echo $this->db->last_query(); exit;
+				    // echo $this->db->last_query(); exit;
 				return $m_res->result();
 		}
 
@@ -1428,8 +1428,8 @@ class hotdealsearch_model extends CI_Model{
 
 				if ($cat_id == 1 || $cat_id == 2 || $cat_id == 3 || $cat_id == 4) {
 					$pcktype = '(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.' )
+			ad.package_type = "3" OR 
+			(ad.package_type = "2" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
 			OR (ad.package_type = "1" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$freeurgent.'")
 			OR (ad.package_type = "1" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$free.'")
 			OR (ad.package_type = "2" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$gold.'") 
@@ -1439,8 +1439,8 @@ class hotdealsearch_model extends CI_Model{
 			if ($cat_id == 5 || $cat_id == 6 || $cat_id == 7 || $cat_id == 8) {
 					$pcktype = '
 					(
-			(ad.package_type = "3" OR ad.package_type = "6") OR 
-			((ad.package_type = "2" OR ad.package_type = "5" )AND ad.urgent_package != "0" AND ud.valid_to < "'.date("Y-m-d H:i:s").'" AND ad.likes_count >= '.$low_gold.')
+			ad.package_type = "6" OR 
+			(ad.package_type = "5" AND ad.urgent_package != "0" AND ud.valid_to >= "'.date("Y-m-d H:i:s").'")
 			OR (ad.package_type = "4" AND ad.urgent_package != "0" AND ad.likes_count >= "'.$low_freeurgent.'")
 			OR (ad.package_type = "4" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_free.'")
 			OR (ad.package_type = "5" AND ad.urgent_package = "0" AND ad.likes_count >= "'.$low_gold.'")
@@ -18100,7 +18100,7 @@ class hotdealsearch_model extends CI_Model{
         	}
 
         	if ($locname != '') {
-				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
 			}
 			
 			$this->db->where('sub_category.category_id', 1);
@@ -19059,7 +19059,7 @@ class hotdealsearch_model extends CI_Model{
         		$this->db->join("(SELECT postad.*,ud.`valid_to` FROM postad LEFT JOIN urgent_details AS ud ON ud.`ad_id`=postad.`ad_id`) AS ad", "ad.sub_cat_id = sub_category.sub_category_id AND ad.ad_status = 1 AND ad.expire_data >='$date' AND $pcktype", "left");
         	}
         	if ($locname != '') {
-				$this->db->join("location as loc", "loc.ad_id = postad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
+				$this->db->join("location as loc", "loc.ad_id = ad.ad_id AND (loc.loc_name LIKE '$locname%' OR loc.loc_name LIKE '%$locname' OR loc.loc_name LIKE '%$locname%')", "left");
 			}
 			$this->db->where('sub_category.category_id', 5);
 			$this->db->where('sub_category.sub_category_id NOT IN (5, 6, 7)');
