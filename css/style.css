@@ -6448,3 +6448,11 @@ radio i:focus {
 .pad_bot_10{
 	padding-bottom:10px;
 }
+.new_label img{
+	height: 40px;
+    width: 90px;
+}
+.just_add_label img{
+	height: 45px;
+    width: 90px;
+}
