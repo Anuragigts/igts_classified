@@ -1138,6 +1138,9 @@ else{ ?>
 <?php	 } ?>
 <?php if ($b_ads->category_id != '1') { ?>
 <h3 class="home_price"><?php echo $currency.number_format($b_ads->price); ?></h3>
+<?php }
+else{ ?>
+<h3 class="job_price"><?php echo "<span class='pound_sym'></span>".$jobmin."-<span class='pound_sym'></span>".$jobmax; ?></h3>
 <?php } ?>
 <a href="description_view/details/<?php echo $b_ads->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $b_ads->deal_tag)); ?>" class="btn_v btn-3 btn-3d fa fa-arrow-right descurl"><span>View Details</span></a>
 </div>

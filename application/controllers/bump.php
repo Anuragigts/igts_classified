@@ -22,7 +22,7 @@ class Bump extends CI_Controller{
                 if ($total_ads1->ad_status == 1) {
                         $curdate = date_create(date("Y-m-d"));
                         $aprdate = date_create(date("Y-m-d", strtotime($total_ads1->approved_on)));
-                        $date_diff = date_diff($curdate,$aprdate);
+                        $date_diff = date_diff($aprdate,$curdate);
                         $date_diff1 = $date_diff->format("%R%a");
             		if ($total_ads1->package_type == 2) {
                         if (($date_diff1 <= $g_cnt) && $date_diff1 > 0) {

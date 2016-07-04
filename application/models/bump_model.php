@@ -63,6 +63,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -92,7 +93,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -144,6 +146,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -173,7 +176,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -228,6 +232,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -257,7 +262,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -326,6 +332,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -355,7 +362,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -412,6 +420,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -441,7 +450,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -498,6 +508,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -527,7 +538,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -593,6 +605,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -622,7 +635,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {
@@ -679,6 +693,7 @@ class Bump_model extends CI_Model{
 			$this->db->where("ad.ad_id", $adid);
 			$rs = $this->db->get();
 			$rs1 = $rs->row();
+			$bumpcnt = $rs1->bumpcnt + 1;
 			$ins = array(
 						'ad_prefix'=>$rs1->ad_prefix,
 						'login_id'=>$rs1->login_id,
@@ -708,7 +723,8 @@ class Bump_model extends CI_Model{
 						'paid_amt'=>$rs1->paid_amt,
 						'ad_status'=>$rs1->ad_status,
 						'is_free'=>$rs1->is_free,
-						'likes_count'=>$rs1->likes_count);
+						'likes_count'=>$rs1->likes_count,
+						'bumpcnt'=>$bumpcnt);
 					$this->db->insert("postad", $ins);
 					$last_insert_id = $this->db->insert_id();
 					if ($this->db->affected_rows() > 0) {

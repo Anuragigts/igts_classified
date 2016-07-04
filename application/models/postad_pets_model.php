@@ -74,7 +74,8 @@ class Postad_pets_model extends CI_Model{
                                     'payment_status' => $payment,
                                     'ad_status'     => 0,
                                     'is_free' => $isfree,
-                                    'adrenewal' => 0
+                                    'adrenewal' => 0,
+                                    'bumpcnt' => 0
                                     );
                 // echo "<pre>"; print_r($data); exit;
                     $this->db->insert('postad', $data);

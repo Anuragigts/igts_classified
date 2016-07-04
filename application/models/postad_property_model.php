@@ -87,7 +87,8 @@ class Postad_property_model extends CI_Model{
                                     'payment_status' => $payment,
                                     'ad_status'     => 0,
                                     'is_free' => $isfree,
-                                    'adrenewal' => 0
+                                    'adrenewal' => 0,
+                                    'bumpcnt' => 0
                                     );
                     $this->db->insert('postad', $data);
 
