@@ -5682,14 +5682,14 @@ class hotdealsearch_model extends CI_Model{
 			$lon2 = $lon1 + atan2(sin($bearing) * sin($distance / $earthRadius) * cos($lat1), cos($distance / $earthRadius) - sin($lat1) * sin($lat2));
 			$latt = substr(rad2deg($lat2),0,strpos(rad2deg($lat2),".") + 5);
 			$longg = substr(rad2deg($lon2),0,strpos(rad2deg($lon2),".") + 5);
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg, ad.ad_id as adid");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg, ad.ad_id as adid,pdl.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->from("postad AS ad");
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
-			// $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+			$this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
 				if ($looking_search) {
 					if ($looking_search != '') {
 						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' 
@@ -5946,7 +5946,7 @@ class hotdealsearch_model extends CI_Model{
 					}
 			$this->db->order_by('ad.approved_on', 'DESC');
 			$m_res = $this->db->get();
-			        // echo $this->db->last_query(); exit;
+			         // echo $this->db->last_query(); exit;
 			if($m_res->num_rows() > 0){
 				return $m_res->result();
 			}
@@ -6003,13 +6003,13 @@ class hotdealsearch_model extends CI_Model{
 			$lon2 = $lon1 + atan2(sin($bearing) * sin($distance / $earthRadius) * cos($lat1), cos($distance / $earthRadius) - sin($lat1) * sin($lat2));
 			$latt = substr(rad2deg($lat2),0,strpos(rad2deg($lat2),".") + 5);
 			$longg = substr(rad2deg($lon2),0,strpos(rad2deg($lon2),".") + 5);
-        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg, ad.ad_id as adid");
+        	$this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,lg.*,ud.valid_to AS urg, ad.ad_id as adid,pdl.*");
 			$this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
 	  		'%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
 			$this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
 			$this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
 			$this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
-			// $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+			$this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
 				if ($looking_search) {
 					if ($looking_search != '') {
 						$this->db->where("(ad.deal_tag LIKE '%$looking_search%' OR ad.deal_tag LIKE '$looking_search%' OR ad.deal_tag LIKE '%$looking_search' 

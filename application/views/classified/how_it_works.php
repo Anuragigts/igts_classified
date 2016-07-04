@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>How It Work | 99 Right Deals</title>
+<title>How It Works | 99 Right Deals</title>
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

@@ -316,7 +316,7 @@ REPORT ABUSE
 <div class="panel-heading" role="tab">
 <h3 class="panel-title">
 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#ten" aria-expanded="false" aria-controls="collapseTwo">
-YOUR CONTENT : LICENSE
+YOUR CONTENT : LICENCE
 </a>
 </h3>
 </div>

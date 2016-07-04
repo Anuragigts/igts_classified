@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset">
-				   <p>Copyright @ 2016.All Right Reserved to <a href="http://www.99rightdeals.com/" target="_blank">99RightDeals</a></p>
+				   <p>Copyright @ 2016.All Rights Reserved to <a href="http://www.99rightdeals.com/" target="_blank">99RightDeals</a></p>
 				</div>
 			</div>
 		</div>
