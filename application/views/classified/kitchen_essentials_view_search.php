@@ -255,8 +255,16 @@ else{ ?>
 <div class="col-xs-12">
 <p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
-<div class="col-xs-12">
+<div class="col-xs-7">
 <a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+</div>
+<div class="col-xs-5 new_label just_add_label">
+<?php if ($sval->bumpcnt == 0) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/new-90x45.png' title='New' alt='New' class='img img-responsive'></div>
+	<?php } ?>
+	<?php if ($sval->bumpcnt != 0 && ($sval->bumpcnt <= $sval->bump_search)) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/just-added-90x45.png' title='Just-Added' alt='Just-Added' class='img img-responsive'></div>
+	<?php } ?>
 </div>
 </div>
 </div>
@@ -454,8 +462,16 @@ else{ ?>
 <div class="col-xs-12">
 <p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
-<div class="col-xs-12">
+<div class="col-xs-7">
 <a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+</div>
+<div class="col-xs-5 new_label just_add_label">
+<?php if ($sval->bumpcnt == 0) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/new-90x45.png' title='New' alt='New' class='img img-responsive'></div>
+	<?php } ?>
+	<?php if ($sval->bumpcnt != 0 && ($sval->bumpcnt <= $sval->bump_search)) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/just-added-90x45.png' title='Just-Added' alt='Just-Added' class='img img-responsive'></div>
+	<?php } ?>
 </div>
 </div>
 </div>
@@ -637,8 +653,16 @@ else{ ?>
 <div class="col-xs-12">
 <pclass=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
-<div class="col-xs-12">
-<ahref="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<div class="col-xs-7">
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+</div>
+<div class="col-xs-5 new_label just_add_label">
+<?php if ($sval->bumpcnt == 0) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/new-90x45.png' title='New' alt='New' class='img img-responsive'></div>
+	<?php } ?>
+	<?php if ($sval->bumpcnt != 0 && ($sval->bumpcnt <= $sval->bump_search)) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/just-added-90x45.png' title='Just-Added' alt='Just-Added' class='img img-responsive'></div>
+	<?php } ?>
 </div>
 </div>
 </div>
@@ -817,8 +841,16 @@ else{ ?>
 <div class="col-xs-12">
 <pclass=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
-<div class="col-xs-12">
-<ahref="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<div class="col-xs-7">
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+</div>
+<div class="col-xs-5 new_label just_add_label">
+<?php if ($sval->bumpcnt == 0) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/new-90x45.png' title='New' alt='New' class='img img-responsive'></div>
+	<?php } ?>
+	<?php if ($sval->bumpcnt != 0 && ($sval->bumpcnt <= $sval->bump_search)) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/just-added-90x45.png' title='Just-Added' alt='Just-Added' class='img img-responsive'></div>
+	<?php } ?>
 </div>
 </div>
 </div>
@@ -995,8 +1027,16 @@ else{ ?>
 <div class="col-xs-12">
 <pclass=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 </div>
-<div class="col-xs-12">
-<ahref="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<div class="col-xs-7">
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+</div>
+<div class="col-xs-5 new_label just_add_label">
+<?php if ($sval->bumpcnt == 0) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/new-90x45.png' title='New' alt='New' class='img img-responsive'></div>
+	<?php } ?>
+	<?php if ($sval->bumpcnt != 0 && ($sval->bumpcnt <= $sval->bump_search)) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/just-added-90x45.png' title='Just-Added' alt='Just-Added' class='img img-responsive'></div>
+	<?php } ?>
 </div>
 </div>
 </div>
@@ -1169,8 +1209,16 @@ else{ ?>
 <div class="col-xs-12">
 <pclass=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?> </p>
 </div>
-<div class="col-xs-12">
-<ahref="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<div class="col-xs-7">
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+</div>
+<div class="col-xs-5 new_label just_add_label">
+<?php if ($sval->bumpcnt == 0) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/new-90x45.png' title='New' alt='New' class='img img-responsive'></div>
+	<?php } ?>
+	<?php if ($sval->bumpcnt != 0 && ($sval->bumpcnt <= $sval->bump_search)) { ?>
+<div class='pull-right'><img src='<?php echo base_url(); ?>img/just-added-90x45.png' title='Just-Added' alt='Just-Added' class='img img-responsive'></div>
+	<?php } ?>
 </div>
 </div>
 </div>

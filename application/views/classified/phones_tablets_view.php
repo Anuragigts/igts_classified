@@ -318,7 +318,7 @@ $wdevice = $ptablets_sub1->wdevice;
 <!-- sort-by-container-->
 
 <div class="row list_view_searches motor_result">
-<?php echo $this->load->view("classified/ezone_view_search"); ?>
+<?php echo $this->load->view("classified/phones_tablets_view_search"); ?>
 </div>
 </div>
 </div>

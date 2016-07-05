@@ -3592,13 +3592,14 @@ class Postad_kitchen_model extends CI_Model{
 
     /*kitchen esentials search*/
     public function kesentials_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.ad_status", "1");
     $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3615,14 +3616,15 @@ class Postad_kitchen_model extends CI_Model{
 }
 
 public function count_kesentials_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.ad_status", "1");
     $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3647,12 +3649,13 @@ public function kesentials_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.ad_status", "1");
         $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3753,13 +3756,14 @@ public function kesentials_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.ad_status", "1");
         $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3853,13 +3857,14 @@ public function kesentials_search($data){
 
      /*home esentials search*/
     public function homeesentials_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.ad_status", "1");
     $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3876,14 +3881,15 @@ public function kesentials_search($data){
 }
 
 public function count_homeesentials_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.ad_status", "1");
     $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -3908,12 +3914,13 @@ public function homeesentials_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.ad_status", "1");
         $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4014,13 +4021,14 @@ public function homeesentials_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.ad_status", "1");
         $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4114,13 +4122,14 @@ public function homeesentials_search($data){
 
     /*decor search*/
     public function decor_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "69");
     $this->db->where("ad.ad_status", "1");
     $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4137,14 +4146,15 @@ public function homeesentials_search($data){
 }
 
 public function count_decor_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "69");
     $this->db->where("ad.ad_status", "1");
     $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4169,12 +4179,13 @@ public function decor_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.ad_status", "1");
         $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4275,13 +4286,14 @@ public function decor_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.ad_status", "1");
         $this->db->where("ad.expire_data >= ", date("Y-m-d H:i:s"));
@@ -4375,13 +4387,14 @@ public function decor_search($data){
 
     /*kitchen tools search*/
     public function ktools_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "457");
     $this->db->where("ad.ad_status", "1");
@@ -4399,14 +4412,15 @@ public function decor_search($data){
 }
 
 public function count_ktools_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "457");
     $this->db->where("ad.ad_status", "1");
@@ -4432,12 +4446,13 @@ public function ktools_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "457");
         $this->db->where("ad.ad_status", "1");
@@ -4539,13 +4554,14 @@ public function ktools_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "457");
         $this->db->where("ad.ad_status", "1");
@@ -4640,13 +4656,14 @@ public function ktools_search($data){
 
     /*kitchen storage search*/
     public function kstorage_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "458");
     $this->db->where("ad.ad_status", "1");
@@ -4664,14 +4681,15 @@ public function ktools_search($data){
 }
 
 public function count_kstorage_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "458");
     $this->db->where("ad.ad_status", "1");
@@ -4697,12 +4715,13 @@ public function kstorage_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-      $this->db->where("ad.category_id", "7");
+      $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "458");
         $this->db->where("ad.ad_status", "1");
@@ -4804,13 +4823,14 @@ public function kstorage_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "458");
         $this->db->where("ad.ad_status", "1");
@@ -4905,13 +4925,14 @@ public function kstorage_search($data){
 
     /*kitchen cookware search*/
     public function cookware_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "459");
     $this->db->where("ad.ad_status", "1");
@@ -4929,14 +4950,15 @@ public function kstorage_search($data){
 }
 
 public function count_cookware_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "459");
     $this->db->where("ad.ad_status", "1");
@@ -4962,12 +4984,13 @@ public function cookware_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "459");
         $this->db->where("ad.ad_status", "1");
@@ -5069,13 +5092,14 @@ public function cookware_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "459");
         $this->db->where("ad.ad_status", "1");
@@ -5170,13 +5194,14 @@ public function cookware_search($data){
 
     /*kitchen bakeware search*/
     public function bakeware_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "460");
     $this->db->where("ad.ad_status", "1");
@@ -5194,14 +5219,15 @@ public function cookware_search($data){
 }
 
 public function count_bakeware_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "460");
     $this->db->where("ad.ad_status", "1");
@@ -5227,12 +5253,13 @@ public function bakeware_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "460");
         $this->db->where("ad.ad_status", "1");
@@ -5334,13 +5361,14 @@ public function bakeware_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "460");
         $this->db->where("ad.ad_status", "1");
@@ -5434,13 +5462,14 @@ public function bakeware_search($data){
     }
     /*kitchen cooktops search*/
     public function cooktops_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "461");
     $this->db->where("ad.ad_status", "1");
@@ -5458,14 +5487,15 @@ public function bakeware_search($data){
 }
 
 public function count_cooktops_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "461");
     $this->db->where("ad.ad_status", "1");
@@ -5491,12 +5521,13 @@ public function cooktops_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "461");
         $this->db->where("ad.ad_status", "1");
@@ -5598,13 +5629,14 @@ public function cooktops_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "461");
         $this->db->where("ad.ad_status", "1");
@@ -5698,13 +5730,14 @@ public function cooktops_search($data){
     }
     /*kitchen bbq search*/
     public function bbq_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "462");
     $this->db->where("ad.ad_status", "1");
@@ -5722,14 +5755,15 @@ public function cooktops_search($data){
 }
 
 public function count_bbq_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "462");
     $this->db->where("ad.ad_status", "1");
@@ -5755,12 +5789,13 @@ public function bbq_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "462");
         $this->db->where("ad.ad_status", "1");
@@ -5862,13 +5897,14 @@ public function bbq_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "462");
         $this->db->where("ad.ad_status", "1");
@@ -5963,13 +5999,14 @@ public function bbq_search($data){
 
     /*kitchen bbq search*/
     public function linen_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "463");
     $this->db->where("ad.ad_status", "1");
@@ -5987,14 +6024,15 @@ public function bbq_search($data){
 }
 
 public function count_linen_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "463");
     $this->db->where("ad.ad_status", "1");
@@ -6020,12 +6058,13 @@ public function linen_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "463");
         $this->db->where("ad.ad_status", "1");
@@ -6127,13 +6166,14 @@ public function linen_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "463");
         $this->db->where("ad.ad_status", "1");
@@ -6228,13 +6268,14 @@ public function linen_search($data){
 
      /*kitchen kitchen others search*/
     public function kothers_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "464");
     $this->db->where("ad.ad_status", "1");
@@ -6252,14 +6293,15 @@ public function linen_search($data){
 }
 
 public function count_kothers_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "67");
     $this->db->where("ad.sub_scat_id", "464");
     $this->db->where("ad.ad_status", "1");
@@ -6285,12 +6327,13 @@ public function kothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "464");
         $this->db->where("ad.ad_status", "1");
@@ -6392,13 +6435,14 @@ public function kothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-      $this->db->where("ad.category_id", "7");
+      $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "67");
         $this->db->where("ad.sub_scat_id", "464");
         $this->db->where("ad.ad_status", "1");
@@ -6492,13 +6536,14 @@ public function kothers_search($data){
     }
      /*home essentials search*/
     public function hbath_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "465");
     $this->db->where("ad.ad_status", "1");
@@ -6516,14 +6561,15 @@ public function kothers_search($data){
 }
 
 public function count_hbath_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "465");
     $this->db->where("ad.ad_status", "1");
@@ -6549,12 +6595,13 @@ public function hbath_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "465");
         $this->db->where("ad.ad_status", "1");
@@ -6656,13 +6703,14 @@ public function hbath_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "465");
         $this->db->where("ad.ad_status", "1");
@@ -6756,13 +6804,14 @@ public function hbath_search($data){
     }
 
     public function hbed_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "466");
     $this->db->where("ad.ad_status", "1");
@@ -6780,14 +6829,15 @@ public function hbath_search($data){
 }
 
 public function count_hbed_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "466");
     $this->db->where("ad.ad_status", "1");
@@ -6813,12 +6863,13 @@ public function hbed_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "466");
         $this->db->where("ad.ad_status", "1");
@@ -6920,13 +6971,14 @@ public function hbed_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "466");
         $this->db->where("ad.ad_status", "1");
@@ -7020,13 +7072,14 @@ public function hbed_search($data){
     }
 
     public function hcarpets_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "467");
     $this->db->where("ad.ad_status", "1");
@@ -7044,14 +7097,15 @@ public function hbed_search($data){
 }
 
 public function count_hcarpets_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "467");
     $this->db->where("ad.ad_status", "1");
@@ -7077,12 +7131,13 @@ public function hcarpets_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "467");
         $this->db->where("ad.ad_status", "1");
@@ -7184,13 +7239,14 @@ public function hcarpets_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "467");
         $this->db->where("ad.ad_status", "1");
@@ -7284,13 +7340,14 @@ public function hcarpets_search($data){
     }
 
     public function hcleaning_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "468");
     $this->db->where("ad.ad_status", "1");
@@ -7308,14 +7365,15 @@ public function hcarpets_search($data){
 }
 
 public function count_hcleaning_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "468");
     $this->db->where("ad.ad_status", "1");
@@ -7341,12 +7399,13 @@ public function hcleaning_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "468");
         $this->db->where("ad.ad_status", "1");
@@ -7448,13 +7507,14 @@ public function hcleaning_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "468");
         $this->db->where("ad.ad_status", "1");
@@ -7548,13 +7608,14 @@ public function hcleaning_search($data){
     }
 
     public function hplumb_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "469");
     $this->db->where("ad.ad_status", "1");
@@ -7572,14 +7633,15 @@ public function hcleaning_search($data){
 }
 
 public function count_hplumb_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "469");
     $this->db->where("ad.ad_status", "1");
@@ -7605,12 +7667,13 @@ public function hplumb_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "469");
         $this->db->where("ad.ad_status", "1");
@@ -7712,13 +7775,14 @@ public function hplumb_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "469");
         $this->db->where("ad.ad_status", "1");
@@ -7812,13 +7876,14 @@ public function hplumb_search($data){
     }
 
     public function hwind_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "470");
     $this->db->where("ad.ad_status", "1");
@@ -7836,14 +7901,15 @@ public function hplumb_search($data){
 }
 
 public function count_hwind_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "470");
     $this->db->where("ad.ad_status", "1");
@@ -7869,12 +7935,13 @@ public function hwind_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "470");
         $this->db->where("ad.ad_status", "1");
@@ -7976,13 +8043,14 @@ public function hwind_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "470");
         $this->db->where("ad.ad_status", "1");
@@ -8076,13 +8144,14 @@ public function hwind_search($data){
     }
 
     public function hdoor_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "471");
     $this->db->where("ad.ad_status", "1");
@@ -8100,14 +8169,15 @@ public function hwind_search($data){
 }
 
 public function count_hdoor_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "471");
     $this->db->where("ad.ad_status", "1");
@@ -8133,12 +8203,13 @@ public function hdoor_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "471");
         $this->db->where("ad.ad_status", "1");
@@ -8240,13 +8311,14 @@ public function hdoor_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "471");
         $this->db->where("ad.ad_status", "1");
@@ -8340,13 +8412,14 @@ public function hdoor_search($data){
     }
 
     public function hgarden_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "472");
     $this->db->where("ad.ad_status", "1");
@@ -8364,14 +8437,15 @@ public function hdoor_search($data){
 }
 
 public function count_hgarden_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "472");
     $this->db->where("ad.ad_status", "1");
@@ -8397,12 +8471,13 @@ public function hgarden_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "472");
         $this->db->where("ad.ad_status", "1");
@@ -8504,13 +8579,14 @@ public function hgarden_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "472");
         $this->db->where("ad.ad_status", "1");
@@ -8604,13 +8680,14 @@ public function hgarden_search($data){
     }
 
     public function hfurniture_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "473");
     $this->db->where("ad.ad_status", "1");
@@ -8628,14 +8705,15 @@ public function hgarden_search($data){
 }
 
 public function count_hfurniture_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "473");
     $this->db->where("ad.ad_status", "1");
@@ -8661,12 +8739,13 @@ public function hfurniture_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "473");
         $this->db->where("ad.ad_status", "1");
@@ -8768,13 +8847,14 @@ public function hfurniture_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "473");
         $this->db->where("ad.ad_status", "1");
@@ -8868,13 +8948,14 @@ public function hfurniture_search($data){
     }
 
     public function hshed_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "474");
     $this->db->where("ad.ad_status", "1");
@@ -8892,14 +8973,15 @@ public function hfurniture_search($data){
 }
 
 public function count_hshed_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "474");
     $this->db->where("ad.ad_status", "1");
@@ -8925,12 +9007,13 @@ public function hshed_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "474");
         $this->db->where("ad.ad_status", "1");
@@ -9032,13 +9115,14 @@ public function hshed_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "474");
         $this->db->where("ad.ad_status", "1");
@@ -9132,13 +9216,14 @@ public function hshed_search($data){
     }
 
     public function hplant_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "475");
     $this->db->where("ad.ad_status", "1");
@@ -9156,14 +9241,15 @@ public function hshed_search($data){
 }
 
 public function count_hplant_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "475");
     $this->db->where("ad.ad_status", "1");
@@ -9189,12 +9275,13 @@ public function hplant_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "475");
         $this->db->where("ad.ad_status", "1");
@@ -9296,13 +9383,14 @@ public function hplant_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "475");
         $this->db->where("ad.ad_status", "1");
@@ -9396,13 +9484,14 @@ public function hplant_search($data){
     }
 
      public function hdining_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "476");
     $this->db->where("ad.ad_status", "1");
@@ -9420,14 +9509,15 @@ public function hplant_search($data){
 }
 
 public function count_hdining_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "476");
     $this->db->where("ad.ad_status", "1");
@@ -9453,12 +9543,13 @@ public function hdining_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "476");
         $this->db->where("ad.ad_status", "1");
@@ -9560,13 +9651,14 @@ public function hdining_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "476");
         $this->db->where("ad.ad_status", "1");
@@ -9660,13 +9752,14 @@ public function hdining_search($data){
     }
 
     public function hliving_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "477");
     $this->db->where("ad.ad_status", "1");
@@ -9684,14 +9777,15 @@ public function hdining_search($data){
 }
 
 public function count_hliving_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "477");
     $this->db->where("ad.ad_status", "1");
@@ -9717,12 +9811,13 @@ public function hliving_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "477");
         $this->db->where("ad.ad_status", "1");
@@ -9824,13 +9919,14 @@ public function hliving_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "477");
         $this->db->where("ad.ad_status", "1");
@@ -9924,13 +10020,14 @@ public function hliving_search($data){
     }
 
     public function hkids_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "478");
     $this->db->where("ad.ad_status", "1");
@@ -9948,14 +10045,15 @@ public function hliving_search($data){
 }
 
 public function count_hkids_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "478");
     $this->db->where("ad.ad_status", "1");
@@ -9981,12 +10079,13 @@ public function hkids_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "478");
         $this->db->where("ad.ad_status", "1");
@@ -10088,13 +10187,14 @@ public function hkids_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "478");
         $this->db->where("ad.ad_status", "1");
@@ -10188,13 +10288,14 @@ public function hkids_search($data){
     }
 
     public function houtdoor_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "479");
     $this->db->where("ad.ad_status", "1");
@@ -10212,14 +10313,15 @@ public function hkids_search($data){
 }
 
 public function count_houtdoor_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "479");
     $this->db->where("ad.ad_status", "1");
@@ -10245,12 +10347,13 @@ public function houtdoor_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "479");
         $this->db->where("ad.ad_status", "1");
@@ -10352,13 +10455,14 @@ public function houtdoor_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "479");
         $this->db->where("ad.ad_status", "1");
@@ -10451,13 +10555,14 @@ public function houtdoor_search($data){
         }
     }
     public function hstudy_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "480");
     $this->db->where("ad.ad_status", "1");
@@ -10475,14 +10580,15 @@ public function houtdoor_search($data){
 }
 
 public function count_hstudy_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "480");
     $this->db->where("ad.ad_status", "1");
@@ -10508,12 +10614,13 @@ public function hstudy_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "480");
         $this->db->where("ad.ad_status", "1");
@@ -10615,13 +10722,14 @@ public function hstudy_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "480");
         $this->db->where("ad.ad_status", "1");
@@ -10715,13 +10823,14 @@ public function hstudy_search($data){
     }
 
      public function hothers_view($data){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "481");
     $this->db->where("ad.ad_status", "1");
@@ -10739,14 +10848,15 @@ public function hstudy_search($data){
 }
 
 public function count_hothers_view(){
-    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+    $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
     $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
     '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
     $this->db->from("postad AS ad");
     $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
     $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
     $this->db->where("ad.sub_cat_id", "68");
     $this->db->where("ad.sub_scat_id", "481");
     $this->db->where("ad.ad_status", "1");
@@ -10772,12 +10882,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-      $this->db->where("ad.category_id", "7");
+      $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "481");
         $this->db->where("ad.ad_status", "1");
@@ -10879,13 +10990,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "68");
         $this->db->where("ad.sub_scat_id", "481");
         $this->db->where("ad.ad_status", "1");
@@ -11104,14 +11216,15 @@ public function hothers_search($data){
     }
 
     public function count_dcurtain_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "482");
         $this->db->where("ad.ad_status", "1");
@@ -11129,13 +11242,14 @@ public function hothers_search($data){
     }
 
     public function dcurtain_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "482");
         $this->db->where("ad.ad_status", "1");
@@ -11161,13 +11275,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "482");
         $this->db->where("ad.ad_status", "1");
@@ -11269,12 +11384,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "482");
         $this->db->where("ad.ad_status", "1");
@@ -11495,14 +11611,15 @@ public function hothers_search($data){
     }
 
     public function count_dcandles_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "483");
         $this->db->where("ad.ad_status", "1");
@@ -11520,13 +11637,14 @@ public function hothers_search($data){
     }
 
     public function dcandles_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "483");
         $this->db->where("ad.ad_status", "1");
@@ -11552,13 +11670,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "483");
         $this->db->where("ad.ad_status", "1");
@@ -11660,12 +11779,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "483");
         $this->db->where("ad.ad_status", "1");
@@ -11887,14 +12007,15 @@ public function hothers_search($data){
     }
 
     public function count_dvases_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "484");
         $this->db->where("ad.ad_status", "1");
@@ -11912,13 +12033,14 @@ public function hothers_search($data){
     }
 
     public function dvases_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "484");
         $this->db->where("ad.ad_status", "1");
@@ -11944,13 +12066,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "484");
         $this->db->where("ad.ad_status", "1");
@@ -12052,12 +12175,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "484");
         $this->db->where("ad.ad_status", "1");
@@ -12278,14 +12402,15 @@ public function hothers_search($data){
     }
 
     public function count_dwalldecor_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "485");
         $this->db->where("ad.ad_status", "1");
@@ -12303,13 +12428,14 @@ public function hothers_search($data){
     }
 
     public function dwalldecor_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "485");
         $this->db->where("ad.ad_status", "1");
@@ -12335,13 +12461,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "485");
         $this->db->where("ad.ad_status", "1");
@@ -12443,12 +12570,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "485");
         $this->db->where("ad.ad_status", "1");
@@ -12669,14 +12797,15 @@ public function hothers_search($data){
     }
 
     public function count_dhomeaccent_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "486");
         $this->db->where("ad.ad_status", "1");
@@ -12694,13 +12823,14 @@ public function hothers_search($data){
     }
 
     public function dhomeaccent_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "486");
         $this->db->where("ad.ad_status", "1");
@@ -12726,13 +12856,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "486");
         $this->db->where("ad.ad_status", "1");
@@ -12834,12 +12965,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "486");
         $this->db->where("ad.ad_status", "1");
@@ -13061,14 +13193,15 @@ public function hothers_search($data){
     }
 
     public function count_dreligion_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "487");
         $this->db->where("ad.ad_status", "1");
@@ -13086,13 +13219,14 @@ public function hothers_search($data){
     }
 
     public function dreligion_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "487");
         $this->db->where("ad.ad_status", "1");
@@ -13118,13 +13252,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "487");
         $this->db->where("ad.ad_status", "1");
@@ -13226,12 +13361,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "487");
         $this->db->where("ad.ad_status", "1");
@@ -13453,14 +13589,15 @@ public function hothers_search($data){
     }
 
     public function count_dphotoframe_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "488");
         $this->db->where("ad.ad_status", "1");
@@ -13478,13 +13615,14 @@ public function hothers_search($data){
     }
 
     public function dphotoframe_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "488");
         $this->db->where("ad.ad_status", "1");
@@ -13510,13 +13648,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "488");
         $this->db->where("ad.ad_status", "1");
@@ -13618,12 +13757,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "488");
         $this->db->where("ad.ad_status", "1");
@@ -13843,14 +13983,15 @@ public function hothers_search($data){
     }
 
     public function count_drugs_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "489");
         $this->db->where("ad.ad_status", "1");
@@ -13868,13 +14009,14 @@ public function hothers_search($data){
     }
 
     public function drugs_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "489");
         $this->db->where("ad.ad_status", "1");
@@ -13900,13 +14042,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "489");
         $this->db->where("ad.ad_status", "1");
@@ -14008,12 +14151,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-      $this->db->where("ad.category_id", "7");
+      $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "489");
         $this->db->where("ad.ad_status", "1");
@@ -14234,14 +14378,15 @@ public function hothers_search($data){
     }
 
     public function count_dcushionsthrows_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "490");
         $this->db->where("ad.ad_status", "1");
@@ -14259,13 +14404,14 @@ public function hothers_search($data){
     }
 
     public function dcushionsthrows_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "490");
         $this->db->where("ad.ad_status", "1");
@@ -14291,13 +14437,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "490");
         $this->db->where("ad.ad_status", "1");
@@ -14399,12 +14546,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "490");
         $this->db->where("ad.ad_status", "1");
@@ -14625,14 +14773,15 @@ public function hothers_search($data){
     }
 
     public function count_dtablelamps_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "491");
         $this->db->where("ad.ad_status", "1");
@@ -14650,13 +14799,14 @@ public function hothers_search($data){
     }
 
     public function dtablelamps_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "491");
         $this->db->where("ad.ad_status", "1");
@@ -14682,13 +14832,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "491");
         $this->db->where("ad.ad_status", "1");
@@ -14790,12 +14941,13 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "491");
         $this->db->where("ad.ad_status", "1");
@@ -15016,14 +15168,15 @@ public function hothers_search($data){
     }
 
     public function count_dwalloutdoor_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "492");
         $this->db->where("ad.ad_status", "1");
@@ -15041,13 +15194,14 @@ public function hothers_search($data){
     }
 
     public function dwalloutdoor_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "492");
         $this->db->where("ad.ad_status", "1");
@@ -15073,13 +15227,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "492");
         $this->db->where("ad.ad_status", "1");
@@ -15181,11 +15336,12 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+        $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
         $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "492");
@@ -15407,14 +15563,15 @@ public function hothers_search($data){
     }
 
     public function count_dotherdecor_view(){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "493");
         $this->db->where("ad.ad_status", "1");
@@ -15432,13 +15589,14 @@ public function hothers_search($data){
     }
 
     public function dotherdecor_view($data){
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
         $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
-    $this->db->where("ad.category_id", "7");
+    $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "493");
         $this->db->where("ad.ad_status", "1");
@@ -15464,13 +15622,14 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->from("postad AS ad");
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
-     $this->db->where("ad.category_id", "7");
+     $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
+        $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "493");
         $this->db->where("ad.ad_status", "1");
@@ -15572,11 +15731,12 @@ public function hothers_search($data){
         $recentdays = $this->session->userdata('recentdays');
         $location = $this->session->userdata('location');
         $seller = $this->session->userdata('seller_deals');
-        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, ud.valid_to AS urg");
+        $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*,ud.valid_to AS urg,pdl.*");
         $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
         '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
         $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
         $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
+        $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
         $this->db->where("ad.category_id", "7");
         $this->db->where("ad.sub_cat_id", "69");
         $this->db->where("ad.sub_scat_id", "493");
